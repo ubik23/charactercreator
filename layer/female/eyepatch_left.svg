@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="560"
+   height="560"
+   id="eyepatch_left">
+  <g
+     transform="matrix(0.36912629,0,0,0.36912629,99.701785,86.557682)"
+     id="g40066"
+     style="display:inline;enable-background:new">
+    <path
+       d="m 454.94135,94.393915 c 0.94582,11.244245 40.4102,38.128275 45.98085,42.627645 5.57066,4.49937 21.52253,3.38103 30.52728,14.21874 4.48523,5.39822 0.9484,11.16639 3.717,17.2936"
+       id="path2987-21"
+       style="color:#000000;fill:none;stroke:#000000;stroke-width:1.22092247;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <path
+       d="m 500.16812,135.81388 c 13.67372,-11.64114 30.1708,-2.68891 32.35264,3.8566 3.55497,10.66491 -3.5556,18.85452 -18.21175,18.85452 -13.08851,0 -16.62578,-20.59561 -14.14089,-22.71112 z"
+       id="path2989-3-0"
+       style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <path
+       d="m 524.16478,137.52792 c -7.07045,-5.7849 -16.06919,-4.49937 -17.99749,-3.64234 -1.92831,0.85702 -9.64152,5.7849 0.42851,16.4977 -0.85703,-4.49938 -4.71363,-11.35556 0.85702,-14.35515 -2.14256,3.85661 6.21342,26.35348 18.64026,6.64194 -11.78407,4.92788 -17.78324,-13.28387 -1.9283,-5.14215 z"
+       id="path2991-4"
+       style="color:#000000;fill:#333333;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  </g>
+</svg>

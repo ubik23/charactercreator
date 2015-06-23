@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="560"
+   height="560"
+   id="jewelry_watch">
+  <g
+     transform="translate(0,-492.36218)"
+     id="layer1">
+    <g
+       transform="translate(-245.5625,491.36218)"
+       id="g31743"
+       style="display:inline;enable-background:new">
+      <path
+         d="m 582.30951,315.25682 c 4.01894,0 7.96608,1.14282 10.32998,3.34438 2.13427,1.98769 1.8549,-0.6183 2.78234,-1.2366 0.92745,-0.6183 1.8549,-4.01894 0.6183,-4.63724 -1.2366,-0.6183 -1.85489,-1.54575 -3.70979,-0.92745 -1.8549,0.6183 -3.58174,-0.61508 -9.91153,-0.47149 0,1.54575 -0.1093,3.9284 -0.1093,3.9284 z"
+         id="path31739"
+         style="fill:#ffd42a;stroke:#ffe680;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 596.04012,315.35513 a 2.3186209,4.482667 0 1 1 -4.63724,0 2.3186209,4.482667 0 1 1 4.63724,0 z"
+         id="path31735"
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#ffe680;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         d="m 595.03375,312.99889 -1.20231,2.29532 0.5465,1.31161"
+         id="path31741"
+         style="fill:none;stroke:#d4aa00;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+  </g>
+</svg>

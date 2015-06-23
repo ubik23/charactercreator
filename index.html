@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8" />
+<meta content="en" />
+<meta name="description" content="Create characters for your stories in 2D vector graphics. Using drop-down menus, create and share characters with your co-creators and readers." />
+<meta name="author" content="Frederic Guimont" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Character Creator</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="select2.css"/>
+<meta name="google-site-verification" content="seSsFvgHZ7H8BEK2oi7_E7rMPgrv94Qj59pkTwuw8yQ" />
+</head>
+<body >
+<div id="pagewrap">
+	<header id="header">
+		<h1><sup>The </sup>Character Creator<sub>.org</sub></h1>
+		<div id="lynx">
+			<ul id="horizontal">
+<li><!-- Begin MailChimp Signup Form -->
+<!--<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>-->
+<div id="mc_embed_signup" style="float: left;margin-right: 20px;">
+<form action="http://1984comic.us5.list-manage1.com/subscribe/post?u=ecf5dd5779b0ea1993c6bfccc&amp;id=4adb17f2f1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required style="float:left;margin: 0 0 0 0;">
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px; margin: 0;"><input type="text" name="b_ecf5dd5779b0ea1993c6bfccc_4adb17f2f1" tabindex="-1" value=""></div>
+    <div class="clear" style="float: left; margin: 0; padding: 0;"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style=" margin: 0;"></div>
+</form>
+</div>
+<!--End mc_embed_signup--></li>
+<!--<li><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fthecharactercreator&amp;width=47&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:47px; height:35px; float: left;" allowTransparency="true"></iframe></li>-->
+
+				<!--<li><a href="https://www.surveymonkey.com/s/9F3WCJN" target="_blank">Feedback</a></li>-->
+				<li><a href="about.html" target="_blank">?</a></li>
+				
+			</ul>	
+
+		</div>
+	</header>
+	<div id="content">
+			<svg id="svg1" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin"></svg>
+	</div>
+	<div class="looking_glass">
+	<div class="lg">
+	<a href="#" onclick="zoomFace();return false;"><svg id="lg_face" class="lg" width="100%" height="100%" viewBox="240 90 80 80" preserveAspectRatio="xMidYMin"></svg></a></div>
+	<div class="lg">
+	<a href="#" onclick="zoomTorso();return false;"><svg id="lg_torso" class="lg" width="100%" height="100%" viewBox="204 85 150 150" preserveAspectRatio="xMidYMin"></svg></a></div>
+	<div class="lg">
+	<a href="#" onclick="zoomBody();return false;"><svg id="lg_body" class="lg" width="100%" height="100%" viewBox="136 73 290 290" preserveAspectRatio="xMidYMin"></svg></a></div>
+	<div class="lg">
+<a href="#" onclick="zoomFull();return false;"><svg id="lg_full" class="lg" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin"></svg></a></div>
+	</div>
+	<aside id="sidebar">
+		<section class="widget">
+			<ul class="tabs">  
+				<li><a href="javascript:tabSwitch('tab_1', 'content_1');" id="tab_1" class="active" >Body</a></li> 
+				<li><a href="javascript:tabSwitch('tab_2', 'content_2');" id="tab_2">Head</a></li>  
+				<li><a href="javascript:tabSwitch('tab_3', 'content_3');" id="tab_3">Clothing</a></li>  
+					
+			</ul>    
+				<div id="content_1" class="content"></div>  
+				<div id="content_2" class="content"></div>  
+				<div id="content_3" class="content"></div>  
+				<div id="content_4" class="content"></div>  
+		</section>		
+	</aside>
+	
+
+	<footer>
+	<p>Copyright &#xA9; 2013-2014 <a href="https://www.google.com/+FredericGuimont" rel=author>Frédéric Guimont</a>, all rights reserved. Contact:  <a href="mailto:info@charactercreator.org">info@charactercreator.org</a></p>
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/jscolor/jscolor.js"></script>
+	<script type="text/javascript" src="lib/scripts.js"></script> 
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-47040938-1', 'charactercreator.org');
+	  ga('require', 'displayfeatures');
+	  ga('send', 'pageview');
+	</script>
+	</footer>
+</div>
+</body>
+<script>
+	/*
+	TODO:
+	-save states (look-up form values, save as json, persist, populate dropdown)
+	*/
+	// The forms, menus and options that make up a character
+	//Todo Zoom in on the head tab viewBox="208 75 140 140"
+	var layerDirectoryMale = 'layer/male/';
+	var layerDirectoryFemale = 'layer/female/';
+
+	var maleForm1 = {
+	'Body': ['athletic'],
+	'Underwear': ['plain', 'boxers'],
+	'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
+	'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
+	'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
+	'Age' : ['', 'lines'],
+	'Wings' : ['', 'devil']
+
+	};
+
+	var maleForm2 = {
+	'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
+	'Ears' : ['default', 'pointed'],
+	'Iris' : ['neutral'],
+	'Pupils' : ['neutral', 'lizard'],
+	'Nose' : ['default', 'pointed', 'strong'],
+	'Lips' : ['neutral'],
+	'Pipe' : ['', 'subgenius'],
+	'Horns': ['', 'devil'],
+	'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
+	'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
+	//'Face': ['neutral', 'joy', 'surprise', 'anger', 'fear', 'disgust'],
+	'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
+	'Hat': ['','baseball','berret', 'cap', 'cowboy', 'fedora', 'top', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
+	'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
+	'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
+	'Eyepatch': ['', 'left', 'right']
+	};
+
+	var maleForm3 = {
+	'Suit': ['', 'wetsuit'],
+	'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
+	'Tie': ['', 'neck', 'bolo', 'bow'],
+	'Gloves': ['', 'lab', 'motorcycle'],
+	'Vest': ['', 'vest'],
+	'Holster' : ['', 'revolver_chest'],
+	'Jacket': ['', 'suit'],
+	'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape'],
+	'Belt': ['', 'straps', 'utility'],
+	'Shoulderpads' : ['', 'general', 'artillery'],
+	'Pants': ['', 'suit', 'jeans', 'leather'],
+	'Coat': ['', 'lab', 'trench'],
+	'Socks': ['','socks'], 
+	'Shoes': ['','hightops', 'leather']
+	};
+
+	var femaleForm1 = {
+	'Body': ['athletic'],
+	'Nails': ['short', 'long', 'claws'],
+	'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
+	'Underwear': ['', 'plain', 'string'],
+	'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
+	'Wings' : ['', 'devil']
+	};
+
+	var femaleForm2 = {
+	'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
+	'Ears' : ['default', 'pointed'],
+	'Iris' : ['neutral'],
+	'Lips' : ['default', 'thin', 'luscious'],
+	'Pipe' : ['', 'subgenius'],
+	'Nose' : ['default'],
+	'Face': ['neutral'],
+	'Horns': ['', 'devil'],
+	'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
+	'Makeup': ['', 'gothic_eyeliner'],
+	'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
+	'Eyepatch': ['', 'left', 'right'],
+	'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
+	'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte'],
+	'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat']
+	};
+
+	var femaleForm3 = {
+	'Necklace' : ['', 'perl', 'princess'],
+	'Dress': ['','casual','corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
+'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape'],
+	'Shorts' : ['', 'short'],
+	'Bra': ['', 'bow'],
+	'Leggings': ['', 'regular'],
+	'Bracelet' : ['','rings'],
+	'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
+
+	};
+
+	var layersFemale = [
+	'pet_doge',
+	'pet_vulture',
+	'pet_parrot',
+	'wings_devil',
+	'hat_helmet_vietnam_2_of_2',
+	'hat_strainer_2_of_2',
+	'pet_feline',
+	'pet_raven',
+	'pet_rat',
+	'pet_canine',
+	'pet_siamese_cat',
+	'pet_gerbil',
+	'pet_chicken',
+	'pet_fox',
+	'hair_down_3_of_3',
+	'hair_manga_2_of_2',
+	'body_athletic',
+	'tatoo_chaos_chest',
+	'tatoo_chaos_left',
+	'tatoo_chaos_right',
+	'tatoo_archeopteryx_left',
+	'necklace_perl',
+	'necklace_princess',
+	'underwear_plain',
+	'underwear_string',
+	'leggings_regular',
+	'shoes_hightops',
+	'shoes_highheels',
+	'shoes_plateforms',
+	'shoes_sandals_roman',
+	'bra_bow', 
+	'shorts_short',
+	'dress_casual',
+	'dress_corset',
+	'dress_suit',
+	'dress_short',
+	'dress_waitress',
+	'dress_cheerleader',
+	'dress_japanese_pleat',
+	'dress_german_expression',
+	'dress_parisian_fall',
+
+	'scarf_parisian_knot',
+	'scarf_twice_around',
+	'scarf_four_in_hand',
+	'scarf_reverse_drape_cross',
+	'scarf_reverse_drape_tuck',
+	'scarf_fake_knot',
+	'scarf_reverse_drape',
+
+	'scarf_overhand',
+	'scarf_once_around',
+	'scarf_drape',
+
+	'hair_down_2_of_3',
+
+	'body_head_default',
+	'body_head_square',
+	'body_head_diamond',
+	'body_head_heart',
+	'body_head_oblong',
+	'body_head_oval',
+	'body_head_round',
+	'body_head_triangle',
+	'ears_default',
+	'ears_pointed',
+	'nose_default',
+	'lips_default',
+	'lips_thin',
+	'lips_luscious',
+	'body_face',
+	'tatoo_tribal_face',
+	'earings_perl',
+	'earings_gold_rings',
+	'earings_gold_ring_left',
+	'earings_gold_ring_right',
+	'earings_death_drop',
+	'sockets_neutral',
+	'makeup_gothic_eyeliner',
+	'eyes_neutral',
+	'iris_neutral',
+	'pupils_neutral',
+	'eyelashes_neutral',
+	'mouth_shadow',
+	'brows_neutral',
+	'eyepatch_left',
+	'eyepatch_right',
+	'mask_guy_fawkes',
+	'pipe_subgenius',
+	'glasses_hipster',
+	'glasses_google',
+	'glasses_oakley',
+	'glasses_rayban',
+	'glasses_round',
+	'glasses_wayrafer',
+	'glasses_designer',
+	'glasses_goggles',
+	'tie_bow',
+	'hair_short',
+	'hair_afro',
+	'hair_mohawk',
+	'hair_bangs',
+	'hair_ponytail',
+	'hair_odango',
+	'hair_emo',
+	'hair_spider',
+	'hair_wreckingball',
+	'hair_down_1_of_3',
+	'hair_manga_1_of_2',
+	'hat_waitress',
+	'hat_police',
+	'hat_cowboy',
+	'hat_top',
+	'hat_scumbag',
+
+	'hat_tiara',
+	'hat_magritte',
+	'hat_strainer_1_of_2',
+	'hat_helmet_vietnam_1_of_2',
+	'bracelet_rings',
+	'body_hand',
+	'nails_short',
+	'nails_long',
+	'nails_claws',
+	'mask_horse',
+	'mask_stormtrooper',
+	'mask_jason',
+	'mask_cat',
+	'horns_devil'
+	];
+
+	var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2]];
+	var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
+
+	var layersMale = [
+	'pet_doge',
+	'pet_vulture',
+	'pet_parrot',
+	'wings_devil',
+	'hat_helmet_vietnam_2_of_2',
+	'hat_strainer_2_of_2',
+	'hat_fedora_2_of_2',
+	'hair_manga_2_of_2',
+	'coat_trench_2_of_2',
+	'body_athletic',
+	'tatoo_aum_chest',
+	'tatoo_aum_left',
+	'tatoo_aum_right',
+	'tatoo_chaos_chest',
+	'tatoo_chaos_left',
+	'tatoo_chaos_right',
+	'pet_feline',
+	'pet_raven',
+	'pet_rat',
+	'pet_canine',
+	'pet_siamese_cat',
+	'pet_gerbil',
+	'pet_chicken',
+	'pet_fox',
+	'scar_horizontal_neck',
+	'body_head_default',
+	'body_head_square',
+	'body_head_diamond',
+	'body_head_heart',
+	'body_head_oblong',
+	'body_head_oval',
+	'body_head_round',
+	'body_head_triangle',
+	'ears_default',
+	'ears_pointed',
+
+	'iris_human',
+	'age_lines',
+	'scar_vertical_heart',
+	'earings_gold_rings',
+	'earings_gold_ring_left',
+	'earings_gold_ring_right',
+
+	'underwear_plain',
+	'underwear_boxers',
+	'suit_wetsuit',
+	'shirt_colar_2_of_2',
+	'shirt_turtleneck',
+	'socks_socks',
+	'shoes_hightops',
+	'shoes_leather',
+	'shirt_tanktop',
+	'tie_bolo',
+	'tie_bow_2_of_2',
+	'tie_neck',
+	'shirt_colar_1_of_2',
+	'tie_bow_1_of_2',
+	'vest_vest',
+	'pants_jeans',
+	'pants_leather',
+	'pants_suit',
+	'belt_straps',
+	'shirt_tshirt',
+	'holster_revolver_chest',
+	'gloves_lab',
+	'gloves_motorcycle',
+	'jacket_suit',
+	'coat_lab',
+	'belt_utility', 
+	'coat_trench_1_of_2',
+	'shoulderpads_general', 
+	'scarf_parisian_knot',
+	'scarf_twice_around',
+	'scarf_four_in_hand',
+	'scarf_reverse_drape_cross',
+	'scarf_reverse_drape_tuck',
+	'scarf_fake_knot',
+	'scarf_reverse_drape',
+	'scarf_chest_warmer',
+	'scarf_overhand',
+	'scarf_once_around',
+	'scarf_drape',
+	'shoulderpads_artillery', 
+	'scar_horizontal_nose',
+	'scar_vertical_left',
+	'scar_vertical_right',
+	'face_anger',
+	'face_disgust',
+	'face_fear',
+	'face_joy',
+	'face_neutral',
+	'face_surprise',
+	'lips_neutral',
+	'sockets_neutral',
+	'eyes_neutral',
+	'iris_neutral',
+	'pupils_neutral',
+	'pupils_lizard',
+	'brows_neutral',
+	'facialhair_beard_boxed',
+	'facialhair_beard_ducktail',
+	'facialhair_beard_guru',
+	'facialhair_beard_intelectual',
+	'facialhair_beard_rap',
+	'facialhair_chinpuff',
+	'facialhair_goatee',
+	'facialhair_moustache',
+	'facialhair_moustache_thick',
+	'facialhair_muttonchops',
+	'facialhair_muttonchops_friendly',
+	'facialhair_soulpatch',
+	'facialhair_winnfield',
+	'nose_default',
+	'nose_pointed',
+	'nose_strong',
+	'eyepatch_left',
+	'eyepatch_right',
+	'hair_balding',
+	'hair_balding_crazy',
+	'hair_gelled',
+	'hair_manga_1_of_2',
+	'hair_mohawk',
+	'hair_short',
+	'hair_wavy',
+	'hair_crewcut',
+	'mask_guy_fawkes',
+	'pipe_subgenius',
+	'glasses_designer',
+	'glasses_goggles',
+	'glasses_google',
+	'glasses_hipster',
+	'glasses_oakley',
+	'glasses_rayban',
+	'glasses_round',
+	'glasses_wayrafer',
+	'hat_baseball',
+	'hat_berret',
+	'hat_cap',
+	'hat_tuque',
+	'hat_cowboy',
+	'hat_fedora_1_of_2',
+	'hat_top',
+	'hat_magritte',
+	'hat_police',
+	'hat_scumbag',
+	'hat_strainer_1_of_2',
+	'hat_helmet_vietnam_1_of_2',
+	'jewelry_chain',
+	'jewelry_earings',
+	'jewelry_nosering',
+	'jewelry_watch',
+	'mask_robin',
+	'mask_horse',
+	'mask_stormtrooper',
+	'mask_jason',
+	'mask_cat',
+	'horns_devil',
+	'mic'
+	];
+
+	function zoomIn() {
+		shape = document.getElementById(("svg1"));
+		if (sex == 'm'){
+			shape.setAttribute("viewBox", "140 73 290 290");
+			//shape.setAttribute("viewBox", "180 85 200 200"); 
+			//shape.setAttribute("viewBox", "204 85 150 150"); 
+			//shape.setAttribute("viewBox", "244 85 80 80"); // Head
+			//$("#svg1").animate({viewBox: "225 75 110 110"},1000);
+		}	
+		else {
+			shape.setAttribute("viewBox", "225 86 110 110"); 
+		}
+	}
+
+	function zoomOut() {
+		shape = document.getElementById(("svg1"));
+		//shape.setAttribute("viewBox", "0 0 560 560"); 
+		//shape.setAttribute("viewBox", "-10 0 580 580"); // Complete view
+		shape.setAttribute("viewBox", "10 50 540 540"); // Full body view
+	}
+
+	function zoomFace() {
+		shape = document.getElementById(("svg1"));
+		if (sex == 'm'){
+			shape.setAttribute("viewBox", "240 90 80 80");
+		} else {
+			shape.setAttribute("viewBox", "243 102 80 80");
+		}
+	}
+
+	function zoomTorso() {
+		shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
+		if (sex == 'm'){
+			shape.setAttribute("viewBox", "204 85 150 150");
+		} else {
+			shape.setAttribute("viewBox", "207 97 150 150");
+		}
+	}
+
+	function zoomBody() {
+		shape = document.getElementById(("svg1"));
+		if (sex == 'm'){
+			shape.setAttribute("viewBox", "136 73 290 290");
+		} else {
+			shape.setAttribute("viewBox", "140 84 290 290");
+		}
+	}
+
+	function zoomFull() {
+		shape = document.getElementById(("svg1"));
+		if (sex == 'm'){
+			shape.setAttribute("viewBox", "10 50 540 540");
+		} else {
+			shape.setAttribute("viewBox", "10 50 540 540");
+		}
+	}
+
+	function tabSwitch(new_tab, new_content) {
+		document.getElementById('content_1').style.display = 'none';
+		document.getElementById('content_2').style.display = 'none';
+		document.getElementById('content_3').style.display = 'none';
+		document.getElementById('content_4').style.display = 'none';
+		document.getElementById(new_content).style.display = 'block';
+		document.getElementById('tab_1').className = '';
+		document.getElementById('tab_2').className = '';
+		document.getElementById('tab_3').className = '';
+		document.getElementById('tab_4').className = '';
+		document.getElementById(new_tab).className = 'active';
+		}  
+
+	function show(context){  // Draw the SVG on screen
+		var selectedOption = context.value;
+		var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
+		var section = context.className;
+		options.forEach(function(d, i){ 
+		    var id = '#'+section+'_'+d;
+		    if(d === selectedOption){
+			for (lyr in multiLayer){
+				if (id.slice(1) == multiLayer[lyr][0]){
+					for (var i=1;i<=multiLayer[lyr][1];i++){
+						idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+						viewport.selectAll(idOf).attr({opacity:1});	
+						viewportFace.selectAll(idOf).attr({opacity:1});
+						viewportTorso.selectAll(idOf).attr({opacity:1});
+						viewportBody.selectAll(idOf).attr({opacity:1});
+						viewportFull.selectAll(idOf).attr({opacity:1});
+					}
+				}
+				else {
+					viewport.selectAll(id).attr({opacity:1});
+					viewportFace.selectAll(id).attr({opacity:1});
+					viewportTorso.selectAll(id).attr({opacity:1});
+					viewportBody.selectAll(id).attr({opacity:1});
+					viewportFull.selectAll(id).attr({opacity:1});
+				}
+			};
+			var obj = new Array();
+			obj[section] = selectedOption;
+		     	hash.add(obj);
+			modCharacter(section, selectedOption);
+			ga('send', 'event', 'menu', 'select', id);
+		    }
+		    else {
+			for (lyr in multiLayer){
+				if (id.slice(1) == multiLayer[lyr][0]){
+					for (var i=1;i<=multiLayer[lyr][1];i++){
+						idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+						viewport.selectAll(idOf).attr({opacity:0});
+						viewportFace.selectAll(idOf).attr({opacity:0});
+						viewportTorso.selectAll(idOf).attr({opacity:0});	
+						viewportBody.selectAll(idOf).attr({opacity:0});
+						viewportFull.selectAll(idOf).attr({opacity:0});	
+					}
+				}
+				else {
+					viewport.selectAll(id).attr({opacity:0})
+					viewportFace.selectAll(id).attr({opacity:0})
+					viewportTorso.selectAll(id).attr({opacity:0})
+					viewportBody.selectAll(id).attr({opacity:0})
+					viewportFull.selectAll(id).attr({opacity:0})
+				}
+			};
+			;
+			}
+		});
+	}
+
+	function shadeColor(color, percent) {  
+	    var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+	    return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+	}
+
+	function shadeColor1(color, percent) {  
+	    var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+	    return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+	}
+
+function ColorLuminance(hex, lum) {
+	// validate hex string
+	hex = String(hex).replace(/[^0-9a-f]/gi, '');
+	if (hex.length < 6) {
+		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+	}
+	lum = lum || 0;
+	// convert to decimal and change luminosity
+	var rgb = "#", c, i;
+	for (i = 0; i < 3; i++) {
+		c = parseInt(hex.substr(i*2,2), 16);
+		c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+		rgb += ("00"+c).substr(c.length);
+	}
+	return rgb;
+}
+
+	function test(_context, _color){
+		var id = _context.getAttribute("id").slice(0,-1);
+		// get all the options for that id
+		// Cycle through each form array 
+		var forms = [form1, form2, form3];
+		for (var f in forms){
+			// Cycle through each element in the form
+			for(var x in forms[f]){
+				// is x = to id?
+				// if so, cycle through each element
+				if(x.toLowerCase() === id){
+					// Figure out which form to look in to find this id
+					// Cycle through each option 
+					var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
+
+					// If the id is body, than the list will be of all 'skin' layers
+					
+					if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age'){
+						affectedList = skinLayers;
+						var myKey = 'skinColor';
+					}
+					else if (id ==='facialhair' || id === 'hair'){
+						affectedList = hairLayers;
+						var myKey = 'hairColor';
+					}
+					else {
+						affectedList = [];
+						var myKey = id + 'Color'
+						for (i in forms[f][capitalId]){
+							var tmpId = forms[f][capitalId][i];
+							if (tmpId != ''){
+								affectedList.push(id + '_' +tmpId);
+							}
+						}
+					}
+
+					// Look at the affected list
+					// If one of those motherfuckers is in the multiLayer array
+					// Then take it out and replace it with the damned layers that need to be there
+
+					for (a in affectedList) {
+						for (lyr in multiLayer){
+							if (affectedList[a] == multiLayer[lyr][0]){
+								for (var i=1;i<=multiLayer[lyr][1];i++){
+									console.log('affectedList[a] : ', affectedList[a]);
+									idOf = affectedList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
+									//viewport.selectAll(idOf).attr({opacity:1});	
+									// Then append the idOf to affectedList
+									affectedList.push(idOf);
+									
+								}
+								// Take it out of the affectedList
+								var index = affectedList.indexOf(affectedList[a]);
+								if (index > -1) {
+								    affectedList.splice(index, 1);
+								}
+							}
+
+						};
+
+
+					};
+					console.log('affectedList : ', affectedList);
+
+					var myValue = '#'+_color.toString();
+					var obj = new Array();
+					obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+				     	hash.add(obj);
+					modCharacter(myKey, myValue);
+					for (n in affectedList){
+						fullId = '#' + affectedList[n];
+						// Else, the list is taken from the form.
+						var optLayer = viewport.select(fullId); // todo: Add selection to category
+						if (optLayer != null){
+							var optPaths = optLayer.selectAll('path')
+							for (p in optPaths) {
+								if ( typeof optPaths[p].attr === 'function'){
+									var pathId = optPaths[p].attr("id")
+									var pathStyle = viewport.select('#'+ pathId).attr("style");
+									// Parse the style in a json object
+									// Identify if the path is a shape or a shadow
+									// apply newStyle if applicable
+									var styles = pathStyle.split(';'),
+									i= styles.length,
+									json = {style: {}},
+									style, k, v;
+									while (i--){
+										style = styles[i].split(':');
+										k = $.trim(style[0]);
+										v = $.trim(style[1]);
+										if (k.length > 0 && v.length > 0){
+											json.style[k] = v;
+										}
+									}
+									// Query the style to determine if shape or shadow
+									// Change the color
+									var newColor = _color.toString();
+									// json to string
+									newStyle = json.style;
+									var replacement = '';
+									for (n in Object.keys(newStyle)){
+										var currentKey = Object.keys(newStyle)[n]
+										if (currentKey === 'fill'){
+											if (newStyle[currentKey] != 'none'){
+												if (json.style["stroke-width"] === undefined){
+													var currentValue = ColorLuminance(newColor, -0.12);
+												}
+												else {
+													var currentValue = '#'+ newColor;
+												}
+											}
+											else {
+												var currentValue = newStyle[currentKey];
+											}
+										}
+										else if (currentKey === 'stroke'){
+											if (newStyle[currentKey] != 'none'){
+												if (json.style["stroke-width"] != undefined){
+													var currentValue = ColorLuminance(newColor, -0.2);
+												}
+											}
+											else {
+												var currentValue = newStyle[currentKey];
+											}
+										}
+										else {
+											var currentValue = newStyle[currentKey]; 
+										}
+										var keyVal = 	currentKey + ': ' + currentValue + '; '
+										replacement = replacement.concat(keyVal);
+									}
+
+									viewport.selectAll('#'+pathId).attr({style: replacement});
+									newStroke = shadeColor(newColor, -25);
+									if (json.style["stroke-width"] === undefined){
+										newColor = shadeColor(newColor, -25)
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	function createForm(sex){
+		var forms = [form1, form2, form3, form4];
+		for (var f in forms){
+			var formContainer = $('#content_'+(Number(f)+1));
+			//form.head, form.body, form.clothing, form.accessories...
+			var newHtml = '<form>';
+			newHtml += '<form action="">\n ';
+			if (f == 0 ){
+				newHtml += '<input id="mButton" type="radio" name="sex" value="male" onclick="trans(value[0]);" checked>Male\n '; // attribute 'checked' if in hashtag // onclick="trans(this);"
+				newHtml += '<input id="fButton" type="radio" name="sex" value="female" onclick="trans(value[0]);" >Female\n '; // attribute 'checked' if in hashtag
+				newHtml += '<br>\n ';
+			} else if (f === '3'){
+				newHtml += '<form NAME="test">\n '; 
+				newHtml += '<P>Name: <INPUT TYPE="TEXT" NAME="firstName"><BR><BR>\n '; 
+				newHtml += '<input type="Button" Value="Baptise" onClick="">\n ';
+				newHtml += '</P></form>\n ';
+			}
+			newHtml += '<br>\n ';
+			newHtml += '<div class="Table">';
+			var selcount = 0
+			for(var x in forms[f]){
+				newHtml += '<div class="Row">';
+				var sectionTitle = x;
+				var t = sectionTitle.toLowerCase();
+				var xsel = hash.get(t);
+				var options = forms[f][x].map(function(d, i){ 
+					var select = ''
+					if ( xsel == d) { select = ' selected="selected"';}
+					return '<option' + select + '>'+d+'</option>'; }).join('\n');
+				var defaultValue = hash.get(x);
+				if (defaultValue !== undefined) {
+					var defval = 'selected="'+ defaultValue + '" ';
+				  }
+				else {var defval = '';}	
+				newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
+				newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);onmouseenter"show(this);" '+defval+'>'+options+'</select></div>';
+				htagc = x.toLowerCase() + 'Color';
+				var hashColor = hash.get(htagc);
+				if (hashColor !== undefined) {
+					var colorValue = hashColor;
+				  }
+				else {var colorValue = '#ffffff'}
+				newHtml += '<div class="Cell"><input class="color" onchange="test(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
+				newHtml += '</div>';
+				newHtml += '</div>';
+				selcount ++
+			}
+			newHtml += '</div>';
+			newHtml += '</form>';
+			formContainer.append(newHtml);
+		}
+	}
+
+	function parseHash(){
+		var forms = [form1, form2, form3];
+		for (var f in forms){
+			// Cycle through each element in the form
+			for(var x in forms[f]){
+				var section =  x.toLowerCase();
+				hashData = hash.get(section);
+				var id = section + '_' + hashData; 
+				if (hashData != undefined){
+					// Add the key/value pair to c.choices here
+					modCharacter(section, hashData);
+					ga('send', 'event', 'hash', 'select', id);
+				};
+				if (id in skinLayers || section ==='body'){ section = 'skin'}
+				else if (id in hairLayers || section ==='hair'){ section = 'hair'};
+				hashColor = hash.get(section+'Color');
+				// Now to get the color
+				if (hashColor != undefined && hashColor != ''){
+					modCharacter(section+'Color', hashColor);			
+					ga('send', 'event', 'hash', 'color', section+'_'+hashColor );		
+				};
+			};
+		};
+	};
+
+	function applyColor(id, newColor, optLayer){
+		
+		fullId = '#' + id;
+		ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
+		if (optLayer != null){
+			var optPaths = optLayer.selectAll('path')
+
+			for (p in optPaths) {
+				
+				if ( typeof optPaths[p].attr === 'function'){
+					var pathId = optPaths[p].attr("id")
+					var pathStyle = optLayer.select('#'+ pathId).attr("style");
+
+					// Parse the style in a json object
+					// Identify if the path is a shape or a shadow
+					// apply newStyle if applicable
+
+					var styles = pathStyle.split(';'),
+					i= styles.length,
+					json = {style: {}},
+					style, k, v;
+
+					while (i--){
+						style = styles[i].split(':');
+						k = $.trim(style[0]);
+						v = $.trim(style[1]);
+						if (k.length > 0 && v.length > 0){
+							json.style[k] = v;
+						}
+					}
+
+					// Query the style to determine if shape or shadow
+					// Change the color
+			
+					newStyle = json.style;
+					var replacement = '';
+					for (n in Object.keys(newStyle)){
+						var currentKey = Object.keys(newStyle)[n]
+						if (currentKey === 'fill'){
+							if (newStyle[currentKey] != 'none'){
+								if (json.style["stroke-width"] === undefined){
+									var currentValue = ColorLuminance(newColor, -0.12);
+								}
+								else {
+									var currentValue = '#'+ newColor;
+								}
+							}
+							else {
+								var currentValue = newStyle[currentKey];
+							}
+						}
+						else if (currentKey === 'stroke'){
+							if (newStyle[currentKey] != 'none'){
+								if (json.style["stroke-width"] != undefined){
+									var currentValue = ColorLuminance(newColor, -0.2);
+								}
+							}
+							else {
+								var currentValue = newStyle[currentKey];
+							}
+						}
+
+						else {
+							var currentValue = newStyle[currentKey]; 
+						}
+
+						var keyVal = 	currentKey + ': ' + currentValue + '; '
+						replacement = replacement.concat(keyVal);
+					}
+					optLayer.selectAll('#'+pathId).attr({style: replacement});
+					newStroke = shadeColor(newColor, -25);
+					if (json.style["stroke-width"] === undefined){
+						//newColor = shadeColor(newColor, -25)
+					}
+
+				}
+			}
+		}
+	}
+
+	function createCharacter(){
+		document.getElementById( sex+"Button").checked=true;
+		//Draw the essential stuff
+		//Draw stuff from the hash
+		//function drawHash(form){}
+		var forms = [form1, form2, form3];
+		for (var lot in forms){
+			for(var x in forms[lot]){
+				var sectionTitle = x;
+				var t = sectionTitle.toLowerCase();
+				var xsel = hash.get(t);
+				if (xsel !== undefined) {
+					var id = '#' + t +'_'+xsel
+					for (lyr in multiLayer){
+						if (id.slice(1) == multiLayer[lyr][0]){
+							for (var i=1;i<=multiLayer[lyr][1];i++){
+								idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+								viewport.selectAll(idOf).attr({opacity:1});	
+							}
+						}
+						else {
+							viewport.selectAll(id).attr({opacity:1});
+						}
+					};
+				}
+			}
+		};
+	};
+	
+	function trans(sex){
+		hash.add({ sex: sex });
+		location.reload();
+		}
+
+	size = function(obj) {
+	    var size = 0, key;
+	    for (key in obj) {
+		if (obj.hasOwnProperty(key)) size++;
+	    }
+	    return size;
+	};
+
+	function birth(){
+		var sexes = ["m", "f"]; 
+		var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
+		var layers = [];
+		hash.add({ sex: sex });
+		return sex
+	}
+
+	// This is where things start to happen
+	// This variable represents the cast of chararcters created
+	var cc = cc || {};
+	
+	function Character(fullName, sex, emotion, choices, birthday){
+		this.fullName = fullName || '';
+		this.sex = sex || birth();;
+		this.emotion = emotion || 'neutral';
+		
+		this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
+		hash.add({ skinColor: this.skinTone });
+		this.choices = choices || {
+			body : 'athletic', // Or a random body shape eventually
+			body_head : 'default', //Or random from list
+			ears : 'default', // or rand
+			nose : 'default', // Or random
+			lips : 'default', //or rand
+			skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from 
+			hairColor : '#ffe680', // Or random from list of hair colors',
+			irisColor : '#2ad4ff', // Or some random eye color
+			underwear : 'plain', // or random, whatever.
+			underwearColor : '#f2f2f2', // Or random from a list of fabrics',
+		}; 
+		this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;		
+	};
+
+	function modCharacter(myKey, myValue){
+		// look in c.choices to see if the key is already there
+		if (myKey in c.choices){
+			delete c.choices[myKey];
+		}; 
+
+		// If there, modify the value
+		//if not, add it in, with the value
+		//if the value is '', then delete the key from the object,
+
+		if (myValue != ''){
+			c.choices[myKey] = myValue;
+		};
+	};
+
+	function choicesToLayers(c){
+		var selectedLayers = []
+		var emotionLayers = fromEmotionGetLayers(c.emotion);
+		for (var e in emotionLayers) {
+			selectedLayers.push(emotionLayers[e]);
+		};
+		var choiceLayers = [];
+		//for each key in c.choices, get the value and build a layerName
+		for(var index in c.choices) {
+		  choiceLayers.push( index + "_" + c.choices[index]);
+		}
+
+		for (var cl in choiceLayers) {
+			for (lyr in multiLayer){
+				if (choiceLayers[cl] == multiLayer[lyr][0]){
+					for (var i=1;i<=multiLayer[lyr][1];i++){
+						idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
+						selectedLayers.push(idOf);	
+					}
+				}
+				else {
+					selectedLayers.push(choiceLayers[cl]);
+				}
+			};
+			selectedLayers.push(choiceLayers[cl]);
+		};
+		if (c.sex === 'f'){
+			selectedLayers.push('body_hand');
+		};
+		return selectedLayers;
+	};
+
+	function fromEmotionGetLayers(emotion) {
+		var facialEpressionLayers = [];
+		var modElement = '';
+		faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes']
+		for (e in faceElements) {
+			modElement = faceElements[e] + '_' + emotion;
+			facialEpressionLayers.push(modElement);
+		};
+		return facialEpressionLayers;
+	};
+	//var sex = birth();
+		var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+
+		var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
+		var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
+
+	var c = c || new Character();
+	var sex = c.sex;
+	if (sex ==='m') {
+		var form1 = maleForm1;
+		var form2 = maleForm2;
+		var form3 = maleForm3;
+		var form4 = [];
+		var layerDirectory = layerDirectoryMale;
+		layers = layersMale;
+		var multiLayer = multiLayerMale;
+	}
+
+	else {
+		var form1 = femaleForm1;
+		var form2 = femaleForm2;
+		var form3 = femaleForm3;
+		var form4 = [];
+		var layerDirectory = layerDirectoryFemale;
+		layers = layersFemale;
+		var multiLayer = multiLayerFemale;
+	}
+	
+	// Get all the hash key/value pairs and include them in the c.choices object
+	// Go through all the forms
+
+	parseHash();  //Hashed elements are added in the character object
+
+	// We need to define the list of affected layers by the xColor properties in c.choices
+	// One we have a list we can check in the next function to see if the current layer is going to need being colored
+
+	Snap.plugin( function( Snap, Element, Paper, global ) {
+
+	  function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
+	    for( var count = 0; count < fragList.length; count++ ) {
+		myEl = whichSVG.append( fragList[ count ] );
+	    }
+	    runWhenFinishedFunc();
+	  }
+
+	  Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
+	     var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
+
+	      for( var count = 0; count < listLength; count++ ) {
+		(function() {
+		  var whichEl = count,
+		  fileName = layerDirectory+list[ whichEl ]+'.svg',
+		  image = Snap.load( fileName, function ( loadedFragment ) { 
+		       fragLoadedCount++;
+		       onEachElementLoadFunc( loadedFragment, fileName );
+		       fragList[ whichEl ] = loadedFragment;
+		       if( fragLoadedCount >= listLength ) {
+			  addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
+		       }
+		    } );  
+		
+		})();
+	     }
+	  };
+
+	});
+
+	// use custom funcs like below, above funcs shouldn't need to be touched much
+	// it uses fragments, so they aren't loaded yet into the DOM fully
+
+	function onAllLoaded() {
+		//console.log('all loaded');
+	}
+
+	function onEachLoaded( frag, fileName ) {
+		var colorThis = false;
+		var myLayer = fileName;
+		var toBeShown = choicesToLayers(c);
+		
+		if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
+			var seen = 1;
+			
+		} else {var seen = 0;};
+		//Get the section, then the color
+		var section = myLayer.split("/")[2].split('_')[0];
+		
+		if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='lips'){var section = 'skin'};
+		if (section ==='facialhair' || section==='brows'){var section = 'hair'};
+		// Make a list of all the color keys in c.choices
+		if (c.choices[section+'Color'] != undefined) {
+			var newColor = c.choices[section+'Color'];
+			// We now have a new color
+			var colorThis = true;
+		};
+		// Get a list
+		//Check to see if the Color suffix is available for each toBeShown
+		// Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
+		console.log('myLayer.split("/")[2].split(".")[0] : ', myLayer.split("/")[2].split(".")[0]);
+		console.log('colorThis : ', colorThis);
+		if (colorThis === true){
+			applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
+		};
+		
+		frag.select("*").attr({ opacity: seen });
+
+
+		/*if( myDisplayList[ fileName ] == "fade" ) {
+			frag.select("*").attr({ opacity: 0 });
+		}*/
+		
+	}
+	//var viewports = ["#svg1", "#lg_face", "#lg_torso", "#lg_body", "#lg_full"];
+
+	
+	var viewport = Snap("#svg1");
+	var viewportFace = Snap("#lg_face");
+	var viewportTorso = Snap("#lg_torso");
+	var viewportBody = Snap("#lg_body");
+	var viewportFull = Snap("#lg_full");
+	// viewport is s
+	// layers is myLoadList
+	var myLoadList = layers;
+	// There is no equivalent for myDisplayList yet
+	 var myDisplayList = { "Bird.svg": "display", "Dreaming_tux.svg": "fade" };
+	// s.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	 viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+/*	for (var y = 0; y < layers.length; y++) {
+		(function(){
+		var colorThis = false;
+		var myLayer = layers[y];
+		var toBeShown = choicesToLayers(c);
+		if (toBeShown.indexOf(layers[y]) > -1){
+			var seen = 1;
+		} else {var seen = 0};
+		//Get the section, then the color
+		var section = myLayer.split('_')[0];
+		if (section ==='body' || section === 'ears'||section==='nose'){var section = 'skin'};
+		if (section ==='facialhair' || section==='brows'){var section = 'hair'};
+		// Make a list of all the color keys in c.choices
+		if (c.choices[section+'Color'] != undefined) {
+			var newColor = c.choices[section+'Color'];
+			// We now have a new color
+			var colorThis = true;
+		};
+		// Get a list
+		//Check to see if the Color suffix is available for each toBeShown
+		Snap.load(layerDirectory+myLayer+'.svg',function (f){
+                        something = f.select( '#' + myLayer );
+			// Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
+			if (colorThis === true){
+				applyColor(myLayer, newColor.slice(1), something);
+			};
+                        something.attr({opacity:seen})
+                        viewport.append(f);
+			} );
+		})();
+
+	};*/
+	$(document).ready(function() {
+		createForm(sex);
+		createCharacter();
+	});	
+
+
+
+</script>
+</html>
+
