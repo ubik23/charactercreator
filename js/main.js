@@ -1,4 +1,10 @@
 
+/*
+TODO:
+-save states (look-up form values, save as json, persist, populate dropdown)
+*/
+// The forms, menus and options that make up a character
+//Todo Zoom in on the head tab viewBox="208 75 140 140"
 $(document).ready(function() {
     createForm(sex);
     createCharacter();
@@ -205,3 +211,117 @@ function createCharacter(){
         }
     };
 };
+
+function zoomIn() {
+    shape = document.getElementById(("svg1"));
+    if (sex == 'm'){
+        shape.setAttribute("viewBox", "140 73 290 290");
+        //shape.setAttribute("viewBox", "180 85 200 200");
+        //shape.setAttribute("viewBox", "204 85 150 150");
+        //shape.setAttribute("viewBox", "244 85 80 80"); // Head
+        //$("#svg1").animate({viewBox: "225 75 110 110"},1000);
+    }
+    else {
+        shape.setAttribute("viewBox", "225 86 110 110");
+    }
+}
+
+function zoomOut() {
+    shape = document.getElementById(("svg1"));
+    //shape.setAttribute("viewBox", "0 0 560 560");
+    //shape.setAttribute("viewBox", "-10 0 580 580"); // Complete view
+    shape.setAttribute("viewBox", "10 50 540 540"); // Full body view
+}
+
+function zoomFace() {
+    shape = document.getElementById(("svg1"));
+    if (sex == 'm'){
+        shape.setAttribute("viewBox", "240 90 80 80");
+    } else {
+        shape.setAttribute("viewBox", "243 102 80 80");
+    }
+}
+
+function zoomTorso() {
+    shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
+    if (sex == 'm'){
+        shape.setAttribute("viewBox", "204 85 150 150");
+    } else {
+        shape.setAttribute("viewBox", "207 97 150 150");
+    }
+}
+
+function zoomBody() {
+    shape = document.getElementById(("svg1"));
+    if (sex == 'm'){
+        shape.setAttribute("viewBox", "136 73 290 290");
+    } else {
+        shape.setAttribute("viewBox", "140 84 290 290");
+    }
+}
+
+function zoomFull() {
+    shape = document.getElementById(("svg1"));
+    if (sex == 'm'){
+        shape.setAttribute("viewBox", "10 50 540 540");
+    } else {
+        shape.setAttribute("viewBox", "10 50 540 540");
+    }
+}
+
+function show(context){  // Draw the SVG on screen
+    var selectedOption = context.value;
+    var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
+    var section = context.className;
+    options.forEach(function(d, i){
+        var id = '#'+section+'_'+d;
+        if(d === selectedOption){
+        for (lyr in multiLayer){
+            if (id.slice(1) == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                    viewport.selectAll(idOf).attr({opacity:1});
+                    viewportFace.selectAll(idOf).attr({opacity:1});
+                    viewportTorso.selectAll(idOf).attr({opacity:1});
+                    viewportBody.selectAll(idOf).attr({opacity:1});
+                    viewportFull.selectAll(idOf).attr({opacity:1});
+                }
+            }
+            else {
+                viewport.selectAll(id).attr({opacity:1});
+                viewportFace.selectAll(id).attr({opacity:1});
+                viewportTorso.selectAll(id).attr({opacity:1});
+                viewportBody.selectAll(id).attr({opacity:1});
+                viewportFull.selectAll(id).attr({opacity:1});
+            }
+        };
+        var obj = new Array();
+        obj[section] = selectedOption;
+            hash.add(obj);
+        modCharacter(section, selectedOption);
+        ga('send', 'event', 'menu', 'select', id);
+        }
+        else {
+        for (lyr in multiLayer){
+            if (id.slice(1) == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                    viewport.selectAll(idOf).attr({opacity:0});
+                    viewportFace.selectAll(idOf).attr({opacity:0});
+                    viewportTorso.selectAll(idOf).attr({opacity:0});
+                    viewportBody.selectAll(idOf).attr({opacity:0});
+                    viewportFull.selectAll(idOf).attr({opacity:0});
+                }
+            }
+            else {
+                viewport.selectAll(id).attr({opacity:0})
+                viewportFace.selectAll(id).attr({opacity:0})
+                viewportTorso.selectAll(id).attr({opacity:0})
+                viewportBody.selectAll(id).attr({opacity:0})
+                viewportFull.selectAll(id).attr({opacity:0})
+            }
+        };
+        ;
+        }
+    });
+}
