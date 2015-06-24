@@ -325,3 +325,81 @@ function show(context){  // Draw the SVG on screen
         }
     });
 }
+
+function trans(sex){
+    hash.add({ sex: sex });
+    location.reload();
+}
+
+function birth(){
+    var sexes = ["m", "f"];
+    var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
+    var layers = [];
+    hash.add({ sex: sex });
+    return sex
+}
+
+function Character(fullName, sex, emotion, choices, birthday){
+    this.fullName = fullName || '';
+    this.sex = sex || birth();;
+    this.emotion = emotion || 'neutral';
+
+    this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
+    hash.add({ skinColor: this.skinTone });
+    this.choices = choices || {
+        body : 'athletic', // Or a random body shape eventually
+        body_head : 'default', //Or random from list
+        ears : 'default', // or rand
+        nose : 'default', // Or random
+        lips : 'default', //or rand
+        skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
+        hairColor : '#ffe680', // Or random from list of hair colors',
+        irisColor : '#2ad4ff', // Or some random eye color
+        underwear : 'plain', // or random, whatever.
+        underwearColor : '#f2f2f2', // Or random from a list of fabrics',
+    };
+    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
+};
+
+function choicesToLayers(c){
+    var selectedLayers = []
+    var emotionLayers = fromEmotionGetLayers(c.emotion);
+    for (var e in emotionLayers) {
+        selectedLayers.push(emotionLayers[e]);
+    };
+    var choiceLayers = [];
+    //for each key in c.choices, get the value and build a layerName
+    for(var index in c.choices) {
+      choiceLayers.push( index + "_" + c.choices[index]);
+    }
+
+    for (var cl in choiceLayers) {
+        for (lyr in multiLayer){
+            if (choiceLayers[cl] == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
+                    selectedLayers.push(idOf);
+                }
+            }
+            else {
+                selectedLayers.push(choiceLayers[cl]);
+            }
+        };
+        selectedLayers.push(choiceLayers[cl]);
+    };
+    if (c.sex === 'f'){
+        selectedLayers.push('body_hand');
+    };
+    return selectedLayers;
+};
+
+function fromEmotionGetLayers(emotion) {
+    var facialEpressionLayers = [];
+    var modElement = '';
+    faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes']
+    for (e in faceElements) {
+        modElement = faceElements[e] + '_' + emotion;
+        facialEpressionLayers.push(modElement);
+    };
+    return facialEpressionLayers;
+};

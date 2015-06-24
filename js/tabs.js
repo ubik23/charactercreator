@@ -11,3 +11,4 @@ function tabSwitch(new_tab, new_content) {
     document.getElementById('tab_4').className = '';
     document.getElementById(new_tab).className = 'active';
 }
+

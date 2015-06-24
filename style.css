@@ -27,20 +27,25 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {'#'+layers[y])
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -57,13 +62,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 html {
 	height: 100%;
 }
-body
-{
-	/*background-color: white;*/
-background: -webkit-linear-gradient(white, white, white, #cccccc); /* For Safari 5.1 to 6.0 */
-background: -o-linear-gradient(white, white, white, #cccccc); /* For Opera 11.1 to 12.0 */
-background: -moz-linear-gradient(white, white, white, #cccccc); /* For Firefox 3.6 to 15 */
-background: linear-gradient(white, white, white, #cccccc); /* Standard syntax */
+
+body {
+    background: -webkit-linear-gradient(white, white, white, #cccccc); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, white, white, #cccccc); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, white, white, #cccccc); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, white, white, #cccccc); /* Standard syntax */
 	height: 100%;
 	overflow-y:hidden;
 }
@@ -98,19 +102,16 @@ background: linear-gradient(white, white, white, #cccccc); /* Standard syntax */
 	text-decoration: none;
 }
 
-@font-face
-{
+@font-face {
 	font-family: "SF Wonder Comic";
 	src: url("fonts/SF_Wonder_Comic.ttf");
 	font-style: normal;
 	font-weight: 200;
-
 }
 
 sup {
 	vertical-align: super;
 	font-size: .35em; 
-	
 }
 
 sub {
@@ -118,8 +119,7 @@ sub {
 	text-align:left;
 } 
 
-h1
-{
+h1 {
 	font-family: "SF Wonder Comic";
 	text-align:left;
 	font-size: 5vh;
@@ -127,32 +127,26 @@ h1
 }
 
 #lynx {
-        position: fixed;
+    position: fixed;
 	top: 2vh;
 	right: 1.2vw;
 	max-height: 14px;
 }
 
-ul#horizontal
-{
+ul#horizontal {
 	list-style: none;
 	font-size: 18px;
 	margin: -0.1em;
-	/*position: fixed;
-	top: 1.6vh;
-	right: 5vw;*/
 	float: left;
 }
 
-ul#horizontal li
-{
+ul#horizontal li {
 	display: inline;
 	padding-right: 20px;
 	padding-left: 0;
 }
 
-ul#horizontal li a
-{
+ul#horizontal li a {
 	font-size: .8em;
 	font-family: arial, verdana, sans-serif;
 	text-transform: uppercase;
@@ -160,24 +154,16 @@ ul#horizontal li a
 	color: #f2f2f2;
 }
 
-ul#horizontal li a:hover
-{
-	
+ul#horizontal li a:hover {
 	font-family: arial, verdana, sans-serif;
 	text-decoration: none;
 	color: white;
 }
 
-ul#horizontal li:hover
-{
-
+ul#horizontal li:hover {
 }
 
-
 div.medias_sociaux {
-        /*position: fixed;
-	top: 0.1vh;
-	right: 1vw;*/
 	float: left;
 	height: 0.1%;
         max-height: 18px;
@@ -249,9 +235,8 @@ div.medias_sociaux td {
 #svg1 {
 	height: 100%;
 	width: 100%;
-
-
 }
+
 #sidebar {
 	position: fixed;
 	right: 1%;
@@ -259,7 +244,6 @@ div.medias_sociaux td {
 	width: 23%;
 	min-width: 260px;
 	height: auto;
-	
 	font-family: sans-serif;
 	font-size: 0.8em;
 	overflow: hidden;
@@ -284,27 +268,23 @@ div.lg {
 	height: 15vh;
 	margin-bottom: 0.15em;
 	background-color: rgba(204, 204, 204, 0.2); 
-	border-radius: 5px;
-	
+	border-radius: 5px;	
 }
 
 div.lg:hover {
 	background-color: rgba(204, 204, 204, 0.4);
-	
 }
+
 svg.lg {
-	/*display: block;*/
 	width: 100%;
 	height: 100%;
 	opacity: 0.5;
-	/*margin-bottom: 0.15em;*/
-	/*background-color: rgba(204, 204, 204, 0.2); */
-	/*border-radius: 5px;*/
-	
 }
+
 svg.lg:hover {
 	opacity: 1;
 }
+
 div.lg a {
 	font-family: sans-serif;
 	text-decoration: none;
@@ -314,7 +294,6 @@ div.lg a {
 
 #bread  {
 	font-family: sans-serif;
-	/*font-style: bold;*/
 	font-weight: bold;
 	font-size: 0.8em;
 	position: fixed;
@@ -354,12 +333,12 @@ div.lg a {
 	border-bottom: 20px solid transparent;
 	border-left: 20px solid transparent;
 	position: absolute; left: -20px; top: 0;
-
 }
 
 #crumbs ul li:first-child a {
 	border-top-left-radius: 10px; border-bottom-left-radius: 10px;
 }
+
 #crumbs ul li:first-child a:before {
 	display: none; 
 }
@@ -368,6 +347,7 @@ div.lg a {
 	padding-right: 40px;
 	border-top-right-radius: 10px; border-bottom-right-radius: 10px;
 }
+
 #crumbs ul li:last-child a:after {
 	display: none; 
 }
@@ -383,25 +363,22 @@ div.lg a {
 #crumbs ul li a:hover:before {
 	border-top-color: rgba(255, 0, 0, 0.7);
 }
-.Table
-    {
-        display: table;
+
+.Table {
+    display: table;
 	width: 100%;
-    }
+}
 
-.Row
-    {
-        display: table-row;
+.Row {
+    display: table-row;
+}
 
-    }
-    .Cell
-    {
-        display: table-cell;
+.Cell {
+    display: table-cell;
 	width: 100%;
-    }
+}
 
-footer
-{
+footer {
 	clear: both;
 	background-color: #e35a4e;
 	padding-top: 0.5%;
@@ -420,13 +397,12 @@ footer
 	border-top-style: solid;
 }
 
-footer a
-{
+footer a {
 	color: white;
 	text-decoration: none;
 }
 
-#tabbed_box {  
+#tabbed_box {
     margin: 0px auto 0px auto;  
     width:300px;  
 }  
@@ -440,6 +416,7 @@ footer a
 ul.tabs {  
     margin:0px; padding:0px;  
 }  
+
 ul.tabs li {  
     list-style:none;  
     display:inline;  
@@ -451,15 +428,16 @@ ul.tabs li a {
     padding:8px 4px 5px 4px;  
     text-decoration:none;  
     font-size:9px;  
-  
     font-weight:bold;  
     text-transform:uppercase;  
     border:1px solid #e6e6e6;   
-}  
+}
+
 ul.tabs li a:hover {  
     background-color:#2f343a;  
     border-color:#e6e6e6;  
 }  
+
 ul.tabs li a.active {  
     background-color:#ffffff;  
     color:#282e32;  
@@ -476,6 +454,7 @@ ul.tabs li a.active {
     -webkit-border-radius: 0 0 2vh 2vh;
     border-radius: 0 0 2vh 2vh;
 }   
+
 #content_2, #content_3, #content_4  { display:none; }  
 
 ul.tabs {  
@@ -488,6 +467,7 @@ ul.tabs {
     margin:0px;  
     padding:0px 20px 0px 20px;  
 }  
+
 .content ul li {  
     list-style:none;  
     border-bottom:1px solid #d6dde0;  
@@ -495,15 +475,16 @@ ul.tabs {
     padding-bottom:15px;  
     font-size:13px;  
 }  
+
 .content ul li a {  
     text-decoration:none;  
     color:#3e4346;  
 }  
+
 .content ul li a small {  
     color:#8b959c;  
     font-size:9px;  
     text-transform:uppercase;  
- 
     position:relative;  
     left:4px;  
     top:0px;  
@@ -526,7 +507,6 @@ ul.tabs li a {
 }
 
 @media screen and (max-width: 980px) {
-
 	#pagewrap {
 	}
 
@@ -535,15 +515,15 @@ ul.tabs li a {
 	}
 
 	#sidebar {
+
 	}
+
 	#sidebar .widget {
 
 	}
-
 }
 
 @media screen and (max-width: 650px) {
-
 	#pagewrap {
 		width: 100%;
 	}
@@ -583,13 +563,9 @@ ul.tabs li a {
 	#content {
 		width: auto;
 		float: none;
-
 	}
 
 	#sidebar {
 
 	}
-
 }
-
-

@@ -46,18 +46,15 @@
 
 	<aside id="sidebar">
 		<section class="widget">
-
 			<ul class="tabs">  
 				<li><a href="javascript:tabSwitch('tab_1', 'content_1');" id="tab_1" class="active" >Body</a></li> 
 				<li><a href="javascript:tabSwitch('tab_2', 'content_2');" id="tab_2">Head</a></li>  
 				<li><a href="javascript:tabSwitch('tab_3', 'content_3');" id="tab_3">Clothing</a></li>  
 			</ul>    
-
 			<div id="content_1" class="content"></div>  
 			<div id="content_2" class="content"></div>  
 			<div id="content_3" class="content"></div>  
 			<div id="content_4" class="content"></div>  
-
 		</section>		
 	</aside>
 
@@ -69,14 +66,15 @@
 	<script type="text/javascript" src="js/main.js"></script> 
 	<script type="text/javascript" src="js/tabs.js"></script> 
 	<script type="text/javascript" src="js/colorize.js"></script> 
+	<script type="text/javascript" src="js/loader.js"></script> 
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-47040938-1', 'charactercreator.org');
-	  ga('require', 'displayfeatures');
-	  ga('send', 'pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-47040938-1', 'charactercreator.org');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
 	</script>
 	</footer>
 
@@ -93,7 +91,6 @@ var maleForm1 = {
 'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
 'Age' : ['', 'lines'],
 'Wings' : ['', 'devil']
-
 };
 
 var maleForm2 = {
@@ -168,7 +165,6 @@ var femaleForm3 = {
 'Leggings': ['', 'regular'],
 'Bracelet' : ['','rings'],
 'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
-
 };
 
 var layersFemale = [
@@ -213,7 +209,6 @@ var layersFemale = [
 'dress_japanese_pleat',
 'dress_german_expression',
 'dress_parisian_fall',
-
 'scarf_parisian_knot',
 'scarf_twice_around',
 'scarf_four_in_hand',
@@ -221,13 +216,10 @@ var layersFemale = [
 'scarf_reverse_drape_tuck',
 'scarf_fake_knot',
 'scarf_reverse_drape',
-
 'scarf_overhand',
 'scarf_once_around',
 'scarf_drape',
-
 'hair_down_2_of_3',
-
 'body_head_default',
 'body_head_square',
 'body_head_diamond',
@@ -286,7 +278,6 @@ var layersFemale = [
 'hat_cowboy',
 'hat_top',
 'hat_scumbag',
-
 'hat_tiara',
 'hat_magritte',
 'hat_strainer_1_of_2',
@@ -342,14 +333,12 @@ var layersMale = [
 'body_head_triangle',
 'ears_default',
 'ears_pointed',
-
 'iris_human',
 'age_lines',
 'scar_vertical_heart',
 'earings_gold_rings',
 'earings_gold_ring_left',
 'earings_gold_ring_right',
-
 'underwear_plain',
 'underwear_boxers',
 'suit_wetsuit',
@@ -467,251 +456,20 @@ var layersMale = [
 'mic'
 ];
 
-
-
-
-function test(_context, _color){
-    var id = _context.getAttribute("id").slice(0,-1);
-    // get all the options for that id
-    // Cycle through each form array 
-    var forms = [form1, form2, form3];
-    for (var f in forms){
-        // Cycle through each element in the form
-        for(var x in forms[f]){
-            // is x = to id?
-            // if so, cycle through each element
-            if(x.toLowerCase() === id){
-                // Figure out which form to look in to find this id
-                // Cycle through each option 
-                var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
-
-                // If the id is body, than the list will be of all 'skin' layers
-                
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age'){
-                    affectedList = skinLayers;
-                    var myKey = 'skinColor';
-                }
-                else if (id ==='facialhair' || id === 'hair'){
-                    affectedList = hairLayers;
-                    var myKey = 'hairColor';
-                }
-                else {
-                    affectedList = [];
-                    var myKey = id + 'Color'
-                    for (i in forms[f][capitalId]){
-                        var tmpId = forms[f][capitalId][i];
-                        if (tmpId != ''){
-                            affectedList.push(id + '_' +tmpId);
-                        }
-                    }
-                }
-
-                // Look at the affected list
-                // If one of those motherfuckers is in the multiLayer array
-                // Then take it out and replace it with the damned layers that need to be there
-
-                for (a in affectedList) {
-                    for (lyr in multiLayer){
-                        if (affectedList[a] == multiLayer[lyr][0]){
-                            for (var i=1;i<=multiLayer[lyr][1];i++){
-                                <!--console.log('affectedList[a] : ', affectedList[a]);-->
-                                idOf = affectedList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                //viewport.selectAll(idOf).attr({opacity:1});	
-                                // Then append the idOf to affectedList
-                                affectedList.push(idOf);
-                                
-                            }
-                            // Take it out of the affectedList
-                            var index = affectedList.indexOf(affectedList[a]);
-                            if (index > -1) {
-                                affectedList.splice(index, 1);
-                            }
-                        }
-
-                    };
-
-
-                };
-                <!--console.log('affectedList : ', affectedList);-->
-
-                var myValue = '#'+_color.toString();
-                var obj = new Array();
-                obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
-                    hash.add(obj);
-                modCharacter(myKey, myValue);
-                for (n in affectedList){
-                    fullId = '#' + affectedList[n];
-                    // Else, the list is taken from the form.
-                    var optLayer = viewport.select(fullId); // todo: Add selection to category
-                    if (optLayer != null){
-                        var optPaths = optLayer.selectAll('path')
-                        for (p in optPaths) {
-                            if ( typeof optPaths[p].attr === 'function'){
-                                var pathId = optPaths[p].attr("id")
-                                var pathStyle = viewport.select('#'+ pathId).attr("style");
-                                // Parse the style in a json object
-                                // Identify if the path is a shape or a shadow
-                                // apply newStyle if applicable
-                                var styles = pathStyle.split(';'),
-                                i= styles.length,
-                                json = {style: {}},
-                                style, k, v;
-                                while (i--){
-                                    style = styles[i].split(':');
-                                    k = $.trim(style[0]);
-                                    v = $.trim(style[1]);
-                                    if (k.length > 0 && v.length > 0){
-                                        json.style[k] = v;
-                                    }
-                                }
-                                // Query the style to determine if shape or shadow
-                                // Change the color
-                                var newColor = _color.toString();
-                                // json to string
-                                newStyle = json.style;
-                                var replacement = '';
-                                for (n in Object.keys(newStyle)){
-                                    var currentKey = Object.keys(newStyle)[n]
-                                    if (currentKey === 'fill'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] === undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.12);
-                                            }
-                                            else {
-                                                var currentValue = '#'+ newColor;
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else if (currentKey === 'stroke'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] != undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.2);
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else {
-                                        var currentValue = newStyle[currentKey]; 
-                                    }
-                                    var keyVal = 	currentKey + ': ' + currentValue + '; '
-                                    replacement = replacement.concat(keyVal);
-                                }
-
-                                viewport.selectAll('#'+pathId).attr({style: replacement});
-                                newStroke = shadeColor(newColor, -25);
-                                if (json.style["stroke-width"] === undefined){
-                                    newColor = shadeColor(newColor, -25)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-function trans(sex){
-    hash.add({ sex: sex });
-    location.reload();
-}
-
 size = function(obj) {
     var size = 0, key;
     for (key in obj) {
-    if (obj.hasOwnProperty(key)) size++;
+        if (obj.hasOwnProperty(key)) size++;
     }
     return size;
 };
 
-function birth(){
-    var sexes = ["m", "f"]; 
-    var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
-    var layers = [];
-    hash.add({ sex: sex });
-    return sex
-}
-
 // This is where things start to happen
 // This variable represents the cast of chararcters created
 var cc = cc || {};
-
-function Character(fullName, sex, emotion, choices, birthday){
-    this.fullName = fullName || '';
-    this.sex = sex || birth();;
-    this.emotion = emotion || 'neutral';
-    
-    this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
-    hash.add({ skinColor: this.skinTone });
-    this.choices = choices || {
-        body : 'athletic', // Or a random body shape eventually
-        body_head : 'default', //Or random from list
-        ears : 'default', // or rand
-        nose : 'default', // Or random
-        lips : 'default', //or rand
-        skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from 
-        hairColor : '#ffe680', // Or random from list of hair colors',
-        irisColor : '#2ad4ff', // Or some random eye color
-        underwear : 'plain', // or random, whatever.
-        underwearColor : '#f2f2f2', // Or random from a list of fabrics',
-    }; 
-    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;		
-};
-
-
-function choicesToLayers(c){
-    var selectedLayers = []
-    var emotionLayers = fromEmotionGetLayers(c.emotion);
-    for (var e in emotionLayers) {
-        selectedLayers.push(emotionLayers[e]);
-    };
-    var choiceLayers = [];
-    //for each key in c.choices, get the value and build a layerName
-    for(var index in c.choices) {
-      choiceLayers.push( index + "_" + c.choices[index]);
-    }
-
-    for (var cl in choiceLayers) {
-        for (lyr in multiLayer){
-            if (choiceLayers[cl] == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
-                    idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
-                    selectedLayers.push(idOf);	
-                }
-            }
-            else {
-                selectedLayers.push(choiceLayers[cl]);
-            }
-        };
-        selectedLayers.push(choiceLayers[cl]);
-    };
-    if (c.sex === 'f'){
-        selectedLayers.push('body_hand');
-    };
-    return selectedLayers;
-};
-
-function fromEmotionGetLayers(emotion) {
-    var facialEpressionLayers = [];
-    var modElement = '';
-    faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes']
-    for (e in faceElements) {
-        modElement = faceElements[e] + '_' + emotion;
-        facialEpressionLayers.push(modElement);
-    };
-    return facialEpressionLayers;
-};
-//var sex = birth();
-    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-
-    var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
-    var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
-
+var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
+var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
 var c = c || new Character();
 var sex = c.sex;
 if (sex ==='m') {
@@ -722,9 +480,7 @@ if (sex ==='m') {
     var layerDirectory = layerDirectoryMale;
     layers = layersMale;
     var multiLayer = multiLayerMale;
-}
-
-else {
+} else {
     var form1 = femaleForm1;
     var form2 = femaleForm2;
     var form3 = femaleForm3;
@@ -736,81 +492,11 @@ else {
 
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
-
 parseHash();  //Hashed elements are added in the character object
 
 // We need to define the list of affected layers by the xColor properties in c.choices
 // One we have a list we can check in the next function to see if the current layer is going to need being colored
 
-Snap.plugin( function( Snap, Element, Paper, global ) {
-
-  function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-    for( var count = 0; count < fragList.length; count++ ) {
-    myEl = whichSVG.append( fragList[ count ] );
-    }
-    runWhenFinishedFunc();
-  }
-
-  Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
-     var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
-
-      for( var count = 0; count < listLength; count++ ) {
-    (function() {
-      var whichEl = count,
-      fileName = layerDirectory+list[ whichEl ]+'.svg',
-      image = Snap.load( fileName, function ( loadedFragment ) { 
-           fragLoadedCount++;
-           onEachElementLoadFunc( loadedFragment, fileName );
-           fragList[ whichEl ] = loadedFragment;
-           if( fragLoadedCount >= listLength ) {
-          addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
-           }
-        } );  
-    
-    })();
-     }
-  };
-
-});
-
-// use custom funcs like below, above funcs shouldn't need to be touched much
-// it uses fragments, so they aren't loaded yet into the DOM fully
-
-function onAllLoaded() {
-    //console.log('all loaded');
-}
-
-function onEachLoaded( frag, fileName ) {
-    var colorThis = false;
-    var myLayer = fileName;
-    var toBeShown = choicesToLayers(c);
-    
-    if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
-        var seen = 1;
-        
-    } else {var seen = 0;};
-    //Get the section, then the color
-    var section = myLayer.split("/")[2].split('_')[0];
-    
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='lips'){var section = 'skin'};
-    if (section ==='facialhair' || section==='brows'){var section = 'hair'};
-    // Make a list of all the color keys in c.choices
-    if (c.choices[section+'Color'] != undefined) {
-        var newColor = c.choices[section+'Color'];
-        // We now have a new color
-        var colorThis = true;
-    };
-    // Get a list
-    //Check to see if the Color suffix is available for each toBeShown
-    // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
-    <!--console.log('myLayer.split("/")[2].split(".")[0] : ', myLayer.split("/")[2].split(".")[0]);-->
-    <!--console.log('colorThis : ', colorThis);-->
-    if (colorThis === true){
-        applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
-    }
-
-    frag.select("*").attr({ opacity: seen });
-}
 
 //var viewports = ["#svg1", "#lg_face", "#lg_torso", "#lg_body", "#lg_full"];
 var viewport = Snap("#svg1");
