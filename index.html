@@ -18,7 +18,8 @@
 		    <h1><sup>The </sup>Character Creator<sub>.org</sub></h1>
 		    <div id="lynx">
     			<ul id="horizontal">
-                    <li><a href="#" onclick="window.open('data:text/json;charset=utf-8,' + escape('Ur String Object goes here'));">\/</a>
+                    <!--<li><a download='character.svg' href="#" onclick="downloadSvg();return false;">\/</a>-->
+                    <li><a download='character.svg' href="javascript:download('my_character.svg', 'test');">\/</a>
                     
 	    			<li><a href="about.html" target="_blank">?</a></li>
 		    	</ul>	
@@ -64,6 +65,7 @@
 	<script type="text/javascript" src="js/tabs.js"></script> 
 	<script type="text/javascript" src="js/colorize.js"></script> 
 	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/download.js"></script>
 	<script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
