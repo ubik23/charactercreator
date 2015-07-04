@@ -12,9 +12,7 @@
 <link rel="stylesheet" href="select2.css"/>
 <meta name="google-site-verification" content="seSsFvgHZ7H8BEK2oi7_E7rMPgrv94Qj59pkTwuw8yQ" />
 </head>
-
 <body >
-
     <div id="pagewrap">
         <header id="header">
 		    <h1><sup>The </sup>Character Creator<sub>.org</sub></h1>
@@ -24,11 +22,9 @@
 		    	</ul>	
 		    </div>
 	    </header>
-
 	<div id="content">
 	    <svg id="svg1" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin"></svg>
 	</div>
-
 	<div class="looking_glass">
     	<div class="lg">
             <a href="#" onclick="zoomFace();return false;"><svg id="lg_face" class="lg" width="100%" height="100%" viewBox="240 90 80 80" preserveAspectRatio="xMidYMin"></svg></a>
@@ -43,7 +39,6 @@
             <a href="#" onclick="zoomFull();return false;"><svg id="lg_full" class="lg" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin"></svg></a>
         </div>
 	</div>
-
 	<aside id="sidebar">
 		<section class="widget">
 			<ul class="tabs">  
@@ -57,7 +52,6 @@
 			<div id="content_4" class="content"></div>  
 		</section>		
 	</aside>
-
 	<footer>
 	<p>Copyright &#xA9; 2013-2014 <a href="https://www.google.com/+FredericGuimont" rel=author>Frédéric Guimont</a>, all rights reserved. Contact:  <a href="mailto:info@charactercreator.org">info@charactercreator.org</a></p>
 	<script type="text/javascript" src="lib/jquery.js"></script>
@@ -77,7 +71,6 @@
         ga('send', 'pageview');
 	</script>
 	</footer>
-
 </div>
 </body>
 <script>
@@ -92,7 +85,6 @@ var maleForm1 = {
 'Age' : ['', 'lines'],
 'Wings' : ['', 'devil']
 };
-
 var maleForm2 = {
 'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
 'Ears' : ['default', 'pointed'],
@@ -111,7 +103,6 @@ var maleForm2 = {
 'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
 'Eyepatch': ['', 'left', 'right']
 };
-
 var maleForm3 = {
 'Suit': ['', 'wetsuit'],
 'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
@@ -128,7 +119,6 @@ var maleForm3 = {
 'Socks': ['','socks'], 
 'Shoes': ['','hightops', 'leather']
 };
-
 var femaleForm1 = {
 'Body': ['athletic'],
 'Nails': ['short', 'long', 'claws'],
@@ -137,7 +127,6 @@ var femaleForm1 = {
 'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
 'Wings' : ['', 'devil']
 };
-
 var femaleForm2 = {
 'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
 'Ears' : ['default', 'pointed'],
@@ -155,7 +144,6 @@ var femaleForm2 = {
 'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte'],
 'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat']
 };
-
 var femaleForm3 = {
 'Necklace' : ['', 'perl', 'princess'],
 'Dress': ['','casual','corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
@@ -166,7 +154,6 @@ var femaleForm3 = {
 'Bracelet' : ['','rings'],
 'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
 };
-
 var layersFemale = [
 'pet_doge',
 'pet_vulture',
@@ -293,10 +280,8 @@ var layersFemale = [
 'mask_cat',
 'horns_devil'
 ];
-
 var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2]];
 var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
-
 var layersMale = [
 'pet_doge',
 'pet_vulture',
@@ -455,22 +440,22 @@ var layersMale = [
 'pipe_subgenius',
 'mic'
 ];
-
-size = function(obj) {
+var size = function(obj) {
     var size = 0, key;
     for (key in obj) {
         if (obj.hasOwnProperty(key)) size++;
     }
     return size;
 };
+var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
+var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
 
 // This is where things start to happen
 // This variable represents the cast of chararcters created
 var cc = cc || {};
-var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
-var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
 var c = c || new Character();
+<!--TODO: Make the following piece of code into a function-->
 var sex = c.sex;
 if (sex ==='m') {
     var form1 = maleForm1;
@@ -494,20 +479,13 @@ if (sex ==='m') {
 // Go through all the forms
 parseHash();  //Hashed elements are added in the character object
 
-// We need to define the list of affected layers by the xColor properties in c.choices
-// Once we have a list we can check to see if the current layer is going to need being colored
-
-
-//var viewports = ["#svg1", "#lg_face", "#lg_torso", "#lg_body", "#lg_full"];
 var viewport = Snap("#svg1");
 var viewportFace = Snap("#lg_face");
 var viewportTorso = Snap("#lg_torso");
 var viewportBody = Snap("#lg_body");
 var viewportFull = Snap("#lg_full");
 // viewport is s
-// layers is myLoadList
 var myLoadList = layers;
-// s.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
  viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
