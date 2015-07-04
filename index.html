@@ -41,15 +41,15 @@
 	</div>
 	<aside id="sidebar">
 		<section class="widget">
-			<ul class="tabs">  
-				<li><a href="javascript:tabSwitch('tab_1', 'content_1');" id="tab_1" class="active" >Body</a></li> 
-				<li><a href="javascript:tabSwitch('tab_2', 'content_2');" id="tab_2">Head</a></li>  
-				<li><a href="javascript:tabSwitch('tab_3', 'content_3');" id="tab_3">Clothing</a></li>  
-			</ul>    
-			<div id="content_1" class="content"></div>  
-			<div id="content_2" class="content"></div>  
-			<div id="content_3" class="content"></div>  
-			<div id="content_4" class="content"></div>  
+			<ul class="tabs">
+				<li><a href="javascript:tabSwitch('tab_1', 'content_1');" id="tab_1" class="active" >Body</a></li>
+				<li><a href="javascript:tabSwitch('tab_2', 'content_2');" id="tab_2">Head</a></li>
+				<li><a href="javascript:tabSwitch('tab_3', 'content_3');" id="tab_3">Clothing</a></li>
+			</ul>
+			<div id="content_1" class="content"></div>
+			<div id="content_2" class="content"></div>
+			<div id="content_3" class="content"></div>
+			<div id="content_4" class="content"></div>
 		</section>		
 	</aside>
 	<footer>
@@ -463,7 +463,7 @@ if (sex ==='m') {
     var form3 = maleForm3;
     var form4 = [];
     var layerDirectory = layerDirectoryMale;
-    layers = layersMale;
+    var layers = layersMale;
     var multiLayer = multiLayerMale;
 } else {
     var form1 = femaleForm1;
@@ -471,7 +471,7 @@ if (sex ==='m') {
     var form3 = femaleForm3;
     var form4 = [];
     var layerDirectory = layerDirectoryFemale;
-    layers = layersFemale;
+    var layers = layersFemale;
     var multiLayer = multiLayerFemale;
 }
 
@@ -484,9 +484,8 @@ var viewportFace = Snap("#lg_face");
 var viewportTorso = Snap("#lg_torso");
 var viewportBody = Snap("#lg_body");
 var viewportFull = Snap("#lg_full");
-// viewport is s
 var myLoadList = layers;
- viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
