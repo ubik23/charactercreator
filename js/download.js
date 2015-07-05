@@ -14,8 +14,14 @@ function download(filename = 'my_character.svg') {
                     var svgArray = Array.prototype.slice.call(item.childNodes);
                     for (var el in svgArray) {
                         //console.log(text);
-                        text.concat(svgArray[el]);
-                        console.log(svgArray[el].innerHTML);
+                        //console.log(svgArray[el].innerHTML);
+                        var newString = svgArray[el].innerHTML;
+                        if (newString != undefined && newString != "" && newString != "Created with Snap"){
+                            newString = newString.trim();
+                            if (newString.slice(0,9) != "<rdf:rdf>"){
+                                text += newString;
+                            }
+                        }
                     }
                 } else {
                     //console.log('undefined', item)
