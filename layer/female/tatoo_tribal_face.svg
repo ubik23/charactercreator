@@ -1,66 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="tatoo_tribal_face">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <path
-       d="m 289.35204,635.03521 c 3.33135,0.28418 6.2257,-1.83587 6.97052,-3.92955 -0.90717,0.20023 -1.62649,-1.126 -2.93917,-2.13269 -1.58579,-1.21612 -4.40777,-1.83406 -6.80485,0.13429 -2.22202,1.82458 -1.37894,5.57372 2.7735,5.92795 z"
-       id="path95251"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 286.73549,605.57242 c 1.93135,2.76458 2.10446,10.95098 0.87039,15.47826 3.14728,-3.32236 7.35949,0.76204 7.84582,-1.12466 1.16813,-4.53174 -1.84718,-11.05047 -4.42457,-12.75531 -0.85554,-0.80046 -3.53498,-1.55314 -4.29164,-1.59829 z"
-       id="path95251-8"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 285.93444,627.21419 c 0.75783,-2.6524 1.71959,-4.14104 3.25866,-4.85011 4.28728,-1.97521 8.33779,3.8251 9.66232,2.42506 0.0452,0.6478 0.0484,1.40516 0.0313,1.76406 -0.88634,0.63933 -1.02174,2.52995 -2.19116,2.55556 -1.51808,0.0333 -4.17029,-6.08864 -10.76117,-1.89457 z"
-       id="path95271"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 297.42206,618.2588 c 0.0758,0.68205 -2e-5,2.34926 -0.30314,3.41023 0.98517,0.98518 1.51566,1.06096 1.59144,0.30313 0.0758,-0.75783 -0.15156,-2.80397 -1.2883,-3.71336 z"
-       id="path95273"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 297.11892,615.98531 c 0.60626,0.60626 0.75783,0.90939 0.98518,1.59144 -0.4547,-1.97035 -1.21253,-3.5618 -1.66723,-3.86493 0.4547,0.83361 0.60627,2.04614 0.68205,2.27349 z"
-       id="path95275"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 295.75483,612.27195 c 0.30313,0.15156 0.53048,0.45469 0.75783,0.83361 -0.30313,-0.98518 -1.21253,-2.27349 -1.66723,-2.6524 0.4547,0.83361 0.68205,1.28831 0.9094,1.81879 z"
-       id="path95277"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 276.28344,635.03521 c -3.33135,0.28418 -6.2257,-1.83587 -6.97052,-3.92955 0.90717,0.20023 1.62649,-1.126 2.93917,-2.13269 1.58579,-1.21612 4.40777,-1.83406 6.80485,0.13429 2.22202,1.82458 1.37894,5.57372 -2.7735,5.92795 z"
-       id="path95251-3"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 278.89999,605.57242 c -1.93135,2.76458 -2.10446,10.95098 -0.87039,15.47826 -3.14728,-3.32236 -7.35949,0.76204 -7.84582,-1.12466 -1.16813,-4.53174 1.84718,-11.05047 4.42457,-12.75531 0.85554,-0.80046 3.53498,-1.55314 4.29164,-1.59829 z"
-       id="path95251-8-4"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 279.70104,627.21419 c -0.75783,-2.6524 -1.71959,-4.14104 -3.25866,-4.85011 -4.28728,-1.97521 -8.33779,3.8251 -9.66232,2.42506 -0.0452,0.6478 -0.0484,1.40516 -0.0313,1.76406 0.88634,0.63933 1.02174,2.52995 2.19116,2.55556 1.51808,0.0333 4.17029,-6.08864 10.76117,-1.89457 z"
-       id="path95271-8"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 268.21342,618.2588 c -0.0758,0.68205 2e-5,2.34926 0.30314,3.41023 -0.98517,0.98518 -1.51566,1.06096 -1.59144,0.30313 -0.0758,-0.75783 0.15156,-2.80397 1.2883,-3.71336 z"
-       id="path95273-0"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 268.51656,615.98531 c -0.60626,0.60626 -0.75783,0.90939 -0.98518,1.59144 0.4547,-1.97035 1.21253,-3.5618 1.66723,-3.86493 -0.4547,0.83361 -0.60627,2.04614 -0.68205,2.27349 z"
-       id="path95275-7"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 269.88065,612.27195 c -0.30313,0.15156 -0.53048,0.45469 -0.75783,0.83361 0.30313,-0.98518 1.21253,-2.27349 1.66723,-2.6524 -0.4547,0.83361 -0.68205,1.28831 -0.9094,1.81879 z"
-       id="path95277-8"
-       style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="tatoo_tribal_face" width="560" height="560">
+  <g id="layer1">
+    <path id="path95251" d="M289.4 142.7c3.3.3 6.2-2 7-4-1 .2-1.7-1-3-2-1.6-1.3-4.4-2-6.8 0-2.2 2-1.4 5.6 2.8 6z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95251-8" d="M286.7 113.2c2 2.8 2 11 1 15.5 3-3.3 7.3.8 7.8-1 1-4.7-2-11.2-4.5-13-.8-.7-3.5-1.4-4.3-1.5z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95271" d="M286 135c.7-2.8 1.7-4.3 3.2-5 4.3-2 8.3 3.8 9.7 2.4v1.8c-1 .6-1 2.5-2.3 2.5-1.5 0-4.2-6-10.8-1.8z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95273" d="M297.4 126c0 .6 0 2.2-.3 3.3 1 1 1.6 1 1.7.3 0-.7 0-2.8-1.3-3.7z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95275" d="M297 123.6c.7.6 1 1 1 1.6-.4-2-1-3.5-1.6-4 .5 1 .6 2.2.7 2.4z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95277" d="M295.8 120c.3 0 .5.4.7.7-.3-1-1.2-2.2-1.7-2.6l1 2z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95251-3" d="M276.3 142.7c-3.3.3-6.2-2-7-4 1 .2 1.6-1 3-2 1.5-1.3 4.4-2 6.8 0 2.3 2 1.4 5.6-2.7 6z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95251-8-4" d="M279 113.2c-2 2.8-2.2 11-1 15.5-3-3.3-7.3.8-7.8-1-1.2-4.7 1.8-11.2 4.4-13 1-.7 3.5-1.4 4.3-1.5z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95271-8" d="M279.7 135c-.8-2.8-1.7-4.3-3.3-5-4.2-2-8.3 3.8-9.6 2.4v1.8c.8.6 1 2.5 2 2.5 1.7 0 4.3-6 11-1.8z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95273-0" d="M268.2 126c0 .6 0 2.2.3 3.3-1 1-1.5 1-1.6.3-.2-.7 0-2.8 1.2-3.7z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95275-7" d="M268.5 123.6c-.6.6-.7 1-1 1.6.5-2 1.2-3.5 1.7-4-.5 1-.6 2.2-.7 2.4z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path95277-8" d="M270 120c-.4 0-.6.4-1 .7.4-1 1.3-2.2 1.8-2.6l-1 2z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   </g>
 </svg>

@@ -1,58 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="iris_neutral">
-  <metadata
-     id="metadata32495">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs32493" />
-  <g
-     transform="translate(-245.5625,-0.99993856)"
-     id="g31871"
-     style="display:inline;enable-background:new">
-    <path
-       d="m 288.5625,126.53125 c -0.3113,0 -0.63026,0.0964 -0.9375,0.25 -0.01,0.0107 -0.0217,0.0202 -0.0312,0.0312 -0.22437,0.26034 -0.375,0.56685 -0.375,0.9375 0,0.82098 0.64777,1.5 1.46875,1.5 0.82098,0 1.5,-0.67902 1.5,-1.5 0,-0.37065 -0.15063,-0.67716 -0.375,-0.9375 -0.42322,-0.15531 -0.84388,-0.28125 -1.25,-0.28125 z"
-       transform="translate(245.5625,-1.1444835e-5)"
-       id="path17147-9"
-       style="color:#000000;fill:#2ad4ff;fill-opacity:1;stroke:#00aad4;stroke-width:0.125;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 272.59399,127.98726 -0.003,0.71703 -0.48287,-0.53008 -0.50912,0.50492 0.0334,-0.71626 -0.71703,-0.003 0.53007,-0.48287 -0.50491,-0.50912 0.71626,0.0334 0.003,-0.71703 0.48286,0.53008 0.50913,-0.50491 -0.0334,0.71625 0.71703,0.003 -0.53008,0.48287 0.50491,0.50912 z"
-       transform="translate(262.14018,0.2695218)"
-       id="path31823-3"
-       style="color:#000000;fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new" />
+<svg xmlns="http://www.w3.org/2000/svg" id="iris_neutral" width="560" height="560">
+  <g id="g31871" style="display:inline;enable-background:new">
+    <path id="path17147-9" d="M288.6 125.5c-.3 0-.7 0-1 .3-.2.3-.4.6-.4 1 0 .8.7 1.4 1.5 1.4s1.5-.6 1.5-1.5c0-.3-.2-.6-.4-1l-1.2-.2z" style="color:#000000;fill:#2ad4ff;fill-opacity:1;stroke:#00aad4;stroke-width:0.125;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path31823-3" d="M289.2 127.3v.7l-.5-.6-.5.5v-.8h-.7l.5-.5-.5-.5h.7v-.6l.5.5.5-.4v.7h.7l-.6.5.5.5z" style="color:#000000;fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
   </g>
-  <g
-     transform="translate(-245.5625,-0.99993856)"
-     id="g31864"
-     style="display:inline;enable-background:new">
-    <path
-       d="m 272.5,126.53125 c -0.39131,0 -0.8096,0.10411 -1.21875,0.25 -0.2336,0.26259 -0.375,0.58965 -0.375,0.96875 0,0.82098 0.67902,1.5 1.5,1.5 0.82098,0 1.46875,-0.67902 1.46875,-1.5 0,-0.35496 -0.13616,-0.65063 -0.34375,-0.90625 -0.33916,-0.18311 -0.68523,-0.3125 -1.03125,-0.3125 z"
-       transform="translate(245.5625,-1.1444835e-5)"
-       id="path17147-9-0"
-       style="color:#000000;fill:#2ad4ff;fill-opacity:1;stroke:#00aad4;stroke-width:0.125;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 272.59399,127.98726 -0.003,0.71703 -0.48287,-0.53008 -0.50912,0.50492 0.0334,-0.71626 -0.71703,-0.003 0.53007,-0.48287 -0.50491,-0.50912 0.71626,0.0334 0.003,-0.71703 0.48286,0.53008 0.50913,-0.50491 -0.0334,0.71625 0.71703,0.003 -0.53008,0.48287 0.50491,0.50912 z"
-       transform="translate(245.83073,0.26951292)"
-       id="path31823"
-       style="color:#000000;fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new" />
+  <g id="g31864" style="display:inline;enable-background:new">
+    <path id="path17147-9-0" d="M272.5 125.5c-.4 0-.8 0-1.2.3-.3.2-.4.6-.4 1 0 .8.6 1.5 1.4 1.5.8 0 1.5-.7 1.5-1.6 0-.3-.3-.6-.5-1l-1-.2z" style="color:#000000;fill:#2ad4ff;fill-opacity:1;stroke:#00aad4;stroke-width:0.125;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path31823" d="M273 127.3v.7l-.6-.6-.5.5v-.8h-.8l.5-.5-.5-.5h.7v-.6l.4.5.5-.4v.7h.6l-.5.5.6.5z" style="color:#000000;fill:#00ccff;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
   </g>
 </svg>

@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="mouth_shadow">
-  <path
-     d="m 279.7227,155.35979 c 2.43299,0.5543 5.09235,0.2007 5.64438,0.039 -0.27438,0.1176 -0.47036,0.2352 -0.94073,0.3136 0.55352,0.129 1.15099,0.152 1.58929,0.088 -1.05833,0.7447 -3.79975,1.0444 -6.26917,0.4173 0.40977,-0.042 0.7582,-0.1291 0.87776,-0.1913 -0.3024,-0.1738 -0.59154,-0.3937 -0.90153,-0.6663 z"
-     id="path3886-4"
-     style="fill:#e9afaf;stroke:none;display:inline;enable-background:new" />
+<svg xmlns="http://www.w3.org/2000/svg" id="mouth_shadow" width="560" height="560">
+  <path id="path3886-4" d="M279.7 155.4c2.5.5 5 .2 5.7 0l-1 .3c.6 0 1.2.2 1.6 0-1 .8-3.8 1-6.3.5.5 0 .8 0 1-.2-.4 0-.7-.4-1-.6z" style="fill:#e9afaf;stroke:none;display:inline;enable-background:new"/>
 </svg>

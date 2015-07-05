@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="earings_gold_ring_right">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <path
-       d="m 544.53804,136.3756 a 1.584873,1.6458296 0 1 1 -1.15672,1.80478"
-       transform="matrix(-1,0,0,1,811.57554,501.48558)"
-       id="path100731-5"
-       style="color:#000000;fill:none;stroke:#d4aa00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new" />
+<svg xmlns="http://www.w3.org/2000/svg" id="earings_gold_ring_right" width="560" height="560">
+  <g id="layer1">
+    <path id="path100731-5" d="M267 145.5a-1.6 1.6 0 1 1 1.2 1.8" style="color:#000000;fill:none;stroke:#d4aa00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
   </g>
 </svg>

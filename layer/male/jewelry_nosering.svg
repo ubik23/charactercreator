@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="jewelry_nosering">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <path
-       d="m 529.34608,137.85789 a 3.3164661,3.3164661 0 1 1 -4.27275,0.18289"
-       transform="matrix(0.53197093,0,0,0.53197093,0.06626035,555.91149)"
-       id="path46772"
-       style="fill:none;stroke:#b3b3b3;stroke-width:0.93990099;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;display:inline;enable-background:new" />
+<svg xmlns="http://www.w3.org/2000/svg" id="jewelry_nosering" width="560" height="560">
+  <g id="layer1">
+    <path id="path46772" d="M281.7 137a1.8 1.8 0 1 1-2.3 0" style="fill:none;stroke:#b3b3b3;stroke-width:0.93990099;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;display:inline;enable-background:new"/>
   </g>
 </svg>

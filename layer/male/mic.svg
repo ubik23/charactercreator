@@ -1,32 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="mic">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <g
-       transform="translate(-246.26492,491.36218)"
-       id="g18162"
-       style="display:inline;enable-background:new">
-      <path
-         d="m 536.69109,145.77591 c -1.25599,0.48307 -3.3815,0.48307 -3.09165,1.93228 0.28984,1.44921 2.51196,-0.19323 3.18826,-0.77292 0.48307,-0.77291 0.48307,-0.67629 -0.0966,-1.15936 z"
-         id="path18156"
-         style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      <path
-         d="m 536.59447,146.54882 c 6.27992,-2.80181 8.50204,-6.95621 8.30881,-13.91243"
-         id="path18158"
-         style="color:#000000;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      <path
-         d="m 544.42021,129.9312 c 1.73905,-0.6763 2.41535,2.99504 0,3.67133 0.6763,-1.83566 0.77291,-2.8018 0,-3.67133 z"
-         id="path18160"
-         style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="mic" width="560" height="560">
+  <g id="layer1">
+    <g id="g18162" style="display:inline;enable-background:new">
+      <path id="path18156" d="M290.4 144.8c-1.2.5-3.4.5-3 2 .2 1.4 2.4-.3 3-1 .6-.6.6-.5 0-1z" style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+      <path id="path18158" d="M290.3 145.5c6.3-2.8 8.5-7 8.3-14" style="color:#000000;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+      <path id="path18160" d="M298.2 129c1.7-.7 2.4 3 0 3.6.6-1.8.7-2.8 0-3.7z" style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     </g>
   </g>
 </svg>

@@ -1,57 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="pupils_lizard">
-  <metadata
-     id="metadata33430">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs33428" />
-  <g
-     transform="translate(-1.7436975e-7,-1)"
-     id="g33481"
-     style="display:inline;enable-background:new">
-    <path
-       d="m 272.92111,127.79662 c 0,0.26833 -0.24415,1.26962 -0.51247,1.26962 -0.26834,0 -0.51248,-1.00129 -0.51248,-1.26962 0,-0.26833 0.24414,-1.14847 0.51248,-1.14847 0.26832,0 0.51247,0.88014 0.51247,1.14847 z"
-       id="path24514-8-7"
-       style="fill:#000000;stroke:none" />
-    <path
-       d="m 289.19058,127.72708 c 0,0.26833 -0.24414,1.36048 -0.51247,1.36048 -0.26833,0 -0.51248,-1.09215 -0.51248,-1.36048 0,-0.26833 0.24415,-1.08791 0.51248,-1.08791 0.26833,0 0.51247,0.81958 0.51247,1.08791 z"
-       id="path24520-9-3"
-       style="fill:#000000;stroke:none" />
-    <path
-       d="m 289.72421,127.69549 c -0.003,-0.12112 0,-0.26019 -0.0929,-0.33453 -0.0567,-0.0453 -0.26364,0.0261 -0.2509,0.20444 0.009,0.13009 0.0929,0.22302 0.15797,0.26948 0.0651,0.0465 0.18974,0.0205 0.18585,-0.13939 z"
-       id="path17167-4-3"
-       style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 287.85873,127.83488 c 0.0122,-0.0414 -0.002,-0.13474 -0.0302,-0.15333 -0.0279,-0.0186 -0.0888,-0.007 -0.0976,0.0441 -0.004,0.023 0.005,0.12124 0.0279,0.13939 0.0325,0.0256 0.0841,0.0236 0.0999,-0.0302 z"
-       id="path17169-7-6"
-       style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 273.41476,127.69549 c -0.003,-0.12112 0,-0.26019 -0.0929,-0.33453 -0.0567,-0.0453 -0.26364,0.0261 -0.2509,0.20444 0.009,0.13009 0.0929,0.22302 0.15797,0.26948 0.0651,0.0465 0.18974,0.0205 0.18585,-0.13939 z"
-       id="path17167-4-9-9"
-       style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 271.54928,127.83488 c 0.0122,-0.0414 -0.002,-0.13474 -0.0302,-0.15333 -0.0279,-0.0186 -0.0888,-0.007 -0.0976,0.0441 -0.004,0.023 0.005,0.12124 0.0279,0.13939 0.0325,0.0256 0.0841,0.0236 0.0999,-0.0302 z"
-       id="path17169-7-7-3"
-       style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="pupils_lizard" width="560" height="560">
+  <g id="g33481" style="display:inline;enable-background:new">
+    <path id="path24514-8-7" d="M273 126.8c0 .3-.3 1.3-.6 1.3s-.5-1-.5-1.2c0-.3 0-1.2.4-1.2.3 0 .5 1 .5 1.2z" style="fill:#000000;stroke:none"/>
+    <path id="path24520-9-3" d="M289.2 126.7c0 .3-.3 1.4-.5 1.4-.3 0-.5-1-.5-1.3 0-.2.2-1 .5-1 .2 0 .5.8.5 1z" style="fill:#000000;stroke:none"/>
+    <path id="path17167-4-3" d="M289.7 126.7v-.3s-.3 0-.3.2v.2h.3z" style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path17169-7-6" d="M288 126.8h-.2z" style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path17167-4-9-9" d="M273.4 126.7v-.3s-.3 0-.3.2l.2.2h.2z" style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path17169-7-7-3" d="M271.5 126.8z" style="color:#000000;fill:#ffffff;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   </g>
 </svg>

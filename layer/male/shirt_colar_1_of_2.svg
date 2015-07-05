@@ -1,36 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="shirt_colar_1_of_2">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <g
-       transform="translate(-245.5625,491.36218)"
-       id="g294630"
-       style="display:inline;enable-background:new">
-      <path
-         d="m 529.3606,170.59335 c 5.13943,-5.12229 10.29695,-4.47427 11.33015,-18.20572 4.10823,8.66267 -0.93273,21.48338 -0.38096,29.73699 -8.33639,-4.86138 -5.05516,-11.19326 -10.94919,-11.53127 z"
-         id="path32297-4-7"
-         style="color:#000000;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      <path
-         d="m 513.33443,153.00236 c -3.20675,8.40042 2.00998,24.22032 1.92155,29.90238 8.16101,-5.82485 6.4051,-13.02133 10.32624,-12.56627 -4.0508,-5.76097 -11.30107,-2.18792 -12.24779,-17.33611 z"
-         id="path32435-9-2"
-         style="color:#000000;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      <path
-         d="m 541.61595,157.71893 c 0.40692,4.06924 0,12.41119 -2.03463,17.90466 -2.03462,5.49348 -4.88308,-2.44154 -3.66231,-4.2727 1.22077,-1.83116 5.49347,-6.51079 5.69694,-13.63196 z"
-         id="path56812"
-         style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-      <path
-         d="m 512.97918,157.71893 c -0.40692,4.06924 0,12.41119 2.03463,17.90466 2.03462,5.49348 4.88308,-2.44154 3.66231,-4.2727 -1.22077,-1.83116 -5.49347,-6.51079 -5.69694,-13.63196 z"
-         id="path56812-3"
-         style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="shirt_colar_1_of_2" width="560" height="560">
+  <g id="layer1">
+    <g id="g294630" style="display:inline;enable-background:new">
+      <path id="path32297-4-7" d="M283.8 169.6c5-5 10.3-4.5 11.3-18.2 4.2 8.7-.8 21.5-.3 29.7-8.3-4.7-5-11-11-11.4z" style="color:#000000;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+      <path id="path32435-9-2" d="M267.8 152c-3.2 8.4 2 24.2 2 30 8-6 6.3-13 10.2-12.7-4-5.7-11.3-2-12.2-17.3z" style="color:#000000;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+      <path id="path56812" d="M296 156.7c.5 4 0 12.4-2 18-2 5.4-5-2.5-3.6-4.3 1.2-2 5.4-6.6 5.7-13.7z" style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+      <path id="path56812-3" d="M267.4 156.7c-.4 4 0 12.4 2 18 2 5.4 5-2.5 3.7-4.3-1-2-5.4-6.6-5.6-13.7z" style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     </g>
   </g>
 </svg>

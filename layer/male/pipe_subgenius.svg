@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="pipe_subgenius">
-  <g
-     transform="matrix(0.14949878,0,0,0.14950334,199.13581,119.71382)"
-     id="g49787"
-     style="fill:#803300;stroke:#2b1100;stroke-width:0.97546685;display:inline;enable-background:new">
-    <path
-       d="m 524.82274,150.99995 c 0,0 -61.107,81.32945 -67.26167,89.6822 -6.15466,8.35276 -26.98152,18.96849 -38.68644,0 -7.08492,-11.48153 -10.94068,-20.47261 -13.00646,-24.86701 -2.6977,-5.73865 4.3204,-16.49449 12.89609,-22.53023 10.92958,-7.69245 24.41123,-9.22852 27.36673,-3.1589 4.69857,9.6493 7.47352,14.50742 8.35275,17.58475 0.87924,3.07733 2.11846,2.55507 4.39619,0.43962 8.7261,-8.10439 52.65148,-58.75272 52.65148,-58.75272 3.49914,-2.71224 10.12088,-2.75757 13.29133,1.60229 z"
-       id="path2987-1-6"
-       style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:1.67222893;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 511.68858,148.5903 c 0,0 -44.07489,51.4547 -52.80099,59.55909 -2.27773,2.11545 -3.52701,2.63983 -4.40625,-0.4375 -0.76653,-2.68288 -3.05196,-6.92773 -6.71875,-14.3125 -1.01861,3.09386 -2.25704,5.99549 -3.21875,8.125 -4.352,9.63658 -1.84868,6.51643 -2.78125,9.625 -0.93258,3.10857 3.73025,11.49175 5.90625,15.84375 2.17601,4.352 2.16126,22.09539 -8.71875,22.40625 -10.88001,0.31086 -7.83164,-14.71794 -11.8125,-23.625 -1.10533,-2.47314 -5.62913,-5.19421 -9.78125,-4.5625 -2.46312,0.37474 -7.8466,-0.74134 -11.0625,-4.46875 2.14476,4.63132 5.91208,13.10946 12.59375,23.9375 11.70492,18.96849 32.53284,8.35276 38.6875,0 6.15467,-8.35275 67.25,-89.6875 67.25,-89.6875 -3.26567,-4.06484 -8.99561,-4.02702 -13.13651,-2.40284 z m -28.86349,38.49659 c 1.46853,-0.13183 3.01407,0.87118 4.9375,3.84375 -4.66286,12.74515 -18.98189,26.73517 -21.46875,29.84375 -2.48685,3.10857 -8.05593,1.55432 -6.8125,-5.90625 1.24343,-7.46058 17.07728,-23.29439 19.875,-25.78125 1.224,-1.088 2.32656,-1.89747 3.46875,-2 z m -40,0.125 c 0.32654,0.13196 0.61492,0.30448 0.90625,0.46875 -0.29213,-0.16559 -0.5785,-0.33588 -0.90625,-0.46875 z"
-       id="path2987-1-1-6"
-       style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <path
-       d="m 45.006615,343.03653 a 12.366596,24.044954 0 1 1 -24.733193,0 12.366596,24.044954 0 1 1 24.733193,0 z"
-       transform="matrix(0.57173132,0.82044092,-0.82044092,0.57173132,689.29877,-19.99251)"
-       id="path2989-0-9-0"
-       style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:1.67222893;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new" />
-    <path
-       d="m 42.308867,343.03653 a 9.668848,24.044954 0 1 1 -19.337697,0 9.668848,24.044954 0 1 1 19.337697,0 z"
-       transform="matrix(0.3291981,0.47240301,-0.47240301,0.3291981,577.82534,74.56521)"
-       id="path2989-5-6-8"
-       style="color:#000000;fill:#552200;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new" />
-    <path
-       d="m 511.19554,148.75465 c 0,0 -18.68509,22.4897 -35.12045,40.86349 7.37197,-3.20293 13.35859,3.26379 11.65625,10.78125 18.03197,-24.02818 37.09375,-49.40625 37.09375,-49.40625 -4.44529,-6.13005 -10.33757,-3.02828 -13.62955,-2.23849 z"
-       id="path3009-6-5"
-       style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="pipe_subgenius" width="560" height="560">
+  <g id="g49787" style="fill:#803300;stroke:#2b1100;stroke-width:0.97546685;display:inline;enable-background:new">
+    <path id="path2987-1-6" d="M277.6 142.3l-10 13.4c-1 1.2-4 2.8-5.8 0l-2-3.7c-.4-1 .7-2.5 2-3.4 1.6-1 3.6-1.4 4-.5l1.3 2.8c.2.4.4.3.7 0 1.3-1.2 8-8.8 8-8.8.4-.4 1.4-.4 2 .3z" style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:1.67222893;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path2987-1-1-6" d="M275.6 142s-6.6 7.6-8 8.8c-.2.3-.4.4-.5 0 0-.4-.4-1-1-2.2 0 .5-.3 1-.4 1.2-.7 1.5-.3 1-.4 1.5-.2.4.5 1.7 1 2.4.2.6.2 3.3-1.4 3.3-1.7 0-1.2-2.2-1.8-3.5-.2-.4-.8-.8-1.5-.7-.3 0-1 0-1.6-.7.2.8.8 2 1.8 3.7 1.7 2.8 4.8 1.2 5.7 0l10-13.4c-.4-.6-1.2-.6-2-.4zm-4.3 5.7c.2 0 .5 0 .8.6-.6 2-2.8 4-3.2 4.4-.3.5-1.2.3-1-1 .2-1 2.6-3.3 3-3.7.2-.2.3-.3.5-.3zm-6 0h0z" style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
+    <path id="path2989-0-9-0" d="M263.8 151.4a1.8 3.6 55.4 1 1-2-3 1.8 3.6 55.4 1 1 2 3z" style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:1.67222893;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
+    <path id="path2989-5-6-8" d="M263.2 150.7a.8 2 55.4 1 1-1-1.4.8 2 55.4 1 1 1 1.4z" style="color:#000000;fill:#552200;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
+    <path id="path3009-6-5" d="M275.6 142l-5.3 6c1-.4 2 .6 1.8 1.7l5.6-7.4c-.7-1-1.5-.5-2-.3z" style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   </g>
 </svg>

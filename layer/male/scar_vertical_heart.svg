@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="scar_vertical_heart">
-  <g
-     transform="translate(0,-492.36218)"
-     id="layer1">
-    <path
-       d="m 279.69994,689.89302 c 0.18042,0.79804 0.18533,2.16978 0.13967,3.1661 0.0965,1.35968 0.19866,2.65173 0.11677,3.25774 0.0479,1.41209 -0.0828,3.96939 0.17209,5.86546 0.1422,1.05773 -0.9988,3.96281 0.47155,3.97147 1.97551,0.0116 0.74755,-2.50592 0.54247,-4.02994 -0.23191,-1.72342 0.0712,-4.16949 0.0463,-5.545 0.0202,-1.12683 0.0182,-3.15247 -0.0624,-3.62162 0.0999,-0.82702 0.10298,-1.92878 0.0951,-2.84875 l 0.26673,-5.38413 c 0.11556,-1.03865 0.0327,-1.90282 0.0599,-3.10832 0.33594,-2.24978 0.39731,-4.25413 0.64577,-6.29057 0.15006,-1.22996 2.10853,-3.37693 -0.45013,-3.3667 -2.13771,0.009 -0.74255,2.20449 -0.74255,3.17309 0,2.06557 -0.40287,4.51483 -0.72918,6.38689 0.0957,0.9178 -0.25556,2.62829 -0.23898,3.03151 z"
-       id="path229622-3-6"
-       style="color:#000000;fill:#de8787;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="scar_vertical_heart" width="560" height="560">
+  <g id="layer1">
+    <path id="path229622-3-6" d="M279.7 197.5c.2.8.2 2.2 0 3.2l.3 3.3v5.8c.3 1-1 4 .6 4 2 0 .7-2.5.5-4l.2-5.6v-3.6-3l.3-5.2v-3c.4-2.4.4-4.4.7-6.4 0-1.3 2-3.4-.5-3.4-2 0-.7 2.2-.7 3.2 0 2-.4 4.5-.7 6.4l-.3 3z" style="color:#000000;fill:#de8787;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   </g>
 </svg>

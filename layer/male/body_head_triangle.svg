@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="body_head_triangle">
-  <path
-     d="m 265.47494,135.20868 c 0.69273,2.90945 1.36991,7.17352 2.33972,8.55897 0.96982,1.38546 5.4763,6.6091 7.73117,8.50425 4.5138,3.79371 7.99074,3.79816 11.55223,-0.14027 1.71344,-1.8948 5.59652,-5.7898 7.06578,-8.42388 2.33108,-4.17915 2.75659,-6.87796 3.29561,-9.40206 0.40197,-1.8823 1.07594,-7.43533 0.52178,-10.76041 0.27709,-3.87926 1.06448,-23.30983 -16.43334,-23.30983 -17.51042,0 -18.53431,16.51473 -17.15898,24.44209 0.0484,2.94839 0.34717,7.43198 1.08603,10.53114 z"
-     id="path3018-99"
-     style="color:#000000;fill:#ffd5d5;fill-opacity:1;stroke:#de8787;stroke-width:1.04492927;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+<svg xmlns="http://www.w3.org/2000/svg" id="body_head_triangle" width="560" height="560">
+  <path id="path3018-99" d="M265.5 135.2c.7 3 1.3 7.2 2.3 8.6 1 1.4 5.5 6.6 7.7 8.5 4.6 3.8 8 3.8 11.6-.2 1.8-1.8 5.7-5.7 7.2-8.3 2.3-4.2 2.7-7 3.3-9.4.4-2 1-7.4.5-10.8.3-3.8 1-23.3-16.5-23.3s-18.5 16.6-17 24.5c0 3 .2 7.4 1 10.5z" style="color:#000000;fill:#ffd5d5;fill-opacity:1;stroke:#de8787;stroke-width:1.04492927;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
 </svg>

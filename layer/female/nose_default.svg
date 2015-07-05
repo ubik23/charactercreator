@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="560"
-   height="560"
-   id="nose_default">
-  <path
-     d="m 279.72142,147.00119 c -0.82314,0.7055 -0.82332,0.68555 -0.36885,1.58241 0.3568,0.70411 1.40075,0.81389 1.66365,0.0735 -0.23281,0.1243 -0.93955,0.19109 -0.86116,-0.20091 0.0784,-0.392 1.76942,-0.0398 1.76942,0.25871 0,0.2329 0.019,0.9221 0.70596,0.9221 0.64536,0 0.74237,-0.424 0.74237,-0.9455 0,-0.28155 0.75301,-0.39715 0.97517,-0.4264 1.26541,-0.16661 1.53541,0.3389 0.27438,0.4704 0.34026,0.7184 1.35217,0.4139 1.62854,-0.52 0.16548,-0.5591 0.22492,-1.3944 -0.49183,-2.263"
-     id="path3072"
-     style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline;enable-background:new" />
-  <path
-     d="m 284.08831,147.41254 c 0.4948,-0.4948 0.18556,-1.17515 -0.18554,-1.7318 -0.37109,-0.55665 0.12371,-2.41215 -0.24741,-3.2162 1.23702,1.1133 1.17516,2.3503 1.79365,3.03065 0.61851,0.68035 1.4844,1.7318 1.3607,2.53585 -0.12369,0.80404 -0.98958,0.92774 -1.60809,0.98959 0.92775,-0.68035 1.8555,-1.54624 -0.24739,-3.15434 0.55663,0.6185 0.61848,1.1133 0.49478,1.237 -0.12368,0.1237 -0.74219,0 -1.3607,0.30925 z"
-     id="path3297-7-3-8"
-     style="fill:#f4c1c1;fill-opacity:1;fill-rule:evenodd;stroke:none;display:inline;enable-background:new" />
+<svg xmlns="http://www.w3.org/2000/svg" id="nose_default" width="560" height="560">
+  <path id="path3072" d="M279.7 147c-.8.7-.8.7-.3 1.6.3.7 1.4.8 1.6 0-.2.2-1 .2-.8 0 0-.5 1.7-.2 1.7 0 0 .3 0 1 .6 1 .7 0 .8-.4.8-1 0-.2.7-.3 1-.3 1.2-.2 1.5.3.2.4.4.8 1.4.4 1.7-.5 0-.5.2-1.4-.5-2.2" style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline;enable-background:new"/>
+  <path id="path3297-7-3-8" d="M284 147.4c.6-.5.3-1.2 0-1.7-.5-.6 0-2.4-.3-3.2 1.2 1 1 2.3 1.7 3 .7.7 1.5 1.7 1.4 2.5 0 .8-1 1-1.6 1 1-.7 2-1.5-.2-3 .5.5.6 1 .4 1 0 .2-.7 0-1.3.4z" style="fill:#f4c1c1;fill-opacity:1;fill-rule:evenodd;stroke:none;display:inline;enable-background:new"/>
 </svg>
