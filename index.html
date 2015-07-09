@@ -140,7 +140,7 @@ var femaleForm2 = {
 'Face': ['neutral'],
 'Horns': ['', 'devil'],
 'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
-'Makeup': ['', 'gothic_eyeliner'],
+'Makeup': ['', 'frekles', 'gothic_eyeliner', 'warpaint'],
 'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
 'Eyepatch': ['', 'left', 'right'],
 'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
@@ -151,10 +151,14 @@ var femaleForm3 = {
 'Necklace' : ['', 'perl', 'princess'],
 'Dress': ['','casual','corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
 'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape'],
+'Coat' : ['', 'winter_furcollar'],
 'Shorts' : ['', 'short'],
 'Bra': ['', 'bow'],
-'Leggings': ['', 'regular'],
 'Bracelet' : ['','rings'],
+'Shoulderpads' : ['', 'artillery', 'general'],
+'Belt' : ['','utility'],
+'Pants' : ['','yoga', 'jeans'],
+'Leggings': ['', 'regular'],
 'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
 };
 var layersFemale = [
@@ -172,6 +176,7 @@ var layersFemale = [
 'pet_gerbil',
 'pet_chicken',
 'pet_fox',
+'coat_winter_furcollar_3_of_3',
 'hair_down_3_of_3',
 'hair_manga_2_of_2',
 'body_athletic',
@@ -189,6 +194,8 @@ var layersFemale = [
 'shoes_plateforms',
 'shoes_sandals_roman',
 'bra_bow',
+'pants_yoga',
+'pants_jeans',
 'shorts_short',
 'dress_casual',
 'dress_corset',
@@ -199,6 +206,8 @@ var layersFemale = [
 'dress_japanese_pleat',
 'dress_german_expression',
 'dress_parisian_fall',
+'coat_winter_furcollar_2_of_3',
+'shoulderpads_general',
 'scarf_parisian_knot',
 'scarf_twice_around',
 'scarf_four_in_hand',
@@ -209,6 +218,8 @@ var layersFemale = [
 'scarf_overhand',
 'scarf_once_around',
 'scarf_drape',
+'shoulderpads_artillery',
+'belt_utility',
 'hair_down_2_of_3',
 'body_head_default',
 'body_head_square',
@@ -232,6 +243,8 @@ var layersFemale = [
 'earings_gold_ring_right',
 'earings_death_drop',
 'sockets_neutral',
+'makeup_frekles',
+'makeup_warpaint',
 'makeup_gothic_eyeliner',
 'eyes_neutral',
 'iris_neutral',
@@ -281,9 +294,10 @@ var layersFemale = [
 'mask_stormtrooper',
 'mask_jason',
 'mask_cat',
-'horns_devil'
+'horns_devil',
+'coat_winter_furcollar_1_of_3'
 ];
-var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2]];
+var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
 var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
 var layersMale = [
 'pet_doge',
@@ -352,7 +366,6 @@ var layersMale = [
 'gloves_motorcycle',
 'jacket_suit',
 'coat_lab',
-'belt_utility',
 'coat_trench_1_of_2',
 'shoulderpads_general',
 'scarf_parisian_knot',
@@ -367,6 +380,7 @@ var layersMale = [
 'scarf_once_around',
 'scarf_drape',
 'shoulderpads_artillery',
+'belt_utility',
 'scar_horizontal_nose',
 'scar_vertical_left',
 'scar_vertical_right',
@@ -435,7 +449,7 @@ var layersMale = [
 'mask_cat',
 'horns_devil',
 'pipe_subgenius',
-'mic'
+'mic',
 ];
 var size = function(obj) {
     var size = 0, key;

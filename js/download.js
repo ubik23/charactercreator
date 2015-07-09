@@ -20,7 +20,6 @@ function download(filename = 'my_character.svg') {
                     };
                     text += svgString;
                 } else {
-                    console.log(item);
                 };
             } else {
             };
