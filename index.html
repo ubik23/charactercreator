@@ -104,7 +104,8 @@ var maleForm2 = {
 'Hat': ['','baseball','berret', 'cap', 'cowboy', 'fedora', 'top', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
 'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
 'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
-'Eyepatch': ['', 'left', 'right']
+'Eyepatch': ['', 'left', 'right'],
+'Earpiece': ['', 'microphone']
 };
 var maleForm3 = {
 'Suit': ['', 'wetsuit'],
@@ -144,8 +145,9 @@ var femaleForm2 = {
 'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
 'Eyepatch': ['', 'left', 'right'],
 'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
-'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte'],
-'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat']
+'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'tuque', 'cap'],
+'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
+'Earpiece': ['', 'microphone']
 };
 var femaleForm3 = {
 'Necklace' : ['', 'perl', 'princess'],
@@ -285,6 +287,8 @@ var layersFemale = [
 'hat_magritte',
 'hat_strainer_1_of_2',
 'hat_helmet_vietnam_1_of_2',
+'hat_tuque',
+'hat_cap',
 'body_hand',
 'nails_short',
 'nails_long',
@@ -296,7 +300,8 @@ var layersFemale = [
 'horns_devil',
 'coat_winter_furcollar_1_of_3',
 'shoulderpads_artillery',
-'belt_utility'
+'belt_utility',
+'earpiece_microphone'
 ];
 var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
 var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
@@ -450,7 +455,7 @@ var layersMale = [
 'mask_cat',
 'horns_devil',
 'pipe_subgenius',
-'mic',
+'earpiece_microphone'
 ];
 var size = function(obj) {
     var size = 0, key;
