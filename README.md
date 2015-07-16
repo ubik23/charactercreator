@@ -1,3 +1,11 @@
+TODO:
+
+-Add option to choose from a range of emotions
+-Fix the downloading in chrome (switch to blobs)
+-Add a slider to turn the character's heads.
+
+---
+
 How to Optimize SVGs using SVGOMG
 
 https://jakearchibald.github.io/svgomg/
