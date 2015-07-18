@@ -255,7 +255,9 @@ function Character(fullName, sex, emotion, choices, birthday){
 
 function choicesToLayers(c){
     var selectedLayers = []
+    console.log('Present emotion: ', c.emotion);
     var emotionLayers = fromEmotionGetLayers(c.emotion);
+    console.log('Emotion layers: ', emotionLayers);
     for (var e in emotionLayers) {
         selectedLayers.push(emotionLayers[e]);
     };
@@ -288,7 +290,8 @@ function choicesToLayers(c){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes']
+    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
+    faceElements = ['brows'];
     for (e in faceElements) {
         modElement = faceElements[e] + '_' + emotion;
         facialEpressionLayers.push(modElement);
