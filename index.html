@@ -141,7 +141,6 @@ var femaleForm2 = {
 'Lips' : ['default', 'thin', 'luscious'],
 'Pipe' : ['', 'subgenius'],
 'Nose' : ['default'],
-'Face': ['neutral'],
 'Horns': ['', 'devil'],
 'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
 'Makeup': ['', 'frekles', 'gothic_eyeliner', 'warpaint'],
@@ -218,6 +217,7 @@ var layersFemale = [
 'belt_utility',
 'earpiece_microphone'
 ];
+<!--TODO: Multi-layer elements should be detected, not dictated.-->
 var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
 var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
 var layersMale = [
@@ -283,6 +283,7 @@ var size = function(obj) {
     }
     return size;
 };
+<!--TODO: Following layers should be detected from prefix, not dictated.-->
 var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
 var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 'ears_default', 'ears_pointed', 'nose_default', 'nose_pointed', 'nose_strong', 'mouth_shadow', 'face_neutral', 'age_lines', 'sockets_neutral', 'lips_default', 'lips_thin', 'lips_luscious'];
 var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'brows_neutral', 'eyelashes_neutral' ];
@@ -310,11 +311,10 @@ if (sex ==='m') {
     var layers = layersFemale;
     var multiLayer = multiLayerFemale;
 }
-
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
 parseHash();  //Hashed elements are added in the character object
-
+var toBeShown = choicesToLayers(c);
 var viewport = Snap("#svg1");
 var viewportFace = Snap("#lg_face");
 var viewportTorso = Snap("#lg_torso");

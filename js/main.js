@@ -33,7 +33,7 @@ function parseHash(){
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
-            hashData = hash.get(section);
+            var hashData = hash.get(section);
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 // Add the key/value pair to c.choices here
@@ -42,7 +42,7 @@ function parseHash(){
             };
             if (id in skinLayers || section ==='body'){ section = 'skin'}
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
-            hashColor = hash.get(section+'Color');
+            var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){
                 modCharacter(section+'Color', hashColor);
@@ -53,7 +53,6 @@ function parseHash(){
 };
 
 function applyColor(id, newColor, optLayer){
-
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
@@ -165,31 +164,36 @@ function show(context){  // Draw the SVG on screen
     var selectedOption = context.value;
     var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
     var section = context.className;
+    console.log('Section: ',section);
+    if (section === 'emotion'){
+        console.log('EMOTION!!!!');
+        fromEmotionGetLayers()
+    };
     options.forEach(function(d, i){
         var id = '#'+section+'_'+d;
         if(d === selectedOption){
-        for (lyr in multiLayer){
-            if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
-                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    viewport.selectAll(idOf).attr({opacity:1});
-                    viewportFace.selectAll(idOf).attr({opacity:1});
-                    viewportTorso.selectAll(idOf).attr({opacity:1});
-                    viewportBody.selectAll(idOf).attr({opacity:1});
-                    viewportFull.selectAll(idOf).attr({opacity:1});
+            for (lyr in multiLayer){
+                if (id.slice(1) == multiLayer[lyr][0]){
+                    for (var i=1;i<=multiLayer[lyr][1];i++){
+                        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                        viewport.selectAll(idOf).attr({opacity:1});
+                        viewportFace.selectAll(idOf).attr({opacity:1});
+                        viewportTorso.selectAll(idOf).attr({opacity:1});
+                        viewportBody.selectAll(idOf).attr({opacity:1});
+                        viewportFull.selectAll(idOf).attr({opacity:1});
+                    }
                 }
-            }
-            else {
-                viewport.selectAll(id).attr({opacity:1});
-                viewportFace.selectAll(id).attr({opacity:1});
-                viewportTorso.selectAll(id).attr({opacity:1});
-                viewportBody.selectAll(id).attr({opacity:1});
-                viewportFull.selectAll(id).attr({opacity:1});
-            }
+                else {
+                    viewport.selectAll(id).attr({opacity:1});
+                    viewportFace.selectAll(id).attr({opacity:1});
+                    viewportTorso.selectAll(id).attr({opacity:1});
+                    viewportBody.selectAll(id).attr({opacity:1});
+                    viewportFull.selectAll(id).attr({opacity:1});
+                }
         };
         var obj = new Array();
         obj[section] = selectedOption;
-            hash.add(obj);
+        hash.add(obj);
         modCharacter(section, selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         }
@@ -254,19 +258,16 @@ function Character(fullName, sex, emotion, choices, birthday){
 };
 
 function choicesToLayers(c){
-    var selectedLayers = []
-    console.log('Present emotion: ', c.emotion);
-    var emotionLayers = fromEmotionGetLayers(c.emotion);
-    console.log('Emotion layers: ', emotionLayers);
+    var selectedLayers = [];
+    var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
+    var choiceLayers = [];
     for (var e in emotionLayers) {
         selectedLayers.push(emotionLayers[e]);
     };
-    var choiceLayers = [];
     //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
       choiceLayers.push( index + "_" + c.choices[index]);
     }
-
     for (var cl in choiceLayers) {
         for (lyr in multiLayer){
             if (choiceLayers[cl] == multiLayer[lyr][0]){
@@ -276,16 +277,25 @@ function choicesToLayers(c){
                 }
             }
             else {
+                if (isInArray(choiceLayers[cl], selectedLayers)===false){
                 selectedLayers.push(choiceLayers[cl]);
+                }
             }
         };
-        selectedLayers.push(choiceLayers[cl]);
+        //selectedLayers.push(choiceLayers[cl]);
     };
+    //TODO: Get rid of exceptions like the following and establish rules to catch them.
     if (c.sex === 'f'){
         selectedLayers.push('body_hand');
     };
+    console.log('Selected layers: ', selectedLayers);
     return selectedLayers;
 };
+
+function isInArray(value, array) {
+       return array.indexOf(value) > -1;
+
+}
 
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];

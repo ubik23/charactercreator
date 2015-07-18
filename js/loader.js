@@ -35,7 +35,6 @@ function onAllLoaded() {
 function onEachLoaded( frag, fileName ) {
     var colorThis = false;
     var myLayer = fileName;
-    var toBeShown = choicesToLayers(c);
 
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
         var seen = 1;
@@ -53,8 +52,6 @@ function onEachLoaded( frag, fileName ) {
     // Get a list
     //Check to see if the Color suffix is available for each toBeShown
     // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
-    <!--console.log('myLayer.split("/")[2].split(".")[0] : ', myLayer.split("/")[2].split(".")[0]);-->
-    <!--console.log('colorThis : ', colorThis);-->
     if (colorThis === true){
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }

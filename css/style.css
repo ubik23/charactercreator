@@ -104,7 +104,7 @@ body {
 
 @font-face {
 	font-family: "SF Wonder Comic";
-	src: url("fonts/SF_Wonder_Comic.ttf");
+	src: url("../fonts/SF_Wonder_Comic.ttf");
 	font-style: normal;
 	font-weight: 200;
 }
