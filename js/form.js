@@ -1,6 +1,6 @@
 
 function createForm(sex){
-    var forms = [form1, form2, form3, form4];
+    var forms = [form1, form2, form3];
     for (var f in forms){
         var formContainer = $('#content_'+(Number(f)+1));
         //form.head, form.body, form.clothing, form.accessories...

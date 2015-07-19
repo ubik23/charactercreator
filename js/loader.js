@@ -89,20 +89,14 @@ function choicesToLayers(c){
     if (c.sex === 'f'){
         selectedLayers.push('body_hand');
     };
-    console.log('Selected layers: ', selectedLayers);
     return selectedLayers;
 };
-
-function isInArray(value, array) {
-       return array.indexOf(value) > -1;
-
-}
 
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows'];
+    faceElements = ['brows', 'eyes'];
     for (e in faceElements) {
         modElement = faceElements[e] + '_' + emotion;
         facialEpressionLayers.push(modElement);

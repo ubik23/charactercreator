@@ -12,6 +12,10 @@ $(document).ready(function() {
     createCharacter();
 });
 
+function isInArray(value, array) {
+       return array.indexOf(value) > -1;
+}
+
 function birth(){
     var sexes = ["m", "f"];
     var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
@@ -20,23 +24,50 @@ function birth(){
     return sex
 }
 
+function trans(sex){
+    hash.add({ sex: sex });
+    location.reload();
+}
+
+function Character(fullName, sex, emotion, choices, birthday){
+    this.fullName = fullName || '';
+    this.sex = sex || birth();;
+    //this.emotion = emotion || 'neutral';
+
+    this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
+    hash.add({ skinColor: this.skinTone });
+    //hash.add({ emotion: 'neutral' });
+    this.choices = choices || {
+        emotion : emotion||'neutral',
+        body : 'athletic', // Or a random body shape eventually
+        body_head : 'default', //Or random from list
+        ears : 'default', // or rand
+        nose : 'default', // Or random
+        lips : 'default', //or rand
+        skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
+        hairColor : '#ffe680', // Or random from list of hair colors',
+        irisColor : '#2ad4ff', // Or some random eye color
+        underwear : 'plain', // or random, whatever.
+        underwearColor : '#f2f2f2', // Or random from a list of fabrics',
+    };
+    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
+};
+
 function modCharacter(myKey, myValue){
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];
     };
-
     // If there, modify the value
     //if not, add it in, with the value
     //if the value is '', then delete the key from the object,
-
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
 };
 
 function createCharacter(){
-    document.getElementById( sex+"Button").checked=true;
+    document.getElementById(sex+"Button").checked=true;
     //Draw the essential stuff
     //Draw stuff from the hash
     var forms = [form1, form2, form3];
@@ -45,6 +76,7 @@ function createCharacter(){
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
             var xsel = hash.get(t);
+            console.log('Creating: ',t, xsel);
             if (xsel !== undefined) {
                 var id = '#' + t +'_'+xsel
                 for (lyr in multiLayer){
@@ -68,27 +100,24 @@ function show(context){  // Draw the SVG on screen
     var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
     var sections = [context.className];
     if (sections[0] === 'emotion'){
-        console.log('EMOTION!!!!');
-        console.log('Emo layers: ', fromEmotionGetLayers(context.value));
-        sections = [];
+        var obj = new Array();
+        var id = '#'+sections[0]+'_'+selectedOption;
+        obj[sections[0]] = selectedOption;
+        hash.add(obj);
+        modCharacter(sections[0], selectedOption);
+        ga('send', 'event', 'menu', 'select', id);
+        sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = fromEmotionGetLayers(context.value);
         for (emo in emotions){
-            console.log('emo: ', emotions[emo]);
-            console.log('emo section: ', emotions[emo].split('_')[0]);
-            sections.push(emotions[emo].split('_')[0]);
+            var newEmo = emotions[emo].split('_')[0];
+            console.log('New Emo: ',newEmo);
+            sections.push(newEmo);
         }
     };
-    console.log('Sections: ',sections);
-    console.log('Context.value ', context.value);
-    console.log('Options: ', options);
-    console.log('Selected option: ', selectedOption);
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
-            console.log('d: ', d);
-            //console.log(selectedOptions);
             if(d === selectedOption){
-                console.log('d is selectedOption');
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -101,7 +130,7 @@ function show(context){  // Draw the SVG on screen
                         }
                     }
                     else {
-                        console.log('showing: ',id);
+                        console.log('SHOWING: ', id);
                         viewport.selectAll(id).attr({opacity:1});
                         viewportFace.selectAll(id).attr({opacity:1});
                         viewportTorso.selectAll(id).attr({opacity:1});
@@ -109,14 +138,18 @@ function show(context){  // Draw the SVG on screen
                         viewportFull.selectAll(id).attr({opacity:1});
                     }
             };
-            var obj = new Array();
-            obj[sections[section]] = selectedOption;
-            hash.add(obj);
-            modCharacter(sections[section], selectedOption);
-            ga('send', 'event', 'menu', 'select', id);
+            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'){
+                modCharacter(sections[section], selectedOption);
+            } else {
+                var obj = new Array();
+                obj[sections[section]] = selectedOption;
+                hash.add(obj);
+                modCharacter(sections[section], selectedOption);
+                ga('send', 'event', 'menu', 'select', id);
+
+            }
             }
             else {
-                console.log('else...');
             for (lyr in multiLayer){
                 if (id.slice(1) == multiLayer[lyr][0]){
                     for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -142,31 +175,5 @@ function show(context){  // Draw the SVG on screen
     };
 }
 
-function trans(sex){
-    hash.add({ sex: sex });
-    location.reload();
-}
 
-
-function Character(fullName, sex, emotion, choices, birthday){
-    this.fullName = fullName || '';
-    this.sex = sex || birth();;
-    this.emotion = emotion || 'neutral';
-
-    this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
-    hash.add({ skinColor: this.skinTone });
-    this.choices = choices || {
-        body : 'athletic', // Or a random body shape eventually
-        body_head : 'default', //Or random from list
-        ears : 'default', // or rand
-        nose : 'default', // Or random
-        lips : 'default', //or rand
-        skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
-        hairColor : '#ffe680', // Or random from list of hair colors',
-        irisColor : '#2ad4ff', // Or some random eye color
-        underwear : 'plain', // or random, whatever.
-        underwearColor : '#f2f2f2', // Or random from a list of fabrics',
-    };
-    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
-};
 
