@@ -81,8 +81,8 @@ body {
 
 #header {
 	padding-left: 1%;
-	padding-top: 0.25%;
-	padding-bottom: 0.25%;
+	padding-top: 0.4%;
+	padding-bottom: 0.1%;
 	background-color: #e35a4e;
 	color: #fff;
 	position: fixed;
@@ -120,7 +120,7 @@ sub {
 } 
 
 h1 {
-	font-family: "SF Wonder Comic";
+	font-family: "Helvetica";
 	text-align:left;
 	font-size: 5vh;
 	padding-bottom: 2px;
