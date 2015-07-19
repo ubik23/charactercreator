@@ -171,3 +171,82 @@ function test(_context, _color){
         }
     }
 }
+
+function applyColor(id, newColor, optLayer){
+    fullId = '#' + id;
+    ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
+    if (optLayer != null){
+        var optPaths = optLayer.selectAll('path')
+
+        for (p in optPaths) {
+
+            if ( typeof optPaths[p].attr === 'function'){
+                var pathId = optPaths[p].attr("id")
+                var pathStyle = optLayer.select('#'+ pathId).attr("style");
+
+                // Parse the style in a json object
+                // Identify if the path is a shape or a shadow
+                // apply newStyle if applicable
+
+                var styles = pathStyle.split(';'),
+                i= styles.length,
+                json = {style: {}},
+                style, k, v;
+
+                while (i--){
+                    style = styles[i].split(':');
+                    k = $.trim(style[0]);
+                    v = $.trim(style[1]);
+                    if (k.length > 0 && v.length > 0){
+                        json.style[k] = v;
+                    }
+                }
+
+                // Query the style to determine if shape or shadow
+                // Change the color
+
+                newStyle = json.style;
+                var replacement = '';
+                for (n in Object.keys(newStyle)){
+                    var currentKey = Object.keys(newStyle)[n]
+                    if (currentKey === 'fill'){
+                        if (newStyle[currentKey] != 'none'){
+                            if (json.style["stroke-width"] === undefined){
+                                var currentValue = ColorLuminance(newColor, -0.12);
+                            }
+                            else {
+                                var currentValue = '#'+ newColor;
+                            }
+                        }
+                        else {
+                            var currentValue = newStyle[currentKey];
+                        }
+                    }
+                    else if (currentKey === 'stroke'){
+                        if (newStyle[currentKey] != 'none'){
+                            if (json.style["stroke-width"] != undefined){
+                                var currentValue = ColorLuminance(newColor, -0.2);
+                            }
+                        }
+                        else {
+                            var currentValue = newStyle[currentKey];
+                        }
+                    }
+
+                    else {
+                        var currentValue = newStyle[currentKey];
+                    }
+
+                    var keyVal = 	currentKey + ': ' + currentValue + '; '
+                    replacement = replacement.concat(keyVal);
+                }
+                optLayer.selectAll('#'+pathId).attr({style: replacement});
+                newStroke = shadeColor(newColor, -25);
+                if (json.style["stroke-width"] === undefined){
+                    //newColor = shadeColor(newColor, -25)
+                }
+
+            }
+        }
+    }
+}

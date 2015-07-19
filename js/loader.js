@@ -57,3 +57,55 @@ function onEachLoaded( frag, fileName ) {
     }
     frag.select("*").attr({ opacity: seen });
 }
+
+function choicesToLayers(c){
+    var selectedLayers = [];
+    var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
+    var choiceLayers = [];
+    for (var e in emotionLayers) {
+        selectedLayers.push(emotionLayers[e]);
+    };
+    //for each key in c.choices, get the value and build a layerName
+    for(var index in c.choices) {
+      choiceLayers.push( index + "_" + c.choices[index]);
+    }
+    for (var cl in choiceLayers) {
+        for (lyr in multiLayer){
+            if (choiceLayers[cl] == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
+                    selectedLayers.push(idOf);
+                }
+            }
+            else {
+                if (isInArray(choiceLayers[cl], selectedLayers)===false){
+                selectedLayers.push(choiceLayers[cl]);
+                }
+            }
+        };
+        //selectedLayers.push(choiceLayers[cl]);
+    };
+    //TODO: Get rid of exceptions like the following and establish rules to catch them.
+    if (c.sex === 'f'){
+        selectedLayers.push('body_hand');
+    };
+    console.log('Selected layers: ', selectedLayers);
+    return selectedLayers;
+};
+
+function isInArray(value, array) {
+       return array.indexOf(value) > -1;
+
+}
+
+function fromEmotionGetLayers(emotion) {
+    var facialEpressionLayers = [];
+    var modElement = '';
+    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
+    faceElements = ['brows'];
+    for (e in faceElements) {
+        modElement = faceElements[e] + '_' + emotion;
+        facialEpressionLayers.push(modElement);
+    };
+    return facialEpressionLayers;
+};
