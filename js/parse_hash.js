@@ -15,6 +15,8 @@ function parseHash(){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
+            }else if(section === 'brows') {
+                modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body'){ section = 'skin'}
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
