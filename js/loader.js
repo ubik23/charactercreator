@@ -96,8 +96,15 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils'];
     for (e in faceElements) {
+        if (faceElements[e] === 'pupils'){
+            var pupils = hash.get('pupils');
+            if (pupils == undefined){
+                pupils = 'human';
+            }
+             faceElements[e] += pupils;
+        }
         modElement = faceElements[e] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     };
