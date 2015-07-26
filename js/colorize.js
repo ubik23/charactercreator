@@ -182,12 +182,16 @@ function applyColor(id, newColor, optLayer){
 
             if ( typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
+                console.log('FullId: ', fullId);
+                console.log('PathId: ', pathId);
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
 
+                if (pathStyle == undefined) {
+                    console.log('Undefined: ', pathId);
+                }
                 // Parse the style in a json object
                 // Identify if the path is a shape or a shadow
                 // apply newStyle if applicable
-
                 var styles = pathStyle.split(';'),
                 i= styles.length,
                 json = {style: {}},

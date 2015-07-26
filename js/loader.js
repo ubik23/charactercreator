@@ -103,7 +103,7 @@ function fromEmotionGetLayers(emotion) {
             if (pupils == undefined){
                 pupils = 'human';
             }
-             faceElements[e] += pupils;
+             faceElements[e] += '_' + pupils;
         }
         modElement = faceElements[e] + '_' + emotion;
         facialEpressionLayers.push(modElement);

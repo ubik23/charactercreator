@@ -76,7 +76,6 @@ function createCharacter(){
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
             var xsel = hash.get(t);
-            console.log('Creating: ',t, xsel);
             if (xsel !== undefined) {
                 var id = '#' + t +'_'+xsel
                 for (lyr in multiLayer){
