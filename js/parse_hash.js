@@ -3,8 +3,8 @@ function parseHash(){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
         //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
-        'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage'],
-        'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage'],
+        'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain'],
+        'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain'],
     };
     var forms = [form1, form2, form3, face];
     //get the pupils from form1 and append the emotions,

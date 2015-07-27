@@ -13,7 +13,7 @@ function download(filename = 'my_character.svg') {
             if (item.style != undefined){
                 //This removes only useless layers and allows us to o the next test.
                 if (item.style.opacity != 0){
-                    //console.log( item);
+                    console.log( item);
                     var svgString = item.innerHTML;
                     if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
                         svgString = svgString.slice(0, -43);
