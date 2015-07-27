@@ -94,22 +94,48 @@ function createCharacter(){
     };
 };
 
+function GetEmotionGetLayers() {
+    var facialExpressionLayers = [];
+    var modElement = '';
+    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils'];
+    for (e in faceElements) {
+        if (faceElements[e] === 'pupils'){
+            var pupils = hash.get('pupils');
+            if (pupils === undefined){
+                pupils = 'human';
+            }
+             faceElements[e] += '_' + pupils;
+        }
+        var eLayer = faceElements[e]
+        facialExpressionLayers.push(eLayer);
+    };
+    console.log('facialExpressionLayers: ', facialExpressionLayers);
+    return facialExpressionLayers;
+};
+
 function show(context){  // Draw the SVG on screen
     var selectedOption = context.value;
     var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
     var sections = [context.className];
+    var obj = new Array();
+    var id = '#'+sections[0]+'_'+selectedOption;
+    obj[sections[0]] = selectedOption;
+    hash.add(obj);
+    if (sections[0] === "pupils") {
+        sections[0] += "_" + selectedOption;
+        selectedOption = hash.get('emotion');
+        if (selectedOption == undefined){
+            selectedOption = 'neutral';
+        };
+    }
     if (sections[0] === 'emotion'){
-        var obj = new Array();
-        var id = '#'+sections[0]+'_'+selectedOption;
-        obj[sections[0]] = selectedOption;
-        hash.add(obj);
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-        var emotions = fromEmotionGetLayers(context.value);
+        var emotions = GetEmotionGetLayers(context.value);
         for (emo in emotions){
-            var newEmo = emotions[emo].split('_')[0];
-            console.log('New Emo: ',newEmo);
+            var newEmo = emotions[emo];
             sections.push(newEmo);
         }
     };
@@ -117,6 +143,7 @@ function show(context){  // Draw the SVG on screen
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
+                console.log('id: ', id )
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -129,7 +156,6 @@ function show(context){  // Draw the SVG on screen
                         }
                     }
                     else {
-                        console.log('SHOWING: ', id);
                         viewport.selectAll(id).attr({opacity:1});
                         viewportFace.selectAll(id).attr({opacity:1});
                         viewportTorso.selectAll(id).attr({opacity:1});

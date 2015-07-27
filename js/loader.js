@@ -100,7 +100,7 @@ function fromEmotionGetLayers(emotion) {
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');
-            if (pupils == undefined){
+            if (pupils === undefined){
                 pupils = 'human';
             }
              faceElements[e] += '_' + pupils;

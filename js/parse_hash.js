@@ -8,31 +8,27 @@ function parseHash(){
     };
     var forms = [form1, form2, form3, face];
     //get the pupils from form1 and append the emotions,
-    console.log('Forms: ', forms);
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'){
+                if (section === "pupils") {
+                    var hashPupils = hash.get('pupils');
+                    if (hashPupils == undefined){
+                        hashPupils = 'human';
+                    };
+                    section += "_" + hashPupils;
+                }
                 var hashData = hash.get('emotion');
-                console.log('Emotion from hash is: ', hashData);
                 if (hashData === undefined){
-                    console.log('Hash.Data is undefined!!!');
                     hashData = 'neutral';
                 }
             } else {
                 var hashData = hash.get(section);
             }
-            if (section === "pupils") {
-                var hashPupils = hash.get('pupils');
-                if (hashPupils == undefined){
-                    hashPupils = 'human';
-                };
-                console.log('Pupils: ', hashPupils);
-                section += "_" + hashPupils;
-            }
             var id = section + '_' + hashData;
+            console.log('id: ', id);
             if (hashData != undefined){
-                console.log('hash id: ', id);
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
