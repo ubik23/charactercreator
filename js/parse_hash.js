@@ -3,15 +3,16 @@ function parseHash(){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
         //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
-        'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection'],
-        'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection'],
+        'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal'],
+        'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal'],
+        'Mouth': ['alertness', 'betrayal']
     };
     var forms = [form1, form2, form3, face];
     //get the pupils from form1 and append the emotions,
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
-            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'){
+            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'){
                 if (section === "pupils") {
                     var hashPupils = hash.get('pupils');
                     if (hashPupils == undefined){
@@ -32,7 +33,7 @@ function parseHash(){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human') {
+            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 //TODO: Get emotion from hash
 
                 modCharacter(section, 'neutral');
