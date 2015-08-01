@@ -43,7 +43,7 @@ function test(_context, _color){
 
                 // If the id is body, than the list will be of all 'skin' layers
 
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age'){
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings'){
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                 }
