@@ -163,7 +163,7 @@ function show(context){  // Draw the SVG on screen
                         viewportFull.selectAll(id).attr({opacity:1});
                     }
             };
-            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'){
+            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'){
                 modCharacter(sections[section], selectedOption);
             } else {
                 var obj = new Array();
