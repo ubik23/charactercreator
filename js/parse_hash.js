@@ -28,7 +28,6 @@ function parseHash(){
                 var hashData = hash.get(section);
             }
             var id = section + '_' + hashData;
-            console.log('id: ', id);
             if (hashData != undefined){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);

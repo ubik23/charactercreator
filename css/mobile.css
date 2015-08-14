@@ -465,7 +465,7 @@ footer a {
 	text-decoration: none;
 }
 
-.nav-left {
+#nav-left {
 	font-size: 3vh;
 	font-family: arial, verdana, sans-serif;
 	text-transform: uppercase;
@@ -475,7 +475,8 @@ footer a {
      width: 5%;
      float: left;
      color: #fff;
-     visibility: hidden;
+     /*visibility: hidden;*/
+     opacity: 0;
 }
 
 #step-by-step {
@@ -488,10 +489,11 @@ footer a {
     text-transform: uppercase;  
 	text-decoration: none;
     text-align: middle;
-    visibility: hidden;
+    /*visibility: hidden;*/
+     opacity: 0;
 }
 
-.nav-right {
+#nav-right {
 	font-size: 3vh;
 	font-family: arial, verdana, sans-serif;
 	text-transform: uppercase;
@@ -501,7 +503,8 @@ footer a {
      width: 5%;
      float: right;
      color: #fff;
-     visibility: hidden;
+     /*visibility: hidden;*/
+     opacity: 0;
 }
 
 #infinity { 

@@ -54,10 +54,24 @@ function test(_context, _color){
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    for (i in forms[f][capitalId]){
-                        var tmpId = forms[f][capitalId][i];
-                        if (tmpId != ''){
-                            affectedList.push(id + '_' +tmpId);
+                    console.log(myKey);
+                    if (myKey === 'irisColor'){
+                        console.log(myKey);
+                        console.log(forms[0]);
+                        for (i in forms[0]['Emotion']){
+                            var tmpId =  forms[0]['Emotion'][i];
+                            console.log(id + '_' + tmpId);
+                            if (tmpId != ''){
+                                affectedList.push(id + '_' +tmpId);
+                            }
+                        }
+                    } else {
+                        for (i in forms[f][capitalId]){
+                            var tmpId = forms[f][capitalId][i];
+                            if (tmpId != ''){
+                                affectedList.push(id + '_' +tmpId);
+                            }
+                            console.log('affectedList: ', affectedList);
                         }
                     }
                 }

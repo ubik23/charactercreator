@@ -16,11 +16,11 @@
 <body >
     <div id="pagewrap">
         <header id="header">
-		    <h1><sup>The </sup>Character Creator<sub>.org</sub></h1>
+		    <h1 id="siteTitle"><sup>The </sup>Character Creator<sub>.org</sub></h1>
 		    <div id="lynx">
     			<ul id="horizontal">
-                    <li><a download='character.svg' href="javascript:download('my_character.svg');" alt="Download SVG">v</a>
-	    			<li><a href="about.html" target="_blank" alt="About">?</a></li>
+                    <li id="downloadButton"><a download='character.svg' href="javascript:download('my_character.svg');" alt="Download SVG">v</a>
+	    			<li id="aboutButton"><a href="about.html" target="_blank" alt="About">?</a></li>
 		    	</ul>	
 		    </div>
 	    </header>
@@ -35,14 +35,14 @@
         </svg>
         </svg>
 	</div>
-	<footer>
-    <div class="nav-left">
-    &lt
+	<footer id="footer">
+    <div id="nav-left">
+        <a href="javascript:console.log('javascript fired');"id="left-arrow">&lt</a>
     </div>
-    <div id = "step-by-step">
-        sex
-    </div>
-    <div class="nav-right">
+    <span id = "step-by-step">
+        Choose sex
+    </span>
+    <div id="nav-right">
     &gt;
     </div>
 	</footer>
