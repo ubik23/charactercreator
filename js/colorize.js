@@ -54,13 +54,9 @@ function test(_context, _color){
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    console.log(myKey);
-                    if (myKey === 'irisColor'){
-                        console.log(myKey);
-                        console.log(forms[0]);
+                    if (myKey === 'irisColor'||myKey === 'browsColor'){
                         for (i in forms[0]['Emotion']){
                             var tmpId =  forms[0]['Emotion'][i];
-                            console.log(id + '_' + tmpId);
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
@@ -71,14 +67,13 @@ function test(_context, _color){
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
-                            console.log('affectedList: ', affectedList);
                         }
                     }
                 }
 
                 // Look at the affected list
-                // If one of those motherfuckers is in the multiLayer array
-                // Then take it out and replace it with the damned layers that need to be there
+                // If one of those is in the multiLayer array
+                // Then take it out and replace it with the layers that need to be there
 
                 for (a in affectedList) {
                     for (lyr in multiLayer){
@@ -89,7 +84,6 @@ function test(_context, _color){
                                 //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
                                 affectedList.push(idOf);
-
                             }
                             // Take it out of the affectedList
                             var index = affectedList.indexOf(affectedList[a]);
@@ -97,17 +91,13 @@ function test(_context, _color){
                                 affectedList.splice(index, 1);
                             }
                         }
-
                     };
-
-
                 };
-                <!--console.log('affectedList : ', affectedList);-->
 
                 var myValue = '#'+_color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
-                    hash.add(obj);
+                hash.add(obj);
                 modCharacter(myKey, myValue);
                 for (n in affectedList){
                     fullId = '#' + affectedList[n];
@@ -170,8 +160,9 @@ function test(_context, _color){
                                     }
                                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                                     replacement = replacement.concat(keyVal);
+                                    console.log('replacement : ', replacement);
                                 }
-
+                                console.log('pathId : ', pathId);
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
