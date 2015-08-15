@@ -79,7 +79,7 @@ function test(_context, _color){
                     for (lyr in multiLayer){
                         if (affectedList[a] == multiLayer[lyr][0]){
                             for (var i=1;i<=multiLayer[lyr][1];i++){
-                                <!--console.log('affectedList[a] : ', affectedList[a]);-->
+                                //console.log('affectedList[a] : ', affectedList[a]);
                                 idOf = affectedList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
                                 //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
@@ -93,22 +93,34 @@ function test(_context, _color){
                         }
                     };
                 };
-
+                console.log('affectedList: ', affectedList);
                 var myValue = '#'+_color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
                 hash.add(obj);
                 modCharacter(myKey, myValue);
                 for (n in affectedList){
+                    console.log('fullId: ', fullId);
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId); // todo: Add selection to category
+
                     if (optLayer != null){
                         var optPaths = optLayer.selectAll('path')
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
+                                console.log('optPaths[p]', optPaths[p]);
                                 var pathId = optPaths[p].attr("id")
+                                console.log('pathId', pathId);
+                                if (pathId ===  undefined){
+                                    console.log('break');
+                                     break;
+                                };                                ;
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
+                                if (pathStyle ===  undefined){
+                                    console.log('break');
+                                     break;
+                                };                                ;
                                 // Parse the style in a json object
                                 // Identify if the path is a shape or a shadow
                                 // apply newStyle if applicable
@@ -162,7 +174,7 @@ function test(_context, _color){
                                     replacement = replacement.concat(keyVal);
                                     //console.log('replacement : ', replacement);
                                 }
-                                console.log('pathId : ', pathId);
+                                //console.log('pathId : ', pathId);
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
