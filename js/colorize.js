@@ -42,8 +42,8 @@ function test(_context, _color){
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
 
                 // If the id is body, than the list will be of all 'skin' layers
-
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings'){
+                console.log('id: ', id);
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                 }
@@ -160,7 +160,7 @@ function test(_context, _color){
                                     }
                                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                                     replacement = replacement.concat(keyVal);
-                                    console.log('replacement : ', replacement);
+                                    //console.log('replacement : ', replacement);
                                 }
                                 console.log('pathId : ', pathId);
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
@@ -182,11 +182,13 @@ function applyColor(id, newColor, optLayer){
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
-
+        //if (fullId.slice(1,5) === 'mouth') {console.log('Mouth : ', fullId);};
         for (p in optPaths) {
 
             if ( typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
+                //console.log('fullId : ', fullId);
+                //console.log('pathId : ', pathId);
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
 
                 if (pathStyle == undefined) {
