@@ -37,6 +37,7 @@ function parseHash(){
 
                 modCharacter(section, 'neutral');
             };
+            console.log('id', id);
             if (id in skinLayers || section ==='body'){ section = 'skin'}
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
             var hashColor = hash.get(section+'Color');

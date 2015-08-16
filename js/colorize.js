@@ -28,6 +28,7 @@ return rgb;
 
 function test(_context, _color){
     var id = _context.getAttribute("id").slice(0,-1);
+    var affectedList = [];
     // get all the options for that id
     // Cycle through each form array
     var forms = [form1, form2, form3];
@@ -42,9 +43,11 @@ function test(_context, _color){
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
 
                 // If the id is body, than the list will be of all 'skin' layers
-                console.log('id: ', id);
+                //console.log('id: ', id);
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
                     affectedList = skinLayers;
+                    console.log('id: ', id);
+                    console.log('affectedList', affectedList);
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
@@ -100,7 +103,7 @@ function test(_context, _color){
                 hash.add(obj);
                 modCharacter(myKey, myValue);
                 for (n in affectedList){
-                    console.log('fullId: ', fullId);
+                    //console.log('fullId: ', fullId);
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId); // todo: Add selection to category
@@ -109,23 +112,23 @@ function test(_context, _color){
                         var optPaths = optLayer.selectAll('path')
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
-                                console.log('optPaths[p]', optPaths[p]);
+                                //console.log('optPaths[p]', optPaths[p]);
                                 var pathId = optPaths[p].attr("id")
                                 console.log('pathId', pathId);
                                 if (pathId ===  undefined){
-                                    console.log('break: pathId is undefined.');
+                                    //console.log('break: pathId is undefined.');
                                      break;
                                 };                                ;
                                 console.log('fullId', fullId);
                                 console.log('fullId.slice', fullId.slice(0,6));
                                 console.log('pathId', pathId);
                                 if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip'){
-                                    console.log('continue: mouth, but not upperlip.')
+                                    //console.log('continue: mouth, but not upperlip.')
                                     continue;
                                 };
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
                                 if (pathStyle ===  undefined){
-                                    console.log('break: pathstyle is undefined.');
+                                    //console.log('break: pathstyle is undefined.');
                                      break;
                                 };                                ;
                                 // Parse the style in a json object
