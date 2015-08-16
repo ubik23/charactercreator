@@ -113,12 +113,19 @@ function test(_context, _color){
                                 var pathId = optPaths[p].attr("id")
                                 console.log('pathId', pathId);
                                 if (pathId ===  undefined){
-                                    console.log('break');
+                                    console.log('break: pathId is undefined.');
                                      break;
                                 };                                ;
+                                console.log('fullId', fullId);
+                                console.log('fullId.slice', fullId.slice(0,6));
+                                console.log('pathId', pathId);
+                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip'){
+                                    console.log('continue: mouth, but not upperlip.')
+                                    continue;
+                                };
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
                                 if (pathStyle ===  undefined){
-                                    console.log('break');
+                                    console.log('break: pathstyle is undefined.');
                                      break;
                                 };                                ;
                                 // Parse the style in a json object
