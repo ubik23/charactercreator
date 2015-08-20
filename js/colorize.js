@@ -57,7 +57,7 @@ function test(_context, _color){
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    if (myKey === 'irisColor'||myKey === 'browsColor'){
+                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes'){
                         for (i in forms[0]['Emotion']){
                             var tmpId =  forms[0]['Emotion'][i];
                             if (tmpId != ''){
@@ -113,7 +113,7 @@ function test(_context, _color){
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
                                 //console.log('optPaths[p]', optPaths[p]);
-                                var pathId = optPaths[p].attr("id")
+                                var pathId = optPaths[p].attr("id");
                                 //console.log('pathId', pathId);
                                 if (pathId ===  undefined){
                                     //console.log('break: pathId is undefined.');
@@ -122,7 +122,7 @@ function test(_context, _color){
                                 //console.log('fullId', fullId);
                                 //console.log('fullId.slice', fullId.slice(0,6));
                                 //console.log('pathId', pathId);
-                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip'){
+                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow"){
                                     //console.log('continue: mouth, but not upperlip.')
                                     continue;
                                 };
