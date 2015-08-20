@@ -46,8 +46,8 @@ function test(_context, _color){
                 //console.log('id: ', id);
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
                     affectedList = skinLayers;
-                    console.log('id: ', id);
-                    console.log('affectedList', affectedList);
+                    //console.log('id: ', id);
+                    //console.log('affectedList', affectedList);
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
@@ -96,7 +96,7 @@ function test(_context, _color){
                         }
                     };
                 };
-                console.log('affectedList: ', affectedList);
+                //console.log('affectedList: ', affectedList);
                 var myValue = '#'+_color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
@@ -114,14 +114,14 @@ function test(_context, _color){
                             if ( typeof optPaths[p].attr === 'function'){
                                 //console.log('optPaths[p]', optPaths[p]);
                                 var pathId = optPaths[p].attr("id")
-                                console.log('pathId', pathId);
+                                //console.log('pathId', pathId);
                                 if (pathId ===  undefined){
                                     //console.log('break: pathId is undefined.');
                                      break;
                                 };                                ;
-                                console.log('fullId', fullId);
-                                console.log('fullId.slice', fullId.slice(0,6));
-                                console.log('pathId', pathId);
+                                //console.log('fullId', fullId);
+                                //console.log('fullId.slice', fullId.slice(0,6));
+                                //console.log('pathId', pathId);
                                 if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip'){
                                     //console.log('continue: mouth, but not upperlip.')
                                     continue;
@@ -214,6 +214,7 @@ function applyColor(id, newColor, optLayer){
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
 
                 if (pathStyle == undefined) {
+                    continue;
                 }
                 // Parse the style in a json object
                 // Identify if the path is a shape or a shadow
