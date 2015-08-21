@@ -80,9 +80,7 @@ body {
 }
 
 #header {
-	padding-left: 1%;
-	padding-top: 0.4%;
-	padding-bottom: 0.1%;
+    padding: 0.8%;
 	background-color: #e35a4e;
 	color: #fff;
 	position: fixed;
@@ -91,10 +89,11 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	z-index: 2;
-	height: 5%;
+	height: 4%;
 	border-bottom-width:0px;
 	border-bottom-color:red;
 	border-bottom-style: solid;
+    vertical-align: middle;
 }
 
 #header a {
@@ -120,37 +119,38 @@ sub {
 } 
 
 h1 {
+    display: inline;
 	font-family: "Helvetica";
 	text-align:left;
-	font-size: 5vh;
+	font-size: 4vh;
 	padding-bottom: 2px;
 }
 
 #lynx {
-    position: fixed;
-	top: 2vh;
-	right: 1.2vw;
-	max-height: 14px;
+    padding: 0.75vh;
+    position: absolute:
+    display:table-cell;
+    vertical-align: middle;
+    float: right;
+    margin-right: 1.2vh;
 }
 
 ul#horizontal {
+	font-family: arial, verdana, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
 	list-style: none;
-	font-size: 18px;
-	margin: -0.1em;
+	font-size: 3vh;
 	float: left;
 }
 
 ul#horizontal li {
 	display: inline;
-	padding-right: 20px;
+	padding-right: 1.8vh;
 	padding-left: 0;
 }
 
 ul#horizontal li a {
-	font-size: .8em;
-	font-family: arial, verdana, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
 	color: #f2f2f2;
 }
 
@@ -232,6 +232,10 @@ div.medias_sociaux td {
 	float: right;
 }
 
+svg {
+    overflow: visible;
+}
+
 #svg1 {
 	height: 100%;
 	width: 100%;
@@ -240,7 +244,7 @@ div.medias_sociaux td {
 #sidebar {
 	position: fixed;
 	right: 1%;
-	bottom:1%;
+	bottom:2%;
 	width: 23%;
 	min-width: 260px;
 	height: auto;
@@ -270,6 +274,7 @@ div.lg {
 	margin-bottom: 0.15em;
 	background-color: rgba(204, 204, 204, 0.2); 
 	border-radius: 5px;	
+    overflow: hidden;
 }
 
 div.lg:hover {
@@ -432,9 +437,6 @@ footer a {
 		width: 100%;
 	}
 
-	#header {
-		height: auto;
-	}
 
 	sup {
 		vertical-align: super;
@@ -446,10 +448,6 @@ footer a {
 		text-align:left;
 	} 
 
-	h1
-	{
-
-	}
 	#main-nav {
 		position: static;
 	}
