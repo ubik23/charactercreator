@@ -98,7 +98,7 @@ function GetEmotionGetLayers() {
     var facialExpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');
@@ -163,7 +163,7 @@ function show(context){  // Draw the SVG on screen
                         viewportFull.selectAll(id).attr({opacity:1});
                     }
             };
-            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'){
+            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                 modCharacter(sections[section], selectedOption);
             } else {
                 var obj = new Array();
