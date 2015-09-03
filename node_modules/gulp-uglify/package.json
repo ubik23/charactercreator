@@ -1,0 +1,73 @@
+{
+  "name": "gulp-uglify",
+  "description": "Minify files with UglifyJS.",
+  "version": "1.4.0",
+  "author": {
+    "name": "Terin Stock",
+    "email": "terinjokes@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/terinjokes/gulp-uglify/issues"
+  },
+  "dependencies": {
+    "deap": ">=1.0.0 <2.0.0-0",
+    "gulp-util": ">=3.0.0 <4.0.0-0",
+    "through2": ">=2.0.0 <3.0.0-0",
+    "uglify-js": "2.4.24",
+    "uglify-save-license": ">=0.4.1 <0.5.0-0",
+    "vinyl-sourcemaps-apply": ">=0.1.1 <0.2.0-0"
+  },
+  "devDependencies": {
+    "argg": "0.0.1",
+    "cmem": ">=1.0.0 <2.0.0-0",
+    "codeclimate-test-reporter": "0.0.4",
+    "gulp-concat": ">=2.3.4 <3.0.0-0",
+    "gulp-sourcemaps": ">=1.1.1 <2.0.0-0",
+    "istanbul": ">=0.3.0 <0.4.0-0",
+    "rimraf": ">=2.2.8 <3.0.0-0",
+    "tape": "^4.0.0",
+    "vinyl": ">=0.4.6 <1.0.0-0"
+  },
+  "engines": {
+    "node": ">= 0.9"
+  },
+  "homepage": "https://github.com/terinjokes/gulp-uglify/",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terinjokes/gulp-uglify.git"
+  },
+  "scripts": {
+    "codeclimate": "cat ./coverage/lcov.info|codeclimate",
+    "coverage": "istanbul cover node_modules/argg test/*.js --report lcovonly",
+    "rm": "rimraf ./coverage",
+    "test": "npm run coverage && npm run rm",
+    "test-report": "npm run coverage && npm run codeclimate && npm run rm"
+  },
+  "gitHead": "23639f32bad07da9a48ff2fe16d0a547243d702f",
+  "_id": "gulp-uglify@1.4.0",
+  "_shasum": "70f5de40dbb5929efc39c27d635e6ea92d2a8496",
+  "_from": "gulp-uglify@*",
+  "_npmVersion": "2.13.3",
+  "_nodeVersion": "3.1.0",
+  "_npmUser": {
+    "name": "terinjokes",
+    "email": "terinjokes@gmail.com"
+  },
+  "dist": {
+    "shasum": "70f5de40dbb5929efc39c27d635e6ea92d2a8496",
+    "tarball": "http://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.4.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "terinjokes",
+      "email": "terinjokes@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.4.0.tgz"
+}

@@ -56,18 +56,19 @@
 	</aside>
 	<footer>
 	<p>Copyright &#xA9; 2013-2014 <a href="https://www.google.com/+FredericGuimont" rel=author>Frédéric Guimont</a>, all rights reserved. Contact:  <a href="mailto:info@charactercreator.org">info@charactercreator.org</a></p>
-	<script type="text/javascript" src="lib/jquery.js"></script>
+	<!--<script type="text/javascript" src="lib/jquery.js"></script>-->
+	<script type="text/javascript" src="dist/all.js"></script>
 	<script type="text/javascript" src="lib/jscolor/jscolor.js"></script>
-	<script type="text/javascript" src="lib/hash.min.js"></script>
-	<script type="text/javascript" src="lib/select2.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/parse_hash.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
-	<script type="text/javascript" src="js/zoom.js"></script>
-	<script type="text/javascript" src="js/tabs.js"></script>
-	<script type="text/javascript" src="js/colorize.js"></script>
-	<script type="text/javascript" src="js/loader.js"></script>
-	<script type="text/javascript" src="js/download.js"></script>
+	<!--<script type="text/javascript" src="lib/hash.min.js"></script>-->
+	<!--<script type="text/javascript" src="lib/select2.min.js"></script>-->
+	<!--<script type="text/javascript" src="js/main.js"></script>-->
+	<!--<script type="text/javascript" src="js/parse_hash.js"></script>-->
+	<!--<script type="text/javascript" src="js/form.js"></script>-->
+	<!--<script type="text/javascript" src="js/zoom.js"></script>-->
+	<!--<script type="text/javascript" src="js/tabs.js"></script>-->
+	<!--<script type="text/javascript" src="js/colorize.js"></script>-->
+	<!--<script type="text/javascript" src="js/loader.js"></script>-->
+	<!--<script type="text/javascript" src="js/download.js"></script>-->
 	<script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -92,7 +93,7 @@ var maleForm1 = {
 'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
 'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
 'Age' : ['', 'lines'],
-'Wings' : ['', 'devil']
+'Wings' : ['', 'angel', 'devil']
 };
 var maleForm2 = {
 'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
@@ -129,7 +130,7 @@ var maleForm3 = {
 'Shoes': ['','hightops', 'leather']
 };
 var femaleForm1 = {
-'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'cruel', 'disdain', 'disgust', 'eeww', 'horror', 'indignation', 'melancholy', 'omg', 'outrage', 'rage','sterness'],
+'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
 'Body': ['athletic'],
 'Nails': ['short', 'long', 'claws'],
 'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
@@ -198,13 +199,12 @@ var layersFemale = [
 'earings_perl','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_death_drop',
 'sockets_neutral',
 'makeup_frekles','makeup_warpaint','makeup_gothic_eyeliner',
-'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion',
-'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion',
-'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion',
-'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust',
-<!--'mouth_shadow',-->
-'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion',
-'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust',
+'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
+'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
+'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughter', 'pupils_human_dejection', 'pupils_human_melancholy', 'pupils_human_alertness', 'pupils_human_wonder', 'pupils_human_surprise', 'pupils_human_shock',
+'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust', 'lashes_amusement', 'lashes_joy', 'lashes_laughter', 'lashes_dejection', 'lashes_melancholy', 'lashes_sadness', 'lashes_grief', 'lashes_alertness', 'lashes_wonder', 'lashes_surprise', 'lashes_shock',
+'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
+'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
 'eyepatch_left','eyepatch_right',
 'mask_guy_fawkes',
 'pipe_subgenius',
@@ -226,7 +226,7 @@ var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2]
 var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
 var layersMale = [
 'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
-'wings_devil',
+'wings_angel', 'wings_devil',
 'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
 'hair_manga_2_of_2',
 'coat_trench_2_of_2',

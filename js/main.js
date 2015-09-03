@@ -26,6 +26,7 @@ function birth(){
 
 function trans(sex){
     hash.add({ sex: sex });
+    hash.add({ emotion: 'neutral' });
     location.reload();
 }
 
