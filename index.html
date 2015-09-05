@@ -16,17 +16,26 @@
 <body >
     <div id="pagewrap">
         <header id="header">
-		    <h1><sup>The </sup>Character Creator<sub>.org</sub></h1>
+		    <h1 id="siteTitle"><sup>The </sup>Character Creator<sub>.org</sub></h1>
 		    <div id="lynx">
     			<ul id="horizontal">
-                    <li><a download='character.svg' href="javascript:download('my_character.svg');" alt="Download SVG">v</a>
-	    			<li><a href="about.html" target="_blank" alt="About">?</a></li>
+                    <li id="downloadButton"><a download='character.svg' href="javascript:download('my_character.svg');" alt="Download SVG">v</a>
+	    			<li id="aboutButton"><a href="about.html" target="_blank" alt="About">?</a></li>
 		    	</ul>	
 		    </div>
 	    </header>
 	<div id="content">
-	    <svg id="svg1" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin"></svg>
+        <svg id="svg1" width="100%" height="100%" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" id="female_silhouette">
+              <path fill-opacity="0" onclick="selectFemale();"class="path female" transform="translate(111 0)" id="path_female" d="M282 112.7c-9.7 0-13.6 5.8-15 11.6-.8 3-1 5.8-1 8.2l.3 3v.5c0-.2 0-.4-.3-.6l-.6-.8-.7-.3c-.4 0-.7 0-1 .4l-.4 1c-.2 1 0 2 .3 3.4.6 3 1.2 4 1.5 4.6l1 1.8c.5 1 1 1.3 1.5 1.5h.7l1 5c.2 1 .5 2 1 3 0 .4.3.7.5 1 0 2.7-.4 6-1 8.8-1 3.5-2 5.4-2.8 6.4l-1.6 2c-2 1.6-4 2.4-6.5 2.7h-5.3-.2v.2h-.3c-6-3.6-14.6-5.6-19.8 2.4-6.6 10.2-1 23.4-1.6 32.2-.2 3.6-.2 27.7-5 36.5-2.6 4.5-6 13-11.7 33.7-3 12-8 20.7-8.7 22.8v.4c-.3.6-.5 1.2-.5 1.8-.8 4.2-1.7 12.5-2.4 17-.2 1.2.5 11 .7 11.4 1 3 .8 7.5 1 9 0 1.6 1.6 1.6 2.7-.6.7 3 3 2.8 3 0-.2-1.2-1-4-2.4-6.2.3-1.4.5-3 .4-4 1.7 0 4.5.6 5 .3 1-.5 2-.7 3-.8v.3c.7 2.7 3.4 3.2 4 0 .3-2-.7-6.3-2-7.5-.3-1-.2-2.4 0-3.5.2-1.8 1.2-6.2-4-11.8l.3-.6v-.4c.2-2.5 1.4-6.4 11.3-22.3 4.4-7.2 8-13.6 10.7-19 1-1.8 1.7-3.4 2.4-5l2.4-5c0 3.2-.4 6-.6 7.6 0 .2 0 .5-.2.8l-2 10.2c-1 3.8-1.5 6.3-1.6 8.3v.2c0 4 .2 7.4.4 10l.5 3.2v1c0 4 0 7.6-.2 9.5-.2 3.8-1.5 15.6-1.5 19.2 0 5.2.4 10.4.7 13.6.6 5.6 1.6 12.7 3.3 22.7l3 15.8 1 6.8c0 .8.2 1.8 0 2.6 0 7.3 1 12.3 2 15.2.5 1.6 1.5 3.7 2.8 5.8 1.2 1.8 2.6 3.6 3.4 4.6 0 .3 0 .6.2 1 0 .6.5 2 1 4.5l3 9c1.4 4.5 2.8 8 3.8 10 .8 1.7 2.3 4.4 4 6.2 1.8 2.2 3.6 4.7 4.6 6.2 1.8 2.8 4 6.5 6.4 10.8l1.2 2.3c0 1 .3 2 .6 3l.5 2.8.2 2c0 1.8.2 4.4 0 7.6 0 2.6 0 5.2-.3 7.6l-.7 5-.7 2.6c-1 3-1.5 5-1.6 7.2v7c-3.3 3-5 6-5 8.7-.3 2 .4 3.3 1.5 4.3-.4 2-.2 4 .2 5.3.3 1.3 1.3 4 4 5 4 1.6 8 1 11.6-.7 1.6-1 3-2 4-3 1-.8 1.7-2 1.8-2.8.2-.5 0-1.2 0-1.8 0-.7-.3-1.5-.5-2.4l-1.6-6-.5-1.8c.5-1.2.8-2.5 1-3.7l.5-2c1.2-5.3 2.8-9 5-11 1.3-1 4-2 5.6-3.7 2-2.3 3-4 3.4-5.7.4-1.8 0-3.4-.8-4.6l-.8-1.4-2.3-3-2.6-3.6-1.6-3.2 1.6-4.8c2-6 4.3-13.5 5.8-21.4 1.5-7.3 1.8-12.4 1.8-15v-2c0-3.5-.5-6.8-1.3-10.6-.7-3.7-1.5-7-1.8-10.2-.5-4.2.3-9 .8-11.6.6-3.2 1.5-7 3.2-13 1.6-6 3.5-12.4 5-18.7l4.4-18.7c.8-3.6 2.6-11.5 3.8-19 1.4-8.5 1.7-14 1.7-18.4v-.8c0-1.6-.2-3.3-.4-5l.3.2.4.3c.6.2 1.3 0 1.7-.6.5-.5 1-1.7 1-2.7.5-.2 1.4-1.3 1.6-2 .8-.4 2.5-1 3-1.7 3 0 7-4 7.4-8 .8-.3 1.3-1 1.6-1.6 0-.2.3-.6.6-1v-.4c.4-.4.7-1 1-1.5l3.6-5.4c2.3-3.6 5.7-9.3 8.2-15 1.4-3.5 2.7-7 3.6-10l1-3.7.3-1.3v-1-.5c-.2-1.5-.8-3-2-4.7-1.5-2.3-4.2-5.6-7.5-9.3-2.2-2.5-4-5.4-5.6-7.7-1.3-2-3-5-4.8-8.7-1.6-3.3-3-6.5-4-9-1-2.4-1.3-3.8-1.5-4.5v-.4c-1.2-3.8-3-8-5.3-12-2.5-3.7-5.4-6.2-8.4-7.5-3-1.2-5.8-1-8-.6-.2 0-.4 0-.7.2h-.2c-.5-.2-1.4-.2-2.3 0-1.7.4-5 .4-8.3-1.2-3.8-1.7-5.5-4.4-6-7v-.7c0-1 0-2.7.2-5.3.3-2.7.8-5.6 1.4-8.8l1-6.2c.2-.2.3-.3.3-.5.4-1.7.6-3.2.7-4.5v-2c.2-.2.2-.4.2-.6.3.2.6.2 1 0h.3c.2-.3.7-.7 1-1.5l.6-1.4c.5-.7 1-2 1.7-5 .3-1.6.2-2.7 0-3.4 0-.4 0-.6-.2-.8 0 0 0-.2-.2-.3l-1-.2c-.2 0-.4.2-.6.4-.3.2-.5.5-.6.8l-.3.5v-.2-3.2c0-2.3-.2-5.2-1-8-1-3-2.3-5.7-4.8-7.8-2.5-2-5.8-3.4-10.5-3.5h-.4zm32.6 98.8c.4 1.8 1 3.6 1.8 5.5 1.8 4.2 4.4 7.4 7 10.4l4 4.3c2.8 2.8 8.2 8 12.7 16.5l-1 5.3c-.3 2.7-.8 6.2-2 10.4-1 4-2.8 7.8-4.3 10.5-.7 1.4-1.4 2.6-2 3.3l-.7 1-.3.6c-.3.3-.5 1-.7 1.5.2-.5 0 .4-.3 1-1 .3-3 .2-5 .2-1-.3-1.8-.6-2.4-.6-1.4-.2-3-.6-5-.5l.5 1.4c-1.7-3.8-3.6-7.6-5-10.3l-.4-.6-1-2c-1.2-2.4-2.6-4.3-4-6L304 261c-.4-.3-.8-.7-1-1.2-.7-.8-1.2-1.7-1.4-3.4 0-1.5 0-3.7.7-7.2.8-3.8 1.6-6.6 2.4-9l2.2-5.6.7-1.7c1.2-3 4.2-10 7.3-21.2zm5.4 75c-.3 0-.7.4-1.2.7v-.4c.4-.2.8-.4 1.2-.4zm3.7 4c-.6.4-2 2.2-2.4 3l-.4.3c0-.2 0-.3-.2-.5 0-.4-.2-.7-.3-1 1-.5 2-1 3.2-1.8zm3.7 3.2c-.6.5-1.7 2-2.2 2.4-.2.3-1.6 2.2-2 3l-.7 2.6v-.4l-.5-2.6c.7-.6 1.8-1.7 2.2-3 1-.5 2-1.4 3.2-2zM213 324.2c1 0 2 1.6 2.2 3.2 0 .8.3 1.5.6 2.4h-.4c-.8 0-1.8 0-2.7.3-.3-.5-1.2-1-2.4-1v-.6c1.7-1 .5-3 2.4-4 0-.2.3-.2.4-.2zm70.5 3.3c.5.3 1 .6 1.6.6h1c-.5 3.6-1 8-1.3 14.7-.4 7.4-.6 10.5-1 14-.2 1.7-.7 4-1.8 8.5-1.2 4.4-2.4 9-3.4 14-.7 3.6-1.2 6.3-1.4 8.4-.5 4.3-1 12.3 1 19.4l.6 2 .6 3v.3s-.3-1 0 .4c-.3-.3-.4-.6-.6-1l-2-4-1.7-3.5-.2-1c-.2-.5-.3-1-.2-1.4v-.8c0-.3 0-.8.2-1.4v-4.3-13-5l-.4-11.8-.2-9 1-3.6c.3-1.2-.7 3 1.5-5.4 1-4.4 1.8-7.7 2-10.4l.4-2.8c2.4-1.8 3.7-4 4.3-6l.2-1z" />
+            </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="male_silhouette" width="560" height="560" id="male_silhouette">
+            <path fill-opacity="0" onclick="selectMale();"transform="translate(-111 0)" class="path male" id="path_male" d="M280.7 100c-5 0-10 1.6-13.4 7-2.5 3.8-2.6 11.5-2.4 17 0 .3 0 .5-.2.7-.2 1-.3 2.4-.2 4.4 0 2 .5 4 1 5.8l.6 6.7c0 1.2.2 2.2.4 3 .2 1 .5 1.6.8 2 .2 0 .5.3.8.6 0 2.2 0 4.5.2 6v5h-.2l-3.7 3-4.5 3.5-1 .8-4.4 3.7-1.6 1.2-1 .5h-.2c-1 .2-1.3.5-2.5 1-2-.2-2.8-.2-3.7 0h-.3s-.2 0-.3.2c-.7-.2-1.4-.2-2-.2-1.6 0-3.8.6-6.4 2-2.6 1.7-5 4-7 6.7-1 1-1.7 2.2-2 3-1 1.6-2 3.8-2.5 7s-.7 6.6-.6 10l.4 9.3v.5c0 2 .2 5-.5 6.8l-1.4 4c-.6 1.7-1.3 4-2 7.2-.5 3-.8 7-1 9.4-.2 1.7-.5 3.4-1.3 5.8l-2.2 5.7c0 .4-.2.7-.4 1 0 .3 0 .7-.2 1v-.7c-.5 1.5-.8 2.8-1 4-1 4-2 10.4-1.8 20.6.2 12.7.7 19.7 1 24.4.5 5 .7 6.4.3 8.7l-.3 2.8v.4c0 .3.2.6.3.8 0 .3.3.6.4 1l.3 2c0 1.2-.4 2.2-.8 3.3v.2c-1 2.4-1 5-.5 8l.5 2.8.2 2-.4 1v.8c0 .3 0 .4.3.5 0 .2.2.2.4.4l.3.3c0 .3.2.4.4 1l1 1h1.8c.7 0 1 0 1.3-.2.3.5 1 1.8 1 2.2l.7 1c.3.3.5.5.8.6h.5l1.5.6 1.8.3c.6 0 1.2 0 1.7-.2.5 0 .7 0 1.7.3.8.2 1.5 0 2 0h.2c.5 0 1.2 0 2-.4l1.7-1.3.3.5.4 1 .4.8.4.6c.3.3 1 .5 1.2.5h.2c.2 0 .5 0 .8-.3.2-.2.4-.5.4-1v-4-.2c0-1.2-.2-3.4-1-5-.3-1-.5-2.4-.5-3.2V327c0-1.6 0-3.6-.2-4.6l-.8-2.4c-.4-1-1.7-3.2-3.5-4.8-1.8-1.7-1.5-.7-3-2-.5-.6-1-1.2-1.2-2 1-3.2 12.4-46.6 17.3-69.6.7 2.6 1.2 5 1.5 7.6.8 6.2.4 10.3-.2 13l-.3 1.4c-1.3 4-1.4 7-1 10 0 .6.2 1.2.3 1.6l.8 3.4c.4 1.5.5 3 .5 4v1l-.4 9c0 5-.4 8-1 11 0 1.3-.6 3.7-1.4 6.3-1 2.8-1.7 7.8-2.2 11.8 0 .5 0 1-.2 1.4-.4 3.2-.8 9.3-1.2 17-.3 6.8-.4 11.7-.4 15.6-.2 7-.4 15.5.2 23.6l.2 3.7c.2 2.4.4 5 .5 8.8v8c-.3 4-.8 9-1.8 14.8-1.5 8.7-1.3 6-2.2 11.8 0 .8-.2 1.4-.3 2-.2 3 0 7.2 1 14.3 1.8 12.5 1.5 8.5 3 19.8l.7 5 1.6 12.8c.5 5 .7 8.7 0 10.6-1 1.7-1 3.7-.8 4.6 0 .5 0 1 .2 1.8l.2 3c0 1-.3 1.5-.6 1.8-.8 1-1.4 2-2.4 3.8-1 1.6-2 3.7-3.7 5l-5.3 5c-2.4 2.2-4 3.5-5.2 4.2-.5.3-1 .7-1 1-.7.8-1.4 2.3-1 4.4.2 2.2 2 4.6 5.7 5.4 4.5 1 9 0 11.3-.6 1-.4 2.6-1 4-1.8 1.5-.8 3-2 3.6-3.3.8-1.6 1.4-5 1.6-5.5l.6-1.2c0-.2.3-.4.5-.5.4-.2 1-.5 2.3-.4 2.5.3 3.8-.8 4.3-1.6l.3-.7c.6-1.3.8-3.4 0-6.5-.8-3.2-.8-5-.7-5.6 0-.5 0-1 .3-1.3 0-.4.2-.6.2-.6l.3-.4s0-.3.2-.5v-.5c.2-.2.2-.5.3-1 0-1 0-2.6-.7-4.4l-.3-2V489c0-3 .2-6.8.6-10.2.5-5 1.2-8.7 1.8-11.4.5-2.2 1.6-6 3-8.3 1.3-2 2-3.8 2.4-5 .7-2.4 1.2-5.6 1.2-10 0-4-.7-8.3-1.6-12.3-1.5-6.7-2-10.3-1.6-13.5.2-1.8 1-4.5 2.7-7.4.8-1.5 1.4-3 1.7-4 .8-2.4 1.5-5.8 2.4-11.7 1-6.2 1.8-11.4 3-17.6.4-2 1-3.5 1.3-4.7.4-1.8 1.4-4 3-7.2 1.4-3.3 2.8-6.2 4-9.5.5-1.3.8-2.4 1-3.3.8-2.6 2-7.7 2.6-14.8.7-7.8.7-14.4.7-20.2l.8.8c1.4 1.2 3 2.3 4.6 3-1 2.7-1.8 6-2.4 10.5-1.2 8-1 15.6-.6 20 .2 2 .8 5.7 1.8 9.5 1 4 1.5 6.7 1.7 8 .3 2.3.3 4.3 0 6.7 0 1.7-.2 3.2 0 5 0 1.5.3 3 .8 4.7v.5c.5 1 .8 2.2 1 4 .4 1.2.6 2.6.6 3.3v2c0 1.4 0 3.4.5 6 .3 2.8 1 5.5 1.8 7.5v.3c.5 1.2 1 2.4 1.4 4 .4 1.7.6 3 .6 4 0 3-.5 5-1.5 10.7-.7 3.7-1.2 7.5-1.3 12 0 4.5.5 8.6 1 11.8l1 5c1.5 5.7 2.6 11 3 16.3.6 5 .4 8.6.2 11 0 .8-.2 1.5-.3 2-.4 1.5-.8 3-1.4 4.4-.6 1.3-1.2 2.2-1.6 2.7-1 1-1.3 2.6-1.3 4.2 0 1.3.2 2.4.3 3 .2.5.5 1.3 1 2 .3.2.4.7.5 1 .2 1 .3 3 0 5.7-.5 2.6-1.3 5.8-2.4 7.4-1 2-1.7 5.4-.7 8.4.6 2 2 3.6 4 4.6 1.8 1 4 1.3 6 1.3 4 0 9.3-.8 13-3.5 2.6-2 3.7-5 2.3-8l-4.3-8.6c-1.4-3-1.8-5-1.7-6.2 0-.3 0-.7.3-1 .7-2 1-3.4 1-4.6 0-1.5-.2-2.3-.8-5.6v-2.4l.4-4c.5-3 1.2-7 2-10.3l1.7-8c.8-3.3 2.3-8.8 3.4-12.4l1-4c.6-3 1.3-8 1.6-14.6.3-6.6 0-14-1.2-19.4-1.3-6.3-2.5-16-2.8-24-.2-3.4-.2-6.2-.2-8.5 0-1.8.3-5.2 1-8.6.4-3.6 1.2-6 2-8 0-.4.2-.8.3-1 1-3.4 2.4-8.5 3.2-15l.7-7.2c1 1 3.2-.2 4-1.4.7.3 1.5.8 2.2 1.4-1.2 0-3 .5-4 1-1 .8-.8 1.8.4 1.6 1.3-.3 2.3 0 2.7-.3.8.2 2.3.4 3.4 0 1.4-.4 2.5-1.8 4-2.5 1.7-.7 2.2-2 3.5-3.2 1.5-1.3 3-2.2 4-3.5 1-1.6 1.2-3.3 1-4-1-3.3-.5-8.8-1.8-14.2l1.6-3.3c.7-2 .8-4.2.4-6.5v-1.5c-.2-.4-.2-1-.3-2 0-1.4 0-3.3-.3-6 0-3.8-.2-10.4-.5-16.3l-1-17c-.7-6-1.2-9-1.7-10.8 0-.3-.2-.5-.3-.8-1-2.8-1.5-3.5-2.7-6.6-1-2.4-1.5-4.3-1.8-6 0-1-.2-3 0-5.6 0-3.4-.3-6-.5-7.5-.2-1.6-.7-3.7-1.4-6-.7-2-1.5-3.8-2-4.8l-.2-.8V216l1-7c.3-3 .3-5.6.2-7.7 0-2.3-.5-7-2.3-12.4-3-9-8-12.5-12-13.8l-.8-.2c-1-.7-2.2-1-3.5-1.3l-.4-.2c-.7-.5-2.2-.8-4.5-.8h-.5c-.3 0-.7-.2-1.2-.5l-2.7-1.8-6.5-5.6-1-.8-5.3-5.3c-1-1-1.5-1.8-2-2.5s-.7-1.2-.8-1.5v-.4-4.4-1.3l.5-2.6c.2-.3.5-.6.6-1 0 0 0-.2.2-.3.4-1 .8-2.7 1-5l.3-4 .5-2 .7-3.2c.6-3.3.3-5.6-.8-7.3-.2-2 0-2.6-.2-6 0-2.3-.4-5-1.3-7.8-1-2.4-2.3-4.8-4.8-6.6-2.3-1.7-5.7-2.8-10.5-3zm0 0c4.8 0 8 1.2 10.4 3 2.6 1.6 4 4 4.8 6.4l1 4c-1-6.4-4.4-13.2-16-13.2-5 0-10 1.7-13.4 7 3.5-5.4 8.4-7 13.3-7zm16.6 23.3c.5.7.8 1.6 1 2.5-.2-.8-.5-1.6-1-2.3v-.2zM317.5 230c.3 2 .6 3.6 1 4.8v.8c1 3.4 2.3 6 3.8 9.2 1 2 1.4 3 1.6 4v2.7c-.3 3 .4 8 1.2 11.6 0 .5.2.8.3 1 .8 3.5 2.3 8.2 3.7 11.5 0 .5.3 1 .5 1.4l2 6.5 3 11.5c1 4.2 1.7 8 2.3 11l.6 3.7v1.3c.2.4.2.6 0 .7l-.7 3c-.2.7 0 1.4.2 2.4-1 1.3-2.8 2.7-4.2 5.8-1.7 4-2 7.6-2.4 8.6-.6 1-.3 4.7-1 5.7-.6 1-1 2.6-1 4v-5c0 2.3.6-10.5.6-10.6v-5.8c-.2-5.6-1-14-3.4-23.3-.4-1.7-1-3.2-1.3-4.7 0-.7-.3-1.3-.4-2 0-.4-.2-1-.4-1.4 0-.6-.2-1.2-.4-1.7-2-4.6-3.5-8-4.2-10l-2-6c-.5-2.3-.7-3.8-1-4.7v-1c-.5-2-.6-3-.8-4.8-.2-1.4-.3-2.5-.8-3.4-.5-1-.8-2.4-1-3.4v-.2c-.2-1.3-.4-3.2-.3-5.5 0-3.5.6-8 2-10.7.8-1.8 1.6-4.3 2.5-7zm-85 99.4c0 .7-.2 2 .3 3.2-.7-.7-1.3-.7-2-.6v-.8c.4-1 .8-1.4 1.7-1.8zM337 333h.3c-.2 2.3 0 4 1 6l-.8 1c-.7-1.8-1.4-3-2.4-3.8 1-1.8.8-3.3 2-3.2zm-3.5 6.6s0 .2.2.3l1.3 2.6c-.7-.4-1.5-.5-2.2-.5l.2-1.2.5-1.2z" />
+        </svg>
+        </svg>
 	</div>
+<<<<<<< HEAD
 	<div class="looking_glass">
     	<div class="lg">
             <a href="#" onclick="zoomFace();return false;"><svg id="lg_face" class="lg" width="100%" height="100%" viewBox="240 90 80 80" preserveAspectRatio="xMidYMin"></svg></a>
@@ -81,260 +90,35 @@
 	</footer>
 </div>
 </body>
-<script>
-var layerDirectoryMale = 'layer/male/';
-var layerDirectoryFemale = 'layer/female/';
-var maleForm1 = {
-<!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
-'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-'Body': ['athletic'],
-'Underwear': ['plain', 'boxers'],
-'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
-'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
-'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
-'Age' : ['', 'lines'],
-'Wings' : ['', 'angel', 'devil']
-};
-var maleForm2 = {
-'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
-'Ears' : ['default', 'pointed'],
-'Iris' : ['neutral'],
-'Pupils' : ['human', 'lizard'],
-'Nose' : ['default', 'pointed', 'strong'],
-<!--'Lips' : ['neutral'],-->
-'Pipe' : ['', 'subgenius'],
-'Horns': ['', 'devil'],
-'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
-'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
-'Hat': ['','baseball','berret', 'cap', 'cowboy', 'fedora', 'top', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
-'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
-'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
-'Eyepatch': ['', 'left', 'right'],
-'Earpiece': ['', 'microphone']
-};
-var maleForm3 = {
-'Suit': ['', 'wetsuit'],
-'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
-'Tie': ['', 'neck', 'bolo', 'bow'],
-'Gloves': ['', 'lab', 'motorcycle'],
-'Vest': ['', 'vest'],
-'Holster' : ['', 'revolver_chest'],
-'Jacket': ['', 'suit'],
-'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape'],
-'Belt': ['', 'straps', 'utility'],
-'Shoulderpads' : ['', 'general', 'artillery'],
-'Pants': ['', 'suit', 'jeans', 'leather'],
-'Coat': ['', 'lab', 'trench'],
-'Socks': ['','socks'], 
-'Shoes': ['','hightops', 'leather']
-};
-var femaleForm1 = {
-'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
-'Body': ['athletic'],
-'Nails': ['short', 'long', 'claws'],
-'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
-'Underwear': ['', 'plain', 'string'],
-'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
-'Wings' : ['', 'devil', 'angel']
-};
-var femaleForm2 = {
-'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
-'Ears' : ['default', 'pointed'],
-'Iris' : ['neutral'],
-<!--'Lips' : ['default', 'thin', 'luscious'],-->
-'Pipe' : ['', 'subgenius'],
-'Nose' : ['default'],
-'Horns': ['', 'devil'],
-'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
-'Makeup': ['', 'frekles', 'gothic_eyeliner', 'warpaint'],
-'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
-'Eyepatch': ['', 'left', 'right'],
-'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
-'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'tuque', 'cap'],
-'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
-'Earpiece': ['', 'microphone']
-};
-var femaleForm3 = {
-'Necklace' : ['', 'perl', 'princess'],
-'Dress': ['','casual','corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
-'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape'],
-'Coat' : ['', 'winter_furcollar'],
-'Shorts' : ['', 'short'],
-'Bra': ['', 'bow'],
-'Bracelet' : ['','rings'],
-'Shoulderpads' : ['', 'artillery', 'general'],
-'Belt' : ['','utility'],
-'Pants' : ['','yoga', 'jeans'],
-'Leggings': ['', 'regular'],
-'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
-};
-var layersFemale = [
-'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
-'wings_devil','wings_angel',
-'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
-'coat_winter_furcollar_3_of_3',
-'hair_down_3_of_3','hair_manga_2_of_2',
-'body_athletic',
-'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
-'necklace_perl','necklace_princess',
-'underwear_plain','underwear_string',
-'leggings_regular',
-'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman',
-'bra_bow',
-'pants_yoga','pants_jeans',
-'shorts_short',
-'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
-'shoulderpads_general',
-'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
-'bracelet_rings',
-'coat_winter_furcollar_2_of_3',
-'hair_down_2_of_3',
-'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
-'ears_default','ears_pointed',
-'nose_default',
-<!--'lips_default','lips_thin','lips_luscious',-->
-<!--'body_face',-->
-'tatoo_tribal_face',
-'earings_perl','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_death_drop',
-'sockets_neutral',
-'makeup_frekles','makeup_warpaint','makeup_gothic_eyeliner',
-'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
-'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
-'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughter', 'pupils_human_dejection', 'pupils_human_melancholy', 'pupils_human_alertness', 'pupils_human_wonder', 'pupils_human_surprise', 'pupils_human_shock',
-'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust', 'lashes_amusement', 'lashes_joy', 'lashes_laughter', 'lashes_dejection', 'lashes_melancholy', 'lashes_sadness', 'lashes_grief', 'lashes_alertness', 'lashes_wonder', 'lashes_surprise', 'lashes_shock',
-'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
-'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
-'eyepatch_left','eyepatch_right',
-'mask_guy_fawkes',
-'pipe_subgenius',
-'tie_bow',
-'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2',
-'glasses_hipster','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
-'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap',
-'body_hand',
-'nails_short','nails_long','nails_claws',
-'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
-'horns_devil',
-'coat_winter_furcollar_1_of_3',
-'shoulderpads_artillery',
-'belt_utility',
-'earpiece_microphone'
-];
-<!--TODO: Multi-layer elements should be detected, not dictated.-->
-var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
-var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
-var layersMale = [
-'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
-'wings_angel', 'wings_devil',
-'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
-'hair_manga_2_of_2',
-'coat_trench_2_of_2',
-'body_athletic',
-'tatoo_aum_chest','tatoo_aum_left','tatoo_aum_right','tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right',
-'scar_horizontal_neck',
-'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
-'ears_default','ears_pointed',
-'age_lines',
-'scar_vertical_heart',
-'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
-'underwear_plain','underwear_boxers',
-'suit_wetsuit',
-'shirt_colar_2_of_2','shirt_turtleneck',
-'socks_socks',
-'shoes_hightops','shoes_leather','shirt_tanktop',
-'tie_bolo','tie_bow_2_of_2','tie_neck',
-'shirt_colar_1_of_2',
-'tie_bow_1_of_2',
-'vest_vest',
-'pants_jeans','pants_leather','pants_suit',
-'belt_straps',
-'shirt_tshirt',
-'holster_revolver_chest',
-'gloves_lab','gloves_motorcycle',
-'jacket_suit',
-'coat_lab','coat_trench_1_of_2',
-'shoulderpads_general',
-'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
-'shoulderpads_artillery',
-'belt_utility',
-'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
-'sockets_neutral',
-'eyes_neutral','eyes_sterness','eyes_indignation','eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_revulsion', 'eyes_concern', 'eyes_anxiety', 'eyes_fear', 'eyes_terror', 'eyes_satisfaction', 'eyes_amusement', 'eyes_joy', 'eyes_laughing', 'eyes_dejection', 'eyes_alertness', 'eyes_betrayal', 'eyes_caged', 'eyes_cruel', 'eyes_desperation', 'eyes_eeww', 'eyes_horror', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage',
-'iris_neutral','iris_sterness','iris_indignation','iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_revulsion', 'iris_concern', 'iris_anxiety', 'iris_fear', 'iris_terror', 'iris_satisfaction', 'iris_amusement', 'iris_joy', 'iris_laughing', 'iris_dejection', 'iris_alertness', 'iris_betrayal', 'iris_caged', 'iris_cruel','iris_desperation', 'iris_eeww', 'iris_horror', 'iris_melancholy', 'iris_omg', 'iris_outrage', 
-'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', 'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage', 
-'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
-'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 
-'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap','facialhair_chinpuff','facialhair_goatee','facialhair_moustache','facialhair_moustache_thick','facialhair_muttonchops','facialhair_muttonchops_friendly','facialhair_soulpatch','facialhair_winnfield',
-'nose_default','nose_pointed','nose_strong',
-'mask_robin',
-'eyepatch_left','eyepatch_right',
-'hair_balding','hair_balding_crazy','hair_gelled','hair_manga_1_of_2','hair_mohawk','hair_short','hair_wavy','hair_crewcut',
-'mask_guy_fawkes',
-'glasses_designer','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer',
-'hat_baseball','hat_berret','hat_cap','hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2',
-'jewelry_chain','jewelry_earings','jewelry_nosering','jewelry_watch',
-'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
-'horns_devil',
-'pipe_subgenius',
-'earpiece_microphone'
-];
-var size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-<!--TODO: Following layers should be detected from prefix, not dictated.-->
-var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand', 
-'ears_default', 'ears_pointed', 
-'nose_default', 'nose_pointed', 'nose_strong', 
-'mouth_shadow', 
-'age_lines', 'sockets_neutral', 'wings_devil', 
-'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
-var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield', 
-'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 
-'eyelashes_neutral',
-'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
-];
-
-// This is where things start to happen
-// This variable represents the cast of chararcters created
-var cc = cc || {};
-var c = c || new Character();
-<!--TODO: Make the following piece of code into a function-->
-var sex = c.sex;
-if (sex ==='m') {
-    var form1 = maleForm1;
-    var form2 = maleForm2;
-    var form3 = maleForm3;
-    var layerDirectory = layerDirectoryMale;
-    var layers = layersMale;
-    var multiLayer = multiLayerMale;
-} else {
-    var form1 = femaleForm1;
-    var form2 = femaleForm2;
-    var form3 = femaleForm3;
-    var layerDirectory = layerDirectoryFemale;
-    var layers = layersFemale;
-    var multiLayer = multiLayerFemale;
-}
-// Get all the hash key/value pairs and include them in the c.choices object
-// Go through all the forms
-parseHash();  //Hashed elements are added in the character object
-var toBeShown = choicesToLayers(c);
-var viewport = Snap("#svg1");
-var viewportFace = Snap("#lg_face");
-var viewportTorso = Snap("#lg_torso");
-var viewportBody = Snap("#lg_body");
-var viewportFull = Snap("#lg_full");
-var myLoadList = layers;
-viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+	<footer id="footer">
+    <div id="nav-left">
+        <a href="javascript:console.log('javascript fired');"id="left-arrow">&lt</a>
+    </div>
+    <span id = "step-by-step">
+        Choose sex
+    </span>
+    <div id="nav-right">
+    &gt;
+    </div>
+	</footer>
+</div>
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/jscolor/jscolor.js"></script>
+	<script type="text/javascript" src="lib/hash.min.js"></script>
+	<script type="text/javascript" src="lib/select2.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/parse_hash.js"></script>
+	<script type="text/javascript" src="js/form.js"></script>
+	<script type="text/javascript" src="js/zoom.js"></script>
+	<script type="text/javascript" src="js/tabs.js"></script>
+	<script type="text/javascript" src="js/colorize.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/download.js"></script>
+	<script type="text/javascript" src="js/mobile.js"></script>
+	<script type="text/javascript" src="lib/TweenMax.min.js"></script>
+	<script type="text/javascript" src="lib/TimelineMax.min.js"></script>
+    <div class="modal"></div>
+</body>
+>>>>>>> animated-intro
 </script>
 </html>

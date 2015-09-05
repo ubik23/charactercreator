@@ -96,7 +96,11 @@ function test(_context, _color){
                         }
                     };
                 };
+<<<<<<< HEAD
                 //console.log('affectedList: ', affectedList);
+=======
+
+>>>>>>> animated-intro
                 var myValue = '#'+_color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
@@ -182,9 +186,15 @@ function test(_context, _color){
                                     }
                                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                                     replacement = replacement.concat(keyVal);
+<<<<<<< HEAD
                                     //console.log('replacement : ', replacement);
                                 }
                                 //console.log('pathId : ', pathId);
+=======
+                                    console.log('replacement : ', replacement);
+                                }
+                                console.log('pathId : ', pathId);
+>>>>>>> animated-intro
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
