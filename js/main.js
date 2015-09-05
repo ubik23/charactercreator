@@ -7,10 +7,10 @@ TODO:
 */
 // The forms, menus and options that make up a character
 //Todo Zoom in on the head tab viewBox="208 75 140 140"
-$(document).ready(function() {
-    createForm(sex);
-    createCharacter();
-});
+//$(document).ready(function() {
+    //createForm(sex);
+    //createCharacter();
+//});
 
 function isInArray(value, array) {
        return array.indexOf(value) > -1;
