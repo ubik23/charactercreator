@@ -16,13 +16,13 @@ function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
 
-function birth(){
-    var sexes = ["m", "f"];
-    var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
-    var layers = [];
-    hash.add({ sex: sex });
-    return sex
-}
+//function birth(){
+    //var sexes = ["m", "f"];
+    //var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
+    //var layers = [];
+    //hash.add({ sex: sex });
+    //return sex
+//}
 
 function trans(sex){
     hash.add({ sex: sex });
@@ -32,7 +32,7 @@ function trans(sex){
 
 function Character(fullName, sex, emotion, choices, birthday){
     this.fullName = fullName || '';
-    this.sex = sex || birth();;
+    //this.sex = sex || birth();;
     //this.emotion = emotion || 'neutral';
 
     this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];

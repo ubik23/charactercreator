@@ -103,7 +103,6 @@ body {
     overflow: hidden;
 	border-bottom-width:0;
 	border-bottom-style: solid;
-    vertical-align: middle;
 }
 
 #header a {
@@ -241,7 +240,7 @@ ul#horizontal li a:hover {
 	margin: 0 auto;
 	position: relative;
 	z-index: 0;
-	top: 5%;
+	top: 6%;
 }
 
 #article {
@@ -293,10 +292,6 @@ ul#horizontal li a:hover {
 	float: right;
 }
 
-svg {
-    overflow: visible;
-}
-
 #svg1 {
 	height: 100%;
 	width: 100%;
@@ -305,14 +300,13 @@ svg {
 #sidebar {
 	position: fixed;
 	right: 1%;
-	bottom:2%;
+	top:8%;
 	width: 23%;
 	min-width: 260px;
 	height: auto;
 	font-family: sans-serif;
 	font-size: 0.8em;
 	overflow: hidden;
-    z-index: 100;
 }
 
 input.color{
@@ -335,7 +329,6 @@ div.lg {
 	margin-bottom: 0.15em;
 	background-color: rgba(204, 204, 204, 0.2); 
 	border-radius: 5px;	
-    overflow: hidden;
 }
 
 div.lg:hover {
@@ -484,7 +477,7 @@ footer a {
 }
 
 #step-by-step {
-    height 100%;
+    height: 100%;
 	padding: 1vh 0;
     display: inline-block;
     color: #f2f2f2;
@@ -539,6 +532,9 @@ footer a {
 		width: 100%;
 	}
 
+	#header {
+		height: auto;
+	}
 
 	sup {
 		vertical-align: super;
@@ -550,6 +546,10 @@ footer a {
 		text-align:left;
 	} 
 
+	h1
+	{
+
+	}
 	#main-nav {
 		position: static;
 	}

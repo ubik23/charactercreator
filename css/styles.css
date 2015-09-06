@@ -573,16 +573,27 @@ html {
   height: 100%; }
 
 body {
-  background: -webkit-linear-gradient(white, white, white, #cccccc);
+  background: -webkit-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(white, white, white, #cccccc);
+  background: -o-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(white, white, white, #cccccc);
+  background: -moz-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(white, white, white, #cccccc);
+  background: linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
   /* Standard syntax */
   height: 100%;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  position: relative; }
+
+.modal {
+  position: absolute;
+  top: 16%;
+  left: 5%;
+  width: 90%;
+  height: 68%;
+  background-color: #f2f2f2;
+  box-shadow: 5px 10px 5px #888888;
+  visibility: hidden; }
 
 #pagewrap {
   width: 100%;
@@ -591,23 +602,23 @@ body {
   overflow-y: auto; }
 
 #header {
-  padding: 0.8%;
+  padding-left: 1%;
+  padding-top: 0.5%;
   background-color: #e35a4e;
-  color: #fff;
+  color: #f2f2f2;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   margin: 0 auto;
   z-index: 2;
-  height: 4%;
-  border-bottom-width: 0px;
-  border-bottom-color: red;
-  border-bottom-style: solid;
-  vertical-align: middle; }
+  max-height: 5%;
+  overflow: hidden;
+  border-bottom-width: 0;
+  border-bottom-style: solid; }
 
 #header a {
-  color: #fff;
+  color: #f2f2f2;
   text-decoration: none; }
 
 @font-face {
@@ -625,31 +636,30 @@ sub {
   text-align: left; }
 
 h1 {
-  display: inline;
+  display: inline-block;
   font-family: "Helvetica";
   text-align: left;
   font-size: 4vh;
-  padding-bottom: 2px; }
+  padding: 2px 0; }
 
 #lynx {
-  padding: 0.75vh;
-  position: absolute;
-  display: table-cell;
-  vertical-align: middle;
-  float: right;
-  margin-right: 1.2vh; }
+  display: inline-block;
+  float: right; }
 
 ul#horizontal {
+  font-size: 4vh;
   font-family: arial, verdana, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   list-style: none;
   font-size: 3vh;
-  float: left; }
+  margin: 0;
+  float: left;
+  padding: 0.75vh 1%; }
 
 ul#horizontal li {
-  display: inline;
-  padding-right: 1.8vh;
+  display: inline-block;
+  padding-right: 1em;
   padding-left: 0; }
 
 ul#horizontal li a {
@@ -660,22 +670,64 @@ ul#horizontal li a:hover {
   text-decoration: none;
   color: white; }
 
-div.medias_sociaux {
-  float: left;
-  height: 0.1%;
-  max-height: 18px;
-  vertical-align: text-middle;
-  padding: 0 0 1% 0; }
+.path {
+  color: #000000;
+  display: inline;
+  overflow: visible;
+  visibility: visible;
+  fill: none;
+  stroke: #e35a4e;
+  stroke-width: 1.5;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 10;
+  stroke-dashoffset: 0;
+  stroke-opacity: 1;
+  marker: none;
+  enable-background: accumulate; }
 
-div.medias_sociaux td {
-  padding: 0 0 0 0.5em; }
+.male {
+  fill: #e35a4e;
+  stroke-dasharray: 1726;
+  animation: homme 3s linear; }
+
+.male:hover {
+  /*animation: fadeIn 3s linear;*/
+  fill-opacity: 1; }
+
+.female {
+  fill: #e35a4e;
+  stroke-dasharray: 1200;
+  animation: femme 3s linear; }
+
+.female:hover {
+  /*animation: fadeIn 3s linear;*/
+  fill-opacity: 1; }
+
+@keyframes fadeIn {
+  from {
+    fill-opacity: 0; }
+  to {
+    fill-opacity: 1; } }
+
+@keyframes homme {
+  from {
+    stroke-dashoffset: 1726; }
+  to {
+    stroke-dashoffset: 0; } }
+
+@keyframes femme {
+  from {
+    stroke-dashoffset: 1200; }
+  to {
+    stroke-dashoffset: 0; } }
 
 #content {
   height: 92%;
   margin: 0 auto;
   position: relative;
   z-index: 0;
-  top: 5%; }
+  top: 6%; }
 
 #article {
   font-family: arial, verdana, sans-serif;
@@ -719,9 +771,6 @@ div.medias_sociaux td {
   text-decoration: none;
   float: right; }
 
-svg {
-  overflow: visible; }
-
 #svg1 {
   height: 100%;
   width: 100%; }
@@ -729,14 +778,13 @@ svg {
 #sidebar {
   position: fixed;
   right: 1%;
-  bottom: 2%;
+  top: 8%;
   width: 23%;
   min-width: 260px;
   height: auto;
   font-family: sans-serif;
   font-size: 0.8em;
-  overflow: hidden;
-  z-index: 100; }
+  overflow: hidden; }
 
 input.color {
   width: 50px; }
@@ -755,8 +803,7 @@ div.lg {
   height: 15vh;
   margin-bottom: 0.15em;
   background-color: rgba(204, 204, 204, 0.2);
-  border-radius: 5px;
-  overflow: hidden; }
+  border-radius: 5px; }
 
 div.lg:hover {
   background-color: rgba(204, 204, 204, 0.4); }
@@ -862,7 +909,7 @@ footer {
   text-align: center;
   font-size: .5em;
   width: 100%;
-  height: 1%;
+  height: 5%;
   margin: 0 auto;
   position: fixed;
   bottom: 0;
@@ -875,6 +922,45 @@ footer a {
   color: white;
   text-decoration: none; }
 
+#nav-left {
+  font-size: 3vh;
+  font-family: arial, verdana, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1vh 1%;
+  height: 100%;
+  width: 5%;
+  float: left;
+  color: #fff;
+  /*visibility: hidden;*/
+  opacity: 0; }
+
+#step-by-step {
+  height: 100%;
+  padding: 1vh 0;
+  display: inline-block;
+  color: #f2f2f2;
+  font-size: 3vh;
+  font-family: arial, verdana, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: middle;
+  /*visibility: hidden;*/
+  opacity: 0; }
+
+#nav-right {
+  font-size: 3vh;
+  font-family: arial, verdana, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1vh 1%;
+  height: 100%;
+  width: 5%;
+  float: right;
+  color: #fff;
+  /*visibility: hidden;*/
+  opacity: 0; }
+
 #infinity {
   position: relative;
   width: 212px;
@@ -883,6 +969,8 @@ footer a {
 @media screen and (max-width: 650px) {
   #pagewrap {
     width: 100%; }
+  #header {
+    height: auto; }
   sup {
     vertical-align: super;
     font-size: .5em; }
