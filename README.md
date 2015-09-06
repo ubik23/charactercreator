@@ -1,6 +1,5 @@
 TODO:
-
--Add option to choose from a range of emotions
+-Finish animated intro/fixing the loading mechanism.
 -Fix the downloading in chrome (switch to blobs)
 -Add a slider to turn the character's heads.
 
