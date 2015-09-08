@@ -60,13 +60,16 @@ if (sex != undefined){
 // Go through all the forms
 };
 
-function launch(layers) {
+function launch(layers, layerDirectory) {
     var viewport = Snap("#svg1");
     var viewportFace = Snap("#lg_face");
     var viewportTorso = Snap("#lg_torso");
     var viewportBody = Snap("#lg_body");
     var viewportFull = Snap("#lg_full");
-    var myLoadList = layers;
+    var myLoadList = layers.map(function(obj){
+        return layerDirectory + obj;
+    });
+    console.log('myLoadList : ', myLoadList);
     viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
@@ -204,10 +207,10 @@ function selectMale(event) {
     var navLeft = document.getElementById("nav-left");
     tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")
     .to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
-    .to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
-    .to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
-    launch(layers);
+    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male");
+    //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
+    //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
+    launch(layers, layerDirectory);
 }
 
 function selectFemale(event) {
@@ -320,6 +323,6 @@ function selectFemale(event) {
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
-    launch(layers);
+    launch(layers, layerDirectory);
 }
 

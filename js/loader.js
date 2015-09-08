@@ -11,7 +11,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
         for( var count = 0; count < listLength; count++ ) {
             (function() {
                 var whichEl = count,
-                fileName = layerDirectory+list[ whichEl ]+'.svg',
+                fileName = list[ whichEl ]+'.svg',
                 image = Snap.load( fileName, function ( loadedFragment ) {
                     fragLoadedCount++;
                     onEachElementLoadFunc( loadedFragment, fileName );
