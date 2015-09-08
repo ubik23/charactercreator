@@ -790,6 +790,7 @@ input.color {
   width: 50px; }
 
 div.looking_glass {
+  display: none;
   position: fixed;
   top: 8%;
   left: 3%;
@@ -965,6 +966,10 @@ footer a {
   position: relative;
   width: 212px;
   height: 100px; }
+
+@media screen and (max-width: 980px) {
+  #sidebar {
+    display: none; } }
 
 @media screen and (max-width: 650px) {
   #pagewrap {
