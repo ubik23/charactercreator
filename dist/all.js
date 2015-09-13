@@ -9084,7 +9084,7 @@ function applyColor(id, newColor, optLayer){
     }
 }
 
-function download(filename = 'my_character.svg') {
+function download(filename) {
         //var text = document.getElementById('svg1').innerHTML;
         //var text = text || '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="560" height="560" id="character">\n';
         var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
@@ -9099,7 +9099,7 @@ function download(filename = 'my_character.svg') {
             if (item.style != undefined){
                 //This removes only useless layers and allows us to o the next test.
                 if (item.style.opacity != 0){
-                    console.log( item);
+                    void 0;
                     var svgString = item.innerHTML;
                     if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
                         svgString = svgString.slice(0, -43);
@@ -9409,7 +9409,7 @@ function GetEmotionGetLayers() {
         var eLayer = faceElements[e]
         facialExpressionLayers.push(eLayer);
     };
-    console.log('facialExpressionLayers: ', facialExpressionLayers);
+    void 0;
     return facialExpressionLayers;
 };
 
@@ -9442,7 +9442,7 @@ function show(context){  // Draw the SVG on screen
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
-                console.log('id: ', id )
+                void 0
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -9542,14 +9542,14 @@ function parseHash(){
 
                 modCharacter(section, 'neutral');
             };
-            console.log('id', id);
-            console.log('skinLayers', skinLayers);
+            void 0;
+            void 0;
             if (id in skinLayers || section ==='body'){
                 section = 'skin';
-                console.log('id in skin', id);
+                void 0;
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
-            console.log('section', section);
+            void 0;
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){
