@@ -633,7 +633,6 @@ h1 {
 
 #lynx {
   padding: 0.75vh;
-  position: absolute;
   display: table-cell;
   vertical-align: middle;
   float: right;
