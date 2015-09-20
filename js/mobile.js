@@ -21,14 +21,7 @@ var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facial
 'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
 ];
 
-var state = new Object();
-state.counter = 0;
-state.skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A'];
-state.stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color'];
-state.previous = function() {
-    state.counter -= 1;
-    console.log(state.counter);
-};
+var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
 var header = document.getElementById("header");
 var footer = document.getElementById("footer");
 var siteTitle = document.getElementById("siteTitle");
@@ -50,12 +43,12 @@ var navLeft = document.getElementById("left-arrow")
 // This is where things start to happen
 // This variable represents the cast of chararcters created
 <!--TODO: Make the following piece of code into a function-->
-var sex = hash.get('sex');
-if (sex != undefined){
-    parseHash();  //Hashed elements are added in the character object
-    var toBeShown = choicesToLayers(c);
-    launch();
-} else {};
+//var sex = hash.get('sex');
+//if (sex != undefined){
+    //parseHash();  //Hashed elements are added in the character object
+    //var toBeShown = choicesToLayers(c);
+    //launch();
+//} else {};
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
 };
@@ -210,7 +203,7 @@ function selectMale(event) {
     .to(femaleSilhouette, 0.3, {opacity:0}, "select_male");
     //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
     //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
-    launch(layers, layerDirectory);
+    //launch(layers, layerDirectory);
 }
 
 function selectFemale(event) {
@@ -323,6 +316,6 @@ function selectFemale(event) {
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
-    launch(layers, layerDirectory);
+    //launch(layers, layerDirectory);
 }
 
