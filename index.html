@@ -323,7 +323,6 @@ var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facial
 
 // This is where things start to happen
 // This variable represents the cast of chararcters created
-var cc = cc || {};
 var c = c || new Character();
 <!--TODO: Make the following piece of code into a function-->
 var sex = c.sex;
@@ -342,6 +341,7 @@ if (sex ==='m') {
     var layers = layersFemale;
     var multiLayer = multiLayerFemale;
 }
+var forms = [form1, form2, form3];
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
 parseHash();  //Hashed elements are added in the character object
@@ -357,5 +357,6 @@ viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+random(forms);
 </script>
 </html>

@@ -10,7 +10,7 @@ gulp.task('default',function() {
 
 gulp.task('scripts', function() {
   return gulp.src(['./lib/*.js', './js/*.js'])
-    .pipe(stripDebug())
+    //.pipe(stripDebug())
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./dist/'));
 });
