@@ -9583,7 +9583,6 @@ var navLeft = document.getElementById("left-arrow")
 //} else {};
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
-displayPallette();
 };
 
 function launch(layers, layerDirectory) {
@@ -9614,12 +9613,16 @@ function stageNav() {
 function displayPallette () {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.getElementById("gmenu");
+    var tl = new TimelineLite();
     for (color in skinTones) {
         var node = document.createElement("LI");
-        node.style = "background-color:" + color + ";";
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + skinTones[color] + ";";
+        console.log(node);
         gmenu.appendChild(node);
-    }
-
+    };
+    var colorCards = document.getElementsByClassName("skin-tone");
+    tl.staggerFrom(colorCards, 1, {height: 5%}, 0.1);
 }
 
 function selectMale(event) {
@@ -9744,6 +9747,7 @@ function selectMale(event) {
     //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
     //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
     //launch(layers, layerDirectory);
+    displayPallette();
 }
 
 function selectFemale(event) {
@@ -9857,6 +9861,7 @@ function selectFemale(event) {
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
     //launch(layers, layerDirectory);
+    displayPallette();
 }
 
 

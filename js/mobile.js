@@ -51,7 +51,6 @@ var navLeft = document.getElementById("left-arrow")
 //} else {};
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
-displayPallette();
 };
 
 function launch(layers, layerDirectory) {
@@ -84,10 +83,13 @@ function displayPallette () {
     var gmenu = document.getElementById("gmenu");
     for (color in skinTones) {
         var node = document.createElement("LI");
-        node.style = "background-color:" + color + ";";
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + skinTones[color] + ";";
+        console.log(node);
         gmenu.appendChild(node);
-    }
-
+    };
+    var colorCards = document.getElementsByClassName("skin-tone");
+    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
 
 function selectMale(event) {
@@ -212,6 +214,7 @@ function selectMale(event) {
     //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
     //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
     //launch(layers, layerDirectory);
+    displayPallette();
 }
 
 function selectFemale(event) {
@@ -325,5 +328,6 @@ function selectFemale(event) {
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
     //launch(layers, layerDirectory);
+    displayPallette();
 }
 

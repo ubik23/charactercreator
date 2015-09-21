@@ -389,7 +389,7 @@ div.lg a {
 }
 
 #crumbs ul li a:before {
-	content: "";  
+	content: "";
 	border-top: 40px solid rgba(255, 0, 0, 0.2);
 	border-bottom: 20px solid transparent;
 	border-left: 20px solid transparent;
@@ -437,6 +437,19 @@ div.lg a {
 .Cell {
     display: table-cell;
 	width: 100%;
+}
+
+#gmenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+     width: 100%;
+     height: 15%;
+     position: fixed;
+     bottom: 0;
+     li {
+        flex-grow: 1;
+    }
 }
 
 footer {
