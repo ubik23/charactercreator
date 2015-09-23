@@ -670,6 +670,10 @@ ul#horizontal li a:hover {
   text-decoration: none;
   color: white; }
 
+.icon-arrow-down {
+  fill: currentColor;
+  /*fill: #f2f2f2;*/ }
+
 .path {
   color: #000000;
   display: inline;

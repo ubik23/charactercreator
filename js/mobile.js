@@ -1,4 +1,10 @@
 window.onload = function() {
+
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette.addEventListener('click', selectMale, false);
+    femaleSilhouette.addEventListener('click', selectFemale, false);
+
 <!--TODO: Multi-layer elements should be detected, not dictated.-->
 var size = function(obj) {
     var size = 0, key;
@@ -29,28 +35,6 @@ var downloadButton = document.getElementById("downloadButton");
 var aboutButton = document.getElementById("aboutButton");
 var stepByStep = document.getElementById("step-by-step");
 var navLeft = document.getElementById("left-arrow")
-//navLeft.addEventListener("click", function(){
-    //console.log('console.log();');
-//});
-//var tl = new TimelineLite();
-//tl.from(header, 1, {y:-50, ease:Linear.easeIn}, "navBars")
-//.from(footer, 1, {y:+100, ease:Linear.easeIn}, "navBars")
-//.from(siteTitle, 1, {x:-250, ease:SlowMo.easeIn}, "title")
-//.from(downloadButton, 0.75, {y:-50, ease:SlowMo.easeIn}, "title+=0.5")
-//.from(aboutButton, 0.75, {scale:0,  ease:Bounce.easeInOut}, "title+=1")
-//.from(aboutButton, 0.5, {opacity:0, ease:Linear.easeIn}, "title+=1")
-//tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn}, "title");
-// This is where things start to happen
-// This variable represents the cast of chararcters created
-<!--TODO: Make the following piece of code into a function-->
-//var sex = hash.get('sex');
-//if (sex != undefined){
-    //parseHash();  //Hashed elements are added in the character object
-    //var toBeShown = choicesToLayers(c);
-    //launch();
-//} else {};
-// Get all the hash key/value pairs and include them in the c.choices object
-// Go through all the forms
 };
 
 function launch(layers, layerDirectory) {
@@ -93,11 +77,19 @@ function displayPallette () {
 }
 
 function colorCutout(newColor){
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
     TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+    TweenMax.to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
+    TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
     console.log(newColor);
+    console.log(maleSilhouette);
 }
 
 function selectMale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette.removeEventListener('click', selectMale, false);
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
@@ -207,9 +199,7 @@ function selectMale(event) {
     var c = c || new Character();
     c.sex = 'm';
     hash.add({ sex: 'm' });
-    var maleSilhouette = document.getElementById("male_silhouette");
     var malePath = document.getElementById("path_male");
-    var femaleSilhouette = document.getElementById("female_silhouette");
     var tl = new TimelineLite();
     var stepByStep = document.getElementById("step-by-step");
     var navLeft = document.getElementById("nav-left");
@@ -223,6 +213,9 @@ function selectMale(event) {
 }
 
 function selectFemale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    femaleSilhouette.removeEventListener('click', selectFemale, false);
     var femaleForm1 = {
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Body': ['athletic'],
@@ -325,7 +318,6 @@ function selectFemale(event) {
     var layers = layersFemale;
     var multiLayer = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
     hash.add({ sex: 'f' });
-    var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female");
     var tl = new TimelineLite();
