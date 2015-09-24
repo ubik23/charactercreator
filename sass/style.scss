@@ -238,7 +238,7 @@ ul#horizontal li a:hover {
 	margin: 0 auto;
 	position: relative;
 	z-index: 0;
-	top: 6%;
+	top: 0;
 }
 
 #article {
@@ -345,78 +345,6 @@ div.lg a {
 	text-decoration: none;
 	color: white;
 	padding: 0.5em 0 0 0.1em;
-}
-
-#bread  {
-	font-family: sans-serif;
-	font-weight: bold;
-	font-size: 0.8em;
-	position: fixed;
-	bottom: 5%;
-	left: 50%;
-	margin-left: -333px;
-	width: 100%;
-}
-
-#crumbs ul li a {
-	display: block;
-	float: left;
-	height: 25px;
-	background: rgba(255, 0, 0, 0.2);
-	text-align: center;
-	padding: 15px 27px 0 33px;
-	position: relative;
-	margin: 0 5px 0 20px; 
-	font-size: 1em;
-	text-decoration: none;
-	color: #fff;
-	z-index: 3;
-}
-
-#crumbs ul li a:after {
-	content: "";  
-	border-top: 20px solid transparent;
-	border-bottom: 40px solid rgba(255, 0, 0, 0.2);
-	border-right: 20px solid transparent;
-	position: absolute; right: -20px; top: -20px;
-	z-index: 3;
-}
-
-#crumbs ul li a:before {
-	content: "";
-	border-top: 40px solid rgba(255, 0, 0, 0.2);
-	border-bottom: 20px solid transparent;
-	border-left: 20px solid transparent;
-	position: absolute; left: -20px; top: 0;
-}
-
-#crumbs ul li:first-child a {
-	border-top-left-radius: 10px; border-bottom-left-radius: 10px;
-}
-
-#crumbs ul li:first-child a:before {
-	display: none; 
-}
-
-#crumbs ul li:last-child a {
-	padding-right: 40px;
-	border-top-right-radius: 10px; border-bottom-right-radius: 10px;
-}
-
-#crumbs ul li:last-child a:after {
-	display: none; 
-}
-
-#crumbs ul li a:hover {
-	background: rgba(255, 0, 0, 0.7);
-}
-
-#crumbs ul li a:hover:after {
-	border-bottom-color: rgba(255, 0, 0, 0.7);
-}
-
-#crumbs ul li a:hover:before {
-	border-top-color: rgba(255, 0, 0, 0.7);
 }
 
 .Table {
