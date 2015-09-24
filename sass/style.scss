@@ -89,20 +89,18 @@ body {
 }
 
 #header {
-	padding-left: 1%;
-	padding-top: 0.5%;
+	padding: 0 1%;
 	background-color: #e35a4e;
 	color: #f2f2f2;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	margin: 0 auto;
 	z-index: 2;
-	max-height: 5%;
-    overflow: hidden;
-	border-bottom-width:0;
-	border-bottom-style: solid;
+	height: 4.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #header a {
@@ -128,35 +126,26 @@ sub {
 } 
 
 h1 {
-    display: inline-block;
 	font-family: "Helvetica";
 	text-align:left;
-	font-size: 4vh;
-	padding: 2px 0;
+	font-size: 3.5vh;
+    padding-top: 0.45vh;
 }
 
 #lynx {
-    display: inline-block;
     float: right;
+    padding: 0.75vh 3% 0 0;
 }
 
 
 ul#horizontal {
-	font-size: 4vh;
-	font-family: arial, verdana, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
+    display: inline-block;
 	list-style: none;
-	font-size: 3vh;
-	margin: 0;
-	float: left;
-    padding: 0.75vh 1%;
 }
 
 ul#horizontal li {
-	display: inline-block;
-	padding-right: 1em;
-	padding-left: 0;
+	padding-left: 0.6em;
+    display: inline-block;
 }
 
 ul#horizontal li a {
@@ -164,14 +153,17 @@ ul#horizontal li a {
 }
 
 ul#horizontal li a:hover {
-	font-family: arial, verdana, sans-serif;
-	text-decoration: none;
 	color: white;
 }
 
 .icon {
+    width: 16px;
+    height: 16px;
     fill: currentColor;
-    /*fill: #f2f2f2;*/
+}
+
+.icon-mail3 {
+    width: 24px;
 }
 .path {
     color:#000000;
@@ -191,7 +183,8 @@ ul#horizontal li a:hover {
 }
 
 .male {
-    fill: #e35a4e;
+    color: #e35a4e;
+    fill: currentColor;
     stroke-dasharray:1726;
     animation: homme 3s linear;
 }
@@ -202,7 +195,8 @@ ul#horizontal li a:hover {
 }
 
 .female {
-    fill: #e35a4e;
+    color: #e35a4e;
+    fill: currentColor;
     stroke-dasharray:1200;
     animation: femme 3s linear;
 }
@@ -250,17 +244,15 @@ ul#horizontal li a:hover {
 #article {
 	font-family: arial, verdana, sans-serif;
 	font-size: 1em;
-	padding-top: 3em;
-	height: auto;
-	max-width: 474px;
+	padding-top: 2.5em;
 	margin: 0 auto;
-	position: relative;
 	z-index: 0;
-	top: 6%;
+    width: 90%;
+	max-width: 474px;
 }
 
 #article h2 {
-	font-family: arial, verdana, sans-serif;
+	font-family: helvetica, arial, verdana, sans-serif;
 	color: #d40000;
 	font-size: 1.5em;
 	padding-bottom: 0.3em;
@@ -322,8 +314,6 @@ div.looking_glass {
 	position: fixed;
 	top: 8%;
 	left: 3%;
-	font-family: "SF Wonder Comic";
-	font-size: 1.25em;
 }
 
 div.lg {
@@ -461,18 +451,14 @@ footer {
 	background-color: #e35a4e;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
-	color: black;
+	color: #f2f2f2;
 	text-align: center;
 	font-size: .5em;
 	width: 100%;
-	height: 5%;
-	margin: 0 auto;
+	height: 4.5%;
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	border-top-width:0px;
-	border-top-color:red;
-	border-top-style: solid;
 }
 
 footer a {

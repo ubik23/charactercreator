@@ -77,6 +77,7 @@ function displayPallette () {
 }
 
 function colorCutout(newColor){
+    var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
