@@ -591,20 +591,18 @@ body {
   overflow-y: auto; }
 
 #header {
-  padding: 0.8%;
+  padding: 0 1%;
   background-color: #e35a4e;
-  color: #fff;
+  color: #f2f2f2;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  margin: 0 auto;
   z-index: 2;
-  height: 4%;
-  border-bottom-width: 0px;
-  border-bottom-color: red;
-  border-bottom-style: solid;
-  vertical-align: middle; }
+  height: 4.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 #header a {
   color: #fff;
