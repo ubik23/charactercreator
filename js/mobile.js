@@ -85,6 +85,9 @@ function colorCutout(newColor){
     TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
     console.log(newColor);
     console.log(maleSilhouette);
+    var obj = new Array();
+    obj['skinColor'] =  newColor.slice(1);//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+    hash.add(obj);
 }
 
 function selectMale(event) {
@@ -318,7 +321,6 @@ function selectFemale(event) {
     var layerDirectory = 'layer/female/';
     var layers = layersFemale;
     var multiLayer = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
-    hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female");
     var tl = new TimelineLite();
