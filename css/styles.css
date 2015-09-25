@@ -623,49 +623,36 @@ sub {
   text-align: left; }
 
 h1 {
-  display: inline;
   font-family: "Helvetica";
   text-align: left;
-  font-size: 4vh;
-  padding-bottom: 2px; }
+  font-size: 3.5vh;
+  padding-top: 0.45vh; }
 
 #lynx {
-  padding: 0.75vh;
-  display: table-cell;
-  vertical-align: middle;
   float: right;
-  margin-right: 1.2vh; }
+  padding: 0.75vh 3% 0 0; }
 
 ul#horizontal {
-  font-family: arial, verdana, sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  list-style: none;
-  font-size: 3vh;
-  float: left; }
+  display: inline-block;
+  list-style: none; }
 
 ul#horizontal li {
-  display: inline;
-  padding-right: 1.8vh;
-  padding-left: 0; }
+  padding-left: 0.6em;
+  display: inline-block; }
 
 ul#horizontal li a {
   color: #f2f2f2; }
 
 ul#horizontal li a:hover {
-  font-family: arial, verdana, sans-serif;
-  text-decoration: none;
   color: white; }
 
-div.medias_sociaux {
-  float: left;
-  height: 0.1%;
-  max-height: 18px;
-  vertical-align: text-middle;
-  padding: 0 0 1% 0; }
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor; }
 
-div.medias_sociaux td {
-  padding: 0 0 0 0.5em; }
+.icon-mail3 {
+  width: 24px; }
 
 #content {
   height: 92%;
