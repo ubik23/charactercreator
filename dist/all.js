@@ -9543,16 +9543,19 @@ function showRandom(section, layer){  // Draw the SVG on screen
         modCharacter(sections[0], selectedOption);
         //ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-        var emotions = GetEmotionGetLayers(selecteedOption);
+        var emotions = GetEmotionGetLayers(selectedOption);
+        console.log('emotions: ', emotions);
+        console.log('layer: ', layer);
         for (emo in emotions){
-            var newEmo = emotions[emo];
+            var newEmo = emotions[emo] + "_" + layer;
             sections.push(newEmo);
         }
     };
     for (section in sections){
-        options.forEach(function(d, i){
-            var id = '#'+sections[section]+'_'+d;
-            if(d === selectedOption){
+        console.log('SelectedOption: ', selectedOption);
+        console.log('section: ', section);
+        console.log('sections: ', sections);
+            var id = '#'+sections[section];
                 //console.log('id: ', id )
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
@@ -9580,33 +9583,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
                 obj[sections[section]] = selectedOption;
                 hash.add(obj);
                 modCharacter(sections[section], selectedOption);
-                ga('send', 'event', 'menu', 'select', id);
-
             }
-            }
-            else {
-            for (lyr in multiLayer){
-                if (id.slice(1) == multiLayer[lyr][0]){
-                    for (var i=1;i<=multiLayer[lyr][1];i++){
-                        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                        viewport.selectAll(idOf).attr({opacity:0});
-                        viewportFace.selectAll(idOf).attr({opacity:0});
-                        viewportTorso.selectAll(idOf).attr({opacity:0});
-                        viewportBody.selectAll(idOf).attr({opacity:0});
-                        viewportFull.selectAll(idOf).attr({opacity:0});
-                    }
-                }
-                else {
-                    viewport.selectAll(id).attr({opacity:0})
-                    viewportFace.selectAll(id).attr({opacity:0})
-                    viewportTorso.selectAll(id).attr({opacity:0})
-                    viewportBody.selectAll(id).attr({opacity:0})
-                    viewportFull.selectAll(id).attr({opacity:0})
-                }
-            };
-            ;
-            }
-        });
     };
 }
 
