@@ -9357,13 +9357,6 @@ function trans(sex){
 }
 
 function Character(fullName, sex, emotion, choices, birthday){
-    this.fullName = fullName || '';
-    //this.sex = sex || birth();;
-    //this.emotion = emotion || 'neutral';
-    skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A'];
-    this.skinTone = hash.get('skinColor') || skinTones[Math.floor(Math.random() * skinTones.length)];
-    hash.add({ skinColor: this.skinTone });
-    //hash.add({ emotion: 'neutral' });
     this.choices = choices || {
         emotion : emotion||'neutral',
         body : 'athletic', // Or a random body shape eventually
@@ -9531,61 +9524,40 @@ function show(context){  // Draw the SVG on screen
 
 
 window.onload = function() {
-<!--TODO: Multi-layer elements should be detected, not dictated.-->
-var size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-<!--TODO: Following layers should be detected from prefix, not dictated.-->
-var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-'ears_default', 'ears_pointed',
-'nose_default', 'nose_pointed', 'nose_strong',
-'mouth_shadow',
-'age_lines', 'sockets_neutral', 'wings_devil',
-'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
-var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
-'eyelashes_neutral',
-'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
-];
-
-var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
-var header = document.getElementById("header");
-var footer = document.getElementById("footer");
-var siteTitle = document.getElementById("siteTitle");
-var downloadButton = document.getElementById("downloadButton");
-var aboutButton = document.getElementById("aboutButton");
-var stepByStep = document.getElementById("step-by-step");
-var navLeft = document.getElementById("left-arrow")
-//navLeft.addEventListener("click", function(){
-    //console.log('console.log();');
-//});
-//var tl = new TimelineLite();
-//tl.from(header, 1, {y:-50, ease:Linear.easeIn}, "navBars")
-//.from(footer, 1, {y:+100, ease:Linear.easeIn}, "navBars")
-//.from(siteTitle, 1, {x:-250, ease:SlowMo.easeIn}, "title")
-//.from(downloadButton, 0.75, {y:-50, ease:SlowMo.easeIn}, "title+=0.5")
-//.from(aboutButton, 0.75, {scale:0,  ease:Bounce.easeInOut}, "title+=1")
-//.from(aboutButton, 0.5, {opacity:0, ease:Linear.easeIn}, "title+=1")
-//tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn}, "title");
-// This is where things start to happen
-// This variable represents the cast of chararcters created
-<!--TODO: Make the following piece of code into a function-->
-//var sex = hash.get('sex');
-//if (sex != undefined){
-    //parseHash();  //Hashed elements are added in the character object
-    //var toBeShown = choicesToLayers(c);
-    //launch();
-//} else {};
-// Get all the hash key/value pairs and include them in the c.choices object
-// Go through all the forms
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette.addEventListener('click', selectMale, false);
+    femaleSilhouette.addEventListener('click', selectFemale, false);
+//var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
+//var header = document.getElementById("header");
+//var footer = document.getElementById("footer");
+//var siteTitle = document.getElementById("siteTitle");
+//var downloadButton = document.getElementById("downloadButton");
+//var aboutButton = document.getElementById("aboutButton");
+//var stepByStep = document.getElementById("step-by-step");
+//var navLeft = document.getElementById("left-arrow")
 };
 
 function launch(layers, layerDirectory) {
+    var size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+    var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
+    'ears_default', 'ears_pointed',
+    'nose_default', 'nose_pointed', 'nose_strong',
+    'mouth_shadow',
+    'age_lines', 'sockets_neutral', 'wings_devil',
+    'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
+    var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
+    'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
+    'eyelashes_neutral',
+    'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
+    ];
+
     var viewport = Snap("#svg1");
     var viewportFace = Snap("#lg_face");
     var viewportTorso = Snap("#lg_torso");
@@ -9613,19 +9585,42 @@ function stageNav() {
 function displayPallette () {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.getElementById("gmenu");
-    var tl = new TimelineLite();
     for (color in skinTones) {
+        var newColor = skinTones[color];
         var node = document.createElement("LI");
         node.className = "skin-tone";
-        node.style.cssText = "background-color:" + skinTones[color] + ";";
-        console.log(node);
+        if (typeof window.addEventListener === 'function'){
+            (function (_td) {
+                node.addEventListener("click", function() {
+                    colorCutout(newColor);
+                } );
+            })
+        }
+        console.log('Added eventListener with newColor: ', newColor);
+        node.style.cssText = "background-color:" + newColor + ";";
         gmenu.appendChild(node);
     };
-    var colorCards = document.getElementsByClassName("skin-tone");
-    tl.staggerFrom(colorCards, 1, {height: 5%}, 0.1);
+    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+}
+
+function colorCutout(newColor){
+    var colorCards = document.getElementsByClassName(".skin-tone");
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+    TweenMax.to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
+    TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
+    console.log(newColor);
+    console.log(maleSilhouette);
+    var obj = new Array();
+    obj['skinColor'] =  newColor.slice(1);//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+    hash.add(obj);
 }
 
 function selectMale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette.removeEventListener('click', selectMale, false);
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
@@ -9735,9 +9730,7 @@ function selectMale(event) {
     var c = c || new Character();
     c.sex = 'm';
     hash.add({ sex: 'm' });
-    var maleSilhouette = document.getElementById("male_silhouette");
     var malePath = document.getElementById("path_male");
-    var femaleSilhouette = document.getElementById("female_silhouette");
     var tl = new TimelineLite();
     var stepByStep = document.getElementById("step-by-step");
     var navLeft = document.getElementById("nav-left");
@@ -9751,6 +9744,9 @@ function selectMale(event) {
 }
 
 function selectFemale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    femaleSilhouette.removeEventListener('click', selectFemale, false);
     var femaleForm1 = {
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Body': ['athletic'],
@@ -9852,8 +9848,6 @@ function selectFemale(event) {
     var layerDirectory = 'layer/female/';
     var layers = layersFemale;
     var multiLayer = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
-    hash.add({ sex: 'f' });
-    var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female");
     var tl = new TimelineLite();

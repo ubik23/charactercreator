@@ -64,14 +64,26 @@ function displayPallette () {
         var newColor = skinTones[color];
         var node = document.createElement("LI");
         node.className = "skin-tone";
-        node.addEventListener("click", function() { colorCutout(newColor);  } );
         node.style.cssText = "background-color:" + newColor + ";";
         gmenu.appendChild(node);
+        node.onclick = colorCutout;
+        //} );
+        console.log('Added eventListener with newColor: ', newColor);
     };
     TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
 
+function rgb2hex(rgb){
+ rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ return (rgb && rgb.length === 4) ? "#" +
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
 function colorCutout(newColor){
+    var rgb = this.style.backgroundColor;
+    var newColor = rgb2hex(rgb);
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -81,7 +93,7 @@ function colorCutout(newColor){
     console.log(newColor);
     console.log(maleSilhouette);
     var obj = new Array();
-    obj['skinColor'] =  newColor.slice(1);//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+    obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
     hash.add(obj);
 }
 
