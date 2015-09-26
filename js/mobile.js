@@ -41,7 +41,6 @@ function launch(layers, layerDirectory) {
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
-    console.log('myLoadList : ', myLoadList);
     viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
@@ -54,7 +53,6 @@ function stageNav() {
     //var state = stages[stageKey];
     //var tl = new TimelineLite();
     //tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn});
-    console.log('clicked');
 }
 
 function displayPallette () {
@@ -68,7 +66,6 @@ function displayPallette () {
         gmenu.appendChild(node);
         node.onclick = colorCutout;
         //} );
-        console.log('Added eventListener with newColor: ', newColor);
     };
     TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
@@ -90,8 +87,6 @@ function colorCutout(newColor){
     TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
     TweenMax.to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
     TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
-    console.log(newColor);
-    console.log(maleSilhouette);
     var obj = new Array();
     obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
     hash.add(obj);
