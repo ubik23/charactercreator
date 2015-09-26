@@ -654,6 +654,14 @@ ul#horizontal li a:hover {
 .icon-mail3 {
   width: 24px; }
 
+.frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; }
+
 #content {
   height: 92%;
   margin: 0 auto;
