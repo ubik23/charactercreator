@@ -593,6 +593,7 @@ body {
 
 @font-face {
   font-family: "Helvetica";
+  /*src: url("../fonts/SF_Wonder_Comic.ttf");*/
   font-style: normal;
   font-weight: 200; }
 
@@ -762,6 +763,7 @@ ul#horizontal li a:hover {
   width: 100%; }
 
 #sidebar {
+  display: none;
   position: fixed;
   right: 1%;
   top: 8%;
@@ -924,7 +926,9 @@ footer a {
     position: static; }
   #content {
     width: auto;
-    float: none; } }
+    float: none; }
+  #sidebar {
+    display: none; } }
 
 #tabbed_box {
   margin: 0px auto 0px auto;

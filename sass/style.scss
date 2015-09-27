@@ -293,6 +293,7 @@ ul#horizontal li a:hover {
 }
 
 #sidebar {
+    display: none;
 	position: fixed;
 	right: 1%;
 	top:8%;
@@ -502,6 +503,7 @@ footer a {
 	}
 
 	#sidebar {
+        display: none;
 
 	}
 }
