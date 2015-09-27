@@ -47,7 +47,7 @@ function Character(fullName, sex, emotion, choices, birthday){
     this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
-function modCharacter(myKey, myValue){
+function modCharacter(c, myKey, myValue){
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];
@@ -124,7 +124,7 @@ function show(context){  // Draw the SVG on screen
         };
     }
     if (sections[0] === 'emotion'){
-        modCharacter(sections[0], selectedOption);
+        modCharacter(c, sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(context.value);
@@ -158,12 +158,12 @@ function show(context){  // Draw the SVG on screen
                     }
             };
             if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(sections[section], selectedOption);
+                modCharacter(c, sections[section], selectedOption);
             } else {
                 var obj = new Array();
                 obj[sections[section]] = selectedOption;
                 hash.add(obj);
-                modCharacter(sections[section], selectedOption);
+                modCharacter(c, sections[section], selectedOption);
                 ga('send', 'event', 'menu', 'select', id);
 
             }

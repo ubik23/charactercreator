@@ -35,7 +35,6 @@ function onAllLoaded() {
 function onEachLoaded( frag, fileName ) {
     var colorThis = false;
     var myLayer = fileName;
-
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
         var seen = 1;
     } else {var seen = 0;};
@@ -58,7 +57,7 @@ function onEachLoaded( frag, fileName ) {
     frag.select("*").attr({ opacity: seen });
 }
 
-function choicesToLayers(c){
+function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];

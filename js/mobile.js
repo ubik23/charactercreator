@@ -3,6 +3,7 @@ window.onload = function() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
+    c = new Character();
 //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
 //var header = document.getElementById("header");
 //var footer = document.getElementById("footer");
@@ -207,20 +208,10 @@ function launch(layers, layerDirectory) {
     'belt_utility',
     'earpiece_microphone'
     ];
-    var layers = layersMale;
-    var form1 = femaleForm1;
-    var form2 = femaleForm2;
-    var form3 = femaleForm3;
-    var layerDirectory = 'layer/female/';
-    var layers = layersFemale;
-    var form1 = maleForm1;
-    var form2 = maleForm2;
-    var form3 = maleForm3;
-    var layerDirectory = 'layer/male/';
-    var multiLayer = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
-    var c = c || new Character();
-    c.sex = 'f';
-    var multiLayer = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
+    var layerDirectoryFemale = 'layer/female/';
+    var layerDirectoryMale = 'layer/male/';
+    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
+    var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -239,6 +230,30 @@ function launch(layers, layerDirectory) {
     'eyelashes_neutral',
     'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
     ];
+    c.sex  = hash.get('sex');
+    <!--TODO: Make the following piece of code into a function-->
+    var sex = c.sex;
+    console.log('sex: ', sex);
+    if (sex ==='m') {
+        var form1 = maleForm1;
+        var form2 = maleForm2;
+        var form3 = maleForm3;
+        var layerDirectory = layerDirectoryMale;
+        var layers = layersMale;
+        var multiLayer = multiLayerMale;
+    } else {
+        var form1 = femaleForm1;
+        var form2 = femaleForm2;
+        var form3 = femaleForm3;
+        var layerDirectory = layerDirectoryFemale;
+        var layers = layersFemale;
+        var multiLayer = multiLayerFemale;
+    }
+    var forms = [form1, form2, form3];
+// Get all the hash key/value pairs and include them in the c.choices object
+// Go through all the forms
+    parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+    toBeShown = choicesToLayers(c, multiLayer);
     var viewport = Snap("#svg1");
     var viewportFace = Snap("#lg_face");
     var viewportTorso = Snap("#lg_torso");
