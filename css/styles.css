@@ -771,14 +771,14 @@ ul#horizontal li a:hover {
   width: 100%; }
 
 #sidebar {
-  display: none;
+  display: block;
   position: fixed;
   right: 1%;
   top: 8%;
   width: 23%;
   min-width: 260px;
   height: auto;
-  font-family: sans-serif;
+  font-family: helvetica, sans-serif;
   font-size: 0.8em;
   overflow: hidden; }
 
@@ -928,7 +928,7 @@ footer a {
     width: auto;
     float: none; }
   #sidebar {
-    display: none; } }
+    display: block; } }
 
 #tabbed_box {
   margin: 0px auto 0px auto;

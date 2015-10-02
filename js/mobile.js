@@ -15,6 +15,8 @@ window.onload = function() {
 };
 
 function launch(layers, layerDirectory) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
     console.log('entered launch');
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
@@ -267,6 +269,8 @@ function launch(layers, layerDirectory) {
     viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    TweenMax.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    TweenMax.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
 }
 
 function stageNav() {
@@ -305,13 +309,17 @@ function colorCutout(newColor){
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
-    TweenMax.to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
-    TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
+    var sideBar = document.getElementById("sidebar");
+    var tl = new TimelineLite();
+    tl.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05)
+    .to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
     var obj = new Array();
     obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
     hash.add(obj);
     launch();
+
 }
 
 function selectMale(event) {

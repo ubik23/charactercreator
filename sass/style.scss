@@ -293,14 +293,14 @@ ul#horizontal li a:hover {
 }
 
 #sidebar {
-    display: none;
+    display: block;
 	position: fixed;
 	right: 1%;
 	top:8%;
 	width: 23%;
 	min-width: 260px;
 	height: auto;
-	font-family: sans-serif;
+	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
 	overflow: hidden;
 }
@@ -503,7 +503,7 @@ footer a {
 	}
 
 	#sidebar {
-        display: none;
+        display: block;
 
 	}
 }
