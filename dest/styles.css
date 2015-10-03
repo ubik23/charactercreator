@@ -778,10 +778,13 @@ input.color {
   width: 50px; }
 
 div.looking_glass {
-  display: none;
+  display: block;
   position: fixed;
   top: 8%;
   left: 3%; }
+
+.lg {
+  opacity: 0.0; }
 
 div.lg {
   display: block;
@@ -797,16 +800,13 @@ div.lg:hover {
 
 svg.lg {
   width: 100%;
-  height: 100%;
-  opacity: 0.5; }
+  height: 100%; }
 
 svg.lg:hover {
-  opacity: 1; }
+  /*opacity: 1;*/ }
 
 div.lg a {
-  font-family: sans-serif;
   text-decoration: none;
-  color: white;
   padding: 0.5em 0 0 0.1em; }
 
 .Table {
@@ -903,7 +903,7 @@ footer a {
 
 @media screen and (max-width: 980px) {
   #sidebar {
-    display: none; } }
+    display: block; } }
 
 @media screen and (max-width: 650px) {
   #pagewrap {

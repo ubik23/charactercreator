@@ -9248,7 +9248,6 @@ function onAllLoaded() {
 function onEachLoaded( frag, fileName ) {
     var colorThis = false;
     var myLayer = fileName;
-
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
         var seen = 1;
     } else {var seen = 0;};
@@ -9271,7 +9270,7 @@ function onEachLoaded( frag, fileName ) {
     frag.select("*").attr({ opacity: seen });
 }
 
-function choicesToLayers(c){
+function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
@@ -9373,7 +9372,7 @@ function Character(fullName, sex, emotion, choices, birthday){
     this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
-function modCharacter(myKey, myValue){
+function modCharacter(c, myKey, myValue){
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];
@@ -9450,7 +9449,7 @@ function show(context){  // Draw the SVG on screen
         };
     }
     if (sections[0] === 'emotion'){
-        modCharacter(sections[0], selectedOption);
+        modCharacter(c, sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(context.value);
@@ -9484,12 +9483,12 @@ function show(context){  // Draw the SVG on screen
                     }
             };
             if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(sections[section], selectedOption);
+                modCharacter(c, sections[section], selectedOption);
             } else {
                 var obj = new Array();
                 obj[sections[section]] = selectedOption;
                 hash.add(obj);
-                modCharacter(sections[section], selectedOption);
+                modCharacter(c, sections[section], selectedOption);
                 ga('send', 'event', 'menu', 'select', id);
 
             }
@@ -9528,6 +9527,7 @@ window.onload = function() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
+    c = new Character();
 //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
 //var header = document.getElementById("header");
 //var footer = document.getElementById("footer");
@@ -9539,88 +9539,9 @@ window.onload = function() {
 };
 
 function launch(layers, layerDirectory) {
-    var size = function(obj) {
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-    };
-    var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-    'ears_default', 'ears_pointed',
-    'nose_default', 'nose_pointed', 'nose_strong',
-    'mouth_shadow',
-    'age_lines', 'sockets_neutral', 'wings_devil',
-    'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
-    var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-    'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
-    'eyelashes_neutral',
-    'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
-    ];
-
-    var viewport = Snap("#svg1");
-    var viewportFace = Snap("#lg_face");
-    var viewportTorso = Snap("#lg_torso");
-    var viewportBody = Snap("#lg_body");
-    var viewportFull = Snap("#lg_full");
-    var myLoadList = layers.map(function(obj){
-        return layerDirectory + obj;
-    });
-    console.log('myLoadList : ', myLoadList);
-    viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-}
-
-function stageNav() {
-    //var stepByStep = document.getElementById("step-by-step");
-    //var state = stages[stageKey];
-    //var tl = new TimelineLite();
-    //tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn});
-    console.log('clicked');
-}
-
-function displayPallette () {
-    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-    var gmenu = document.getElementById("gmenu");
-    for (color in skinTones) {
-        var newColor = skinTones[color];
-        var node = document.createElement("LI");
-        node.className = "skin-tone";
-        if (typeof window.addEventListener === 'function'){
-            (function (_td) {
-                node.addEventListener("click", function() {
-                    colorCutout(newColor);
-                } );
-            })
-        }
-        console.log('Added eventListener with newColor: ', newColor);
-        node.style.cssText = "background-color:" + newColor + ";";
-        gmenu.appendChild(node);
-    };
-    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
-}
-
-function colorCutout(newColor){
-    var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    TweenMax.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
-    TweenMax.to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
-    TweenMax.to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
-    console.log(newColor);
-    console.log(maleSilhouette);
-    var obj = new Array();
-    obj['skinColor'] =  newColor.slice(1);//obj[_selector.slice(1)+'c'] = fillHsl.toString();
-    hash.add(obj);
-}
-
-function selectMale(event) {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
-    maleSilhouette.removeEventListener('click', selectMale, false);
+    console.log('entered launch');
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
@@ -9666,10 +9587,6 @@ function selectMale(event) {
     'Socks': ['','socks'],
     'Shoes': ['','hightops', 'leather']
     };
-    var form1 = maleForm1;
-    var form2 = maleForm2;
-    var form3 = maleForm3;
-    var layerDirectory = 'layer/male/';
     var layersMale = [
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'wings_angel', 'wings_devil',
@@ -9725,28 +9642,6 @@ function selectMale(event) {
     'pipe_subgenius',
     'earpiece_microphone'
     ];
-    var layers = layersMale;
-    var multiLayer = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
-    var c = c || new Character();
-    c.sex = 'm';
-    hash.add({ sex: 'm' });
-    var malePath = document.getElementById("path_male");
-    var tl = new TimelineLite();
-    var stepByStep = document.getElementById("step-by-step");
-    var navLeft = document.getElementById("nav-left");
-    tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")
-    .to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male");
-    //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
-    //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
-    //launch(layers, layerDirectory);
-    displayPallette();
-}
-
-function selectFemale(event) {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
-    femaleSilhouette.removeEventListener('click', selectFemale, false);
     var femaleForm1 = {
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Body': ['athletic'],
@@ -9839,28 +9734,154 @@ function selectFemale(event) {
     'belt_utility',
     'earpiece_microphone'
     ];
-    var c = c || new Character();
-    c.sex = 'f';
+    var layerDirectoryFemale = 'layer/female/';
+    var layerDirectoryMale = 'layer/male/';
+    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
+    var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
+    var size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+    var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
+    'ears_default', 'ears_pointed',
+    'nose_default', 'nose_pointed', 'nose_strong',
+    'mouth_shadow',
+    'age_lines', 'sockets_neutral', 'wings_devil',
+    'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
+    var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
+    'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
+    'eyelashes_neutral',
+    'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
+    ];
+    c.sex  = hash.get('sex');
+    <!--TODO: Make the following piece of code into a function-->
+    var sex = c.sex;
+    console.log('sex: ', sex);
+    if (sex ==='m') {
+        var form1 = maleForm1;
+        var form2 = maleForm2;
+        var form3 = maleForm3;
+        var layerDirectory = layerDirectoryMale;
+        var layers = layersMale;
+        var multiLayer = multiLayerMale;
+    } else {
+        var form1 = femaleForm1;
+        var form2 = femaleForm2;
+        var form3 = femaleForm3;
+        var layerDirectory = layerDirectoryFemale;
+        var layers = layersFemale;
+        var multiLayer = multiLayerFemale;
+    }
+    var forms = [form1, form2, form3];
+// Get all the hash key/value pairs and include them in the c.choices object
+// Go through all the forms
+    parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+    toBeShown = choicesToLayers(c, multiLayer);
+    var viewport = Snap("#svg1");
+    var viewportFace = Snap("#lg_face");
+    var viewportTorso = Snap("#lg_torso");
+    var viewportBody = Snap("#lg_body");
+    var viewportFull = Snap("#lg_full");
+    var myLoadList = layers.map(function(obj){
+        return layerDirectory + obj;
+    });
+    viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    TweenMax.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    TweenMax.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+}
+
+function stageNav() {
+    //var stepByStep = document.getElementById("step-by-step");
+    //var state = stages[stageKey];
+    //var tl = new TimelineLite();
+    //tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn});
+}
+
+function displayPallette () {
+    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+    var gmenu = document.getElementById("gmenu");
+    for (color in skinTones) {
+        var newColor = skinTones[color];
+        var node = document.createElement("LI");
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + newColor + ";";
+        gmenu.appendChild(node);
+        node.onclick = colorCutout;
+        //} );
+    };
+    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+}
+
+function rgb2hex(rgb){
+ rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ return (rgb && rgb.length === 4) ? "#" +
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
+function colorCutout(newColor){
+    var rgb = this.style.backgroundColor;
+    var newColor = rgb2hex(rgb);
+    var colorCards = document.getElementsByClassName(".skin-tone");
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    var sideBar = document.getElementById("sidebar");
+    var lg = document.getElementsByClassName("lg");
+    var tl = new TimelineLite();
+    tl.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05)
+    .to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
+    var obj = new Array();
+    obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+    hash.add(obj);
+    launch();
+
+}
+
+function selectMale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette.removeEventListener('click', selectMale, false);
+    hash.add({ sex: 'm' });
+    var malePath = document.getElementById("path_male");
+    var tl = new TimelineLite();
+    //var stepByStep = document.getElementById("step-by-step");
+    //var navLeft = document.getElementById("nav-left");
+    tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")
+    .to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
+    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male");
+    //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
+    //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
+    displayPallette();
+}
+
+function selectFemale(event) {
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    femaleSilhouette.removeEventListener('click', selectFemale, false);
     hash.add({ sex: 'f' });
-    var form1 = femaleForm1;
-    var form2 = femaleForm2;
-    var form3 = femaleForm3;
-    var layerDirectory = 'layer/female/';
-    var layers = layersFemale;
-    var multiLayer = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female");
     var tl = new TimelineLite();
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
-    //launch(layers, layerDirectory);
     displayPallette();
 }
 
 
 
-function parseHash(){
+function parseHash(c, forms, skinLayers, hairLayers){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
         //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
@@ -9869,7 +9890,7 @@ function parseHash(){
         'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Mouth': ['neutral', 'anger', 'alertness', 'anxiety', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage', 'sterness']
     };
-    var forms = [form1, form2, form3, face];
+    //var forms = [form1, form2, form3, face];
     //get the pupils from form1 and append the emotions,
     for (var f in forms){
         for(var x in forms[f]){
@@ -9892,12 +9913,12 @@ function parseHash(){
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 // Add the key/value pair to c.choices here
-                modCharacter(section, hashData);
+                modCharacter(c, section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 //TODO: Get emotion from hash
 
-                modCharacter(section, 'neutral');
+                modCharacter(c, section, 'neutral');
             };
             console.log('id', id);
             console.log('skinLayers', skinLayers);
@@ -9910,7 +9931,7 @@ function parseHash(){
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){
-                modCharacter(section+'Color', hashColor);
+                modCharacter(c, section+'Color', hashColor);
                 ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };

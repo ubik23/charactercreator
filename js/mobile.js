@@ -310,11 +310,13 @@ function colorCutout(newColor){
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBar = document.getElementById("sidebar");
+    var lg = document.getElementsByClassName("lg");
     var tl = new TimelineLite();
     tl.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
-    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05);
+    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     var obj = new Array();
     obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
     hash.add(obj);

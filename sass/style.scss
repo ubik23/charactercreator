@@ -310,12 +310,15 @@ input.color{
 }
 
 div.looking_glass {
-    display:none;
+    display: block;
 	position: fixed;
 	top: 8%;
 	left: 3%;
 }
 
+.lg {
+	opacity: 0.0;
+}
 div.lg {
 	display: block;
 	width: auto;
@@ -333,17 +336,14 @@ div.lg:hover {
 svg.lg {
 	width: 100%;
 	height: 100%;
-	opacity: 0.5;
 }
 
 svg.lg:hover {
-	opacity: 1;
+	/*opacity: 1;*/
 }
 
 div.lg a {
-	font-family: sans-serif;
 	text-decoration: none;
-	color: white;
 	padding: 0.5em 0 0 0.1em;
 }
 
@@ -451,7 +451,7 @@ footer a {
 	}
 
 	#sidebar {
-        display: none;
+        display: block;
 
 	}
 
