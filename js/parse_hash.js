@@ -38,14 +38,10 @@ function parseHash(c, forms, skinLayers, hairLayers){
 
                 modCharacter(c, section, 'neutral');
             };
-            console.log('id', id);
-            console.log('skinLayers', skinLayers);
             if (id in skinLayers || section ==='body'){
                 section = 'skin';
-                console.log('id in skin', id);
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
-            console.log('section', section);
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){

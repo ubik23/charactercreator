@@ -9158,8 +9158,8 @@ function download(filename) {
 }
 
 
-function createForm(sex){
-    var forms = [form1, form2, form3];
+function createForm(sex, forms){
+    //var forms = [form1, form2, form3];
     for (var f in forms){
         var formContainer = $('#content_'+(Number(f)+1));
         //form.head, form.body, form.clothing, form.accessories...
@@ -9778,6 +9778,7 @@ function launch(layers, layerDirectory) {
     var forms = [form1, form2, form3];
 // Get all the hash key/value pairs and include them in the c.choices object
 // Go through all the forms
+    createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
     var viewport = Snap("#svg1");
@@ -9785,6 +9786,8 @@ function launch(layers, layerDirectory) {
     var viewportTorso = Snap("#lg_torso");
     var viewportBody = Snap("#lg_body");
     var viewportFull = Snap("#lg_full");
+    var sideBar = document.getElementById("sidebar");
+    console.log('SideBar', sideBar);
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
@@ -9795,6 +9798,7 @@ function launch(layers, layerDirectory) {
     viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     TweenMax.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     TweenMax.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    TweenMax.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05);
 }
 
 function stageNav() {
@@ -9842,7 +9846,7 @@ function colorCutout(newColor){
     .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     var obj = new Array();
-    obj['skinColor'] =  newColor;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+    obj['skinColor'] =  newColor;
     hash.add(obj);
     launch();
 
@@ -9920,14 +9924,10 @@ function parseHash(c, forms, skinLayers, hairLayers){
 
                 modCharacter(c, section, 'neutral');
             };
-            console.log('id', id);
-            console.log('skinLayers', skinLayers);
             if (id in skinLayers || section ==='body'){
                 section = 'skin';
-                console.log('id in skin', id);
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
-            console.log('section', section);
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){

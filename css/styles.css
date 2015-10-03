@@ -644,14 +644,15 @@ h1 {
   padding: 0.75vh 3% 0 0; }
 
 ul#horizontal {
-  display: inline-block;
+  display: flex;
   list-style: none; }
 
 ul#horizontal li {
-  padding-left: 0.6em;
-  display: inline-block; }
+  padding-left: 0.6em; }
 
 ul#horizontal li a {
+  display: flex;
+  align-items: center;
   color: #f2f2f2; }
 
 ul#horizontal li a:hover {
@@ -680,6 +681,12 @@ ul#horizontal li a:hover {
   stroke-opacity: 1;
   marker: none;
   enable-background: accumulate; }
+
+.menu-text {
+  font-family: Helvetica;
+  font-size: 12px;
+  margin: 4px;
+  box-sizing: border-box; }
 
 .male {
   color: #e35a4e;
@@ -774,13 +781,14 @@ ul#horizontal li a:hover {
   display: block;
   position: fixed;
   right: 1%;
-  top: 8%;
+  bottom: 8%;
   width: 23%;
   min-width: 260px;
   height: auto;
   font-family: helvetica, sans-serif;
   font-size: 0.8em;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 0; }
 
 input.color {
   width: 50px; }
@@ -916,6 +924,8 @@ footer a {
   sub {
     font-size: .5em;
     text-align: left; }
+  .menu-text {
+    display: none; }
   #main-nav {
     position: static; }
   #site-logo {

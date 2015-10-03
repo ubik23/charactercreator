@@ -138,16 +138,17 @@ h1 {
 }
 
 ul#horizontal {
-    display: inline-block;
+    display: flex;
 	list-style: none;
 }
 
 ul#horizontal li {
 	padding-left: 0.6em;
-    display: inline-block;
 }
 
 ul#horizontal li a {
+    display: flex;
+    align-items: center;
 	color: #f2f2f2;
 }
 
@@ -164,6 +165,7 @@ ul#horizontal li a:hover {
 .icon-mail3 {
     width: 24px;
 }
+
 .path {
     color:#000000;
     display:inline;
@@ -179,6 +181,13 @@ ul#horizontal li a:hover {
     stroke-opacity:1;
     marker:none;
     enable-background:accumulate;
+}
+
+.menu-text {
+    font-family: Helvetica;
+    font-size: 12px;
+    margin: 4px;
+    box-sizing: border-box;
 }
 
 .male {
@@ -296,13 +305,14 @@ ul#horizontal li a:hover {
     display: block;
 	position: fixed;
 	right: 1%;
-	top:8%;
+	bottom:8%;
 	width: 23%;
 	min-width: 260px;
 	height: auto;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
 	overflow: hidden;
+    opacity: 0;
 }
 
 input.color{
@@ -483,6 +493,11 @@ footer a {
 	{
 
 	}
+
+    .menu-text {
+        display: none;
+    }
+
 	#main-nav {
 		position: static;
 	}
