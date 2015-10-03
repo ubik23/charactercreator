@@ -88,6 +88,7 @@ function choicesToLayers(c){
     //TODO: Get rid of exceptions like the following and establish rules to catch them.
     if (c.sex === 'f'){
         selectedLayers.push('body_hand');
+        selectedLayers.push('bra_bow');
     };
     return selectedLayers;
 };
