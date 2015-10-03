@@ -9541,7 +9541,6 @@ window.onload = function() {
 function launch(layers, layerDirectory) {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    console.log('entered launch');
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
@@ -9759,7 +9758,6 @@ function launch(layers, layerDirectory) {
     c.sex  = hash.get('sex');
     <!--TODO: Make the following piece of code into a function-->
     var sex = c.sex;
-    console.log('sex: ', sex);
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;
@@ -9787,7 +9785,6 @@ function launch(layers, layerDirectory) {
     var viewportBody = Snap("#lg_body");
     var viewportFull = Snap("#lg_full");
     var sideBar = document.getElementById("sidebar");
-    console.log('SideBar', sideBar);
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
