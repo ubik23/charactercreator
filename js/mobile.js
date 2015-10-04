@@ -240,14 +240,14 @@ function launch(layers, layerDirectory) {
         var form3 = maleForm3;
         var layerDirectory = layerDirectoryMale;
         var layers = layersMale;
-        var multiLayer = multiLayerMale;
+        multiLayer = multiLayerMale;
     } else {
         var form1 = femaleForm1;
         var form2 = femaleForm2;
         var form3 = femaleForm3;
         var layerDirectory = layerDirectoryFemale;
         var layers = layersFemale;
-        var multiLayer = multiLayerFemale;
+        multiLayer = multiLayerFemale;
     }
     var forms = [form1, form2, form3];
 // Get all the hash key/value pairs and include them in the c.choices object
@@ -255,11 +255,11 @@ function launch(layers, layerDirectory) {
     createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
-    var viewport = Snap("#svg1");
-    var viewportFace = Snap("#lg_face");
-    var viewportTorso = Snap("#lg_torso");
-    var viewportBody = Snap("#lg_body");
-    var viewportFull = Snap("#lg_full");
+    viewport = Snap("#svg1");
+    viewportFace = Snap("#lg_face");
+    viewportTorso = Snap("#lg_torso");
+    viewportBody = Snap("#lg_body");
+    viewportFull = Snap("#lg_full");
     var sideBar = document.getElementById("sidebar");
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;

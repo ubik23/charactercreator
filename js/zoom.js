@@ -1,5 +1,6 @@
 
 function zoomIn() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "140 73 290 290");
@@ -14,6 +15,7 @@ function zoomIn() {
 }
 
 function zoomOut() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     //shape.setAttribute("viewBox", "0 0 560 560");
     //shape.setAttribute("viewBox", "-10 0 580 580"); // Complete view
@@ -21,6 +23,7 @@ function zoomOut() {
 }
 
 function zoomFace() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "240 90 80 80");
@@ -30,6 +33,7 @@ function zoomFace() {
 }
 
 function zoomTorso() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
     if (sex == 'm'){
         shape.setAttribute("viewBox", "204 85 150 150");
@@ -39,6 +43,7 @@ function zoomTorso() {
 }
 
 function zoomBody() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "136 73 290 290");

@@ -9764,14 +9764,14 @@ function launch(layers, layerDirectory) {
         var form3 = maleForm3;
         var layerDirectory = layerDirectoryMale;
         var layers = layersMale;
-        var multiLayer = multiLayerMale;
+        multiLayer = multiLayerMale;
     } else {
         var form1 = femaleForm1;
         var form2 = femaleForm2;
         var form3 = femaleForm3;
         var layerDirectory = layerDirectoryFemale;
         var layers = layersFemale;
-        var multiLayer = multiLayerFemale;
+        multiLayer = multiLayerFemale;
     }
     var forms = [form1, form2, form3];
 // Get all the hash key/value pairs and include them in the c.choices object
@@ -9952,6 +9952,7 @@ function tabSwitch(new_tab, new_content) {
 
 
 function zoomIn() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "140 73 290 290");
@@ -9966,6 +9967,7 @@ function zoomIn() {
 }
 
 function zoomOut() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     //shape.setAttribute("viewBox", "0 0 560 560");
     //shape.setAttribute("viewBox", "-10 0 580 580"); // Complete view
@@ -9973,6 +9975,7 @@ function zoomOut() {
 }
 
 function zoomFace() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "240 90 80 80");
@@ -9982,6 +9985,7 @@ function zoomFace() {
 }
 
 function zoomTorso() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
     if (sex == 'm'){
         shape.setAttribute("viewBox", "204 85 150 150");
@@ -9991,6 +9995,7 @@ function zoomTorso() {
 }
 
 function zoomBody() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "136 73 290 290");
