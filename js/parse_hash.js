@@ -1,5 +1,5 @@
 
-function parseHash(c, forms, skinLayers, hairLayers){
+function parseHash(forms, skinLayers, hairLayers){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
         //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
@@ -31,12 +31,12 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 // Add the key/value pair to c.choices here
-                modCharacter(c, section, hashData);
+                modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 //TODO: Get emotion from hash
 
-                modCharacter(c, section, 'neutral');
+                modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body'){
                 section = 'skin';
@@ -45,7 +45,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){
-                modCharacter(c, section+'Color', hashColor);
+                modCharacter(section+'Color', hashColor);
                 ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };
