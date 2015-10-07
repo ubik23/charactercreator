@@ -731,7 +731,7 @@ ul#horizontal li a:hover {
   margin: 0 auto;
   position: relative;
   z-index: 0;
-  top: 0; }
+  top: 15px; }
 
 #article {
   font-family: arial, verdana, sans-serif;
@@ -805,7 +805,7 @@ div.looking_glass {
 div.lg {
   display: block;
   width: auto;
-  width: 10vw;
+  width: 100%;
   height: 15vh;
   margin-bottom: 0.15em;
   background-color: rgba(204, 204, 204, 0.2);

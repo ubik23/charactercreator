@@ -9308,7 +9308,7 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');
@@ -9372,7 +9372,7 @@ function Character(fullName, sex, emotion, choices, birthday){
     this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
-function modCharacter(c, myKey, myValue){
+function modCharacter(myKey, myValue){
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];
@@ -9449,7 +9449,7 @@ function show(context){  // Draw the SVG on screen
         };
     }
     if (sections[0] === 'emotion'){
-        modCharacter(c, sections[0], selectedOption);
+        modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(context.value);
@@ -9483,12 +9483,12 @@ function show(context){  // Draw the SVG on screen
                     }
             };
             if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(c, sections[section], selectedOption);
+                modCharacter(sections[section], selectedOption);
             } else {
                 var obj = new Array();
                 obj[sections[section]] = selectedOption;
                 hash.add(obj);
-                modCharacter(c, sections[section], selectedOption);
+                modCharacter(sections[section], selectedOption);
                 ga('send', 'event', 'menu', 'select', id);
 
             }
@@ -9779,11 +9779,11 @@ function launch(layers, layerDirectory) {
     createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
-    var viewport = Snap("#svg1");
-    var viewportFace = Snap("#lg_face");
-    var viewportTorso = Snap("#lg_torso");
-    var viewportBody = Snap("#lg_body");
-    var viewportFull = Snap("#lg_full");
+    viewport = Snap("#svg1");
+    viewportFace = Snap("#lg_face");
+    viewportTorso = Snap("#lg_torso");
+    viewportBody = Snap("#lg_body");
+    viewportFull = Snap("#lg_full");
     var sideBar = document.getElementById("sidebar");
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
@@ -9837,9 +9837,9 @@ function colorCutout(newColor){
     var sideBar = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
     var tl = new TimelineLite();
-    tl.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05)
-    .to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    tl.to(".skin-tone", 5.5, {y:'100px', ease:Elastic.easeOut})
+    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     var obj = new Array();
@@ -9882,7 +9882,7 @@ function selectFemale(event) {
 
 
 
-function parseHash(c, forms, skinLayers, hairLayers){
+function parseHash(forms, skinLayers, hairLayers){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
         //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
@@ -9914,12 +9914,12 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 // Add the key/value pair to c.choices here
-                modCharacter(c, section, hashData);
+                modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 //TODO: Get emotion from hash
 
-                modCharacter(c, section, 'neutral');
+                modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body'){
                 section = 'skin';
@@ -9928,7 +9928,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var hashColor = hash.get(section+'Color');
             // Now to get the color
             if (hashColor != undefined && hashColor != ''){
-                modCharacter(c, section+'Color', hashColor);
+                modCharacter(section+'Color', hashColor);
                 ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };

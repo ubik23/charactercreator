@@ -1,6 +1,6 @@
 window.onload = function() {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette = document.getElementById("male_silhouette");
+    femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
     c = new Character();
@@ -291,6 +291,7 @@ function displayPallette () {
         node.style.cssText = "background-color:" + newColor + ";";
         gmenu.appendChild(node);
         node.onclick = colorCutout;
+        node.onmouseover = colorOnHover;
         //} );
     };
     TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
@@ -304,6 +305,16 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+function colorOnHover() {
+    var malePath = document.getElementById("path_male");
+    var femalePath = document.getElementById("path_female");
+     console.log(this.style.backgroundColor);
+     //var newTone = rgb2hex(this.style.backgroundColor);
+     var newTone = this.style.backgroundColor;
+    TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+    TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+}
+
 function colorCutout(newColor){
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
@@ -313,9 +324,9 @@ function colorCutout(newColor){
     var sideBar = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
     var tl = new TimelineLite();
-    tl.staggerTo(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05)
-    .to(femaleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    tl.to("#gmenu", 5, { bottom:'-100px'})
+    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     var obj = new Array();
