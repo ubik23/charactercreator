@@ -308,7 +308,6 @@ function rgb2hex(rgb){
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
-     console.log(this.style.backgroundColor);
      var newTone = this.style.backgroundColor;
     TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
     TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
@@ -360,7 +359,6 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     femalePath.className.baseVal = "path template";
-    console.log('class:', femalePath.className);
     var tl = new TimelineLite();
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
