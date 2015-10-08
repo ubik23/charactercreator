@@ -190,6 +190,12 @@ ul#horizontal li a:hover {
     box-sizing: border-box;
 }
 
+.template {
+    color: #e35a4e;
+    fill: currentColor;
+    stroke-width: 0;
+}
+
 .male {
     color: #e35a4e;
     fill: currentColor;
@@ -198,7 +204,7 @@ ul#horizontal li a:hover {
 }
 
 .male:hover {
-    /*animation: fadeIn 3s linear;*/
+    animation: fadeIn 250ms linear;
     fill-opacity: 1;
 }
 
@@ -210,7 +216,7 @@ ul#horizontal li a:hover {
 }
 
 .female:hover {
-    /*animation: fadeIn 3s linear;*/
+    animation: fadeIn 250ms linear;
     fill-opacity: 1;
 }
 
@@ -376,7 +382,7 @@ div.lg a {
     flex-direction: row;
     flex-wrap: nowrap;
      width: 100%;
-     height: 15%;
+     height: 13%;
      position: fixed;
      bottom: 0;
      li {

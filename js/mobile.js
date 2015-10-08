@@ -309,7 +309,6 @@ function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
      console.log(this.style.backgroundColor);
-     //var newTone = rgb2hex(this.style.backgroundColor);
      var newTone = this.style.backgroundColor;
     TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
     TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
@@ -333,7 +332,6 @@ function colorCutout(newColor){
     obj['skinColor'] =  newColor;
     hash.add(obj);
     launch();
-
 }
 
 function selectMale(event) {
@@ -342,6 +340,7 @@ function selectMale(event) {
     maleSilhouette.removeEventListener('click', selectMale, false);
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
+    malePath.className.baseVal = "path template";
     var tl = new TimelineLite();
     //var stepByStep = document.getElementById("step-by-step");
     //var navLeft = document.getElementById("nav-left");
@@ -359,7 +358,9 @@ function selectFemale(event) {
     femaleSilhouette.removeEventListener('click', selectFemale, false);
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var femalePath = document.getElementById("path_female");
+    var femalePath = document.getElementById("path_female")
+    femalePath.className.baseVal = "path template";
+    console.log('class:', femalePath.className);
     var tl = new TimelineLite();
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
