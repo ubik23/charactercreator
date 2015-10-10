@@ -26,12 +26,13 @@ for (i = 0; i < 3; i++) {
 return rgb;
 }
 
-function test(_context, _color){
+function test(_context, _color, forms){
     var id = _context.getAttribute("id").slice(0,-1);
     var affectedList = [];
+    console.log('test-forms: ', forms);
     // get all the options for that id
     // Cycle through each form array
-    var forms = [form1, form2, form3];
+    //var forms = [form1, form2, form3];
     for (var f in forms){
         // Cycle through each element in the form
         for(var x in forms[f]){

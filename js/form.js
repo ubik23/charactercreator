@@ -34,7 +34,7 @@ function createForm(sex, forms){
               }
             else {var defval = '';}
             newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);onmouseenter"show(this);" '+defval+'>'+options+'</select></div>';
+            newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);" onkeydown="show(this);" '+defval+'>'+options+'</select></div>';
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
