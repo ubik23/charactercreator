@@ -10,6 +10,10 @@ TODO:
 $(document).ready(function() {
     createForm(sex);
     createCharacter();
+    var loading = document.querySelector("#loading");
+    console.log('Loading: ', loading);
+    //loading[0].setAttribute("opacity", "0");
+    loading.parentNode.removeChild(loading);
 });
 
 function isInArray(value, array) {

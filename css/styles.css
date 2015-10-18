@@ -733,6 +733,19 @@ svg {
   fill: currentColor;
   color: #e35a4e; }
 
+#loading {
+  font-family: helvetica;
+  position: absolute;
+  /*z-index: 23;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e35a4e; }
+
 input.color {
   width: 50px; }
 
@@ -746,7 +759,7 @@ div.looking_glass {
 div.lg {
   display: block;
   width: auto;
-  max-width: 10vw;
+  width: 15vh;
   height: 15vh;
   margin-bottom: 0.15em;
   background-color: rgba(204, 204, 204, 0.2);
