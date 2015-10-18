@@ -30,26 +30,36 @@ function trans(sex){
     location.reload();
 }
 function random(forms){
-    console.log(forms);
-    for (form in forms) {
-        console.log('for loop');
-        console.log(forms[form]);
-        for (var key in forms[form]) {
-            if (forms[form].hasOwnProperty(key)) {
-                var myKey = key;
-                console.log("Key: ", myKey);
-                var len = forms[form][myKey].length;
-                console.log(len);
-                var rand = Math.floor((Math.random() * len));
-                console.log(rand);
-                var layer = forms[form][myKey][rand].toLowerCase();
-                console.log(layer);
-                //modCharacter(key.toLowerCase(), layer);
-                showRandom(key.toLowerCase(), layer);
+    //for (form in forms) {
+    console.log('forms : ', forms);
+        var formLen = forms.length;
+        var formRand = Math.floor((Math.random() * formLen));
+        var count = 0;
+        var randForm = forms[formRand];
+        for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
+        var keys = [];
+        for (var key in forms[formRand]) {
+
+            if (forms[formRand].hasOwnProperty(key)) {
+                keys.push(key);
             }
         }
-
-    }
+        var lenKey = keys.length;
+        var randKey = Math.floor((Math.random() * lenKey));
+        var key = keys[randKey];
+        console.log('key', key);
+        console.log('keys', keys);
+                var myKey = key;
+                var len = forms[formRand][myKey].length;
+                var rand = Math.floor((Math.random() * len));
+                var layer = forms[formRand][myKey][rand].toLowerCase();
+                console.log('Layer: ', layer);
+                //modCharacter(key.toLowerCase(), layer);
+                showRandom(key.toLowerCase(), layer);
+            //}
+        //}
+    //}
+    //hash.clear();
     return;
 }
 
@@ -134,7 +144,6 @@ function GetEmotionGetLayers() {
         var eLayer = faceElements[e]
         facialExpressionLayers.push(eLayer);
     };
-    //console.log('facialExpressionLayers: ', facialExpressionLayers);
     return facialExpressionLayers;
 };
 
@@ -167,7 +176,6 @@ function show(context){  // Draw the SVG on screen
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
-                //console.log('id: ', id )
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -225,13 +233,12 @@ function show(context){  // Draw the SVG on screen
 }
 
 function showRandom(section, layer){  // Draw the SVG on screen
-    console.log("random");
     var selectedOption = layer;
     var sections = [];
     sections[0] = section;
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    console.log("ID:", id);
+    console.log('showRandom: id =>', id);
     obj[sections[0]] = selectedOption;
     hash.add(obj);
     if (sections[0] === "pupils") {
@@ -246,19 +253,15 @@ function showRandom(section, layer){  // Draw the SVG on screen
         //ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(selectedOption);
-        console.log('emotions: ', emotions);
-        console.log('layer: ', layer);
         for (emo in emotions){
             var newEmo = emotions[emo] + "_" + layer;
             sections.push(newEmo);
         }
     };
+    console.log('Sections : ', sections);
     for (section in sections){
-        console.log('SelectedOption: ', selectedOption);
-        console.log('section: ', section);
-        console.log('sections: ', sections);
-            var id = '#'+sections[section];
-                //console.log('id: ', id )
+            var id = '#'+sections[section] + '_' + layer;
+            console.log('for section in sections: id =>', id);
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){

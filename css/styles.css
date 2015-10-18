@@ -722,6 +722,17 @@ svg {
   overflow: hidden;
   z-index: 100; }
 
+.hud {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center; }
+
+.random_button {
+  fill: currentColor;
+  color: #e35a4e; }
+
 input.color {
   width: 50px; }
 
