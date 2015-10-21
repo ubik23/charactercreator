@@ -9847,14 +9847,14 @@ function colorCutout(newColor){
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBar = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
-    var tl = new TimelineLite({onComplete:launch});
-    tl.to("#gmenu", 5, { bottom:'-100px'})
+    var obj = new Array();
+    obj['skinColor'] =  newColor;
+    var tl = new TimelineLite();
+    tl.to("#gmenu", 0.5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
-    var obj = new Array();
-    obj['skinColor'] =  newColor;
     hash.add(obj);
 }
 
@@ -9865,7 +9865,7 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     malePath.className.baseVal = "path template";
-    var tl = new TimelineLite();
+    var tl = new TimelineLite({onComplete:launch});
     //var stepByStep = document.getElementById("step-by-step");
     //var navLeft = document.getElementById("nav-left");
     tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")

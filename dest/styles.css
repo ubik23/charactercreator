@@ -786,7 +786,7 @@ ul#horizontal li a:hover {
   display: block;
   position: fixed;
   right: 1%;
-  bottom: 8%;
+  bottom: 10%;
   width: 23%;
   min-width: 260px;
   height: auto;
@@ -807,10 +807,13 @@ ul#horizontal li a:hover {
       -ms-flex-pack: distribute;
           justify-content: space-around; }
 
+.select-group select {
+  /*border-radius: 10px 0 0  10px;*/ }
+
 input.color {
   width: 50px;
   height: 10px;
-  border-radius: 0 0 5px 5px; }
+  border-radius: 0 10px 10px 0; }
 
 div.looking_glass {
   display: block;
