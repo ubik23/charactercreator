@@ -40,7 +40,9 @@ function createForm(sex, forms){
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
               }
-            else {var colorValue = '#ffffff'}
+            else {
+                var colorValue = '#ffffff'
+            }
             newHtml += '<div class="Cell"><input class="color" onchange="test(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
             newHtml += '</div>';
             newHtml += '</div>';

@@ -321,7 +321,7 @@ function colorCutout(newColor){
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBar = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
-    var tl = new TimelineLite();
+    var tl = new TimelineLite({onComplete:launch});
     tl.to("#gmenu", 5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
@@ -330,7 +330,6 @@ function colorCutout(newColor){
     var obj = new Array();
     obj['skinColor'] =  newColor;
     hash.add(obj);
-    launch();
 }
 
 function selectMale(event) {

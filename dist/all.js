@@ -8857,12 +8857,13 @@ for (i = 0; i < 3; i++) {
 return rgb;
 }
 
-function test(_context, _color){
+function test(_context, _color, forms){
     var id = _context.getAttribute("id").slice(0,-1);
     var affectedList = [];
+    console.log('test-forms: ', forms);
     // get all the options for that id
     // Cycle through each form array
-    var forms = [form1, form2, form3];
+    //var forms = [form1, form2, form3];
     for (var f in forms){
         // Cycle through each element in the form
         for(var x in forms[f]){
@@ -9193,13 +9194,15 @@ function createForm(sex, forms){
               }
             else {var defval = '';}
             newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);onmouseenter"show(this);" '+defval+'>'+options+'</select></div>';
+            newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);" onkeydown="show(this);" '+defval+'>'+options+'</select></div>';
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
               }
-            else {var colorValue = '#ffffff'}
+            else {
+                var colorValue = '#ffffff'
+            }
             newHtml += '<div class="Cell"><input class="color" onchange="test(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
             newHtml += '</div>';
             newHtml += '</div>';
@@ -9462,7 +9465,6 @@ function show(context){  // Draw the SVG on screen
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
-                console.log('id: ', id )
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
@@ -9523,8 +9525,8 @@ function show(context){  // Draw the SVG on screen
 
 
 window.onload = function() {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
+    maleSilhouette = document.getElementById("male_silhouette");
+    femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
     c = new Character();
@@ -9815,6 +9817,7 @@ function displayPallette () {
         node.style.cssText = "background-color:" + newColor + ";";
         gmenu.appendChild(node);
         node.onclick = colorCutout;
+        node.onmouseover = colorOnHover;
         //} );
     };
     TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
@@ -9828,6 +9831,14 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+function colorOnHover() {
+    var malePath = document.getElementById("path_male");
+    var femalePath = document.getElementById("path_female");
+     var newTone = this.style.backgroundColor;
+    TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+    TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+}
+
 function colorCutout(newColor){
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
@@ -9836,8 +9847,8 @@ function colorCutout(newColor){
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBar = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
-    var tl = new TimelineLite();
-    tl.to(".skin-tone", 5.5, {y:'100px', ease:Elastic.easeOut})
+    var tl = new TimelineLite({onComplete:launch});
+    tl.to("#gmenu", 5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
     .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
@@ -9845,8 +9856,6 @@ function colorCutout(newColor){
     var obj = new Array();
     obj['skinColor'] =  newColor;
     hash.add(obj);
-    launch();
-
 }
 
 function selectMale(event) {
@@ -9855,6 +9864,7 @@ function selectMale(event) {
     maleSilhouette.removeEventListener('click', selectMale, false);
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
+    malePath.className.baseVal = "path template";
     var tl = new TimelineLite();
     //var stepByStep = document.getElementById("step-by-step");
     //var navLeft = document.getElementById("nav-left");
@@ -9872,7 +9882,8 @@ function selectFemale(event) {
     femaleSilhouette.removeEventListener('click', selectFemale, false);
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var femalePath = document.getElementById("path_female");
+    var femalePath = document.getElementById("path_female")
+    femalePath.className.baseVal = "path template";
     var tl = new TimelineLite();
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")

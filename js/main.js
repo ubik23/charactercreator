@@ -137,7 +137,6 @@ function show(context){  // Draw the SVG on screen
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
-                console.log('id: ', id )
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
