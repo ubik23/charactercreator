@@ -166,6 +166,17 @@ ul#horizontal li a:hover {
     width: 24px;
 }
 
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+    position: absolute;
+    top: 8%;
+    left: 3%;
+}
+
 .path {
     color:#000000;
     display:inline;
@@ -310,8 +321,8 @@ ul#horizontal li a:hover {
 #sidebar {
     display: block;
 	position: fixed;
-	right: 1%;
-	bottom:10%;
+	right: -32%;
+	bottom:13%;
 	width: 23%;
 	min-width: 260px;
 	height: auto;
@@ -336,44 +347,6 @@ input.color{
 	width: 50px;
     height: 10px;
     border-radius: 0 10px 10px 0; 
-}
-
-div.looking_glass {
-    display: block;
-	position: fixed;
-	top: 8%;
-	left: 3%;
-}
-
-.lg {
-	opacity: 0.0;
-}
-div.lg {
-	display: block;
-	width: auto;
-	width: 100%;
-	height: 15vh;
-	margin-bottom: 0.15em;
-	background-color: rgba(204, 204, 204, 0.2); 
-	border-radius: 5px;	
-}
-
-div.lg:hover {
-	background-color: rgba(204, 204, 204, 0.4);
-}
-
-svg.lg {
-	width: 100%;
-	height: 100%;
-}
-
-svg.lg:hover {
-	/*opacity: 1;*/
-}
-
-div.lg a {
-	text-decoration: none;
-	padding: 0.5em 0 0 0.1em;
 }
 
 .Table {

@@ -9245,7 +9245,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
-    //console.log('all loaded');
+    console.log('all loaded');
 }
 
 function onEachLoaded( frag, fileName ) {
@@ -9791,10 +9791,6 @@ function launch(layers, layerDirectory) {
         return layerDirectory + obj;
     });
     viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportFace.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportTorso.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportBody.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    viewportFull.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
     TweenMax.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     TweenMax.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     TweenMax.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05);
@@ -9849,13 +9845,19 @@ function colorCutout(newColor){
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
-    var tl = new TimelineLite();
+    var tl = new TimelineLite({onComplete: showForm});
     tl.to("#gmenu", 0.5, { bottom:'-100px'})
-    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
-    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut}, 0.05)
+    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
+    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
+    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     hash.add(obj);
+}
+
+function showForm() {
+    var form = document.querySelector("#sidebar");
+    var tl = new TimelineLite({onComplete: launch});
+    tl.to(form, 0.5, { right:'1%'});
 }
 
 function selectMale(event) {
@@ -9865,7 +9867,7 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     malePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete:launch});
+    var tl = new TimelineLite();
     //var stepByStep = document.getElementById("step-by-step");
     //var navLeft = document.getElementById("nav-left");
     tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")
@@ -10016,10 +10018,27 @@ function zoomBody() {
 }
 
 function zoomFull() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "10 50 540 540");
     } else {
         shape.setAttribute("viewBox", "10 50 540 540");
     }
+}
+
+function viewBoxZoom() {
+     console.log("ViewBoxZoom");
+     var zoomLevel = document.querySelector("#zoomLevel").value;
+     console.log("Zoom : ", zoomLevel);
+     if (zoomLevel == 3){
+        console.log("zoomFace()");
+        zoomFace();
+     } else if (zoomLevel == 2){
+          zoomTorso();
+     } else if (zoomLevel ==1){
+          zoomBody();
+     } else if (zoomLevel == 0){
+         zoomFull();
+     }
 }

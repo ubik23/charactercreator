@@ -53,10 +53,27 @@ function zoomBody() {
 }
 
 function zoomFull() {
+    var sex = c.sex;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
         shape.setAttribute("viewBox", "10 50 540 540");
     } else {
         shape.setAttribute("viewBox", "10 50 540 540");
     }
+}
+
+function viewBoxZoom() {
+     console.log("ViewBoxZoom");
+     var zoomLevel = document.querySelector("#zoomLevel").value;
+     console.log("Zoom : ", zoomLevel);
+     if (zoomLevel == 3){
+        console.log("zoomFace()");
+        zoomFace();
+     } else if (zoomLevel == 2){
+          zoomTorso();
+     } else if (zoomLevel ==1){
+          zoomBody();
+     } else if (zoomLevel == 0){
+         zoomFull();
+     }
 }
