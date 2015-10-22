@@ -9470,18 +9470,10 @@ function show(context){  // Draw the SVG on screen
                         for (var i=1;i<=multiLayer[lyr][1];i++){
                             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                             viewport.selectAll(idOf).attr({opacity:1});
-                            viewportFace.selectAll(idOf).attr({opacity:1});
-                            viewportTorso.selectAll(idOf).attr({opacity:1});
-                            viewportBody.selectAll(idOf).attr({opacity:1});
-                            viewportFull.selectAll(idOf).attr({opacity:1});
                         }
                     }
                     else {
                         viewport.selectAll(id).attr({opacity:1});
-                        viewportFace.selectAll(id).attr({opacity:1});
-                        viewportTorso.selectAll(id).attr({opacity:1});
-                        viewportBody.selectAll(id).attr({opacity:1});
-                        viewportFull.selectAll(id).attr({opacity:1});
                     }
             };
             if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
@@ -9501,18 +9493,10 @@ function show(context){  // Draw the SVG on screen
                     for (var i=1;i<=multiLayer[lyr][1];i++){
                         idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                         viewport.selectAll(idOf).attr({opacity:0});
-                        viewportFace.selectAll(idOf).attr({opacity:0});
-                        viewportTorso.selectAll(idOf).attr({opacity:0});
-                        viewportBody.selectAll(idOf).attr({opacity:0});
-                        viewportFull.selectAll(idOf).attr({opacity:0});
                     }
                 }
                 else {
                     viewport.selectAll(id).attr({opacity:0})
-                    viewportFace.selectAll(id).attr({opacity:0})
-                    viewportTorso.selectAll(id).attr({opacity:0})
-                    viewportBody.selectAll(id).attr({opacity:0})
-                    viewportFull.selectAll(id).attr({opacity:0})
                 }
             };
             ;
