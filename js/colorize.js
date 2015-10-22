@@ -226,8 +226,12 @@ function applyColor(id, newColor, optLayer){
 
                 while (i--){
                     style = styles[i].split(':');
-                    k = $.trim(style[0]);
-                    v = $.trim(style[1]);
+                    //k = $.trim(style[0]);
+                    k = style[0].replace(/\s+/g, '');
+                    //v = $.trim(style[1]);
+                    if (style[1]){
+                        v = style[1].replace(/\s+/g, '');
+                    }
                     if (k.length > 0 && v.length > 0){
                         json.style[k] = v;
                     }

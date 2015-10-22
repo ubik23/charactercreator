@@ -2,7 +2,7 @@
 function createForm(sex, forms){
     //var forms = [form1, form2, form3];
     for (var f in forms){
-        var formContainer = $('#content_'+(Number(f)+1));
+        var formContainer = document.querySelector('#content_'+(Number(f)+1));
         //form.head, form.body, form.clothing, form.accessories...
         var newHtml = '<form>';
         newHtml += '<form action="">\n ';
@@ -50,6 +50,9 @@ function createForm(sex, forms){
         }
         newHtml += '</div>';
         newHtml += '</form>';
-        formContainer.append(newHtml);
+        //formContainer.append(newHtml);
+        var htmlObject = document.createElement('div');
+        htmlObject.innerHTML = newHtml;
+        formContainer.appendChild(htmlObject);
     }
 }
