@@ -666,6 +666,19 @@ ul#horizontal li a:hover {
 .icon-mail3 {
   width: 24px; }
 
+.zoom-container {
+  position: absolute;
+  top: 8%;
+  left: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.zoom-icon {
+  fill: currentColor;
+  color: #e35a4e; }
+
 input[type=range] {
   /*removes default webkit styles*/
   -webkit-appearance: none;
@@ -754,10 +767,7 @@ input[type=range][orient=vertical] {
   /* WebKit */
   width: 8px;
   height: 175px;
-  padding: 0 5px;
-  position: absolute;
-  top: 8%;
-  left: 3%; }
+  padding: 0 5px; }
 
 .path {
   color: #000000;
