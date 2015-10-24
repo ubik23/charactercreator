@@ -573,14 +573,18 @@ html {
   height: 100%; }
 
 body {
-  background: -webkit-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
+  background: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
+  background: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
+  background: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc);
+  background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* Standard syntax */
+  /*background: -webkit-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Safari 5.1 to 6.0 <]*/
+  /*background: -o-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Opera 11.1 to 12.0 <]*/
+  /*background: -moz-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Firefox 3.6 to 15 <]*/
+  /*background: linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> Standard syntax <]*/
   height: 100%;
   overflow-y: hidden;
   position: relative; }
