@@ -39,6 +39,8 @@ function createForm(sex, forms){
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
+                console.log('htagc : ', htagc );
+                console.log('colorValue : ', colorValue );
               }
             else {
                 var colorValue = '#ffffff'
