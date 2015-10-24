@@ -535,7 +535,7 @@ table {
 /* 
 CSS begins
 */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, eader, hgroup, menu, nav, section {
   display: block; }
 
 html {
@@ -576,7 +576,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 2;
-  height: 4.5%;
+  height: 5.5%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -663,7 +663,9 @@ ul#horizontal li a:hover {
 
 .zoom-icon {
   fill: currentColor;
-  color: #e35a4e; }
+  color: #e35a4e;
+  width: 16px;
+  height: 16px; }
 
 input[type=range] {
   /*removes default webkit styles*/
