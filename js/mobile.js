@@ -3,16 +3,58 @@ window.onload = function() {
     femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
+    //document.querySelector("#svg1").addEventListener("wheel", scrollZoom);
+    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+
+    if (document.attachEvent) //if IE (and Opera depending on user setting)
+        document.attachEvent("on"+mousewheelevt, scrollZoom);
+    else if (document.addEventListener) //WC3 browsers
+        document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
-//var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
-//var header = document.getElementById("header");
-//var footer = document.getElementById("footer");
-//var siteTitle = document.getElementById("siteTitle");
-//var downloadButton = document.getElementById("downloadButton");
-//var aboutButton = document.getElementById("aboutButton");
-//var stepByStep = document.getElementById("step-by-step");
-//var navLeft = document.getElementById("left-arrow")
+    //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
+    //var header = document.getElementById("header");
+    //var footer = document.getElementById("footer");
+    //var siteTitle = document.getElementById("siteTitle");
+    //var downloadButton = document.getElementById("downloadButton");
+    //var aboutButton = document.getElementById("aboutButton");
+    //var stepByStep = document.getElementById("step-by-step");
+    //var navLeft = document.getElementById("left-arrow")
 };
+
+function scrollZoom(e) {
+    var svgViewBox = document.querySelector("#svg1");
+    var event = window.event || e;
+    var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
+    var zoomLevel = document.querySelector("#zoomLevel").value;
+    var zoom = document.querySelector("#zoomLevel");
+    console.log("zoomLevel", zoomLevel);
+    //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
+    console.log('svgViewBox', svgViewBox.getAttribute('viewBox'));
+    console.log('event', event);
+    console.log('delta', delta);
+    console.log('scrollZoom: ', this);
+    if (delta > 0 ){
+        zoomLevel = zoomLevel + 1;
+        console.log("inter:", zoomLevel);
+        if (zoomLevel > 3) {
+             zoomLevel = 3;
+        }
+        document.querySelector("#zoomLevel").value = zoomLevel;
+        document.querySelector("#zoomLevel").onchange();
+        console.log('changed: ', zoomLevel);
+
+        //zoomFace();
+    } else {
+        zoomLevel = zoomLevel - 1;
+        if (zoomLevel < 0) {
+             zoomLevel = 0;
+        }
+        document.querySelector("#zoomLevel").value = zoomLevel;
+        document.querySelector("#zoomLevel").onchange();
+        console.log('changed: ', zoomLevel);
+        //zoomFull();
+    }
+}
 
 function launch(layers, layerDirectory) {
     var maleSilhouette = document.getElementById("male_silhouette");
