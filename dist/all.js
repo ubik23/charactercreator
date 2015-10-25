@@ -2451,6 +2451,7 @@ return rgb;
 }
 
 function test(_context, _color, forms){
+    console.log('test');
     var id = _context.getAttribute("id").slice(0,-1);
     var affectedList = [];
     console.log('test-forms: ', forms);
