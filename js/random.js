@@ -62,34 +62,63 @@ function showRandom(section, layer){  // Draw the SVG on screen
     };
     console.log('Sections : ', sections);
     for (section in sections){
-            var id = '#'+sections[section] + '_' + layer;
-            console.log('for section in sections: id =>', id);
-                for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
-                            viewportFace.selectAll(idOf).attr({opacity:1});
-                            viewportTorso.selectAll(idOf).attr({opacity:1});
-                            viewportBody.selectAll(idOf).attr({opacity:1});
-                            viewportFull.selectAll(idOf).attr({opacity:1});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:1});
-                        viewportFace.selectAll(id).attr({opacity:1});
-                        viewportTorso.selectAll(id).attr({opacity:1});
-                        viewportBody.selectAll(id).attr({opacity:1});
-                        viewportFull.selectAll(id).attr({opacity:1});
-                    }
-            };
-            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(sections[section], selectedOption);
-            } else {
-                var obj = new Array();
-                obj[sections[section]] = selectedOption;
-                hash.add(obj);
-                modCharacter(sections[section], selectedOption);
+
+        sectionOptions = getOptions(sections[section]);
+
+        console.log('sectionOptions', sectionOptions);
+        var id = '#'+sections[section] + '_' + layer;
+        console.log('for section in sections: id =>', id);
+        showId(id);
+        if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+            modCharacter(sections[section], selectedOption);
+        } else {
+            var obj = new Array();
+            obj[sections[section]] = selectedOption;
+            hash.add(obj);
+            modCharacter(sections[section], selectedOption);
+        }
+    };
+}
+
+function showId(id){
+        for (lyr in multiLayer){
+            if (id.slice(1) == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                    viewport.selectAll(idOf).attr({opacity:1});
+                    viewportFace.selectAll(idOf).attr({opacity:1});
+                    viewportTorso.selectAll(idOf).attr({opacity:1});
+                    viewportBody.selectAll(idOf).attr({opacity:1});
+                    viewportFull.selectAll(idOf).attr({opacity:1});
+                }
+            }
+            else {
+                viewport.selectAll(id).attr({opacity:1});
+                viewportFace.selectAll(id).attr({opacity:1});
+                viewportTorso.selectAll(id).attr({opacity:1});
+                viewportBody.selectAll(id).attr({opacity:1});
+                viewportFull.selectAll(id).attr({opacity:1});
             }
     };
 }
+
+
+function getOptions(section){
+     var sectionOptions = [];
+         console.log('window.forms', window.forms);
+     for (form in window.forms){
+         console.log('form :', window.forms[form]);
+         console.log('key :', capitalizeFirstLetter(section));
+         if ( capitalizeFirstLetter(section) in window.forms[form] ){
+              console.log('key found!! ', window.forms[form][capitalizeFirstLetter(section)]);
+              return window.forms[form][capitalizeFirstLetter(section)];
+         } else {
+             console.log('key not found.');
+         }
+     }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
