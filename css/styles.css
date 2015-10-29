@@ -737,7 +737,15 @@ svg {
   justify-content: space-around;
   align-items: center; }
 
-.random_button {
+.random-button {
+  fill: currentColor;
+  color: #e35a4e; }
+
+.play-button {
+  fill: currentColor;
+  color: #e35a4e; }
+
+.pause-button {
   fill: currentColor;
   color: #e35a4e; }
 

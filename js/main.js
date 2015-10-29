@@ -11,8 +11,6 @@ $(document).ready(function() {
     createForm(sex);
     createCharacter();
     var loading = document.querySelector("#loading");
-    console.log('Loading: ', loading);
-    //loading[0].setAttribute("opacity", "0");
     loading.parentNode.removeChild(loading);
 });
 
@@ -32,39 +30,6 @@ function trans(sex){
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' });
     location.reload();
-}
-function random(forms){
-    //for (form in forms) {
-    console.log('forms : ', forms);
-        var formLen = forms.length;
-        var formRand = Math.floor((Math.random() * formLen));
-        var count = 0;
-        var randForm = forms[formRand];
-        for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
-        var keys = [];
-        for (var key in forms[formRand]) {
-
-            if (forms[formRand].hasOwnProperty(key)) {
-                keys.push(key);
-            }
-        }
-        var lenKey = keys.length;
-        var randKey = Math.floor((Math.random() * lenKey));
-        var key = keys[randKey];
-        console.log('key', key);
-        console.log('keys', keys);
-                var myKey = key;
-                var len = forms[formRand][myKey].length;
-                var rand = Math.floor((Math.random() * len));
-                var layer = forms[formRand][myKey][rand].toLowerCase();
-                console.log('Layer: ', layer);
-                //modCharacter(key.toLowerCase(), layer);
-                showRandom(key.toLowerCase(), layer);
-            //}
-        //}
-    //}
-    //hash.clear();
-    return;
 }
 
 function Character(fullName, sex, emotion, choices, birthday){
@@ -236,64 +201,5 @@ function show(context){  // Draw the SVG on screen
     };
 }
 
-function showRandom(section, layer){  // Draw the SVG on screen
-    var selectedOption = layer;
-    var sections = [];
-    sections[0] = section;
-    var obj = new Array();
-    var id = '#'+sections[0]+'_'+selectedOption;
-    console.log('showRandom: id =>', id);
-    obj[sections[0]] = selectedOption;
-    hash.add(obj);
-    if (sections[0] === "pupils") {
-        sections[0] += "_" + selectedOption;
-        selectedOption = hash.get('emotion');
-        if (selectedOption == undefined){
-            selectedOption = 'neutral';
-        };
-    }
-    if (sections[0] === 'emotion'){
-        modCharacter(sections[0], selectedOption);
-        //ga('send', 'event', 'menu', 'select', id);
-        sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-        var emotions = GetEmotionGetLayers(selectedOption);
-        for (emo in emotions){
-            var newEmo = emotions[emo] + "_" + layer;
-            sections.push(newEmo);
-        }
-    };
-    console.log('Sections : ', sections);
-    for (section in sections){
-            var id = '#'+sections[section] + '_' + layer;
-            console.log('for section in sections: id =>', id);
-                for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
-                            viewportFace.selectAll(idOf).attr({opacity:1});
-                            viewportTorso.selectAll(idOf).attr({opacity:1});
-                            viewportBody.selectAll(idOf).attr({opacity:1});
-                            viewportFull.selectAll(idOf).attr({opacity:1});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:1});
-                        viewportFace.selectAll(id).attr({opacity:1});
-                        viewportTorso.selectAll(id).attr({opacity:1});
-                        viewportBody.selectAll(id).attr({opacity:1});
-                        viewportFull.selectAll(id).attr({opacity:1});
-                    }
-            };
-            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(sections[section], selectedOption);
-            } else {
-                var obj = new Array();
-                obj[sections[section]] = selectedOption;
-                hash.add(obj);
-                modCharacter(sections[section], selectedOption);
-            }
-    };
-}
 
 
