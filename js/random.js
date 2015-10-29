@@ -67,6 +67,11 @@ function showRandom(section, layer){  // Draw the SVG on screen
 
         console.log('sectionOptions', sectionOptions);
         var id = '#'+sections[section] + '_' + layer;
+        for (option in sectionOptions){
+            optionId = '#' + sections[section] + '_' + sectionOptions[option];
+            console.log('optionId', optionId);
+            hideId(optionId)
+        }
         console.log('for section in sections: id =>', id);
         showId(id);
         if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
@@ -102,6 +107,27 @@ function showId(id){
     };
 }
 
+function hideId(id){
+        for (lyr in multiLayer){
+            if (id.slice(1) == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                    viewport.selectAll(idOf).attr({opacity:0});
+                    viewportFace.selectAll(idOf).attr({opacity:0});
+                    viewportTorso.selectAll(idOf).attr({opacity:0});
+                    viewportBody.selectAll(idOf).attr({opacity:0});
+                    viewportFull.selectAll(idOf).attr({opacity:0});
+                }
+            }
+            else {
+                viewport.selectAll(id).attr({opacity:0});
+                viewportFace.selectAll(id).attr({opacity:0});
+                viewportTorso.selectAll(id).attr({opacity:0});
+                viewportBody.selectAll(id).attr({opacity:0});
+                viewportFull.selectAll(id).attr({opacity:0});
+            }
+    };
+}
 
 function getOptions(section){
      var sectionOptions = [];

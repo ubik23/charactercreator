@@ -741,13 +741,22 @@ svg {
   fill: currentColor;
   color: #e35a4e; }
 
+.random-button:hover {
+  color: red; }
+
 .play-button {
   fill: currentColor;
   color: #e35a4e; }
 
+.play-button:hover {
+  color: red; }
+
 .pause-button {
   fill: currentColor;
   color: #e35a4e; }
+
+.pause-button:hover {
+  color: red; }
 
 #loading {
   font-family: helvetica;
