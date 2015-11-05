@@ -9654,6 +9654,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
 }
 
 function showId(id){
+        ga('send', 'event', 'menu', 'select', id);
         for (lyr in multiLayer){
             if (id.slice(1) == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++){
