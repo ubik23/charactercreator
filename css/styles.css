@@ -20,9 +20,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
     More Info : http://www.quirksmode.org/css/box.html
   */
-  -webkit-box-sizing: border-box;
   /* webkit */
-  -moz-box-sizing: border-box;
   /* firefox */
   box-sizing: border-box;
   /* css3 */ }
@@ -46,8 +44,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   -ms-user-select: none;
   user-select: none;
   background-color: #fff;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.5, #fff));
-  background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 50%);
   background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
   background-image: linear-gradient(top, #fff 0%, #eee 50%); }
@@ -55,8 +51,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 .select2-container.select2-drop-above .select2-choice {
   border-bottom-color: #aaa;
   border-radius: 0 0 4px 4px;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.9, #fff));
-  background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 90%);
   background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 90%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
   background-image: linear-gradient(top, #eee 0%, #fff 90%); }
@@ -120,7 +114,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   border: 1px solid #aaa;
   border-top: 0;
   border-radius: 0 0 4px 4px;
-  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15); }
 
 .select2-drop-auto-width {
@@ -135,7 +128,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   border-top: 1px solid #aaa;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
-  -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
   box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15); }
 
 .select2-drop-active {
@@ -156,8 +148,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   border-radius: 0 4px 4px 0;
   background-clip: padding-box;
   background: #ccc;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ccc), color-stop(0.6, #eee));
-  background-image: -webkit-linear-gradient(center bottom, #ccc 0%, #eee 60%);
   background-image: -moz-linear-gradient(center bottom, #ccc 0%, #eee 60%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
   background-image: linear-gradient(top, #ccc 0%, #eee 60%); }
@@ -190,12 +180,8 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   font-size: 1em;
   border: 1px solid #aaa;
   border-radius: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
   background: #fff url("select2.png") no-repeat 100% -22px;
-  background: url("select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #fff), color-stop(0.99, #eee));
-  background: url("select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, #fff 85%, #eee 99%);
-  background: url("select2.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, #fff 85%, #eee 99%);
   background: url("select2.png") no-repeat 100% -22px, linear-gradient(top, #fff 85%, #eee 99%); }
 
 .select2-drop.select2-drop-above .select2-search input {
@@ -203,27 +189,20 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 
 .select2-search input.select2-active {
   background: #fff url("select2-spinner.gif") no-repeat 100%;
-  background: url("select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #fff), color-stop(0.99, #eee));
-  background: url("select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, #fff 85%, #eee 99%);
-  background: url("select2-spinner.gif") no-repeat 100%, -moz-linear-gradient(center bottom, #fff 85%, #eee 99%);
   background: url("select2-spinner.gif") no-repeat 100%, linear-gradient(top, #fff 85%, #eee 99%); }
 
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
   border: 1px solid #5897fb;
   outline: none;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
 
 .select2-dropdown-open .select2-choice {
   border-bottom-color: transparent;
-  -webkit-box-shadow: 0 1px 0 #fff inset;
   box-shadow: 0 1px 0 #fff inset;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   background-color: #eee;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff), color-stop(0.5, #eee));
-  background-image: -webkit-linear-gradient(center bottom, #fff 0%, #eee 50%);
   background-image: -moz-linear-gradient(center bottom, #fff 0%, #eee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
   background-image: linear-gradient(top, #fff 0%, #eee 50%); }
@@ -232,8 +211,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 .select2-dropdown-open.select2-drop-above .select2-choices {
   border: 1px solid #5897fb;
   border-top-color: transparent;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.5, #eee));
-  background-image: -webkit-linear-gradient(center top, #fff 0%, #eee 50%);
   background-image: -moz-linear-gradient(center top, #fff 0%, #eee 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
   background-image: linear-gradient(bottom, #fff 0%, #eee 50%); }
@@ -241,7 +218,8 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 .select2-dropdown-open .select2-choice .select2-arrow {
   background: transparent;
   border-left: none;
-  filter: none; }
+  -webkit-filter: none;
+          filter: none; }
 
 .select2-dropdown-open .select2-choice .select2-arrow b {
   background-position: -18px 1px; }
@@ -371,9 +349,6 @@ disabled look for disabled choices in the results dropdown
   cursor: text;
   overflow: hidden;
   background-color: #fff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eee), color-stop(15%, #fff));
-  background-image: -webkit-linear-gradient(top, #eee 1%, #fff 15%);
-  background-image: -moz-linear-gradient(top, #eee 1%, #fff 15%);
   background-image: linear-gradient(top, #eee 1%, #fff 15%); }
 
 .select2-locked {
@@ -385,7 +360,6 @@ disabled look for disabled choices in the results dropdown
 .select2-container-multi.select2-container-active .select2-choices {
   border: 1px solid #5897fb;
   outline: none;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
 
 .select2-container-multi .select2-choices li {
@@ -405,7 +379,6 @@ disabled look for disabled choices in the results dropdown
   color: #666;
   outline: 0;
   border: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
   background: transparent !important; }
 
@@ -424,7 +397,6 @@ disabled look for disabled choices in the results dropdown
   cursor: default;
   border: 1px solid #aaaaaa;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
   background-clip: padding-box;
   -webkit-touch-callout: none;
@@ -434,9 +406,6 @@ disabled look for disabled choices in the results dropdown
   user-select: none;
   background-color: #e4e4e4;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eee));
-  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
-  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
   background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%); }
 
 .select2-container-multi .select2-choices .select2-search-choice .select2-chosen {
@@ -573,11 +542,8 @@ html {
   height: 100%; }
 
 body {
-  background: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* Standard syntax */
@@ -615,9 +581,15 @@ body {
   width: 100%;
   z-index: 2;
   height: 5.5%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center; }
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 #header a {
   color: #f2f2f2;
@@ -648,6 +620,8 @@ h1 {
   padding: 0.75vh 3% 0 0; }
 
 ul#horizontal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   list-style: none; }
 
@@ -655,8 +629,12 @@ ul#horizontal li {
   padding-left: 0.6em; }
 
 ul#horizontal li a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #f2f2f2; }
 
 ul#horizontal li a:hover {
@@ -674,10 +652,18 @@ ul#horizontal li a:hover {
   position: absolute;
   top: 8%;
   left: 3%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 .zoom-icon {
   fill: currentColor;
@@ -767,7 +753,9 @@ input[type=range]:focus::-ms-fill-upper {
   background: #ccc; }
 
 input[type=range][orient=vertical] {
-  writing-mode: bt-lr;
+  -webkit-writing-mode: bt-lr;
+      -ms-writing-mode: bt-lr;
+          writing-mode: bt-lr;
   /* IE */
   -webkit-appearance: slider-vertical;
   /* WebKit */
@@ -806,21 +794,31 @@ input[type=range][orient=vertical] {
   color: #e35a4e;
   fill: currentColor;
   stroke-dasharray: 1726;
-  animation: homme 3s linear; }
+  -webkit-animation: homme 3s linear;
+          animation: homme 3s linear; }
 
 .male:hover {
-  animation: fadeIn 250ms linear;
+  -webkit-animation: fadeIn 250ms linear;
+          animation: fadeIn 250ms linear;
   fill-opacity: 1; }
 
 .female {
   color: #e35a4e;
   fill: currentColor;
   stroke-dasharray: 1200;
-  animation: femme 3s linear; }
+  -webkit-animation: femme 3s linear;
+          animation: femme 3s linear; }
 
 .female:hover {
-  animation: fadeIn 250ms linear;
+  -webkit-animation: fadeIn 250ms linear;
+          animation: fadeIn 250ms linear;
   fill-opacity: 1; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    fill-opacity: 0; }
+  to {
+    fill-opacity: 1; } }
 
 @keyframes fadeIn {
   from {
@@ -828,9 +826,21 @@ input[type=range][orient=vertical] {
   to {
     fill-opacity: 1; } }
 
+@-webkit-keyframes homme {
+  from {
+    stroke-dashoffset: 1726; }
+  to {
+    stroke-dashoffset: 0; } }
+
 @keyframes homme {
   from {
     stroke-dashoffset: 1726; }
+  to {
+    stroke-dashoffset: 0; } }
+
+@-webkit-keyframes femme {
+  from {
+    stroke-dashoffset: 1200; }
   to {
     stroke-dashoffset: 0; } }
 
@@ -905,10 +915,16 @@ input[type=range][orient=vertical] {
   opacity: 0; }
 
 .select-group {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   allign-items: center;
-  justify-content: space-around; }
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
 
 .select-group select {
   /*border-radius: 10px 0 0  10px;*/ }
@@ -930,15 +946,23 @@ input.color {
   width: 100%; }
 
 #gmenu {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   width: 100%;
   height: 12%;
   position: fixed;
   bottom: 0; }
   #gmenu li {
-    flex-grow: 1; }
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
 
 footer {
   clear: both;
@@ -1075,8 +1099,6 @@ ul.tabs li a.active {
   color: #808080;
   padding: 10px;
   border: 1px solid #e6e6e6;
-  -moz-border-radius: 0 0 2vh 2vh;
-  -webkit-border-radius: 0 0 2vh 2vh;
   border-radius: 0 0 2vh 2vh; }
 
 #content_2, #content_3, #content_4 {
@@ -1118,3 +1140,5 @@ ul.tabs li a {
   background-color: #e35a4e;
   background-repeat: repeat-x;
   background-position: bottombottom; }
+
+/*# sourceMappingURL=styles.css.map */
