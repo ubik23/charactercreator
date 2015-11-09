@@ -1,10 +1,3 @@
-
-/*
-TODO:
--save states (look-up form values, save as json, persist, populate dropdown)
--Emotions
--Head Turns
-*/
 // The forms, menus and options that make up a character
 //Todo Zoom in on the head tab viewBox="208 75 140 140"
 //$(document).ready(function() {

@@ -3,9 +3,7 @@ window.onload = function() {
     femaleSilhouette = document.getElementById("female_silhouette");
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
-    //document.querySelector("#svg1").addEventListener("wheel", scrollZoom);
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-
     if (document.attachEvent) //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     else if (document.addEventListener) //WC3 browsers
@@ -27,22 +25,14 @@ function scrollZoom(e) {
     var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
     var zoomLevel = document.querySelector("#zoomLevel").value;
     var zoom = document.querySelector("#zoomLevel");
-    console.log("zoomLevel", zoomLevel);
     //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
-    console.log('svgViewBox', svgViewBox.getAttribute('viewBox'));
-    console.log('event', event);
-    console.log('delta', delta);
-    console.log('scrollZoom: ', this);
     if (delta > 0 ){
         zoomLevel = zoomLevel + 1;
-        console.log("inter:", zoomLevel);
         if (zoomLevel > 3) {
              zoomLevel = 3;
         }
         document.querySelector("#zoomLevel").value = zoomLevel;
         document.querySelector("#zoomLevel").onchange();
-        console.log('changed: ', zoomLevel);
-
         //zoomFace();
     } else {
         zoomLevel = zoomLevel - 1;
@@ -292,8 +282,8 @@ function launch(layers, layerDirectory) {
         multiLayer = multiLayerFemale;
     }
     var forms = [form1, form2, form3];
-// Get all the hash key/value pairs and include them in the c.choices object
-// Go through all the forms
+    // Get all the hash key/value pairs and include them in the c.choices object
+    // Go through all the forms
     createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
@@ -330,7 +320,6 @@ function displayPallette () {
         gmenu.appendChild(node);
         node.onclick = colorCutout;
         node.onmouseover = colorOnHover;
-        //} );
     };
     TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
