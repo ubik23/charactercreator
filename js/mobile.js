@@ -9,6 +9,7 @@ window.onload = function() {
     else if (document.addEventListener) //WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
+
     //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
     //var header = document.getElementById("header");
     //var footer = document.getElementById("footer");
@@ -288,10 +289,6 @@ function launch(layers, layerDirectory) {
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
-    viewportFace = Snap("#lg_face");
-    viewportTorso = Snap("#lg_torso");
-    viewportBody = Snap("#lg_body");
-    viewportFull = Snap("#lg_full");
     var sideBar = document.getElementById("sidebar");
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;

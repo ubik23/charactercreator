@@ -102,6 +102,7 @@ function GetEmotionGetLayers() {
 };
 
 function show(context){  // Draw the SVG on screen
+    console.log("show");
     var selectedOption = context.value;
     var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
     var sections = [context.className];

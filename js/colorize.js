@@ -1,4 +1,3 @@
-
 function shadeColor(color, percent) {
     var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
     return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
@@ -43,7 +42,6 @@ function test(_context, _color, forms){
                 // Figure out which form to look in to find this id
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
-
                 // If the id is body, than the list will be of all 'skin' layers
                 //console.log('id: ', id);
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
@@ -75,11 +73,9 @@ function test(_context, _color, forms){
                         }
                     }
                 }
-
                 // Look at the affected list
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
-
                 for (a in affectedList) {
                     for (lyr in multiLayer){
                         if (affectedList[a] == multiLayer[lyr][0]){
@@ -207,13 +203,11 @@ function applyColor(id, newColor, optLayer){
         var optPaths = optLayer.selectAll('path')
         //if (fullId.slice(1,5) === 'mouth') {console.log('Mouth : ', fullId);};
         for (p in optPaths) {
-
             if ( typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
                 //console.log('fullId : ', fullId);
                 //console.log('pathId : ', pathId);
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
-
                 if (pathStyle == undefined) {
                     continue;
                 }
@@ -224,7 +218,6 @@ function applyColor(id, newColor, optLayer){
                 i= styles.length,
                 json = {style: {}},
                 style, k, v;
-
                 while (i--){
                     style = styles[i].split(':');
                     //k = $.trim(style[0]);
@@ -237,10 +230,8 @@ function applyColor(id, newColor, optLayer){
                         json.style[k] = v;
                     }
                 }
-
                 // Query the style to determine if shape or shadow
                 // Change the color
-
                 newStyle = json.style;
                 var replacement = '';
                 for (n in Object.keys(newStyle)){
@@ -268,11 +259,9 @@ function applyColor(id, newColor, optLayer){
                             var currentValue = newStyle[currentKey];
                         }
                     }
-
                     else {
                         var currentValue = newStyle[currentKey];
                     }
-
                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                     replacement = replacement.concat(keyVal);
                 }
@@ -281,7 +270,6 @@ function applyColor(id, newColor, optLayer){
                 if (json.style["stroke-width"] === undefined){
                     //newColor = shadeColor(newColor, -25)
                 }
-
             }
         }
     }

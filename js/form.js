@@ -34,7 +34,7 @@ function createForm(sex, forms){
               }
             else {var defval = '';}
             newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="'+t+'" onchange="show(this);" onkeydown="show(this);" '+defval+'>'+options+'</select></div>';
+            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show();" onkeydown="show();" '+defval+'>'+options+'</select></div>';
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
@@ -56,5 +56,10 @@ function createForm(sex, forms){
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
+        var color = document.querySelectorAll('.color');
+        for (var i = 0; i < color.length; i++) {
+            // click calls pooFunction
+            color[i].addEventListener("change", test, false);
+        }
     }
 }
