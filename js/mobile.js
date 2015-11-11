@@ -360,6 +360,12 @@ function showForm() {
     var form = document.querySelector("#sidebar");
     var tl = new TimelineLite({onComplete: launch});
     tl.to(form, 0.5, { right:'1%'});
+    ColorPicker(
+        document.getElementById('slide'),
+        document.getElementById('picker'),
+        function(hex, hsv, rgb) {
+          document.body.style.backgroundColor = hex;
+    });
 }
 
 function selectMale(event) {
