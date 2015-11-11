@@ -547,10 +547,6 @@ body {
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* Standard syntax */
-  /*background: -webkit-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Safari 5.1 to 6.0 <]*/
-  /*background: -o-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Opera 11.1 to 12.0 <]*/
-  /*background: -moz-linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> For Firefox 3.6 to 15 <]*/
-  /*background: linear-gradient(#f2f2f2, #ffffff, #f2f2f2, #cccccc); [> Standard syntax <]*/
   height: 100%;
   overflow-y: hidden;
   position: relative; }
@@ -762,6 +758,20 @@ input[type=range][orient=vertical] {
   width: 8px;
   height: 175px;
   padding: 0 5px; }
+
+#picker {
+  position: absolute;
+  top: 7%;
+  width: 180px;
+  right: 7%;
+  height: 180px; }
+
+#slide {
+  position: absolute;
+  top: 7%;
+  right: 3%;
+  width: 25px;
+  height: 180px; }
 
 .path {
   color: #000000;
