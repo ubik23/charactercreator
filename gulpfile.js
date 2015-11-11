@@ -16,12 +16,6 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-//gulp.task('styles', function() {
-    //gulp.src('sass/**/*.scss')
-    //.pipe(sass().on('error', sass.logError))
-    //.pipe(gulp.dest('./css/'));
-//});
-
 gulp.task('sass', function () {
     gulp.src('sass/**/*.scss')
         .pipe(sass())
