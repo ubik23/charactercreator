@@ -26,12 +26,3 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./css/'));
 });
-
-gulp.task('autoprefixer', function () {
-
-    return gulp.src('./css/*.css')
-        .pipe(gulp.dest('./dest'));
-});
-
-
-
