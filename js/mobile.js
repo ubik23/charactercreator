@@ -253,7 +253,7 @@ function launch(layers, layerDirectory) {
         }
         return size;
     };
-    var skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
+    skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
     'ears_default', 'ears_pointed',
     'nose_default', 'nose_pointed', 'nose_strong',
     'mouth_shadow',
@@ -282,7 +282,7 @@ function launch(layers, layerDirectory) {
         var layers = layersFemale;
         multiLayer = multiLayerFemale;
     }
-    var forms = [form1, form2, form3];
+    forms = [form1, form2, form3];
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
     createForm(sex, forms);
@@ -360,12 +360,6 @@ function showForm() {
     var form = document.querySelector("#sidebar");
     var tl = new TimelineLite({onComplete: launch});
     tl.to(form, 0.5, { right:'1%'});
-    ColorPicker(
-        document.getElementById('slide'),
-        document.getElementById('picker'),
-        function(hex, hsv, rgb) {
-          document.body.style.backgroundColor = hex;
-    });
 }
 
 function selectMale(event) {

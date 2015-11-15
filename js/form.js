@@ -59,7 +59,25 @@ function createForm(sex, forms){
         var color = document.querySelectorAll('.color');
         for (var i = 0; i < color.length; i++) {
             // click calls pooFunction
-            color[i].addEventListener("change", test, false);
+            color[i].addEventListener("click", getColor, false);
         }
     }
+}
+
+function getColor() {
+     console.log("getColor");
+     console.log(this);
+     var id = this.id;
+     var id = this.id.slice(0, -1);
+     console.log("id",id);
+    ColorPicker(
+        document.getElementById('slide'),
+        document.getElementById('picker'),
+        function(hex, hsv, rgb) {
+          this.value = hex;
+          this.backgroundColor = hex;
+          console.log(this.value, hex);
+          colorize(id, hex);
+    });
+
 }

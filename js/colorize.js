@@ -25,29 +25,34 @@ for (i = 0; i < 3; i++) {
 return rgb;
 }
 
-function test(_context, _color, forms){
-    console.log('test');
-    var id = _context.getAttribute("id").slice(0,-1);
+function colorize(formId, _color){
+    var forms = window.forms;
+    //var id = _context.getAttribute("id").slice(0,-1);
+    var id = formId;
     var affectedList = [];
     console.log('test-forms: ', forms);
     // get all the options for that id
     // Cycle through each form array
     //var forms = [form1, form2, form3];
     for (var f in forms){
+        console.log("f",forms[f]);
         // Cycle through each element in the form
-        for(var x in forms[f]){
+         var form = Object.keys(forms[f]);
+        for(var x in form){
+            console.log("x",form[x]);
             // is x = to id?
             // if so, cycle through each element
-            if(x.toLowerCase() === id){
+            console.log(form[x].toLowerCase(),id);
+            if(form[x].toLowerCase() === id){
                 // Figure out which form to look in to find this id
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                //console.log('id: ', id);
+                console.log('id: ', id);
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
                     affectedList = skinLayers;
                     //console.log('id: ', id);
-                    //console.log('affectedList', affectedList);
+                    console.log('affectedList', affectedList);
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
@@ -135,10 +140,13 @@ function test(_context, _color, forms){
                                 i= styles.length,
                                 json = {style: {}},
                                 style, k, v;
+                                console.log("Styles",styles);
+                                console.log("i",i);
                                 while (i--){
                                     style = styles[i].split(':');
-                                    k = $.trim(style[0]);
-                                    v = $.trim(style[1]);
+                                    console.log("style",style);
+                                    k = style[0].trim();
+                                    v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
                                         json.style[k] = v;
                                     }
