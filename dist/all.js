@@ -529,29 +529,22 @@ function colorize(formId, _color){
     //var id = _context.getAttribute("id").slice(0,-1);
     var id = formId;
     var affectedList = [];
-    console.log('test-forms: ', forms);
     // get all the options for that id
     // Cycle through each form array
     //var forms = [form1, form2, form3];
     for (var f in forms){
-        console.log("f",forms[f]);
         // Cycle through each element in the form
          var form = Object.keys(forms[f]);
         for(var x in form){
-            console.log("x",form[x]);
             // is x = to id?
             // if so, cycle through each element
-            console.log(form[x].toLowerCase(),id);
             if(form[x].toLowerCase() === id){
                 // Figure out which form to look in to find this id
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                console.log('id: ', id);
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'wings' || id.slice(0,4) === 'mouth'){
                     affectedList = skinLayers;
-                    //console.log('id: ', id);
-                    console.log('affectedList', affectedList);
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
@@ -584,7 +577,6 @@ function colorize(formId, _color){
                     for (lyr in multiLayer){
                         if (affectedList[a] == multiLayer[lyr][0]){
                             for (var i=1;i<=multiLayer[lyr][1];i++){
-                                //console.log('affectedList[a] : ', affectedList[a]);
                                 idOf = affectedList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
                                 //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
@@ -598,13 +590,12 @@ function colorize(formId, _color){
                         }
                     };
                 };
-                var myValue = '#'+_color.toString();
+                var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
                 hash.add(obj);
                 modCharacter(myKey, myValue);
                 for (n in affectedList){
-                    //console.log('fullId: ', fullId);
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId);
@@ -612,17 +603,11 @@ function colorize(formId, _color){
                         var optPaths = optLayer.selectAll('path')
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
-                                //console.log('optPaths[p]', optPaths[p]);
                                 var pathId = optPaths[p].attr("id");
-                                //console.log('pathId', pathId);
                                 if (pathId ===  undefined){
                                      break;
                                 };                                ;
-                                //console.log('fullId', fullId);
-                                //console.log('fullId.slice', fullId.slice(0,6));
-                                //console.log('pathId', pathId);
                                 if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow"){
-                                    //console.log('continue: mouth, but not upperlip.')
                                     continue;
                                 };
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
@@ -636,13 +621,8 @@ function colorize(formId, _color){
                                 i= styles.length,
                                 json = {style: {}},
                                 style, k, v;
-                                console.log("Styles",styles);
-                                console.log("i",i);
                                 while (i--){
-                                    console.log("while i",i);
-                                    console.log("styles[i]", styles[i]);
                                     style = styles[i].split(':');
-                                    console.log("style",style);
                                     if (style == " ") {continue;};
                                     k = style[0].trim();
                                     v = style[1].trim();
@@ -652,7 +632,6 @@ function colorize(formId, _color){
                                 }
                                 // Query the style to determine if shape or shadow
                                 // Change the color
-                                console.log('_color: ', _color);
                                 var newColor = _color.toString();
                                 // json to string
                                 newStyle = json.style;
@@ -687,9 +666,7 @@ function colorize(formId, _color){
                                     }
                                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                                     replacement = replacement.concat(keyVal);
-                                    //console.log('replacement : ', replacement);
                                 }
-                                //console.log('pathId : ', pathId);
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
@@ -709,12 +686,9 @@ function applyColor(id, newColor, optLayer){
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
-        //if (fullId.slice(1,5) === 'mouth') {console.log('Mouth : ', fullId);};
         for (p in optPaths) {
             if ( typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
-                //console.log('fullId : ', fullId);
-                //console.log('pathId : ', pathId);
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
                 if (pathStyle == undefined) {
                     continue;
@@ -869,8 +843,6 @@ function createForm(sex, forms){
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
-                console.log('htagc : ', htagc );
-                console.log('colorValue : ', colorValue );
               }
             else {
                 var colorValue = '#ffffff'
@@ -895,21 +867,26 @@ function createForm(sex, forms){
 }
 
 function getColor() {
-     console.log("getColor");
-     console.log(this);
+     clearPicker();
      var id = this.id;
      var id = this.id.slice(0, -1);
-     console.log("id",id);
     ColorPicker(
         document.getElementById('slide'),
         document.getElementById('picker'),
         function(hex, hsv, rgb) {
-          this.value = hex;
-          this.backgroundColor = hex;
-          console.log(this.value, hex);
+          //this.value = hex;
+          //this.backgroundColor = hex;
           colorize(id, hex);
+          clearPicker();
     });
 
+}
+
+function clearPicker() {
+     var colorPicker = document.querySelector("#picker");
+     var slide = document.querySelector("#slide");
+     colorPicker.innerHTML = '';
+     slide.innerHTML = '';
 }
 
 

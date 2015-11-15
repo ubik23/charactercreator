@@ -39,8 +39,6 @@ function createForm(sex, forms){
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
-                console.log('htagc : ', htagc );
-                console.log('colorValue : ', colorValue );
               }
             else {
                 var colorValue = '#ffffff'
@@ -65,19 +63,24 @@ function createForm(sex, forms){
 }
 
 function getColor() {
-     console.log("getColor");
-     console.log(this);
+     clearPicker();
      var id = this.id;
      var id = this.id.slice(0, -1);
-     console.log("id",id);
     ColorPicker(
         document.getElementById('slide'),
         document.getElementById('picker'),
         function(hex, hsv, rgb) {
-          this.value = hex;
-          this.backgroundColor = hex;
-          console.log(this.value, hex);
+          //this.value = hex;
+          //this.backgroundColor = hex;
           colorize(id, hex);
+          clearPicker();
     });
 
+}
+
+function clearPicker() {
+     var colorPicker = document.querySelector("#picker");
+     var slide = document.querySelector("#slide");
+     colorPicker.innerHTML = '';
+     slide.innerHTML = '';
 }

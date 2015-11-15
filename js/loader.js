@@ -29,7 +29,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
-    console.log('all loaded');
+    //console.log('all loaded');
 }
 
 function onEachLoaded( frag, fileName ) {
