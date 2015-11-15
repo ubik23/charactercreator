@@ -82,5 +82,6 @@ function clearPicker() {
      var colorPicker = document.querySelector("#picker");
      var slide = document.querySelector("#slide");
      colorPicker.innerHTML = '';
+     colorPicker.style = '';
      slide.innerHTML = '';
 }
