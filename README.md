@@ -1,6 +1,6 @@
 TODO:
--Finish animated intro/fixing the loading mechanism.
--Fix the downloading in chrome (switch to blobs)
+-Finish animated intro/colorpicker.
+-Fix the downloadSCG button in chrome.
 -Add a slider to turn the character's heads.
 
 ---

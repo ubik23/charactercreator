@@ -108,8 +108,7 @@ function colorize(formId, _color){
                     //console.log('fullId: ', fullId);
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
-                    var optLayer = viewport.select(fullId); // todo: Add selection to category
-
+                    var optLayer = viewport.select(fullId);
                     if (optLayer != null){
                         var optPaths = optLayer.selectAll('path')
                         for (p in optPaths) {
@@ -118,7 +117,6 @@ function colorize(formId, _color){
                                 var pathId = optPaths[p].attr("id");
                                 //console.log('pathId', pathId);
                                 if (pathId ===  undefined){
-                                    //console.log('break: pathId is undefined.');
                                      break;
                                 };                                ;
                                 //console.log('fullId', fullId);
@@ -130,7 +128,6 @@ function colorize(formId, _color){
                                 };
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
                                 if (pathStyle ===  undefined){
-                                    //console.log('break: pathstyle is undefined.');
                                      break;
                                 };                                ;
                                 // Parse the style in a json object
@@ -143,8 +140,11 @@ function colorize(formId, _color){
                                 console.log("Styles",styles);
                                 console.log("i",i);
                                 while (i--){
+                                    console.log("while i",i);
+                                    console.log("styles[i]", styles[i]);
                                     style = styles[i].split(':');
                                     console.log("style",style);
+                                    if (style == " ") {continue;};
                                     k = style[0].trim();
                                     v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
@@ -153,6 +153,7 @@ function colorize(formId, _color){
                                 }
                                 // Query the style to determine if shape or shadow
                                 // Change the color
+                                console.log('_color: ', _color);
                                 var newColor = _color.toString();
                                 // json to string
                                 newStyle = json.style;
@@ -165,7 +166,7 @@ function colorize(formId, _color){
                                                 var currentValue = ColorLuminance(newColor, -0.12);
                                             }
                                             else {
-                                                var currentValue = '#'+ newColor;
+                                                var currentValue = newColor;
                                             }
                                         }
                                         else {
