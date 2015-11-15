@@ -34,7 +34,7 @@ function createForm(sex, forms){
               }
             else {var defval = '';}
             newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show();" onkeydown="show();" '+defval+'>'+options+'</select></div>';
+            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this);" onkeydown="show(this);" '+defval+'>'+options+'</select></div>';
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
@@ -81,7 +81,8 @@ function getColor() {
 function clearPicker() {
      var colorPicker = document.querySelector("#picker");
      var slide = document.querySelector("#slide");
-     colorPicker.innerHTML = '';
-     colorPicker.style = '';
-     slide.innerHTML = '';
+     //colorPicker.innerHTML = '';
+     //colorPicker.style = '';
+     //colorPicker.removeAttribute("style");
+     //slide.innerHTML = '';
 }
