@@ -838,7 +838,7 @@ function createForm(sex, forms){
               }
             else {var defval = '';}
             newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this);" onkeydown="show(this);" '+defval+'>'+options+'</select></div>';
+            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this.options[this.selectedIndex].innerHTML, className);"'+defval+'>'+options+'</select></div>';
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
@@ -1106,14 +1106,35 @@ function GetEmotionGetLayers() {
     return facialExpressionLayers;
 };
 
-function show(context){  // Draw the SVG on screen
-    console.log("show");
-    var selectedOption = context.value;
-    var options = Array.prototype.slice.call(context.options).map(function(d, i){ return d.value; });
-    var sections = [context.className];
+function getOptions (section) {
+    var forms = window.forms;
+    var section = capitalizeFirstLetter(section);
+    console.log(forms);
+    for (i in forms){
+        options = forms[i][section];
+        if (options != undefined){
+        console.log(options);
+        return options
+
+        }
+    }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function show(userChoice, category){  // Draw the SVG on screen
+    console.log("id", userChoice);
+    var sections = [category.split(" ")[1]];
+    console.log("section", sections[0]);
+    var selectedOption = userChoice;
+    var options = getOptions(sections[0])
+    //var sections = [context.className];
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    obj[sections[0]] = selectedOption;
+    //var selectedOption = id;
+    //obj[sections[0]] = selectedOption;
     hash.add(obj);
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
@@ -1135,6 +1156,7 @@ function show(context){  // Draw the SVG on screen
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
+            console.log("id:",id, d, selectedOption);
             if(d === selectedOption){
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
