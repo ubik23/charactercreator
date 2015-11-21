@@ -97,18 +97,15 @@ function GetEmotionGetLayers() {
         var eLayer = faceElements[e]
         facialExpressionLayers.push(eLayer);
     };
-    console.log('facialExpressionLayers: ', facialExpressionLayers);
     return facialExpressionLayers;
 };
 
 function getOptions (section) {
     var forms = window.forms;
     var section = capitalizeFirstLetter(section);
-    console.log(forms);
     for (i in forms){
         options = forms[i][section];
         if (options != undefined){
-        console.log(options);
         return options
 
         }
@@ -120,16 +117,11 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category){  // Draw the SVG on screen
-    console.log("id", userChoice);
     var sections = [category.split(" ")[1]];
-    console.log("section", sections[0]);
     var selectedOption = userChoice;
     var options = getOptions(sections[0])
-    //var sections = [context.className];
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    //var selectedOption = id;
-    //obj[sections[0]] = selectedOption;
     hash.add(obj);
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
@@ -142,7 +134,7 @@ function show(userChoice, category){  // Draw the SVG on screen
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-        var emotions = GetEmotionGetLayers(context.value);
+        var emotions = GetEmotionGetLayers(selectedOption);
         for (emo in emotions){
             var newEmo = emotions[emo];
             sections.push(newEmo);
@@ -151,7 +143,6 @@ function show(userChoice, category){  // Draw the SVG on screen
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
-            console.log("id:",id, d, selectedOption);
             if(d === selectedOption){
                 for (lyr in multiLayer){
                     if (id.slice(1) == multiLayer[lyr][0]){
@@ -172,7 +163,6 @@ function show(userChoice, category){  // Draw the SVG on screen
                 hash.add(obj);
                 modCharacter(sections[section], selectedOption);
                 ga('send', 'event', 'menu', 'select', id);
-
             }
             }
             else {
@@ -192,6 +182,3 @@ function show(userChoice, category){  // Draw the SVG on screen
         });
     };
 }
-
-
-
