@@ -546,7 +546,7 @@ function colorize(formId, _color){
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
-                    affectedList = hairLayers;
+                    affectedList = window.hairLayers;
                     var myKey = 'hairColor';
                 }
                 else {
@@ -1450,7 +1450,7 @@ function launch(layers, layerDirectory) {
     'mouth_shadow',
     'age_lines', 'sockets_neutral', 'wings_devil',
     'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
-    var hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
+    hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
     'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
     'eyelashes_neutral',
     'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',

@@ -47,7 +47,7 @@ function colorize(formId, _color){
                     var myKey = 'skinColor';
                 }
                 else if (id ==='facialhair' || id === 'hair'){
-                    affectedList = hairLayers;
+                    affectedList = window.hairLayers;
                     var myKey = 'hairColor';
                 }
                 else {
