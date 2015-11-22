@@ -27,12 +27,10 @@ return rgb;
 
 function colorize(formId, _color){
     var forms = window.forms;
-    //var id = _context.getAttribute("id").slice(0,-1);
     var id = formId;
     var affectedList = [];
     // get all the options for that id
     // Cycle through each form array
-    //var forms = [form1, form2, form3];
     for (var f in forms){
         // Cycle through each element in the form
          var form = Object.keys(forms[f]);

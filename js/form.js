@@ -43,7 +43,7 @@ function createForm(sex, forms){
             else {
                 var colorValue = '#ffffff'
             }
-            newHtml += '<div class="Cell"><input class="color" onchange="test(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
+            newHtml += '<div class="Cell"><input class="color" onchange="colorize(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
             newHtml += '</div>';
             newHtml += '</div>';
             selcount ++
@@ -66,23 +66,26 @@ function getColor() {
      clearPicker();
      var id = this.id;
      var id = this.id.slice(0, -1);
+     var slide = document.getElementById('slide');
+     var picker = document.getElementById('picker');
     ColorPicker(
-        document.getElementById('slide'),
-        document.getElementById('picker'),
+        slide,
+        picker,
         function(hex, hsv, rgb) {
           //this.value = hex;
           //this.backgroundColor = hex;
           colorize(id, hex);
-          clearPicker();
+          picker.addEventListener("blur", clearPicker, false);
     });
 
 }
 
 function clearPicker() {
-     var colorPicker = document.querySelector("#picker");
-     var slide = document.querySelector("#slide");
-     //colorPicker.innerHTML = '';
-     //colorPicker.style = '';
-     //colorPicker.removeAttribute("style");
-     //slide.innerHTML = '';
+     /*var colorPicker = document.querySelector("#picker");*/
+     /*var slide = document.querySelector("#slide");*/
+     var wrapper = document.querySelector(".colorpicker-wrapper");
+     wrapper.innerHTML = '<div id="picker"></div><div id="slide"></div>';
+     /*colorPicker.style = '';*/
+     /*colorPicker.removeAttribute("style");*/
+     /*slide.innerHTML = '';*/
 }
