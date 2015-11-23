@@ -42,7 +42,6 @@ function scrollZoom(e) {
         }
         document.querySelector("#zoomLevel").value = zoomLevel;
         document.querySelector("#zoomLevel").onchange();
-        console.log('changed: ', zoomLevel);
         //zoomFull();
     }
 }

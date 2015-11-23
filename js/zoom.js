@@ -63,11 +63,8 @@ function zoomFull() {
 }
 
 function viewBoxZoom() {
-     console.log("ViewBoxZoom");
      var zoomLevel = document.querySelector("#zoomLevel").value;
-     console.log("Zoom : ", zoomLevel);
      if (zoomLevel == 3){
-        console.log("zoomFace()");
         zoomFace();
      } else if (zoomLevel == 2){
           zoomTorso();
