@@ -1,6 +1,5 @@
 
 function createForm(sex, forms){
-    //var forms = [form1, form2, form3];
     for (var f in forms){
         var formContainer = document.querySelector('#content_'+(Number(f)+1));
         //form.head, form.body, form.clothing, form.accessories...
@@ -50,13 +49,11 @@ function createForm(sex, forms){
         }
         newHtml += '</div>';
         newHtml += '</form>';
-        //formContainer.append(newHtml);
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
         var color = document.querySelectorAll('.color');
         for (var i = 0; i < color.length; i++) {
-            // click calls pooFunction
             color[i].addEventListener("click", getColor, false);
         }
     }
@@ -68,24 +65,31 @@ function getColor() {
      var id = this.id.slice(0, -1);
      var slide = document.getElementById('slide');
      var picker = document.getElementById('picker');
-    ColorPicker(
+     var section = document.querySelector('.section-id');
+     var wrapper = document.querySelector(".colorpicker-wrapper");
+     section.innerHTML = id;
+    var tl = new TimelineLite({onComplete: ColorPicker(
         slide,
         picker,
         function(hex, hsv, rgb) {
-          //this.value = hex;
-          //this.backgroundColor = hex;
           colorize(id, hex);
-          picker.addEventListener("blur", clearPicker, false);
+        })
     });
+    tl.to(wrapper, 0.5, { opacity:'1'})
+}
 
+function closePicker() {
+    var wrapper = document.querySelector(".colorpicker-wrapper");
+    var tl = new TimelineLite({onComplete: emptyPicker()});
+    tl.to(wrapper, 0.5, { opacity:'0'});
+}
+
+function emptyPicker() {
+    var wrapper = document.querySelector(".colorpicker-wrapper");
+    wrapper.innerHTML = '';
 }
 
 function clearPicker() {
-     /*var colorPicker = document.querySelector("#picker");*/
-     /*var slide = document.querySelector("#slide");*/
      var wrapper = document.querySelector(".colorpicker-wrapper");
-     wrapper.innerHTML = '<div id="picker"></div><div id="slide"></div>';
-     /*colorPicker.style = '';*/
-     /*colorPicker.removeAttribute("style");*/
-     /*slide.innerHTML = '';*/
+    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><button class="close-colorpicker" onclick="closePicker();">x</button></div><div id="picker"></div><div id="slide"></div>';
 }

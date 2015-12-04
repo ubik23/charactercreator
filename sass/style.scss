@@ -289,21 +289,52 @@ input[type=range][orient=vertical] {
     padding: 0 5px;
 }
 
+.colorpicker-wrapper {
+    position: absolute;
+    top: 5.5%;
+    right: 0;
+    /*width: auto;*/
+    /*height: auto;*/
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #808080;
+    border: 1px solid #E6E6E6;
+    padding: 10px;
+}
+
+.colorpicker-controls {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 0 10px 0;
+}
+
+.section-id {
+    font-family: helvetica;
+    font-size: 16px;
+     text-transform: uppercase;
+     font-weight: 500;
+}
+
 #picker {
-     position: absolute;
-     top: 7%;
-     width: 180px;
-     right: 7%;
-     height: 180px;
+     /*position: absolute;*/
+     /*top: 7%;*/
+     width: 200px;
+     height: 200px;
+     display: inline-block;
+     /*right: 7%;*/
+     /*height: 180px;*/
 }
 
 #slide {
-    position: absolute;
-    top: 7%;
-    right: 3%;
-    width: 25px;
-    height: 180px;
+    /*position: absolute;*/
+    /*top: 7%;*/
+    /*right: 3%;*/
+    width: 30px;
+    height: 200px;
+     display: inline-block;
+    /*height: 180px;*/
 }
+
 .path {
     color:#000000;
     display:inline;
@@ -450,8 +481,7 @@ input[type=range][orient=vertical] {
 	position: fixed;
 	right: -32%;
 	bottom:13%;
-	width: 23%;
-	min-width: 260px;
+	width: 33.33%;
 	height: auto;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
