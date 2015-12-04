@@ -954,6 +954,21 @@ input[type=range][orient=vertical] {
   overflow: hidden;
   opacity: 0; }
 
+.hud {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .hud svg {
+    fill: currentColor;
+    color: #e35a4e; }
+
 .select-group {
   display: -webkit-flex;
   display: -ms-flexbox;

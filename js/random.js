@@ -1,4 +1,3 @@
-
 function random(){
     //for (form in forms) {
     console.log('forms : ', forms);
@@ -27,11 +26,6 @@ function random(){
                 console.log('Layer: ', layer);
                 //modCharacter(key.toLowerCase(), layer);
                 showRandom(key.toLowerCase(), layer);
-            //}
-        //}
-    //}
-    //hash.clear();
-    //return;
 }
 
 function showRandom(section, layer){  // Draw the SVG on screen
@@ -92,18 +86,10 @@ function showId(id){
                 for (var i=1;i<=multiLayer[lyr][1];i++){
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:1});
-                    viewportFace.selectAll(idOf).attr({opacity:1});
-                    viewportTorso.selectAll(idOf).attr({opacity:1});
-                    viewportBody.selectAll(idOf).attr({opacity:1});
-                    viewportFull.selectAll(idOf).attr({opacity:1});
                 }
             }
             else {
                 viewport.selectAll(id).attr({opacity:1});
-                viewportFace.selectAll(id).attr({opacity:1});
-                viewportTorso.selectAll(id).attr({opacity:1});
-                viewportBody.selectAll(id).attr({opacity:1});
-                viewportFull.selectAll(id).attr({opacity:1});
             }
     };
 }
@@ -114,18 +100,10 @@ function hideId(id){
                 for (var i=1;i<=multiLayer[lyr][1];i++){
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:0});
-                    viewportFace.selectAll(idOf).attr({opacity:0});
-                    viewportTorso.selectAll(idOf).attr({opacity:0});
-                    viewportBody.selectAll(idOf).attr({opacity:0});
-                    viewportFull.selectAll(idOf).attr({opacity:0});
                 }
             }
             else {
                 viewport.selectAll(id).attr({opacity:0});
-                viewportFace.selectAll(id).attr({opacity:0});
-                viewportTorso.selectAll(id).attr({opacity:0});
-                viewportBody.selectAll(id).attr({opacity:0});
-                viewportFull.selectAll(id).attr({opacity:0});
             }
     };
 }

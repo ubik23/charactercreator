@@ -489,6 +489,17 @@ input[type=range][orient=vertical] {
     opacity: 0;
 }
 
+.hud {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & svg {
+        fill: currentColor;
+        color: #e35a4e;
+    }
+}
+
 .select-group {
     display: flex;
     flex-direction: row;
