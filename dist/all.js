@@ -882,8 +882,8 @@ function getColor() {
 
 function closePicker() {
     var wrapper = document.querySelector(".colorpicker-wrapper");
-    var tl = new TimelineLite({onComplete: emptyPicker()});
-    tl.to(wrapper, 0.5, { opacity:'0'});
+    var tl = new TimelineLite({onComplete: emptyPicker});
+    tl.to(wrapper, 0.125, { opacity:'0'});
 }
 
 function emptyPicker() {
