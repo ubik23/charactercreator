@@ -1201,15 +1201,22 @@ function show(userChoice, category){  // Draw the SVG on screen
 window.onload = function() {
     maleSilhouette = document.getElementById("male_silhouette");
     femaleSilhouette = document.getElementById("female_silhouette");
-    maleSilhouette.addEventListener('click', selectMale, false);
-    femaleSilhouette.addEventListener('click', selectFemale, false);
+    var hashSex = hash.get("sex");
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     if (document.attachEvent) //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     else if (document.addEventListener) //WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
+    if (hashSex === "m"){
+        selectMale();
+    } else if (hashSex === "f") {
+        selectFemale();
+    } else {
 
+    maleSilhouette.addEventListener('click', selectMale, false);
+    femaleSilhouette.addEventListener('click', selectFemale, false);
+    }
     //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
     //var header = document.getElementById("header");
     //var footer = document.getElementById("footer");
@@ -1506,18 +1513,25 @@ function stageNav() {
 }
 
 function displayPallette () {
-    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-    var gmenu = document.getElementById("gmenu");
-    for (color in skinTones) {
-        var newColor = skinTones[color];
-        var node = document.createElement("LI");
-        node.className = "skin-tone";
-        node.style.cssText = "background-color:" + newColor + ";";
-        gmenu.appendChild(node);
-        node.onclick = colorCutout;
-        node.onmouseover = colorOnHover;
-    };
-    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+
+    var hashSkinColor = hash.get("skinColor");
+    console.log(hashSkinColor);
+    if (hashSkinColor != undefined){
+         showForm();
+    } else {
+        var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+        var gmenu = document.getElementById("gmenu");
+        for (color in skinTones) {
+            var newColor = skinTones[color];
+            var node = document.createElement("LI");
+            node.className = "skin-tone";
+            node.style.cssText = "background-color:" + newColor + ";";
+            gmenu.appendChild(node);
+            node.onclick = colorCutout;
+            node.onmouseover = colorOnHover;
+        };
+        TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+    }
 }
 
 function rgb2hex(rgb){
@@ -1595,18 +1609,14 @@ function selectFemale(event) {
 }
 
 
-
 function parseHash(forms, skinLayers, hairLayers){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
-        //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
         'Lashes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Mouth': ['neutral', 'anger', 'alertness', 'anxiety', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage', 'sterness']
     };
-    //var forms = [form1, form2, form3, face];
-    //get the pupils from form1 and append the emotions,
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
@@ -1631,8 +1641,6 @@ function parseHash(forms, skinLayers, hairLayers){
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
-                //TODO: Get emotion from hash
-
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body'){

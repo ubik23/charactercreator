@@ -1,15 +1,11 @@
-
 function parseHash(forms, skinLayers, hairLayers){
     var face = {
         'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
-        //'Pupils_human': ['neutral', 'anger', 'indignation', 'sterness'],
         'Lashes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
         'Mouth': ['neutral', 'anger', 'alertness', 'anxiety', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage', 'sterness']
     };
-    //var forms = [form1, form2, form3, face];
-    //get the pupils from form1 and append the emotions,
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
@@ -34,8 +30,6 @@ function parseHash(forms, skinLayers, hairLayers){
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
-                //TODO: Get emotion from hash
-
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body'){
