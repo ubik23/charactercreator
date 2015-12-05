@@ -315,7 +315,6 @@ function stageNav() {
 function displayPallette () {
 
     var hashSkinColor = hash.get("skinColor");
-    console.log(hashSkinColor);
     if (hashSkinColor != undefined){
          showForm();
     } else {
@@ -370,6 +369,7 @@ function colorCutout(newColor){
 }
 
 function showForm() {
+    parseHash();
     var form = document.querySelector("#sidebar");
     var tl = new TimelineLite({onComplete: launch});
     tl.to(form, 0.5, { right:'1%'});
