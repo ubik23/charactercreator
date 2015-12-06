@@ -365,6 +365,17 @@ input[type=range][orient=vertical] {
     stroke-width: 0;
 }
 
+#male_silhouette {
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#female_silhouette {
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
 .male {
     color: #e35a4e;
     fill: currentColor;
