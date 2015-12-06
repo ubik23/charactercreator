@@ -1317,19 +1317,14 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'leather']
     };
     var layersMale = [
-    'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'wings_angel', 'wings_devil',
+    'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
     'hair_manga_2_of_2',
     'coat_trench_2_of_2',
     'body_athletic',
     'tatoo_aum_chest','tatoo_aum_left','tatoo_aum_right','tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right',
-    'scar_horizontal_neck',
-    'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
-    'ears_default','ears_pointed',
-    'age_lines',
-    'scar_vertical_heart',
-    'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
+    'scar_vertical_heart', 'scar_horizontal_neck',
     'underwear_plain','underwear_boxers',
     'suit_wetsuit',
     'shirt_colar_2_of_2','shirt_turtleneck',
@@ -1350,6 +1345,10 @@ function launch(layers, layerDirectory) {
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
     'shoulderpads_artillery',
     'belt_utility',
+    'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
+    'ears_default','ears_pointed',
+    'age_lines',
+    'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
     'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
     'sockets_neutral',
     'eyes_neutral','eyes_sterness','eyes_indignation','eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_revulsion', 'eyes_concern', 'eyes_anxiety', 'eyes_fear', 'eyes_terror', 'eyes_satisfaction', 'eyes_amusement', 'eyes_joy', 'eyes_laughing', 'eyes_dejection', 'eyes_alertness', 'eyes_betrayal', 'eyes_caged', 'eyes_cruel', 'eyes_desperation', 'eyes_eeww', 'eyes_horror', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage',
@@ -1412,8 +1411,8 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
     };
     var layersFemale = [
-    'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'wings_devil','wings_angel',
+    'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'coat_winter_furcollar_3_of_3',
     'hair_down_3_of_3','hair_manga_2_of_2',

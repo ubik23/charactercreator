@@ -768,7 +768,8 @@ input[type=range][orient=vertical] {
   background-color: rgba(255, 255, 255, 0.5);
   color: #808080;
   border: 1px solid #E6E6E6;
-  padding: 10px; }
+  padding: 10px;
+  z-index: 5; }
 
 .colorpicker-controls {
   display: -webkit-flex;
@@ -830,16 +831,6 @@ input[type=range][orient=vertical] {
   color: #e35a4e;
   fill: currentColor;
   stroke-width: 0; }
-
-#male_silhouette {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-#female_silhouette {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d; }
 
 .male {
   color: #e35a4e;
@@ -957,7 +948,7 @@ input[type=range][orient=vertical] {
   position: fixed;
   right: -32%;
   bottom: 13%;
-  width: 33.33%;
+  width: auto;
   height: auto;
   font-family: helvetica, sans-serif;
   font-size: 0.8em;
