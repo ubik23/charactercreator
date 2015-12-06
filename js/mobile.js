@@ -54,8 +54,6 @@ function scrollZoom(e) {
 }
 
 function launch(layers, layerDirectory) {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
     var maleForm1 = {
     <!--'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],-->
     'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
@@ -295,14 +293,10 @@ function launch(layers, layerDirectory) {
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
-    var sideBar = document.getElementById("sidebar");
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
     viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-    TweenMax.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
-    TweenMax.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
-    TweenMax.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05);
 }
 
 function stageNav() {
@@ -370,9 +364,7 @@ function colorCutout(newColor){
 
 function showForm() {
     parseHash();
-    var form = document.querySelector("#sidebar");
-    var tl = new TimelineLite({onComplete: launch});
-    tl.to(form, 0.5, { right:'1%'});
+    launch();
 }
 
 function selectMale(event) {
@@ -382,15 +374,14 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     malePath.className.baseVal = "path template";
-    var tl = new TimelineLite();
+    var tl = new TimelineLite({onComplete: displayPallette});
     //var stepByStep = document.getElementById("step-by-step");
     //var navLeft = document.getElementById("nav-left");
-    tl.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male")
-    .to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male");
+    tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
+    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
+    .to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male");
     //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
     //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
-    displayPallette();
 }
 
 function selectFemale(event) {
@@ -401,10 +392,9 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     femalePath.className.baseVal = "path template";
-    var tl = new TimelineLite();
+    var tl = new TimelineLite({onComplete: displayPallette});
     tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
     .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
     .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
-    displayPallette();
 }
 

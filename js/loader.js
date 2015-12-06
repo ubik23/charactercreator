@@ -30,6 +30,23 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 
 function onAllLoaded() {
     //console.log('all loaded');
+    //var form = document.querySelector("#sidebar");
+    //var sideBar = document.getElementById("sidebar");
+    //var maleSilhouette = document.getElementById("male_silhouette");
+    //var femaleSilhouette = document.getElementById("female_silhouette");
+    //var tl = new TimelineLite({onComplete: launch});
+    //tl.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
+    //.to(form, 0.5, { right:'1%'})
+    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    var form = document.querySelector("#sidebar");
+    var tl = new TimelineLite;
+    tl.to(form, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
+    .to(form, 0.5, { right:'1%'})
+    .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
 }
 
 function onEachLoaded( frag, fileName ) {
