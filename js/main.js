@@ -122,6 +122,7 @@ function show(userChoice, category){  // Draw the SVG on screen
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
+    hideCompetition(sections[0]);
     hash.add(obj);
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;

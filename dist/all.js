@@ -1151,6 +1151,7 @@ function show(userChoice, category){  // Draw the SVG on screen
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
+    hideCompetition(sections[0]);
     hash.add(obj);
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
@@ -1692,6 +1693,7 @@ function random(){
 }
 
 function showRandom(section, layer){  // Draw the SVG on screen
+    hideCompetition(section);
     var selectedOption = layer;
     var sections = [];
     sections[0] = section;
@@ -1737,6 +1739,32 @@ function showRandom(section, layer){  // Draw the SVG on screen
     };
 }
 
+function hideCompetition (section) {
+    var headPiece = ["hair", "mask", "hat"];
+    var topPiece = ["shorts", "pants"];
+    var overPiece = ["jacket", "coat"];
+    if (headPiece.indexOf(section) != -1 ){
+        hideArray(headPiece);
+    } else if (topPiece.indexOf(section) != -1) {
+        hideArray(topPiece);
+    } else if (overPiece.indexOf(section) != -1) {
+        hideArray(overPiece);
+    };
+}
+
+function hideArray (competition){
+    for (section in competition){
+        sectionOptions = getOptions(competition[section]);
+        for (option in sectionOptions){
+            optionId = '#' + competition[section] + '_' + sectionOptions[option];
+            hideId(optionId)
+            var obj = new Array();
+            obj[competition[section]] = "";
+            hash.add(obj);
+            modCharacter(competition[section], "");
+        }
+    }
+}
 function showId(id){
         ga('send', 'event', 'menu', 'select', id);
         for (lyr in multiLayer){
