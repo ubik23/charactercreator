@@ -42,9 +42,12 @@ function onAllLoaded() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var form = document.querySelector("#sidebar");
+    downloadBtn = document.querySelector("#downloadButton");
+    downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite;
     tl.to(form, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
     .to(form, 0.5, { right:'1%'})
+    .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
 }

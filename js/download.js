@@ -1,4 +1,5 @@
-function download(filename) {
+function download() {
+    var filename = "my_character.svg";
     //var text = document.getElementById('svg1').innerHTML;
     //var text = text || '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="560" height="560" id="character">\n';
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
@@ -12,7 +13,6 @@ function download(filename) {
         if (item.style != undefined){
             //This removes only useless layers and allows us to o the next test.
             if (item.style.opacity != 0){
-                console.log( item);
                 var svgString = item.innerHTML;
                 if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
                     svgString = svgString.slice(0, -43);
@@ -24,7 +24,6 @@ function download(filename) {
         };
     });
     text += '</svg>';
-    //console.log(text);
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
@@ -34,6 +33,6 @@ function download(filename) {
         pom.dispatchEvent(event);
     }
     else {
-                pom.click();
+        pom.click();
     }
 }
