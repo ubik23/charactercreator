@@ -369,6 +369,8 @@ input[type=range][orient=vertical] {
           -webkit-transform-style: preserve-3d;
           -moz-transform-style: preserve-3d;
           transform-style: preserve-3d;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 #female_silhouette {

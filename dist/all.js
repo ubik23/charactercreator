@@ -1586,7 +1586,7 @@ function showForm() {
 
 function selectMale(event) {
     var maleSilhouette = document.querySelector("#male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
+    var femaleSilhouette = document.querySelector("#female_silhouette");
     maleSilhouette.removeEventListener('click', selectMale, false);
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
@@ -1596,24 +1596,25 @@ function selectMale(event) {
     //var navLeft = document.getElementById("nav-left");
     tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
     .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
-    /*.to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male");*/
-    .to(maleSilhouette, 1.5, {x:111, ease:SlowMo.easeIn}, "select_male");
+    .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
+    /*.to(maleSilhouette, 1.5, {transform: "matrix(1,0,0,1,111,0)", ease:SlowMo.easeIn}, "select_male");*/
+
     //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
     //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
 }
 
 function selectFemale(event) {
-    var maleSilhouette = document.getElementById("male_silhouette");
-    var femaleSilhouette = document.getElementById("female_silhouette");
+    var maleSilhouette = document.querySelector("#male_silhouette");
+    var femaleSilhouette = document.querySelector("#female_silhouette");
     femaleSilhouette.removeEventListener('click', selectFemale, false);
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     femalePath.className.baseVal = "path template";
     var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(femaleSilhouette, 1.5, {x:-111, ease:SlowMo.easeIn}, "select_female")
-    .to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
-    .to(maleSilhouette, 0.3, {opacity:0}, "select_female");
+    tl.to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
+    .to(maleSilhouette, 0.3, {opacity:0}, "select_female")
+    .to(femalePath, 1.5, {x:-0, ease:SlowMo.easeIn}, "select_female");
 }
 
 
