@@ -896,8 +896,6 @@ function clearPicker() {
 }
 
 
-
-
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
         for( var count = 0; count < fragList.length; count++ ) {
@@ -1429,10 +1427,10 @@ function launch(layers, layerDirectory) {
     'shorts_short',
     'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
-    'shoulderpads_general',
-    'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'bracelet_rings',
     'coat_winter_furcollar_2_of_3',
+    'shoulderpads_general',
+    'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'hair_down_2_of_3',
     'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
     'ears_default','ears_pointed',
@@ -1451,7 +1449,6 @@ function launch(layers, layerDirectory) {
     'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
     'eyepatch_left','eyepatch_right',
     'mask_guy_fawkes',
-    'pipe_subgenius',
     'tie_bow',
     'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2',
     'glasses_hipster','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
@@ -1464,6 +1461,7 @@ function launch(layers, layerDirectory) {
     'coat_winter_furcollar_1_of_3',
     'shoulderpads_artillery',
     'belt_utility',
+    'pipe_subgenius',
     'earpiece_microphone'
     ];
     var layerDirectoryFemale = 'layer/female/';
