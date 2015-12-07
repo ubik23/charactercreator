@@ -268,7 +268,6 @@ function launch(layers, layerDirectory) {
     'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
     ];
     c.sex  = hash.get('sex');
-    <!--TODO: Make the following piece of code into a function-->
     var sex = c.sex;
     if (sex ==='m') {
         var form1 = maleForm1;
