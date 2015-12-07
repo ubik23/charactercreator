@@ -190,8 +190,8 @@ function launch(layers, layerDirectory) {
     'Bracelet' : ['','rings'],
     'Shoulderpads' : ['', 'artillery', 'general'],
     'Belt' : ['','utility'],
-    'Pants' : ['','yoga', 'jeans'],
-    'Leggings': ['', 'regular'],
+    'Pants' : ['','yoga', 'yoga_torn','jeans', 'jeans_torn', 'jeans_bellbottoms'],
+    'Leggings': ['', 'regular', 'torn'],
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
     };
     var layersFemale = [
@@ -205,10 +205,10 @@ function launch(layers, layerDirectory) {
     'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
     'necklace_perl','necklace_princess',
     'underwear_plain','underwear_string',
-    'leggings_regular',
+    'leggings_regular', 'leggings_torn',
     'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman',
     'bra_bow',
-    'pants_yoga','pants_jeans',
+    'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
     'shorts_short',
     'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
@@ -234,7 +234,6 @@ function launch(layers, layerDirectory) {
     'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
     'eyepatch_left','eyepatch_right',
     'mask_guy_fawkes',
-    'pipe_subgenius',
     'tie_bow',
     'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2',
     'glasses_hipster','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
@@ -247,11 +246,12 @@ function launch(layers, layerDirectory) {
     'coat_winter_furcollar_1_of_3',
     'shoulderpads_artillery',
     'belt_utility',
+    'pipe_subgenius',
     'earpiece_microphone'
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
+    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2]];
     var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
     var size = function(obj) {
         var size = 0, key;

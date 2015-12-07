@@ -896,6 +896,8 @@ function clearPicker() {
 }
 
 
+
+
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
         for( var count = 0; count < fragList.length; count++ ) {
@@ -1392,7 +1394,8 @@ function launch(layers, layerDirectory) {
     'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
     'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'tuque', 'cap'],
     'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
-    'Earpiece': ['', 'microphone']
+    'Earpiece': ['', 'microphone'],
+    'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
     'Necklace' : ['', 'perl', 'princess'],
@@ -1404,8 +1407,8 @@ function launch(layers, layerDirectory) {
     'Bracelet' : ['','rings'],
     'Shoulderpads' : ['', 'artillery', 'general'],
     'Belt' : ['','utility'],
-    'Pants' : ['','yoga', 'jeans'],
-    'Leggings': ['', 'regular'],
+    'Pants' : ['','yoga', 'yoga_torn','jeans', 'jeans_torn', 'jeans_bellbottoms'],
+    'Leggings': ['', 'regular', 'torn'],
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms']
     };
     var layersFemale = [
@@ -1413,17 +1416,19 @@ function launch(layers, layerDirectory) {
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'coat_winter_furcollar_3_of_3',
+    'veil_shayla_2_of_2',
     'hair_down_3_of_3','hair_manga_2_of_2',
     'body_athletic',
     'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
     'necklace_perl','necklace_princess',
     'underwear_plain','underwear_string',
-    'leggings_regular',
+    'leggings_regular', 'leggings_torn',
     'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman',
     'bra_bow',
-    'pants_yoga','pants_jeans',
+    'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
     'shorts_short',
     'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
+    'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'bracelet_rings',
@@ -1450,6 +1455,7 @@ function launch(layers, layerDirectory) {
     'tie_bow',
     'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2',
     'glasses_hipster','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
+    'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
     'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap',
     'body_hand',
     'nails_short','nails_long','nails_claws',
@@ -1462,7 +1468,7 @@ function launch(layers, layerDirectory) {
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3]];
+    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2]];
     var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
     var size = function(obj) {
         var size = 0, key;
@@ -1483,7 +1489,6 @@ function launch(layers, layerDirectory) {
     'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
     ];
     c.sex  = hash.get('sex');
-    <!--TODO: Make the following piece of code into a function-->
     var sex = c.sex;
     if (sex ==='m') {
         var form1 = maleForm1;
@@ -1740,7 +1745,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
 }
 
 function hideCompetition (section) {
-    var headPiece = ["hair", "mask", "hat"];
+    var headPiece = ["hair", "mask", "hat", "veil"];
     var topPiece = ["shorts", "pants"];
     var overPiece = ["jacket", "coat"];
     if (headPiece.indexOf(section) != -1 ){
