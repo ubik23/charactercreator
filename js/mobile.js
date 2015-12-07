@@ -177,7 +177,8 @@ function launch(layers, layerDirectory) {
     'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
     'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'tuque', 'cap'],
     'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
-    'Earpiece': ['', 'microphone']
+    'Earpiece': ['', 'microphone'],
+    'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
     'Necklace' : ['', 'perl', 'princess'],
@@ -198,6 +199,7 @@ function launch(layers, layerDirectory) {
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'coat_winter_furcollar_3_of_3',
+    'veil_shayla_2_of_2',
     'hair_down_3_of_3','hair_manga_2_of_2',
     'body_athletic',
     'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
