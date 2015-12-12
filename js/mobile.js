@@ -181,6 +181,7 @@ function launch(layers, layerDirectory) {
     'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
+    'Suit': ['', 'wetsuit'],
     'Necklace' : ['', 'perl', 'princess'],
     'Dress': ['','casual','corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
     'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape'],
@@ -203,9 +204,10 @@ function launch(layers, layerDirectory) {
     'hair_down_3_of_3','hair_manga_2_of_2',
     'body_athletic',
     'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
-    'necklace_perl','necklace_princess',
     'underwear_plain','underwear_string',
     'leggings_regular', 'leggings_torn',
+    'suit_wetsuit',
+    'necklace_perl','necklace_princess',
     'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman',
     'bra_bow',
     'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
