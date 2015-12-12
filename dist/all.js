@@ -1296,6 +1296,7 @@ function launch(layers, layerDirectory) {
     'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
     'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
     'Eyepatch': ['', 'left', 'right'],
+    'Headband': ['', 'medium'],
     'Earpiece': ['', 'microphone']
     };
     var maleForm3 = {
@@ -1318,6 +1319,7 @@ function launch(layers, layerDirectory) {
     'wings_angel', 'wings_devil',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
+    'headband_medium_2_of_2',
     'hair_manga_2_of_2',
     'coat_trench_2_of_2',
     'body_athletic',
@@ -1359,6 +1361,7 @@ function launch(layers, layerDirectory) {
     'mask_robin',
     'eyepatch_left','eyepatch_right',
     'hair_balding','hair_balding_crazy','hair_gelled','hair_manga_1_of_2','hair_mohawk','hair_short','hair_wavy','hair_crewcut',
+    'headband_medium_1_of_2',
     'mask_guy_fawkes',
     'glasses_designer','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer',
     'hat_baseball','hat_berret','hat_cap','hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2',
@@ -1390,6 +1393,7 @@ function launch(layers, layerDirectory) {
     'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
     'Eyepatch': ['', 'left', 'right'],
     'Glasses': ['', 'designer', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
+    'Headband': ['', 'medium'],
     'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'tuque', 'cap'],
     'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
     'Earpiece': ['', 'microphone'],
@@ -1414,6 +1418,7 @@ function launch(layers, layerDirectory) {
     'wings_devil','wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
+    'headband_medium_2_of_2',
     'coat_winter_furcollar_3_of_3',
     'veil_shayla_2_of_2',
     'hair_down_3_of_3','hair_manga_2_of_2',
@@ -1455,6 +1460,7 @@ function launch(layers, layerDirectory) {
     'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2',
     'glasses_hipster','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
     'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
+    'headband_medium_1_of_2',
     'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap',
     'body_hand',
     'nails_short','nails_long','nails_claws',
@@ -1468,8 +1474,8 @@ function launch(layers, layerDirectory) {
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2]];
-    var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
+    var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2]];
+    var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
