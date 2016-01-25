@@ -944,21 +944,13 @@ input[type=range][orient=vertical] {
   overflow: visible; }
 
 #sidebar {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: block;
   position: absolute;
   right: -100%;
   top: 5.5%;
   width: 23%;
   min-height: 100%;
-  margin: 0 10% 0 0;
+  margin: 0 3% 0 0;
   font-family: helvetica, sans-serif;
   font-size: 0.8em;
   overflow: hidden;
@@ -1175,7 +1167,7 @@ ul.tabs li a.active {
 .content {
   background-color: rgba(255, 255, 255, 0.5);
   color: #808080;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid #e6e6e6;
   height: 100%;
   /*-moz-border-radius: 0 0 2vh 2vh;*/
@@ -1188,8 +1180,6 @@ ul.tabs li a.active {
 ul.tabs {
   margin: 0px;
   padding: 0px;
-  margin-top: 5px;
-  margin-bottom: 5px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
