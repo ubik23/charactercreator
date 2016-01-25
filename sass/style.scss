@@ -27,6 +27,7 @@ time, mark, audio, video {
 
 body {
 	line-height: 1;
+    height: 100%;
 }
 
 ol, ul {
@@ -52,6 +53,9 @@ table {
 CSS begins
 */
 
+svg {
+    overflow: visible;
+}
 article, aside, details, figcaption, figure, footer, eader, hgroup, menu, nav, section { 
     display: block;
 }
@@ -92,11 +96,7 @@ body {
 	padding: 0 1%;
 	background-color: #e35a4e;
 	color: #f2f2f2;
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
-	z-index: 2;
 	height: 5.5%;
     display: flex;
     justify-content: space-between;
@@ -420,9 +420,8 @@ input[type=range][orient=vertical] {
 #content {
 	height: 92%;
 	margin: 0 auto;
-	position: relative;
-	z-index: 0;
-	top: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
 #article {
@@ -475,19 +474,22 @@ input[type=range][orient=vertical] {
 #svg1 {
 	height: 100%;
 	width: 100%;
+    overflow: visible;
 }
 
 #sidebar {
     display: block;
-	position: fixed;
-	right: -32%;
-	bottom:13%;
-	width: auto;
-	height: auto;
+	position: absolute;
+	right: -100%;
+	top: 5.5%;
+	width: 23%;
+	min-height: 100%;
+    margin: 0 10% 0 0;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
 	overflow: hidden;
     opacity: 0;
+    box-sizing: border-box;
 }
 
 .hud {
@@ -613,6 +615,9 @@ footer a {
 	height: 100px; 
 }
 
+.widget {
+    height: 100vh
+}
 @media screen and (max-width: 980px) {
 	#pagewrap {
 	}

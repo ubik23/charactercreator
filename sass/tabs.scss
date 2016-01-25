@@ -17,10 +17,14 @@ ul.tabs {
 ul.tabs li {  
     list-style:none;  
     display:inline;  
+    flex-grow: 1;
+    height: 100%;
+    background-color: #e35a4e;  
+    background-repeat:repeat-x;    
+    background-position:bottombottom;  
 } 
 
 ul.tabs li a {  
-    background-color:#f2f2f2;  
     color:#fff;  
     padding:8px 4px 5px 4px;  
     text-decoration:none;  
@@ -28,6 +32,9 @@ ul.tabs li a {
     font-weight:bold;  
     text-transform:uppercase;  
     border:1px solid #e6e6e6;   
+    width: 100%;
+    text-align: center;
+    display: inline-block;
 }
 
 ul.tabs li a:hover {  
@@ -47,6 +54,7 @@ ul.tabs li a.active {
     color:#808080;
     padding:10px;
     border:1px solid #e6e6e6;
+    height: 100%;
     /*-moz-border-radius: 0 0 2vh 2vh;*/
     /*-webkit-border-radius: 0 0 2vh 2vh;*/
     /*border-radius: 0 0 2vh 2vh;*/
@@ -58,6 +66,8 @@ ul.tabs {
     margin:0px; padding:0px;  
     margin-top:5px;  
     margin-bottom:5px;  
+    display: flex;
+    justify: space-between;
 }  
 
 .content ul {  
@@ -92,7 +102,4 @@ ul.tabs {
 }  
 
 ul.tabs li a {  
-    background-color: #e35a4e;  
-    background-repeat:repeat-x;    
-    background-position:bottombottom;  
 }  
