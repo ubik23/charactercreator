@@ -361,7 +361,7 @@ function colorCutout(newColor){
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var sideBar = document.getElementById("sidebar");
+    var sideBarRight = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
@@ -369,7 +369,7 @@ function colorCutout(newColor){
     tl.to("#gmenu", 0.5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
+    .to(sideBarRight, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     hash.add(obj);
 }

@@ -926,24 +926,17 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
-    //console.log('all loaded');
-    //var form = document.querySelector("#sidebar");
-    //var sideBar = document.getElementById("sidebar");
-    //var maleSilhouette = document.getElementById("male_silhouette");
-    //var femaleSilhouette = document.getElementById("female_silhouette");
-    //var tl = new TimelineLite({onComplete: launch});
-    //tl.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
-    //.to(form, 0.5, { right:'1%'})
-    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var form = document.querySelector("#sidebar");
+    var sideBarRight = document.querySelector(".sidebar-right");
+    var sideBarLeft = document.querySelector(".sidebar-left");
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite;
-    tl.to(form, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
-    .to(form, 0.5, { right:'1%'})
+    tl.to(sideBarRight, 0.5, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarLeft, 0.5, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarRight, 0.5, { right:'0'}, 0.025)
+    .to(sideBarLeft, 0.5, { left:'0'})
     .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
@@ -1576,7 +1569,7 @@ function colorCutout(newColor){
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var sideBar = document.getElementById("sidebar");
+    var sideBarRight = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
@@ -1584,7 +1577,7 @@ function colorCutout(newColor){
     tl.to("#gmenu", 0.5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(sideBar, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
+    .to(sideBarRight, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     hash.add(obj);
 }
