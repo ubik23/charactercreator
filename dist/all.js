@@ -794,11 +794,12 @@ function download() {
     }
 }
 
-
 function createForm(sex, forms){
+    var sectionContainer = document.querySelector('#sidebar-left');
+    var sectionList = document.createElement('div');
+    var sectionHtml = '';
     for (var f in forms){
         var formContainer = document.querySelector('#content_'+(Number(f)+1));
-        //form.head, form.body, form.clothing, form.accessories...
         var newHtml = '<form>';
         newHtml += '<form action="">\n ';
         if (f == 0 ){
@@ -820,8 +821,10 @@ function createForm(sex, forms){
         newHtml += '<div class="Table">';
         var selcount = 0
         for(var x in forms[f]){
+            sectionHtml += '<li>'+x+'</li>';
             newHtml += '<div class="Row">';
             var sectionTitle = x;
+            console.log('sectionTitle: ', sectionTitle);
             var t = sectionTitle.toLowerCase();
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
@@ -858,6 +861,8 @@ function createForm(sex, forms){
             color[i].addEventListener("click", getColor, false);
         }
     }
+    sectionList.innerHTML = sectionHtml;
+    sectionContainer.appendChild(sectionList);
 }
 
 function getColor() {
