@@ -795,9 +795,7 @@ function download() {
 }
 
 function createForm(sex, forms){
-    var sectionContainer = document.querySelector('#sidebar-left');
-    var sectionList = document.createElement('div');
-    var sectionHtml = '';
+    var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_'+(Number(f)+1));
         var newHtml = '<form>';
@@ -861,6 +859,9 @@ function createForm(sex, forms){
             color[i].addEventListener("click", getColor, false);
         }
     }
+    sectionHtml += '</ul>';
+    var sectionContainer = document.querySelector('#sidebar-left');
+    var sectionList = document.createElement('div');
     sectionList.innerHTML = sectionHtml;
     sectionContainer.appendChild(sectionList);
 }

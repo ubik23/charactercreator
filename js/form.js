@@ -1,6 +1,4 @@
 function createForm(sex, forms){
-    var sectionContainer = document.querySelector('#sidebar-left');
-    var sectionList = document.createElement('div');
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_'+(Number(f)+1));
@@ -66,6 +64,8 @@ function createForm(sex, forms){
         }
     }
     sectionHtml += '</ul>';
+    var sectionContainer = document.querySelector('#sidebar-left');
+    var sectionList = document.createElement('div');
     sectionList.innerHTML = sectionHtml;
     sectionContainer.appendChild(sectionList);
 }

@@ -491,7 +491,7 @@ input[type=range][orient=vertical] {
     box-sizing: border-box;
     background-color:rgba(255,255,255,0.5);
     color:#808080;
-    padding:20px;
+    padding: 0;
     border:1px solid #e6e6e6;
 }
 
@@ -501,6 +501,19 @@ input[type=range][orient=vertical] {
 
 .sidebar-left {
     left: -100%;
+}
+
+.section__list {
+    text-transform: uppercase;
+    & > li {
+        border-bottom: 1px solid #E6E6E6;
+        padding: 8px 0 5px 15px;
+    }
+    & > li:hover {
+        color: #FFFFFF;
+        background: #E35A4E;
+        font-weight: 700;
+    }
 }
 
 .hud {
