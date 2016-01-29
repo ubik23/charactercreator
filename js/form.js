@@ -24,16 +24,16 @@ function createForm(sex, forms){
         var selcount = 0
         for(var x in forms[f]){
             sectionHtml += '<li>'+x+'</li>';
-            newHtml += '<div class="Row">';
             var sectionTitle = x;
             console.log('sectionTitle: ', sectionTitle);
             var t = sectionTitle.toLowerCase();
+            newHtml += '<div class="Row options__container options__'+t+'">';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
                 /*var select = ''*/
                 /*if ( xsel == d) { select = ' selected="selected"';};*/
                 /*return '<option' + select + '>'+d+'</option>'; }).join('\n');*/
-            newHtml += '<div class="option__container"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
+            newHtml += '<div class="option__container option__'+t+'_'+d+'"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';

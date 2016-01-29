@@ -577,10 +577,20 @@ input.color{
 	width: 100%;
 }
 
-.Row {
-    display: table-row;
+/*.Row {*/
+    /*display: table-row;*/
+/*}*/
+
+.options__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
+.option__container {
+    /*display: none;*/
+}
 .Cell {
     display: table-cell;
 	width: 100%;
