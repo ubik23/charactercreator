@@ -966,6 +966,37 @@ input[type=range][orient=vertical] {
 .sidebar-left {
   left: -100%; }
 
+.svg__option {
+  width: 8vh;
+  height: 8vh;
+  margin: 0.5vh;
+  border: 3px solid #E35A4E;
+  border-radius: 2vh; }
+
+.option__label {
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: 700;
+  color: #E35A4E; }
+
+.option__container {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .option__container:hover > .option__label {
+    color: black; }
+  .option__container:hover > .svg__option {
+    border: 3px solid black; }
+
 .section__list {
   text-transform: uppercase; }
   .section__list > li {

@@ -826,16 +826,17 @@ function createForm(sex, forms){
             var t = sectionTitle.toLowerCase();
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
-                var select = ''
-                if ( xsel == d) { select = ' selected="selected"';}
-                return '<option' + select + '>'+d+'</option>'; }).join('\n');
+                /*var select = ''*/
+                /*if ( xsel == d) { select = ' selected="selected"';};*/
+                /*return '<option' + select + '>'+d+'</option>'; }).join('\n');*/
+            newHtml += '<div class="option__container"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
               }
             else {var defval = '';}
-            newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';
-            newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this.options[this.selectedIndex].innerHTML, className);"'+defval+'>'+options+'</select></div>';
+            /*newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';*/
+            /*newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this.options[this.selectedIndex].innerHTML, className);"'+defval+'>'+options+'</select></div>';*/
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
@@ -844,7 +845,7 @@ function createForm(sex, forms){
             else {
                 var colorValue = '#ffffff'
             }
-            newHtml += '<div class="Cell"><input class="color" onchange="colorize(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');
+            /*newHtml += '<div class="Cell"><input class="color" onchange="colorize(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');*/
             newHtml += '</div>';
             newHtml += '</div>';
             selcount ++

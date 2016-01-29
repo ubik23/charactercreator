@@ -503,6 +503,34 @@ input[type=range][orient=vertical] {
     left: -100%;
 }
 
+.svg__option {
+     width: 8vh;
+     height: 8vh;
+     margin: 0.5vh;
+     border: 3px solid #E35A4E;
+     border-radius: 2vh;
+}
+
+.option__label {
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: 700;
+    color: #E35A4E;
+}
+
+.option__container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover > .option__label {
+        color: black;
+    }
+    &:hover > .svg__option {
+        border: 3px solid black;
+    }
+}
+
 .section__list {
     text-transform: uppercase;
     & > li {
