@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">
   <defs id="defs38944">
     <clipPath id="clipPath30446-4-3">
@@ -31,6 +32,9 @@
       <path id="path111" d="M515.6 128c.3.6 1.7 2.4 5.6.8l1.6.2v-.2s-.4-.4-1-.5c-.5-.2-1.8-1.8-3-1.8-1.3 0-3 1-3.2 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     </clipPath>
   </defs>
+=======
+<svg xmlns="http://www.w3.org/2000/svg" id="glasses_fpv" width="560" height="560">
+>>>>>>> master
   <g transform="translate(35.305 117.51) scale(.32225)" id="g4675" style="opacity:1">
     <path id="path4311-8" d="M819.893 47.813c6.933-.248 8.17-.743 8.42-2.97.246-2.23.742-9.163 1.485-12.63.742-3.467-1.98-9.162-7.924-9.657-.248 5.2-1.98 25.257-1.98 25.257z" style="fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:#4d4d4d;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"/>
     <path id="path4313-3" d="M821 34.508c-.538 6.657-1.107 13.304-1.107 13.304 6.934-.247 8.17-.742 8.418-2.97.03-.215.08-.833.11-1.127.11-5.165-3.45-8.267-7.42-9.207z" style="fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
