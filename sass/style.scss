@@ -582,15 +582,12 @@ input.color{
 /*}*/
 
 .options__container {
-    display: flex;
+    display: none;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.option__container {
-    /*display: none;*/
-}
 .Cell {
     display: table-cell;
 	width: 100%;

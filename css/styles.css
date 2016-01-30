@@ -1050,9 +1050,7 @@ input.color {
 /*display: table-row;*/
 /*}*/
 .options__container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1062,9 +1060,6 @@ input.color {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
-
-.option__container {
-  /*display: none;*/ }
 
 .Cell {
   display: table-cell;

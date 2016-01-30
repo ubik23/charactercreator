@@ -27,7 +27,7 @@ function createForm(sex, forms){
             var sectionTitle = x;
             console.log('sectionTitle: ', sectionTitle);
             var t = sectionTitle.toLowerCase();
-            newHtml += '<div class="Row options__container options__'+t+'">';
+            newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span>';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
                 /*var select = ''*/
@@ -72,14 +72,14 @@ function createForm(sex, forms){
 }
 
 function getColor() {
-     clearPicker();
-     var id = this.id;
-     var id = this.id.slice(0, -1);
-     var slide = document.getElementById('slide');
-     var picker = document.getElementById('picker');
-     var section = document.querySelector('.section-id');
-     var wrapper = document.querySelector(".colorpicker-wrapper");
-     section.innerHTML = id;
+    clearPicker();
+    var id = this.id;
+    var id = this.id.slice(0, -1);
+    var slide = document.getElementById('slide');
+    var picker = document.getElementById('picker');
+    var section = document.querySelector('.section-id');
+    var wrapper = document.querySelector(".colorpicker-wrapper");
+    section.innerHTML = id;
     var tl = new TimelineLite({onComplete: ColorPicker(
         slide,
         picker,
