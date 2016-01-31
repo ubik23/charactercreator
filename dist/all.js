@@ -622,6 +622,7 @@ function colorize(formId, _color){
                                 while (i--){
                                     style = styles[i].split(':');
                                     if (style == " ") {continue;};
+                                    console.log(style);
                                     k = style[0].trim();
                                     v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
@@ -1310,8 +1311,8 @@ function launch(layers, layerDirectory) {
     'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape'],
     'Belt': ['', 'straps', 'utility'],
     'Shoulderpads' : ['', 'general', 'artillery'],
-    'Pants': ['', 'suit', 'jeans', 'leather'],
-    'Coat': ['', 'lab', 'trench'],
+    'Pants': ['', 'suit', 'jeans', 'leather', 'snowboard'],
+    'Coat': ['', 'lab', 'trench', 'snowboard'],
     'Socks': ['','socks'],
     'Shoes': ['','hightops', 'leather', 'flip-flops']
     };
@@ -1336,13 +1337,13 @@ function launch(layers, layerDirectory) {
     'shirt_colar_1_of_2',
     'tie_bow_1_of_2',
     'vest_vest',
-    'pants_jeans','pants_leather','pants_suit',
+    'pants_jeans','pants_leather','pants_suit','pants_snowboard',
     'belt_straps',
     'shirt_tshirt',
     'holster_revolver_chest',
     'gloves_lab','gloves_motorcycle',
     'jacket_suit',
-    'coat_lab','coat_trench_1_of_2',
+    'coat_lab','coat_trench_1_of_2','coat_snowboard',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
     'shoulderpads_artillery',
