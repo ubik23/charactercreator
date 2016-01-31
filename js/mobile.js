@@ -319,7 +319,6 @@ function stageNav() {
 }
 
 function displayPallette () {
-
     var hashSkinColor = hash.get("skinColor");
     if (hashSkinColor != undefined){
          showForm();
@@ -375,7 +374,7 @@ function colorCutout(newColor){
 }
 
 function showForm() {
-    parseHash();
+    /*parseHash();*/
     launch();
 }
 

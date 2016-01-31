@@ -115,7 +115,7 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');

@@ -622,7 +622,6 @@ function colorize(formId, _color){
                                 while (i--){
                                     style = styles[i].split(':');
                                     if (style == " ") {continue;};
-                                    console.log(style);
                                     k = style[0].trim();
                                     v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
@@ -1013,7 +1012,7 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');
@@ -1111,7 +1110,7 @@ function createCharacter(){
     };
 };
 
-function GetEmotionGetLayers() {
+function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
@@ -1124,9 +1123,10 @@ function GetEmotionGetLayers() {
             }
              faceElements[e] += '_' + pupils;
         }
-        var eLayer = faceElements[e]
+        var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
+    console.log(facialExpressionLayers);
     return facialExpressionLayers;
 };
 
@@ -1535,7 +1535,6 @@ function stageNav() {
 }
 
 function displayPallette () {
-
     var hashSkinColor = hash.get("skinColor");
     if (hashSkinColor != undefined){
          showForm();
@@ -1591,7 +1590,7 @@ function colorCutout(newColor){
 }
 
 function showForm() {
-    parseHash();
+    /*parseHash();*/
     launch();
 }
 
@@ -1644,6 +1643,7 @@ function parseHash(){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
+                console.log('test:', section);
                 if (section === "pupils") {
                     var hashPupils = hash.get('pupils');
                     if (hashPupils == undefined){

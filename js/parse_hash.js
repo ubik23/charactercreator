@@ -13,6 +13,7 @@ function parseHash(){
         for(var x in forms[f]){
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
+                console.log('test:', section);
                 if (section === "pupils") {
                     var hashPupils = hash.get('pupils');
                     if (hashPupils == undefined){
