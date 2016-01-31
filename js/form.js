@@ -3,7 +3,6 @@ function createForm(sex, forms){
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
-        /*newHtml += '<form action="">\n ';*/
         if (f == 0 ){
             newHtml += '<div class="hud">';
             newHtml += '<input id="mButton" type="radio" name="sex" value="male" onclick="trans(value[0]);" checked>Male\n '; // attribute 'checked' if in hashtag // onclick="trans(this);"
@@ -15,7 +14,6 @@ function createForm(sex, forms){
             newHtml += '<br>\n ';
         };
         newHtml += '<br>\n ';
-        newHtml += '<div class="Table">';
         var selcount = 0
         for(var x in forms[f]){
             sectionHtml += '<li class="sbl__option">'+x+'</li>';
@@ -24,17 +22,12 @@ function createForm(sex, forms){
             newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
-                /*var select = ''*/
-                /*if ( xsel == d) { select = ' selected="selected"';};*/
-                /*return '<option' + select + '>'+d+'</option>'; }).join('\n');*/
             newHtml += '<div class="option__container option__'+t+'_'+d+'"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
               }
             else {var defval = '';}
-            /*newHtml += '<div class="select-group" ><div class="Cell">'+sectionTitle+defval+'</div>';*/
-            /*newHtml += '<div class="Cell"><select class="select '+t+'" onchange="show(this.options[this.selectedIndex].innerHTML, className);"'+defval+'>'+options+'</select></div>';*/
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
@@ -43,14 +36,11 @@ function createForm(sex, forms){
             else {
                 var colorValue = '#ffffff'
             }
-            /*newHtml += '<div class="Cell"><input class="color" onchange="colorize(this, this.color)" value="'+colorValue+'" id="'+ t +'c"></div>';  // '+ hash.get('this.color');*/
             newHtml += '</div>';
             newHtml += '</div>';
             newHtml += '</div>';
             selcount ++
         }
-        newHtml += '</div>';
-        /*newHtml += '</form>';*/
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
