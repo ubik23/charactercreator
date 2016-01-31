@@ -547,14 +547,21 @@ input[type=range][orient=vertical] {
 .hud {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     & svg {
         fill: currentColor;
         color: #e35a4e;
     }
 }
 
+.svg__section__title {
+    display: block;
+    text-transform: uppercase;
+    color: #e35a4e;
+    font-weight: 700;
+}
 .select-group {
     display: flex;
     flex-direction: row;
@@ -583,13 +590,18 @@ input.color{
 
 .options__container {
     display: none;
-    justify-content: center;
+}
+
+.thumbnails__container {
+    display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+     
 }
 
 .selected--option {
-    display: flex;
+    display: block;
 }
 .Cell {
     display: table-cell;

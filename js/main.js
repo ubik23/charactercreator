@@ -117,7 +117,12 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category){  // Draw the SVG on screen
-    var sections = [category.split(" ")[1]];
+    if (typeof(category) === "string") {
+        var sections = [category];
+
+    } else {
+        var sections = [category.split(" ")[1]];
+    };
     var selectedOption = userChoice;
     var options = getOptions(sections[0])
     var obj = new Array();
