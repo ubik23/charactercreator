@@ -29,6 +29,15 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
+    //var form = document.querySelector("#sidebar");
+    //var sideBar = document.getElementById("sidebar");
+    //var maleSilhouette = document.getElementById("male_silhouette");
+    //var femaleSilhouette = document.getElementById("female_silhouette");
+    //var tl = new TimelineLite({onComplete: launch});
+    //tl.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
+    //.to(form, 0.5, { right:'1%'})
+    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -108,7 +117,7 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');

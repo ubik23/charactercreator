@@ -622,7 +622,6 @@ function colorize(formId, _color){
                                 while (i--){
                                     style = styles[i].split(':');
                                     if (style == " ") {continue;};
-                                    console.log(style);
                                     k = style[0].trim();
                                     v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
@@ -766,7 +765,6 @@ function download() {
     //It will need to be filtered to keep only the layers needed for our purpose
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){
-        //console.log(item.style);
         //This is where we start filtering the nodes so that we can append them into our downloaded file.
         if (item.style != undefined){
             //This removes only useless layers and allows us to o the next test.
@@ -869,14 +867,14 @@ function createForm(sex, forms){
 }
 
 function getColor() {
-     clearPicker();
-     var id = this.id;
-     var id = this.id.slice(0, -1);
-     var slide = document.getElementById('slide');
-     var picker = document.getElementById('picker');
-     var section = document.querySelector('.section-id');
-     var wrapper = document.querySelector(".colorpicker-wrapper");
-     section.innerHTML = id;
+    clearPicker();
+    var id = this.id;
+    var id = this.id.slice(0, -1);
+    var slide = document.getElementById('slide');
+    var picker = document.getElementById('picker');
+    var section = document.querySelector('.section-id');
+    var wrapper = document.querySelector(".colorpicker-wrapper");
+    section.innerHTML = id;
     var tl = new TimelineLite({onComplete: ColorPicker(
         slide,
         picker,
@@ -934,6 +932,15 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
+    //var form = document.querySelector("#sidebar");
+    //var sideBar = document.getElementById("sidebar");
+    //var maleSilhouette = document.getElementById("male_silhouette");
+    //var femaleSilhouette = document.getElementById("female_silhouette");
+    //var tl = new TimelineLite({onComplete: launch});
+    //tl.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
+    //.to(form, 0.5, { right:'1%'})
+    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -1013,7 +1020,7 @@ function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth'];
+    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
             var pupils = hash.get('pupils');
@@ -1111,7 +1118,7 @@ function createCharacter(){
     };
 };
 
-function GetEmotionGetLayers() {
+function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
@@ -1124,7 +1131,7 @@ function GetEmotionGetLayers() {
             }
              faceElements[e] += '_' + pupils;
         }
-        var eLayer = faceElements[e]
+        var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
     return facialExpressionLayers;
@@ -1535,7 +1542,6 @@ function stageNav() {
 }
 
 function displayPallette () {
-
     var hashSkinColor = hash.get("skinColor");
     if (hashSkinColor != undefined){
          showForm();
@@ -1591,7 +1597,7 @@ function colorCutout(newColor){
 }
 
 function showForm() {
-    parseHash();
+    /*parseHash();*/
     launch();
 }
 

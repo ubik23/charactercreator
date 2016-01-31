@@ -81,7 +81,7 @@ function createCharacter(){
     };
 };
 
-function GetEmotionGetLayers() {
+function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
     //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
@@ -94,7 +94,7 @@ function GetEmotionGetLayers() {
             }
              faceElements[e] += '_' + pupils;
         }
-        var eLayer = faceElements[e]
+        var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
     return facialExpressionLayers;

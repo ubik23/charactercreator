@@ -8,7 +8,6 @@ function download() {
     //It will need to be filtered to keep only the layers needed for our purpose
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){
-        //console.log(item.style);
         //This is where we start filtering the nodes so that we can append them into our downloaded file.
         if (item.style != undefined){
             //This removes only useless layers and allows us to o the next test.
