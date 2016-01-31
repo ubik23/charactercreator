@@ -1,40 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">
-  <defs id="defs38944">
-    <clipPath id="clipPath30446-4-3">
-      <path id="path30448-9-3" d="M751.28 2651.702c-9.88-6.05-18.147-7.058-27.22 3.83-9.075 10.89-2.22 30.046-5.043 36.7-2.823 6.655-3.428 10.688-4.234 20.367-.807 9.67-7.46 11.29-7.058 37.3.404 26.01 2.218 28.23 1.412 33.27-.807 5.04.403 2.42.806 7.06.404 4.63 12.3 1.01 12.704-4.04.403-5.05.605-3.84-.403-8.27s1.815-27.83 5.243-36.3c3.428-8.47 1.814-19.76 3.428-21.98 1.613-2.22 8.267-7.06 9.074-49.41" style="stroke-opacity: 1; stroke-linejoin: miter; stroke-linecap: butt; stroke-width: 1px; stroke: #c0a0a1; fill: none; display: inline;"/>
-    </clipPath>
-  </defs>
-  <g id="g56620" style="display:none;enable-background:new">
-    <g id="g55231" style="display:inline;enable-background:new">
-      <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="fill: #f0c8c9; stroke: #c0a0a1; stroke-width: 0.5; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; stroke-dasharray: none;"/>
-      <path id="path55235" d="M266.7 140c0 .8 0 1-.3 1-.2.4 0 1.5.2 1.8.3.4.2 1.2 0 1.2 0 0-.3 0-.3-.6 0-.8-1-.6-1.6-2.7-.3-1.7 0-2 .2-2s0-1.3-.3-1.6c0-.2-.4-.5-.6-.6v1.2c0 .4-.2 3.2.8 4.7 1 1.4 1.7 2.7 1.5 2.7-.2 0-1.5-2.2-2-3.4-.4-1.3-.8-3.2-1-4.5 0-1 .2-1.3.5-1.2.3 0 1 1.2 1.4 2 .3 1 .6 1 1 1.2.2 0 .4.4.3 1z" style="fill: #d3b0b1; stroke: none;"/>
-    </g>
-    <g id="g55237" style="display:inline;enable-background:new">
-      <path id="path55239" d="M298 136.3l1.7-2.4c.5-.8 1-2 1.8-1.6.5.5 0 2 0 2.7.2.8.2 1.8 0 3-.6 3.6-1.3 4.7-2 6.2-1 1.5-2 2-2.8 1" style="fill: #f0c8c9; stroke: #c0a0a1; stroke-width: 0.5; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; stroke-dasharray: none; stroke-dashoffset: 0;"/>
-      <path id="path55241" d="M298.5 139.2c0 .7.2.8.4 1 0 .2 0 1.3-.3 1.7-.3.2-.2 1 0 1 0 0 .3 0 .3-.7s1.2-.6 1.5-2.7c.3-1.7 0-2-.3-2-.2 0 0-1.3 0-1.6l.7-.7v1c0 .5.2 3.3-.7 4.8-1 1.7-1.7 3-1.4 3 0 0 1.3-2 1.7-3.4.4-1.2.7-3 .7-4.4 0-1.2-.2-1.5-.5-1.3-.3 0-1 1-1.3 2-.3 1-.7 1-1 1.2-.2 0-.4.5-.3 1.2z" style="fill: #d3b0b1; stroke: none;"/>
-    </g>
-  </g>
-  <defs id="defs33019">
-    <clipPath id="clipPath17580">
-      <path id="path17582" d="M538 128c-.3.6-1.7 2.4-5.6.8l-1.6.2v-.2s.4-.4 1-.5c.5-.2 1.8-1.8 3-1.8 1.3 0 3 1 3 1.5z" style="color:#000000;fill:none;stroke:#008080;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-    <clipPath id="clipPath17632">
-      <path id="path17634" d="M515.6 128c.3.6 1.7 2.4 5.6.8l1.6.2v-.2s-.4-.4-1-.5c-.5-.2-1.8-1.8-3-1.8-1.3 0-3 1-3.2 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-  </defs>
-  <defs id="defs103">
-    <clipPath id="clipPath105">
-      <path id="path107" d="M538 128c-.3.6-1.7 2.4-5.6.8l-1.6.2v-.2s.4-.4 1-.5c.5-.2 1.8-1.8 3-1.8 1.3 0 3 1 3 1.5z" style="color:#000000;fill:none;stroke:#008080;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-    <clipPath id="clipPath109">
-      <path id="path111" d="M515.6 128c.3.6 1.7 2.4 5.6.8l1.6.2v-.2s-.4-.4-1-.5c-.5-.2-1.8-1.8-3-1.8-1.3 0-3 1-3.2 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-  </defs>
-=======
 <svg xmlns="http://www.w3.org/2000/svg" id="glasses_fpv" width="560" height="560">
->>>>>>> master
   <g transform="translate(35.305 117.51) scale(.32225)" id="g4675" style="opacity:1">
     <path id="path4311-8" d="M819.893 47.813c6.933-.248 8.17-.743 8.42-2.97.246-2.23.742-9.163 1.485-12.63.742-3.467-1.98-9.162-7.924-9.657-.248 5.2-1.98 25.257-1.98 25.257z" style="fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:#4d4d4d;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"/>
     <path id="path4313-3" d="M821 34.508c-.538 6.657-1.107 13.304-1.107 13.304 6.934-.247 8.17-.742 8.418-2.97.03-.215.08-.833.11-1.127.11-5.165-3.45-8.267-7.42-9.207z" style="fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
