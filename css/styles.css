@@ -1061,6 +1061,11 @@ input.color {
       -ms-flex-align: center;
           align-items: center; }
 
+.selected--option {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 .Cell {
   display: table-cell;
   width: 100%; }

@@ -588,6 +588,9 @@ input.color{
     align-items: center;
 }
 
+.selected--option {
+    display: flex;
+}
 .Cell {
     display: table-cell;
 	width: 100%;

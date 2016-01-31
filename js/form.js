@@ -23,9 +23,8 @@ function createForm(sex, forms){
         newHtml += '<div class="Table">';
         var selcount = 0
         for(var x in forms[f]){
-            sectionHtml += '<li>'+x+'</li>';
+            sectionHtml += '<li class="sbl__option">'+x+'</li>';
             var sectionTitle = x;
-            console.log('sectionTitle: ', sectionTitle);
             var t = sectionTitle.toLowerCase();
             newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span>';
             var xsel = hash.get(t);
@@ -69,6 +68,23 @@ function createForm(sex, forms){
     var sectionList = document.createElement('div');
     sectionList.innerHTML = sectionHtml;
     sectionContainer.appendChild(sectionList);
+    var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
+    addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+}
+
+function addEventListenerList(list, event, fn) {
+    for (var i = 0, len = list.length; i < len; i++) {
+        list[i].addEventListener(event, fn, false);
+    }
+}
+
+function showThumbOptions() {
+    var showOptionThumbs = document.querySelector('.options__'+this.innerHTML.toLowerCase());
+    var allOptions  = document.querySelectorAll('.options__container');
+    for (var i = 0, len = allOptions.length; i < len; i++) {
+        allOptions[i].classList.remove('selected--option');
+    }
+    showOptionThumbs.classList.add('selected--option');
 }
 
 function getColor() {
