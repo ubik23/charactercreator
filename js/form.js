@@ -1,7 +1,7 @@
 function createForm(sex, forms){
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
-        var formContainer = document.querySelector('#content_'+(Number(f)+1));
+        var formContainer = document.querySelector('#content_1');
         var newHtml = '<form>';
         newHtml += '<form action="">\n ';
         if (f == 0 ){
