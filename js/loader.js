@@ -29,7 +29,6 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
-    //console.log('all loaded');
     //var form = document.querySelector("#sidebar");
     //var sideBar = document.getElementById("sidebar");
     //var maleSilhouette = document.getElementById("male_silhouette");

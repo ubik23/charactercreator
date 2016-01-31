@@ -97,7 +97,6 @@ function GetEmotionGetLayers(option) {
         var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
-    console.log(facialExpressionLayers);
     return facialExpressionLayers;
 };
 
