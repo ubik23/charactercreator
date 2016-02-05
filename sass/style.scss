@@ -169,7 +169,7 @@ ul#horizontal li a:hover {
 .zoom-container {
     position: absolute;
     top: 8%;
-    left: 3%;
+    left: 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,6 +182,39 @@ ul#horizontal li a:hover {
     width: 16px;
     height: 16px;
     
+}
+
+.accordeon__section-label {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e35a4e;
+    border-bottom: 1px solid #E6E6E6;
+    &:hover {
+        background: #e35a4e;
+        color: #FFFFFF;
+        & circle {
+            stroke: #FFFFFF;
+        }
+        & polygon {
+            fill: #FFFFFF;
+        }
+    }
+}
+
+.accordeon__section-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.accordeon__svg-container {
+    &:hover poligon {
+        fill: currentColor;
+        color: #e35a4e;
+    }
 }
 
 input[type=range] {

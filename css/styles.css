@@ -647,7 +647,7 @@ ul#horizontal li a:hover {
 .zoom-container {
   position: absolute;
   top: 8%;
-  left: 3%;
+  left: 0.5%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -666,6 +666,37 @@ ul#horizontal li a:hover {
   color: #e35a4e;
   width: 16px;
   height: 16px; }
+
+.accordeon__section-label {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0 0 5px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #e35a4e;
+  border-bottom: 1px solid #E6E6E6; }
+  .accordeon__section-label:hover {
+    background: #e35a4e;
+    color: #FFFFFF; }
+    .accordeon__section-label:hover circle {
+      stroke: #FFFFFF; }
+    .accordeon__section-label:hover polygon {
+      fill: #FFFFFF; }
+
+.accordeon__section-title {
+  font-size: 16px;
+  font-weight: 500; }
+
+.accordeon__svg-container:hover poligon {
+  fill: currentColor;
+  color: #e35a4e; }
 
 input[type=range] {
   /*removes default webkit styles*/
