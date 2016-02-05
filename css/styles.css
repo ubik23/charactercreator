@@ -984,7 +984,7 @@ input[type=range][orient=vertical] {
   display: block;
   position: absolute;
   top: 5.5%;
-  width: 23%;
+  width: 30%;
   min-height: 100%;
   margin: 0 3% 0 3%;
   font-family: helvetica, sans-serif;
@@ -1004,9 +1004,8 @@ input[type=range][orient=vertical] {
   left: -100%; }
 
 .svg__option {
-  width: 8vh;
-  height: 8vh;
-  margin: 0.5vh;
+  width: 100%;
+  margin: 0.3vh;
   border: 3px solid #E35A4E;
   border-radius: 2vh; }
 
@@ -1017,6 +1016,7 @@ input[type=range][orient=vertical] {
   color: #E35A4E; }
 
 .option__container {
+  width: 23%;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1028,7 +1028,8 @@ input[type=range][orient=vertical] {
           justify-content: flex-start;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  padding: 1%; }
   .option__container:hover > .option__label {
     color: black; }
   .option__container:hover > .svg__option {
