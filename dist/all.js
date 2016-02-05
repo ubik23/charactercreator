@@ -804,15 +804,24 @@ function createForm(sex, forms){
             newHtml += '<span class="accordeon__section-title">Controls</span>';
             newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
             newHtml += '</section>';
+            newHtml += '<div class="accordeon__content">';
             newHtml += '<input id="mButton" type="radio" name="sex" value="male" onclick="trans(value[0]);" checked>Male\n '; // attribute 'checked' if in hashtag // onclick="trans(this);"
             newHtml += '<input id="fButton" type="radio" name="sex" value="female" onclick="trans(value[0]);" >Female\n '; // attribute 'checked' if in hashtag
             newHtml += '<div><svg class="random-button" onclick="random();" width="25" height="25" viewBox="0 0 625 625" version="1"><path d="M312.466 0l-36.784 93.304h26.044v123.174c-18.596 2.062-35.58 9.448-49.47 20.54l-87.13-87.128 18.394-18.392-92.03-39.94 39.94 91.96 18.46-18.39 87.06 87.06c-11.114 13.888-18.463 30.93-20.54 49.538H93.305v-26.044L0 312.534l93.304 36.784v-26.044H216.41c2.067 18.633 9.412 35.7 20.54 49.605l-87.06 87.06-18.46-18.393-39.94 91.96 92.03-39.94-18.393-18.39 87.128-87.13c13.89 11.093 30.875 18.48 49.47 20.54v123.108h-26.043L312.466 625l36.852-93.304h-26.044V408.59c18.607-2.077 35.65-9.426 49.538-20.54l87.06 87.06-18.39 18.46 91.96 39.94-39.94-92.03-18.392 18.393-87.128-87.128c11.092-13.89 18.478-30.875 20.54-49.47h123.174v26.043L625 312.534l-93.304-36.852v26.044H408.522c-2.072-18.57-9.46-35.53-20.54-49.403l87.128-87.13 18.392 18.394 39.94-92.03-91.96 39.94 18.39 18.46-87.06 87.06c-13.888-11.114-30.93-18.463-49.538-20.54V93.305h26.044L312.466 0z"/></svg><span>Random item</span></div>';
             newHtml += '<div><svg class="play-button" onclick="playRandom = setInterval(random, 125);" width="25" height="25" viewBox="0 0 1024 1024"><path class="path1" d="M192 128l640 384-640 384z"></path></svg><span>Random mode on</span></div>';
             newHtml += '<div><svg class="pause-button" onclick="clearInterval(playRandom);" width="25" height="25" viewBox="0 0 1024 1024"><path class="path1" d="M128 128h320v768h-320zM576 128h320v768h-320z"></path></svg><span>Random mode off</span></div>';
             newHtml += '</div>';
-            newHtml += '<br>\n ';
+            newHtml += '</div>';
+            newHtml += '<section class="accordeon__section-label">';
+            newHtml += '<span class="accordeon__section-title">Colors</span>';
+            newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
+            newHtml += '</section>';
+            newHtml += '<section class="accordeon__section-label">';
+            newHtml += '<span class="accordeon__section-title">Items</span>';
+            newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
+            newHtml += '</section>';
+            newHtml += '<div class="accordeon__content">';
         };
-        newHtml += '<br>\n ';
         var selcount = 0
         for(var x in forms[f]){
             sectionHtml += '<li class="sbl__option">'+x+'</li>';
@@ -837,9 +846,9 @@ function createForm(sex, forms){
             }
             newHtml += '</div>';
             newHtml += '</div>';
-            newHtml += '</div>';
             selcount ++
         }
+        newHtml += '</div>';
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);

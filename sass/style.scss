@@ -187,7 +187,7 @@ ul#horizontal li a:hover {
 .accordeon__section-label {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 0 0 5px;
+    padding: 3.65px 0 0 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -217,6 +217,12 @@ ul#horizontal li a:hover {
     }
 }
 
+.accordeon__content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3.65px 5px 0 5px;
+    border-bottom: 1px solid #E6E6E6;
+}
 input[type=range] {
     /*removes default webkit styles*/
     -webkit-appearance: none;
