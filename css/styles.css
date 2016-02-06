@@ -702,7 +702,7 @@ ul#horizontal li a:hover {
 .accordeon__content {
   width: 100%;
   height: auto;
-  max-height: 500px;
+  max-height: 999px;
   box-sizing: border-box;
   padding: 3.65px 5px 0 5px;
   border-bottom: 1px solid #E6E6E6;
@@ -713,8 +713,8 @@ ul#horizontal li a:hover {
 .accordeon__svg-container {
   width: 25px;
   height: 25px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-duration: 0.3s; }
@@ -726,8 +726,8 @@ ul#horizontal li a:hover {
   transition-duration: 0.3s; }
 
 .section-btn--hide {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg); }
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
 
 input[type=range] {
   /*removes default webkit styles*/
