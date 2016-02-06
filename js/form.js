@@ -29,13 +29,13 @@ function createForm(sex, forms){
         };
         var selcount = 0
         for(var x in forms[f]){
-            sectionHtml += '<li class="sbl__option">'+x+'</li>';
+            sectionHtml += '<li class="sbl__option" tabindex="0">'+x+'</li>';
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
             newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
-            newHtml += '<div class="option__container option__'+t+'_'+d+'"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
+            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
@@ -71,8 +71,10 @@ function createForm(sex, forms){
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+    addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
     addEventListenerList(optionThumbnails, 'click', changeOption);
     addEventListenerList(sectionButtons, 'click', toggleSection);
+
 }
 
 function addEventListenerList(list, event, fn) {
@@ -82,11 +84,13 @@ function addEventListenerList(list, event, fn) {
 }
 
 function toggleSection() {
-    console.log(this.nextSibling.classList);
     var sectionContent = this.nextSibling;
+    var maxHeight = sectionContent.clientHeight;
     var displayButton = this.querySelector('.accordeon__svg-container');
-    console.log(sectionContent.classList);
     if (sectionContent.classList.contains('accordeon__content')) {
+        if (!sectionContent.classList.contains('section--hide')){
+            sectionContent.style.maxHeight = maxHeight;
+        }
         sectionContent.classList.toggle('section--hide')
         displayButton.classList.toggle('section-btn--hide')
     }

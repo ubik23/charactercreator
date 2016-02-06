@@ -187,7 +187,7 @@ ul#horizontal li a:hover {
 .accordeon__section-label {
     width: 100%;
     box-sizing: border-box;
-    padding: 3.65px 5px 0 5px;
+    padding: 0  5px 0 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,6 +208,7 @@ ul#horizontal li a:hover {
 .accordeon__section-title {
     font-size: 16px;
     font-weight: 500;
+    padding-top: 3.65px
 }
 
 .accordeon__svg-container {
@@ -219,16 +220,26 @@ ul#horizontal li a:hover {
 
 .accordeon__content {
     width: 100%;
+    height: auto;
+    max-height: 500px;
     box-sizing: border-box;
     padding: 3.65px 5px 0 5px;
     border-bottom: 1px solid #E6E6E6;
+    transition-property: max-height;
+    transition-duration: 0.3s;
+    overflow: hidden;
 }
 
 .accordeon__svg-container {
+    width: 25px;
+    height: 25px;
     transform: rotate(90deg);
+    transition-property: transform;
+    transition-duration: 0.3s;
 }
 .section--hide {
-    display: none;
+    /*display: none;*/
+    max-height: 0px;
 }
 
 .section-btn--hide {
@@ -532,7 +543,7 @@ input[type=range][orient=vertical] {
     display: block;
 	position: absolute;
 	top: 5.5%;
-	width: 30%;
+	width: 27%;
 	min-height: 100%;
     margin: 0 3% 0 3%;
 	font-family: helvetica, sans-serif;
@@ -569,12 +580,12 @@ input[type=range][orient=vertical] {
 }
 
 .option__container {
-    width: 23%;
+    width: 22%;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 1%;
+    padding: 1.5%;
     &:hover > .option__label {
         color: black;
     }
@@ -609,10 +620,11 @@ input[type=range][orient=vertical] {
 }
 
 .svg__section__title {
-    display: block;
+    display: none;
     text-transform: uppercase;
     color: #e35a4e;
     font-weight: 700;
+    text-align: center;
 }
 .select-group {
     display: flex;
