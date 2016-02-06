@@ -721,7 +721,9 @@ ul#horizontal li a:hover {
 
 .section--hide {
   /*display: none;*/
-  max-height: 0px; }
+  max-height: 0px;
+  transition-property: max-height;
+  transition-duration: 0.3s; }
 
 .section-btn--hide {
   -webkit-transform: rotate(-90deg);
