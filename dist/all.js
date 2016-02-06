@@ -877,11 +877,14 @@ function addEventListenerList(list, event, fn) {
 }
 
 function toggleSection() {
-    console.log(this.classList);
+    console.log(this.nextSibling.classList);
     var sectionContent = this.nextSibling;
     var displayButton = this.querySelector('.accordeon__svg-container');
-    sectionContent.classList.toggle('section--hide')
-    displayButton.classList.toggle('section-btn--hide')
+    console.log(sectionContent.classList);
+    if (sectionContent.classList.contains('accordeon__content')) {
+        sectionContent.classList.toggle('section--hide')
+        displayButton.classList.toggle('section-btn--hide')
+    }
 }
 
 function showThumbOptions() {
