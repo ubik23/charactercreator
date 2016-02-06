@@ -223,6 +223,18 @@ ul#horizontal li a:hover {
     padding: 3.65px 5px 0 5px;
     border-bottom: 1px solid #E6E6E6;
 }
+
+.accordeon__svg-container {
+    transform: rotate(90deg);
+}
+.section--hide {
+    display: none;
+}
+
+.section-btn--hide {
+    transform: rotate(-90deg);
+}
+
 input[type=range] {
     /*removes default webkit styles*/
     -webkit-appearance: none;

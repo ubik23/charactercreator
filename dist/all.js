@@ -864,14 +864,24 @@ function createForm(sex, forms){
     sectionContainer.appendChild(sectionList);
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
+    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
     addEventListenerList(optionThumbnails, 'click', changeOption);
+    addEventListenerList(sectionButtons, 'click', toggleSection);
 }
 
 function addEventListenerList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener(event, fn, false);
     }
+}
+
+function toggleSection() {
+    console.log(this.classList);
+    var sectionContent = this.nextSibling;
+    var displayButton = this.querySelector('.accordeon__svg-container');
+    sectionContent.classList.toggle('section--hide')
+    displayButton.classList.toggle('section-btn--hide')
 }
 
 function showThumbOptions() {
