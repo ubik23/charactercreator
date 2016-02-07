@@ -972,6 +972,7 @@ function getViewBox(t, d) {
         "glasses":"261 109 40 40",
         "hat":"241 70 80 80",
         "hair":"243 80 80 80",
+        "headband":"241 70 80 80",
         "horns":"241 70 80 80",
         "mask":"243 93 80 80",
         "underwear":"228 248 120 120",
