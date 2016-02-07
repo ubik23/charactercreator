@@ -168,11 +168,15 @@ function getViewBox(t, d) {
         "hair_mohawk":"243 45 80 80",
     }
     var sectionDict = {
-        "body_head":"243 102 80 80",
+        "body_head":"243 87 80 80",
         "coat":"140 84 290 290",
+        "ears":"243 87 80 80",
+        "facialhair":"243 102 80 80",
         "hat":"243 70 80 80",
         "hair":"243 80 80 80",
-        "veil":"207 97 150 150"
+        "mask":"243 93 80 80",
+        "veil":"207 97 150 150",
+        "wings":"110 0 350 350"
     }
     if (idDict[id]) {
         return idDict[id];
