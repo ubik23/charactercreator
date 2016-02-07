@@ -1,4 +1,7 @@
 function createForm(sex, forms){
+    var sex = sex || window.sex;
+    var forms = forms || window.forms;
+    console.log(sex ,forms);
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -35,7 +38,15 @@ function createForm(sex, forms){
             newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
-            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
+            var tempId ='#'+t+'_'+d;
+            /*var tempId = '#svg1';*/
+            var selectNode = document.querySelector(tempId);
+            if (selectNode != null){
+                var clonedNode = selectNode.cloneNode(true).innerHTML;
+                } else {
+                var clonedNode = '';
+                }
+            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';

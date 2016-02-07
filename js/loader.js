@@ -44,7 +44,7 @@ function onAllLoaded() {
     var sideBarLeft = document.querySelector(".sidebar-left");
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false)
-    var tl = new TimelineLite;
+    var tl = new TimelineLite({onComplete: createForm});
     tl.to(sideBarRight, 0.5, {opacity: 1, ease:Elastic.easeOut})
     .to(sideBarLeft, 0.5, {opacity: 1, ease:Elastic.easeOut})
     .to(sideBarRight, 0.5, { right:'0'}, 0.025)

@@ -299,9 +299,9 @@ function launch(layers, layerDirectory) {
         multiLayer = multiLayerFemale;
     }
     forms = [form1, form2, form3];
+    window.forms = forms;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
-    createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
@@ -379,6 +379,7 @@ function showForm() {
 }
 
 function selectMale(event) {
+    window.sex = "m";
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     maleSilhouette.removeEventListener('click', selectMale, false);
@@ -398,6 +399,7 @@ function selectMale(event) {
 }
 
 function selectFemale(event) {
+    window.sex = "f";
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     femaleSilhouette.removeEventListener('click', selectFemale, false);

@@ -794,6 +794,9 @@ function download() {
 }
 
 function createForm(sex, forms){
+    var sex = sex || window.sex;
+    var forms = forms || window.forms;
+    console.log(sex ,forms);
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -830,7 +833,15 @@ function createForm(sex, forms){
             newHtml += '<div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
-            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'"><use xlink:href="#' + t + '_' + d + '"/></svg><span class="option__label">'+d+'</span></div>';}).join('\n');
+            var tempId ='#'+t+'_'+d;
+            /*var tempId = '#svg1';*/
+            var selectNode = document.querySelector(tempId);
+            if (selectNode != null){
+                var clonedNode = selectNode.cloneNode(true).innerHTML;
+                } else {
+                var clonedNode = '';
+                }
+            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
@@ -987,7 +998,7 @@ function onAllLoaded() {
     var sideBarLeft = document.querySelector(".sidebar-left");
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false)
-    var tl = new TimelineLite;
+    var tl = new TimelineLite({onComplete: createForm});
     tl.to(sideBarRight, 0.5, {opacity: 1, ease:Elastic.easeOut})
     .to(sideBarLeft, 0.5, {opacity: 1, ease:Elastic.easeOut})
     .to(sideBarRight, 0.5, { right:'0'}, 0.025)
@@ -1567,9 +1578,9 @@ function launch(layers, layerDirectory) {
         multiLayer = multiLayerFemale;
     }
     forms = [form1, form2, form3];
+    window.forms = forms;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
-    createForm(sex, forms);
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
@@ -1647,6 +1658,7 @@ function showForm() {
 }
 
 function selectMale(event) {
+    window.sex = "m";
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     maleSilhouette.removeEventListener('click', selectMale, false);
@@ -1666,6 +1678,7 @@ function selectMale(event) {
 }
 
 function selectFemale(event) {
+    window.sex = "f";
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     femaleSilhouette.removeEventListener('click', selectFemale, false);
