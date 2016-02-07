@@ -1,7 +1,6 @@
 function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
-    console.log(sex ,forms);
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -39,15 +38,35 @@ function createForm(sex, forms){
             var xsel = hash.get(t);
             var options = forms[f][x].map(function(d, i){
             var tempId ='#'+t+'_'+d;
-            /*var tempId = '#svg1';*/
-            var selectNode = document.querySelector(tempId);
-            if (selectNode != null){
-                var clonedNode = selectNode.cloneNode(true).innerHTML;
-            } else {
-                var clonedNode = '';
+            var sections = [tempId];
+            var multiLayer = window.multiLayer;
+            for (lyr in multiLayer){
+                if (tempId.slice(1) === multiLayer[lyr][0]){
+                    sections = [];
+                    for (var i=1;i<=multiLayer[lyr][1];i++){
+                        newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
+                        sections.push(newLayer);
+                    }
+                };
+            };
+            if (t === "emotion"){
+                var sections = [];
+                var emotions = GetEmotionGetLayers(d);
+                for (emo in emotions){
+                    var newEmo = '#' + emotions[emo] + '_' + d;
+                    sections.push(newEmo);
+                };
             }
+            var clonedNode = '';
+            for (i in sections){
+                var selectNode = document.querySelector(sections[i]);
+                if (selectNode != null){
+                    var newNode = selectNode.cloneNode(true).innerHTML;
+                    clonedNode += newNode;
+                };
+            };
+
             var viewBox = getViewBox(t, d);
-            console.log(viewBox);
             newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
@@ -162,27 +181,31 @@ function clearPicker() {
 function getViewBox(t, d) {
     var id = t + '_' + d;
     var idDict = {
-        "body_athletic":"0 0 560 560",
+        "body_athletic":"65 130 430 430",
         "glasses_fpv":"250 97 64 64",
+        "hat_helmet_vietnam":"243 86 80 80",
         "hat_motorcycle":"243 86 80 80",
         "hat_tuque":"243 85 80 80",
         "hair_mohawk":"243 45 80 80",
+        "underwear_boxers":"224 258 120 120"
     }
     var sectionDict = {
         "body_head":"249 95 64 64",
         "coat":"140 84 290 290",
-        "ears":"243 87 80 80",
+        "ears":"254 120 20 20",
+        "emotion":"259 113 42 42",
         "eyepatch":"261 109 40 40",
         "facialhair":"261 124 40 40",
         "glasses":"261 109 40 40",
         "hat":"241 70 80 80",
         "hair":"243 80 80 80",
-        "headband":"241 70 80 80",
+        "headband":"241 90 80 80",
         "horns":"241 70 80 80",
         "mask":"243 93 80 80",
-        "underwear":"228 248 120 120",
+        "suit":"65 130 430 430",
+        "underwear":"228 238 120 120",
         "veil":"207 97 150 150",
-        "wings":"110 -20 350 350"
+        "wings":"110 -30 350 350"
     }
     if (idDict[id]) {
         return idDict[id];

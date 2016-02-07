@@ -300,6 +300,7 @@ function launch(layers, layerDirectory) {
     }
     forms = [form1, form2, form3];
     window.forms = forms;
+    window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object

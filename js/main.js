@@ -116,10 +116,9 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function show(userChoice, category){  // Draw the SVG on screen
+function show(userChoice, category){
     if (typeof(category) === "string") {
         var sections = [category];
-
     } else {
         var sections = [category.split(" ")[1]];
     };
@@ -160,31 +159,30 @@ function show(userChoice, category){  // Draw the SVG on screen
                     else {
                         viewport.selectAll(id).attr({opacity:1});
                     }
-            };
-            if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
-                modCharacter(sections[section], selectedOption);
-            } else {
-                var obj = new Array();
-                obj[sections[section]] = selectedOption;
-                hash.add(obj);
-                modCharacter(sections[section], selectedOption);
-                ga('send', 'event', 'menu', 'select', id);
-            }
+                };
+                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+                    modCharacter(sections[section], selectedOption);
+                } else {
+                    var obj = new Array();
+                    obj[sections[section]] = selectedOption;
+                    hash.add(obj);
+                    modCharacter(sections[section], selectedOption);
+                    ga('send', 'event', 'menu', 'select', id);
+                }
             }
             else {
-            for (lyr in multiLayer){
-                if (id.slice(1) == multiLayer[lyr][0]){
-                    for (var i=1;i<=multiLayer[lyr][1];i++){
-                        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                        viewport.selectAll(idOf).attr({opacity:0});
+                for (lyr in multiLayer){
+                    if (id.slice(1) == multiLayer[lyr][0]){
+                        for (var i=1;i<=multiLayer[lyr][1];i++){
+                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+                            viewport.selectAll(idOf).attr({opacity:0});
+                        }
                     }
-                }
-                else {
-                    viewport.selectAll(id).attr({opacity:0})
-                }
+                    else {
+                        viewport.selectAll(id).attr({opacity:0})
+                    };
+                };
             };
-            ;
-            }
         });
     };
 }
