@@ -958,20 +958,24 @@ function getViewBox(t, d) {
     var id = t + '_' + d;
     var idDict = {
         "body_athletic":"0 0 560 560",
-        "hat_motorcycle":"243 85 80 80",
+        "glasses_fpv":"250 97 64 64",
+        "hat_motorcycle":"243 86 80 80",
         "hat_tuque":"243 85 80 80",
         "hair_mohawk":"243 45 80 80",
     }
     var sectionDict = {
-        "body_head":"243 87 80 80",
+        "body_head":"249 95 64 64",
         "coat":"140 84 290 290",
         "ears":"243 87 80 80",
-        "facialhair":"243 102 80 80",
-        "hat":"243 70 80 80",
+        "eyepatch":"261 109 40 40",
+        "facialhair":"261 124 40 40",
+        "glasses":"261 109 40 40",
+        "hat":"241 70 80 80",
         "hair":"243 80 80 80",
+        "horns":"241 70 80 80",
         "mask":"243 93 80 80",
         "veil":"207 97 150 150",
-        "wings":"110 0 350 350"
+        "wings":"110 -20 350 350"
     }
     if (idDict[id]) {
         return idDict[id];

@@ -584,12 +584,12 @@ input[type=range][orient=vertical] {
 }
 
 .option__container {
-    width: 22%;
+    width: 24%;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 1.5%;
+    margin: 0.5%;
     &:hover > .option__label {
         color: black;
     }

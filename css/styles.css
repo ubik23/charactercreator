@@ -1043,7 +1043,7 @@ input[type=range][orient=vertical] {
   color: #E35A4E; }
 
 .option__container {
-  width: 22%;
+  width: 24%;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1056,7 +1056,7 @@ input[type=range][orient=vertical] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 1.5%; }
+  margin: 0.5%; }
   .option__container:hover > .option__label {
     color: black; }
   .option__container:hover > .svg__option {
