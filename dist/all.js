@@ -838,10 +838,12 @@ function createForm(sex, forms){
             var selectNode = document.querySelector(tempId);
             if (selectNode != null){
                 var clonedNode = selectNode.cloneNode(true).innerHTML;
-                } else {
+            } else {
                 var clonedNode = '';
-                }
-            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="0 0 560 560" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
+            }
+            var viewBox = getViewBox(t, d);
+            console.log(viewBox);
+            newHtml += '<div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
@@ -950,6 +952,30 @@ function emptyPicker() {
 function clearPicker() {
      var wrapper = document.querySelector(".colorpicker-wrapper");
     wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><button class="close-colorpicker" onclick="closePicker();">x</button></div><div id="picker"></div><div id="slide"></div>';
+}
+
+function getViewBox(t, d) {
+    var id = t + '_' + d;
+    var idDict = {
+        "body_athletic":"0 0 560 560",
+        "hat_motorcycle":"243 85 80 80",
+        "hat_tuque":"243 85 80 80",
+        "hair_mohawk":"243 45 80 80",
+    }
+    var sectionDict = {
+        "body_head":"243 102 80 80",
+        "coat":"140 84 290 290",
+        "hat":"243 70 80 80",
+        "hair":"243 80 80 80",
+        "veil":"207 97 150 150"
+    }
+    if (idDict[id]) {
+        return idDict[id];
+    } else if (sectionDict[t]) {
+        return sectionDict[t];
+    } else {
+        return "0 0 560 560";
+    }
 }
 
 

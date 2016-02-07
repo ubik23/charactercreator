@@ -568,10 +568,12 @@ input[type=range][orient=vertical] {
 }
 
 .svg__option {
-     width: 100%;
-     margin: 0.3vh;
-     border: 3px solid #E35A4E;
-     border-radius: 2vh;
+    width: 100%;
+    margin: 0.3vh;
+    border: 3px solid #E35A4E;
+    border-radius: 2vh;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .option__label {
@@ -587,7 +589,7 @@ input[type=range][orient=vertical] {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.5%;
+    margin: 1.5%;
     &:hover > .option__label {
         color: black;
     }

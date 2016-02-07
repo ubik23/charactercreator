@@ -1032,7 +1032,9 @@ input[type=range][orient=vertical] {
   width: 100%;
   margin: 0.3vh;
   border: 3px solid #E35A4E;
-  border-radius: 2vh; }
+  border-radius: 2vh;
+  overflow: hidden;
+  box-sizing: border-box; }
 
 .option__label {
   text-transform: uppercase;
@@ -1054,7 +1056,7 @@ input[type=range][orient=vertical] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.5%; }
+  margin: 1.5%; }
   .option__container:hover > .option__label {
     color: black; }
   .option__container:hover > .svg__option {
