@@ -362,14 +362,15 @@ input[type=range][orient=vertical] {
     /*background-color: rgba(255, 255, 255, 0.5);*/
     color: #808080;
     /*border: 1px solid #E6E6E6;*/
-    padding: 10px;
+    padding: 3.65px 5px 0 5px;
+    overflow: hidden;
     /*z-index: 5;*/
 }
 
 .colorpicker-controls {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 0 10px 0;
 }
 

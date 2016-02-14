@@ -818,7 +818,7 @@ function createForm(sex, forms){
             newHtml += '<span class="accordeon__section-title">Colors</span>';
             newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
             newHtml += '</section>';
-            newHtml += '<div class="colorpicker-wrapper">';
+            newHtml += '<div class="colorpicker-wrapper accordeon__content">';
             newHtml += '</div>';
             newHtml += '<section class="accordeon__section-label">';
             newHtml += '<span class="accordeon__section-title">Items</span>';
@@ -945,7 +945,6 @@ function changeOption() {
 function getColor(sectionId) {
     clearPicker();
     var id = sectionId;
-    /*var id = this.id.slice(0, -1);*/
     var slide = document.getElementById('slide');
     var picker = document.getElementById('picker');
     var section = document.querySelector('.section-id');
@@ -958,13 +957,6 @@ function getColor(sectionId) {
           colorize(id, hex);
         })
     });
-    tl.to(wrapper, 0.5, { opacity:'1'})
-}
-
-function closePicker() {
-    var wrapper = document.querySelector(".colorpicker-wrapper");
-    var tl = new TimelineLite({onComplete: emptyPicker});
-    tl.to(wrapper, 0.125, { opacity:'0'});
 }
 
 function emptyPicker() {
@@ -973,8 +965,8 @@ function emptyPicker() {
 }
 
 function clearPicker() {
-     var wrapper = document.querySelector(".colorpicker-wrapper");
-    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><button class="close-colorpicker" onclick="closePicker();">x</button></div><div id="picker"></div><div id="slide"></div>';
+    var wrapper = document.querySelector(".colorpicker-wrapper");
+    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div id="picker"></div><div id="slide"></div>';
 }
 
 function getViewBox(t, d) {
