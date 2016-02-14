@@ -23,6 +23,8 @@ function createForm(sex, forms){
             newHtml += '<span class="accordeon__section-title">Colors</span>';
             newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
             newHtml += '</section>';
+            newHtml += '<div class="colorpicker-wrapper">';
+            newHtml += '</div>';
             newHtml += '<section class="accordeon__section-label">';
             newHtml += '<span class="accordeon__section-title">Items</span>';
             newHtml += '<div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div>'
@@ -89,10 +91,10 @@ function createForm(sex, forms){
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
-        var color = document.querySelectorAll('.color');
-        for (var i = 0; i < color.length; i++) {
-            color[i].addEventListener("click", getColor, false);
-        }
+        /*var color = document.querySelectorAll('.color');*/
+        /*for (var i = 0; i < color.length; i++) {*/
+            /*color[i].addEventListener("click", getColor, false);*/
+        /*}*/
     }
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
@@ -135,6 +137,8 @@ function showThumbOptions() {
         allOptions[i].classList.remove('selected--option');
     }
     showOptionThumbs.classList.add('selected--option');
+    var section = this.innerHTML.toLowerCase();
+    getColor(section);
 }
 
 function changeOption() {
@@ -143,10 +147,10 @@ function changeOption() {
     show(userChoice, category);
 }
 
-function getColor() {
+function getColor(sectionId) {
     clearPicker();
-    var id = this.id;
-    var id = this.id.slice(0, -1);
+    var id = sectionId;
+    /*var id = this.id.slice(0, -1);*/
     var slide = document.getElementById('slide');
     var picker = document.getElementById('picker');
     var section = document.querySelector('.section-id');

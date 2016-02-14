@@ -354,16 +354,16 @@ input[type=range][orient=vertical] {
 }
 
 .colorpicker-wrapper {
-    position: absolute;
-    top: 5.5%;
-    right: 0;
-    /*width: auto;*/
-    /*height: auto;*/
-    background-color: rgba(255, 255, 255, 0.5);
+    /*position: absolute;*/
+    /*top: 5.5%;*/
+    /*right: 0;*/
+    width: 100%;
+    height: auto;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
     color: #808080;
-    border: 1px solid #E6E6E6;
+    /*border: 1px solid #E6E6E6;*/
     padding: 10px;
-    z-index: 5;
+    /*z-index: 5;*/
 }
 
 .colorpicker-controls {
