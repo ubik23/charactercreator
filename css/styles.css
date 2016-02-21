@@ -1021,7 +1021,8 @@ input[type=range][orient=vertical] {
   background-color: rgba(255, 255, 255, 0.5);
   color: #808080;
   padding: 0;
-  border: 1px solid #e6e6e6; }
+  border-right: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6; }
 
 .sidebar-right {
   right: -100%; }
@@ -1222,16 +1223,12 @@ footer a {
   width: 5%;
   float: right;
   color: #fff;
-  /*visibility: hidden;*/
   opacity: 0; }
 
 #infinity {
   position: relative;
   width: 212px;
   height: 100px; }
-
-.widget {
-  height: 100vh; }
 
 @media screen and (max-width: 980px) {
   #sidebar {

@@ -800,9 +800,6 @@ function createForm(sex, forms){
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
-        /*if (f == 0 ){*/
-            /*newHtml += '<div class="accordeon__content">';*/
-        /*};*/
         var selcount = 0
         for(var x in forms[f]){
             sectionHtml += '    <li class="sbl__option" tabindex="0">'+x+'</li>';
@@ -858,7 +855,6 @@ function createForm(sex, forms){
             newHtml += '</div>';
             selcount ++
         }
-        /*newHtml += '</div>';*/
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
@@ -885,11 +881,7 @@ function addEventListenerList(list, event, fn) {
 
 function toggleSection() {
     var sectionContent = this.nextSibling;
-    console.log('this', this);
-    console.log('sectionContent', sectionContent);
-    console.log('sectionContent.nextSibling', sectionContent.nextSibling);
     if (sectionContent.classlist === undefined && sectionContent.nextSibling.classList != undefined){
-        console.log('undefined!!');
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
@@ -949,6 +941,7 @@ function clearPicker() {
 
 function getViewBox(t, d) {
     var id = t + '_' + d;
+    var sex = window.sex;
     var idDict = {
         "body_athletic":"65 130 430 430",
         "glasses_fpv":"250 97 64 64",
@@ -956,6 +949,28 @@ function getViewBox(t, d) {
         "hat_motorcycle":"243 86 80 80",
         "hat_tuque":"243 85 80 80",
         "hair_mohawk":"243 45 80 80",
+        "pet_canine":"82 403 150 150",
+        "pet_chicken":"45 403 150 150",
+        "pet_doge":"341 349 200 200",
+        "pet_feline":"381 439 128 128",
+        "pet_fox":"42 393 150 150",
+        "pet_gerbil":"125 475 64 64",
+        "pet_parrot":"203 116 80 80",
+        "pet_raven":"50 439 128 128",
+        "pet_rat":"300 439 128 128",
+        "pet_siamese_cat":"42 393 150 150",
+        "pet_vulture":"281 349 180 180",
+        "scar_horizontal_neck":"265 139 32 32",
+        "scar_horizontal_nose":"264 115 32 32",
+        "scar_vertical_heart":"249 164 64 64",
+        "scar_vertical_left":"264 110 32 32",
+        "scar_vertical_right":"264 110 32 32",
+        "tatoo_aum_chest":"248 165 64 64",
+        "tatoo_aum_left":"298 157 64 64",
+        "tatoo_aum_right":"198 154 64 64",
+        "tatoo_chaos_chest":"248 169 64 64",
+        "tatoo_chaos_left":"298 164 64 64",
+        "tatoo_chaos_right":"198 164 64 64",
         "underwear_boxers":"224 258 120 120"
     }
     var sectionDict = {
@@ -971,6 +986,7 @@ function getViewBox(t, d) {
         "headband":"241 90 80 80",
         "horns":"241 70 80 80",
         "mask":"243 93 80 80",
+        "nose":"265 115 32 32",
         "suit":"65 130 430 430",
         "underwear":"228 238 120 120",
         "veil":"207 97 150 150",
