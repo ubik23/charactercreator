@@ -141,7 +141,7 @@ function emptyPicker() {
 
 function clearPicker() {
     var wrapper = document.querySelector(".colorpicker-wrapper");
-    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div id="picker"></div><div id="slide"></div>';
+    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div class="colorpicker-align"><div id="picker"></div><div id="slide"></div></div>';
 }
 
 function getViewBox(t, d) {
