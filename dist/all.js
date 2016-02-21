@@ -800,9 +800,9 @@ function createForm(sex, forms){
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
-        if (f == 0 ){
-            newHtml += '<div class="accordeon__content">';
-        };
+        /*if (f == 0 ){*/
+            /*newHtml += '<div class="accordeon__content">';*/
+        /*};*/
         var selcount = 0
         for(var x in forms[f]){
             sectionHtml += '    <li class="sbl__option" tabindex="0">'+x+'</li>';
@@ -858,7 +858,7 @@ function createForm(sex, forms){
             newHtml += '</div>';
             selcount ++
         }
-        newHtml += '</div>';
+        /*newHtml += '</div>';*/
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
