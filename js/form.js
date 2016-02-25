@@ -6,7 +6,6 @@ function createForm(sex, forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
         var selcount = 0
-        console.log('f',forms[f]);
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">Section</span><div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content">';
         for(var x in forms[f]){
             sectionHtml += '    <li class="sbl__option" tabindex="0">'+x+'</li>';
@@ -75,7 +74,6 @@ function createForm(sex, forms){
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-    console.log('sectionButtons', sectionButtons);
     addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
     addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
     addEventListenerList(optionThumbnails, 'click', changeOption);
@@ -89,15 +87,12 @@ function addEventListenerList(list, event, fn) {
 }
 
 function toggleSection() {
-    console.log('toggleSection');
     var sectionContent = this.nextSibling;
-    console.log('sectionContent', sectionContent.classList);
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
     var displayButton = this.querySelector('.accordeon__svg-container');
-    console.log('sectionContent', sectionContent);
     if (sectionContent.classList.contains('accordeon__content')) {
         if (!sectionContent.classList.contains('section--hide')){
             sectionContent.style.maxHeight = maxHeight;
@@ -207,6 +202,7 @@ function getViewBox(t, d) {
         "nose":"265 115 32 32",
         "pipe":"252 132 32 32",
         "pupils":"270.25 124.85 40 40",
+        "shirt":"190 140 190 190",
         "suit":"65 130 430 430",
         "underwear":"228 238 120 120",
         "veil":"207 97 150 150",

@@ -192,16 +192,29 @@ ul#horizontal li a:hover {
     justify-content: space-between;
     align-items: center;
     color: #e35a4e;
+    background: transparent;
     border-bottom: 1px solid #E6E6E6;
+    transition: background 0.3s, color 0.3s;
     &:hover {
         background: #e35a4e;
         color: #FFFFFF;
+        transition: background 0.2s, color 0.2s;
         & circle {
             stroke: #FFFFFF;
+            transition: stroke 0.2s;
         }
         & polygon {
             fill: #FFFFFF;
+            transition: fill 0.2s;
         }
+    }
+    & circle {
+        stroke: #E6E6E6;
+        transition: stroke 0.3s;
+    }
+    & polygon {
+        fill: transparent;
+        transition: stroke 0.3s;
     }
 }
 
@@ -597,11 +610,15 @@ input[type=range][orient=vertical] {
     & li {
         border-bottom: 1px solid #E6E6E6;
         padding: 8px 0 5px 15px;
+        background: transparent;
+        transition: background 0.3s, color 0.3s, padding 0.3s;
     }
     & li:hover {
         color: #FFFFFF;
         background: #E35A4E;
         font-weight: 700;
+        padding: 8px 0 5px 30px;
+        /*transition: background 0.2s, color 0.2s, padding 0.2s;*/
     }
 }
 

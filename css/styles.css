@@ -681,14 +681,25 @@ ul#horizontal li a:hover {
       -ms-flex-align: center;
           align-items: center;
   color: #e35a4e;
-  border-bottom: 1px solid #E6E6E6; }
+  background: transparent;
+  border-bottom: 1px solid #E6E6E6;
+  transition: background 0.3s, color 0.3s; }
   .accordeon__section-label:hover {
     background: #e35a4e;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    transition: background 0.2s, color 0.2s; }
     .accordeon__section-label:hover circle {
-      stroke: #FFFFFF; }
+      stroke: #FFFFFF;
+      transition: stroke 0.2s; }
     .accordeon__section-label:hover polygon {
-      fill: #FFFFFF; }
+      fill: #FFFFFF;
+      transition: fill 0.2s; }
+  .accordeon__section-label circle {
+    stroke: #E6E6E6;
+    transition: stroke 0.3s; }
+  .accordeon__section-label polygon {
+    fill: transparent;
+    transition: stroke 0.3s; }
 
 .accordeon__section-title {
   font-size: 16px;
@@ -1065,11 +1076,15 @@ input[type=range][orient=vertical] {
   text-transform: uppercase; }
   .section__list li {
     border-bottom: 1px solid #E6E6E6;
-    padding: 8px 0 5px 15px; }
+    padding: 8px 0 5px 15px;
+    background: transparent;
+    transition: background 0.3s, color 0.3s, padding 0.3s; }
   .section__list li:hover {
     color: #FFFFFF;
     background: #E35A4E;
-    font-weight: 700; }
+    font-weight: 700;
+    padding: 8px 0 5px 30px;
+    /*transition: background 0.2s, color 0.2s, padding 0.2s;*/ }
 
 .hud {
   width: 100%;
