@@ -1063,10 +1063,10 @@ input[type=range][orient=vertical] {
 
 .section__list {
   text-transform: uppercase; }
-  .section__list > li {
+  .section__list li {
     border-bottom: 1px solid #E6E6E6;
     padding: 8px 0 5px 15px; }
-  .section__list > li:hover {
+  .section__list li:hover {
     color: #FFFFFF;
     background: #E35A4E;
     font-weight: 700; }

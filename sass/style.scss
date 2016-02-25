@@ -594,11 +594,11 @@ input[type=range][orient=vertical] {
 
 .section__list {
     text-transform: uppercase;
-    & > li {
+    & li {
         border-bottom: 1px solid #E6E6E6;
         padding: 8px 0 5px 15px;
     }
-    & > li:hover {
+    & li:hover {
         color: #FFFFFF;
         background: #E35A4E;
         font-weight: 700;
