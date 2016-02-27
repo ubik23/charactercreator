@@ -602,13 +602,13 @@ input[type=range][orient=vertical] {
     transform: scale(1);
     transition: transform 0.3s;
     &:hover > .option__label {
-        color: black;
+        color: #a4433b;
     }
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.05);
     }
     &:hover > .svg__option {
-        border: 3px solid black;
+        border: 3px solid #a4433b;
         background: #FFF;
     }
 }
