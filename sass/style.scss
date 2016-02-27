@@ -240,6 +240,10 @@ ul#horizontal li a:hover {
     border-bottom: 1px solid #E6E6E6;
     transition-property: max-height;
     transition-duration: 0.3s;
+    overflow: visible;
+}
+
+.accordeon__content.section--hide {
     overflow: hidden;
 }
 
@@ -250,8 +254,8 @@ ul#horizontal li a:hover {
     transition-property: transform;
     transition-duration: 0.3s;
 }
+
 .section--hide {
-    /*display: none;*/
     max-height: 0px;
     transition-property: max-height;
     transition-duration: 0.3s;
@@ -264,10 +268,8 @@ ul#horizontal li a:hover {
 input[type=range] {
     /*removes default webkit styles*/
     -webkit-appearance: none;
-    
     /*fix for FF unable to apply focus style bug */
     border: 1px solid white;
-    
     /*required for proper track sizing in FF*/
     width: 5px;
 }
@@ -548,15 +550,12 @@ input[type=range][orient=vertical] {
 }
 
 .sidebar {
+
     display: block;
-	position: absolute;
-	top: 5.5%;
-	width: 27%;
-	min-height: 100%;
     margin: 0 3% 0 3%;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
-	overflow: hidden;
+	overflow: visible;
     opacity: 0;
     box-sizing: border-box;
     background-color:rgba(255,255,255,0.5);
@@ -564,14 +563,25 @@ input[type=range][orient=vertical] {
     padding: 0;
     border-right:1px solid #e6e6e6;
     border-left:1px solid #e6e6e6;
+    @media screen and (min-width: 650px) {
+        position: absolute;
+        top: 5.5%;
+        width: 27%;
+        min-height: 100%;
+    }
 }
 
 .sidebar-right {
-	right: -100%;
+    @media screen and (min-width: 650px) {
+	    right: -100%;
+    }
 }
 
 .sidebar-left {
-    left: -100%;
+    @media screen and (min-width: 650px) {
+        left: -100%;
+        width: 13%;
+    }
 }
 
 .svg__option {
@@ -618,16 +628,19 @@ input[type=range][orient=vertical] {
     & li {
         border-bottom: 1px solid #E6E6E6;
         padding: 8px 0 5px 15px;
-        background: transparent;
+        background-color: rgba(227, 90, 78,0);
         transform-origin: 0 50%;
         transform: scale(1);
-        transition: background 0.3s, color 0.3s, padding 0.3s, transform 0.3s;
+        opacity: 1;
+        transition: color 0.3s, padding 0.3s, transform 0.3s, background-color 0.3s;
     }
     & li:hover {
         color: #FFFFFF;
-        background: #E35A4E;
+        background-color: rgba(227, 90, 78,0.5);
+        border-bottom: 3px solid #e35a4e;
+        border-top: 3px solid #e35a4e;
         transform-origin: 0 50%;
-        transform: scale(1.25);
+        transform: scale(1.5);
         font-weight: 700;
         /*padding: 8px 0 5px 30px;*/
         /*transition: background 0.2s, color 0.2s, padding 0.2s;*/
@@ -779,25 +792,7 @@ footer a {
 	height: 100px; 
 }
 
-.widget {
-}
-
 @media screen and (max-width: 980px) {
-	#pagewrap {
-	}
-
-	#content {
-
-	}
-
-	#sidebar {
-        display: block;
-
-	}
-
-	#sidebar .widget {
-
-	}
 }
 
 @media screen and (max-width: 650px) {
@@ -847,8 +842,4 @@ footer a {
 		float: none;
 	}
 
-	#sidebar {
-        display: block;
-
-	}
 }
