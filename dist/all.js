@@ -803,7 +803,7 @@ function createForm(sex, forms){
         var selcount = 0
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">Section</span><div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content">';
         for(var x in forms[f]){
-            sectionHtml += '    <li class="sbl__option" tabindex="0">'+x+'</li>';
+            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">'+x+'</li></a>';
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
             newHtml += '    <div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
