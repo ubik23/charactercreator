@@ -489,69 +489,22 @@ disabled look for disabled choices in the results dropdown
   .select2-search input {
     background-position: 100% -21px !important; } }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
-/* HTML5 display-role reset for older browsers */
 body {
-  line-height: 1;
-  height: 100%; }
+  margin: 0; }
 
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/* 
-CSS begins
-*/
 svg {
   overflow: visible; }
-
-article, aside, details, figcaption, figure, footer, eader, hgroup, menu, nav, section {
-  display: block; }
 
 html {
   height: 100%; }
 
 body {
+  height: 100%;
   /* For Safari 5.1 to 6.0 */
   /* For Opera 11.1 to 12.0 */
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7);
   /* Standard syntax */
-  height: 100%;
   overflow-y: hidden;
   position: relative; }
 
@@ -610,10 +563,6 @@ h1 {
   text-align: left;
   font-size: 3.5vh;
   padding-top: 0.45vh; }
-
-#lynx {
-  float: right;
-  padding: 0.75vh 3% 0 0; }
 
 ul#horizontal {
   display: -webkit-flex;
@@ -1032,7 +981,7 @@ input[type=range][orient=vertical] {
   @media screen and (min-width: 650px) {
     .sidebar {
       position: absolute;
-      top: 5.5%;
+      top: 0;
       width: 27%;
       min-height: 100%; } }
 
@@ -1043,7 +992,8 @@ input[type=range][orient=vertical] {
 @media screen and (min-width: 650px) {
   .sidebar-left {
     left: -100%;
-    width: 15%; } }
+    width: 15%;
+    margin-left: 150px; } }
 
 .svg__option {
   width: 100%;
@@ -1092,7 +1042,6 @@ input[type=range][orient=vertical] {
 .section__list {
   text-transform: uppercase; }
   .section__list li {
-    border-bottom: 1px solid #E6E6E6;
     padding: 8px 0 5px 15px;
     background-color: rgba(227, 90, 78, 0);
     -webkit-transform-origin: 0 50%;
@@ -1100,8 +1049,9 @@ input[type=range][orient=vertical] {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1;
-    transition: color 0.3s, padding 0.3s, -webkit-transform 0.3s, background-color 0.3s;
-    transition: color 0.3s, padding 0.3s, transform 0.3s, background-color 0.3s; }
+    border-bottom: 1px solid #E6E6E6;
+    transition: color 0.3s, padding 0.3s, -webkit-transform 0.3s, background-color 0.3s, border 0.3s;
+    transition: color 0.3s, padding 0.3s, transform 0.3s, background-color 0.3s, border 0.3s; }
   .section__list li:hover {
     color: #FFFFFF;
     background-color: rgba(227, 90, 78, 0.5);

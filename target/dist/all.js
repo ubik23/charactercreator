@@ -832,6 +832,7 @@ function createForm(sex, forms){
             var clonedNode = '';
             for (i in sections){
                 var selectNode = document.querySelector(sections[i]);
+                console.log(selectNode);
                 if (selectNode != null){
                     var newNode = selectNode.cloneNode(true).innerHTML;
                     clonedNode += newNode;
@@ -944,65 +945,159 @@ function clearPicker() {
 function getViewBox(t, d) {
     var id = t + '_' + d;
     var sex = window.sex;
-    var idDict = {
-        "body_athletic":"65 130 430 430",
-        "glasses_fpv":"250 97 64 64",
-        "hat_helmet_vietnam":"243 86 80 80",
-        "hat_motorcycle":"243 86 80 80",
-        "hat_tuque":"243 85 80 80",
-        "hair_mohawk":"243 45 80 80",
-        "mask_horse":"233 80 100 100",
-        "mask_robin":"261 108 40 40",
-        "pet_canine":"82 403 150 150",
-        "pet_chicken":"45 403 150 150",
-        "pet_doge":"341 349 200 200",
-        "pet_feline":"381 439 128 128",
-        "pet_fox":"42 393 150 150",
-        "pet_gerbil":"125 475 64 64",
-        "pet_parrot":"203 116 80 80",
-        "pet_raven":"50 439 128 128",
-        "pet_rat":"300 439 128 128",
-        "pet_siamese_cat":"42 393 150 150",
-        "pet_vulture":"281 349 180 180",
-        "scar_horizontal_neck":"265 139 32 32",
-        "scar_horizontal_nose":"264 115 32 32",
-        "scar_vertical_heart":"249 164 64 64",
-        "scar_vertical_left":"264 110 32 32",
-        "scar_vertical_right":"264 110 32 32",
-        "tatoo_aum_chest":"248 165 64 64",
-        "tatoo_aum_left":"298 157 64 64",
-        "tatoo_aum_right":"198 154 64 64",
-        "tatoo_chaos_chest":"248 169 64 64",
-        "tatoo_chaos_left":"298 164 64 64",
-        "tatoo_chaos_right":"198 164 64 64",
-        "underwear_boxers":"224 258 120 120"
-    }
-    var sectionDict = {
-        "age":"261 109 40 40",
-        "body_head":"249 95 64 64",
-        "coat":"140 84 290 290",
-        "earpiece":"280 125 25 25",
-        "ears":"254 120 20 20",
-        "earings":"256 87 50 50",
-        "emotion":"259 113 42 42",
-        "eyepatch":"261 109 40 40",
-        "facialhair":"261 124 40 40",
-        "glasses":"261 109 40 40",
-        "hat":"241 70 80 80",
-        "hair":"243 80 80 80",
-        "headband":"241 90 80 80",
-        "horns":"256 87 50 50",
-        "iris":"270.25 124.85 4 4",
-        "mask":"243 93 80 80",
-        "nose":"265 115 32 32",
-        "pipe":"252 132 32 32",
-        "pupils":"270.25 124.85 40 40",
-        "shirt":"190 140 190 190",
-        "suit":"65 130 430 430",
-        "tie":"241 140 80 80",
-        "underwear":"228 238 120 120",
-        "veil":"207 97 150 150",
-        "wings":"110 -30 350 350"
+    if (sex==="m"){
+        var idDict = {
+            "body_athletic":"65 130 430 430",
+            "coat_snowboard":"160 124 230 230",
+            "coat_trench":"130 124 290 290",
+            "glasses_fpv":"250 97 64 64",
+            "hat_helmet_vietnam":"243 86 80 80",
+            "hat_motorcycle":"243 86 80 80",
+            "hat_tuque":"243 85 80 80",
+            "hair_mohawk":"243 45 80 80",
+            "mask_horse":"233 80 100 100",
+            "mask_robin":"261 108 40 40",
+            "pet_canine":"82 403 150 150",
+            "pet_chicken":"45 403 150 150",
+            "pet_doge":"341 349 200 200",
+            "pet_feline":"381 439 128 128",
+            "pet_fox":"42 393 150 150",
+            "pet_gerbil":"125 475 64 64",
+            "pet_parrot":"203 116 80 80",
+            "pet_raven":"50 439 128 128",
+            "pet_rat":"300 439 128 128",
+            "pet_siamese_cat":"42 393 150 150",
+            "pet_vulture":"281 349 180 180",
+            "scar_horizontal_neck":"265 139 32 32",
+            "scar_horizontal_nose":"264 115 32 32",
+            "scar_vertical_heart":"249 164 64 64",
+            "scar_vertical_left":"264 110 32 32",
+            "scar_vertical_right":"264 110 32 32",
+            "scarf_drape":"185 140 190 190",
+            "tatoo_aum_chest":"248 165 64 64",
+            "tatoo_aum_left":"298 157 64 64",
+            "tatoo_aum_right":"198 154 64 64",
+            "tatoo_chaos_chest":"248 169 64 64",
+            "tatoo_chaos_left":"298 164 64 64",
+            "tatoo_chaos_right":"198 164 64 64",
+            "underwear_boxers":"224 258 120 120"
+        }
+        var sectionDict = {
+            "age":"261 109 40 40",
+            "belt":"185 135 190 190",
+            "body_head":"249 95 64 64",
+            "coat":"95 134 360 360",
+            "earpiece":"280 125 25 25",
+            "ears":"254 120 20 20",
+            "earings":"256 87 50 50",
+            "emotion":"259 113 42 42",
+            "eyepatch":"261 109 40 40",
+            "facialhair":"261 124 40 40",
+            "glasses":"261 109 40 40",
+            "gloves":"206 308 40 40",
+            "hat":"241 70 80 80",
+            "hair":"243 80 80 80",
+            "headband":"241 90 80 80",
+            "holster":"215 150 130 130",
+            "horns":"256 87 50 50",
+            "iris":"270.25 124.85 4 4",
+            "jacket":"170 130 220 220",
+            "mask":"243 93 80 80",
+            "nose":"265 115 32 32",
+            "pants":"130 244 290 290",
+            "pipe":"252 132 32 32",
+            "pupils":"270.25 124.85 40 40",
+            "scarf":"185 120 190 190",
+            "shirt":"190 140 190 190",
+            "shoes":"210 442 120 120",
+            "shoulderpads":"207 100 150 150",
+            "socks":"210 442 120 120",
+            "suit":"65 130 430 430",
+            "tie":"241 140 80 80",
+            "underwear":"228 238 120 120",
+            "veil":"207 97 150 150",
+            "vest":"185 135 190 190",
+            "wings":"110 -30 350 350"
+        }
+    } else if (sex==="f"){
+        var idDict = {
+            "body_athletic":"65 130 430 430",
+            "coat_snowboard":"160 124 230 230",
+            "coat_trench":"130 124 290 290",
+            "glasses_fpv":"252 109 64 64",
+            "hat_helmet_vietnam":"243 98 80 80",
+            "hat_motorcycle":"243 98 80 80",
+            "hat_tiara":"262 98 40 40",
+            "hat_tuque":"243 97 80 80",
+            "hair_afro":"243 80 80 80",
+            "hair_mohawk":"243 57 80 80",
+            "mask_horse":"233 92 100 100",
+            "mask_robin":"261 120 40 40",
+            "pet_canine":"82 403 150 150",
+            "pet_chicken":"45 403 150 150",
+            "pet_doge":"341 349 200 200",
+            "pet_feline":"381 439 128 128",
+            "pet_fox":"42 393 150 150",
+            "pet_gerbil":"125 475 64 64",
+            "pet_parrot":"275 126 80 80",
+            "pet_raven":"50 439 128 128",
+            "pet_rat":"300 439 128 128",
+            "pet_siamese_cat":"42 393 150 150",
+            "pet_vulture":"281 349 180 180",
+            "scar_horizontal_neck":"265 139 32 32",
+            "scar_horizontal_nose":"264 115 32 32",
+            "scar_vertical_heart":"249 164 64 64",
+            "scar_vertical_left":"264 110 32 32",
+            "scar_vertical_right":"264 110 32 32",
+            "scarf_drape":"185 140 190 190",
+            "tatoo_aum_chest":"248 165 64 64",
+            "tatoo_aum_left":"298 157 64 64",
+            "tatoo_aum_right":"198 154 64 64",
+            "tatoo_chaos_chest":"248 169 64 64",
+            "tatoo_chaos_left":"298 164 64 64",
+            "tatoo_chaos_right":"198 164 64 64",
+            "underwear_boxers":"224 258 120 120"
+        }
+        var sectionDict = {
+            "age":"261 121 40 40",
+            "belt":"175 185 190 190",
+            "body_head":"249 107 64 64",
+            "coat":"125 79 280 280",
+            "earpiece":"280 137 25 25",
+            "ears":"254 130 20 20",
+            "earings":"256 87 50 50",
+            "emotion":"261 125 42 42",
+            "eyepatch":"261 121 40 40",
+            "facialhair":"261 124 40 40",
+            "glasses":"263 121 40 40",
+            "gloves":"206 308 40 40",
+            "hat":"241 82 80 80",
+            "hair":"243 92 80 80",
+            "headband":"241 102 80 80",
+            "holster":"215 150 130 130",
+            "horns":"257 99 50 50",
+            "iris":"273.75 137.5 4 4",
+            "jacket":"170 130 220 220",
+            "leggings":"136 305 260 260",
+            "makeup":"267.5 123 30 30",
+            "mask":"243 105 80 80",
+            "nails":"192 318 40 40",
+            "nose":"265 127 32 32",
+            "pants":"130 244 290 290",
+            "pipe":"255 144 32 32",
+            "pupils":"270.25 124.85 40 40",
+            "scarf":"185 120 190 190",
+            "shirt":"190 140 190 190",
+            "shoes":"225 442 120 120",
+            "shoulderpads":"207 100 150 150",
+            "socks":"225 442 120 120",
+            "suit":"80 130 400 400",
+            "tie":"241 140 80 80",
+            "underwear":"232 258 90 90",
+            "veil":"207 97 150 150",
+            "vest":"185 135 190 190",
+            "wings":"110 -30 350 350"
+        }
     }
     if (idDict[id]) {
         return idDict[id];
@@ -1044,15 +1139,6 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
-    //var form = document.querySelector("#sidebar");
-    //var sideBar = document.getElementById("sidebar");
-    //var maleSilhouette = document.getElementById("male_silhouette");
-    //var femaleSilhouette = document.getElementById("female_silhouette");
-    //var tl = new TimelineLite({onComplete: launch});
-    //tl.to(sideBar, 0.5, {opacity: 1, ease:Elastic.easeOut}, 0.05)
-    //.to(form, 0.5, { right:'1%'})
-    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -1699,7 +1785,6 @@ function colorCutout(newColor){
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var sideBarRight = document.getElementById("sidebar");
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
@@ -1707,7 +1792,6 @@ function colorCutout(newColor){
     tl.to("#gmenu", 0.5, { bottom:'-100px'})
     .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(sideBarRight, 0.5, {attr:{fill: newColor, stroke: newColor}, ease:Elastic.easeOut} )
     .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05);
     hash.add(obj);
 }

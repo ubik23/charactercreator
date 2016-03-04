@@ -11,18 +11,18 @@ gulp.task('default',function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['./lib/*.js', './js/*.js'])
+  return gulp.src(['./src/lib/*.js', './src/js/*.js'])
     .pipe(concat('all.js'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./target/dist/'));
 });
 
 gulp.task('sass', function () {
-    gulp.src('sass/**/*.scss')
+    gulp.src('src/sass/**/*.scss')
         .pipe(sass())
         //.pipe(gulp.dest('css'))
         .pipe(concat('styles.css'))
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./css/'));
+        .pipe(gulp.dest('./target/css/'));
 });
