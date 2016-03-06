@@ -82,22 +82,22 @@ sub {
     height: auto;
 }
 
-ul#horizontal {
+#horizontal {
     display: flex;
 	list-style: none;
 }
 
-ul#horizontal li {
+#horizontal li {
 	padding-left: 0.6em;
 }
 
-ul#horizontal li a {
+#horizontal li a {
     display: flex;
     align-items: center;
 	color: #f2f2f2;
 }
 
-ul#horizontal li a:hover {
+#horizontal li a:hover {
 	color: white;
 }
 
@@ -127,6 +127,18 @@ ul#horizontal li a:hover {
     width: 16px;
     height: 16px;
     
+}
+
+.interface {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     backbround-color: red;
+     opacity: 0.5;
 }
 
 .accordeon__section-label {
@@ -495,7 +507,9 @@ input[type=range][orient=vertical] {
 }
 
 .sidebar {
+    position: absolute;
     display: block;
+    height: auto;
     margin: 0 3% 0 3%;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
@@ -508,10 +522,10 @@ input[type=range][orient=vertical] {
     border-right:1px solid #e6e6e6;
     border-left:1px solid #e6e6e6;
     @media screen and (min-width: 650px) {
-        /*position: absolute;*/
-        /*top: 0;*/
+        position: absolute;
+        top: 0;
         width: 27%;
-        min-height: 100%;
+        /*min-height: 10%;*/
     }
 }
 
@@ -524,7 +538,7 @@ input[type=range][orient=vertical] {
 .sidebar-left {
     @media screen and (min-width: 650px) {
         left: -100%;
-        width: 15%;
+        width: 18%;
         margin-left:150px;
     }
 }
@@ -569,25 +583,28 @@ input[type=range][orient=vertical] {
 }
 
 .section__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     text-transform: uppercase;
     & li {
         padding: 8px 0 5px 15px;
         background-color: rgba(227, 90, 78,0);
         transform-origin: 0 50%;
-        transform: scale(1);
+        transform: translate3d(0,0,0);
         opacity: 1;
         border-bottom: 1px solid #E6E6E6;
-        transition: color 0.3s, padding 0.3s, transform 0.3s, background-color 0.3s, border 0.3s;
+        transition: color 0.3s, transform 0.3s, background-color 0.3s, border 0.3s;
     }
     & li:hover {
         color: #FFFFFF;
         background-color: rgba(227, 90, 78,0.5);
-        border-bottom: 3px solid #e35a4e;
-        border-top: 3px solid #e35a4e;
+        border-bottom: 1px solid #e35a4e;
+        /*border-top: 1px solid #e35a4e;*/
         transform-origin: 0 50%;
-        transform: scale(1.5);
+        transform: translate3d(30px,0,0);
         font-weight: 700;
-        padding: 8px 0 5px 30px;
+        /*padding: 8px 0 5px 30px;*/
         /*transition: background 0.2s, color 0.2s, padding 0.2s;*/
     }
 }
@@ -601,7 +618,7 @@ input[type=range][orient=vertical] {
     color:#808080;
     & li {
         background-color: rgba(227, 90, 78,1);
-        transform: scale(1.4);
+        /*transform: scale(1.4);*/
     }
 }
 

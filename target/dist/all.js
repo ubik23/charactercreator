@@ -801,7 +801,7 @@ function createForm(sex, forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
         var selcount = 0
-        sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">Section</span><div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content">';
+        sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">Section</span><div class="accordeon__svg-container"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
         for(var x in forms[f]){
             sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">'+x+'</li></a>';
             var sectionTitle = x;
@@ -832,7 +832,6 @@ function createForm(sex, forms){
             var clonedNode = '';
             for (i in sections){
                 var selectNode = document.querySelector(sections[i]);
-                console.log(selectNode);
                 if (selectNode != null){
                     var newNode = selectNode.cloneNode(true).innerHTML;
                     clonedNode += newNode;
@@ -882,7 +881,24 @@ function addEventListenerList(list, event, fn) {
     }
 }
 
+function closeSections() {
+    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+    var i = sectionButtons.length;
+    while (i--){
+        var section = sectionButtons[i];
+        var sectionContent = section.nextSibling;
+        if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
+            sectionContent = sectionContent.nextSibling;
+        }
+        if (!sectionContent.classList.contains('section--hide')){
+            sectionContent.classList.toggle('section--hide');
+        }
+
+    }
+
+}
 function toggleSection() {
+    closeSections();
     var sectionContent = this.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
