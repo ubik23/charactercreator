@@ -887,7 +887,6 @@ function openThumbs() {
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
-    console.log('section',thumbSectionBtn);
     thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
     if (thumbSectionBtn.classList.contains('section-btn--hide')){
         thumbSectionBtn.classList.toggle('section-btn--hide');
@@ -902,40 +901,49 @@ function addEventListenerList(list, event, fn) {
     }
 }
 
-function closeSections() {
+function closeSections(exception) {
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     var displayButtons = document.querySelectorAll('.accordeon__svg-container');
     var i = sectionButtons.length;
     while (i--){
         var section = sectionButtons[i];
-        var button = displayButtons[i];
-        var sectionContent = section.nextSibling;
-        if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
-            sectionContent = sectionContent.nextSibling;
-        }
-        if (!sectionContent.classList.contains('section--hide')){
-            sectionContent.classList.toggle('section--hide');
-        }
-        if (!button.classList.contains('section-btn--hide')){
-            button.classList.toggle('section-btn--hide')
+        if (section !== exception){
+            var button = displayButtons[i];
+            var sectionContent = section.nextSibling;
+            if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
+                sectionContent = sectionContent.nextSibling;
+            }
+            if (!sectionContent.classList.contains('section--hide')){
+                sectionContent.classList.toggle('section--hide');
+            }
+            if (!button.classList.contains('section-btn--hide')){
+                button.classList.toggle('section-btn--hide')
+            }
         }
     }
 }
 
 function toggleSection() {
-    closeSections();
+    closeSections(this);
+    console.log('toggleSection');
     var sectionContent = this.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
     var displayButton = this.querySelector('.accordeon__svg-container');
+    console.log(sectionContent.classList);
     if (sectionContent.classList.contains('accordeon__content')) {
-        if (!sectionContent.classList.contains('section--hide')){
+        console.log('contains accordeon content');
+        if (sectionContent.classList.contains('section--hide')){
+            console.log('not hidden!');
+        } else {
+             console.log('hidden');
             sectionContent.style.maxHeight = maxHeight;
-        }
-        sectionContent.classList.toggle('section--hide')
-        displayButton.classList.toggle('section-btn--hide')
+        };
+        sectionContent.classList.toggle('section--hide');
+        displayButton.classList.toggle('section-btn--hide');
+        console.log(sectionContent.classList);
     }
 }
 
