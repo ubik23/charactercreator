@@ -880,7 +880,6 @@ function openThumbs() {
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
-    //console.log('section',thumbSection);
     //console.log('section classList',thumbSection);
     //if (thumbSection.classList === undefined && thumbSection.nextSibling.classList != undefined){
         //thumbSection = thumbSection.nextSibling;
@@ -888,6 +887,8 @@ function openThumbs() {
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
+    console.log('section',thumbSectionBtn);
+    thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
     if (thumbSectionBtn.classList.contains('section-btn--hide')){
         thumbSectionBtn.classList.toggle('section-btn--hide');
     }
