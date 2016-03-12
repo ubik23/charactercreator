@@ -113,12 +113,15 @@ sub {
 
 .zoom-container {
     position: absolute;
-    top: 8%;
+    top: 15%;
     left: 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (min-width: 650px) {
+        top: 2%;
+    }
 }
 
 .zoom-icon {
@@ -533,7 +536,7 @@ input[type=range][orient=vertical] {
     @media screen and (min-width: 650px) {
         position: absolute;
         bottom: auto;
-        top: 0;
+        top: 5%;
         width: 27%;
         margin: 0 3% 0 3%;
     }
@@ -548,7 +551,6 @@ input[type=range][orient=vertical] {
 }
 
 .sidebar-left {
-    top: 0;
     @media screen and (min-width: 650px) {
         left: -100%;
         width: 18%;
@@ -720,6 +722,7 @@ input.color{
      height: 12%;
      position: fixed;
      bottom: 0;
+     left: 0;
      li {
         flex-grow: 1;
     }
