@@ -182,7 +182,7 @@ sub {
 }
 
 .accordeon__svg-container {
-    &:hover poligon {
+    &:hover polygon {
         fill: currentColor;
         color: #e35a4e;
     }
@@ -195,31 +195,31 @@ sub {
     box-sizing: border-box;
     padding: 3.65px 5px 0 5px;
     border-bottom: 1px solid #E6E6E6;
-    transition-property: max-height;
-    transition-duration: 0.3s;
-    overflow: visible;
+    opacity: 1;
+    transition: max-height 0.2s, opacity 0.2s;
+    overflow:hidden;
 }
 
 .accordeon__content.section--hide {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .accordeon__svg-container {
     width: 25px;
     height: 25px;
     transform: rotate(-90deg);
-    transition-property: transform;
-    transition-duration: 0.3s;
+    transition: transform 0.2s ease-in 0.1s;
 }
 
 .section--hide {
     max-height: 0px;
-    transition-property: max-height;
-    transition-duration: 0.3s;
+    opacity: 0;
+    transition: max-height 0.2s, opacity 0.2s;
 }
 
 .section-btn--hide {
     transform: rotate(90deg);
+    transition: transform 0.2s ease-in 0.1s;
 }
 
 input[type=range] {
@@ -447,7 +447,7 @@ input[type=range][orient=vertical] {
 }
 
 #content {
-	height: 92%;
+	height: 90%;
 	margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -506,11 +506,15 @@ input[type=range][orient=vertical] {
     overflow: visible;
 }
 
+.skin-tone {
+     list-style:none;
+}
+
 .sidebar {
+    bottom: 0;
     position: absolute;
     display: block;
     height: auto;
-    margin: 0 3% 0 3%;
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
 	overflow: visible;
@@ -521,10 +525,12 @@ input[type=range][orient=vertical] {
     padding: 0;
     border-right:1px solid #e6e6e6;
     border-left:1px solid #e6e6e6;
+    width: 50%;
     @media screen and (min-width: 650px) {
         position: absolute;
         top: 0;
         width: 27%;
+        margin: 0 3% 0 3%;
         /*min-height: 10%;*/
     }
 }
@@ -646,6 +652,8 @@ input[type=range][orient=vertical] {
      display: flex;
      justify-content: space-between;
      align-items: center;
+     box-sizing: border-box;
+     padding: 2px 10px 2px 10px;
 }
 
 .svg__section__title {
@@ -821,9 +829,5 @@ footer a {
 		position: static;
 	}
 
-	#content {
-		width: auto;
-		float: none;
-	}
 
 }

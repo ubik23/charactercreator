@@ -85,10 +85,6 @@ function openThumbs() {
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
-    //console.log('section classList',thumbSection);
-    //if (thumbSection.classList === undefined && thumbSection.nextSibling.classList != undefined){
-        //thumbSection = thumbSection.nextSibling;
-    //}
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
@@ -130,25 +126,19 @@ function closeSections(exception) {
 
 function toggleSection() {
     closeSections(this);
-    console.log('toggleSection');
     var sectionContent = this.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
     var displayButton = this.querySelector('.accordeon__svg-container');
-    console.log(sectionContent.classList);
     if (sectionContent.classList.contains('accordeon__content')) {
-        console.log('contains accordeon content');
         if (sectionContent.classList.contains('section--hide')){
-            console.log('not hidden!');
         } else {
-             console.log('hidden');
             sectionContent.style.maxHeight = maxHeight;
         };
         sectionContent.classList.toggle('section--hide');
         displayButton.classList.toggle('section-btn--hide');
-        console.log(sectionContent.classList);
     }
 }
 

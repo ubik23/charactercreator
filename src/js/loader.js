@@ -36,10 +36,11 @@ function onAllLoaded() {
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite({onComplete: createForm});
-    tl.to(sideBarRight, 0.5, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarLeft, 0.5, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarRight, 0.5, { right:'0'}, 0.025)
-    .to(sideBarLeft, 0.5, { left:'0'})
+    tl.add("sidebars",0.5)
+    .to(sideBarRight, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarLeft, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarRight, 0.2, { right:'0'}, "sidebars")
+    .to(sideBarLeft, 0.2, { left:'0'},"sidebars")
     .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);

@@ -1,21 +1,6 @@
-// The forms, menus and options that make up a character
-//Todo Zoom in on the head tab viewBox="208 75 140 140"
-//$(document).ready(function() {
-    //createForm(sex);
-    //createCharacter();
-//});
-
 function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
-
-//function birth(){
-    //var sexes = ["m", "f"];
-    //var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
-    //var layers = [];
-    //hash.add({ sex: sex });
-    //return sex
-//}
 
 function trans(sex){
     hash.add({ sex: sex });

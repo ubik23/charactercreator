@@ -880,10 +880,6 @@ function openThumbs() {
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
-    //console.log('section classList',thumbSection);
-    //if (thumbSection.classList === undefined && thumbSection.nextSibling.classList != undefined){
-        //thumbSection = thumbSection.nextSibling;
-    //}
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
@@ -925,25 +921,19 @@ function closeSections(exception) {
 
 function toggleSection() {
     closeSections(this);
-    console.log('toggleSection');
     var sectionContent = this.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
     var displayButton = this.querySelector('.accordeon__svg-container');
-    console.log(sectionContent.classList);
     if (sectionContent.classList.contains('accordeon__content')) {
-        console.log('contains accordeon content');
         if (sectionContent.classList.contains('section--hide')){
-            console.log('not hidden!');
         } else {
-             console.log('hidden');
             sectionContent.style.maxHeight = maxHeight;
         };
         sectionContent.classList.toggle('section--hide');
         displayButton.classList.toggle('section-btn--hide');
-        console.log(sectionContent.classList);
     }
 }
 
@@ -1195,10 +1185,11 @@ function onAllLoaded() {
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite({onComplete: createForm});
-    tl.to(sideBarRight, 0.5, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarLeft, 0.5, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarRight, 0.5, { right:'0'}, 0.025)
-    .to(sideBarLeft, 0.5, { left:'0'})
+    tl.add("sidebars",0.5)
+    .to(sideBarRight, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarLeft, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    .to(sideBarRight, 0.2, { right:'0'}, "sidebars")
+    .to(sideBarLeft, 0.2, { left:'0'},"sidebars")
     .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
@@ -1282,24 +1273,9 @@ function fromEmotionGetLayers(emotion) {
     return facialEpressionLayers;
 };
 
-// The forms, menus and options that make up a character
-//Todo Zoom in on the head tab viewBox="208 75 140 140"
-//$(document).ready(function() {
-    //createForm(sex);
-    //createCharacter();
-//});
-
 function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
-
-//function birth(){
-    //var sexes = ["m", "f"];
-    //var sex = hash.get('sex') || sexes[Math.floor(Math.random() * 2)]; // Has the sex of the character been defined by the uri? If not, default to ... random, eventually!
-    //var layers = [];
-    //hash.add({ sex: sex });
-    //return sex
-//}
 
 function trans(sex){
     hash.add({ sex: sex });
@@ -1846,7 +1822,6 @@ function colorCutout(newColor){
 }
 
 function showForm() {
-    /*parseHash();*/
     launch();
 }
 
@@ -1864,10 +1839,6 @@ function selectMale(event) {
     tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
     .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
     .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
-    /*.to(maleSilhouette, 1.5, {transform: "matrix(1,0,0,1,111,0)", ease:SlowMo.easeIn}, "select_male");*/
-
-    //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
-    //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
 }
 
 function selectFemale(event) {

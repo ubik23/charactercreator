@@ -373,7 +373,6 @@ function colorCutout(newColor){
 }
 
 function showForm() {
-    /*parseHash();*/
     launch();
 }
 
@@ -391,10 +390,6 @@ function selectMale(event) {
     tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
     .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
     .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
-    /*.to(maleSilhouette, 1.5, {transform: "matrix(1,0,0,1,111,0)", ease:SlowMo.easeIn}, "select_male");*/
-
-    //.to(stepByStep, 0.25, {opacity:0, x:-150, ease:Linear.easeIn}, "select_male")
-    //.to(navLeft, 0.25, {opacity:1, ease:Bounce.easeIn}, "select_male");
 }
 
 function selectFemale(event) {
