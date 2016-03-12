@@ -76,10 +76,30 @@ function createForm(sex, forms){
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
     addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+    addEventListenerList(sidebarLeftOptions, 'click', openThumbs );
     addEventListenerList(optionThumbnails, 'click', changeOption);
     addEventListenerList(sectionButtons, 'click', toggleSection);
 }
 
+function openThumbs() {
+    closeSections();
+    var thumbSection = document.querySelector('.widget');
+    var thumbSectionBtn = thumbSection.previousSibling;
+    //console.log('section',thumbSection);
+    //console.log('section classList',thumbSection);
+    //if (thumbSection.classList === undefined && thumbSection.nextSibling.classList != undefined){
+        //thumbSection = thumbSection.nextSibling;
+    //}
+    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
+        thumbSectionBtn = thumbSectionBtn.previousSibling;
+    }
+    if (thumbSectionBtn.classList.contains('section-btn--hide')){
+        thumbSectionBtn.classList.toggle('section-btn--hide');
+    }
+    if (thumbSection.classList.contains('section--hide')){
+        thumbSection.classList.toggle('section--hide');
+    }
+}
 function addEventListenerList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener(event, fn, false);
@@ -88,9 +108,11 @@ function addEventListenerList(list, event, fn) {
 
 function closeSections() {
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+    var displayButtons = document.querySelectorAll('.accordeon__svg-container');
     var i = sectionButtons.length;
     while (i--){
         var section = sectionButtons[i];
+        var button = displayButtons[i];
         var sectionContent = section.nextSibling;
         if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
             sectionContent = sectionContent.nextSibling;
@@ -98,10 +120,12 @@ function closeSections() {
         if (!sectionContent.classList.contains('section--hide')){
             sectionContent.classList.toggle('section--hide');
         }
-
+        if (!button.classList.contains('section-btn--hide')){
+            button.classList.toggle('section-btn--hide')
+        }
     }
-
 }
+
 function toggleSection() {
     closeSections();
     var sectionContent = this.nextSibling;
