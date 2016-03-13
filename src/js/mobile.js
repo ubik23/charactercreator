@@ -99,7 +99,7 @@ function launch(layers, layerDirectory) {
     'hair_manga_2_of_2',
     'coat_trench_2_of_2',
     'shoes_flip-flops_2_of_2',
-    'body_athletic',
+    'body_athletic_2_of_2',
     'tatoo_aum_chest','tatoo_aum_left','tatoo_aum_right','tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right',
     'scar_vertical_heart', 'scar_horizontal_neck',
     'underwear_plain','underwear_boxers',
@@ -107,7 +107,7 @@ function launch(layers, layerDirectory) {
     'shirt_colar_2_of_2','shirt_turtleneck',
     'socks_socks',
     'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
-    'shirt_tanktop',
+    'shirt_tanktop_2_of_2',
     'tie_bolo','tie_bow_2_of_2','tie_neck',
     'shirt_colar_1_of_2',
     'tie_bow_1_of_2',
@@ -116,13 +116,15 @@ function launch(layers, layerDirectory) {
     'belt_straps',
     'shirt_tshirt',
     'holster_revolver_chest',
-    'gloves_lab','gloves_motorcycle',
     'jacket_suit',
+    'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
+    'body_athletic_1_of_2',
+    'shirt_tanktop_1_of_2',
+    'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
     'shoulderpads_artillery',
-    'belt_utility',
     'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
     'ears_default','ears_pointed',
     'age_lines',
@@ -256,7 +258,7 @@ function launch(layers, layerDirectory) {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['hair_manga',2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -386,8 +388,6 @@ function selectMale(event) {
     var malePath = document.getElementById("path_male");
     malePath.className.baseVal = "path template";
     var tl = new TimelineLite({onComplete: displayPallette});
-    //var stepByStep = document.getElementById("step-by-step");
-    //var navLeft = document.getElementById("nav-left");
     tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
     .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
     .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
