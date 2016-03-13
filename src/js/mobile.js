@@ -17,14 +17,6 @@ window.onload = function() {
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
-    //var stages = ['sex', 'skin tone', 'head shape', 'eye color', 'hair style', 'hair color', 'makeup', 'accessories', 'clothinrg','hat', 'shirt', 'pants', 'belt', 'shoes', 'watch', 'pet'];
-    //var header = document.getElementById("header");
-    //var footer = document.getElementById("footer");
-    //var siteTitle = document.getElementById("siteTitle");
-    //var downloadButton = document.getElementById("downloadButton");
-    //var aboutButton = document.getElementById("aboutButton");
-    //var stepByStep = document.getElementById("step-by-step");
-    //var navLeft = document.getElementById("left-arrow")
 };
 
 function scrollZoom(e) {
@@ -41,7 +33,6 @@ function scrollZoom(e) {
         }
         document.querySelector("#zoomLevel").value = zoomLevel;
         document.querySelector("#zoomLevel").onchange();
-        //zoomFace();
     } else {
         zoomLevel = zoomLevel - 1;
         if (zoomLevel < 0) {
@@ -49,7 +40,6 @@ function scrollZoom(e) {
         }
         document.querySelector("#zoomLevel").value = zoomLevel;
         document.querySelector("#zoomLevel").onchange();
-        //zoomFull();
     }
 }
 

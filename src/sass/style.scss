@@ -200,11 +200,7 @@ sub {
     border-bottom: 1px solid #E6E6E6;
     opacity: 1;
     transition: max-height 0.2s, opacity 0.2s;
-    overflow:hidden;
-}
-
-.accordeon__content.section--hide {
-    /*overflow: hidden;*/
+    overflow: visible;
 }
 
 .accordeon__svg-container {
@@ -218,6 +214,7 @@ sub {
     max-height: 0px;
     opacity: 0;
     transition: max-height 0.2s, opacity 0.2s;
+    overflow: hidden;
 }
 
 .section-btn--hide {
