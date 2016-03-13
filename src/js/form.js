@@ -3,6 +3,7 @@ function createForm(sex, forms){
     var forms = forms || window.forms;
     var sectionHtml = '<ul class="section__list">';
     for (var f in forms){
+        console.log(forms[f]);
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
         var selcount = 0

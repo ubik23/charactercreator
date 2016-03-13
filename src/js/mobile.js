@@ -90,6 +90,10 @@ function launch(layers, layerDirectory) {
     'Socks': ['','socks'],
     'Shoes': ['','hightops', 'leather', 'flip-flops']
     };
+    var maleForm4 = {
+    };
+    var maleForm5 = {
+    };
     var layersMale = [
     'wings_angel', 'wings_devil',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
@@ -192,6 +196,10 @@ function launch(layers, layerDirectory) {
     'Leggings': ['', 'regular', 'torn'],
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
+    var femaleForm4 = {
+    };
+    var femaleForm5 = {
+    };
     var layersFemale = [
     'wings_devil','wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
@@ -277,6 +285,8 @@ function launch(layers, layerDirectory) {
         var form1 = maleForm1;
         var form2 = maleForm2;
         var form3 = maleForm3;
+        var form4 = maleForm4;
+        var form5 = maleForm5;
         var layerDirectory = layerDirectoryMale;
         var layers = layersMale;
         multiLayer = multiLayerMale;
@@ -284,11 +294,13 @@ function launch(layers, layerDirectory) {
         var form1 = femaleForm1;
         var form2 = femaleForm2;
         var form3 = femaleForm3;
+        var form4 = femaleForm4;
+        var form5 = femaleForm5;
         var layerDirectory = layerDirectoryFemale;
         var layers = layersFemale;
         multiLayer = multiLayerFemale;
     }
-    forms = [form1, form2, form3];
+    forms = [form1, form2, form3, form4, form5];
     window.forms = forms;
     window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
