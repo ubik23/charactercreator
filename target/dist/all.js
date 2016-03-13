@@ -1216,7 +1216,6 @@ function onEachLoaded( frag, fileName ) {
     //Check to see if the Color suffix is available for each toBeShown
     // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
     if (colorThis === true){
-        console.log(myLayer.split("/")[2].split(".")[0]);
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }
     frag.select("*").attr({ opacity: seen });
@@ -1554,24 +1553,24 @@ function launch(layers, layerDirectory) {
     'tatoo_aum_chest','tatoo_aum_left','tatoo_aum_right','tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right',
     'scar_vertical_heart', 'scar_horizontal_neck',
     'underwear_plain','underwear_boxers',
-    'suit_wetsuit',
-    'shirt_colar_2_of_2','shirt_turtleneck',
     'socks_socks',
     'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
     'shirt_tanktop_2_of_2',
     'tie_bolo','tie_bow_2_of_2','tie_neck',
+    'body_athletic_1_of_2',
+    'shirt_tanktop_1_of_2',
+    'suit_wetsuit',
+    'shirt_colar_2_of_2','shirt_turtleneck',
     'shirt_colar_1_of_2',
     'tie_bow_1_of_2',
     'vest_vest',
     'pants_jeans','pants_leather','pants_suit','pants_snowboard',
     'belt_straps',
+    'belt_utility',
     'shirt_tshirt',
     'holster_revolver_chest',
     'jacket_suit',
-    'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
-    'body_athletic_1_of_2',
-    'shirt_tanktop_1_of_2',
     'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',

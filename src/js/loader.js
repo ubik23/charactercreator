@@ -66,7 +66,6 @@ function onEachLoaded( frag, fileName ) {
     //Check to see if the Color suffix is available for each toBeShown
     // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
     if (colorThis === true){
-        console.log(myLayer.split("/")[2].split(".")[0]);
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }
     frag.select("*").attr({ opacity: seen });
