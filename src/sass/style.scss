@@ -550,21 +550,21 @@ input[type=range][orient=vertical] {
 }
 
 .sidebar-right {
-    bottom: 0;
+    top: 0;
     @media screen and (min-width: 650px) {
+        top: 3%;
 	    right: -100%;
-        bottom: auto;
-        margin-right: 10%;
+        margin-right: 8%;
     }
 }
 
 .sidebar-left {
-    top: 0;
+    bottom: 0;
     @media screen and (min-width: 650px) {
-        top: 3%;
+        bottom: auto;
         left: -100%;
         width: 18%;
-        margin-left: 10%;
+        margin-left: 17%;
     }
 }
 
