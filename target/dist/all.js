@@ -896,7 +896,6 @@ function openThumbs() {
         thumbSection.classList.toggle('section--hide');
     }
     if (sidebarLeft.classList.contains('cherry')){
-         console.log("cherry");
          sidebarLeft.classList.remove("cherry");
          sidebarRight.classList.add("visible");
     }

@@ -536,8 +536,8 @@ input[type=range][orient=vertical] {
     background-color:rgba(255,255,255,0.5);
     color:#808080;
     padding: 0;
-    border-right:1px solid #e6e6e6;
-    border-left:1px solid #e6e6e6;
+    border:1px solid #e6e6e6;
+    /*border-left:1px solid #e6e6e6;*/
     width: 100%;
     @media screen and (min-width: 650px) {
         position: absolute;
@@ -551,19 +551,19 @@ input[type=range][orient=vertical] {
 .sidebar-right {
     top: 0;
 	right: 0;
+    transform: translateX(150%);
     @media screen and (min-width: 650px) {
         top: 3%;
         margin-right: 8%;
-        transform: translateX(150%);
     }
 }
 
 .sidebar-left {
     bottom: 0;
     left: 0;
+    transform: translateX(-150%);
     @media screen and (min-width: 650px) {
         bottom: auto;
-        transform: translateX(-150%);
         width: 18%;
         margin-left: 17%;
     }
@@ -571,7 +571,7 @@ input[type=range][orient=vertical] {
 
 .visible {
     transform: translateX(0);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in;
 }
 
 .sidebar__title {
