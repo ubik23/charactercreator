@@ -122,7 +122,7 @@ function colorize(formId, _color){
                                 style, k, v;
                                 while (i--){
                                     style = styles[i].split(':');
-                                    if (style == " ") {continue;};
+                                    if (style == " "||style.length === 1) {continue;};
                                     k = style[0].trim();
                                     v = style[1].trim();
                                     if (k.length > 0 && v.length > 0){
