@@ -797,7 +797,8 @@ function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<ul class="section__list">';
+    var sectionHtml = '<h2 class="sidebar__title">Select Item</h2>';
+    sectionHtml += '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';

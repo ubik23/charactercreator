@@ -568,6 +568,15 @@ input[type=range][orient=vertical] {
     }
 }
 
+.sidebar__title {
+    text-align: center;
+    color: #E35A4E;
+    font-size: 14px;
+    border-bottom: 1px solid #E6E6E6;
+    margin: 0;
+    padding: 12px 0 8px 0;
+}
+
 .svg__option {
     width: 100%;
     margin: 0.3vh;
