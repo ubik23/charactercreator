@@ -882,6 +882,9 @@ function openThumbs() {
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    var sidebarRight = document.querySelector('.sidebar-right');
+
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
@@ -892,7 +895,13 @@ function openThumbs() {
     if (thumbSection.classList.contains('section--hide')){
         thumbSection.classList.toggle('section--hide');
     }
+    if (sidebarLeft.classList.contains('cherry')){
+         console.log("cherry");
+         sidebarLeft.classList.remove("cherry");
+         sidebarRight.classList.add("visible");
+    }
 }
+
 function addEventListenerList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener(event, fn, false);
@@ -1188,13 +1197,14 @@ function onAllLoaded() {
     downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite({onComplete: createForm});
     tl.add("sidebars",0.5)
-    .to(sideBarRight, 0.2, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarLeft, 0.2, {opacity: 1, ease:Elastic.easeOut})
-    .to(sideBarRight, 0.2, { right:'0'}, "sidebars")
-    .to(sideBarLeft, 0.2, { left:'0'},"sidebars")
+    //.to(sideBarRight, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    //.to(sideBarLeft, 0.2, {opacity: 1, ease:Elastic.easeOut})
+    //.to(sideBarRight, 0.2, { right:'0'}, "sidebars")
+    //.to(sideBarLeft, 0.2, { left:'0'},"sidebars")
     .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
     .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
     .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    sideBarLeft.classList.toggle('visible');
 }
 
 function onEachLoaded( frag, fileName ) {

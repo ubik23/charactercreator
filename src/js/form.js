@@ -87,6 +87,9 @@ function openThumbs() {
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    var sidebarRight = document.querySelector('.sidebar-right');
+
     if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
@@ -97,7 +100,13 @@ function openThumbs() {
     if (thumbSection.classList.contains('section--hide')){
         thumbSection.classList.toggle('section--hide');
     }
+    if (sidebarLeft.classList.contains('cherry')){
+         console.log("cherry");
+         sidebarLeft.classList.remove("cherry");
+         sidebarRight.classList.add("visible");
+    }
 }
+
 function addEventListenerList(list, event, fn) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener(event, fn, false);

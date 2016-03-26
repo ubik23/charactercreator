@@ -532,7 +532,6 @@ input[type=range][orient=vertical] {
 	font-family: helvetica, sans-serif;
 	font-size: 0.8em;
 	overflow: visible;
-    opacity: 0;
     box-sizing: border-box;
     background-color:rgba(255,255,255,0.5);
     color:#808080;
@@ -551,21 +550,28 @@ input[type=range][orient=vertical] {
 
 .sidebar-right {
     top: 0;
+	right: 0;
     @media screen and (min-width: 650px) {
         top: 3%;
-	    right: -100%;
         margin-right: 8%;
+        transform: translateX(150%);
     }
 }
 
 .sidebar-left {
     bottom: 0;
+    left: 0;
     @media screen and (min-width: 650px) {
         bottom: auto;
-        left: -100%;
+        transform: translateX(-150%);
         width: 18%;
         margin-left: 17%;
     }
+}
+
+.visible {
+    transform: translateX(0);
+    transition: transform 0.3s;
 }
 
 .sidebar__title {
