@@ -74,6 +74,7 @@ sub {
 	font-family: "Helvetica";
 	text-align:left;
 	font-size: 3.5vh;
+    font-weight: 500;
     padding-top: 0.45vh;
 }
 
@@ -561,7 +562,7 @@ input[type=range][orient=vertical] {
 .sidebar-left {
     bottom: 0;
     left: 0;
-    transform: translateX(-150%);
+    transform: translateX(-200%);
     @media screen and (min-width: 650px) {
         bottom: auto;
         width: 18%;
@@ -586,7 +587,7 @@ input[type=range][orient=vertical] {
 .svg__option {
     width: 100%;
     margin: 0.3vh;
-    border: 3px solid #E35A4E;
+    border: 1px solid #E35A4E;
     border-radius: 2vh;
     overflow: hidden;
     box-sizing: border-box;
@@ -617,7 +618,7 @@ input[type=range][orient=vertical] {
         transform: scale(1.05);
     }
     &:hover > .svg__option {
-        border: 3px solid #a4433b;
+        border: 1px solid #a4433b;
         background: #FFF;
     }
 }
