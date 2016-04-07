@@ -886,6 +886,13 @@ function createForm(sex, forms){
 }
 
 function openThumbs() {
+    var _ = this;
+    var previousSelection = document.querySelector('.section--selected');
+    if (previousSelection != null) {
+        previousSelection.classList.remove('section--selected');
+    };
+    _.classList.add('section--selected');
+    console.log(this.innerHTML);
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;

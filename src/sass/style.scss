@@ -197,7 +197,7 @@ sub {
     height: auto;
     max-height: 999px;
     box-sizing: border-box;
-    padding: 3.65px 5px 0 5px;
+    /*padding: 3.65px 5px 0 5px;*/
     border-bottom: 1px solid #E6E6E6;
     opacity: 1;
     transition: max-height 0.2s, opacity 0.2s;
@@ -644,6 +644,12 @@ input[type=range][orient=vertical] {
         transform: translate3d(30px,0,0);
         font-weight: 700;
     }
+    & li.section--selected {
+        background: #e35a4e; 
+        color: #FFFFFF;
+        font-weight: 700;
+    }
+
 }
 
 .section__link {
