@@ -177,6 +177,22 @@ sub {
         fill: transparent;
         transition: stroke 0.3s;
     }
+
+}
+
+.alert {
+    & polygon {
+        animation: blink-alert 0.666s linear 0.2s infinite alternate;
+    }
+}
+
+@keyframes blink-alert {
+    from {
+        fill: #fff;
+    }
+    to {
+        fill: #e35a4e;
+    }
 }
 
 .accordeon__section-title {
@@ -197,7 +213,6 @@ sub {
     height: auto;
     max-height: 999px;
     box-sizing: border-box;
-    /*padding: 3.65px 5px 0 5px;*/
     border-bottom: 1px solid #E6E6E6;
     opacity: 1;
     transition: max-height 0.2s, opacity 0.2s;
@@ -216,6 +231,7 @@ sub {
     opacity: 0;
     transition: max-height 0.2s, opacity 0.2s;
     overflow: hidden;
+    padding: 0;
 }
 
 .section-btn--hide {
@@ -330,22 +346,23 @@ input[type=range][orient=vertical] {
     width: 100%;
     height: auto;
     color: #808080;
-    padding: 3.65px 5px 0 5px;
+    padding: 0 5px 0 5px;
     overflow: hidden;
+    border-bottom: 1px solid #E6E6E6;
 }
 
 .colorpicker-controls {
     display: flex;
     width: 100%;
     justify-content: flex-start;
-    padding: 0 0 10px 0;
+    padding: 8px 0 10px 0;
 }
 
 .section-id {
     font-family: helvetica;
     font-size: 16px;
-    text-transform: uppercase;
     font-weight: 500;
+    margin: 0 auto;
 }
 
 .colorpicker-align {
@@ -577,7 +594,9 @@ input[type=range][orient=vertical] {
 
 .sidebar__title {
     text-align: center;
-    color: #E35A4E;
+    font-weight: 100;
+    background: #E35A4E;
+    color: #fff;
     font-size: 14px;
     border-bottom: 1px solid #E6E6E6;
     margin: 0;
@@ -648,6 +667,7 @@ input[type=range][orient=vertical] {
         background: #e35a4e; 
         color: #FFFFFF;
         font-weight: 700;
+        transform: translate3d(0,0,0);
     }
 
 }

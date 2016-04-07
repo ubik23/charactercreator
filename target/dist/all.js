@@ -804,7 +804,7 @@ function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<h2 class="sidebar__title">Choose a category</h2>';
+    var sectionHtml = '<h2 class="sidebar__title">Categories</h2>';
     sectionHtml += '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -892,7 +892,6 @@ function openThumbs() {
         previousSelection.classList.remove('section--selected');
     };
     _.classList.add('section--selected');
-    console.log(this.innerHTML);
     closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
@@ -944,13 +943,21 @@ function closeSections(exception) {
 }
 
 function toggleSection() {
-    closeSections(this);
-    var sectionContent = this.nextSibling;
+    var _ = this;
+    closeSections(_);
+    var alert = document.querySelector('.alert');
+    if (alert != null){
+        alert.classList.remove('alert');
+    }
+    if (_.classList.contains('alert')){
+        _.classList.remove('alert');
+    };
+    var sectionContent = _.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
-    var displayButton = this.querySelector('.accordeon__svg-container');
+    var displayButton = _.querySelector('.accordeon__svg-container');
     if (sectionContent.classList.contains('accordeon__content')) {
         if (sectionContent.classList.contains('section--hide')){
         } else {
@@ -975,7 +982,12 @@ function showThumbOptions() {
 function changeOption() {
     var category = this.parentNode.parentNode.firstChild.innerHTML;
     var userChoice = this.lastChild.innerHTML;
+    var colors = document.querySelector('.colorpicker-wrapper').previousSibling;
+    if (colors.classList === undefined && colors.previousSibling.classList != undefined){
+        colors = colors.previousSibling;
+    }
     show(userChoice, category);
+    colors.classList.add('alert');
 }
 
 function getColor(sectionId) {
@@ -1579,24 +1591,24 @@ function launch(layers, layerDirectory) {
     'tatoo_aum_chest','tatoo_chaos_chest',
     'scar_vertical_heart', 'scar_horizontal_neck',
     'underwear_plain','underwear_boxers',
-    'socks_socks',
-    'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
     'shirt_tanktop_2_of_2',
     'body_athletic_1_of_2',
     'tatoo_aum_left','tatoo_aum_right','tatoo_chaos_left','tatoo_chaos_right',
     'shirt_tanktop_1_of_2',
     'suit_wetsuit',
+    'socks_socks',
+    'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
     'shirt_colar_2_of_2','shirt_turtleneck',
     'tie_bolo','tie_bow_2_of_2','tie_neck',
     'shirt_colar_1_of_2',
     'tie_bow_1_of_2',
     'vest_vest',
     'pants_jeans','pants_leather','pants_suit','pants_snowboard',
-    'belt_straps',
-    'belt_utility',
     'shirt_tshirt',
+    'belt_straps',
     'holster_revolver_chest',
     'jacket_suit',
+    'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
     'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',

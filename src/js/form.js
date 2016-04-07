@@ -2,7 +2,7 @@ function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<h2 class="sidebar__title">Choose a category</h2>';
+    var sectionHtml = '<h2 class="sidebar__title">Categories</h2>';
     sectionHtml += '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -141,13 +141,21 @@ function closeSections(exception) {
 }
 
 function toggleSection() {
-    closeSections(this);
-    var sectionContent = this.nextSibling;
+    var _ = this;
+    closeSections(_);
+    var alert = document.querySelector('.alert');
+    if (alert != null){
+        alert.classList.remove('alert');
+    }
+    if (_.classList.contains('alert')){
+        _.classList.remove('alert');
+    };
+    var sectionContent = _.nextSibling;
     if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
         sectionContent = sectionContent.nextSibling;
     }
     var maxHeight = sectionContent.clientHeight;
-    var displayButton = this.querySelector('.accordeon__svg-container');
+    var displayButton = _.querySelector('.accordeon__svg-container');
     if (sectionContent.classList.contains('accordeon__content')) {
         if (sectionContent.classList.contains('section--hide')){
         } else {
@@ -172,7 +180,12 @@ function showThumbOptions() {
 function changeOption() {
     var category = this.parentNode.parentNode.firstChild.innerHTML;
     var userChoice = this.lastChild.innerHTML;
+    var colors = document.querySelector('.colorpicker-wrapper').previousSibling;
+    if (colors.classList === undefined && colors.previousSibling.classList != undefined){
+        colors = colors.previousSibling;
+    }
     show(userChoice, category);
+    colors.classList.add('alert');
 }
 
 function getColor(sectionId) {
