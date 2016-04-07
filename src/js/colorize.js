@@ -72,21 +72,28 @@ function colorize(formId, _color){
                 // Look at the affected list
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
-                for (a in affectedList) {
+                origList = affectedList
+                affectedList=[];
+                for (a in origList) {
                     for (lyr in multiLayer){
-                        if (affectedList[a] == multiLayer[lyr][0]){
+
+                        if (origList[a] == multiLayer[lyr][0]){
+
                             for (var i=1;i<=multiLayer[lyr][1];i++){
-                                idOf = affectedList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
+                                idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
                                 //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
                                 affectedList.push(idOf);
                             }
                             // Take it out of the affectedList
-                            var index = affectedList.indexOf(affectedList[a]);
-                            if (index > -1) {
-                                affectedList.splice(index, 1);
-                            }
-                        }
+                            //var index = affectedList.indexOf(affectedList[a]);
+                            //if (index > -1) {
+                                //affectedList.splice(index, 1);
+                            //}
+                        } else {
+                            affectedList.push(origList[a]);
+
+                        };
                     };
                 };
                 var myValue = _color.toString();
