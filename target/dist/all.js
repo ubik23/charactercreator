@@ -803,8 +803,8 @@ function download() {
 function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
-    var sectionNames = ["Head", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<h2 class="sidebar__title">Select Item</h2>';
+    var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
+    var sectionHtml = '<h2 class="sidebar__title">Choose a category</h2>';
     sectionHtml += '<ul class="section__list">';
     for (var f in forms){
         var formContainer = document.querySelector('#content_1');
@@ -1517,20 +1517,22 @@ function launch(layers, layerDirectory) {
     'Iris' : ['neutral'],
     'Pupils' : ['human', 'lizard'],
     'Nose' : ['default', 'pointed', 'strong'],
-    'Pipe' : ['', 'subgenius'],
-    'Horns': ['', 'devil'],
     'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
-    'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
     'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
+    'Age' : ['', 'lines']
+    };
+    var maleForm2 = {
+    'Pipe' : ['', 'subgenius'],
+    'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
     'Hat': ['','baseball','berret', 'cap', 'cowboy', 'fedora', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
+    'Horns': ['', 'devil'],
     'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
     'Glasses': ['', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
     'Eyepatch': ['', 'left', 'right'],
     'Headband': ['', 'medium'],
-    'Earpiece': ['', 'microphone'],
-    'Age' : ['', 'lines']
+    'Earpiece': ['', 'microphone']
     };
-    var maleForm2 = {
+    var maleForm3 = {
     'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
     'Tie': ['', 'neck', 'bolo', 'bow'],
     'Vest': ['', 'vest'],
@@ -1538,7 +1540,7 @@ function launch(layers, layerDirectory) {
     'Shoulderpads' : ['', 'general', 'artillery'],
     'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
     };
-    var maleForm3 = {
+    var maleForm4 = {
     'Body': ['athletic'],
     'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
     'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
@@ -1549,12 +1551,12 @@ function launch(layers, layerDirectory) {
     'Wings' : ['', 'angel', 'devil'],
     'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
     };
-    var maleForm4 = {
+    var maleForm5 = {
     'Underwear': ['plain', 'boxers'],
     'Pants': ['', 'suit', 'jeans', 'leather', 'snowboard'],
     'Belt': ['', 'straps', 'utility']
     };
-    var maleForm5 = {
+    var maleForm6 = {
     'Socks': ['','socks'],
     'Shoes': ['','hightops', 'leather', 'flip-flops']
     };
@@ -1625,10 +1627,11 @@ function launch(layers, layerDirectory) {
     'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
-    'Pipe' : ['', 'subgenius'],
     'Nose' : ['default'],
-    'Horns': ['', 'devil'],
-    'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
+    'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball']
+    };
+    var femaleForm2 = {
+    'Pipe' : ['', 'subgenius'],
     'Makeup': ['', 'frekles', 'gothic_eyeliner', 'warpaint'],
     'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
     'Eyepatch': ['', 'left', 'right'],
@@ -1636,16 +1639,17 @@ function launch(layers, layerDirectory) {
     'Headband': ['', 'medium'],
     'Hat': ['', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap'],
     'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
+    'Horns': ['', 'devil'],
     'Earpiece': ['', 'microphone'],
     'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
-    var femaleForm2 = {
+    var femaleForm3 = {
     'Necklace' : ['', 'perl', 'princess'],
     'Bra': ['', 'bow'],
     'Shoulderpads' : ['', 'artillery', 'general'],
     'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
-    var femaleForm3 = {
+    var femaleForm4 = {
     'Body': ['athletic'],
     'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
     'Nails': ['short', 'long', 'claws'],
@@ -1656,14 +1660,14 @@ function launch(layers, layerDirectory) {
     'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
     'Wings' : ['', 'devil', 'angel']
     };
-    var femaleForm4 = {
+    var femaleForm5 = {
     'Underwear': ['', 'plain', 'string'],
     'Shorts' : ['', 'short'],
     'Leggings': ['', 'regular', 'torn'],
     'Pants' : ['','yoga', 'yoga_torn','jeans', 'jeans_torn', 'jeans_bellbottoms'],
     'Belt' : ['','utility']
     };
-    var femaleForm5 = {
+    var femaleForm6 = {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
@@ -1753,6 +1757,7 @@ function launch(layers, layerDirectory) {
         var form3 = maleForm3;
         var form4 = maleForm4;
         var form5 = maleForm5;
+        var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
         var layers = layersMale;
         multiLayer = multiLayerMale;
@@ -1762,11 +1767,12 @@ function launch(layers, layerDirectory) {
         var form3 = femaleForm3;
         var form4 = femaleForm4;
         var form5 = femaleForm5;
+        var form6 = femaleForm6;
         var layerDirectory = layerDirectoryFemale;
         var layers = layersFemale;
         multiLayer = multiLayerFemale;
     }
-    forms = [form1, form2, form3, form4, form5];
+    forms = [form1, form2, form3, form4, form5,form6];
     window.forms = forms;
     window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
@@ -1778,13 +1784,6 @@ function launch(layers, layerDirectory) {
         return layerDirectory + obj;
     });
     viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
-}
-
-function stageNav() {
-    //var stepByStep = document.getElementById("step-by-step");
-    //var state = stages[stageKey];
-    //var tl = new TimelineLite();
-    //tl.to(stepByStep, 0.5, {opacity:1, ease:Linear.easeIn});
 }
 
 function displayPallette () {
