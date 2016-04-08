@@ -465,7 +465,7 @@ input[type=range][orient=vertical] {
 }
 
 #content {
-	height: 90%;
+	height: 94.5%;
 	margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -780,18 +780,7 @@ input.color{
 }
 
 footer {
-	clear: both;
-	background-color: #e35a4e;
-	padding-top: 0.5%;
-	padding-bottom: 0.5%;
-	color: #f2f2f2;
-	text-align: center;
-	font-size: .5em;
-	width: 100%;
-	height: 4.5%;
-	position: fixed;
-	bottom: 0;
-	left: 0;
+    display: none;
 }
 
 footer a {
