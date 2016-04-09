@@ -1236,7 +1236,7 @@ function onEachLoaded( frag, fileName ) {
     } else {var seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='lips'){var section = 'skin'};
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){var section = 'skin'};
     if (section ==='facialhair' || section==='brows'){var section = 'hair'};
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
@@ -1697,10 +1697,10 @@ function launch(layers, layerDirectory) {
     'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
     'underwear_plain','underwear_string',
     'leggings_regular', 'leggings_torn',
+    'bra_bow',
     'suit_wetsuit',
     'necklace_perl','necklace_princess',
     'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
-    'bra_bow',
     'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
     'shorts_short',
     'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
@@ -1752,7 +1752,7 @@ function launch(layers, layerDirectory) {
         }
         return size;
     };
-    skinLayers = ['body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
+    skinLayers = ['age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
     'ears_default', 'ears_pointed',
     'nose_default', 'nose_pointed', 'nose_strong',
     'mouth_shadow',
