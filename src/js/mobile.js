@@ -197,7 +197,7 @@ function launch(layers, layerDirectory) {
     'Underwear': ['', 'plain', 'string'],
     'Shorts' : ['', 'short'],
     'Leggings': ['', 'regular', 'torn'],
-    'Pants' : ['','yoga', 'yoga_torn','jeans', 'jeans_torn', 'jeans_bellbottoms'],
+    'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
     'Belt' : ['','utility']
     };
     var femaleForm6 = {

@@ -891,7 +891,6 @@ function openThumbs() {
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
     };
-    console.log(_);
     showThumbOptions(_);
     _.classList.add('section--selected');
     var thumbSection = document.querySelector('.widget');
@@ -972,7 +971,6 @@ function toggleSection() {
 }
 
 function showThumbOptions(_) {
-    console.log(_.target);
     var _ = _.target || _;
     var showOptionThumbs = document.querySelector('.options__'+_.innerHTML.toLowerCase());
     var allOptions  = document.querySelectorAll('.options__container');
@@ -983,7 +981,7 @@ function showThumbOptions(_) {
         }
         showOptionThumbs.classList.add('selected--option');
         var section = _.innerHTML.toLowerCase();
-        //getColor(section);
+        getColor(section);
     };
 }
 
@@ -1093,7 +1091,7 @@ function getViewBox(t, d) {
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
             "shoes":"210 442 120 120",
-            "shoulderpads":"207 100 150 150",
+            "shoulderpads":"207 120 150 150",
             "socks":"210 442 120 120",
             "suit":"65 130 430 430",
             "tie":"241 140 80 80",
@@ -1701,7 +1699,7 @@ function launch(layers, layerDirectory) {
     'Underwear': ['', 'plain', 'string'],
     'Shorts' : ['', 'short'],
     'Leggings': ['', 'regular', 'torn'],
-    'Pants' : ['','yoga', 'yoga_torn','jeans', 'jeans_torn', 'jeans_bellbottoms'],
+    'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
     'Belt' : ['','utility']
     };
     var femaleForm6 = {
