@@ -96,7 +96,7 @@ function choicesToLayers(c, multiLayer){
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('body_hand', 'bra_bow');
+        selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
     return selectedLayers;
 };

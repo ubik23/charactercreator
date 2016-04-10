@@ -1106,6 +1106,7 @@ function getViewBox(t, d) {
             "dress_short":"175 180 200 200",
             "dress_suit":"175 140 200 200",
             "dress_waitress":"160 140 230 230",
+            "earings_gold_ring_left":"289 141 20 20",
             "glasses_fpv":"252 109 64 64",
             "hat_helmet_vietnam":"243 98 80 80",
             "hat_motorcycle":"243 98 80 80",
@@ -1132,23 +1133,27 @@ function getViewBox(t, d) {
             "scar_vertical_left":"264 110 32 32",
             "scar_vertical_right":"264 110 32 32",
             "scarf_drape":"185 140 190 190",
+            "tatoo_archeopteryx_left":"282 173 64 64",
             "tatoo_aum_chest":"248 165 64 64",
             "tatoo_aum_left":"298 157 64 64",
             "tatoo_aum_right":"198 154 64 64",
-            "tatoo_chaos_chest":"248 169 64 64",
-            "tatoo_chaos_left":"298 164 64 64",
-            "tatoo_chaos_right":"198 164 64 64",
+            "tatoo_chaos_chest":"248 175 48 48",
+            "tatoo_chaos_left":"298 170 48 48",
+            "tatoo_chaos_right":"210 164 48 48",
+            "tatoo_tribal_face":"258 105 50 50",
             "underwear_boxers":"224 258 120 120"
         }
         var sectionDict = {
             "age":"261 121 40 40",
             "belt":"175 185 190 190",
             "body_head":"249 107 64 64",
+            "bra":"220 160 100 100",
+            "bracelet":"316 252 48 48",
             "coat":"125 79 280 280",
             "dress":"160 150 230 230",
             "earpiece":"280 137 25 25",
+            "earings":"257 141 20 20",
             "ears":"254 130 20 20",
-            "earings":"256 87 50 50",
             "emotion":"261 125 42 42",
             "eyepatch":"261 121 40 40",
             "facialhair":"261 124 40 40",
@@ -1164,7 +1169,8 @@ function getViewBox(t, d) {
             "leggings":"136 305 260 260",
             "makeup":"267.5 123 30 30",
             "mask":"243 105 80 80",
-            "nails":"192 318 40 40",
+            "nails":"200 327 25 25",
+            "necklace":"255 160 48 48",
             "nose":"265 127 32 32",
             "pants":"130 244 290 290",
             "pipe":"255 144 32 32",
@@ -1172,6 +1178,7 @@ function getViewBox(t, d) {
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
             "shoes":"225 442 120 120",
+            "shorts":"215 245 120 120",
             "shoulderpads":"207 100 150 150",
             "socks":"225 442 120 120",
             "suit":"80 130 400 400",
@@ -1289,7 +1296,7 @@ function choicesToLayers(c, multiLayer){
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('body_hand', 'bra_bow');
+        selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
     return selectedLayers;
 };
