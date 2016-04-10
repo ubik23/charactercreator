@@ -1676,7 +1676,7 @@ function launch(layers, layerDirectory) {
     'Necklace' : ['', 'perl', 'princess'],
     'Bra': ['', 'bow'],
     'Shoulderpads' : ['', 'artillery', 'general'],
-    'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
+    'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
     var femaleForm4 = {
     'Body': ['athletic'],
@@ -1723,7 +1723,7 @@ function launch(layers, layerDirectory) {
     'bracelet_rings',
     'coat_winter_furcollar_2_of_3',
     'shoulderpads_general',
-    'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
+    'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'hair_down_2_of_3',
     'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
     'ears_default','ears_pointed',
