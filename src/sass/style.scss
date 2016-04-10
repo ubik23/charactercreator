@@ -232,6 +232,7 @@ sub {
     transition: max-height 0.2s, opacity 0.2s;
     overflow: hidden;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .section-btn--hide {
