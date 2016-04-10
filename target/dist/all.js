@@ -891,6 +891,8 @@ function openThumbs() {
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
     };
+    console.log(_);
+    showThumbOptions(_);
     _.classList.add('section--selected');
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
@@ -925,7 +927,6 @@ function closeSections(exception) {
     var i = sectionButtons.length;
     while (i--){
         var section = sectionButtons[i];
-        console.log(section.parentNode.parentNode.parentNode);
         if (section !== exception && section.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
             var button = displayButtons[i];
             var sectionContent = section.nextSibling;
@@ -970,15 +971,20 @@ function toggleSection() {
     }
 }
 
-function showThumbOptions() {
-    var showOptionThumbs = document.querySelector('.options__'+this.innerHTML.toLowerCase());
+function showThumbOptions(_) {
+    console.log(_.target);
+    var _ = _.target || _;
+    var showOptionThumbs = document.querySelector('.options__'+_.innerHTML.toLowerCase());
     var allOptions  = document.querySelectorAll('.options__container');
-    for (var i = 0, len = allOptions.length; i < len; i++) {
-        allOptions[i].classList.remove('selected--option');
-    }
-    showOptionThumbs.classList.add('selected--option');
-    var section = this.innerHTML.toLowerCase();
-    getColor(section);
+    var sectionSelected = document.querySelector('.section--selected');
+    if (sectionSelected === null){
+        for (var i = 0, len = allOptions.length; i < len; i++) {
+            allOptions[i].classList.remove('selected--option');
+        }
+        showOptionThumbs.classList.add('selected--option');
+        var section = _.innerHTML.toLowerCase();
+        //getColor(section);
+    };
 }
 
 function changeOption() {
