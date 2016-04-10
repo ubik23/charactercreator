@@ -892,7 +892,6 @@ function openThumbs() {
         previousSelection.classList.remove('section--selected');
     };
     _.classList.add('section--selected');
-    closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
     var sidebarLeft = document.querySelector('#sidebar-left');
@@ -926,7 +925,8 @@ function closeSections(exception) {
     var i = sectionButtons.length;
     while (i--){
         var section = sectionButtons[i];
-        if (section !== exception){
+        console.log(section.parentNode.parentNode.parentNode);
+        if (section !== exception && section.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
             var button = displayButtons[i];
             var sectionContent = section.nextSibling;
             if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
@@ -944,7 +944,9 @@ function closeSections(exception) {
 
 function toggleSection() {
     var _ = this;
-    closeSections(_);
+    if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
+         closeSections(_);
+    };
     var alert = document.querySelector('.alert');
     if (alert != null){
         alert.classList.remove('alert');
@@ -1540,7 +1542,6 @@ function scrollZoom(e) {
 
 function launch(layers, layerDirectory) {
     var maleForm1 = {
-    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
@@ -1548,7 +1549,8 @@ function launch(layers, layerDirectory) {
     'Nose' : ['default', 'pointed', 'strong'],
     'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
     'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
-    'Age' : ['', 'lines']
+    'Age' : ['', 'lines'],
+    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage']
     };
     var maleForm2 = {
     'Pipe' : ['', 'subgenius'],
@@ -1652,11 +1654,11 @@ function launch(layers, layerDirectory) {
     'earpiece_microphone'
     ];
     var femaleForm1 = {
-    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
     'Nose' : ['default'],
+    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball']
     };
     var femaleForm2 = {

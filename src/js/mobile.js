@@ -44,7 +44,6 @@ function scrollZoom(e) {
 
 function launch(layers, layerDirectory) {
     var maleForm1 = {
-    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
@@ -52,7 +51,8 @@ function launch(layers, layerDirectory) {
     'Nose' : ['default', 'pointed', 'strong'],
     'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
     'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
-    'Age' : ['', 'lines']
+    'Age' : ['', 'lines'],
+    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'betrayal', 'caged', 'cruel', 'eeww', 'horror', 'melancholy', 'omg', 'outrage']
     };
     var maleForm2 = {
     'Pipe' : ['', 'subgenius'],
@@ -156,11 +156,11 @@ function launch(layers, layerDirectory) {
     'earpiece_microphone'
     ];
     var femaleForm1 = {
-    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
     'Nose' : ['default'],
+    'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
     'Hair': ['','afro', 'down', 'manga', 'mohawk', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball']
     };
     var femaleForm2 = {

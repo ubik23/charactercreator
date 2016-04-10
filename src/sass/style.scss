@@ -665,10 +665,11 @@ input[type=range][orient=vertical] {
         font-weight: 700;
     }
     & li.section--selected {
-        background: #e35a4e; 
-        color: #FFFFFF;
+        background: #FFFFFF; 
+        color: #000000;
         font-weight: 700;
         transform: translate3d(0,0,0);
+        transition: transform 0.2s, color 0.2s, background 0.2s;
     }
 
 }

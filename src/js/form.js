@@ -90,7 +90,6 @@ function openThumbs() {
         previousSelection.classList.remove('section--selected');
     };
     _.classList.add('section--selected');
-    closeSections();
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
     var sidebarLeft = document.querySelector('#sidebar-left');
@@ -124,7 +123,8 @@ function closeSections(exception) {
     var i = sectionButtons.length;
     while (i--){
         var section = sectionButtons[i];
-        if (section !== exception){
+        console.log(section.parentNode.parentNode.parentNode);
+        if (section !== exception && section.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
             var button = displayButtons[i];
             var sectionContent = section.nextSibling;
             if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
@@ -142,7 +142,9 @@ function closeSections(exception) {
 
 function toggleSection() {
     var _ = this;
-    closeSections(_);
+    if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
+         closeSections(_);
+    };
     var alert = document.querySelector('.alert');
     if (alert != null){
         alert.classList.remove('alert');
