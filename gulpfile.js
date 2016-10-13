@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var autoprefixer = require('autoprefixer');
 var postcss      = require('gulp-postcss');
@@ -9,6 +8,7 @@ var minify = require('gulp-minify');
 var cleanCSS = require('gulp-clean-css');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
 
 gulp.task('default',function() {
     gulp.watch('src/sass/**/*.scss',['sass']);
