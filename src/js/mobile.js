@@ -48,7 +48,7 @@ function launch(layers, layerDirectory) {
     'Ears' : ['default', 'pointed'],
     'Iris' : ['neutral'],
     'Pupils' : ['human', 'lizard'],
-    'Nose' : ['default', 'pointed', 'strong'],
+    'Nose' : ['default', 'roman', 'syrid'],
     'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'chinpuff', 'goatee', 'moustache', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
     'Hair': ['', 'balding', 'balding_crazy', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
     'Age' : ['', 'lines'],
@@ -80,6 +80,7 @@ function launch(layers, layerDirectory) {
     'Suit': ['', 'wetsuit'],
     'Jacket': ['', 'suit'],
     'Coat': ['', 'lab', 'trench', 'snowboard'],
+    'Cloak': ['', 'default'],
     'Gloves': ['', 'lab', 'motorcycle'],
     'Wings' : ['', 'angel', 'devil'],
     'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
@@ -139,9 +140,8 @@ function launch(layers, layerDirectory) {
     'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', 'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage',
     'brows_neutral','brows_alertness','brows_anxiety','brows_amusement','brows_anger','brows_anxiety','brows_aversion','brows_betrayal','brows_caged','brows_concern','brows_cruel','brows_dejection','brows_desperation','brows_disdain','brows_disgust','brows_eeww','brows_fear','brows_grief','brows_horror','brows_indignation','brows_joy','brows_laughing','brows_melancholy','brows_omg','brows_outrage','brows_pain','brows_rage','brows_revulsion','brows_sadness','brows_satisfaction','brows_shock','brows_sterness','brows_surprise','brows_terror','brows_wonder','brows_wtf',
     'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage',
-    'nose_default', 'nose_strong',
+    'nose_default', 'nose_roman', 'nose_syrid',
     'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap','facialhair_chinpuff','facialhair_goatee','facialhair_moustache','facialhair_moustache_thick','facialhair_muttonchops','facialhair_muttonchops_friendly','facialhair_soulpatch','facialhair_winnfield',
-    'nose_pointed',
     'mask_robin',
     'eyepatch_left','eyepatch_right',
     'hair_balding','hair_balding_crazy','hair_gelled','hair_manga_1_of_2','hair_mohawk','hair_short','hair_wavy','hair_crewcut',
@@ -273,7 +273,7 @@ function launch(layers, layerDirectory) {
     };
     skinLayers = ['age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
     'ears_default', 'ears_pointed',
-    'nose_default', 'nose_pointed', 'nose_strong',
+    'nose_default', 'nose_roman', 'nose_syrid',
     'mouth_shadow',
     'age_lines', 'sockets_neutral', 'wings_devil',
     'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
