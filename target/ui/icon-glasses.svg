@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g transform="translate(-225.714 -116.934)" color="#000">
+    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+    <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M247.66 150.6c-2.32-2.5-12.5.18-11.97 3.04.5 2.85 2.1 9.1 8 7.5 5.9-1.6 5-7.5 3.92-10.54zm-.18.18c.53-1.43 5.18-2.32 6.6-1.8m12.22-2.58c-2.33-2.5-12.5.2-11.97 3.05.54 2.86 2.14 9.1 8.04 7.5 5.9-1.6 5-7.5 3.92-10.54zm.1-.26l1.97-.54s6.8-7.86 7.5-8.93c.72-1.07 3.22 1.07 4.82 4.3" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+      <path d="M235.62 153.13l-1.8-.54s3.76-13.8 4.48-14.87c.7-1.07 1.96 1.6 3.2 3.75" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+    </g>
+  </g>
+</svg>

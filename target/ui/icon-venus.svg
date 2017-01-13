@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g transform="translate(-225.714 -116.934)" color="#000">
+    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+    <g fill="none" stroke="#fff" stroke-width="3.56" transform="rotate(135 233.617 143.44) scale(.84343)">
+      <circle cx="257.71" cy="148.93" r="13.96" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M267.5 138.97l8.4-8.4m-7.26-.07l3.65 3.68 3.54 3.57" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+    </g>
+    <path fill="none" stroke="#000" stroke-width=".04" d="M257.7 148.53v.8m.42-.4h-.8" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
+  </g>
+</svg>
