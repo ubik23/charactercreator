@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <g transform="translate(-225.714 -116.934)">
-    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" color="#000" overflow="visible" solid-color="#000000"/>
-    <path fill="#fff" d="M259.35 164.23v-14.9h5l.74-5.8h-5.76v-3.7c0-1.67.46-2.82 2.87-2.82h3.08v-5.17c-.54-.07-2.36-.22-4.48-.22-4.43 0-7.46 2.7-7.46 7.67v4.28h-5v5.8h5v14.9h6z"/>
-  </g>
+  <circle cx="32" cy="32" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <path fill="#fff" d="M33.63 47.3V32.4h5l.75-5.8h-5.75v-3.7c0-1.67.47-2.82 2.88-2.82h3.1v-5.2c-.53-.06-2.35-.22-4.5-.22-4.4 0-7.44 2.7-7.44 7.67v4.28h-5v5.8h5v14.9h6z"/>
 </svg>

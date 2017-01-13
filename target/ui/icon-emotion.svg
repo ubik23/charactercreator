@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <g transform="translate(-225.714 -116.934)" color="#000">
-    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-    <g transform="matrix(.09395 0 0 .09322 227.313 119.105)">
-      <ellipse cx="244.83" cy="198.58" fill="#fff" fill-rule="evenodd" ry="89.77" rx="32.64" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-      <ellipse cx="412.13" cy="198.58" fill="#fff" fill-rule="evenodd" ry="89.77" rx="32.64" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-      <path fill="none" stroke="#fff" stroke-width="32.06" d="M85.7 338.68c10.87-5.44 23.1-10.88 44.88-6.8" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000" stroke-linecap="round"/>
-      <path fill="none" stroke="#fff" stroke-width="32.06" d="M110.17 331.88c16.94 263.48 412.42 268.3 431.18-1.36" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-      <path fill="none" stroke="#fff" stroke-width="32.06" d="M561.5 338.68c-10.87-5.44-23.1-10.88-44.88-6.8" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000" stroke-linecap="round"/>
-    </g>
-  </g>
+  <circle cx="32" cy="32" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <ellipse cx="24.6" cy="20.68" fill="#fff" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" rx="3.07" ry="8.37" color="#000" solid-color="#000000"/>
+  <ellipse cx="40.32" cy="20.68" fill="#fff" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" rx="3.07" ry="8.37" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="3" d="M9.65 33.74c1.02-.5 2.17-1 4.22-.63" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" stroke-linecap="round" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="3" d="M11.95 33.1c1.6 24.57 38.75 25.02 40.5-.12" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="3" d="M54.35 33.74c-1.02-.5-2.17-1-4.22-.63" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" stroke-linecap="round" color="#000" solid-color="#000000"/>
 </svg>

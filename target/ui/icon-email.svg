@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <g transform="translate(-225.714 -116.934)">
-    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" color="#000" overflow="visible" solid-color="#000000"/>
-    <path fill="none" stroke="#fff" stroke-width="27.95" stroke-miterlimit="2" d="M-3323.1 30.4l78.9 68.38 78.9 68.37 78.92-68.38 78.9-68.37m-315.62 0h315.68V230h-315.68z" stroke-linecap="round" transform="matrix(.11073 0 0 .10406 608.195 135.392)"/>
-    <path fill="none" stroke="#fff" stroke-width="3.57" stroke-miterlimit="2" d="M237.86 161.94l15.06-12.37m11.63.25l14.76 12.12" transform="matrix(.84328 0 0 .83612 39.62 23.713)"/>
-  </g>
+  <circle cx="32" cy="32" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="3" stroke-miterlimit="2" d="M14.53 21.62l8.73 7.12 8.74 7.1 8.74-7.1 8.73-7.12m-34.94 0h34.95V42.4H14.53z" stroke-linecap="round"/>
+  <path fill="none" stroke="#fff" stroke-width="3" stroke-miterlimit="2" d="M14.5 42.18l12.7-10.34m9.8.2L49.43 42.2"/>
 </svg>

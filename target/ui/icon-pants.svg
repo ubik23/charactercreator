@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <g transform="translate(-225.714 -116.934)" color="#000">
-    <circle cx="257.71" cy="148.93" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-    <g fill="none" stroke="#fff">
-      <path stroke-width="3" d="M246.53 129.23l22.4-.13 6.52 36.66-11.02 2.58-5.3-26.17h-2.68l-5.22 26.28-11.25-2.7z" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-      <path stroke-width="1.5" d="M259.2 142.45v-14m-3.15.12v8.08c0 1.5 1.26 2.14 3.03 2.14" style="text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal" overflow="visible" solid-color="#000000"/>
-    </g>
-  </g>
+  <circle cx="32" cy="32" r="31.82" fill="#e35a4e" fill-rule="evenodd" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="3" d="M20.82 12.3l22.4-.13 6.5 36.65-11 2.58-5.3-26.17h-2.68l-5.22 26.3-11.25-2.7z" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
+  <path fill="none" stroke="#fff" stroke-width="1.5" d="M33.5 25.52v-14m-3.17.1v8.1c0 1.52 1.26 2.15 3.03 2.15" style="text-decoration-color:#000000;isolation:auto;mix-blend-mode:normal;text-decoration-line:none;text-decoration-style:solid" color="#000" solid-color="#000000"/>
 </svg>
