@@ -2131,38 +2131,52 @@ function tabSwitch(new_tab, new_content) {
     var uiHead = document.querySelector('#ui__head');
     var uiBody = document.querySelector('#ui__body');
     var uiExport = document.querySelector('#ui__export');
-    function uiRightHide() {
+    var uiSex = document.querySelector('#ui__sex');
+    var uiMain = document.querySelector('#ui__main');
+    var uiHud = document.querySelector('#ui__hud');
+
+    function uiRightHide(target) {
         [].forEach.call(uiRightList, function(a){
-                a.classList.remove('ui--open');
-        });
-        [].forEach.call(uiRightList, function(a){
-                a.classList.remove('ui__right--open');
+                if (a != target){
+                    a.classList.remove('ui--open');
+                    a.classList.remove('ui__right--open');
+                }
         });
     }
     while (i--){
         console.log(uiRightList[i]);
     }
     uiLeft.classList.toggle('ui--open');
+    uiMain.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        uiRightHide(uiHud);
+        uiHud.classList.toggle('ui__right--open');
+        uiHud.classList.toggle('ui--open');
+    })
+    uiSex.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        console.log(evt.target);
+        uiRightHide(uiSex);
+        uiSex.classList.toggle('ui--fe');
+    })
     uiFace.addEventListener('click', function(evt) {
         evt.preventDefault();
-        uiRightHide();
+        uiRightHide(uiHead);
         uiHead.classList.toggle('ui__right--open');
         uiHead.classList.toggle('ui--open');
     })
     uiClothing.addEventListener('click', function(evt) {
         evt.preventDefault();
-        uiRightHide();
+        uiRightHide(uiBody);
         uiBody.classList.toggle('ui__right--open');
         uiBody.classList.toggle('ui--open');
     })
     uiGlobe.addEventListener('click', function(evt) {
         evt.preventDefault();
-        uiRightHide();
+        uiRightHide(uiExport);
         uiExport.classList.toggle('ui__right--open');
         uiExport.classList.toggle('ui--open');
     })
-
-
 })()
 
 
