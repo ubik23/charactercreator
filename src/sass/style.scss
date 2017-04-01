@@ -445,15 +445,13 @@ input[type=range][orient=vertical] {
 }
 %base{
   background-color: #e35a4e;
-  border-radius:100%;
-  width:1em;
-  height:1em;
-  line-height:1em;
-  position:absolute;
-  color:white;
-  text-align:center;
-  transform:translate3d(0,0,0);
-  transition:transform ease-out 200ms;
+  border-radius: 100%;
+  width:12vmin;
+  height: 12vmin;
+  position: absolute;
+  color: white;
+  transform: translate3d(0,0,0);
+  transition: transform ease-out 200ms;
 }
 .svg__container {
      position: fixed;
@@ -479,15 +477,11 @@ input[type=range][orient=vertical] {
     }
 }
 .ui {
-    box-sizing:border-box;
-    font-size: 64px;
-    text-align: left;
-    width: 1em;
-    margin: 0.25em;
+    margin: 6vmin;
     &__right {
         position: absolute;
-        right: 0;
-        transform: translate3d(1.25em,0 ,0);
+        right: 12vmin;
+        transform: translate3d(24vmin,0 ,0);
         transition: transform 0.3s ease-in-out 0.3s;
         &--open {
             transform: translate3d(0, 0, 0);
@@ -504,14 +498,26 @@ input[type=range][orient=vertical] {
         svg {
             position: absolute;
             left: 0;
+            width:12vmin;
+            height: 12vmin;
             transform: scale(0.8);
             transition: transform 0.3s ease-in-out;
         }
         &:hover {
             & svg {
                 transform: scale(1);
-                transition: transform 2s ease-in-out;
+                transition: transform 0.2s ease-in-out;
             }
+        }
+    }
+}
+.loading {
+    & .ui {
+
+    }
+    & #ui__main {
+         transform: scale(1);
+         & svg {
         }
     }
 }
@@ -523,28 +529,47 @@ input[type=range][orient=vertical] {
     }
     &__menu-item:nth-child(2) {
             transition-duration: 90ms;
-            transform: translate3d(0, 1em, 0);
+            transform: translate3d(0, 12vh, 0);
     }
     &__menu-item:nth-child(3) {
             transition-duration: 190ms;
-            transform: translate3d(0, 2em, 0);
+            transform: translate3d(0, 24vh, 0);
     }
     &__menu-item:nth-child(4) {
             transition-duration: 290ms;
-            transform: translate3d(0, 3em, 0);
+            transform: translate3d(0, 36vh, 0);
     }
     &__menu-item:nth-child(5) {
             transition-duration: 390ms;
-            transform: translate3d(0, 4em, 0);
+            transform: translate3d(0, 48vh, 0);
     }
     &__menu-item:nth-child(6) {
             transition-duration: 490ms;
-            transform: translate3d(0, 5em, 0);
+            transform: translate3d(0, 60vh, 0);
     }
     }
 }
 #ui__main {
      z-index: 1;
+     transform-origin: 0 0;
+     transform: scale(0.15);
+     transition: transform 0.3s ease-in-out;
+     width: 80vmin;
+     height: 80vmin;
+     & svg {
+          width: 80vmin;
+          height: 80vmin;
+    }
+}
+.loading {
+    & .ui {
+
+    }
+    & #ui__main {
+         transform: scale(1);
+         & svg {
+        }
+    }
 }
 #article {
 	font-family: arial, verdana, sans-serif;

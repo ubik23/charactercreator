@@ -2120,10 +2120,8 @@ function tabSwitch(new_tab, new_content) {
 
 
 (function(){
-    console.log("loadalicious");
     var uiLeft = document.querySelector('#ui__left')
     var uiRightList = document.querySelectorAll('.ui__right');
-    var i = uiRightList.length;
     var uiFace = document.querySelector('#ui__face');
     var uiClothing = document.querySelector('#ui__clothing');
     var uiGlobe = document.querySelector('#ui__globe');
@@ -2143,9 +2141,6 @@ function tabSwitch(new_tab, new_content) {
                 }
         });
     }
-    while (i--){
-        console.log(uiRightList[i]);
-    }
     uiLeft.classList.toggle('ui--open');
     uiMain.addEventListener('click', function(evt) {
         evt.preventDefault();
@@ -2155,7 +2150,6 @@ function tabSwitch(new_tab, new_content) {
     })
     uiSex.addEventListener('click', function(evt) {
         evt.preventDefault();
-        console.log(evt.target);
         uiRightHide(uiSex);
         uiSex.classList.toggle('ui--fe');
     })

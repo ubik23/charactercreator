@@ -1,8 +1,6 @@
 (function(){
-    console.log("loadalicious");
     var uiLeft = document.querySelector('#ui__left')
     var uiRightList = document.querySelectorAll('.ui__right');
-    var i = uiRightList.length;
     var uiFace = document.querySelector('#ui__face');
     var uiClothing = document.querySelector('#ui__clothing');
     var uiGlobe = document.querySelector('#ui__globe');
@@ -22,9 +20,6 @@
                 }
         });
     }
-    while (i--){
-        console.log(uiRightList[i]);
-    }
     uiLeft.classList.toggle('ui--open');
     uiMain.addEventListener('click', function(evt) {
         evt.preventDefault();
@@ -34,7 +29,6 @@
     })
     uiSex.addEventListener('click', function(evt) {
         evt.preventDefault();
-        console.log(evt.target);
         uiRightHide(uiSex);
         uiSex.classList.toggle('ui--fe');
     })
