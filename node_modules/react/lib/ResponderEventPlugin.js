@@ -46,11 +46,11 @@ var trackedTouchCount = 0;
  */
 var previousActiveTouches = 0;
 
-var changeResponder = function (nextResponderID) {
+var changeResponder = function (nextResponderID, blockNativeResponder) {
   var oldResponderID = responderID;
   responderID = nextResponderID;
   if (ResponderEventPlugin.GlobalResponderHandler !== null) {
-    ResponderEventPlugin.GlobalResponderHandler.onChange(oldResponderID, nextResponderID);
+    ResponderEventPlugin.GlobalResponderHandler.onChange(oldResponderID, nextResponderID, blockNativeResponder);
   }
 };
 
@@ -69,7 +69,7 @@ var eventTypes = {
   /**
    * On a `scroll`, is it desired that this element become the responder? This
    * is usually not needed, but should be used to retroactively infer that a
-   * `touchStart` had occurred during momentum scroll. During a momentum scroll,
+   * `touchStart` had occured during momentum scroll. During a momentum scroll,
    * a touch start will be immediately followed by a scroll event if the view is
    * currently scrolling.
    *
@@ -347,6 +347,7 @@ function setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEv
   grantEvent.touchHistory = ResponderTouchHistoryStore.touchHistory;
 
   EventPropagators.accumulateDirectDispatches(grantEvent);
+  var blockNativeResponder = executeDirectDispatch(grantEvent) === true;
   if (responderID) {
 
     var terminationRequestEvent = ResponderSyntheticEvent.getPooled(eventTypes.responderTerminationRequest, responderID, nativeEvent, nativeEventTarget);
@@ -363,7 +364,7 @@ function setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEv
       terminateEvent.touchHistory = ResponderTouchHistoryStore.touchHistory;
       EventPropagators.accumulateDirectDispatches(terminateEvent);
       extracted = accumulate(extracted, [grantEvent, terminateEvent]);
-      changeResponder(wantsResponderID);
+      changeResponder(wantsResponderID, blockNativeResponder);
     } else {
       var rejectEvent = ResponderSyntheticEvent.getPooled(eventTypes.responderReject, wantsResponderID, nativeEvent, nativeEventTarget);
       rejectEvent.touchHistory = ResponderTouchHistoryStore.touchHistory;
@@ -372,7 +373,7 @@ function setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEv
     }
   } else {
     extracted = accumulate(extracted, grantEvent);
-    changeResponder(wantsResponderID);
+    changeResponder(wantsResponderID, blockNativeResponder);
   }
   return extracted;
 }
@@ -385,8 +386,12 @@ function setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEv
  * @param {string} topLevelType Record from `EventConstants`.
  * @return {boolean} True if a transfer of responder could possibly occur.
  */
-function canTriggerTransfer(topLevelType, topLevelTargetID) {
-  return topLevelTargetID && (topLevelType === EventConstants.topLevelTypes.topScroll || trackedTouchCount > 0 && topLevelType === EventConstants.topLevelTypes.topSelectionChange || isStartish(topLevelType) || isMoveish(topLevelType));
+function canTriggerTransfer(topLevelType, topLevelTargetID, nativeEvent) {
+  return topLevelTargetID && (
+  // responderIgnoreScroll: We are trying to migrate away from specifically tracking native scroll
+  // events here and responderIgnoreScroll indicates we will send topTouchCancel to handle
+  // canceling touch events instead
+  topLevelType === EventConstants.topLevelTypes.topScroll && !nativeEvent.responderIgnoreScroll || trackedTouchCount > 0 && topLevelType === EventConstants.topLevelTypes.topSelectionChange || isStartish(topLevelType) || isMoveish(topLevelType));
 }
 
 /**
@@ -445,7 +450,7 @@ var ResponderEventPlugin = {
 
     ResponderTouchHistoryStore.recordTouchTrack(topLevelType, nativeEvent, nativeEventTarget);
 
-    var extracted = canTriggerTransfer(topLevelType, topLevelTargetID) ? setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEvent, nativeEventTarget) : null;
+    var extracted = canTriggerTransfer(topLevelType, topLevelTargetID, nativeEvent) ? setResponderAndExtractTransfer(topLevelType, topLevelTargetID, nativeEvent, nativeEventTarget) : null;
     // Responder may or may not have transfered on a new touch start/move.
     // Regardless, whoever is the responder after any potential transfer, we
     // direct all touch start/move/ends to them in the form of

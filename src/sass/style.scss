@@ -419,11 +419,13 @@ input[type=range][orient=vertical] {
     fill: currentColor;
     stroke-dasharray:1726;
     animation: homme 3s linear;
+    fill-opacity: 0;
+    transition: fill-opacity 3s ease-in-out;
 }
 
 .male:hover {
-    animation: fadeIn 250ms linear;
     fill-opacity: 1;
+    transition: fill-opacity 0.3s ease-in-out;
 }
 
 .female {
@@ -431,20 +433,13 @@ input[type=range][orient=vertical] {
     fill: currentColor;
     stroke-dasharray:1200;
     animation: femme 3s linear;
+    fill-opacity: 0;
+    transition: fill-opacity 3s ease-in-out;
 }
 
 .female:hover {
-    animation: fadeIn 250ms linear;
     fill-opacity: 1;
-}
-
-@keyframes fadeIn {
-    from {
-        fill-opacity: 0;
-    }
-    to {
-        fill-opacity: 1;
-    }
+    transition: fill-opacity 0.3s ease-in-out;
 }
 
 @keyframes homme {

@@ -291,6 +291,26 @@
     "800": "#37474f",
     "900": "#263238"
   },
+  "dark-text": {
+    "primary": "rgba(0, 0, 0, 0.87)",
+    "secondary": "rgba(0, 0, 0, 0.54)",
+    "disabled": "rgba(0, 0, 0, 0.38)",
+    "dividers": "rgba(0, 0, 0, 0.12)"
+  },
+  "light-text": {
+    "primary": "rgba(255, 255, 255, 1)",
+    "secondary": "rgba(255, 255, 255, 0.7)",
+    "disabled": "rgba(255, 255, 255, 0.5)",
+    "dividers": "rgba(255, 255, 255, 0.12)"
+  },
+  "dark-icons": {
+    "active": "rgba(0, 0, 0, 0.54)",
+    "inactive": "rgba(0, 0, 0, 0.38)"
+  },
+  "light-icons": {
+    "active": "rgba(255, 255, 255, 1)",
+    "inactive": "rgba(255, 255, 255, 0.5)"
+  },
   "white": "#ffffff",
   "black": "#000000"
 }

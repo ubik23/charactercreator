@@ -34,7 +34,7 @@ function Concat(generateSourceMap, fileName, separator) {
 }
 
 Concat.prototype.add = function(filePath, content, sourceMap) {
-  filePath = unixStylePath(filePath);
+  filePath = filePath && unixStylePath(filePath);
 
   if (!Buffer.isBuffer(content)) {
     content = new Buffer(content);
@@ -79,21 +79,23 @@ Concat.prototype.add = function(filePath, content, sourceMap) {
     } else {
       if (sourceMap && sourceMap.sources && sourceMap.sources.length > 0)
         filePath = sourceMap.sources[0];
-      for (var i = 1; i <= lines; i++) {
-        this._sourceMap.addMapping({
-          generated: {
-            line: this.lineOffset + i,
-            column: (i === 1 ? this.columnOffset : 0)
-          },
-          original: {
-            line: i,
-            column: 0
-          },
-          source: filePath
-        });
+      if (filePath) {
+        for (var i = 1; i <= lines; i++) {
+          this._sourceMap.addMapping({
+            generated: {
+              line: this.lineOffset + i,
+              column: (i === 1 ? this.columnOffset : 0)
+            },
+            original: {
+              line: i,
+              column: 0
+            },
+            source: filePath
+          });
+        }
+        if (sourceMap && sourceMap.sourcesContent)
+          this._sourceMap.setSourceContent(filePath, sourceMap.sourcesContent[0]);
       }
-      if (sourceMap && sourceMap.sourcesContent)
-        this._sourceMap.setSourceContent(filePath, sourceMap.sourcesContent[0]);
     }
     if (lines > 1)
       this.columnOffset = 0;

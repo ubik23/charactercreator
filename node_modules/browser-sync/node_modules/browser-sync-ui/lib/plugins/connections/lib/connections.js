@@ -42,11 +42,15 @@ module.exports.init = function (ui, bs) {
 
     var int = setInterval(function () {
 
-        if (ui.clients.sockets.length) {
-            temp = Immutable.List(ui.clients.sockets.map(function (client) {
+        var sockets = ui.clients.sockets;
+        var keys = Object.keys(sockets);
+
+        if (keys.length) {
+            temp = Immutable.List(keys.map(function (clientKey) {
+                var currentClient = sockets[clientKey];
                 return Immutable.fromJS({
-                    id: client.id,
-                    browser: uaParser.setUA(client.handshake.headers["user-agent"]).getBrowser()
+                    id: currentClient.id,
+                    browser: uaParser.setUA(currentClient.handshake.headers["user-agent"]).getBrowser()
                 });
             }));
             if (!registry) {

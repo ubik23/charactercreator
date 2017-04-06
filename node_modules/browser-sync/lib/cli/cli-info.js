@@ -4,7 +4,7 @@ var config = require("../config");
 var logger = require("../logger").logger;
 
 var fs     = require("fs");
-var _      = require("lodash");
+var _      = require("../../lodash.custom");
 var path   = require("path");
 
 var info = {
@@ -37,7 +37,7 @@ var info = {
         var ignore = ["excludedFileTypes", "injectFileTypes", "snippetOptions"];
 
         Object.keys(opts).forEach(function (key) {
-            if (!_.contains(ignore, key)) {
+            if (!_.includes(ignore, key)) {
                 userOpts[key] = opts[key];
             }
         });

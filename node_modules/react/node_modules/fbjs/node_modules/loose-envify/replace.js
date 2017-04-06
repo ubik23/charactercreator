@@ -1,6 +1,6 @@
 'use strict';
 
-var jsTokens = require('js-tokens');
+var jsTokens = require('js-tokens').default;
 
 var processEnvRe = /\bprocess\.env\.[_$a-zA-Z][$\w]+\b/;
 var spaceOrCommentRe = /^(?:\s|\/[/*])/;
@@ -10,7 +10,7 @@ function replace(src, envs) {
     return src;
   }
 
-  var out = '';
+  var out = [];
   var purge = envs.some(function(env) {
     return env._ && env._.indexOf('purge') !== -1;
   });
@@ -30,15 +30,15 @@ function replace(src, envs) {
           nextCodeToken !== '.' &&
           nextCodeToken !== '=' &&
           typeof replacement === 'string') {
-        out += replacement;
+        out.push(replacement);
         i += 4;
         continue;
       }
     }
-    out += parts[i];
+    out.push(parts[i]);
   }
 
-  return out;
+  return out.join('');
 }
 
 function getAdjacentCodeToken(dir, parts, i) {

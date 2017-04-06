@@ -1,6 +1,6 @@
 "use strict";
 
-var _            = require("lodash");
+var _            = require("../lodash.custom");
 var Immutable    = require("immutable");
 var snippetUtils = require("./snippet").utils;
 
@@ -16,7 +16,7 @@ module.exports = {
         var js  = snippetUtils.getClientJs(data.port, data.options);
 
         return hooks.reduce(function (joined, hook) {
-            return joined += hook;
+            return joined + hook;
         }, js);
     },
     /**

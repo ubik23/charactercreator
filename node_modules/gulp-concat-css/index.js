@@ -70,7 +70,7 @@ module.exports = function(destFile, options) {
 
 
     function processNestedImport(contents) {
-      var rew = rework(contents);
+      var rew = rework(contents,{source:this.source});//find the css file has syntax errors
       if(options.rebaseUrls) {
         rew = rew.use(urlPlugin(this.source));
       }
@@ -79,7 +79,7 @@ module.exports = function(destFile, options) {
     }
 
     try {
-      processedCss = rework(String(file.contents||""));
+      processedCss = rework(String(file.contents||""),{source:file.path});//find the css file has syntax errors
       if(options.rebaseUrls) {
         processedCss = processedCss.use(urlPlugin(file.path));
       }

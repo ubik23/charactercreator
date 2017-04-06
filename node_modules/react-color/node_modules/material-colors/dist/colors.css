@@ -1306,6 +1306,74 @@
 .stroke-blue-grey-900 { stroke: #263238; }
 
 
+.color-dark-text-primary { color: rgba(0, 0, 0, 0.87); }
+.bg-dark-text-primary { background-color: rgba(0, 0, 0, 0.87); }
+.border-dark-text-primary { border-color: rgba(0, 0, 0, 0.87); }
+.fill-dark-text-primary { fill: rgba(0, 0, 0, 0.87); }
+.stroke-dark-text-primary { stroke: rgba(0, 0, 0, 0.87); }
+.color-dark-text-secondary { color: rgba(0, 0, 0, 0.54); }
+.bg-dark-text-secondary { background-color: rgba(0, 0, 0, 0.54); }
+.border-dark-text-secondary { border-color: rgba(0, 0, 0, 0.54); }
+.fill-dark-text-secondary { fill: rgba(0, 0, 0, 0.54); }
+.stroke-dark-text-secondary { stroke: rgba(0, 0, 0, 0.54); }
+.color-dark-text-disabled { color: rgba(0, 0, 0, 0.38); }
+.bg-dark-text-disabled { background-color: rgba(0, 0, 0, 0.38); }
+.border-dark-text-disabled { border-color: rgba(0, 0, 0, 0.38); }
+.fill-dark-text-disabled { fill: rgba(0, 0, 0, 0.38); }
+.stroke-dark-text-disabled { stroke: rgba(0, 0, 0, 0.38); }
+.color-dark-text-dividers { color: rgba(0, 0, 0, 0.12); }
+.bg-dark-text-dividers { background-color: rgba(0, 0, 0, 0.12); }
+.border-dark-text-dividers { border-color: rgba(0, 0, 0, 0.12); }
+.fill-dark-text-dividers { fill: rgba(0, 0, 0, 0.12); }
+.stroke-dark-text-dividers { stroke: rgba(0, 0, 0, 0.12); }
+
+
+.color-light-text-primary { color: rgba(255, 255, 255, 1); }
+.bg-light-text-primary { background-color: rgba(255, 255, 255, 1); }
+.border-light-text-primary { border-color: rgba(255, 255, 255, 1); }
+.fill-light-text-primary { fill: rgba(255, 255, 255, 1); }
+.stroke-light-text-primary { stroke: rgba(255, 255, 255, 1); }
+.color-light-text-secondary { color: rgba(255, 255, 255, 0.7); }
+.bg-light-text-secondary { background-color: rgba(255, 255, 255, 0.7); }
+.border-light-text-secondary { border-color: rgba(255, 255, 255, 0.7); }
+.fill-light-text-secondary { fill: rgba(255, 255, 255, 0.7); }
+.stroke-light-text-secondary { stroke: rgba(255, 255, 255, 0.7); }
+.color-light-text-disabled { color: rgba(255, 255, 255, 0.5); }
+.bg-light-text-disabled { background-color: rgba(255, 255, 255, 0.5); }
+.border-light-text-disabled { border-color: rgba(255, 255, 255, 0.5); }
+.fill-light-text-disabled { fill: rgba(255, 255, 255, 0.5); }
+.stroke-light-text-disabled { stroke: rgba(255, 255, 255, 0.5); }
+.color-light-text-dividers { color: rgba(255, 255, 255, 0.12); }
+.bg-light-text-dividers { background-color: rgba(255, 255, 255, 0.12); }
+.border-light-text-dividers { border-color: rgba(255, 255, 255, 0.12); }
+.fill-light-text-dividers { fill: rgba(255, 255, 255, 0.12); }
+.stroke-light-text-dividers { stroke: rgba(255, 255, 255, 0.12); }
+
+
+.color-dark-icons-active { color: rgba(0, 0, 0, 0.54); }
+.bg-dark-icons-active { background-color: rgba(0, 0, 0, 0.54); }
+.border-dark-icons-active { border-color: rgba(0, 0, 0, 0.54); }
+.fill-dark-icons-active { fill: rgba(0, 0, 0, 0.54); }
+.stroke-dark-icons-active { stroke: rgba(0, 0, 0, 0.54); }
+.color-dark-icons-inactive { color: rgba(0, 0, 0, 0.38); }
+.bg-dark-icons-inactive { background-color: rgba(0, 0, 0, 0.38); }
+.border-dark-icons-inactive { border-color: rgba(0, 0, 0, 0.38); }
+.fill-dark-icons-inactive { fill: rgba(0, 0, 0, 0.38); }
+.stroke-dark-icons-inactive { stroke: rgba(0, 0, 0, 0.38); }
+
+
+.color-light-icons-active { color: rgba(255, 255, 255, 1); }
+.bg-light-icons-active { background-color: rgba(255, 255, 255, 1); }
+.border-light-icons-active { border-color: rgba(255, 255, 255, 1); }
+.fill-light-icons-active { fill: rgba(255, 255, 255, 1); }
+.stroke-light-icons-active { stroke: rgba(255, 255, 255, 1); }
+.color-light-icons-inactive { color: rgba(255, 255, 255, 0.5); }
+.bg-light-icons-inactive { background-color: rgba(255, 255, 255, 0.5); }
+.border-light-icons-inactive { border-color: rgba(255, 255, 255, 0.5); }
+.fill-light-icons-inactive { fill: rgba(255, 255, 255, 0.5); }
+.stroke-light-icons-inactive { stroke: rgba(255, 255, 255, 0.5); }
+
+
 .color-white { color: #ffffff; }
 .bg-white { background-color: #ffffff; }
 .border-white { border-color: #ffffff; }

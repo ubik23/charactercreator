@@ -13,6 +13,7 @@
   "UserAgentData": "fbjs/lib/UserAgentData",
   "VersionRange": "fbjs/lib/VersionRange",
   "areEqual": "fbjs/lib/areEqual",
+  "base62": "fbjs/lib/base62",
   "camelize": "fbjs/lib/camelize",
   "camelizeStyleName": "fbjs/lib/camelizeStyleName",
   "containsNode": "fbjs/lib/containsNode",
