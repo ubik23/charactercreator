@@ -1,26 +1,2 @@
-TODO:
--Finish animated intro/colorpicker.
--Fix the downloadSCG button in chrome.
--Add a slider to turn the character's heads.
-
----
-
-How to Optimize SVGs using SVGOMG
-
-https://jakearchibald.github.io/svgomg/
-
-In body_athletic, this produced a saving of 55.46%.
-
-Activate all the options except for the following:
-
-Show original (obviously)
-…
-Multipass
-…
-Clean IDs
-…
-Minify colours
-…
-Style to attributes
-…
-Remove XML instructions
+# charactercreator
+A frontend interface for creating characters in SVG.
