@@ -385,6 +385,7 @@ input[type=range][orient=vertical] {
 }
 
 .male {
+    display: none;
     color: #e35a4e;
     fill: currentColor;
     stroke-dasharray:1726;
@@ -398,12 +399,19 @@ input[type=range][orient=vertical] {
 }
 
 .female {
+    display:none;
     color: #e35a4e;
     fill: currentColor;
     stroke-dasharray:1200;
     animation: femme 3s linear;
     fill-opacity: 0;
     transition: fill-opacity 0.3s ease-in-out;
+}
+
+.loaded {
+    .female, .male {
+        display: block;
+    }
 }
 
 .female:hover {
