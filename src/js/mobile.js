@@ -17,7 +17,6 @@ window.onload = function() {
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
 };
-
 function scrollZoom(e) {
     var svgViewBox = document.querySelector("#svg1");
     var event = window.event || e;
@@ -41,7 +40,6 @@ function scrollZoom(e) {
         document.querySelector("#zoomLevel").onchange();
     }
 }
-
 function launch(layers, layerDirectory) {
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],

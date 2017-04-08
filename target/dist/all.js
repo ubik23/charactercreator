@@ -1519,7 +1519,6 @@ window.onload = function() {
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
 };
-
 function scrollZoom(e) {
     var svgViewBox = document.querySelector("#svg1");
     var event = window.event || e;
@@ -1543,7 +1542,6 @@ function scrollZoom(e) {
         document.querySelector("#zoomLevel").onchange();
     }
 }
-
 function launch(layers, layerDirectory) {
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
@@ -2141,7 +2139,18 @@ function tabSwitch(new_tab, new_content) {
                 }
         });
     }
-    uiLeft.classList.toggle('ui--open');
+    function animateLogo(){
+        var logo = document.querySelector('#ui__main');
+        var leftUI = document.querySelector('#ui__left');
+        var logoBBox = logo.getBoundingClientRect();
+        var windowWidth = window.innerWidth;
+        var distance = (windowWidth / 2) - (logoBBox.right -logoBBox.left);
+        leftUI.style.transform = 'translate3d(' + distance + 'px, 0, 0)';
+
+        console.log('distance', distance);
+    }
+    //uiLeft.classList.toggle('ui--open');
+    animateLogo();
     uiMain.addEventListener('click', function(evt) {
         evt.preventDefault();
         uiRightHide(uiHud);
