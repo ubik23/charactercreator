@@ -496,6 +496,7 @@ input[type=range][orient=vertical] {
     &__menu-item {
         @extend %base;
         transition-delay: 0.3s;
+        visibility: hidden;
         svg {
             position: absolute;
             left: 0;
@@ -553,13 +554,14 @@ input[type=range][orient=vertical] {
 #ui__main {
      z-index: 1;
      transform-origin: 0 0;
-     transform: scale(0.15);
+     transform: scale(1);
      transition: transform 0.3s ease-in-out;
-     width: 80vmin;
-     height: 80vmin;
+     width: 50vmin;
+     height: 50vmin;
+     visibility: visible;
      & svg {
-          width: 80vmin;
-          height: 80vmin;
+          width: 50vmin;
+          height: 50vmin;
     }
 }
 .loading {
@@ -571,6 +573,9 @@ input[type=range][orient=vertical] {
          & svg {
         }
     }
+}
+.loaded {
+     
 }
 #article {
 	font-family: arial, verdana, sans-serif;
