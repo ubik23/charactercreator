@@ -11,6 +11,20 @@
     var uiSex = document.querySelector('#ui__sex');
     var uiMain = document.querySelector('#ui__main');
     var uiHud = document.querySelector('#ui__hud');
+    var logo = document.querySelector('#ui__main');
+    var leftUI = document.querySelector('#ui__left');
+    var logoBBox = logo.getBoundingClientRect();
+    var faceBBox = uiFace.getBoundingClientRect();
+    var logoWidth = logoBBox.right - logoBBox.left;
+    var faceWidth = faceBBox.right - faceBBox.left;
+    var leftUIBBox = leftUI.getBoundingClientRect();
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+    var moveX = (windowWidth / 2) - (logoWidth / 2) - logoBBox.left;
+    var moveY = (windowHeight / 2) - (logoWidth / 2) - logoBBox.top;
+    var scale = faceWidth / logoWidth;
+    console.log('logoWidth', logoWidth);
+    console.log('uiFace', faceWidth);
 
     function uiRightHide(target) {
         [].forEach.call(uiRightList, function(a){
@@ -20,24 +34,22 @@
                 }
         });
     }
-    function animateLogo(){
-        var logo = document.querySelector('#ui__main');
-        var leftUI = document.querySelector('#ui__left');
-        var logoBBox = logo.getBoundingClientRect();
-        var leftUIBBox = leftUI.getBoundingClientRect();
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-        var moveX = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
-        var moveY = (windowHeight / 2) - ((logoBBox.bottom - logoBBox.top) / 2) - logoBBox.top;
+    function positionLogo(){
         leftUI.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px , 0)';
     }
+    function animateLogo(){
+        leftUI.style.transition = 'transform 0.2s ease-in-out';
+        leftUI.style.transform = 'translate3d(0, 0, 0)';
+        logo.style.transform = 'scale(' + scale + ')';
+    }
     //uiLeft.classList.toggle('ui--open');
-    animateLogo();
+    positionLogo();
     uiMain.addEventListener('click', function(evt) {
-        evt.preventDefault();
-        uiRightHide(uiHud);
-        uiHud.classList.toggle('ui__right--open');
-        uiHud.classList.toggle('ui--open');
+        animateLogo();
+        //evt.preventDefault();
+        //uiRightHide(uiHud);
+        //uiHud.classList.toggle('ui__right--open');
+        //uiHud.classList.toggle('ui--open');
     })
     uiSex.addEventListener('click', function(evt) {
         evt.preventDefault();
