@@ -2145,15 +2145,10 @@ function tabSwitch(new_tab, new_content) {
         var logoBBox = logo.getBoundingClientRect();
         var leftUIBBox = leftUI.getBoundingClientRect();
         var windowWidth = window.innerWidth;
-        var distance = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
-        console.log('window width=', (windowWidth / 2));
-        console.log('width=', (logoBBox.right - logoBBox.left));
-        console.log('margin width=', (logoBBox.left));
-        console.log('margin width=', leftUIBBox.left);
-        console.log('margin width=', leftUIBBox.right);
-        leftUI.style.transform = 'translate3d(' + distance + 'px, 0, 0)';
-
-        console.log('distance', distance);
+        var windowHeight = window.innerHeight;
+        var moveX = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
+        var moveY = (windowHeight / 2) - ((logoBBox.bottom - logoBBox.top) / 2) - logoBBox.top;
+        leftUI.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px , 0)';
     }
     //uiLeft.classList.toggle('ui--open');
     animateLogo();

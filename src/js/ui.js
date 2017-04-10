@@ -26,8 +26,10 @@
         var logoBBox = logo.getBoundingClientRect();
         var leftUIBBox = leftUI.getBoundingClientRect();
         var windowWidth = window.innerWidth;
-        var distance = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
-        leftUI.style.transform = 'translate3d(' + distance + 'px, 0, 0)';
+        var windowHeight = window.innerHeight;
+        var moveX = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
+        var moveY = (windowHeight / 2) - ((logoBBox.bottom - logoBBox.top) / 2) - logoBBox.top;
+        leftUI.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px , 0)';
     }
     //uiLeft.classList.toggle('ui--open');
     animateLogo();
