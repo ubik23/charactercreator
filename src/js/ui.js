@@ -23,8 +23,6 @@
     var moveX = (windowWidth / 2) - (logoWidth / 2) - logoBBox.left;
     var moveY = (windowHeight / 2) - (logoWidth / 2) - logoBBox.top;
     var scale = faceWidth / logoWidth;
-    console.log('logoWidth', logoWidth);
-    console.log('uiFace', faceWidth);
 
     function uiRightHide(target) {
         [].forEach.call(uiRightList, function(a){
