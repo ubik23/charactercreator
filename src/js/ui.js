@@ -24,11 +24,10 @@
         var logo = document.querySelector('#ui__main');
         var leftUI = document.querySelector('#ui__left');
         var logoBBox = logo.getBoundingClientRect();
+        var leftUIBBox = leftUI.getBoundingClientRect();
         var windowWidth = window.innerWidth;
-        var distance = (windowWidth / 2) - (logoBBox.right -logoBBox.left);
+        var distance = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
         leftUI.style.transform = 'translate3d(' + distance + 'px, 0, 0)';
-
-        console.log('distance', distance);
     }
     //uiLeft.classList.toggle('ui--open');
     animateLogo();

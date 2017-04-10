@@ -2143,8 +2143,14 @@ function tabSwitch(new_tab, new_content) {
         var logo = document.querySelector('#ui__main');
         var leftUI = document.querySelector('#ui__left');
         var logoBBox = logo.getBoundingClientRect();
+        var leftUIBBox = leftUI.getBoundingClientRect();
         var windowWidth = window.innerWidth;
-        var distance = (windowWidth / 2) - (logoBBox.right -logoBBox.left);
+        var distance = (windowWidth / 2) - ((logoBBox.right - logoBBox.left) / 2) - logoBBox.left;
+        console.log('window width=', (windowWidth / 2));
+        console.log('width=', (logoBBox.right - logoBBox.left));
+        console.log('margin width=', (logoBBox.left));
+        console.log('margin width=', leftUIBBox.left);
+        console.log('margin width=', leftUIBBox.right);
         leftUI.style.transform = 'translate3d(' + distance + 'px, 0, 0)';
 
         console.log('distance', distance);
