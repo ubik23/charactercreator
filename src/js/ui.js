@@ -34,6 +34,7 @@
     }
     function positionLogo(){
         leftUI.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px , 0)';
+        logo.style.opacity = '1';
     }
     function animateLogo(){
         leftUI.style.transition = 'transform 0.2s ease-in-out';

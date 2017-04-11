@@ -2142,8 +2142,6 @@ function tabSwitch(new_tab, new_content) {
     var moveX = (windowWidth / 2) - (logoWidth / 2) - logoBBox.left;
     var moveY = (windowHeight / 2) - (logoWidth / 2) - logoBBox.top;
     var scale = faceWidth / logoWidth;
-    console.log(logoWidth);
-    console.log('uiFace', faceWidth);
 
     function uiRightHide(target) {
         [].forEach.call(uiRightList, function(a){
@@ -2155,6 +2153,7 @@ function tabSwitch(new_tab, new_content) {
     }
     function positionLogo(){
         leftUI.style.transform = 'translate3d(' + moveX + 'px, ' + moveY + 'px , 0)';
+        logo.style.opacity = '1';
     }
     function animateLogo(){
         leftUI.style.transition = 'transform 0.2s ease-in-out';
