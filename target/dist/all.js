@@ -2142,6 +2142,7 @@ function tabSwitch(new_tab, new_content) {
     var moveX = (windowWidth / 2) - (logoWidth / 2) - logoBBox.left;
     var moveY = (windowHeight / 2) - (logoWidth / 2) - logoBBox.top;
     var scale = faceWidth / logoWidth;
+    var svgContainer = document.querySelector('.svg__container');
 
     function uiRightHide(target) {
         [].forEach.call(uiRightList, function(a){
@@ -2159,6 +2160,10 @@ function tabSwitch(new_tab, new_content) {
         leftUI.style.transition = 'transform 0.2s ease-in-out';
         leftUI.style.transform = 'translate3d(0, 0, 0)';
         logo.style.transform = 'scale(' + scale + ')';
+        chooseSex();
+    }
+    function chooseSex() {
+        svgContainer.classList.add('loaded');
     }
     //uiLeft.classList.toggle('ui--open');
     positionLogo();
