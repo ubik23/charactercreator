@@ -7,18 +7,22 @@ module.exports = function applySourceMap(file, sourceMap) {
     sourceMap = JSON.parse(sourceMap);
   }
 
+  if (file.sourceMap && (typeof file.sourceMap === 'string' || file.sourceMap instanceof String)) {
+    file.sourceMap = JSON.parse(file.sourceMap);
+  }
+
   // check source map properties
   assertProperty(sourceMap, "file");
   assertProperty(sourceMap, "mappings");
   assertProperty(sourceMap, "sources");
-  
+
   // fix paths if Windows style paths
   sourceMap.file = sourceMap.file.replace(/\\/g, '/');
   sourceMap.sources = sourceMap.sources.map(function(filePath) {
     return filePath.replace(/\\/g, '/');
   });
 
-  if (file.sourceMap) {
+  if (file.sourceMap && file.sourceMap.mappings !== '') {
     var generator = SourceMapGenerator.fromSourceMap(new SourceMapConsumer(sourceMap));
     generator.applySourceMap(new SourceMapConsumer(file.sourceMap));
     file.sourceMap = JSON.parse(generator.toString());

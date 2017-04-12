@@ -5,7 +5,7 @@ const reorder = require('../lib/reorder');
 const flaggedRespawn = require('../');
 
 describe('flaggedRespawn', function () {
-  var flags = ['--harmony', '--use_strict']
+  var flags = ['--harmony', '--use_strict', '--stack_size']
 
   describe('reorder', function () {
 
@@ -16,6 +16,12 @@ describe('flaggedRespawn', function () {
         .to.deep.equal(['node', '--harmony', 'file.js', '--flag', 'command']);
       expect(reorder(flags, noRespawnNeeded))
         .to.deep.equal(noRespawnNeeded);
+    });
+
+    it('should keep flags values when not placed first', function () {
+      var args = ['node', 'file.js', '--stack_size=2048'];
+      var expected = ['node', '--stack_size=2048', 'file.js'];
+      expect(reorder(flags, args)).to.deep.equal(expected);
     });
 
     it('should ignore special flags when they are in the correct position', function () {

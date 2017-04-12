@@ -1,0 +1,71 @@
+{
+  "name": "detect-newline",
+  "version": "2.1.0",
+  "description": "Detect the dominant newline character of a string",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/detect-newline.git"
+  },
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "newline",
+    "linebreak",
+    "line-break",
+    "line",
+    "lf",
+    "crlf",
+    "eol",
+    "linefeed",
+    "character",
+    "char"
+  ],
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "gitHead": "6d96229078f55b65e6252dd2c0a42006e6a81833",
+  "bugs": {
+    "url": "https://github.com/sindresorhus/detect-newline/issues"
+  },
+  "homepage": "https://github.com/sindresorhus/detect-newline#readme",
+  "_id": "detect-newline@2.1.0",
+  "_shasum": "f41f1c10be4b00e87b5f13da680759f2c5bfd3e2",
+  "_from": "detect-newline@>=2.0.0 <3.0.0",
+  "_npmVersion": "2.14.12",
+  "_nodeVersion": "4.3.0",
+  "_npmUser": {
+    "name": "sindresorhus",
+    "email": "sindresorhus@gmail.com"
+  },
+  "dist": {
+    "shasum": "f41f1c10be4b00e87b5f13da680759f2c5bfd3e2",
+    "tarball": "https://registry.npmjs.org/detect-newline/-/detect-newline-2.1.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "sindresorhus",
+      "email": "sindresorhus@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-9-west.internal.npmjs.com",
+    "tmp": "tmp/detect-newline-2.1.0.tgz_1455648165578_0.057551848934963346"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/detect-newline/-/detect-newline-2.1.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

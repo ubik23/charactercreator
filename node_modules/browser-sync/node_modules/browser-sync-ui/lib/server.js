@@ -130,8 +130,9 @@ function serveFile(path, type, string) {
         res.writeHead(200, {
             "Content-Type": typemap[type],
             "Content-Encoding": "gzip",
-            "Cache-Control": "public, max-age=2592000000",
-            "Expires": new Date(Date.now() + 2592000000).toUTCString()
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Expires": 0,
+            "Pragma": "no-cache"
         });
 
         if (gzipCache[path]) {

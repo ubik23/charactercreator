@@ -149,4 +149,24 @@ function Compiler(custom, opts) {
 }
 
 module.exports = compile;
+module.exports.parse = function (string) {
+    return createAst(parser, string);
+};
+module.exports.clean = function (string) {
+    var ast = createAst(parser, string);
+    return ast.reduce(function (joined, item) {
+        if (item.color) {
+            if (item.text) {
+                return joined + item.text;
+            }
+        }
+        if (item.buffer) {
+            return joined + item.buffer;
+        }
+        if (item.reset) {
+            return joined + item.text;
+        }
+        return joined;
+    }, "");
+};
 module.exports.Compiler = Compiler;

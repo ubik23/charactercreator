@@ -1,0 +1,55 @@
+{
+  "name": "acorn-object-spread",
+  "description": "Support object spread in acorn",
+  "homepage": "https://github.com/UXtemple/acorn-object-spread",
+  "author": {
+    "name": "Darío Javier Cravero",
+    "email": "dario@uxtemple.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UXtemple/acorn-object-spread.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "dependencies": {
+    "acorn": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  },
+  "version": "1.0.0",
+  "gitHead": "c837b92a38e49680401e412455a0c6e6d50c8ed0",
+  "bugs": {
+    "url": "https://github.com/UXtemple/acorn-object-spread/issues"
+  },
+  "_id": "acorn-object-spread@1.0.0",
+  "_shasum": "48ead0f4a8eb16995a17a0db9ffc6acaada4ba68",
+  "_from": "acorn-object-spread@>=1.0.0 <2.0.0",
+  "_npmVersion": "3.8.9",
+  "_nodeVersion": "6.2.0",
+  "_npmUser": {
+    "name": "dariocravero",
+    "email": "dario@uxtemple.com"
+  },
+  "dist": {
+    "shasum": "48ead0f4a8eb16995a17a0db9ffc6acaada4ba68",
+    "tarball": "https://registry.npmjs.org/acorn-object-spread/-/acorn-object-spread-1.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "dariocravero",
+      "email": "dario@uxtemple.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/acorn-object-spread-1.0.0.tgz_1464800884185_0.8297854186967015"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/acorn-object-spread/-/acorn-object-spread-1.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

@@ -7,7 +7,7 @@ var verboseDesc = ['hour', 'minute', 'second', 'millisecond', 'microsecond', 'na
 var convert = [60*60, 60, 1, 1e6, 1e3, 1];
 
 module.exports = function (source, opts) {
-	var verbose, precise, i, spot, sourceAtStep, valAtStep, decimals, strAtStep, results;
+	var verbose, precise, i, spot, sourceAtStep, valAtStep, decimals, strAtStep, results, totalSeconds;
 
 	verbose = false;
 	precise = false;
@@ -21,6 +21,13 @@ module.exports = function (source, opts) {
 	}
 	if (typeof source[0] !== 'number' || typeof source[1] !== 'number') {
 		return '';
+	}
+
+	// normalize source array due to changes in node v5.4+
+	if (source[1] < 0) {
+		totalSeconds = source[0] + source[1] / 1e9;
+		source[0] = parseInt(totalSeconds);
+		source[1] = parseFloat((totalSeconds % 1).toPrecision(9)) * 1e9;
 	}
 
 	results = '';

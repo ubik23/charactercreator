@@ -25,26 +25,25 @@ module.exports = [
         speed:   75,
         latency: 50,
         urls:    [],
-        order:   2
-
-    },
-    {
-        active:  false,
-        id:      "edge",
-        title:   "Regular 2G (250kbs, 300ms RTT)",
-        speed:   25,
-        latency: 150,
-        urls:    [],
         order:   3
     },
     {
         active:  false,
-        id:      "edge+",
+        id:      "good-2g",
         title:   "Good 2G (450kbs, 150ms RTT)",
         speed:   45,
         latency: 75,
         urls:    [],
-        order:   3
+        order:   4
+    },
+    {
+        active:  false,
+        id:      "2g",
+        title:   "Regular 2G (250kbs, 300ms RTT)",
+        speed:   25,
+        latency: 150,
+        urls:    [],
+        order:   5
     },
     {
         active:  false,
@@ -53,15 +52,6 @@ module.exports = [
         speed:   5,
         latency: 250,
         urls:    [],
-        order:   4
-    },
-    //{
-    //    active:  false,
-    //    id:    "none",
-    //    title:   "None",
-    //    speed:   0,
-    //    latency: 0,
-    //    urls:    [],
-    //    order:   5
-    //}
+        order:   6
+    }
 ];

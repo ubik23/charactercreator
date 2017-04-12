@@ -1,4 +1,4 @@
-var copyObjectWith = require('./_copyObjectWith'),
+var copyObject = require('./_copyObject'),
     createAssigner = require('./_createAssigner'),
     keysIn = require('./keysIn');
 
@@ -19,6 +19,7 @@ var copyObjectWith = require('./_copyObjectWith'),
  * @param {...Object} sources The source objects.
  * @param {Function} [customizer] The function to customize assigned values.
  * @returns {Object} Returns `object`.
+ * @see _.assignWith
  * @example
  *
  * function customizer(objValue, srcValue) {
@@ -31,7 +32,7 @@ var copyObjectWith = require('./_copyObjectWith'),
  * // => { 'a': 1, 'b': 2 }
  */
 var assignInWith = createAssigner(function(object, source, srcIndex, customizer) {
-  copyObjectWith(source, keysIn(source), object, customizer);
+  copyObject(source, keysIn(source), object, customizer);
 });
 
 module.exports = assignInWith;

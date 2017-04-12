@@ -6,7 +6,7 @@ module.exports = function (flags, argv) {
   argv.slice(2).forEach(function (arg) {
     var flag = arg.split('=')[0];
     if (flags.indexOf(flag) !== -1) {
-      args.unshift(flag);
+      args.unshift(arg);
     } else {
       args.push(arg);
     }

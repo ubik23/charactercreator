@@ -9,10 +9,13 @@ function copyFileSync (srcFile, destFile, options) {
 
   if (fs.existsSync(destFile)) {
     if (clobber) {
-      fs.chmodSync(destFile, parseInt('777', 8))
       fs.unlinkSync(destFile)
     } else {
-      throw Error('EEXIST')
+      var err = new Error('EEXIST: ' + destFile + ' already exists.')
+      err.code = 'EEXIST'
+      err.errno = -17
+      err.path = destFile
+      throw err
     }
   }
 

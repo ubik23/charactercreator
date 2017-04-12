@@ -1,0 +1,61 @@
+{
+  "name": "debug-fabulous",
+  "version": "0.0.4",
+  "description": "visionmedia debug extensions rolled into one",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/nmccready/debug-fabulous"
+  },
+  "keywords": [
+    "debug",
+    "lazy",
+    "lazy-eval"
+  ],
+  "author": {
+    "name": "Nicholas McCready"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "debug": "2.X",
+    "lazy-debug-legacy": "0.0.X",
+    "object-assign": "4.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "7.X",
+    "chai": "3.X",
+    "eslint": "3.X",
+    "hook-std": "0.X",
+    "mocha": "3.X"
+  },
+  "gitHead": "696f343617dce122ae03dc95e47050e48e87e3d4",
+  "_id": "debug-fabulous@0.0.4",
+  "_shasum": "fa071c5d87484685424807421ca4b16b0b1a0763",
+  "_from": "debug-fabulous@>=0.0.0 <0.1.0",
+  "_npmVersion": "2.15.1",
+  "_nodeVersion": "0.12.16",
+  "_npmUser": {
+    "name": "nmccready",
+    "email": "nemtcan@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "nmccready",
+      "email": "nemtcan@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "fa071c5d87484685424807421ca4b16b0b1a0763",
+    "tarball": "https://registry.npmjs.org/debug-fabulous/-/debug-fabulous-0.0.4.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/debug-fabulous-0.0.4.tgz_1476277359814_0.7783828382380307"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/debug-fabulous/-/debug-fabulous-0.0.4.tgz",
+  "readme": "ERROR: No README data found!"
+}
