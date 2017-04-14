@@ -92,7 +92,6 @@ function getOptions (section) {
         options = forms[i][section];
         if (options != undefined){
         return options
-
         }
     }
 }
