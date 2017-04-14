@@ -391,11 +391,7 @@ input[type=range][orient=vertical] {
     stroke-dasharray:1726;
     animation: homme 3s linear;
     fill-opacity: 0;
-<<<<<<< HEAD
     transition: fill-opacity 0.3s ease-in-out;
-=======
-    transition: fill-opacity 3s ease-in-out;
->>>>>>> dev
 }
 
 .male:hover {
@@ -410,7 +406,6 @@ input[type=range][orient=vertical] {
     stroke-dasharray:1200;
     animation: femme 3s linear;
     fill-opacity: 0;
-<<<<<<< HEAD
     transition: fill-opacity 0.3s ease-in-out;
 }
 
@@ -422,14 +417,6 @@ input[type=range][orient=vertical] {
 
 .female:hover {
     fill-opacity: 1;
-=======
-    transition: fill-opacity 3s ease-in-out;
-}
-
-.female:hover {
-    fill-opacity: 1;
-    transition: fill-opacity 0.3s ease-in-out;
->>>>>>> dev
 }
 
 @keyframes homme {
@@ -506,6 +493,7 @@ input[type=range][orient=vertical] {
     &__left {
         position: absolute;
         left: 0;
+        top: 0;
     }
     &__menu-item {
         @extend %base;
@@ -640,8 +628,8 @@ input[type=range][orient=vertical] {
 }
 
 #svg1 {
-	height: 100%;
-	width: auto;
+	height: 100vmin;
+	width: 100vmin;
     position: relative;
     left: -50%;
     overflow: visible;
