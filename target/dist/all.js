@@ -1519,7 +1519,6 @@ window.onload = function() {
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
 };
-
 function scrollZoom(e) {
     var svgViewBox = document.querySelector("#svg1");
     var event = window.event || e;
@@ -1543,7 +1542,6 @@ function scrollZoom(e) {
         document.querySelector("#zoomLevel").onchange();
     }
 }
-
 function launch(layers, layerDirectory) {
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
@@ -1843,11 +1841,8 @@ function displayPallette () {
 }
 
 function rgb2hex(rgb){
- rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
- return (rgb && rgb.length === 4) ? "#" +
-  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+    rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+    return (rgb && rgb.length === 4) ? "#" + ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
 function colorOnHover() {
