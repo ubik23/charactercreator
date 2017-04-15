@@ -348,6 +348,7 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");

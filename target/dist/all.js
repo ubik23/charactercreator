@@ -503,20 +503,20 @@ function shadeColor(color, percent) {
 }
 
 function ColorLuminance(hex, lum) {
-// validate hex string
-hex = String(hex).replace(/[^0-9a-f]/gi, '');
-if (hex.length < 6) {
-    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-}
-lum = lum || 0;
-// convert to decimal and change luminosity
-var rgb = "#", c, i;
-for (i = 0; i < 3; i++) {
-    c = parseInt(hex.substr(i*2,2), 16);
-    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-    rgb += ("00"+c).substr(c.length);
-}
-return rgb;
+    // validate hex string
+    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+    if (hex.length < 6) {
+        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    }
+    lum = lum || 0;
+    // convert to decimal and change luminosity
+    var rgb = "#", c, i;
+    for (i = 0; i < 3; i++) {
+        c = parseInt(hex.substr(i*2,2), 16);
+        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+        rgb += ("00"+c).substr(c.length);
+    }
+    return rgb;
 }
 
 function colorize(formId, _color){
@@ -682,12 +682,13 @@ function colorize(formId, _color){
 }
 
 function applyColor(id, newColor, optLayer){
+    console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
         for (p in optPaths) {
-            if ( typeof optPaths[p].attr === 'function'){
+            if (typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
                 if (pathStyle == undefined) {

@@ -183,12 +183,13 @@ function colorize(formId, _color){
 }
 
 function applyColor(id, newColor, optLayer){
+    console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
         for (p in optPaths) {
-            if ( typeof optPaths[p].attr === 'function'){
+            if (typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
                 if (pathStyle == undefined) {
