@@ -502,21 +502,26 @@ function shadeColor(color, percent) {
     return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
 }
 
+function shadeColor1(color, percent) {
+    var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+    return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+}
+
 function ColorLuminance(hex, lum) {
-    // validate hex string
-    hex = String(hex).replace(/[^0-9a-f]/gi, '');
-    if (hex.length < 6) {
-        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-    }
-    lum = lum || 0;
-    // convert to decimal and change luminosity
-    var rgb = "#", c, i;
-    for (i = 0; i < 3; i++) {
-        c = parseInt(hex.substr(i*2,2), 16);
-        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-        rgb += ("00"+c).substr(c.length);
-    }
-    return rgb;
+// validate hex string
+hex = String(hex).replace(/[^0-9a-f]/gi, '');
+if (hex.length < 6) {
+    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+}
+lum = lum || 0;
+// convert to decimal and change luminosity
+var rgb = "#", c, i;
+for (i = 0; i < 3; i++) {
+    c = parseInt(hex.substr(i*2,2), 16);
+    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+    rgb += ("00"+c).substr(c.length);
+}
+return rgb;
 }
 
 function colorize(formId, _color){
@@ -601,17 +606,6 @@ function colorize(formId, _color){
                     var optLayer = viewport.select(fullId);
                     if (optLayer != null){
                         var optPaths = optLayer.selectAll('path')
-                        if (fullId === '#body_athletic_2_of_2') {
-                            var optEllipses = optLayer.selectAll('ellipse')
-                            newArray = [];
-                            //for (e in optEllipses) {
-                            //    optPaths.insertAfter.apply(optEllipses[e]);
-                            //}
-                            newArray.push.apply(newArray, optPaths);
-                            newArray.push.apply(newArray, optEllipses);
-                            optPaths = newArray;
-                        }
-
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
                                 var pathId = optPaths[p].attr("id");
@@ -697,20 +691,8 @@ function applyColor(id, newColor, optLayer){
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
-        // Change the color of nipples (ellipses) if the optlayer is the body.
-        if (id === 'body_athletic_2_of_2') {
-            var optEllipses = optLayer.selectAll('ellipse')
-            newArray = [];
-            //for (e in optEllipses) {
-            //    optPaths.insertAfter.apply(optEllipses[e]);
-            //}
-            newArray.push.apply(newArray, optPaths);
-            newArray.push.apply(newArray, optEllipses);
-            optPaths = newArray;
-        }
-
         for (p in optPaths) {
-            if (typeof optPaths[p].attr === 'function'){
+            if ( typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
                 var pathStyle = optLayer.select('#'+ pathId).attr("style");
                 if (pathStyle == undefined) {
@@ -782,6 +764,8 @@ function applyColor(id, newColor, optLayer){
 
 function download() {
     var filename = "my_character.svg";
+    //var text = document.getElementById('svg1').innerHTML;
+    //var text = text || '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="560" height="560" id="character">\n';
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
@@ -1247,6 +1231,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
+// use custom funcs like below, above funcs shouldn't need to be touched much
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
@@ -1325,6 +1310,7 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
+    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
@@ -1434,6 +1420,7 @@ function getOptions (section) {
         options = forms[i][section];
         if (options != undefined){
         return options
+
         }
     }
 }
@@ -1863,7 +1850,6 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
