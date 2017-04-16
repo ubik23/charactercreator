@@ -569,6 +569,7 @@ function colorize(formId, _color){
                 origList = affectedList
                 affectedList=[];
                 for (a in origList) {
+                    if (origList[a] === "body_athletic") {console.log(origList[a]);}
                     for (lyr in multiLayer){
 
                         if (origList[a] == multiLayer[lyr][0]){
@@ -601,6 +602,18 @@ function colorize(formId, _color){
                     var optLayer = viewport.select(fullId);
                     if (optLayer != null){
                         var optPaths = optLayer.selectAll('path')
+                        console.log(fullId);
+                        if (fullId === '#body_athletic_2_of_2') {
+                            var optEllipses = optLayer.selectAll('ellipse')
+                            newArray = [];
+                            //for (e in optEllipses) {
+                            //    optPaths.insertAfter.apply(optEllipses[e]);
+                            //}
+                            newArray.push.apply(newArray, optPaths);
+                            newArray.push.apply(newArray, optEllipses);
+                            optPaths = newArray;
+                        }
+
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
                                 var pathId = optPaths[p].attr("id");
@@ -689,17 +702,15 @@ function applyColor(id, newColor, optLayer){
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
+        // Change the color of nipples (ellipses) if the optlayer is the body.
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
-            console.log('optPaths: ', optPaths);
-            console.log('optEllipses: ', optEllipses);
             newArray = [];
             //for (e in optEllipses) {
             //    optPaths.insertAfter.apply(optEllipses[e]);
             //}
             newArray.push.apply(newArray, optPaths);
             newArray.push.apply(newArray, optEllipses);
-            console.log('newArray: ', newArray);
             optPaths = newArray;
         }
 

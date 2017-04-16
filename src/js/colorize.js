@@ -102,6 +102,17 @@ function colorize(formId, _color){
                     var optLayer = viewport.select(fullId);
                     if (optLayer != null){
                         var optPaths = optLayer.selectAll('path')
+                        if (fullId === '#body_athletic_2_of_2') {
+                            var optEllipses = optLayer.selectAll('ellipse')
+                            newArray = [];
+                            //for (e in optEllipses) {
+                            //    optPaths.insertAfter.apply(optEllipses[e]);
+                            //}
+                            newArray.push.apply(newArray, optPaths);
+                            newArray.push.apply(newArray, optEllipses);
+                            optPaths = newArray;
+                        }
+
                         for (p in optPaths) {
                             if ( typeof optPaths[p].attr === 'function'){
                                 var pathId = optPaths[p].attr("id");
@@ -183,9 +194,6 @@ function colorize(formId, _color){
 }
 
 function applyColor(id, newColor, optLayer){
-    if (id === 'body_athletic_2_of_2') {
-        //console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
-    }
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
