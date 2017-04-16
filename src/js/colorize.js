@@ -190,17 +190,15 @@ function applyColor(id, newColor, optLayer){
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
+        // Change the color of nipples (ellipses) if the optlayer is the body.
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
-            console.log('optPaths: ', optPaths);
-            console.log('optEllipses: ', optEllipses);
             newArray = [];
             //for (e in optEllipses) {
             //    optPaths.insertAfter.apply(optEllipses[e]);
             //}
             newArray.push.apply(newArray, optPaths);
             newArray.push.apply(newArray, optEllipses);
-            console.log('newArray: ', newArray);
             optPaths = newArray;
         }
 
