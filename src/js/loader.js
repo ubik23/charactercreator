@@ -25,7 +25,6 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
-// use custom funcs like below, above funcs shouldn't need to be touched much
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {

@@ -183,11 +183,27 @@ function colorize(formId, _color){
 }
 
 function applyColor(id, newColor, optLayer){
-    console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
+    if (id === 'body_athletic_2_of_2') {
+        //console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
+    }
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
+        if (id === 'body_athletic_2_of_2') {
+            var optEllipses = optLayer.selectAll('ellipse')
+            console.log('optPaths: ', optPaths);
+            console.log('optEllipses: ', optEllipses);
+            newArray = [];
+            //for (e in optEllipses) {
+            //    optPaths.insertAfter.apply(optEllipses[e]);
+            //}
+            newArray.push.apply(newArray, optPaths);
+            newArray.push.apply(newArray, optEllipses);
+            console.log('newArray: ', newArray);
+            optPaths = newArray;
+        }
+
         for (p in optPaths) {
             if (typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")

@@ -682,11 +682,27 @@ function colorize(formId, _color){
 }
 
 function applyColor(id, newColor, optLayer){
-    console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
+    if (id === 'body_athletic_2_of_2') {
+        //console.log('id, newColor,  optLayer: ', id, newColor, optLayer);
+    }
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
         var optPaths = optLayer.selectAll('path')
+        if (id === 'body_athletic_2_of_2') {
+            var optEllipses = optLayer.selectAll('ellipse')
+            console.log('optPaths: ', optPaths);
+            console.log('optEllipses: ', optEllipses);
+            newArray = [];
+            //for (e in optEllipses) {
+            //    optPaths.insertAfter.apply(optEllipses[e]);
+            //}
+            newArray.push.apply(newArray, optPaths);
+            newArray.push.apply(newArray, optEllipses);
+            console.log('newArray: ', newArray);
+            optPaths = newArray;
+        }
+
         for (p in optPaths) {
             if (typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
@@ -760,8 +776,6 @@ function applyColor(id, newColor, optLayer){
 
 function download() {
     var filename = "my_character.svg";
-    //var text = document.getElementById('svg1').innerHTML;
-    //var text = text || '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="560" height="560" id="character">\n';
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
@@ -1227,7 +1241,6 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
-// use custom funcs like below, above funcs shouldn't need to be touched much
 // it uses fragments, so they aren't loaded yet into the DOM fully
 
 function onAllLoaded() {
@@ -1306,7 +1319,6 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
@@ -1845,6 +1857,7 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
+// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
