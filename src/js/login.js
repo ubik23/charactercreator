@@ -239,7 +239,7 @@ getDbSession()
       }
 
       if (t.length) {
-        window.location = 'http://cc/?#' + t.join('&')
+        window.location = '/?#' + t.join('&')
       }
     }
   })
