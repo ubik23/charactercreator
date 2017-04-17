@@ -7,6 +7,7 @@ svg {
 
 html {
 	height: 100%;
+    font-family: Helvetica;
 }
 
 body {
@@ -844,6 +845,10 @@ footer a {
         justify-content: center;
         align-items: center;
     }
+    &__wrapper {
+        border-radius: 5vmin;
+        overflow: hidden;
+    }
     &__panel {
         background-color: white;
         padding: 3vmin;
@@ -853,9 +858,24 @@ footer a {
         justify-content: space-between;
         align-items: center;
         margin: 1vmin;
+        &--buttons {
+            justify-content: space-around;
+            margin-top: 3vmin;
+        }
     }
     &__input {
          margin-left: 1vmin;
+    }
+    &__header, &__footer {
+        background-color: #e35a4e;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2vmin;
+    }
+    &__header {
+        display: flex;
+        justify-content: center;
+        color: white;
     }
 }
 @media screen and (max-width: 980px) {

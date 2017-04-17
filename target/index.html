@@ -116,21 +116,28 @@
         </footer>
     </div>
     <div class="login__modal">
-        <div class="login__panel">
-            <form action="">
-              <div class="login__container">
-                <label class="login__label">Username</label>
-                <input class="login__input" type="text" placeholder="Enter Username" name="uname" required>
-              </div>
-              <div class="login__container">
-                <label class="login__label">Password</label>
-                <input class="login__input" type="password" placeholder="Enter Password" name="psw" required>
-              </div>
-              <div class="login__container">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <button type="submit">Login</button>
-              </div>
-            </form>
+        <div class="login__wrapper">
+            <div class="login__header">
+                <span class="login__title">Login</span>
+            </div>
+            <div class="login__panel">
+                <form action="">
+                  <div class="login__container">
+                    <label class="login__label">Username</label>
+                    <input class="login__input" type="text" placeholder="Enter Username" name="uname" required>
+                  </div>
+                  <div class="login__container">
+                    <label class="login__label">Password</label>
+                    <input class="login__input" type="password" placeholder="Enter Password" name="psw" required>
+                  </div>
+                  <div class="login__container login__container--buttons">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit">Login</button>
+                  </div>
+                </form>
+            </div>
+            <div class="login__footer">
+            </div>
         </div>
     </div>
 </body>
