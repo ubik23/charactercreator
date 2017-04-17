@@ -844,10 +844,15 @@ footer a {
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: opacity 0.3s ease, visibility 0;
+        opacity: 0;
+        visibility: hidden;
     }
     &__wrapper {
         border-radius: 5vmin;
         overflow: hidden;
+        transition: transform 0.2s ease 0.3s;
+        transform: translate3d(0, 100vh, 0);
     }
     &__panel {
         background-color: white;
@@ -878,6 +883,18 @@ footer a {
         color: white;
     }
 }
+.login--show {
+    & .login {
+        &__modal {
+            opacity: 1;
+            visibility: visible;
+        }
+        &__wrapper {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
 @media screen and (max-width: 980px) {
 }
 

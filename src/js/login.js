@@ -159,6 +159,11 @@ function logout (ev) {
     })
 }
 
+function loginMenu() {
+
+  var pageWrap = document.querySelector('#pagewrap');
+  pageWrap.classList.add('login--show');
+}
 function login (ev) {
   ev.preventDefault()
   // console.log('login? Yeah sure', typeof ev, ev)

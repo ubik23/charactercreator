@@ -1501,6 +1501,11 @@ function logout (ev) {
     })
 }
 
+function loginMenu() {
+
+  var pageWrap = document.querySelector('#pagewrap');
+  pageWrap.classList.add('login--show');
+}
 function login (ev) {
   ev.preventDefault()
   // console.log('login? Yeah sure', typeof ev, ev)
@@ -1799,7 +1804,7 @@ window.onload = function() {
 
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
-    if (loginBtn && typeof login === 'function') { loginBtn.addEventListener("click", login, false) }
+    if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
     if (registerBtn && typeof register === 'function') { registerBtn.addEventListener("click", register, false) }
 
 /*
