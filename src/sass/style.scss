@@ -832,6 +832,32 @@ footer a {
 	height: 100px; 
 }
 
+.login {
+    &__modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__panel {
+        background-color: white;
+        padding: 3vmin;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1vmin;
+    }
+    &__input {
+         margin-left: 1vmin;
+    }
+}
 @media screen and (max-width: 980px) {
 }
 
