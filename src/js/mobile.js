@@ -1,4 +1,26 @@
 window.onload = function() {
+    var whoBtn = document.querySelector("#whoButton");
+    var logoutBtn = document.querySelector("#logoutButton");
+    var loginBtn = document.querySelector("#loginButton");
+    var registerBtn = document.querySelector("#registerButton");
+
+    if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
+    if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
+    if (loginBtn && typeof login === 'function') { loginBtn.addEventListener("click", login, false) }
+    if (registerBtn && typeof register === 'function') { registerBtn.addEventListener("click", register, false) }
+
+/*
+    // do something if user is connected...
+    isUser()
+      .then(function (user) {
+          console.log('user', user, myUsername)
+      })
+    // ...or not
+      .catch(function (err) {
+          console.log('not user', err, myUsername)
+      })
+*/
+
     maleSilhouette = document.getElementById("male_silhouette");
     femaleSilhouette = document.getElementById("female_silhouette");
     var hashSex = hash.get("sex");
@@ -348,7 +370,6 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
