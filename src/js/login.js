@@ -162,14 +162,31 @@ function logout (ev) {
 function loginMenu() {
 
   var pageWrap = document.querySelector('#pagewrap');
+  var loginForm = document.querySelector('#login-form');
+  var firstInput = document.querySelector('#first-input');
+  console.log('firstInput', firstInput);
   pageWrap.classList.add('login--show');
+  loginForm.addEventListener("submit", login, true);
+  firstInput.focus();
+
 }
-function login (ev) {
-  ev.preventDefault()
+function closeLogin() {
+  var login = document.querySelector('.login--show');
+  if (login) {
+      login.classList.remove('login--show');
+  }
+}
+
+function login (evt) {
+  evt.preventDefault()
+    var event = evt;
+    var username = event.target.children[0].lastElementChild.value;
+    var password = event.target.children[1].lastElementChild.value;
+    closeLogin();
   // console.log('login? Yeah sure', typeof ev, ev)
 
-  var username = window.prompt('Username')
-  var password = window.prompt('Password')
+  //var username = window.prompt('Username')
+  //var password = window.prompt('Password')
 
   if (!username || !password) { return }
 

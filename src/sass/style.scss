@@ -844,7 +844,7 @@ footer a {
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: opacity 0.3s ease, visibility 0;
+        transition: opacity 0.3s ease;
         opacity: 0;
         visibility: hidden;
     }
@@ -852,7 +852,7 @@ footer a {
         border-radius: 5vmin;
         overflow: hidden;
         transition: transform 0.2s ease 0.3s;
-        transform: translate3d(0, 100vh, 0);
+        transform: translate3d(0, -100vh, 0);
     }
     &__panel {
         background-color: white;
