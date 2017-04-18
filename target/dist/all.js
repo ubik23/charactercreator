@@ -1502,33 +1502,35 @@ function logout (ev) {
 }
 
 function loginMenu() {
-
   var pageWrap = document.querySelector('#pagewrap');
   var loginForm = document.querySelector('#login-form');
   var firstInput = document.querySelector('#first-input');
-  console.log('firstInput', firstInput);
+  var overlay = document.querySelector('.login__modal');
   pageWrap.classList.add('login--show');
   loginForm.addEventListener("submit", login, true);
+  overlay.addEventListener('click', closeLogin, true);
   firstInput.focus();
-
 }
-function closeLogin() {
-  var login = document.querySelector('.login--show');
-  if (login) {
-      login.classList.remove('login--show');
-  }
+
+function closeLogin(evt) {
+  var overlay = document.querySelector('.login__modal');
+  var cancelBtn = overlay.querySelector('.cancelbtn');
+    var target = evt.target;
+    if (target === overlay || target === cancelBtn) {
+      var login = document.querySelector('.login--show');
+      if (login) {
+          login.classList.remove('login--show');
+      }
+    }
 }
 
 function login (evt) {
-  evt.preventDefault()
+    evt.preventDefault()
     var event = evt;
     var username = event.target.children[0].lastElementChild.value;
     var password = event.target.children[1].lastElementChild.value;
-    closeLogin();
-  // console.log('login? Yeah sure', typeof ev, ev)
-
-  //var username = window.prompt('Username')
-  //var password = window.prompt('Password')
+    var login = document.querySelector('.login--show');
+    login.classList.remove('login--show');
 
   if (!username || !password) { return }
 
@@ -1540,7 +1542,6 @@ function login (evt) {
       return getDbUser(username)
     })
     .then(function (user) {
-      // console.log('USER:', user)
       currentUser = user
       var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
       var r
@@ -1551,10 +1552,17 @@ function login (evt) {
       if (t.length) {
         window.location = '/#' + t.join('&')
       }
+      manageCharacters(user);
     })
     .catch(function (err) {
       console.error('err3', err)
     })
+}
+
+function manageCharacters(currentUser) {
+      console.log('USER:', currentUser)
+      console.log('Characters:', currentUser.cc.personnages);
+      console.log('Current Character:', currentUser.cc.personnageActuel);
 }
 
 function register (ev) {
