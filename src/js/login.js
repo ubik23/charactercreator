@@ -278,12 +278,15 @@ getDbSession()
   })
 
 window.addEventListener('hashchange', function () {
-  // console.log('myUsername', myUsername)
+    return;
+    var personnageActuel = currentUser.cc.personnageActuel;
+  console.log('currentUser', currentUser);
   // console.log('hash', window.hash.get())
   if (!myUsername || !currentUser) { return }
   console.log('hash changed')
   if (!currentUser) { return }
   console.log('logged in', currentUser.name)
+  console.log('personnageActuel', personnageActuel);
 
   if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
   if (!personnageActuel) { return }
