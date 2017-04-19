@@ -846,7 +846,7 @@ footer a {
         align-items: center;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease 0.2s, visibility linear 0.5s;
+        transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
     }
     &__wrapper {
         border-radius: 5vmin;
@@ -866,6 +866,9 @@ footer a {
         &--buttons {
             justify-content: space-around;
             margin-top: 3vmin;
+        }
+        &--char-list {
+            flex-direction: column;
         }
     }
     &__input {
@@ -890,6 +893,15 @@ footer a {
             color: white;
         }
     }
+    &__char-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2vmin;
+    }
+    &__char-btns {
+         margin-left: 2vmin;
+    }
 }
 .overlay--show {
         opacity: 1;
@@ -898,9 +910,11 @@ footer a {
 
         & .overlay__wrapper {
             transform: translate3d(0, 0, 0);
-            transition: transform 0.2s ease 0.3s;
+            transition: transform 0.2s ease 0.1s;
         }
 }
+
+
 
 @media screen and (max-width: 980px) {
 }
