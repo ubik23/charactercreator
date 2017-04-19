@@ -1255,6 +1255,7 @@ function onAllLoaded() {
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
     downloadBtn = document.querySelector("#downloadButton");
+    downloadBtn.classList.add('enabled');
     downloadBtn.addEventListener("click", download, false)
     var tl = new TimelineLite({onComplete: createForm});
     tl.add("sidebars",0.5)

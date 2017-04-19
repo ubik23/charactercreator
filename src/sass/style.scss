@@ -925,6 +925,16 @@ footer a {
 #logoutButton, #usernameButton, #whoButton {
     display: none;
 }
+#downloadButton {
+    opacity: 0.2;
+    transition: opacity 0.2s ease-in-out;
+    cursor: default;
+    &.enabled {
+        opacity: 1;
+        cursor: auto;
+    }
+}
+
 .logged {
     & #usernameButton {
         display: inline-block;
