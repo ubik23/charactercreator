@@ -1502,9 +1502,14 @@ function logout (ev) {
     .catch(function (err) {
       console.error('err4', err)
     })
+    logoutUI();
+}
+
+function logoutUI(){
   var pageWrap = document.querySelector('.logged');
   if (pageWrap) {
        pageWrap.classList.remove('logged');
+       resetCharacters();
   }
 }
 
@@ -1567,9 +1572,9 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      if (t.length) {
+      //if (t.length) {
         //window.location = '/#' + t.join('&')
-      }
+      //}
       manageCharacters(user);
     })
     .catch(function (err) {
@@ -1611,6 +1616,14 @@ function manageCharacters(currentUser) {
       console.log('Characters:', currentUser.cc.personnages);
       console.log('Characters:', Object.keys(currentUser.cc.personnages));
       console.log('Current Character:', currentUser.cc.personnageActuel);
+}
+
+function resetCharacters() {
+    var charUI = document.querySelector('.js-character-list');
+    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig)');
+    Array.prototype.forEach.call( charCards, function( node ) {
+        node.parentNode.removeChild( node );
+    });
 }
 
 function registerMenu() {
@@ -1688,6 +1701,8 @@ getDbSession()
           encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
         )
       }
+
+      manageCharacters(user);
 
       if (t.length) {
         window.location = '/?#' + t.join('&')

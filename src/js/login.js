@@ -167,6 +167,7 @@ function logoutUI(){
   var pageWrap = document.querySelector('.logged');
   if (pageWrap) {
        pageWrap.classList.remove('logged');
+       resetCharacters();
   }
 }
 
@@ -229,9 +230,9 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      if (t.length) {
+      //if (t.length) {
         //window.location = '/#' + t.join('&')
-      }
+      //}
       manageCharacters(user);
     })
     .catch(function (err) {
@@ -248,7 +249,7 @@ function manageCharacters(currentUser) {
     var charContainer = charUI.querySelector('.overlay__container--char-list');
     var charCurrent = currentUser.cc.personnageActuel;
     var usernameButton = document.querySelector('#usernameButton');
-    var usernameText = usernameButton.query.Selector('.menu-text');
+    var usernameText = usernameButton.querySelector('.menu-text');
     var pageWrap = document.querySelector('#pagewrap')
     while (charNum--) {
         var charName = charList[charNum];
@@ -273,6 +274,14 @@ function manageCharacters(currentUser) {
       console.log('Characters:', currentUser.cc.personnages);
       console.log('Characters:', Object.keys(currentUser.cc.personnages));
       console.log('Current Character:', currentUser.cc.personnageActuel);
+}
+
+function resetCharacters() {
+    var charUI = document.querySelector('.js-character-list');
+    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig)');
+    Array.prototype.forEach.call( charCards, function( node ) {
+        node.parentNode.removeChild( node );
+    });
 }
 
 function registerMenu() {
@@ -350,6 +359,8 @@ getDbSession()
           encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
         )
       }
+
+      manageCharacters(user);
 
       if (t.length) {
         window.location = '/?#' + t.join('&')
