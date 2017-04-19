@@ -3,11 +3,13 @@ window.onload = function() {
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
+    var registerLink = document.querySelector(".js-register-link");
 
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
-    if (registerBtn && typeof register === 'function') { registerBtn.addEventListener("click", register, false) }
+    if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
+    if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
 /*
     // do something if user is connected...

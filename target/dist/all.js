@@ -1503,23 +1503,23 @@ function logout (ev) {
 
 function loginMenu() {
   var pageWrap = document.querySelector('#pagewrap');
+  var overlay = document.querySelector('.js-login');
   var loginForm = document.querySelector('#login-form');
-  var firstInput = document.querySelector('#first-input');
-  var overlay = document.querySelector('.login__modal');
-  pageWrap.classList.add('login--show');
+  var firstInput = overlay.querySelector('.first-input');
+  overlay.classList.add('overlay--show');
   loginForm.addEventListener("submit", login, true);
   overlay.addEventListener('click', closeLogin, true);
   firstInput.focus();
 }
 
 function closeLogin(evt) {
-  var overlay = document.querySelector('.login__modal');
+  var overlay = document.querySelector('.js-login');
   var cancelBtn = overlay.querySelector('.cancelbtn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
-      var login = document.querySelector('.login--show');
+      var login = document.querySelector('.overlay--show');
       if (login) {
-          login.classList.remove('login--show');
+          login.classList.remove('overlay--show');
       }
     }
 }
@@ -1529,8 +1529,8 @@ function login (evt) {
     var event = evt;
     var username = event.target.children[0].lastElementChild.value;
     var password = event.target.children[1].lastElementChild.value;
-    var login = document.querySelector('.login--show');
-    login.classList.remove('login--show');
+    var login = document.querySelector('.overlay--show');
+    login.classList.remove('overlay--show');
 
   if (!username || !password) { return }
 
@@ -1565,11 +1565,43 @@ function manageCharacters(currentUser) {
       console.log('Current Character:', currentUser.cc.personnageActuel);
 }
 
-function register (ev) {
-  ev.preventDefault()
-  var username = window.prompt('Username')
-  var email = window.prompt('Email')
-  var password = window.prompt('Password')
+function registerMenu() {
+    var loginMenu = document.querySelector('.js-login');
+  var pageWrap = document.querySelector('#pagewrap');
+  var overlay = document.querySelector('.js-register');
+  var registerForm = document.querySelector('#register-form');
+  var firstInput = overlay.querySelector('.first-input');
+  console.log('loginMenu', loginMenu);
+  if (loginMenu.classList.contains('overlay--show')) {
+      loginMenu.classList.remove('overlay--show');
+  }
+  overlay.classList.add('overlay--show');
+  registerForm.addEventListener("submit", register, true);
+  overlay.addEventListener('click', closeRegister, true);
+  firstInput.focus();
+}
+
+function closeRegister(evt) {
+  var overlay = document.querySelector('.js-register');
+  var cancelBtn = overlay.querySelector('.cancelbtn');
+    var target = evt.target;
+    if (target === overlay || target === cancelBtn) {
+      var register = document.querySelector('.overlay--show');
+      if (register) {
+          register.classList.remove('overlay--show');
+      }
+    }
+}
+
+function register (evt) {
+    evt.preventDefault()
+    var event = evt;
+    var email = event.target.children[0].lastElementChild.value;
+    var username = event.target.children[1].lastElementChild.value;
+    var password = event.target.children[2].lastElementChild.value;
+    var register = document.querySelector('.overlay--show');
+    register.classList.remove('overlay--show');
+
   if (!username || !password || !email) { return }
 
   createDbUser(username, password, email)
@@ -1829,11 +1861,13 @@ window.onload = function() {
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
+    var registerLink = document.querySelector(".js-register-link");
 
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
-    if (registerBtn && typeof register === 'function') { registerBtn.addEventListener("click", register, false) }
+    if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
+    if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
 /*
     // do something if user is connected...

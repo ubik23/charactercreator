@@ -115,29 +115,77 @@
             </script>
         </footer>
     </div>
-    <div class="login__modal">
-        <div class="login__wrapper">
-            <div class="login__header">
-                <span class="login__title">Login</span>
+    <div class="overlay__modal js-login">
+        <div class="overlay__wrapper">
+            <div class="overlay__header">
+                <span class="overlay__title">Login</span>
             </div>
-            <div class="login__panel">
+            <div class="overlay__panel">
                 <form id="login-form"action="#">
-                  <div class="login__container">
-                    <label class="login__label">User:</label>
-                    <input id="first-input" class="login__input" type="text" placeholder="Enter Username" name="uname" required>
+                  <div class="overlay__container">
+                    <label class="overlay__label">User:</label>
+                    <input class="first-input overlay__input" type="text" placeholder="Enter Username" name="uname" required>
                   </div>
-                  <div class="login__container">
-                    <label class="login__label">Pass:</label>
-                    <input class="login__input" type="password" placeholder="Enter Password" name="psw" required>
+                  <div class="overlay__container">
+                    <label class="overlay__label">Pass:</label>
+                    <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
                   </div>
-                  <div class="login__container login__container--buttons">
+                  <div class="overlay__container overlay__container--buttons">
                     <button type="button" class="cancelbtn">Cancel</button>
                     <button type="submit">Login</button>
                   </div>
                 </form>
             </div>
-            <div class="login__footer">
-                <span>or <a href="#">register a new account</a>.</span>
+            <div class="overlay__footer">
+                <span class="overlay__footer__text">or <a class="overlay__footer__link js-register-link" href="#">register a new account</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="overlay__modal js-register">
+        <div class="overlay__wrapper">
+            <div class="overlay__header">
+                <span class="overlay__title">Register</span>
+            </div>
+            <div class="overlay__panel">
+                <form id="register-form"action="#">
+                  <div class="overlay__container">
+                    <label class="overlay__label">Email:</label>
+                    <input class="first-input overlay__input" type="email" placeholder="Enter Email" name="email" required>
+                  </div>
+                  <div class="overlay__container">
+                    <label class="overlay__label">User:</label>
+                    <input class="first-input overlay__input" type="text" placeholder="Enter Username" name="uname" required>
+                  </div>
+                  <div class="overlay__container">
+                    <label class="overlay__label">Pass:</label>
+                    <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
+                  </div>
+                  <div class="overlay__container overlay__container--buttons">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit">Login</button>
+                  </div>
+                </form>
+            </div>
+            <div class="overlay__footer">
+            </div>
+        </div>
+    </div>
+    <div class="overlay__modal js-character-list">
+        <div class="overlay__wrapper">
+            <div class="overlay__header">
+                <span class="overlay__title">Username</span>
+            </div>
+            <div class="overlay__panel">
+                  <div class="overlay__container">
+                      <div class="overlay__char-card">
+                          <span class="overlay__char-name"></span>
+                          <span class="overlay__char-edit">edit</span>
+                          <span class="overlay__char-seperator">|</span>
+                          <span class="overlay__char-delete">delete</span>
+                      </div>
+                  </div>
+            </div>
+            <div class="overlay__footer">
             </div>
         </div>
     </div>

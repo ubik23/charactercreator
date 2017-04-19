@@ -833,7 +833,7 @@ footer a {
 	height: 100px; 
 }
 
-.login {
+.overlay {
     &__modal {
         position: fixed;
         top: 0;
@@ -844,14 +844,14 @@ footer a {
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: opacity 0.3s ease;
         opacity: 0;
         visibility: hidden;
+        transition: opacity 0.3s ease 0.2s, visibility linear 0.5s;
     }
     &__wrapper {
         border-radius: 5vmin;
         overflow: hidden;
-        transition: transform 0.2s ease 0.3s;
+        transition: transform 0.2s ease;
         transform: translate3d(0, -100vh, 0);
     }
     &__panel {
@@ -876,23 +876,30 @@ footer a {
         box-sizing: border-box;
         width: 100%;
         padding: 2vmin;
-    }
-    &__header {
         display: flex;
         justify-content: center;
+    }
+    &__header {
         color: white;
     }
-}
-.login--show {
-    & .login {
-        &__modal {
-            opacity: 1;
-            visibility: visible;
+    &__footer {
+        &__text {
+            font-size: 0.8em;
         }
-        &__wrapper {
-            transform: translate3d(0, 0, 0);
+        &__link {
+            color: white;
         }
     }
+}
+.overlay--show {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility linear;
+
+        & .overlay__wrapper {
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.2s ease 0.3s;
+        }
 }
 
 @media screen and (max-width: 980px) {
