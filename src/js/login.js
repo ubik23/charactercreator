@@ -160,6 +160,14 @@ function logout (ev) {
     .catch(function (err) {
       console.error('err4', err)
     })
+    logoutUI();
+}
+
+function logoutUI(){
+  var pageWrap = document.querySelector('.logged');
+  if (pageWrap) {
+       pageWrap.classList.remove('logged');
+  }
 }
 
 function loginMenu() {
@@ -196,7 +204,7 @@ function closeOverlay(evt) {
     }
 }
 
-function login (evt) {
+function login(evt) {
     evt.preventDefault()
     var event = evt;
     var username = event.target.children[0].lastElementChild.value;
@@ -222,7 +230,7 @@ function login (evt) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
-        window.location = '/#' + t.join('&')
+        //window.location = '/#' + t.join('&')
       }
       manageCharacters(user);
     })
@@ -232,8 +240,38 @@ function login (evt) {
 }
 
 function manageCharacters(currentUser) {
-      console.log('USER:', currentUser)
+    var charUI = document.querySelector('.js-character-list');
+    var userTitle = charUI.querySelector('.overlay__title');
+    var charCard = charUI.querySelector('.overlay__char-card--orig');
+    var charList = Object.keys(currentUser.cc.personnages);
+    var charNum = charList.length;
+    var charContainer = charUI.querySelector('.overlay__container--char-list');
+    var charCurrent = currentUser.cc.personnageActuel;
+    var usernameButton = document.querySelector('#usernameButton');
+    var usernameText = usernameButton.query.Selector('.menu-text');
+    var pageWrap = document.querySelector('#pagewrap')
+    while (charNum--) {
+        var charName = charList[charNum];
+        var newCard = charCard.cloneNode(true);
+        var charNameCard = newCard.querySelector('.overlay__char-name');
+        newCard.classList.remove('overlay__char-card--orig')
+        if (charName === charCurrent){
+            console.log('****same');
+            newCard.classList.add('overlay__char--current');
+        }
+        charNameCard.innerHTML = charName;
+        charContainer.appendChild(newCard);
+        console.log(newCard);
+        console.log(charList[charNum]) ;
+    }
+    console.log(charList.length)
+    userTitle.innerHTML = currentUser.name;
+    usernameText.innerHTML = currentUser.name;
+    pageWrap.classList.add('logged');
+      console.log('USER:', currentUser.name);
       console.log('Characters:', currentUser.cc.personnages);
+      console.log('Characters:', currentUser.cc.personnages);
+      console.log('Characters:', Object.keys(currentUser.cc.personnages));
       console.log('Current Character:', currentUser.cc.personnageActuel);
 }
 
