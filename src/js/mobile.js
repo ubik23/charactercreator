@@ -32,6 +32,8 @@ window.onload = function() {
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
     interpretHash();
+    maleSilhouette.addEventListener('click', selectMale, false);
+    femaleSilhouette.addEventListener('click', selectFemale, false);
 };
 function interpretHash() {
     var hashSex = hash.get("sex");
@@ -40,8 +42,6 @@ function interpretHash() {
     } else if (hashSex === "f") {
         selectFemale();
     } else {
-    maleSilhouette.addEventListener('click', selectMale, false);
-    femaleSilhouette.addEventListener('click', selectFemale, false);
     }
 }
 

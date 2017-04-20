@@ -1584,17 +1584,33 @@ function login(evt) {
     })
 }
 
+function hashCharacter() {
+      var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
+      var r
+      var t = []
+      for (r in u) {
+        t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
+      }
+      if (t.length) {
+        window.location = '/#' + t.join('&')
+      }
+      //manageCharacters(currentUser);
+      //TODO make sure the menu is rest before rebuilding it on top of existing menu.
+      interpretHash();
+}
+
 function switchCharacter(evt) {
     evt.preventDefault();
     var newCard = this.parentNode.parentNode;
-     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
-     var oldCard = document.querySelector('.overlay__char--current');
-     oldCard.classList.remove('overlay__char--current');
-     newCard.classList.add('overlay__char--current');
-     console.log(currentUser);
-     currentUser.cc.personnageActuel = newChar;
-     console.log(newChar);
-      updateDbUser(currentUser)
+    var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
+    var oldCard = document.querySelector('.overlay__char--current');
+    oldCard.classList.remove('overlay__char--current');
+    newCard.classList.add('overlay__char--current');
+    console.log(currentUser);
+    currentUser.cc.personnageActuel = newChar;
+    console.log(newChar);
+
+    updateDbUser(currentUser)
         .then(function (json) {
           currentUser._rev = json.rev
           return json
@@ -1602,7 +1618,8 @@ function switchCharacter(evt) {
         .catch(function (err) {
           console.log('err', err)
         })
-
+    //TODO clear hash before applying hash of new character.
+    hashCharacter();
 }
 
 function manageCharacters(currentUser) {
@@ -1618,6 +1635,8 @@ function manageCharacters(currentUser) {
     var pageWrap = document.querySelector('#pagewrap');
     var editBtns;
     var editBtnsNum;
+    var saveBtn = document.querySelector('.save-btn');
+    resetCharacters();
     while (charNum--) {
         var charName = charList[charNum];
         var newCard = charCard.cloneNode(true);
@@ -1646,11 +1665,12 @@ function manageCharacters(currentUser) {
       console.log('Characters:', currentUser.cc.personnages);
       console.log('Characters:', Object.keys(currentUser.cc.personnages));
       console.log('Current Character:', currentUser.cc.personnageActuel);
+    saveBtn.addEventListener('click', saveChar, true);
 }
 
 function resetCharacters() {
     var charUI = document.querySelector('.js-character-list');
-    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig)');
+    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char--new)');
     Array.prototype.forEach.call( charCards, function( node ) {
         node.parentNode.removeChild( node );
     });
@@ -1736,18 +1756,27 @@ getDbSession()
       }
     }
     manageCharacters(user);
+    setHashTrigger();
   })
   .catch(function (err) {
     console.log('getDbUser error', err)
   })
 
-window.addEventListener('hashchange', function () {
-    return;
+function setHashTrigger() {
+    window.addEventListener('hashchange', function () {
+        var saveBtn = document.querySelector('.save-btn');
+        saveBtn.classList.add('save--enabled');
+        console.log('hash changed');
+    }, false)
+}
+
+function saveChar() {
+    var saveBtn = document.querySelector('.save-btn');
+    saveBtn.classList.remove('save--enabled');
     var personnageActuel = currentUser.cc.personnageActuel;
   console.log('currentUser', currentUser);
   // console.log('hash', window.hash.get())
   if (!myUsername || !currentUser) { return }
-  console.log('hash changed')
   if (!currentUser) { return }
   console.log('logged in', currentUser.name)
   console.log('personnageActuel', personnageActuel);
@@ -1770,8 +1799,8 @@ window.addEventListener('hashchange', function () {
     .catch(function (err) {
       console.log('err', err)
     })
+}
 
-}, false)
 
 function isInArray(value, array) {
        return array.indexOf(value) > -1;
@@ -1980,6 +2009,8 @@ window.onload = function() {
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
     interpretHash();
+    maleSilhouette.addEventListener('click', selectMale, false);
+    femaleSilhouette.addEventListener('click', selectFemale, false);
 };
 function interpretHash() {
     var hashSex = hash.get("sex");
@@ -1988,8 +2019,6 @@ function interpretHash() {
     } else if (hashSex === "f") {
         selectFemale();
     } else {
-    maleSilhouette.addEventListener('click', selectMale, false);
-    femaleSilhouette.addEventListener('click', selectFemale, false);
     }
 }
 
