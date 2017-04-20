@@ -322,21 +322,23 @@ function register (evt) {
 
   if (!username || !password || !email) { return }
 
-  createDbUser(username, password, email)
+  user = createDbUser(username, password, email)
     .then(function () {
     // .then(function (json) {
       // console.log('go on...', json)
       return loginDbUser(username, password)
     })
-    .then(function (json) {
+    .then(getDbUser)
+    .then(function (user) {
       // TODO, handle currentUser
-      myUsername = username
-      // console.log('fetched2', json)
-      return json
+      currentUser = user
+      console.log('fetched2 user', user)
+      return user;
     })
     .catch(function (err) {
       console.error('err', err)
     })
+    manageCharacters(user);
 }
 
 getDbSession()
@@ -359,13 +361,11 @@ getDbSession()
           encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
         )
       }
-
-      manageCharacters(user);
-
       if (t.length) {
         window.location = '/?#' + t.join('&')
       }
     }
+    manageCharacters(user);
   })
   .catch(function (err) {
     console.log('getDbUser error', err)
