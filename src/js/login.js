@@ -379,9 +379,15 @@ function register (evt) {
     })
     .then(function (json) {
       // TODO, handle currentUser
-      myUsername = username
       console.log('fetched2', json)
-      return json
+      //return json
+      return username
+    })
+    .then(getDbUser)
+    .then(function(user){
+         console.log('LE USER:', user)
+         currentUser = user
+         manageCharacters(currentUser)
     })
     .catch(function (err) {
       console.error('err', err)
