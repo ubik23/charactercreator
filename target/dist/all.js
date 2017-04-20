@@ -1729,6 +1729,7 @@ function register (evt) {
     .catch(function (err) {
       console.error('err', err)
     })
+    manageCharacters(currentUser);
 }
 
 getDbSession()
