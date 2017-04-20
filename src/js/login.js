@@ -230,14 +230,36 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      //if (t.length) {
-        //window.location = '/#' + t.join('&')
-      //}
+      if (t.length) {
+        window.location = '/#' + t.join('&')
+      }
       manageCharacters(user);
+      interpretHash();
     })
     .catch(function (err) {
       console.error('err3', err)
     })
+}
+
+function switchCharacter(evt) {
+    evt.preventDefault();
+    var newCard = this.parentNode.parentNode;
+     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
+     var oldCard = document.querySelector('.overlay__char--current');
+     oldCard.classList.remove('overlay__char--current');
+     newCard.classList.add('overlay__char--current');
+     console.log(currentUser);
+     currentUser.cc.personnageActuel = newChar;
+     console.log(newChar);
+      updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+
 }
 
 function manageCharacters(currentUser) {
@@ -250,7 +272,9 @@ function manageCharacters(currentUser) {
     var charCurrent = currentUser.cc.personnageActuel;
     var usernameButton = document.querySelector('#usernameButton');
     var usernameText = usernameButton.querySelector('.menu-text');
-    var pageWrap = document.querySelector('#pagewrap')
+    var pageWrap = document.querySelector('#pagewrap');
+    var editBtns;
+    var editBtnsNum;
     while (charNum--) {
         var charName = charList[charNum];
         var newCard = charCard.cloneNode(true);
@@ -264,6 +288,11 @@ function manageCharacters(currentUser) {
         charContainer.appendChild(newCard);
         console.log(newCard);
         console.log(charList[charNum]) ;
+    }
+    editBtns = charUI.querySelectorAll('.overlay__char-edit');
+    editBtnsNum = editBtns.length
+    while (editBtnsNum--) {
+        editBtns[editBtnsNum].addEventListener('click', switchCharacter);
     }
     console.log(charList.length)
     userTitle.innerHTML = currentUser.name;
@@ -322,23 +351,21 @@ function register (evt) {
 
   if (!username || !password || !email) { return }
 
-  user = createDbUser(username, password, email)
+  createDbUser(username, password, email)
     .then(function () {
     // .then(function (json) {
       // console.log('go on...', json)
       return loginDbUser(username, password)
     })
-    .then(getDbUser)
-    .then(function (user) {
+    .then(function (json) {
       // TODO, handle currentUser
-      currentUser = user
-      console.log('fetched2 user', user)
-      return user;
+      myUsername = username
+      console.log('fetched2', json)
+      return json
     })
     .catch(function (err) {
       console.error('err', err)
     })
-    manageCharacters(user);
 }
 
 getDbSession()

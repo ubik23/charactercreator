@@ -25,13 +25,16 @@ window.onload = function() {
 
     maleSilhouette = document.getElementById("male_silhouette");
     femaleSilhouette = document.getElementById("female_silhouette");
-    var hashSex = hash.get("sex");
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     if (document.attachEvent) //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     else if (document.addEventListener) //WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
+    interpretHash();
+};
+function interpretHash() {
+    var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
@@ -40,7 +43,7 @@ window.onload = function() {
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
-};
+}
 
 function scrollZoom(e) {
     var svgViewBox = document.querySelector("#svg1");

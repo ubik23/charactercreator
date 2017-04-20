@@ -1573,14 +1573,36 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      //if (t.length) {
-        //window.location = '/#' + t.join('&')
-      //}
+      if (t.length) {
+        window.location = '/#' + t.join('&')
+      }
       manageCharacters(user);
+      interpretHash();
     })
     .catch(function (err) {
       console.error('err3', err)
     })
+}
+
+function switchCharacter(evt) {
+    evt.preventDefault();
+    var newCard = this.parentNode.parentNode;
+     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
+     var oldCard = document.querySelector('.overlay__char--current');
+     oldCard.classList.remove('overlay__char--current');
+     newCard.classList.add('overlay__char--current');
+     console.log(currentUser);
+     currentUser.cc.personnageActuel = newChar;
+     console.log(newChar);
+      updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+
 }
 
 function manageCharacters(currentUser) {
@@ -1593,7 +1615,9 @@ function manageCharacters(currentUser) {
     var charCurrent = currentUser.cc.personnageActuel;
     var usernameButton = document.querySelector('#usernameButton');
     var usernameText = usernameButton.querySelector('.menu-text');
-    var pageWrap = document.querySelector('#pagewrap')
+    var pageWrap = document.querySelector('#pagewrap');
+    var editBtns;
+    var editBtnsNum;
     while (charNum--) {
         var charName = charList[charNum];
         var newCard = charCard.cloneNode(true);
@@ -1607,6 +1631,11 @@ function manageCharacters(currentUser) {
         charContainer.appendChild(newCard);
         console.log(newCard);
         console.log(charList[charNum]) ;
+    }
+    editBtns = charUI.querySelectorAll('.overlay__char-edit');
+    editBtnsNum = editBtns.length
+    while (editBtnsNum--) {
+        editBtns[editBtnsNum].addEventListener('click', switchCharacter);
     }
     console.log(charList.length)
     userTitle.innerHTML = currentUser.name;
@@ -1665,23 +1694,21 @@ function register (evt) {
 
   if (!username || !password || !email) { return }
 
-  user = createDbUser(username, password, email)
+  createDbUser(username, password, email)
     .then(function () {
     // .then(function (json) {
       // console.log('go on...', json)
       return loginDbUser(username, password)
     })
-    .then(getDbUser)
-    .then(function (user) {
+    .then(function (json) {
       // TODO, handle currentUser
-      currentUser = user
-      console.log('fetched2 user', user)
-      return user;
+      myUsername = username
+      console.log('fetched2', json)
+      return json
     })
     .catch(function (err) {
       console.error('err', err)
     })
-    manageCharacters(user);
 }
 
 getDbSession()
@@ -1946,13 +1973,16 @@ window.onload = function() {
 
     maleSilhouette = document.getElementById("male_silhouette");
     femaleSilhouette = document.getElementById("female_silhouette");
-    var hashSex = hash.get("sex");
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     if (document.attachEvent) //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     else if (document.addEventListener) //WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
+    interpretHash();
+};
+function interpretHash() {
+    var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
@@ -1961,7 +1991,7 @@ window.onload = function() {
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
     }
-};
+}
 
 function scrollZoom(e) {
     var svgViewBox = document.querySelector("#svg1");
