@@ -973,6 +973,36 @@ footer a {
     }
 }
 
+.male {
+    transform: translate3d(-111px, 0, 0);
+}
+
+.female {
+    transform: translate3d(111px, 0, 0);
+}
+
+.select-male {
+    & .female {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    & .male {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.2s ease;
+    }
+}
+
+.select-female {
+    & .female {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s ease;
+}
+    & .male {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+}
+
 @media screen and (max-width: 980px) {
 }
 

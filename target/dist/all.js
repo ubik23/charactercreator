@@ -2009,6 +2009,7 @@ window.onload = function() {
 
     maleSilhouette = document.getElementById("male_silhouette");
     femaleSilhouette = document.getElementById("female_silhouette");
+
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     if (document.attachEvent) //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
@@ -2016,6 +2017,7 @@ window.onload = function() {
         document.addEventListener(mousewheelevt, scrollZoom, false)
     c = new Character();
     interpretHash();
+
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
 };
@@ -2392,31 +2394,27 @@ function showForm() {
 
 function selectMale(event) {
     window.sex = "m";
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     maleSilhouette.removeEventListener('click', selectMale, false);
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
-    malePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
-    .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
+    mainSVG.classList.add('select-male');
+    displayPallette();
 }
 
 function selectFemale(event) {
     window.sex = "f";
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     femaleSilhouette.removeEventListener('click', selectFemale, false);
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
-    femalePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
-    .to(maleSilhouette, 0.3, {opacity:0}, "select_female")
-    .to(femalePath, 1.5, {x:-0, ease:SlowMo.easeIn}, "select_female");
+    mainSVG.classList.add('select-female');
+    displayPallette();
 }
 
 
