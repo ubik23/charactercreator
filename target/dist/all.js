@@ -2337,20 +2337,24 @@ function displayPallette () {
     if (hashSkinColor != undefined){
          showForm();
     } else {
-        var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-        var gmenu = document.getElementById("gmenu");
-        gmenu.style["height"] = "12%";
-        for (color in skinTones) {
-            var newColor = skinTones[color];
-            var node = document.createElement("LI");
-            node.className = "skin-tone";
-            node.style.cssText = "background-color:" + newColor + ";";
-            gmenu.appendChild(node);
-            node.onclick = colorCutout;
-            node.onmouseover = colorOnHover;
-        };
-        TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+        chooseSkinColor();
     }
+}
+
+function chooseSkinColor() {
+    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+    var gmenu = document.getElementById("gmenu");
+    gmenu.style["height"] = "12%";
+    for (color in skinTones) {
+        var newColor = skinTones[color];
+        var node = document.createElement("LI");
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + newColor + ";";
+        gmenu.appendChild(node);
+        node.onclick = colorCutout;
+        node.onmouseover = colorOnHover;
+    };
+    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
 
 function rgb2hex(rgb){
