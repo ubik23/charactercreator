@@ -292,6 +292,8 @@ function manageCharacters() {
     var pageWrap = document.querySelector('#pagewrap');
     var editBtns;
     var editBtnsNum;
+    var delBtns;
+    var delBtnsNum;
     var saveBtn = document.querySelector('.save-btn');
     var newBtn = charUI.querySelector('.overlay__char-new-btn');
     var createBtn = charUI.querySelector('.overlay__char-create-btn');
@@ -308,9 +310,14 @@ function manageCharacters() {
         charContainer.appendChild(newCard);
     }
     editBtns = charUI.querySelectorAll('.overlay__char-edit');
-    editBtnsNum = editBtns.length
+    editBtnsNum = editBtns.length;
     while (editBtnsNum--) {
         editBtns[editBtnsNum].addEventListener('click', switchCharacter);
+    }
+    delBtns = charUI.querySelectorAll('.overlay__char-delete');
+    delBtnsNum = delBtns.length;
+    while (delBtnsNum--) {
+        delBtns[delBtnsNum].addEventListener('click', deleteChar);
     }
     userTitle.innerHTML = currentUser.name;
     usernameText.innerHTML = currentUser.name;
@@ -438,22 +445,39 @@ function createChar() {
     console.log('el', el);
     var newCard = document.querySelector('.overlay__char-new--create');
     var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
-    console.log('newCharNameEl', newCharNameEl);
+    //console.log('newCharNameEl', newCharNameEl);
     var newCharName = newCharNameEl.value;
-    console.log('newCharName', newCharName);
+    //console.log('newCharName', newCharName);
 
     newCard.classList.remove('overlay__char-new--create');
     //TODO add character to UI and curentUser.cc
-    personnageActuel = newCharName;
+    var personnageActuel = newCharName;
   if (!personnageActuel) { return }
-  console.log('personnageActuel', personnageActuel);
+  //console.log('personnageActuel', personnageActuel);
   if (!currentUser.cc) { currentUser.cc = {} }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
-  currentUser.cc.personnages[personnageActuel] = window.hash.get()
-  console.log('user:',currentUser.cc.personnages[personnageActuel];
-  Object.assign(currentUser.cc.personnages, personnages)
+  currentUser.cc.personnages[personnageActuel] = window.hash.get();
+  //console.log('user:',currentUser.cc.personnages[personnageActuel];
+  Object.assign(currentUser.cc.personnages, personnages);
 
+  updateDbUser(currentUser)
+    .then(function (json) {
+      currentUser._rev = json.rev
+      return json
+    })
+    .catch(function (err) {
+      console.log('err', err)
+    })
+    manageCharacters();
+}
+
+function deleteChar() {
+    var el = this;
+    console.log('el', el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML);
+    var disposible = el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML;
+    delete currentUser.cc.personnages[disposible];
+    console.log(currentUser.cc.personnages);
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
