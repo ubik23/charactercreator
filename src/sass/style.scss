@@ -869,6 +869,7 @@ footer a {
         }
         &--char-list {
             flex-direction: column;
+            min-width: 300px;
         }
     }
     &__input {
@@ -909,6 +910,39 @@ footer a {
     &__char--current {
         background-color: #e35a4e;
         color: white;
+    }
+    &__char-new {
+        position: relative;
+
+        &-btn {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.2s ease, visibility linear;
+        }
+        &-form {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility linear 0.2s;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 4vmin;
+            width: 100%;
+            box-sizing: border-box;
+
+        }
+        &--create {
+            & .overlay__char-new-btn {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease, visibility linear 0.2s;
+            }
+            & .overlay__char-new-form {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.2s ease, visibility linear;
+            }
+        }
     }
 }
 .overlay--show {
@@ -988,14 +1022,18 @@ footer a {
     }
     & .male {
         transform: translate3d(0, 0, 0);
-        transition: transform 0.2s ease;
+        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s;
+        fill-opacity: 1;
+        stroke-opacity: 0;
     }
 }
 
 .select-female {
     & .female {
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.2s ease;
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s;
+        fill-opacity: 1;
+        stroke-opacity: 0;
 }
     & .male {
         opacity: 0;

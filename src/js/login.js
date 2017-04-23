@@ -279,7 +279,7 @@ function switchCharacter(evt) {
     hashCharacter();
 }
 
-function manageCharacters(currentUser) {
+function manageCharacters() {
     var charUI = document.querySelector('.js-character-list');
     var userTitle = charUI.querySelector('.overlay__title');
     var charCard = charUI.querySelector('.overlay__char-card--orig');
@@ -293,6 +293,8 @@ function manageCharacters(currentUser) {
     var editBtns;
     var editBtnsNum;
     var saveBtn = document.querySelector('.save-btn');
+    var newBtn = charUI.querySelector('.overlay__char-new-btn');
+    var createBtn = charUI.querySelector('.overlay__char-create-btn');
     resetCharacters();
     while (charNum--) {
         var charName = charList[charNum];
@@ -300,34 +302,27 @@ function manageCharacters(currentUser) {
         var charNameCard = newCard.querySelector('.overlay__char-name');
         newCard.classList.remove('overlay__char-card--orig')
         if (charName === charCurrent){
-            console.log('****same');
             newCard.classList.add('overlay__char--current');
         }
         charNameCard.innerHTML = charName;
         charContainer.appendChild(newCard);
-        console.log(newCard);
-        console.log(charList[charNum]) ;
     }
     editBtns = charUI.querySelectorAll('.overlay__char-edit');
     editBtnsNum = editBtns.length
     while (editBtnsNum--) {
         editBtns[editBtnsNum].addEventListener('click', switchCharacter);
     }
-    console.log(charList.length)
     userTitle.innerHTML = currentUser.name;
     usernameText.innerHTML = currentUser.name;
     pageWrap.classList.add('logged');
-      console.log('USER:', currentUser.name);
-      console.log('Characters:', currentUser.cc.personnages);
-      console.log('Characters:', currentUser.cc.personnages);
-      console.log('Characters:', Object.keys(currentUser.cc.personnages));
-      console.log('Current Character:', currentUser.cc.personnageActuel);
     saveBtn.addEventListener('click', saveChar, true);
+    newBtn.addEventListener('click', newChar, true);
+    createBtn.addEventListener('click', createChar, true);
 }
 
 function resetCharacters() {
     var charUI = document.querySelector('.js-character-list');
-    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char--new)');
+    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)');
     Array.prototype.forEach.call( charCards, function( node ) {
         node.parentNode.removeChild( node );
     });
@@ -338,7 +333,6 @@ function registerMenu() {
   var overlay = document.querySelector('.js-register');
   var registerForm = document.querySelector('#register-form');
   var firstInput = overlay.querySelector('.first-input');
-  console.log('loginMenu', loginMenu);
   if (loginMenu.classList.contains('overlay--show')) {
       loginMenu.classList.remove('overlay--show');
   }
@@ -434,6 +428,43 @@ function setHashTrigger() {
     }, false)
 }
 
+function newChar() {
+    var newCard = document.querySelector('.js-new-card');
+    newCard.classList.add('overlay__char-new--create');
+}
+
+function createChar() {
+    var el = this;
+    console.log('el', el);
+    var newCard = document.querySelector('.overlay__char-new--create');
+    var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
+    console.log('newCharNameEl', newCharNameEl);
+    var newCharName = newCharNameEl.value;
+    console.log('newCharName', newCharName);
+
+    newCard.classList.remove('overlay__char-new--create');
+    //TODO add character to UI and curentUser.cc
+    personnageActuel = newCharName;
+  if (!personnageActuel) { return }
+  console.log('personnageActuel', personnageActuel);
+  if (!currentUser.cc) { currentUser.cc = {} }
+  if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+  if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+  currentUser.cc.personnages[personnageActuel] = window.hash.get()
+  console.log('user:',currentUser.cc.personnages[personnageActuel];
+  Object.assign(currentUser.cc.personnages, personnages)
+
+  updateDbUser(currentUser)
+    .then(function (json) {
+      currentUser._rev = json.rev
+      return json
+    })
+    .catch(function (err) {
+      console.log('err', err)
+    })
+    manageCharacters();
+}
+
 function saveChar() {
     var saveBtn = document.querySelector('.save-btn');
     saveBtn.classList.remove('save--enabled');
@@ -447,10 +478,10 @@ function saveChar() {
 
   if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
   if (!personnageActuel) { return }
-  personnages[personnageActuel] = window.hash.get()
   if (!currentUser.cc) { currentUser.cc = {} }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+  currentUser.cc.personnages[personnageActuel] = window.hash.get()
   Object.assign(currentUser.cc.personnages, personnages)
 
   // console.log('currentUser', JSON.stringify(currentUser, null, '  '))
