@@ -910,6 +910,7 @@ footer a {
     &__char--current {
         background-color: #e35a4e;
         color: white;
+        border-radius: 5vmin;
     }
     &__char-new {
         position: relative;
@@ -929,6 +930,7 @@ footer a {
             padding-right: 4vmin;
             width: 100%;
             box-sizing: border-box;
+            & .first-input {flex-grow: 1;}
 
         }
         &--create {
