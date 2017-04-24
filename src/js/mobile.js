@@ -359,8 +359,9 @@ function displayPallette () {
 
 function chooseSkinColor() {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-    var gmenu = document.getElementById("gmenu");
-    gmenu.style["height"] = "12%";
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.add('skin-color__container--show');
+    //gmenu.style["height"] = "12%";
     for (color in skinTones) {
         var newColor = skinTones[color];
         var node = document.createElement("LI");
@@ -370,7 +371,6 @@ function chooseSkinColor() {
         node.onclick = colorCutout;
         node.onmouseover = colorOnHover;
     };
-    TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
 }
 
 function rgb2hex(rgb){
@@ -385,8 +385,8 @@ function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
      var newTone = this.style.backgroundColor;
-    TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
-    TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+     femalePath.style.fill = newTone;
+     malePath.style.fill = newTone;
 }
 
 function colorCutout(newColor){
@@ -398,14 +398,13 @@ function colorCutout(newColor){
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
-    var tl = new TimelineLite({onComplete: showForm});
-    var gmenu = document.getElementById("gmenu");
-    tl.to(gmenu, 0.5, { bottom:'-100px'})
-    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05)
-    .to(gmenu, 0.5, {attr:{height: 0}, ease:Elastic.easeOut});
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
+    showForm();
+}
+
+function colorSilhouette(newColor) {
 }
 
 function showForm() {
