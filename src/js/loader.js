@@ -30,8 +30,6 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
-// it uses fragments, so they aren't loaded yet into the DOM fully
-
 function onAllLoaded() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -49,7 +47,7 @@ function onAllLoaded() {
     sideBarLeft.classList.toggle('visible');
 }
 
-function onEachLoaded( frag, fileName ) {
+function onEachLoaded(frag, fileName) {
     var colorThis = false;
     var myLayer = fileName;
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
@@ -57,8 +55,12 @@ function onEachLoaded( frag, fileName ) {
     } else {var seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){var section = 'skin'};
-    if (section ==='facialhair' || section==='brows'){var section = 'hair'};
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){
+        var section = 'skin';
+    }
+    if (section ==='facialhair' || section==='brows') {
+        var section = 'hair';
+    }
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         var newColor = c.choices[section+'Color'];
@@ -74,13 +76,23 @@ function onEachLoaded( frag, fileName ) {
     frag.select("*").attr({ opacity: seen });
 }
 
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
-    for (var e in emotionLayers) {
-        selectedLayers.push(emotionLayers[e]);
-    };
+    var layersLength = emotionLayers.length;
+    var layersNum = emotionLayers.length;
+    while (layersNum--) {
+        selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
+    }
     //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
       choiceLayers.push( index + "_" + c.choices[index]);
@@ -112,9 +124,9 @@ function fromEmotionGetLayers(emotion) {
     var modElement = '';
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
-        if (faceElements[e] === 'pupils'){
+        if (faceElements[e] === 'pupils') {
             var pupils = hash.get('pupils');
-            if (pupils === undefined){
+            if (pupils === undefined) {
                 pupils = 'human';
             }
              faceElements[e] += '_' + pupils;
