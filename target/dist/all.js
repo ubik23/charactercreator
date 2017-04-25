@@ -1227,9 +1227,6 @@ function getViewBox(t, d) {
 
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-        //for( var count = 0; count < fragList.length; count++ ) {
-        //    myEl = whichSVG.append( fragList[ count ] );
-        //}
         var totalFrags = fragList.length;
         var countFrags = totalFrags;
         while (countFrags--) {
@@ -1239,16 +1236,19 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     }
     Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
         var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
-        for( var count = 0; count < listLength; count++ ) {
+        var elCount = listLength;
+        var count;
+        while (elCount--) {
+            count = listLength - elCount - 1;
             (function() {
                 var whichEl = count,
-                fileName = list[ whichEl ]+'.svg',
-                image = Snap.load( fileName, function ( loadedFragment ) {
+                fileName = list[whichEl]+'.svg',
+                image = Snap.load(fileName, function(loadedFragment) {
                     fragLoadedCount++;
-                    onEachElementLoadFunc( loadedFragment, fileName );
-                    fragList[ whichEl ] = loadedFragment;
-                    if( fragLoadedCount >= listLength ) {
-                        addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
+                    onEachElementLoadFunc(loadedFragment, fileName);
+                    fragList[whichEl] = loadedFragment;
+                    if(fragLoadedCount >= listLength) {
+                        addLoadedFrags(whichSVG, fragList, afterAllLoadedFunc);
                     }
                 });
             })();
@@ -1264,8 +1264,9 @@ function onAllLoaded() {
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
     downloadBtn = document.querySelector("#downloadButton");
+    downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
-    downloadBtn.addEventListener("click", download, false)
+
     var tl = new TimelineLite({onComplete: createForm});
     tl.add("sidebars",0.5)
     .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
