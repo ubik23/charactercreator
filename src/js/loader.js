@@ -122,17 +122,21 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
-    for (e in faceElements) {
-        if (faceElements[e] === 'pupils') {
+    var faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    var faceElLength = faceElements.length;
+    var faceElNum = faceElLength;
+    var faceCount;
+    while (faceElNum--) {
+        faceCount = (faceElLength - faceElNum - 1);
+        if (faceElements[faceCount] === 'pupils') {
             var pupils = hash.get('pupils');
             if (pupils === undefined) {
                 pupils = 'human';
             }
-             faceElements[e] += '_' + pupils;
+             faceElements[faceCount] += '_' + pupils;
         }
-        modElement = faceElements[e] + '_' + emotion;
+        modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
-    };
+    }
     return facialEpressionLayers;
 };
