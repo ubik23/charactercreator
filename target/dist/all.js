@@ -786,6 +786,10 @@ function download() {
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
+    console.log(currentUser);
+    if (currentUser && currentUser.cc.personnageActuel !== ''){
+        filename = currentUser.cc.personnageActuel;
+    }
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){
         //This is where we start filtering the nodes so that we can append them into our downloaded file.
@@ -1604,7 +1608,9 @@ function switchCharacter(evt) {
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
     var oldCard = document.querySelector('.overlay__char--current');
-    oldCard.classList.remove('overlay__char--current');
+    if (oldCard) {
+        oldCard.classList.remove('overlay__char--current');
+    }
     newCard.classList.add('overlay__char--current');
     console.log(currentUser);
     currentUser.cc.personnageActuel = newChar;
@@ -2480,13 +2486,6 @@ function parseHash(){
     var forms = window.forms;
     var skinlayers = window.skinlayers;
     var hairLayers = window.hairLayers;
-    //var face = {
-    //    'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'd/////isdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
-    //    'Lashes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-    //    'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-    //    'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-    //    'Mouth': ['neutral', 'anger', 'alertness', 'anxiety', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage', 'sterness']
-    //};
     for (var f in forms){
         for(var x in forms[f]){
             var section =  x.toLowerCase();

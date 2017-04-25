@@ -787,6 +787,7 @@ input.color{
         transform: translate3d(0, 0, 0);
     }
 }
+
 footer {
     display: none;
 }
@@ -806,7 +807,6 @@ footer a {
      width: 5%;
      float: left;
      color: #fff;
-     /*visibility: hidden;*/
      opacity: 0;
 }
 
@@ -820,7 +820,6 @@ footer a {
     text-transform: uppercase;  
 	text-decoration: none;
     text-align: middle;
-    /*visibility: hidden;*/
      opacity: 0;
 }
 
@@ -957,6 +956,7 @@ footer a {
         }
     }
 }
+
 .overlay--show {
         opacity: 1;
         visibility: visible;
@@ -971,6 +971,7 @@ footer a {
 #logoutButton, #usernameButton, #whoButton {
     display: none;
 }
+
 #downloadButton {
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;

@@ -261,7 +261,9 @@ function switchCharacter(evt) {
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
     var oldCard = document.querySelector('.overlay__char--current');
-    oldCard.classList.remove('overlay__char--current');
+    if (oldCard) {
+        oldCard.classList.remove('overlay__char--current');
+    }
     newCard.classList.add('overlay__char--current');
     console.log(currentUser);
     currentUser.cc.personnageActuel = newChar;
