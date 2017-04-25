@@ -1227,8 +1227,13 @@ function getViewBox(t, d) {
 
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-        for( var count = 0; count < fragList.length; count++ ) {
-        myEl = whichSVG.append( fragList[ count ] );
+        //for( var count = 0; count < fragList.length; count++ ) {
+        //    myEl = whichSVG.append( fragList[ count ] );
+        //}
+        var totalFrags = fragList.length;
+        var countFrags = totalFrags;
+        while (countFrags--) {
+            myEl = whichSVG.append(fragList[(totalFrags-countFrags)]);
         }
         runWhenFinishedFunc();
     }
@@ -2672,21 +2677,6 @@ function getOptions(section){
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
-function tabSwitch(new_tab, new_content) {
-    document.getElementById('content_1').style.display = 'none';
-    document.getElementById('content_2').style.display = 'none';
-    document.getElementById('content_3').style.display = 'none';
-    document.getElementById('content_4').style.display = 'none';
-    document.getElementById(new_content).style.display = 'block';
-    document.getElementById('tab_1').className = '';
-    document.getElementById('tab_2').className = '';
-    document.getElementById('tab_3').className = '';
-    //document.getElementById('tab_4').className = '';
-    document.getElementById(new_tab).className = 'active';
-}
-
 
 
 function zoomIn() {
