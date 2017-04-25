@@ -1599,8 +1599,12 @@ function hashCharacter() {
         window.location = '/#' + t.join('&')
       }
       //manageCharacters(currentUser);
-      //TODO make sure the menu is rest before rebuilding it on top of existing menu.
+      //TODO make sure the menu is reset before rebuilding it on top of existing menu.
       interpretHash();
+}
+
+function clearHash() {
+    window.location.href.split('#')[0];
 }
 
 function switchCharacter(evt) {
@@ -1625,6 +1629,7 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
+    clearHash();
     hashCharacter();
 }
 
