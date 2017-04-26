@@ -523,11 +523,8 @@ function colorize(formId, _color){
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
-    // get all the options for that id
-    // Cycle through each form array
     for (var f in forms){
-        // Cycle through each element in the form
-         var form = Object.keys(forms[f]);
+        var form = Object.keys(forms[f]);
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
@@ -567,22 +564,7 @@ function colorize(formId, _color){
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
                 origList = affectedList
-                affectedList=[];
-                for (a in origList) {
-                    for (lyr in multiLayer){
-
-                        if (origList[a] == multiLayer[lyr][0]){
-
-                            for (var i=1;i<=multiLayer[lyr][1];i++){
-                                idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                // Then append the idOf to affectedList
-                                affectedList.push(idOf);
-                            }
-                        } else {
-                            affectedList.push(origList[a]);
-                        };
-                    };
-                };
+                affectedList = getAffectedList(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
@@ -603,16 +585,16 @@ function colorize(formId, _color){
                         }
 
                         for (p in optPaths) {
-                            if ( typeof optPaths[p].attr === 'function'){
+                            if ( typeof optPaths[p].attr === 'function') {
                                 var pathId = optPaths[p].attr("id");
-                                if (pathId ===  undefined){
+                                if (pathId ===  undefined) {
                                      break;
                                 };                                ;
-                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow"){
+                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
                                     continue;
                                 };
                                 var pathStyle = viewport.select('#'+ pathId).attr("style");
-                                if (pathStyle ===  undefined){
+                                if (pathStyle ===  undefined) {
                                      break;
                                 };                                ;
                                 // Parse the style in a json object
@@ -627,7 +609,7 @@ function colorize(formId, _color){
                                     if (style == " "||style.length === 1) {continue;};
                                     k = style[0].trim();
                                     v = style[1].trim();
-                                    if (k.length > 0 && v.length > 0){
+                                    if (k.length > 0 && v.length > 0) {
                                         json.style[k] = v;
                                     }
                                 }
@@ -636,7 +618,7 @@ function colorize(formId, _color){
                                 var newColor = _color.toString();
                                 // json to string
                                 var replacement = replacementStyle(json, newColor);
-                                viewport.selectAll('#'+pathId).attr({style: replacement});
+                                viewport.selectAll('#' + pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
                                     newColor = shadeColor(newColor, -25)
@@ -648,6 +630,24 @@ function colorize(formId, _color){
             }
         }
     }
+}
+
+function getAffectedList(origList, multiLayer) {
+    affectedList=[];
+    for (a in origList) {
+        for (lyr in multiLayer){
+            if (origList[a] == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
+                    // Then append the idOf to affectedList
+                    affectedList.push(idOf);
+                }
+            } else {
+                affectedList.push(origList[a]);
+            };
+        };
+    };
+    return affectedList;
 }
 
 function replacementStyle(json, newColor) {
