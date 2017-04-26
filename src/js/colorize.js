@@ -34,26 +34,26 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth'){
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                 }
-                else if (id ==='facialhair' || id === 'hair'){
+                else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
                     var myKey = 'hairColor';
                 }
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes'){
-                        for (i in forms[0]['Emotion']){
+                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes') {
+                        for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
                         }
                     } else {
-                        for (i in forms[f][capitalId]){
+                        for (i in forms[f][capitalId]) {
                             var tmpId = forms[f][capitalId][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
@@ -68,7 +68,7 @@ function colorize(formId, _color){
                 affectedList = getAffectedList(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
-                obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+                obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
                 for (n in affectedList){
@@ -84,50 +84,53 @@ function colorize(formId, _color){
                             newArray.push.apply(newArray, optEllipses);
                             optPaths = newArray;
                         }
-
-                        for (p in optPaths) {
-                            if ( typeof optPaths[p].attr === 'function') {
-                                var pathId = optPaths[p].attr("id");
-                                if (pathId ===  undefined) {
-                                     break;
-                                };                                ;
-                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
-                                    continue;
-                                };
-                                var pathStyle = viewport.select('#'+ pathId).attr("style");
-                                if (pathStyle ===  undefined) {
-                                     break;
-                                };                                ;
-                                // Parse the style in a json object
-                                // Identify if the path is a shape or a shadow
-                                // apply newStyle if applicable
-                                var styles = pathStyle.split(';'),
-                                i= styles.length,
-                                json = {style: {}},
-                                style, k, v;
-                                while (i--){
-                                    style = styles[i].split(':');
-                                    if (style == " "||style.length === 1) {continue;};
-                                    k = style[0].trim();
-                                    v = style[1].trim();
-                                    if (k.length > 0 && v.length > 0) {
-                                        json.style[k] = v;
-                                    }
-                                }
-                                // Query the style to determine if shape or shadow
-                                // Change the color
-                                var newColor = _color.toString();
-                                // json to string
-                                var replacement = replacementStyle(json, newColor);
-                                viewport.selectAll('#' + pathId).attr({style: replacement});
-                                newStroke = shadeColor(newColor, -25);
-                                if (json.style["stroke-width"] === undefined){
-                                    newColor = shadeColor(newColor, -25)
-                                }
-                            }
-                        }
+                        processPaths(optPaths, _color);
                     }
                 }
+            }
+        }
+    }
+}
+
+function processPaths(optPaths, _color) {
+    for (p in optPaths) {
+        if ( typeof optPaths[p].attr === 'function') {
+            var pathId = optPaths[p].attr("id");
+            if (pathId ===  undefined) {
+                break;
+            };                                ;
+            if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
+                continue;
+            };
+            var pathStyle = viewport.select('#'+ pathId).attr("style");
+            if (pathStyle ===  undefined) {
+                break;
+            };                                ;
+            // Parse the style in a json object
+            // Identify if the path is a shape or a shadow
+            // apply newStyle if applicable
+            var styles = pathStyle.split(';'),
+            i= styles.length,
+            json = {style: {}},
+            style, k, v;
+            while (i--){
+                style = styles[i].split(':');
+                if (style == " "||style.length === 1) {continue;};
+                k = style[0].trim();
+                v = style[1].trim();
+                if (k.length > 0 && v.length > 0) {
+                    json.style[k] = v;
+                }
+            }
+            // Query the style to determine if shape or shadow
+            // Change the color
+            var newColor = _color.toString();
+            // json to string
+            var replacement = replacementStyle(json, newColor);
+            viewport.selectAll('#' + pathId).attr({style: replacement});
+            newStroke = shadeColor(newColor, -25);
+            if (json.style["stroke-width"] === undefined){
+                newColor = shadeColor(newColor, -25)
             }
         }
     }
