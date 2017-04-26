@@ -4,6 +4,9 @@ window.onload = function() {
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
     var registerLink = document.querySelector(".js-register-link");
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
 
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
@@ -11,32 +14,18 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
-/*
-    // do something if user is connected...
-    isUser()
-      .then(function (user) {
-          console.log('user', user, myUsername)
-      })
-    // ...or not
-      .catch(function (err) {
-          console.log('not user', err, myUsername)
-      })
-*/
-
-    maleSilhouette = document.getElementById("male_silhouette");
-    femaleSilhouette = document.getElementById("female_silhouette");
-
-    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-    if (document.attachEvent) //if IE (and Opera depending on user setting)
+    if (document.attachEvent) { //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
-    else if (document.addEventListener) //WC3 browsers
+    } else if (document.addEventListener) {//WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
+    }
     c = new Character();
     interpretHash();
 
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
 };
+
 function interpretHash() {
     var hashSex = hash.get("sex");
     if (hashSex === "m"){
