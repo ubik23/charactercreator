@@ -136,39 +136,7 @@ function colorize(formId, _color){
                                 // Change the color
                                 var newColor = _color.toString();
                                 // json to string
-                                newStyle = json.style;
-                                var replacement = '';
-                                for (n in Object.keys(newStyle)){
-                                    var currentKey = Object.keys(newStyle)[n]
-                                    if (currentKey === 'fill'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] === undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.12);
-                                            }
-                                            else {
-                                                var currentValue = newColor;
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else if (currentKey === 'stroke'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] != undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.2);
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else {
-                                        var currentValue = newStyle[currentKey];
-                                    }
-                                    var keyVal = 	currentKey + ': ' + currentValue + '; '
-                                    replacement = replacement.concat(keyVal);
-                                }
+                                var replacement = replacementStyle(json, newColor);
                                 viewport.selectAll('#'+pathId).attr({style: replacement});
                                 newStroke = shadeColor(newColor, -25);
                                 if (json.style["stroke-width"] === undefined){
@@ -181,6 +149,43 @@ function colorize(formId, _color){
             }
         }
     }
+}
+
+function replacementStyle(json, newColor) {
+    var newStyle = json.style;
+    var replacement = '';
+    for (n in Object.keys(newStyle)){
+        var currentKey = Object.keys(newStyle)[n]
+        if (currentKey === 'fill'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] === undefined){
+                    var currentValue = ColorLuminance(newColor, -0.12);
+                }
+                else {
+                    var currentValue = newColor;
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else if (currentKey === 'stroke'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] != undefined){
+                    var currentValue = ColorLuminance(newColor, -0.2);
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else {
+            var currentValue = newStyle[currentKey];
+        }
+        var keyVal = 	currentKey + ': ' + currentValue + '; '
+        replacement = replacement.concat(keyVal);
+    }
+    return replacement;
 }
 
 function applyColor(id, newColor, optLayer){
