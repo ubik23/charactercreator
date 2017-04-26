@@ -76,18 +76,11 @@ function colorize(formId, _color){
 
                             for (var i=1;i<=multiLayer[lyr][1];i++){
                                 idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
                                 affectedList.push(idOf);
                             }
-                            // Take it out of the affectedList
-                            //var index = affectedList.indexOf(affectedList[a]);
-                            //if (index > -1) {
-                                //affectedList.splice(index, 1);
-                            //}
                         } else {
                             affectedList.push(origList[a]);
-
                         };
                     };
                 };

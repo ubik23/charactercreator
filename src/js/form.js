@@ -70,8 +70,10 @@ function createForm(sex, forms){
     }
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
+    console.log('sectionContainer', sectionContainer);
     var sectionList = document.createElement('div');
     sectionList.innerHTML = sectionHtml;
+    sectionContainer.innerHTML = '';
     sectionContainer.appendChild(sectionList);
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');

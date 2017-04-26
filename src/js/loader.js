@@ -1,4 +1,3 @@
-
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
         var totalFrags = fragList.length;

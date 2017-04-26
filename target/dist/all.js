@@ -575,18 +575,11 @@ function colorize(formId, _color){
 
                             for (var i=1;i<=multiLayer[lyr][1];i++){
                                 idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                //viewport.selectAll(idOf).attr({opacity:1});
                                 // Then append the idOf to affectedList
                                 affectedList.push(idOf);
                             }
-                            // Take it out of the affectedList
-                            //var index = affectedList.indexOf(affectedList[a]);
-                            //if (index > -1) {
-                                //affectedList.splice(index, 1);
-                            //}
                         } else {
                             affectedList.push(origList[a]);
-
                         };
                     };
                 };
@@ -892,8 +885,10 @@ function createForm(sex, forms){
     }
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
+    console.log('sectionContainer', sectionContainer);
     var sectionList = document.createElement('div');
     sectionList.innerHTML = sectionHtml;
+    sectionContainer.innerHTML = '';
     sectionContainer.appendChild(sectionList);
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
@@ -1223,7 +1218,6 @@ function getViewBox(t, d) {
         return "0 0 560 560";
     }
 }
-
 
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
@@ -1903,7 +1897,7 @@ function isInArray(value, array) {
 
 function trans(sex){
     hash.add({ sex: sex });
-    hash.add({ emotion: 'neutral' });
+    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions.
     location.reload();
 }
 
@@ -1953,11 +1947,15 @@ function createCharacter(){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
                             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
+                            viewport.selectAll(idOf).attr({
+                                opacity:1
+                            });
                         }
                     }
                     else {
-                        viewport.selectAll(id).attr({opacity:1});
+                        viewport.selectAll(id).attr({
+                            opacity:1
+                        });
                     }
                 };
             }
@@ -1968,7 +1966,6 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
@@ -2433,7 +2430,6 @@ function chooseSkinColor() {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.add('skin-color__container--show');
-    //gmenu.style["height"] = "12%";
     for (color in skinTones) {
         var newColor = skinTones[color];
         var node = document.createElement("LI");
@@ -2456,9 +2452,9 @@ function rgb2hex(rgb){
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
-     var newTone = this.style.backgroundColor;
-     femalePath.style.fill = newTone;
-     malePath.style.fill = newTone;
+    var newTone = this.style.backgroundColor;
+    femalePath.style.fill = newTone;
+    malePath.style.fill = newTone;
 }
 
 function colorCutout(newColor){
@@ -2474,9 +2470,6 @@ function colorCutout(newColor){
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
     showForm();
-}
-
-function colorSilhouette(newColor) {
 }
 
 function showForm() {
@@ -2513,19 +2506,19 @@ function parseHash(){
     var forms = window.forms;
     var skinlayers = window.skinlayers;
     var hairLayers = window.hairLayers;
-    for (var f in forms){
-        for(var x in forms[f]){
+    for (var f in forms) {
+        for(var x in forms[f]) {
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
                 if (section === "pupils") {
                     var hashPupils = hash.get('pupils');
-                    if (hashPupils == undefined){
+                    if (hashPupils == undefined) {
                         hashPupils = 'human';
                     };
                     section += "_" + hashPupils;
                 }
                 var hashData = hash.get('emotion');
-                if (hashData === undefined){
+                if (hashData === undefined) {
                     hashData = 'neutral';
                 }
             } else {
@@ -2539,13 +2532,13 @@ function parseHash(){
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 modCharacter(section, 'neutral');
             };
-            if (id in skinLayers || section ==='body'){
+            if (id in skinLayers || section ==='body') {
                 section = 'skin';
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
             var hashColor = hash.get(section+'Color');
             // Now to get the color
-            if (hashColor != undefined && hashColor != ''){
+            if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
                 ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
@@ -2554,7 +2547,6 @@ function parseHash(){
 };
 
 function random(){
-    //for (form in forms) {
     var forms = window.forms;
         var formLen = forms.length;
         var formRand = Math.floor((Math.random() * formLen));
@@ -2563,7 +2555,6 @@ function random(){
         for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
         var keys = [];
         for (var key in forms[formRand]) {
-
             if (forms[formRand].hasOwnProperty(key)) {
                 keys.push(key);
             }
@@ -2575,7 +2566,6 @@ function random(){
                 var len = forms[formRand][myKey].length;
                 var rand = Math.floor((Math.random() * len));
                 var layer = forms[formRand][myKey][rand].toLowerCase();
-                //modCharacter(key.toLowerCase(), layer);
                 showRandom(key.toLowerCase(), layer);
 }
 
@@ -2597,7 +2587,6 @@ function showRandom(section, layer){  // Draw the SVG on screen
     }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
-        //ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(selectedOption);
         for (emo in emotions){
@@ -2606,9 +2595,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
         }
     };
     for (section in sections){
-
         sectionOptions = getOptions(sections[section]);
-
         var id = '#'+sections[section] + '_' + layer;
         for (option in sectionOptions){
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
@@ -2639,10 +2626,10 @@ function hideCompetition (section) {
     };
 }
 
-function hideArray (competition){
-    for (section in competition){
+function hideArray(competition) {
+    for (section in competition) {
         sectionOptions = getOptions(competition[section]);
-        for (option in sectionOptions){
+        for (option in sectionOptions) {
             optionId = '#' + competition[section] + '_' + sectionOptions[option];
             hideId(optionId)
             var obj = new Array();
@@ -2652,11 +2639,12 @@ function hideArray (competition){
         }
     }
 }
-function showId(id){
+
+function showId(id) {
         ga('send', 'event', 'menu', 'select', id);
-        for (lyr in multiLayer){
+        for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:1});
                 }
@@ -2667,10 +2655,10 @@ function showId(id){
     };
 }
 
-function hideId(id){
-        for (lyr in multiLayer){
-            if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+function hideId(id) {
+        for (lyr in multiLayer) {
+            if (id.slice(1) == multiLayer[lyr][0]) {
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:0});
                 }
@@ -2681,10 +2669,10 @@ function hideId(id){
     };
 }
 
-function getOptions(section){
+function getOptions(section) {
      var sectionOptions = [];
-     for (form in window.forms){
-         if ( capitalizeFirstLetter(section) in window.forms[form] ){
+     for (form in window.forms) {
+         if ( capitalizeFirstLetter(section) in window.forms[form] ) {
               return window.forms[form][capitalizeFirstLetter(section)];
          } else {
          }
@@ -2694,6 +2682,7 @@ function getOptions(section){
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 
 
 function zoomIn() {

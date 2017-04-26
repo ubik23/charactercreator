@@ -4,7 +4,7 @@ function isInArray(value, array) {
 
 function trans(sex){
     hash.add({ sex: sex });
-    hash.add({ emotion: 'neutral' });
+    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions.
     location.reload();
 }
 
@@ -54,11 +54,15 @@ function createCharacter(){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
                             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
+                            viewport.selectAll(idOf).attr({
+                                opacity:1
+                            });
                         }
                     }
                     else {
-                        viewport.selectAll(id).attr({opacity:1});
+                        viewport.selectAll(id).attr({
+                            opacity:1
+                        });
                     }
                 };
             }
@@ -69,7 +73,6 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){

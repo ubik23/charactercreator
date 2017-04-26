@@ -361,7 +361,6 @@ function chooseSkinColor() {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.add('skin-color__container--show');
-    //gmenu.style["height"] = "12%";
     for (color in skinTones) {
         var newColor = skinTones[color];
         var node = document.createElement("LI");
@@ -384,9 +383,9 @@ function rgb2hex(rgb){
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
-     var newTone = this.style.backgroundColor;
-     femalePath.style.fill = newTone;
-     malePath.style.fill = newTone;
+    var newTone = this.style.backgroundColor;
+    femalePath.style.fill = newTone;
+    malePath.style.fill = newTone;
 }
 
 function colorCutout(newColor){
@@ -402,9 +401,6 @@ function colorCutout(newColor){
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
     showForm();
-}
-
-function colorSilhouette(newColor) {
 }
 
 function showForm() {
