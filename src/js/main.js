@@ -132,6 +132,11 @@ function show(userChoice, category){
             sections.push(newEmo);
         }
     };
+    displaySections(sections);
+    return;
+}
+
+function displaySections(sections) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;

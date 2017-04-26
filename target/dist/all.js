@@ -597,9 +597,6 @@ function colorize(formId, _color){
                         if (fullId === '#body_athletic_2_of_2') {
                             var optEllipses = optLayer.selectAll('ellipse')
                             newArray = [];
-                            //for (e in optEllipses) {
-                            //    optPaths.insertAfter.apply(optEllipses[e]);
-                            //}
                             newArray.push.apply(newArray, optPaths);
                             newArray.push.apply(newArray, optEllipses);
                             optPaths = newArray;
@@ -694,9 +691,6 @@ function applyColor(id, newColor, optLayer){
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
             newArray = [];
-            //for (e in optEllipses) {
-            //    optPaths.insertAfter.apply(optEllipses[e]);
-            //}
             newArray.push.apply(newArray, optPaths);
             newArray.push.apply(newArray, optEllipses);
             optPaths = newArray;
@@ -767,6 +761,7 @@ function applyColor(id, newColor, optLayer){
                 newStroke = shadeColor(newColor, -25);
                 if (json.style["stroke-width"] === undefined){
                     //newColor = shadeColor(newColor, -25)
+                    //TODO
                 }
             }
         }
@@ -1619,10 +1614,6 @@ function hashCharacter() {
       interpretHash();
 }
 
-function clearHash() {
-    window.location.href.split('#')[0];
-}
-
 function switchCharacter(evt) {
     evt.preventDefault();
     var newCard = this.parentNode.parentNode;
@@ -1645,7 +1636,8 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
-    clearHash();
+    //clearHash();
+    hash.clear();
     hashCharacter();
 }
 
@@ -2025,6 +2017,11 @@ function show(userChoice, category){
             sections.push(newEmo);
         }
     };
+    displaySections(sections);
+    return;
+}
+
+function displaySections(sections) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;

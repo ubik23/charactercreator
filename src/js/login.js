@@ -256,10 +256,6 @@ function hashCharacter() {
       interpretHash();
 }
 
-function clearHash() {
-    window.location.href.split('#')[0];
-}
-
 function switchCharacter(evt) {
     evt.preventDefault();
     var newCard = this.parentNode.parentNode;
@@ -282,7 +278,8 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
-    clearHash();
+    //clearHash();
+    hash.clear();
     hashCharacter();
 }
 
