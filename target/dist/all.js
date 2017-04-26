@@ -1998,6 +1998,7 @@ function show(userChoice, category){
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
+
     hideCompetition(sections[0]);
     hash.add(obj);
     if (sections[0] === "pupils") {
@@ -2018,7 +2019,6 @@ function show(userChoice, category){
         }
     };
     displaySections(sections);
-    return;
 }
 
 function displaySections(sections) {
@@ -2027,15 +2027,7 @@ function displaySections(sections) {
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:1});
-                    }
+                    sectionShow(multiLayer);
                 };
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
@@ -2049,18 +2041,34 @@ function displaySections(sections) {
             }
             else {
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:0});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:0})
-                    };
+                    sectionHide(mutliLayer);
                 };
             };
         });
+    };
+}
+
+function sectionShow(multiLayer) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:1});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:1});
+    }
+}
+
+function sectionHide(multiLayer) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:0});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:0})
     };
 }
 
