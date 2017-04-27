@@ -65,17 +65,17 @@ function colorize(formId, _color){
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
                 origList = affectedList
-                affectedList = getAffectedList(origList, multiLayer);
+                affectedList = getAffectedListFromOrig(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
-                for (n in affectedList){
+                for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId);
-                    if (optLayer != null){
+                    if (optLayer != null) {
                         var optPaths = optLayer.selectAll('path')
                         if (fullId === '#body_athletic_2_of_2') {
                             var optEllipses = optLayer.selectAll('ellipse')
@@ -136,7 +136,7 @@ function processPaths(optPaths, _color) {
     }
 }
 
-function getAffectedList(origList, multiLayer) {
+function getAffectedListFromOrig(origList, multiLayer) {
     affectedList=[];
     for (a in origList) {
         for (lyr in multiLayer){

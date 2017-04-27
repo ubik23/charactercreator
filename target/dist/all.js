@@ -564,17 +564,17 @@ function colorize(formId, _color){
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
                 origList = affectedList
-                affectedList = getAffectedList(origList, multiLayer);
+                affectedList = getAffectedListFromOrig(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
-                for (n in affectedList){
+                for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId);
-                    if (optLayer != null){
+                    if (optLayer != null) {
                         var optPaths = optLayer.selectAll('path')
                         if (fullId === '#body_athletic_2_of_2') {
                             var optEllipses = optLayer.selectAll('ellipse')
@@ -635,7 +635,7 @@ function processPaths(optPaths, _color) {
     }
 }
 
-function getAffectedList(origList, multiLayer) {
+function getAffectedListFromOrig(origList, multiLayer) {
     affectedList=[];
     for (a in origList) {
         for (lyr in multiLayer){
@@ -1996,7 +1996,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function show(userChoice, category){
+function show(userChoice, category) {
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -2026,16 +2026,16 @@ function show(userChoice, category){
             sections.push(newEmo);
         }
     };
-    displaySections(sections);
+    displaySections(sections, options, selectedOption, multiLayer);
 }
 
-function displaySections(sections) {
+function displaySections(sections, options, selectedOption, multiLayer) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
                 for (lyr in multiLayer){
-                    sectionShow(multiLayer);
+                    sectionShow(multiLayer, id);
                 };
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
@@ -2049,14 +2049,14 @@ function displaySections(sections) {
             }
             else {
                 for (lyr in multiLayer){
-                    sectionHide(mutliLayer);
+                    sectionHide(multiLayer, id);
                 };
             };
         });
     };
 }
 
-function sectionShow(multiLayer) {
+function sectionShow(multiLayer, id) {
     if (id.slice(1) == multiLayer[lyr][0]){
         for (var i=1;i<=multiLayer[lyr][1];i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
@@ -2068,7 +2068,7 @@ function sectionShow(multiLayer) {
     }
 }
 
-function sectionHide(multiLayer) {
+function sectionHide(multiLayer, id) {
     if (id.slice(1) == multiLayer[lyr][0]){
         for (var i=1;i<=multiLayer[lyr][1];i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
