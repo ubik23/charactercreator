@@ -9,37 +9,37 @@ function createForm(sex, forms){
         var newHtml = '';
         var selcount = 0
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">'+sectionNames[f]+'</span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
-        for(var x in forms[f]){
+        for(var x in forms[f]) {
             sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">'+x+'</li></a>';
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
             newHtml += '    <div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
-            var options = forms[f][x].map(function(d, i){
+            var options = forms[f][x].map(function(d, i) {
             var tempId ='#'+t+'_'+d;
             var sections = [tempId];
             var multiLayer = window.multiLayer;
             for (lyr in multiLayer){
-                if (tempId.slice(1) === multiLayer[lyr][0]){
+                if (tempId.slice(1) === multiLayer[lyr][0]) {
                     sections = [];
-                    for (var i=1;i<=multiLayer[lyr][1];i++){
+                    for (var i=1;i<=multiLayer[lyr][1];i++) {
                         newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
                         sections.push(newLayer);
                     }
                 };
             };
-            if (t === "emotion"){
+            if (t === "emotion") {
                 var sections = [];
                 var emotions = GetEmotionGetLayers(d);
-                for (emo in emotions){
+                for (emo in emotions) {
                     var newEmo = '#' + emotions[emo] + '_' + d;
                     sections.push(newEmo);
                 };
             }
             var clonedNode = '';
-            for (i in sections){
+            for (i in sections) {
                 var selectNode = document.querySelector(sections[i]);
-                if (selectNode != null){
+                if (selectNode != null) {
                     var newNode = selectNode.cloneNode(true).innerHTML;
                     clonedNode += newNode;
                 };
@@ -49,13 +49,14 @@ function createForm(sex, forms){
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="'+ defaultValue + '" ';
-              }
-            else {var defval = '';}
+            } else {
+                var defval = '';
+            }
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
-              }
+            }
             else {
                 var colorValue = '#ffffff'
             }
@@ -78,8 +79,8 @@ function createForm(sex, forms){
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-    addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-    addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+    //addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+    //addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
     addEventListenerList(sidebarLeftOptions, 'click', openThumbs );
     addEventListenerList(optionThumbnails, 'click', changeOption);
     addEventListenerList(sectionButtons, 'click', toggleSection);
@@ -115,7 +116,11 @@ function openThumbs() {
 }
 
 function addEventListenerList(list, event, fn) {
-    for (var i = 0, len = list.length; i < len; i++) {
+    var listLength = list.length;
+    var listCounter = listLength;
+    var i;
+    while (listCounter--) {
+        i = listLength - listCounter - 1
         list[i].addEventListener(event, fn, false);
     }
 }
