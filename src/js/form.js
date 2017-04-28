@@ -9,34 +9,33 @@ function createForm(sex, forms){
         var newHtml = '';
         var selcount = 0;
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">'+sectionNames[f]+'</span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
-        var formsLength = forms.length;
-        var formCounter = formsLength;
         for(var x in forms[f]) {
-            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
+            console.log('for', x);
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
-            newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
+            var clonedNode = '';
             var xsel = hash.get(t);
+            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
+            newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
             var options = forms[f][x].map(function(d, i) {
                 var tempId ='#' + t + '_' + d;
                 var multiLayer = window.multiLayer;
-                var sections = getSectionFromIdMultiLayer(multiLayer, tempId)
+                var sections = getSectionsFromIdMultiLayer(multiLayer, tempId);
                 if (t === "emotion") {
                     var sections = [];
                     var emotions = GetEmotionGetLayers(d);
                     for (emo in emotions) {
                         var newEmo = '#' + emotions[emo] + '_' + d;
                         sections.push(newEmo);
-                    };
+                    }
                 }
-                var clonedNode = '';
                 for (i in sections) {
                     var selectNode = document.querySelector(sections[i]);
                     if (selectNode != null) {
                         var newNode = selectNode.cloneNode(true).innerHTML;
                         clonedNode += newNode;
-                    };
-                };
+                    }
+                }
                 var viewBox = getViewBox(t, d);
                 newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
@@ -63,20 +62,26 @@ function createForm(sex, forms){
             formContainer.appendChild(htmlObject);
         }
         sectionHtml += '</ul>';
-        var sectionContainer = document.querySelector('#sidebar-left');
-        var sectionList = document.createElement('div');
-        sectionList.innerHTML = sectionHtml;
-        sectionContainer.innerHTML = '';
-        sectionContainer.appendChild(sectionList);
-        var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
-        var optionThumbnails  = document.querySelectorAll('.option__container');
-        var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-        //addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-        //addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
-        addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
-        addEventListenerList(optionThumbnails, 'click', changeOption);
-        addEventListenerList(sectionButtons, 'click', toggleSection);
+        finalizeForm(sectionHtml);
     }
+
+function finalizeForm(sectionHtml) {
+    var sectionContainer = document.querySelector('#sidebar-left');
+    var sectionList = document.createElement('div');
+    var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
+    var optionThumbnails  = document.querySelectorAll('.option__container');
+    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+
+    sectionList.innerHTML = sectionHtml;
+    sectionContainer.innerHTML = '';
+    sectionContainer.appendChild(sectionList);
+
+    //addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+    //addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+    addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
+    addEventListenerList(optionThumbnails, 'click', changeOption);
+    addEventListenerList(sectionButtons, 'click', toggleSection);
+}
 
 function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     var sections = [];
