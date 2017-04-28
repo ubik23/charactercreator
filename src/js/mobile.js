@@ -22,9 +22,9 @@ window.onload = function() {
     c = new Character();
     interpretHash();
 
-    maleSilhouette.addEventListener('click', selectMale, false);
-    femaleSilhouette.addEventListener('click', selectFemale, false);
-};
+    if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
+    if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+}
 
 function interpretHash() {
     var hashSex = hash.get("sex");

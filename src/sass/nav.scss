@@ -1,0 +1,33 @@
+
+.site-title {
+    font-family: "Helvetica";
+    text-align:left;
+    font-size: 3.5vh;
+    font-weight: 500;
+    padding-top: 0.45vh;
+}
+
+.links {
+    margin: 0;
+    height: auto;
+}
+
+#horizontal {
+    display: flex;
+    list-style: none;
+}
+
+#horizontal li {
+	padding-left: 0.6em;
+}
+
+#horizontal li a {
+    display: flex;
+    align-items: center;
+	color: #f2f2f2;
+}
+
+#horizontal li a:hover {
+	color: white;
+}
+
