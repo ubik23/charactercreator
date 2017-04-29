@@ -67,7 +67,7 @@
     }
     & .male {
         transform: translate3d(0, 0, 0);
-        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
+        transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
         fill-opacity: 1;
         stroke-opacity: 0;
     }
@@ -76,7 +76,7 @@
 .select-female {
     & .female {
         transform: translate3d(0, 0, 0);
-        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
+        transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
         fill-opacity: 1;
         stroke-opacity: 0;
     }

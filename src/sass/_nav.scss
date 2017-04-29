@@ -29,11 +29,11 @@ sub {
 
 #horizontal li {
     padding-left: 0.6em;
+    display: flex;
+    align-items: center;
 }
 
 #horizontal li a {
-    display: flex;
-    align-items: center;
     color: $color-beta;
 }
 
