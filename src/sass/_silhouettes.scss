@@ -1,0 +1,88 @@
+.path {
+    fill: transparent;
+    stroke: $color-alpha;
+    stroke-width: 1.5;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 10;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+    marker: none;
+    enable-background: accumulate;
+    transition: fill 0.5s ease;
+}
+
+.male {
+    color: $color-alpha;
+    fill: currentColor;
+    stroke-dasharray: 1726;
+    animation: homme 3s linear;
+    fill-opacity: 0;
+    transform: translate3d(-111px, 0, 0);
+    transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+
+    &:hover {
+        fill-opacity: 1;
+        transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
+    }
+}
+
+.female {
+    color: $color-alpha;
+    fill: currentColor;
+    stroke-dasharray: 1200;
+    animation: femme 3s linear;
+    fill-opacity: 0;
+    transform: translate3d(111px, 0, 0);
+    transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+
+    &:hover {
+        fill-opacity: 1;
+        transition: fill-opacity 0.3s ease-in-out;
+    }
+}
+
+@keyframes homme {
+    from {
+        stroke-dashoffset: 1726;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes femme {
+    from {
+        stroke-dashoffset: 1200;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.select-male {
+    & .female {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    & .male {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
+        fill-opacity: 1;
+        stroke-opacity: 0;
+    }
+}
+
+.select-female {
+    & .female {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
+        fill-opacity: 1;
+        stroke-opacity: 0;
+    }
+    & .male {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+}
+

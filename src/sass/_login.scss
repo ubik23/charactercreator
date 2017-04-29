@@ -1,4 +1,3 @@
-
 #logoutButton, #usernameButton, #whoButton {
     display: none;
 }
@@ -7,6 +6,7 @@
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
     cursor: default;
+
     &.enabled {
         opacity: 1;
         cursor: auto;
@@ -14,14 +14,14 @@
 }
 
 .save-btn {
-     position: fixed;
-     right: 0;
-     bottom: 0;
-     margin: 5vmin;
-     padding: 2vmin;
-     visibility: hidden;
-     opacity: 0;
-     transition: opacity 0.2s ease, visibility linear 0.2s;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 5vmin;
+    padding: 2vmin;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility linear 0.2s;
 }
 
 .logged {
@@ -47,7 +47,7 @@
          transition: opacity 0.2s ease, visibility linear 0;
          z-index:23;
          &.save--enabled {
-              opacity: 1;
+            opacity: 1;
         }
     }
 }

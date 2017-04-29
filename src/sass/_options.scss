@@ -1,0 +1,41 @@
+
+.svg__option {
+    width: 100%;
+    margin: 0.3vh;
+    border: 1px solid $color-alpha;
+    border-radius: 2vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: transparent;
+    transition: background 0.3s;
+}
+
+.option__label {
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: 700;
+    color: $color-alpha;
+}
+
+.option__container {
+    width: 24%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5%;
+    transform: scale(1);
+    transition: transform 0.3s;
+
+    &:hover > .option__label {
+        color: #a4433b;
+    }
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:hover > .svg__option {
+        border: 1px solid #a4433b;
+        background: #FFF;
+    }
+}
+

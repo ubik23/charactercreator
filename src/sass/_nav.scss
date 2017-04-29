@@ -1,3 +1,12 @@
+sup {
+    vertical-align: super;
+    font-size: .35em;
+}
+
+sub {
+    font-size: .5em;
+    text-align:left;
+}
 
 .site-title {
     font-family: "Helvetica";
@@ -15,19 +24,26 @@
 #horizontal {
     display: flex;
     list-style: none;
+    font-size: 12px;
 }
 
 #horizontal li {
-	padding-left: 0.6em;
+    padding-left: 0.6em;
 }
 
 #horizontal li a {
     display: flex;
     align-items: center;
-	color: #f2f2f2;
+    color: $color-beta;
 }
 
 #horizontal li a:hover {
-	color: white;
+    color: $color-beta--light;
+}
+
+.menu-text {
+    font-family: "Helvetica";
+    margin: 4px;
+    box-sizing: border-box;
 }
 

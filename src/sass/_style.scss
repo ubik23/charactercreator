@@ -1,0 +1,402 @@
+html {
+    height: 100%;
+    font-family: Helvetica;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* Standard syntax */
+    overflow-y:hidden;
+    position: relative;
+}
+
+.modal {
+    position: absolute;
+    top: 16%;
+    left: 5%;
+    width: 90%;
+    height: 68%;
+    background-color: #f2f2f2;
+    box-shadow: 5px 10px 5px #888888;
+    visibility: hidden;
+}
+
+#pagewrap {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+.header {
+    padding: 0 1%;
+    background-color: $color-alpha;
+    color: #f2f2f2;
+    height: 5.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 200;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+svg {
+    overflow: visible;
+}
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    /*required for proper track sizing in FF*/
+    width: 5px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 8px;
+    height: 175px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 8px;
+    height: 175px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 8px;
+    height: 175px;
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+    /*remove default tick marks*/
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
+
+.template {
+    color: $color-alpha;
+    fill: currentColor;
+    stroke-width: 0;
+}
+
+#content {
+    height: 94.5%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#article {
+    font-family: arial, verdana, sans-serif;
+    font-size: 1em;
+    padding-top: 2.5em;
+    margin: 0 auto;
+    z-index: 0;
+    width: 90%;
+    max-width: 474px;
+}
+
+#article h2 {
+    font-family: helvetica, arial, verdana, sans-serif;
+    color: #d40000;
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+}
+
+#article p {
+    font-family: arial, verdana, sans-serif;
+    color: #000;
+    padding-bottom: 1em;
+    text-align: justify;
+}
+
+#article strong {
+    font-weight:bold;
+}
+
+#article a {
+    font-family: arial, verdana, sans-serif;
+    color: #d40000;
+    text-decoration: none;
+}
+
+#article a:hover {
+    color: #f00;
+}
+
+#back {
+    font-family: arial, verdana, sans-serif;
+    color: #d40000;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-decoration: none;
+    float: right;
+}
+
+.hud {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    & svg {
+        fill: currentColor;
+        color: $color-alpha;
+    }
+}
+
+.hud__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2px 10px 2px 10px;
+}
+
+.svg__section__title {
+    display: none;
+    text-transform: uppercase;
+    color: $color-alpha;
+    font-weight: 700;
+    text-align: center;
+}
+
+.select-group {
+    display: flex;
+    flex-direction: row;
+    allign-items: center;
+    justify-content: space-around;
+}
+
+input.color{
+    width: 50px;
+    height: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.Table {
+    display: table;
+    width: 100%;
+}
+
+.options__container {
+    display: none;
+}
+
+.thumbnails__container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.selected--option {
+    display: block;
+}
+
+.Cell {
+    display: table-cell;
+    width: 100%;
+}
+
+.skin-color__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 12vh;
+    position: fixed;
+    bottom: 0;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 0.3s ease-in-out;
+
+    li {
+        flex-grow: 1;
+        min-width: 8vw;
+    }
+}
+
+.skin-color__container--show {
+    &.skin-color__container {
+        transition: transform 0.3s ease-in-out 0.3s;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+#nav-left {
+    font-size: 3vh;
+    font-family: arial, verdana, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1vh 1%;
+    height: 100%;
+    width: 5%;
+    float: left;
+    color: #fff;
+    opacity: 0;
+}
+
+#step-by-step {
+    height: 100%;
+    padding: 1vh 0;
+    display: inline-block;
+    color: #f2f2f2;
+    font-size: 3vh;
+    font-family: arial, verdana, sans-serif;
+    text-transform: uppercase;  
+    text-decoration: none;
+    text-align: middle;
+    opacity: 0;
+}
+
+#nav-right {
+    font-size: 3vh;
+    font-family: arial, verdana, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1vh 1%;
+    height: 100%;
+    width: 5%;
+    float: right;
+    color: #fff;
+    opacity: 0;
+}
+
+#infinity {
+    position: relative;
+    width: 212px;
+    height: 100px;
+}
+
+@media screen and (max-width: 650px) {
+    #pagewrap {
+        width: 100%;
+    }
+
+    #header {
+        height: auto;
+    }
+
+    sup {
+        vertical-align: super;
+        font-size: .5em; 
+    }
+
+    sub {
+        font-size: .5em; 
+        text-align:left;
+    }
+
+    .menu-text {
+        display: none;
+    }
+
+    #main-nav {
+        position: static;
+    }
+
+    #site-logo {
+        margin: 15px 100px 5px 0;
+        position: static;
+    }
+
+    #site-description {
+        margin: 0 0 15px;
+        position: static;
+    }
+}

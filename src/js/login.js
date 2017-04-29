@@ -129,9 +129,10 @@ function isUser () {
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
+
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
-  // console.log('who am i?')
+
   isUser()
     .then(function (who) {
       //window.alert(['who', who, myUsername].join(' '))
@@ -253,6 +254,7 @@ function hashCharacter() {
       }
       //manageCharacters(currentUser);
       //TODO make sure the menu is reset before rebuilding it on top of existing menu.
+      //TODO Reset the svg1 viewport
       interpretHash();
 }
 
@@ -278,7 +280,6 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
-    //clearHash();
     hash.clear();
     hashCharacter();
 }
@@ -301,9 +302,11 @@ function manageCharacters() {
     var saveBtn = document.querySelector('.save-btn');
     var newBtn = charUI.querySelector('.overlay__char-new-btn');
     var createBtn = charUI.querySelector('.overlay__char-create-btn');
+    var charName;
+
     resetCharacters();
     while (charNum--) {
-        var charName = charList[charNum];
+        charName = charList[charNum];
         var newCard = charCard.cloneNode(true);
         var charNameCard = newCard.querySelector('.overlay__char-name');
         newCard.classList.remove('overlay__char-card--orig')

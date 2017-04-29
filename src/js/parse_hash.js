@@ -2,7 +2,10 @@ function parseHash(){
     var forms = window.forms;
     var skinlayers = window.skinlayers;
     var hairLayers = window.hairLayers;
-    for (var f in forms) {
+    var formsLength = forms.length;
+    var formsCounter = formsLength;
+    while (formsCounter--) {
+        var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
