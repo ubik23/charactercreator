@@ -1611,6 +1611,7 @@ function login(evt) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/#' + t.join('&')
       }
       manageCharacters(user);
@@ -1629,6 +1630,7 @@ function hashCharacter() {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/#' + t.join('&')
       }
       //manageCharacters(currentUser);
@@ -1659,6 +1661,7 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
+    resetCharacterTemplate()
     hash.clear();
     hashCharacter();
 }
@@ -1803,6 +1806,7 @@ getDbSession()
         )
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/?#' + t.join('&')
       }
     }
@@ -2094,6 +2098,20 @@ function sectionHide(multiLayer, id) {
     else {
         viewport.selectAll(id).attr({opacity:0})
     };
+}
+
+function resetCharacterTemplate() {
+    var characterSVG = document.querySelector('#svg1');
+    var elements = characterSVG.querySelectorAll('*');
+    //console.log('elements', elements);
+    var elementsLength = elements.length;
+    var elementsCounter = elementsLength;
+    while (elementsCounter--) {
+        if (elements[elementsCounter].style.opacity !== 0) {
+            //console.log('hiding', elements[elementsCounter].style.opacity);
+            elements[elementsCounter].style.opactiy = "0";
+        }
+    }
 }
 
 window.onload = function() {

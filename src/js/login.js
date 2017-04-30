@@ -232,6 +232,7 @@ function login(evt) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/#' + t.join('&')
       }
       manageCharacters(user);
@@ -250,6 +251,7 @@ function hashCharacter() {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/#' + t.join('&')
       }
       //manageCharacters(currentUser);
@@ -280,6 +282,7 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
+    resetCharacterTemplate()
     hash.clear();
     hashCharacter();
 }
@@ -424,6 +427,7 @@ getDbSession()
         )
       }
       if (t.length) {
+        //TODO Populate hash without  reloading page.
         window.location = '/?#' + t.join('&')
       }
     }

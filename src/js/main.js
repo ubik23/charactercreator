@@ -186,3 +186,17 @@ function sectionHide(multiLayer, id) {
         viewport.selectAll(id).attr({opacity:0})
     };
 }
+
+function resetCharacterTemplate() {
+    var characterSVG = document.querySelector('#svg1');
+    var elements = characterSVG.querySelectorAll('*');
+    //console.log('elements', elements);
+    var elementsLength = elements.length;
+    var elementsCounter = elementsLength;
+    while (elementsCounter--) {
+        if (elements[elementsCounter].style.opacity !== 0) {
+            //console.log('hiding', elements[elementsCounter].style.opacity);
+            elements[elementsCounter].style.opactiy = "0";
+        }
+    }
+}
