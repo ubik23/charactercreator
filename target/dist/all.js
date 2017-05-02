@@ -1612,7 +1612,8 @@ function login(evt) {
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/#' + t.join('&')
+        //window.location = '/#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
       manageCharacters(user);
       interpretHash();
@@ -1631,7 +1632,8 @@ function hashCharacter() {
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/#' + t.join('&')
+        //window.location = '/#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
       //manageCharacters(currentUser);
       //TODO make sure the menu is reset before rebuilding it on top of existing menu.
@@ -1661,7 +1663,8 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
-    resetCharacterTemplate()
+    //resetCharacterTemplate()
+    clearCharacter();
     hash.clear();
     hashCharacter();
 }
@@ -1717,6 +1720,7 @@ function manageCharacters() {
 }
 
 function resetCharacters() {
+    //TODO Reset colors too.
     var charUI = document.querySelector('.js-character-list');
     var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)');
     Array.prototype.forEach.call( charCards, function( node ) {
@@ -1807,7 +1811,8 @@ getDbSession()
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/?#' + t.join('&')
+        //window.location = '/?#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
     }
     manageCharacters(user);
@@ -1821,7 +1826,6 @@ function setHashTrigger() {
     window.addEventListener('hashchange', function () {
         var saveBtn = document.querySelector('.save-btn');
         saveBtn.classList.add('save--enabled');
-        console.log('hash changed');
     }, false)
 }
 
@@ -1832,7 +1836,6 @@ function newChar() {
 
 function createChar() {
     var el = this;
-    console.log('el', el);
     var newCard = document.querySelector('.overlay__char-new--create');
     var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
     //console.log('newCharNameEl', newCharNameEl);
@@ -1843,12 +1846,10 @@ function createChar() {
     //TODO add character to UI and curentUser.cc
     var personnageActuel = newCharName;
   if (!personnageActuel) { return }
-  //console.log('personnageActuel', personnageActuel);
   if (!currentUser.cc) { currentUser.cc = {} }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
   currentUser.cc.personnages[personnageActuel] = window.hash.get();
-  //console.log('user:',currentUser.cc.personnages[personnageActuel];
   Object.assign(currentUser.cc.personnages, personnages);
 
   updateDbUser(currentUser)
@@ -1915,10 +1916,48 @@ function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
 
+function clearCharacter() {
+    var svgContainer = document.querySelector('#svg1');
+    var maleSilhouette = svgContainer.querySelector('#male_silhouette');
+    var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
+}
+
+function personnageActuelToHash(currentUser) {
+    var personnageActuel = currentUser.cc.personnageActuel;
+    var personnageActuelData;
+    var itemsList;
+    var itemsCounter;
+    var currentCount;
+    var myKey;
+    var myValue;
+    var hashArgs = {};
+
+    if (personnageActuel && personnageActuel !== '') {
+        personnageActuelData = currentUser.cc.personnages[personnageActuel];
+        itemsList = Object.keys(personnageActuelData);
+        itemsListLength = itemsList.length;
+        itemsListCounter = itemsListLength;
+        while (itemsListCounter--) {
+            currentCount = itemsListLength - itemsListCounter - 1;
+            myKey = itemsList[currentCount];
+            myValue = personnageActuelData[itemsList[currentCount]];
+            //modCharacter(myKey, myValue);
+            //hash.add({mykey: myValue});
+            hashArgs[myKey] = myValue;
+            hash.add(hashArgs);
+        }
+        interpretHash();
+    } else {
+        return;
+    }
+}
+
 function trans(sex){
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions.
-    location.reload();
+    //location.reload();
+    interpretHash();
 }
 
 function Character(fullName, sex, emotion, choices, birthday){
@@ -2143,6 +2182,8 @@ window.onload = function() {
 }
 
 function interpretHash() {
+    //TODO Clean svg1 before creating a new character.
+    var mainSVG = document.querySelector('#svg1');
     var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
@@ -2517,7 +2558,9 @@ function selectMale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    maleSilhouette.removeEventListener('click', selectMale, false);
+    if (maleSilhouette) {
+        maleSilhouette.removeEventListener('click', selectMale, false);
+    }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
@@ -2529,7 +2572,9 @@ function selectFemale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    femaleSilhouette.removeEventListener('click', selectFemale, false);
+    if (femaleSilhouette) {
+        femaleSilhouette.removeEventListener('click', selectFemale, false);
+    }
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")

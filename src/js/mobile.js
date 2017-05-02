@@ -27,6 +27,8 @@ window.onload = function() {
 }
 
 function interpretHash() {
+    //TODO Clean svg1 before creating a new character.
+    var mainSVG = document.querySelector('#svg1');
     var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
@@ -401,7 +403,9 @@ function selectMale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    maleSilhouette.removeEventListener('click', selectMale, false);
+    if (maleSilhouette) {
+        maleSilhouette.removeEventListener('click', selectMale, false);
+    }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
@@ -413,7 +417,9 @@ function selectFemale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    femaleSilhouette.removeEventListener('click', selectFemale, false);
+    if (femaleSilhouette) {
+        femaleSilhouette.removeEventListener('click', selectFemale, false);
+    }
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")

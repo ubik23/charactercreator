@@ -233,7 +233,8 @@ function login(evt) {
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/#' + t.join('&')
+        //window.location = '/#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
       manageCharacters(user);
       interpretHash();
@@ -252,7 +253,8 @@ function hashCharacter() {
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/#' + t.join('&')
+        //window.location = '/#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
       //manageCharacters(currentUser);
       //TODO make sure the menu is reset before rebuilding it on top of existing menu.
@@ -282,7 +284,8 @@ function switchCharacter(evt) {
           console.log('err', err)
         })
     //TODO clear hash before applying hash of new character.
-    resetCharacterTemplate()
+    //resetCharacterTemplate()
+    clearCharacter();
     hash.clear();
     hashCharacter();
 }
@@ -338,6 +341,7 @@ function manageCharacters() {
 }
 
 function resetCharacters() {
+    //TODO Reset colors too.
     var charUI = document.querySelector('.js-character-list');
     var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)');
     Array.prototype.forEach.call( charCards, function( node ) {
@@ -428,7 +432,8 @@ getDbSession()
       }
       if (t.length) {
         //TODO Populate hash without  reloading page.
-        window.location = '/?#' + t.join('&')
+        //window.location = '/?#' + t.join('&')
+        personnageActuelToHash(currentUser);
       }
     }
     manageCharacters(user);
@@ -442,7 +447,6 @@ function setHashTrigger() {
     window.addEventListener('hashchange', function () {
         var saveBtn = document.querySelector('.save-btn');
         saveBtn.classList.add('save--enabled');
-        console.log('hash changed');
     }, false)
 }
 
@@ -453,7 +457,6 @@ function newChar() {
 
 function createChar() {
     var el = this;
-    console.log('el', el);
     var newCard = document.querySelector('.overlay__char-new--create');
     var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
     //console.log('newCharNameEl', newCharNameEl);
@@ -464,12 +467,10 @@ function createChar() {
     //TODO add character to UI and curentUser.cc
     var personnageActuel = newCharName;
   if (!personnageActuel) { return }
-  //console.log('personnageActuel', personnageActuel);
   if (!currentUser.cc) { currentUser.cc = {} }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
   currentUser.cc.personnages[personnageActuel] = window.hash.get();
-  //console.log('user:',currentUser.cc.personnages[personnageActuel];
   Object.assign(currentUser.cc.personnages, personnages);
 
   updateDbUser(currentUser)

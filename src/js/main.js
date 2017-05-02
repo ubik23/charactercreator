@@ -2,10 +2,48 @@ function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
 
+function clearCharacter() {
+    var svgContainer = document.querySelector('#svg1');
+    var maleSilhouette = svgContainer.querySelector('#male_silhouette');
+    var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
+}
+
+function personnageActuelToHash(currentUser) {
+    var personnageActuel = currentUser.cc.personnageActuel;
+    var personnageActuelData;
+    var itemsList;
+    var itemsCounter;
+    var currentCount;
+    var myKey;
+    var myValue;
+    var hashArgs = {};
+
+    if (personnageActuel && personnageActuel !== '') {
+        personnageActuelData = currentUser.cc.personnages[personnageActuel];
+        itemsList = Object.keys(personnageActuelData);
+        itemsListLength = itemsList.length;
+        itemsListCounter = itemsListLength;
+        while (itemsListCounter--) {
+            currentCount = itemsListLength - itemsListCounter - 1;
+            myKey = itemsList[currentCount];
+            myValue = personnageActuelData[itemsList[currentCount]];
+            //modCharacter(myKey, myValue);
+            //hash.add({mykey: myValue});
+            hashArgs[myKey] = myValue;
+            hash.add(hashArgs);
+        }
+        interpretHash();
+    } else {
+        return;
+    }
+}
+
 function trans(sex){
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions.
-    location.reload();
+    //location.reload();
+    interpretHash();
 }
 
 function Character(fullName, sex, emotion, choices, birthday){
