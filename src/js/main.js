@@ -33,6 +33,7 @@ function personnageActuelToHash(currentUser) {
             hashArgs[myKey] = myValue;
             hash.add(hashArgs);
         }
+        clearCharacter();
         interpretHash();
     } else {
         return;
@@ -40,9 +41,9 @@ function personnageActuelToHash(currentUser) {
 }
 
 function trans(sex){
+    clearCharacter();
     hash.add({ sex: sex });
-    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions.
-    //location.reload();
+    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
     interpretHash();
 }
 

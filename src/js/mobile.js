@@ -19,46 +19,26 @@ window.onload = function() {
     } else if (document.addEventListener) {//WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
     }
-    c = new Character();
-    interpretHash();
 
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+
+    startup();
+}
+
+function startup() {
+    c = new Character();
+    interpretHash();
 }
 
 function interpretHash() {
     //TODO Clean svg1 before creating a new character.
-    var mainSVG = document.querySelector('#svg1');
     var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
     } else {
-    }
-}
-
-function scrollZoom(e) {
-    var svgViewBox = document.querySelector("#svg1");
-    var event = window.event || e;
-    var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
-    var zoomLevel = document.querySelector("#zoomLevel").value;
-    var zoom = document.querySelector("#zoomLevel");
-    //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
-    if (delta > 0 ){
-        zoomLevel = zoomLevel + 1;
-        if (zoomLevel > 3) {
-             zoomLevel = 3;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
-    } else {
-        zoomLevel = zoomLevel - 1;
-        if (zoomLevel < 0) {
-             zoomLevel = 0;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
     }
 }
 
