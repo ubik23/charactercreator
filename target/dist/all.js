@@ -1638,7 +1638,6 @@ function hashCharacter() {
       //manageCharacters(currentUser);
       //TODO make sure the menu is reset before rebuilding it on top of existing menu.
       //TODO Reset the svg1 viewport
-      interpretHash();
 }
 
 function switchCharacter(evt) {
@@ -1664,9 +1663,10 @@ function switchCharacter(evt) {
         })
     //TODO clear hash before applying hash of new character.
     //resetCharacterTemplate()
-    clearCharacter();
     hash.clear();
+    clearCharacter();
     hashCharacter();
+    startup();
 }
 
 function manageCharacters() {

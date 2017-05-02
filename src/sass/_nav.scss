@@ -25,12 +25,11 @@ sub {
     display: flex;
     list-style: none;
     font-size: 12px;
+    align-items: center;
 }
 
 #horizontal li {
     padding-left: 0.6em;
-    display: flex;
-    align-items: center;
 }
 
 #horizontal li a {
