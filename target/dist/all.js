@@ -816,7 +816,10 @@ function download() {
     }
 }
 
+
 function createForm(sex, forms){
+    //TODO Check to see if there is already an existing form for the sex of the new character.
+    console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
@@ -1274,12 +1277,14 @@ function onAllLoaded() {
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
+    //TODO Hide silhouettes;
+    createForm(window.sex, forms);
 
-    var tl = new TimelineLite({onComplete: createForm});
-    tl.add("sidebars",0.5)
-    .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    //var tl = new TimelineLite({onComplete: createForm});
+    //tl.add("sidebars",0.5)
+    //.to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
+    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     sideBarLeft.classList.toggle('visible');
 }
 
@@ -1667,6 +1672,7 @@ function switchCharacter(evt) {
     clearCharacter();
     hashCharacter();
     startup();
+    setHashTrigger();
 }
 
 function manageCharacters() {
@@ -1826,6 +1832,7 @@ function setHashTrigger() {
     window.addEventListener('hashchange', function () {
         var saveBtn = document.querySelector('.save-btn');
         saveBtn.classList.add('save--enabled');
+        console.log('Hash changed.');
     }, false)
 }
 
@@ -1891,12 +1898,19 @@ function saveChar() {
   console.log('logged in', currentUser.name)
   console.log('personnageActuel', personnageActuel);
 
-  if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
-  if (!personnageActuel) { return }
-  if (!currentUser.cc) { currentUser.cc = {} }
+  //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
+  if (!personnageActuel) {
+      console.log('No current character detected.');
+      return;
+  }
+  if (!currentUser.cc) {
+      console.log('Current user has no characters yet, creating empty set.');
+      currentUser.cc = {};
+  }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
-  currentUser.cc.personnages[personnageActuel] = window.hash.get()
+  currentUser.cc.personnages[personnageActuel] = window.hash.get();
+  console.log('Adding character', window.hash.get());
   Object.assign(currentUser.cc.personnages, personnages)
 
   // console.log('currentUser', JSON.stringify(currentUser, null, '  '))

@@ -37,12 +37,14 @@ function onAllLoaded() {
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
+    //TODO Hide silhouettes;
+    createForm(window.sex, forms);
 
-    var tl = new TimelineLite({onComplete: createForm});
-    tl.add("sidebars",0.5)
-    .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    //var tl = new TimelineLite({onComplete: createForm});
+    //tl.add("sidebars",0.5)
+    //.to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
+    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
+    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
     sideBarLeft.classList.toggle('visible');
 }
 

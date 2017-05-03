@@ -1,4 +1,7 @@
+
 function createForm(sex, forms){
+    //TODO Check to see if there is already an existing form for the sex of the new character.
+    console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
