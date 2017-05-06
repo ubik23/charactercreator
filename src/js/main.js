@@ -155,6 +155,9 @@ function show(userChoice, category) {
 
     hideCompetition(sections[0]);
     hash.add(obj);
+    if (currentUser) {
+        triggerSaveBtn();
+    }
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
         selectedOption = hash.get('emotion');

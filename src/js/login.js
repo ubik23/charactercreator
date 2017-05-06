@@ -282,7 +282,6 @@ function switchCharacter(evt) {
         .catch(function (err) {
           console.log('err', err)
         })
-    //TODO clear hash before applying hash of new character.
     //resetCharacterTemplate()
     hash.clear();
     clearCharacter();
@@ -445,11 +444,15 @@ getDbSession()
   })
 
 function setHashTrigger() {
-    window.addEventListener('hashchange', function () {
-        var saveBtn = document.querySelector('.save-btn');
+    window.addEventListener('hashchange', triggerSaveButton, false)
+}
+
+function triggerSaveBtn() {
+    var saveBtn = document.querySelector('.save-btn');
+    if (saveBtn) {
         saveBtn.classList.add('save--enabled');
         console.log('Hash changed.');
-    }, false)
+    }
 }
 
 function newChar() {

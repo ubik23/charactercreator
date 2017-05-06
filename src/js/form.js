@@ -1,6 +1,7 @@
 
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
+    //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
     console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
@@ -124,6 +125,21 @@ function openThumbs() {
          sidebarLeft.classList.remove("cherry");
          sidebarRight.classList.add("visible");
     }
+}
+
+function showSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.innerHTML  = '';
 }
 
 function addEventListenerList(list, event, fn) {

@@ -34,17 +34,25 @@ function onAllLoaded() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
+    var characterSex;
+    //if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel){
+    //    var characterSex = currentUser.cc.personnages[currentUser.cc.personnageActuel];
+    //} else {
+    //    characterSex = window.sex;
+    //}
+    //
+    var hashSex = hash.get('sex');
+    if (hashSex) {
+         characterSex = hashSex;
+    } else {
+        characterSex = window.sex;
+    }
+    console.log('characterSex', characterSex);
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     //TODO Hide silhouettes;
-    createForm(window.sex, forms);
-
-    //var tl = new TimelineLite({onComplete: createForm});
-    //tl.add("sidebars",0.5)
-    //.to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
-    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    createForm(characterSex, forms);
     sideBarLeft.classList.toggle('visible');
 }
 

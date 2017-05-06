@@ -819,6 +819,7 @@ function download() {
 
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
+    //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
     console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
@@ -942,6 +943,21 @@ function openThumbs() {
          sidebarLeft.classList.remove("cherry");
          sidebarRight.classList.add("visible");
     }
+}
+
+function showSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.innerHTML  = '';
 }
 
 function addEventListenerList(list, event, fn) {
@@ -1274,17 +1290,25 @@ function onAllLoaded() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
+    var characterSex;
+    //if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel){
+    //    var characterSex = currentUser.cc.personnages[currentUser.cc.personnageActuel];
+    //} else {
+    //    characterSex = window.sex;
+    //}
+    //
+    var hashSex = hash.get('sex');
+    if (hashSex) {
+         characterSex = hashSex;
+    } else {
+        characterSex = window.sex;
+    }
+    console.log('characterSex', characterSex);
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     //TODO Hide silhouettes;
-    createForm(window.sex, forms);
-
-    //var tl = new TimelineLite({onComplete: createForm});
-    //tl.add("sidebars",0.5)
-    //.to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
-    //.to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    //.to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
+    createForm(characterSex, forms);
     sideBarLeft.classList.toggle('visible');
 }
 
@@ -1666,7 +1690,6 @@ function switchCharacter(evt) {
         .catch(function (err) {
           console.log('err', err)
         })
-    //TODO clear hash before applying hash of new character.
     //resetCharacterTemplate()
     hash.clear();
     clearCharacter();
@@ -1829,11 +1852,15 @@ getDbSession()
   })
 
 function setHashTrigger() {
-    window.addEventListener('hashchange', function () {
-        var saveBtn = document.querySelector('.save-btn');
+    window.addEventListener('hashchange', triggerSaveButton, false)
+}
+
+function triggerSaveBtn() {
+    var saveBtn = document.querySelector('.save-btn');
+    if (saveBtn) {
         saveBtn.classList.add('save--enabled');
         console.log('Hash changed.');
-    }, false)
+    }
 }
 
 function newChar() {
@@ -2083,6 +2110,9 @@ function show(userChoice, category) {
 
     hideCompetition(sections[0]);
     hash.add(obj);
+    if (currentUser) {
+        triggerSaveBtn();
+    }
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
         selectedOption = hash.get('emotion');
