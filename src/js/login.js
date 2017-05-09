@@ -172,7 +172,8 @@ function logoutUI(){
   }
 }
 
-function loginMenu() {
+function loginMenu(evt) {
+  evt.preventDefault()
   var overlay = document.querySelector('.js-login');
   var loginForm = document.querySelector('#login-form');
   var firstInput = overlay.querySelector('.first-input');
@@ -212,6 +213,7 @@ function login(evt) {
     var username = event.target.children[0].lastElementChild.value;
     var password = event.target.children[1].lastElementChild.value;
     var login = document.querySelector('.overlay--show');
+    var currentCharacter;
     login.classList.remove('overlay--show');
 
   if (!username || !password) { return }
@@ -231,10 +233,9 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
+      currentCharacter = characterInHash();
       if (t.length) {
-        //TODO Populate hash without  reloading page.
-        //window.location = '/#' + t.join('&')
-        personnageActuelToHash(currentUser);
+        //personnageActuelToHash(currentUser);
       }
       manageCharacters(user);
       interpretHash();
@@ -242,6 +243,15 @@ function login(evt) {
     .catch(function (err) {
       console.error('err3', err)
     })
+}
+
+function characterInHash() {
+    var hashSex = hash.get("sex");
+    if (hashSex) {
+        console.log('hashSex', hashSex);
+    } else {
+        console.log('No hash.');
+    }
 }
 
 function hashCharacter() {
@@ -270,9 +280,7 @@ function switchCharacter(evt) {
         oldCard.classList.remove('overlay__char--current');
     }
     newCard.classList.add('overlay__char--current');
-    console.log(currentUser);
     currentUser.cc.personnageActuel = newChar;
-    console.log(newChar);
 
     updateDbUser(currentUser)
         .then(function (json) {
@@ -282,7 +290,6 @@ function switchCharacter(evt) {
         .catch(function (err) {
           console.log('err', err)
         })
-    //resetCharacterTemplate()
     hash.clear();
     clearCharacter();
     hashCharacter();
