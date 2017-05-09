@@ -61,8 +61,10 @@ function buildCharacter(callback) {
         clearForms();
         clearCharacter();
         interpretHash();
-        characterSVG.classList.remove('character--hide');
-        callback();
+        setTimeout(function(){
+            characterSVG.classList.remove('character--hide');
+            callback();
+        },1000);
     },1000);
 }
 
@@ -77,7 +79,7 @@ function clearForms() {
 }
 
 function resetForms() {
-    //TODO The follwing function should be a callback or a response to a promess.
+    //TODO The follwing function should be a callback or a response to a promise.
     createForm();
     showSidebarLeft();
 }
