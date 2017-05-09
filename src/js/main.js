@@ -6,6 +6,7 @@ function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
     var maleSilhouette = svgContainer.querySelector('#male_silhouette');
     var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    //svgContainer.classList.add('.character--hide')
     svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
 }
 
@@ -41,10 +42,44 @@ function personnageActuelToHash(currentUser) {
 }
 
 function trans(sex){
-    clearCharacter();
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.add('character--hide');
+    hideForms();
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
-    interpretHash();
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
+         currentUser.cc.personnages[personnageActuel].sex = sex;
+    }
+    window.sex = sex;
+    buildCharacter(resetForms);
+
+}
+
+function buildCharacter(callback) {
+    var characterSVG = document.querySelector('#svg1');
+    setTimeout(function(){
+        clearForms();
+        clearCharacter();
+        interpretHash();
+        characterSVG.classList.remove('character--hide');
+        callback();
+    },1000);
+}
+
+function hideForms() {
+    hideSidebarLeft();
+    hideSidebarRight();
+}
+
+function clearForms() {
+    clearSidebarLeft();
+    clearSidebarRight();
+}
+
+function resetForms() {
+    //TODO The follwing function should be a callback or a response to a promess.
+    createForm();
+    showSidebarLeft();
 }
 
 function Character(fullName, sex, emotion, choices, birthday){

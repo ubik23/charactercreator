@@ -820,7 +820,6 @@ function download() {
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
     //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
-    console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
@@ -893,8 +892,9 @@ function createForm(sex, forms){
         var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
         var optionThumbnails  = document.querySelectorAll('.option__container');
         var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-        //addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-        //addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+        console.log('sidebarLeftOptions', sidebarLeftOptions);
+        addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
         addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
         addEventListenerList(optionThumbnails, 'click', changeOption);
         addEventListenerList(sectionButtons, 'click', toggleSection);
@@ -941,8 +941,9 @@ function openThumbs() {
     }
     if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
+         //sidebarRight.classList.add("visible");
     }
+    sidebarRight.classList.add("visible");
 }
 
 function showSidebarLeft() {
@@ -958,6 +959,23 @@ function hideSidebarLeft() {
 function clearSidebarLeft() {
     var sidebarLeft = document.querySelector('#sidebar-left');
     sidebarLeft.innerHTML  = '';
+}
+
+function showSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarRight() {
+    var sidebarParent = document.querySelector('#content');
+    var sidebarRight = document.querySelector('#sidebar');
+    sidebarParent.removeChild(sidebarRight);
+    sidebarParent.appendChild(rightSidebarClone);
 }
 
 function addEventListenerList(list, event, fn) {
@@ -1291,12 +1309,6 @@ function onAllLoaded() {
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
     var characterSex;
-    //if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel){
-    //    var characterSex = currentUser.cc.personnages[currentUser.cc.personnageActuel];
-    //} else {
-    //    characterSex = window.sex;
-    //}
-    //
     var hashSex = hash.get('sex');
     if (hashSex) {
          characterSex = hashSex;
@@ -1309,7 +1321,7 @@ function onAllLoaded() {
     downloadBtn.classList.add('enabled');
     //TODO Hide silhouettes;
     createForm(characterSex, forms);
-    sideBarLeft.classList.toggle('visible');
+    sideBarLeft.classList.add('visible');
 }
 
 function onEachLoaded(frag, fileName) {
@@ -1852,7 +1864,7 @@ getDbSession()
   })
 
 function setHashTrigger() {
-    window.addEventListener('hashchange', triggerSaveButton, false)
+    window.addEventListener('hashchange', triggerSaveBtn, false)
 }
 
 function triggerSaveBtn() {
@@ -1961,6 +1973,7 @@ function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
     var maleSilhouette = svgContainer.querySelector('#male_silhouette');
     var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    //svgContainer.classList.add('.character--hide')
     svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
 }
 
@@ -1996,10 +2009,44 @@ function personnageActuelToHash(currentUser) {
 }
 
 function trans(sex){
-    clearCharacter();
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.add('character--hide');
+    hideForms();
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
-    interpretHash();
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
+         currentUser.cc.personnages[personnageActuel].sex = sex;
+    }
+    window.sex = sex;
+    buildCharacter(resetForms);
+
+}
+
+function buildCharacter(callback) {
+    var characterSVG = document.querySelector('#svg1');
+    setTimeout(function(){
+        clearForms();
+        clearCharacter();
+        interpretHash();
+        characterSVG.classList.remove('character--hide');
+        callback();
+    },1000);
+}
+
+function hideForms() {
+    hideSidebarLeft();
+    hideSidebarRight();
+}
+
+function clearForms() {
+    clearSidebarLeft();
+    clearSidebarRight();
+}
+
+function resetForms() {
+    //TODO The follwing function should be a callback or a response to a promess.
+    createForm();
+    showSidebarLeft();
 }
 
 function Character(fullName, sex, emotion, choices, birthday){
@@ -2207,7 +2254,10 @@ window.onload = function() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    var rightSidebar = document.querySelector('#sidebar');
+    rightSidebarClone = rightSidebar.cloneNode(true);
 
+    console.log('rightSidebarClone', rightSidebarClone);
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }

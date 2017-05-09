@@ -2,7 +2,6 @@
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
     //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
-    console.log('creating forms');
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
@@ -75,8 +74,9 @@ function createForm(sex, forms){
         var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
         var optionThumbnails  = document.querySelectorAll('.option__container');
         var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-        //addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-        //addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+        console.log('sidebarLeftOptions', sidebarLeftOptions);
+        addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
         addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
         addEventListenerList(optionThumbnails, 'click', changeOption);
         addEventListenerList(sectionButtons, 'click', toggleSection);
@@ -123,8 +123,9 @@ function openThumbs() {
     }
     if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
+         //sidebarRight.classList.add("visible");
     }
+    sidebarRight.classList.add("visible");
 }
 
 function showSidebarLeft() {
@@ -140,6 +141,23 @@ function hideSidebarLeft() {
 function clearSidebarLeft() {
     var sidebarLeft = document.querySelector('#sidebar-left');
     sidebarLeft.innerHTML  = '';
+}
+
+function showSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarRight() {
+    var sidebarParent = document.querySelector('#content');
+    var sidebarRight = document.querySelector('#sidebar');
+    sidebarParent.removeChild(sidebarRight);
+    sidebarParent.appendChild(rightSidebarClone);
 }
 
 function addEventListenerList(list, event, fn) {

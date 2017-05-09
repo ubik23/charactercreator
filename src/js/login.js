@@ -444,7 +444,7 @@ getDbSession()
   })
 
 function setHashTrigger() {
-    window.addEventListener('hashchange', triggerSaveButton, false)
+    window.addEventListener('hashchange', triggerSaveBtn, false)
 }
 
 function triggerSaveBtn() {

@@ -35,12 +35,6 @@ function onAllLoaded() {
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
     var characterSex;
-    //if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel){
-    //    var characterSex = currentUser.cc.personnages[currentUser.cc.personnageActuel];
-    //} else {
-    //    characterSex = window.sex;
-    //}
-    //
     var hashSex = hash.get('sex');
     if (hashSex) {
          characterSex = hashSex;
@@ -53,7 +47,7 @@ function onAllLoaded() {
     downloadBtn.classList.add('enabled');
     //TODO Hide silhouettes;
     createForm(characterSex, forms);
-    sideBarLeft.classList.toggle('visible');
+    sideBarLeft.classList.add('visible');
 }
 
 function onEachLoaded(frag, fileName) {

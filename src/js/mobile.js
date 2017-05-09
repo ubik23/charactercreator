@@ -7,7 +7,10 @@ window.onload = function() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    var rightSidebar = document.querySelector('#sidebar');
+    rightSidebarClone = rightSidebar.cloneNode(true);
 
+    console.log('rightSidebarClone', rightSidebarClone);
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
