@@ -114,17 +114,17 @@ function createDbUser (username, password, email) {
     })
 }
 
-function isUser () {
-  return getDbSession()
-    .then(function (json) {
+//function isUser () {
+  //return getDbSession()
+    //.then(function (json) {
       // console.log('fetched', json)
-      if (json.userCtx.name) {
-        myUsername = json.userCtx.name
-        return json.userCtx.name
-      }
-      return fetchDb.reject('Not connected')
-    })
-}
+      //if (json.userCtx.name) {
+        //myUsername = json.userCtx.name
+        //return json.userCtx.name
+      //}
+      //return fetchDb.reject('Not connected')
+    //})
+//}
 
 function whoami (ev) {
   ev.preventDefault()
@@ -133,17 +133,17 @@ function whoami (ev) {
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
 
-  isUser()
-    .then(function (who) {
-      //window.alert(['who', who, myUsername].join(' '))
-      myUsername = who
-    })
-    .catch(function (e) {
-      //window.alert(['not connected', e, myUsername].join(' '))
-      myUsername = false
-      // alert('not connected', who, myUsername)
+  //isUser()
+    //.then(function (who) {
+    //  console.log(['who', who, myUsername].join(' '));
+    //  myUsername = who
+    //})
+    //.catch(function (e) {
+    //  console.log(['not connected', e, myUsername].join(' '));
+    //  myUsername = false
+    //  console.log('not connected', who, myUsername);
       // console.error('Nope', e)
-    })
+    //})
 }
 
 function logout (ev) {
@@ -542,6 +542,7 @@ function saveChar() {
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
+      console.log('Save character: ', json);
       return json
     })
     .catch(function (err) {
