@@ -112,6 +112,12 @@ function modCharacter(myKey, myValue){
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        console.log(currentUser.cc.personnages);
+        console.log(currentUser.cc.personnageActuel);
+        currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue;
+        console.log(currentUser.cc.personnages[currentUser.cc.personnageActuel]);
+    }
 };
 
 function createCharacter(){

@@ -1693,6 +1693,7 @@ function hashCharacter() {
 
 function switchCharacter(evt) {
     evt.preventDefault();
+    var characterSVG = document.querySelector('#svg1');
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
     var oldCard = document.querySelector('.overlay__char--current');
@@ -1710,11 +1711,17 @@ function switchCharacter(evt) {
         .catch(function (err) {
           console.log('err', err)
         })
+    characterSVG.classList.add('character--hide');
     hash.clear();
-    clearCharacter();
-    hashCharacter();
-    startup();
-    setHashTrigger();
+    setTimeout(function(){
+        clearCharacter();
+        hashCharacter();
+        startup();
+        setHashTrigger();
+        setTimeout(function(){
+            characterSVG.classList.remove('character--hide');
+        },1000);
+    },1000);
 }
 
 function manageCharacters() {
@@ -2086,6 +2093,12 @@ function modCharacter(myKey, myValue){
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        console.log(currentUser.cc.personnages);
+        console.log(currentUser.cc.personnageActuel);
+        currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue;
+        console.log(currentUser.cc.personnages[currentUser.cc.personnageActuel]);
+    }
 };
 
 function createCharacter(){
