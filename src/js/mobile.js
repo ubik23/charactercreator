@@ -10,7 +10,6 @@ window.onload = function() {
     var rightSidebar = document.querySelector('#sidebar');
     rightSidebarClone = rightSidebar.cloneNode(true);
 
-    console.log('rightSidebarClone', rightSidebarClone);
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }

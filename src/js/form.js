@@ -74,7 +74,7 @@ function createForm(sex, forms){
         var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
         var optionThumbnails  = document.querySelectorAll('.option__container');
         var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-        console.log('sidebarLeftOptions', sidebarLeftOptions);
+
         addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
         addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
         addEventListenerList(sidebarLeftOptions, 'click', openThumbs);

@@ -6,7 +6,6 @@ function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
     var maleSilhouette = svgContainer.querySelector('#male_silhouette');
     var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
-    //svgContainer.classList.add('.character--hide')
     svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
 }
 
@@ -113,10 +112,7 @@ function modCharacter(myKey, myValue){
         c.choices[myKey] = myValue;
     };
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
-        console.log(currentUser.cc.personnages);
-        console.log(currentUser.cc.personnageActuel);
         currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue;
-        console.log(currentUser.cc.personnages[currentUser.cc.personnageActuel]);
     }
 };
 
@@ -275,12 +271,10 @@ function sectionHide(multiLayer, id) {
 function resetCharacterTemplate() {
     var characterSVG = document.querySelector('#svg1');
     var elements = characterSVG.querySelectorAll('*');
-    //console.log('elements', elements);
     var elementsLength = elements.length;
     var elementsCounter = elementsLength;
     while (elementsCounter--) {
         if (elements[elementsCounter].style.opacity !== 0) {
-            //console.log('hiding', elements[elementsCounter].style.opacity);
             elements[elementsCounter].style.opactiy = "0";
         }
     }

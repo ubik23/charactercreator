@@ -465,7 +465,6 @@ function triggerSaveBtn() {
     var saveBtn = document.querySelector('.save-btn');
     if (saveBtn) {
         saveBtn.classList.add('save--enabled');
-        console.log('Hash changed.');
     }
 }
 
@@ -478,9 +477,7 @@ function createChar() {
     var el = this;
     var newCard = document.querySelector('.overlay__char-new--create');
     var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
-    //console.log('newCharNameEl', newCharNameEl);
     var newCharName = newCharNameEl.value;
-    //console.log('newCharName', newCharName);
 
     newCard.classList.remove('overlay__char-new--create');
     //TODO add character to UI and curentUser.cc
@@ -505,10 +502,8 @@ function createChar() {
 
 function deleteChar() {
     var el = this;
-    console.log('el', el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML);
     var disposible = el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML;
     delete currentUser.cc.personnages[disposible];
-    console.log(currentUser.cc.personnages);
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
@@ -524,8 +519,6 @@ function saveChar() {
     var saveBtn = document.querySelector('.save-btn');
     saveBtn.classList.remove('save--enabled');
     var personnageActuel = currentUser.cc.personnageActuel;
-  console.log('currentUser', currentUser);
-  // console.log('hash', window.hash.get())
   if (!myUsername || !currentUser) { return }
   if (!currentUser) { return }
   console.log('logged in', currentUser.name)
@@ -545,8 +538,6 @@ function saveChar() {
   currentUser.cc.personnages[personnageActuel] = window.hash.get();
   console.log('Adding character', window.hash.get());
   Object.assign(currentUser.cc.personnages, personnages)
-
-  // console.log('currentUser', JSON.stringify(currentUser, null, '  '))
 
   updateDbUser(currentUser)
     .then(function (json) {
