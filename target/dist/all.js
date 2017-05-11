@@ -908,11 +908,12 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
                 newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
                 sections.push(newLayer);
             }
-        } else {
-            sections = [tempId];
         }
-        return sections;
-    };
+        if (sections.length === 0) {
+        sections = [tempId];
+        }
+    }
+    return sections;
 }
 
 function openThumbs() {
