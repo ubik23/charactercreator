@@ -206,7 +206,7 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
-    'wings_devil','wings_angel',
+    'wings_devil', 'wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'headband_medium_2_of_2',

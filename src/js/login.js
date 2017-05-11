@@ -273,6 +273,7 @@ function hashCharacter() {
 
 function switchCharacter(evt) {
     evt.preventDefault();
+    var characterListUI = document.querySelector('.js-character-list');
     var characterSVG = document.querySelector('#svg1');
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
@@ -282,6 +283,7 @@ function switchCharacter(evt) {
     }
     newCard.classList.add('overlay__char--current');
     currentUser.cc.personnageActuel = newChar;
+    characterListUI.classList.remove('overlay--show');
 
     updateDbUser(currentUser)
         .then(function (json) {

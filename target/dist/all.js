@@ -1272,30 +1272,26 @@ function getViewBox(t, d) {
     }
 }
 
+
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-        var totalFrags = fragList.length;
-        var countFrags = totalFrags;
-        while (countFrags--) {
-            myEl = whichSVG.append(fragList[(totalFrags-countFrags)]);
+        for( var count = 0; count < fragList.length; count++ ) {
+        myEl = whichSVG.append( fragList[ count ] );
         }
         runWhenFinishedFunc();
     }
     Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
         var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
-        var elCount = listLength;
-        var count;
-        while (elCount--) {
-            count = listLength - elCount - 1;
+        for( var count = 0; count < listLength; count++ ) {
             (function() {
                 var whichEl = count,
-                fileName = list[whichEl]+'.svg',
-                image = Snap.load(fileName, function(loadedFragment) {
+                fileName = list[ whichEl ]+'.svg',
+                image = Snap.load( fileName, function ( loadedFragment ) {
                     fragLoadedCount++;
-                    onEachElementLoadFunc(loadedFragment, fileName);
-                    fragList[whichEl] = loadedFragment;
-                    if(fragLoadedCount >= listLength) {
-                        addLoadedFrags(whichSVG, fragList, afterAllLoadedFunc);
+                    onEachElementLoadFunc( loadedFragment, fileName );
+                    fragList[ whichEl ] = loadedFragment;
+                    if( fragLoadedCount >= listLength ) {
+                        addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
                     }
                 });
             })();
@@ -1303,6 +1299,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
+// it uses fragments, so they aren't loaded yet into the DOM fully
 function onAllLoaded() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -1693,6 +1690,7 @@ function hashCharacter() {
 
 function switchCharacter(evt) {
     evt.preventDefault();
+    var characterListUI = document.querySelector('.js-character-list');
     var characterSVG = document.querySelector('#svg1');
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
@@ -1702,6 +1700,7 @@ function switchCharacter(evt) {
     }
     newCard.classList.add('overlay__char--current');
     currentUser.cc.personnageActuel = newChar;
+    characterListUI.classList.remove('overlay--show');
 
     updateDbUser(currentUser)
         .then(function (json) {
@@ -2461,7 +2460,7 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
-    'wings_devil','wings_angel',
+    'wings_devil', 'wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'headband_medium_2_of_2',

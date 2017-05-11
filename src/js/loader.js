@@ -1,27 +1,23 @@
+
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-        var totalFrags = fragList.length;
-        var countFrags = totalFrags;
-        while (countFrags--) {
-            myEl = whichSVG.append(fragList[(totalFrags-countFrags)]);
+        for( var count = 0; count < fragList.length; count++ ) {
+        myEl = whichSVG.append( fragList[ count ] );
         }
         runWhenFinishedFunc();
     }
     Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
         var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
-        var elCount = listLength;
-        var count;
-        while (elCount--) {
-            count = listLength - elCount - 1;
+        for( var count = 0; count < listLength; count++ ) {
             (function() {
                 var whichEl = count,
-                fileName = list[whichEl]+'.svg',
-                image = Snap.load(fileName, function(loadedFragment) {
+                fileName = list[ whichEl ]+'.svg',
+                image = Snap.load( fileName, function ( loadedFragment ) {
                     fragLoadedCount++;
-                    onEachElementLoadFunc(loadedFragment, fileName);
-                    fragList[whichEl] = loadedFragment;
-                    if(fragLoadedCount >= listLength) {
-                        addLoadedFrags(whichSVG, fragList, afterAllLoadedFunc);
+                    onEachElementLoadFunc( loadedFragment, fileName );
+                    fragList[ whichEl ] = loadedFragment;
+                    if( fragLoadedCount >= listLength ) {
+                        addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
                     }
                 });
             })();
@@ -29,6 +25,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
     };
 });
 
+// it uses fragments, so they aren't loaded yet into the DOM fully
 function onAllLoaded() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
