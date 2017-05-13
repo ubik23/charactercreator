@@ -519,7 +519,27 @@ function ColorLuminance(hex, lum) {
     return rgb;
 }
 
+function colorizeByClass(elClassName, color) {
+    var elementList = document.querySelectorAll(('.' + elClassName));
+    var elementListLength = elementList.length;
+    var elCounter = elementListLength;
+    while (elCounter--) {
+        elementList[elementListLength - (elCounter + 1)].style.fill = color;
+    }
+}
+
+function colorSkin(color) {
+    console.log('colorSkin');
+    // WIP function to collect all the elements that need to be colored
+    // when the color of the skin is changed by the user.
+    colorizeByClass('upperlip', shadeColor(color, -10));
+    colorizeByClass('lowerlip', shadeColor(color, 10));
+}
+
 function colorize(formId, _color){
+    console.log('colorize.');
+    console.log('formId', formId);
+    console.log('_color', _color);
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
@@ -536,6 +556,7 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
+                    colorSkin(_color);
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
@@ -609,9 +630,9 @@ function processPaths(optPaths, _color) {
             // Identify if the path is a shape or a shadow
             // apply newStyle if applicable
             var styles = pathStyle.split(';'),
-            i= styles.length,
-            json = {style: {}},
-            style, k, v;
+                i= styles.length,
+                json = {style: {}},
+                style, k, v;
             while (i--){
                 style = styles[i].split(':');
                 if (style == " "||style.length === 1) {continue;};
