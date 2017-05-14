@@ -382,9 +382,13 @@ function showForm() {
 
 function selectMale(event) {
     window.sex = "m";
+    var maleRadioBtn = document.querySelector('#mButton');
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    if (maleRadioBtn) {
+        maleRadioBtn.checked = true;
+    }
     if (maleSilhouette) {
         maleSilhouette.removeEventListener('click', selectMale, false);
     }
@@ -396,9 +400,13 @@ function selectMale(event) {
 
 function selectFemale(event) {
     window.sex = "f";
+    var femaleRadioBtn = document.querySelector('#fButton');
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    if (femaleRadioBtn) {
+        femaleRadioBtn.checked = true;
+    }
     if (femaleSilhouette) {
         femaleSilhouette.removeEventListener('click', selectFemale, false);
     }
