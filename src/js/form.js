@@ -255,13 +255,12 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    var tl = new TimelineLite({onComplete: ColorPicker(
+    ColorPicker(
         slide,
         picker,
         function(hex, hsv, rgb) {
           colorize(id, hex);
         })
-    });
 }
 
 function emptyPicker() {

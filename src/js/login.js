@@ -73,7 +73,6 @@ function getDbUser (username) {
     })
 }
 
-
 function updateDbUser (user) {
   return fetchDb.post('users', user)
     .then(function (resp) {
@@ -114,36 +113,12 @@ function createDbUser (username, password, email) {
     })
 }
 
-//function isUser () {
-  //return getDbSession()
-    //.then(function (json) {
-      // console.log('fetched', json)
-      //if (json.userCtx.name) {
-        //myUsername = json.userCtx.name
-        //return json.userCtx.name
-      //}
-      //return fetchDb.reject('Not connected')
-    //})
-//}
-
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
 
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
-
-  //isUser()
-    //.then(function (who) {
-    //  console.log(['who', who, myUsername].join(' '));
-    //  myUsername = who
-    //})
-    //.catch(function (e) {
-    //  console.log(['not connected', e, myUsername].join(' '));
-    //  myUsername = false
-    //  console.log('not connected', who, myUsername);
-      // console.error('Nope', e)
-    //})
 }
 
 function logout (ev) {
@@ -220,8 +195,6 @@ function login(evt) {
 
   loginDbUser(username, password)
     .then(function () {
-    //.then(function (json) {
-      // console.log('fetched3', json)
       myUsername = username
       return getDbUser(username)
     })
@@ -238,6 +211,7 @@ function login(evt) {
         //personnageActuelToHash(currentUser);
       }
       manageCharacters(user);
+      inheritNewCharacter();
       interpretHash();
     })
     .catch(function (err) {
@@ -245,6 +219,45 @@ function login(evt) {
     })
 }
 
+function inheritNewCharacter() {
+    var newCharModal = document.querySelector('.js-login-new-character');
+    var hasHash = hash.get('sex');
+    var continueBtn = document.querySelector('.js-continue-character');
+    var loadBtn = document.querySelector('.js-load-character');
+    if (!hasHash) {
+        //TODO check to see if there is a currentCharacter, and if so, load it.
+        return
+    }
+    loadBtn.addEventListener('click', loadCharacter, false);
+    continueBtn.addEventListener('click', continueNewCharacter, false);
+    newCharModal.classList.add('overlay--show');
+    newCharModal.addEventListener('click', closeNewCharacterOverlay, false);
+    console.log('Options were selected. Would you like to save your choices as a new character?');
+    console.log('Or would you rather erase these choices and load the current character?');
+    console.log('if no choices were made, we will go ahead and load the current character for you.');
+}
+
+function continueNewCharacter(evt) {
+    evt.preventDefault();
+    console.log('continuing with new character.');
+}
+
+function loadCharacter(evt) {
+    evt.preventDefault();
+    console.log('loading current character from cloud.');
+}
+
+function closeNewCharacterOverlay(evt) {
+  var overlay = document.querySelector('.js-login-new-character');
+  //var cancelBtn = overlay.querySelector('.cancelbtn');
+    var target = evt.target;
+    if (target === overlay) {
+      var modal = document.querySelector('.overlay--show');
+      if (modal) {
+          modal.classList.remove('overlay--show');
+      }
+    }
+}
 function characterInHash() {
     var hashSex = hash.get("sex");
     if (hashSex) {

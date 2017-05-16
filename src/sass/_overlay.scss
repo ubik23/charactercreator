@@ -22,6 +22,8 @@
     &__panel {
         background-color: white;
         padding: 3vmin;
+        overflow-y: auto;
+        max-height: 65vh;
     }
     &__container {
         display: flex;
