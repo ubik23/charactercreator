@@ -1644,13 +1644,13 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      currentCharacter = characterInHash();
-      if (t.length) {
+      //currentCharacter = characterInHash();
+      //if (t.length) {
         //personnageActuelToHash(currentUser);
-      }
-      manageCharacters(user);
-      inheritNewCharacter();
-      interpretHash();
+      //}
+      //manageCharacters(user);
+      //inheritNewCharacter();
+      //interpretHash();
     })
     .catch(function (err) {
       console.error('err3', err)
@@ -1677,12 +1677,40 @@ function inheritNewCharacter() {
 
 function continueNewCharacter(evt) {
     evt.preventDefault();
-    console.log('continuing with new character.');
+    console.log('continuing with new character');
+    var newCharModal = document.querySelector('.overlay--show');
+    var nameCharModal = document.querySelector('.js-name-character');
+    var createBtn = nameCharModal.querySelector('.overlay__char-create-btn');
+    newCharModal.classList.remove('overlay--show');
+    //TODO open modal to ask for character name and save it before proceeding.
+    createBtn.addEventListener('click', requestNewCharacterName);
+    nameCharModal.classList.add('overlay--show');
+}
+
+function requestNewCharacterName(evt) {
+    evt.preventDefault();
+    var nameCharModal = document.querySelector('.overlay--show');
+    if (nameCharModal) {
+        nameCharModal.classList.remove('overlay--show');
+    }
+    console.log('Requested new char name.');
 }
 
 function loadCharacter(evt) {
+    var characterSVG = document.querySelector('#svg1');
+    var newCharModal = document.querySelector('.overlay--show');
     evt.preventDefault();
-    console.log('loading current character from cloud.');
+    hash.clear();
+    clearCharacter();
+    hashCharacter();
+    startup();
+    setHashTrigger();
+    setTimeout(function(){
+        characterSVG.classList.remove('character--hide');
+        if (newCharModal) {
+            newCharModal.classList.remove('overlay--show');
+        }
+    },500);
 }
 
 function closeNewCharacterOverlay(evt) {
@@ -1753,8 +1781,8 @@ function switchCharacter(evt) {
         setHashTrigger();
         setTimeout(function(){
             characterSVG.classList.remove('character--hide');
-        },1000);
-    },1000);
+        },500);
+    },500);
 }
 
 function manageCharacters() {
@@ -1897,14 +1925,14 @@ getDbSession()
           encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
         )
       }
-      if (t.length) {
+      //if (t.length) {
         //TODO Populate hash without  reloading page.
         //window.location = '/?#' + t.join('&')
-        personnageActuelToHash(currentUser);
-      }
+        //personnageActuelToHash(currentUser);
+      //}
     }
-    manageCharacters(user);
-    setHashTrigger();
+    //manageCharacters(user);
+    //setHashTrigger();
   })
   .catch(function (err) {
     console.log('getDbUser error', err)
