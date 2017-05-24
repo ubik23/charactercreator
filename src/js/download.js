@@ -4,9 +4,8 @@ function download() {
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
-    console.log(currentUser);
     if (currentUser && currentUser.cc.personnageActuel !== ''){
-        filename = currentUser.cc.personnageActuel;
+        filename = currentUser.cc.personnageActuel + ".svg";
     }
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){

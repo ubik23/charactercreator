@@ -405,7 +405,10 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
-    displayPallette();
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 function selectFemale(event) {
@@ -424,6 +427,9 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
-    displayPallette();
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 

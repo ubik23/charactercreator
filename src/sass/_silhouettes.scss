@@ -16,7 +16,7 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1726;
-    animation: homme 3s linear;
+    animation: homme 1.5s linear;
     fill-opacity: 0;
     transform: translate3d(-111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
@@ -31,7 +31,7 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1200;
-    animation: femme 3s linear;
+    animation: femme 1.5s linear;
     fill-opacity: 0;
     transform: translate3d(111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;

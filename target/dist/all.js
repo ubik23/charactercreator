@@ -774,9 +774,8 @@ function download() {
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
-    console.log(currentUser);
     if (currentUser && currentUser.cc.personnageActuel !== ''){
-        filename = currentUser.cc.personnageActuel;
+        filename = currentUser.cc.personnageActuel + ".svg";
     }
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){
@@ -1648,14 +1647,10 @@ function inheritNewCharacter() {
     continueBtn.addEventListener('click', continueNewCharacter, false);
     newCharModal.classList.add('overlay--show');
     newCharModal.addEventListener('click', closeNewCharacterOverlay, false);
-    console.log('Options were selected. Would you like to save your choices as a new character?');
-    console.log('Or would you rather erase these choices and load the current character?');
-    console.log('if no choices were made, we will go ahead and load the current character for you.');
 }
 
 function continueNewCharacter(evt) {
     evt.preventDefault();
-    console.log('continuing with new character');
     var newCharModal = document.querySelector('.overlay--show');
     var nameCharModal = document.querySelector('.js-name-character');
     var createBtn = nameCharModal.querySelector('.overlay__char-create-btn');
@@ -1671,7 +1666,6 @@ function requestNewCharacterName(evt) {
     if (nameCharModal) {
         nameCharModal.classList.remove('overlay--show');
     }
-    console.log('Requested new char name.');
 }
 
 function loadCharacter(evt) {
@@ -1707,15 +1701,11 @@ function closeNewCharacterOverlay(evt) {
 function characterInHash() {
     var hashSex = hash.get("sex");
     if (hashSex) {
-        console.log('hashSex', hashSex);
     } else {
-        console.log('No hash.');
     }
 }
 
 function hashCharacter() {
-    console.log('hashCharacter');
-    console.log('personnageActuel', currentUser.cc.personnageActuel);
       var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
       var r
       var t = []
@@ -1740,13 +1730,29 @@ function switchCharacter(evt) {
     var newCard = this.parentNode.parentNode;
     var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
     var oldCard = document.querySelector('.overlay__char--current');
+    var currentClass = characterSVG.getAttribute('class');
+    var newClass = currentClass + ' ' + 'character--hide';
+    var charGender = currentUser.cc.personnages[newChar].sex;
+    //TODO add select-gender if not already present.
+    if (currentClass === '') {
+        if (charGender === 'f') {
+            currentClass = 'select-female';
+        }
+        if (charGender === 'm') {
+            currentClass = 'select-male';
+        }
+        newClass = currentClass;
+    }
+    console.log('currentClass', currentClass);
+    console.log('newClass', newClass);
     if (oldCard) {
         oldCard.classList.remove('overlay__char--current');
     }
     newCard.classList.add('overlay__char--current');
     currentUser.cc.personnageActuel = newChar;
     characterListUI.classList.remove('overlay--show');
-
+    //characterSVG.classList.add('character--hide');
+    characterSVG.setAttribute('class', newClass);
     updateDbUser(currentUser)
         .then(function (json) {
           currentUser._rev = json.rev
@@ -1757,20 +1763,19 @@ function switchCharacter(evt) {
             //c = new Character(currentUser.cc.personnages[newChar]);
             choices = currentUser.cc.personnages[newChar];
             c = new Character(choices);
-            characterSVG.classList.add('character--hide');
             hash.clear();
-            clearCharacter();
-            hashCharacter();
-            setHashTrigger();
             setTimeout(function(){
+                clearCharacter();
+                hashCharacter();
+                setHashTrigger();
+            },300);
+        })
+        .then(function (json){
                 characterSVG.classList.remove('character--hide');
-            },500);
         })
         .catch(function (err) {
           console.log('err', err)
         })
-    setTimeout(function(){
-    },500);
 }
 
 function manageCharacters() {
@@ -2719,7 +2724,10 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
-    displayPallette();
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 function selectFemale(event) {
@@ -2738,7 +2746,10 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
-    displayPallette();
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 
