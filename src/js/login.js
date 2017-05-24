@@ -322,7 +322,6 @@ function switchCharacter(evt) {
     var currentClass = characterSVG.getAttribute('class');
     var newClass = currentClass + ' ' + 'character--hide';
     var charGender = currentUser.cc.personnages[newChar].sex;
-    //TODO add select-gender if not already present.
     if (currentClass === '') {
         if (charGender === 'f') {
             currentClass = 'select-female';
@@ -332,16 +331,14 @@ function switchCharacter(evt) {
         }
         newClass = currentClass;
     }
-    console.log('currentClass', currentClass);
-    console.log('newClass', newClass);
     if (oldCard) {
         oldCard.classList.remove('overlay__char--current');
     }
     newCard.classList.add('overlay__char--current');
     currentUser.cc.personnageActuel = newChar;
     characterListUI.classList.remove('overlay--show');
-    //characterSVG.classList.add('character--hide');
     characterSVG.setAttribute('class', newClass);
+
     updateDbUser(currentUser)
         .then(function (json) {
           currentUser._rev = json.rev
@@ -349,7 +346,6 @@ function switchCharacter(evt) {
         })
         .then(function (json){
             window.sex = currentUser.cc.personnages[newChar].sex;
-            //c = new Character(currentUser.cc.personnages[newChar]);
             choices = currentUser.cc.personnages[newChar];
             c = new Character(choices);
             hash.clear();
@@ -357,14 +353,16 @@ function switchCharacter(evt) {
                 clearCharacter();
                 hashCharacter();
                 setHashTrigger();
-            },300);
-        })
-        .then(function (json){
-                characterSVG.classList.remove('character--hide');
+            },500);
         })
         .catch(function (err) {
           console.log('err', err)
         })
+}
+
+function revealCharacter() {
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.remove('character--hide');
 }
 
 function manageCharacters() {

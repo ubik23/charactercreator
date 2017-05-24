@@ -44,6 +44,7 @@ function onAllLoaded() {
     //TODO Hide silhouettes;
     createForm(characterSex, forms);
     sideBarLeft.classList.add('visible');
+    revealCharacter();
 }
 
 function onEachLoaded(frag, fileName) {
