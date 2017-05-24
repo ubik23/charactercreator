@@ -2,6 +2,8 @@
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
     //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
+    var itemsThumbsContent = document.querySelector('#content_1');
+    itemsThumbsContent.innerHTML = '';
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
@@ -41,6 +43,8 @@ function createForm(sex, forms){
                     };
                 };
                 var viewBox = getViewBox(t, d);
+                if (t === 'underwear') {
+                }
                 newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
                 if (defaultValue !== undefined) {

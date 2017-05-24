@@ -31,7 +31,9 @@ var fetchDb = (function () {
       opts.body = JSON.stringify(body)
       opts.method = 'post'
     }
-    if (method) { opts.method = method }
+    if (method) {
+        opts.method = method;
+    }
     return window.fetch(url, Object.assign(opts, baseOpts))
   }
 
@@ -61,7 +63,9 @@ function getDbSession () {
       return fetchDb.reject(resp)
     })
     .then(function (json) {
-      if (json.userCtx.name) { return json.userCtx.name }
+      if (json.userCtx.name) {
+          return json.userCtx.name
+      }
       return fetchDb.reject('Not connected')
     })
 }
@@ -210,7 +214,7 @@ function login(evt) {
       //if (t.length) {
         //personnageActuelToHash(currentUser);
       //}
-      //manageCharacters(user);
+      manageCharacters(user);
       //inheritNewCharacter();
       //interpretHash();
     })
@@ -264,6 +268,8 @@ function loadCharacter(evt) {
     evt.preventDefault();
     hash.clear();
     clearCharacter();
+    //TODO
+    //
     hashCharacter();
     startup();
     setHashTrigger();
@@ -296,6 +302,8 @@ function characterInHash() {
 }
 
 function hashCharacter() {
+    console.log('hashCharacter');
+    console.log('personnageActuel', currentUser.cc.personnageActuel);
       var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
       var r
       var t = []
@@ -314,6 +322,7 @@ function hashCharacter() {
 
 function switchCharacter(evt) {
     evt.preventDefault();
+    var choices;
     var characterListUI = document.querySelector('.js-character-list');
     var characterSVG = document.querySelector('#svg1');
     var newCard = this.parentNode.parentNode;
@@ -331,19 +340,24 @@ function switchCharacter(evt) {
           currentUser._rev = json.rev
           return json
         })
+        .then(function (json){
+            window.sex = currentUser.cc.personnages[newChar].sex;
+            //c = new Character(currentUser.cc.personnages[newChar]);
+            choices = currentUser.cc.personnages[newChar];
+            c = new Character(choices);
+            characterSVG.classList.add('character--hide');
+            hash.clear();
+            clearCharacter();
+            hashCharacter();
+            setHashTrigger();
+            setTimeout(function(){
+                characterSVG.classList.remove('character--hide');
+            },500);
+        })
         .catch(function (err) {
           console.log('err', err)
         })
-    characterSVG.classList.add('character--hide');
-    hash.clear();
     setTimeout(function(){
-        clearCharacter();
-        hashCharacter();
-        startup();
-        setHashTrigger();
-        setTimeout(function(){
-            characterSVG.classList.remove('character--hide');
-        },500);
     },500);
 }
 
@@ -464,7 +478,6 @@ function register (evt) {
     .catch(function (err) {
       console.error('err', err)
     })
-    manageCharacters(currentUser);
 }
 
 getDbSession()
@@ -493,7 +506,7 @@ getDbSession()
         //personnageActuelToHash(currentUser);
       //}
     }
-    //manageCharacters(user);
+    manageCharacters(currentUser);
     //setHashTrigger();
   })
   .catch(function (err) {
@@ -564,28 +577,22 @@ function saveChar() {
     var personnageActuel = currentUser.cc.personnageActuel;
   if (!myUsername || !currentUser) { return }
   if (!currentUser) { return }
-  console.log('logged in', currentUser.name)
-  console.log('personnageActuel', personnageActuel);
 
   //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
   if (!personnageActuel) {
-      console.log('No current character detected.');
       return;
   }
   if (!currentUser.cc) {
-      console.log('Current user has no characters yet, creating empty set.');
       currentUser.cc = {};
   }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
   currentUser.cc.personnages[personnageActuel] = window.hash.get();
-  console.log('Adding character', window.hash.get());
   Object.assign(currentUser.cc.personnages, personnages)
 
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
-      console.log('Save character: ', json);
       return json
     })
     .catch(function (err) {

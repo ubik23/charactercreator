@@ -1,4 +1,6 @@
 window.onload = function() {
+    //c = {};
+    //c.choices = {};
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -29,7 +31,12 @@ window.onload = function() {
 }
 
 function startup() {
-    c = new Character();
+    var choices;
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
+    } else {
+    }
+    window.c = new Character(choices);
     interpretHash();
 }
 
@@ -41,10 +48,11 @@ function interpretHash() {
     } else if (hashSex === "f") {
         selectFemale();
     } else {
+        //TODO Nothing will happen until user selects a sex for their new character.
     }
 }
 
-function launch(layers, layerDirectory) {
+function launch() {
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
@@ -312,7 +320,9 @@ function launch(layers, layerDirectory) {
     window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
+
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
     var myLoadList = layers.map(function(obj){

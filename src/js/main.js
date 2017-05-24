@@ -50,8 +50,7 @@ function trans(sex){
          currentUser.cc.personnages[personnageActuel].sex = sex;
     }
     window.sex = sex;
-    buildCharacter(resetForms);
-
+   buildCharacter(resetForms);
 }
 
 function buildCharacter(callback) {
@@ -63,8 +62,8 @@ function buildCharacter(callback) {
         setTimeout(function(){
             characterSVG.classList.remove('character--hide');
             callback();
-        },1000);
-    },1000);
+        },500);
+    },500);
 }
 
 function hideForms() {
@@ -78,14 +77,15 @@ function clearForms() {
 }
 
 function resetForms() {
-    //TODO The follwing function should be a callback or a response to a promise.
+    hideForms();
+    //TODO The following function should be a callback or a response to a promise.
     createForm();
     showSidebarLeft();
 }
 
-function Character(fullName, sex, emotion, choices, birthday){
+function Character(choices){
     this.choices = choices || {
-        emotion : emotion||'neutral',
+        emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
         body_head : 'default', //Or random from list
         ears : 'default', // or rand
@@ -97,7 +97,24 @@ function Character(fullName, sex, emotion, choices, birthday){
         underwear : 'plain', // or random, whatever.
         underwearColor : '#f2f2f2', // Or random from a list of fabrics',
     };
-    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
+    this.choices.emotion = this.choices.emotion || 'neutral';
+    this.choices.body = this.choices.body || 'athletic';
+    this.choices.body_head = this.choices.head || 'default';
+    this.choices.ears = this.choices.ears || 'default';
+    this.choices.nose = this.choices.nose || 'default';
+    this.choices.lips = this.choices.lips || 'default';
+    if (this.skinTone) {
+        this.choices.skinColor = this.skinTone;
+
+    } else {
+        //console.log('no skinTone found.')
+    }
+    this.choices.hairColor = this.choices.hairColor || '#ffe680';
+    this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
+    this.choices.underwear = this.choices.underwear || 'plain';
+    this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
+
+    //this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
 function modCharacter(myKey, myValue){

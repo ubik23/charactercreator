@@ -38,7 +38,6 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-    console.log('characterSex', characterSex);
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
