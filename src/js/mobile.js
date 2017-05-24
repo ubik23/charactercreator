@@ -383,7 +383,9 @@ function colorCutout(newColor){
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
-    showForm();
+    setTimeout(function(){
+        showForm();
+    }, 300);
 }
 
 function showForm() {
