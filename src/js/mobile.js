@@ -106,6 +106,7 @@ function launch() {
     };
     var layersMale = [
     'wings_angel', 'wings_devil',
+    'cloak_default_4_of_4',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
     'headband_medium_2_of_2',
@@ -135,6 +136,8 @@ function launch() {
     'jacket_suit',
     'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
+    'cloak_default_3_of_4',
+    'cloak_default_2_of_4',
     'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
@@ -162,6 +165,7 @@ function launch() {
     'jewelry_chain','jewelry_earings','jewelry_nosering','jewelry_watch',
     'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
     'horns_devil',
+    'cloak_default_1_of_4',
     'pipe_subgenius',
     'earpiece_microphone'
     ];
@@ -273,7 +277,7 @@ function launch() {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {

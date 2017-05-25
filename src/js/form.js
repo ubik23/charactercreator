@@ -43,7 +43,9 @@ function createForm(sex, forms){
                     };
                 };
                 var viewBox = getViewBox(t, d);
-                if (t === 'underwear') {
+                if (t === 'cloak' || t === 'coat') {
+                    console.log('sections', sections);
+                    console.log('clonedNode', clonedNode);
                 }
                 newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
@@ -322,6 +324,7 @@ function getViewBox(t, d) {
             "belt":"185 135 190 190",
             "body_head":"249 95 64 64",
             "coat":"95 134 360 360",
+            "cloak":"0 0 560 560",
             "earpiece":"280 125 25 25",
             "ears":"254 120 20 20",
             "earings":"256 87 50 50",
