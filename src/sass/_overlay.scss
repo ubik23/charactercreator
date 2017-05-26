@@ -1,0 +1,128 @@
+.overlay {
+    &__modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
+    }
+    &__wrapper {
+        border-radius: 5vmin;
+        overflow: hidden;
+        transition: transform 0.2s ease;
+        transform: translate3d(0, -100vh, 0);
+    }
+    &__panel {
+        background-color: white;
+        padding: 3vmin;
+        overflow-y: auto;
+        max-height: 65vh;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1vmin;
+        &--buttons {
+            justify-content: space-around;
+            margin-top: 3vmin;
+        }
+        &--char-list {
+            flex-direction: column;
+            min-width: 300px;
+        }
+    }
+    &__input {
+         margin-left: 1vmin;
+    }
+    &__header, &__footer {
+        background-color: $color-alpha;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2vmin;
+        display: flex;
+        justify-content: center;
+    }
+    &__header {
+        color: white;
+    }
+    &__footer {
+        &__text {
+            font-size: 0.8em;
+        }
+        &__link {
+            color: white;
+        }
+    }
+    &__char-card {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2vmin;
+        &--orig {
+             display:none;
+        }
+    }
+    &__char-btns {
+         margin-left: 2vmin;
+    }
+    &__char--current {
+        background-color: $color-alpha;
+        color: white;
+        border-radius: 5vmin;
+    }
+    &__char-new {
+        position: relative;
+
+        &-btn {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.2s ease, visibility linear;
+        }
+        &-form {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility linear 0.2s;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 4vmin;
+            width: 100%;
+            box-sizing: border-box;
+            & .first-input {flex-grow: 1;}
+
+        }
+        &--create {
+            & .overlay__char-new-btn {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease, visibility linear 0.2s;
+            }
+            & .overlay__char-new-form {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.2s ease, visibility linear;
+            }
+        }
+    }
+}
+
+.overlay--show {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility linear;
+
+        & .overlay__wrapper {
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.2s ease 0.1s;
+        }
+}
+

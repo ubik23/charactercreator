@@ -1,48 +1,58 @@
 window.onload = function() {
-    maleSilhouette = document.getElementById("male_silhouette");
-    femaleSilhouette = document.getElementById("female_silhouette");
-    var hashSex = hash.get("sex");
-    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-    if (document.attachEvent) //if IE (and Opera depending on user setting)
+    //c = {};
+    //c.choices = {};
+    var whoBtn = document.querySelector("#whoButton");
+    var logoutBtn = document.querySelector("#logoutButton");
+    var loginBtn = document.querySelector("#loginButton");
+    var registerBtn = document.querySelector("#registerButton");
+    var registerLink = document.querySelector(".js-register-link");
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    var rightSidebar = document.querySelector('#sidebar');
+    rightSidebarClone = rightSidebar.cloneNode(true);
+
+    if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
+    if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
+    if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
+    if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
+    if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
+
+    if (document.attachEvent) { //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
-    else if (document.addEventListener) //WC3 browsers
+    } else if (document.addEventListener) {//WC3 browsers
         document.addEventListener(mousewheelevt, scrollZoom, false)
-    c = new Character();
+    }
+
+    if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
+    if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+
+    startup();
+}
+
+function startup() {
+    var choices;
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
+    } else {
+    }
+    window.c = new Character(choices);
+    interpretHash();
+}
+
+function interpretHash() {
+    //TODO Clean svg1 before creating a new character.
+    var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
     } else {
-    maleSilhouette.addEventListener('click', selectMale, false);
-    femaleSilhouette.addEventListener('click', selectFemale, false);
-    }
-};
-
-function scrollZoom(e) {
-    var svgViewBox = document.querySelector("#svg1");
-    var event = window.event || e;
-    var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
-    var zoomLevel = document.querySelector("#zoomLevel").value;
-    var zoom = document.querySelector("#zoomLevel");
-    //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
-    if (delta > 0 ){
-        zoomLevel = zoomLevel + 1;
-        if (zoomLevel > 3) {
-             zoomLevel = 3;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
-    } else {
-        zoomLevel = zoomLevel - 1;
-        if (zoomLevel < 0) {
-             zoomLevel = 0;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
+        //TODO Nothing will happen until user selects a sex for their new character.
     }
 }
 
-function launch(layers, layerDirectory) {
+function launch() {
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
@@ -96,6 +106,7 @@ function launch(layers, layerDirectory) {
     };
     var layersMale = [
     'wings_angel', 'wings_devil',
+    'cloak_default_4_of_4',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
     'headband_medium_2_of_2',
@@ -125,6 +136,8 @@ function launch(layers, layerDirectory) {
     'jacket_suit',
     'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
+    'cloak_default_3_of_4',
+    'cloak_default_2_of_4',
     'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
@@ -152,6 +165,7 @@ function launch(layers, layerDirectory) {
     'jewelry_chain','jewelry_earings','jewelry_nosering','jewelry_watch',
     'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
     'horns_devil',
+    'cloak_default_1_of_4',
     'pipe_subgenius',
     'earpiece_microphone'
     ];
@@ -204,7 +218,7 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
-    'wings_devil','wings_angel',
+    'wings_devil', 'wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'headband_medium_2_of_2',
@@ -263,7 +277,7 @@ function launch(layers, layerDirectory) {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -310,7 +324,9 @@ function launch(layers, layerDirectory) {
     window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
+
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
     var myLoadList = layers.map(function(obj){
@@ -324,20 +340,23 @@ function displayPallette () {
     if (hashSkinColor != undefined){
          showForm();
     } else {
-        var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-        var gmenu = document.getElementById("gmenu");
-        gmenu.style["height"] = "12%";
-        for (color in skinTones) {
-            var newColor = skinTones[color];
-            var node = document.createElement("LI");
-            node.className = "skin-tone";
-            node.style.cssText = "background-color:" + newColor + ";";
-            gmenu.appendChild(node);
-            node.onclick = colorCutout;
-            node.onmouseover = colorOnHover;
-        };
-        TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+        chooseSkinColor();
     }
+}
+
+function chooseSkinColor() {
+    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.add('skin-color__container--show');
+    for (color in skinTones) {
+        var newColor = skinTones[color];
+        var node = document.createElement("LI");
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + newColor + ";";
+        gmenu.appendChild(node);
+        node.onclick = colorCutout;
+        node.onmouseover = colorOnHover;
+    };
 }
 
 function rgb2hex(rgb){
@@ -348,13 +367,12 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
-     var newTone = this.style.backgroundColor;
-    TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
-    TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+    var newTone = this.style.backgroundColor;
+    femalePath.style.fill = newTone;
+    malePath.style.fill = newTone;
 }
 
 function colorCutout(newColor){
@@ -366,14 +384,12 @@ function colorCutout(newColor){
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
-    var tl = new TimelineLite({onComplete: showForm});
-    var gmenu = document.getElementById("gmenu");
-    tl.to(gmenu, 0.5, { bottom:'-100px'})
-    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05)
-    .to(gmenu, 0.5, {attr:{height: 0}, ease:Elastic.easeOut});
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
+    setTimeout(function(){
+        showForm();
+    }, 300);
 }
 
 function showForm() {
@@ -382,30 +398,44 @@ function showForm() {
 
 function selectMale(event) {
     window.sex = "m";
+    var maleRadioBtn = document.querySelector('#mButton');
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    maleSilhouette.removeEventListener('click', selectMale, false);
+    if (maleRadioBtn) {
+        maleRadioBtn.checked = true;
+    }
+    if (maleSilhouette) {
+        maleSilhouette.removeEventListener('click', selectMale, false);
+    }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
-    malePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
-    .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
+    mainSVG.classList.add('select-male');
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 function selectFemale(event) {
     window.sex = "f";
+    var femaleRadioBtn = document.querySelector('#fButton');
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    femaleSilhouette.removeEventListener('click', selectFemale, false);
+    if (femaleRadioBtn) {
+        femaleRadioBtn.checked = true;
+    }
+    if (femaleSilhouette) {
+        femaleSilhouette.removeEventListener('click', selectFemale, false);
+    }
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
-    femalePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
-    .to(maleSilhouette, 0.3, {opacity:0}, "select_female")
-    .to(femalePath, 1.5, {x:-0, ease:SlowMo.easeIn}, "select_female");
+    mainSVG.classList.add('select-female');
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 

@@ -1,0 +1,98 @@
+.accordeon__section-label {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0  5px 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-alpha;
+    background: transparent;
+    border-bottom: 1px solid #E6E6E6;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+        background: $color-alpha;
+        color: #FFFFFF;
+        transition: background 0.2s, color 0.2s;
+        & circle {
+            stroke: #FFFFFF;
+            transition: stroke 0.2s;
+        }
+        & polygon {
+            fill: #FFFFFF;
+            transition: fill 0.2s;
+        }
+    }
+
+    & circle {
+        stroke: #E6E6E6;
+        transition: stroke 0.3s;
+    }
+
+    & polygon {
+        fill: transparent;
+        transition: stroke 0.3s;
+    }
+
+}
+
+.accordeon__section-title {
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 3.65px
+}
+
+.accordeon__svg-container {
+    &:hover polygon {
+        fill: currentColor;
+        color: $color-alpha;
+    }
+}
+
+.accordeon__content {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E6E6E6;
+    opacity: 1;
+    transition: max-height 0.2s, opacity 0.2s;
+    overflow: visible;
+}
+
+.accordeon__svg-container {
+    width: 25px;
+    height: 25px;
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease-in 0.1s;
+}
+
+.section--hide {
+    max-height: 0px;
+    opacity: 0;
+    transition: max-height 0.2s, opacity 0.2s;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section-btn--hide {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-in 0.1s;
+}
+
+.alert {
+    & polygon {
+        animation: blink-alert 0.666s linear 0.2s infinite alternate;
+    }
+}
+
+@keyframes blink-alert {
+    from {
+        fill: #fff;
+    }
+    to {
+        fill: $color-alpha;
+    }
+}
+

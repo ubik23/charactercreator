@@ -2,15 +2,90 @@ function isInArray(value, array) {
        return array.indexOf(value) > -1;
 }
 
-function trans(sex){
-    hash.add({ sex: sex });
-    hash.add({ emotion: 'neutral' });
-    location.reload();
+function clearCharacter() {
+    var svgContainer = document.querySelector('#svg1');
+    var maleSilhouette = svgContainer.querySelector('#male_silhouette');
+    var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
 }
 
-function Character(fullName, sex, emotion, choices, birthday){
+function personnageActuelToHash(currentUser) {
+    var personnageActuel = currentUser.cc.personnageActuel;
+    var personnageActuelData;
+    var itemsList;
+    var itemsCounter;
+    var currentCount;
+    var myKey;
+    var myValue;
+    var hashArgs = {};
+
+    if (personnageActuel && personnageActuel !== '') {
+        personnageActuelData = currentUser.cc.personnages[personnageActuel];
+        itemsList = Object.keys(personnageActuelData);
+        itemsListLength = itemsList.length;
+        itemsListCounter = itemsListLength;
+        while (itemsListCounter--) {
+            currentCount = itemsListLength - itemsListCounter - 1;
+            myKey = itemsList[currentCount];
+            myValue = personnageActuelData[itemsList[currentCount]];
+            //modCharacter(myKey, myValue);
+            //hash.add({mykey: myValue});
+            hashArgs[myKey] = myValue;
+            hash.add(hashArgs);
+        }
+        clearCharacter();
+        interpretHash();
+    } else {
+        return;
+    }
+}
+
+function trans(sex){
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.add('character--hide');
+    hideForms();
+    hash.add({ sex: sex });
+    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
+         currentUser.cc.personnages[personnageActuel].sex = sex;
+    }
+    window.sex = sex;
+   buildCharacter(resetForms);
+}
+
+function buildCharacter(callback) {
+    var characterSVG = document.querySelector('#svg1');
+    setTimeout(function(){
+        clearForms();
+        clearCharacter();
+        interpretHash();
+        setTimeout(function(){
+            characterSVG.classList.remove('character--hide');
+            callback();
+        },500);
+    },500);
+}
+
+function hideForms() {
+    hideSidebarLeft();
+    hideSidebarRight();
+}
+
+function clearForms() {
+    clearSidebarLeft();
+    clearSidebarRight();
+}
+
+function resetForms() {
+    hideForms();
+    //TODO The following function should be a callback or a response to a promise.
+    createForm();
+    showSidebarLeft();
+}
+
+function Character(choices){
     this.choices = choices || {
-        emotion : emotion||'neutral',
+        emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
         body_head : 'default', //Or random from list
         ears : 'default', // or rand
@@ -22,7 +97,24 @@ function Character(fullName, sex, emotion, choices, birthday){
         underwear : 'plain', // or random, whatever.
         underwearColor : '#f2f2f2', // Or random from a list of fabrics',
     };
-    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
+    this.choices.emotion = this.choices.emotion || 'neutral';
+    this.choices.body = this.choices.body || 'athletic';
+    this.choices.body_head = this.choices.head || 'default';
+    this.choices.ears = this.choices.ears || 'default';
+    this.choices.nose = this.choices.nose || 'default';
+    this.choices.lips = this.choices.lips || 'default';
+    if (this.skinTone) {
+        this.choices.skinColor = this.skinTone;
+
+    } else {
+        //console.log('no skinTone found.')
+    }
+    this.choices.hairColor = this.choices.hairColor || '#ffe680';
+    this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
+    this.choices.underwear = this.choices.underwear || 'plain';
+    this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
+
+    //this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
 function modCharacter(myKey, myValue){
@@ -36,6 +128,9 @@ function modCharacter(myKey, myValue){
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue;
+    }
 };
 
 function createCharacter(){
@@ -54,11 +149,15 @@ function createCharacter(){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
                             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
+                            viewport.selectAll(idOf).attr({
+                                opacity:1
+                            });
                         }
                     }
                     else {
-                        viewport.selectAll(id).attr({opacity:1});
+                        viewport.selectAll(id).attr({
+                            opacity:1
+                        });
                     }
                 };
             }
@@ -69,7 +168,6 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
@@ -100,7 +198,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function show(userChoice, category){
+function show(userChoice, category) {
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -110,8 +208,12 @@ function show(userChoice, category){
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
+
     hideCompetition(sections[0]);
     hash.add(obj);
+    if (currentUser) {
+        triggerSaveBtn();
+    }
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
         selectedOption = hash.get('emotion');
@@ -129,20 +231,16 @@ function show(userChoice, category){
             sections.push(newEmo);
         }
     };
+    displaySections(sections, options, selectedOption, multiLayer);
+}
+
+function displaySections(sections, options, selectedOption, multiLayer) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:1});
-                    }
+                    sectionShow(multiLayer, id);
                 };
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
@@ -156,17 +254,45 @@ function show(userChoice, category){
             }
             else {
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:0});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:0})
-                    };
+                    sectionHide(multiLayer, id);
                 };
             };
         });
     };
+}
+
+function sectionShow(multiLayer, id) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:1});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:1});
+    }
+}
+
+function sectionHide(multiLayer, id) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:0});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:0})
+    };
+}
+
+function resetCharacterTemplate() {
+    var characterSVG = document.querySelector('#svg1');
+    var elements = characterSVG.querySelectorAll('*');
+    var elementsLength = elements.length;
+    var elementsCounter = elementsLength;
+    while (elementsCounter--) {
+        if (elements[elementsCounter].style.opacity !== 0) {
+            elements[elementsCounter].style.opactiy = "0";
+        }
+    }
 }

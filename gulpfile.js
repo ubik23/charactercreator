@@ -20,7 +20,10 @@ gulp.task('default',function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['./src/lib/*.js', './src/js/*.js'])
+  //return gulp.src(['./src/lib/*.js', './src/js/*.js'])
+  return gulp.src([
+        './bower_components/promise-polyfill/promise.js', './bower_components/fetch/fetch.js', './src/lib/*.js', './src/js/*.js'
+  ])
     .pipe(concat('all.js'))
     .pipe(minify({
         exclude: ['tasks'],
