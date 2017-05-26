@@ -500,7 +500,6 @@ function colorizeByClass(elClassName, color) {
 }
 
 function colorSkin(color) {
-    console.log('colorSkin');
     // WIP function to collect all the elements that need to be colored
     // when the color of the skin is changed by the user.
     colorizeByClass('upperlip', shadeColor(color, -10));
@@ -508,9 +507,6 @@ function colorSkin(color) {
 }
 
 function colorize(formId, _color){
-    console.log('colorize.');
-    console.log('formId', formId);
-    console.log('_color', _color);
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
@@ -852,10 +848,6 @@ function createForm(sex, forms){
                     };
                 };
                 var viewBox = getViewBox(t, d);
-                if (t === 'cloak' || t === 'coat') {
-                    console.log('sections', sections);
-                    console.log('clonedNode', clonedNode);
-                }
                 newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
                 if (defaultValue !== undefined) {

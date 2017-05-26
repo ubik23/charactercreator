@@ -43,10 +43,6 @@ function createForm(sex, forms){
                     };
                 };
                 var viewBox = getViewBox(t, d);
-                if (t === 'cloak' || t === 'coat') {
-                    console.log('sections', sections);
-                    console.log('clonedNode', clonedNode);
-                }
                 newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
                 if (defaultValue !== undefined) {

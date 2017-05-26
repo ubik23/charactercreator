@@ -30,7 +30,6 @@ function colorizeByClass(elClassName, color) {
 }
 
 function colorSkin(color) {
-    console.log('colorSkin');
     // WIP function to collect all the elements that need to be colored
     // when the color of the skin is changed by the user.
     colorizeByClass('upperlip', shadeColor(color, -10));
@@ -38,9 +37,6 @@ function colorSkin(color) {
 }
 
 function colorize(formId, _color){
-    console.log('colorize.');
-    console.log('formId', formId);
-    console.log('_color', _color);
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
