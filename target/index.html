@@ -125,11 +125,11 @@
             <div class="overlay__panel">
                 <form id="login-form"action="#">
                   <div class="overlay__container">
-                    <label class="overlay__label">User:</label>
+                    <label class="overlay__label">Username:</label>
                     <input class="first-input overlay__input" type="text" placeholder="Enter Username" name="uname" required>
                   </div>
                   <div class="overlay__container">
-                    <label class="overlay__label">Pass:</label>
+                    <label class="overlay__label">Password:</label>
                     <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
@@ -151,16 +151,21 @@
             <div class="overlay__panel">
                 <form id="register-form"action="#">
                   <div class="overlay__container">
-                    <label class="overlay__label">Email:</label>
-                    <input class="first-input overlay__input" type="email" placeholder="Enter Email" name="email" required>
+                    <label class="overlay__label">Email address:</label>
+                    <input class="first-input overlay__input overlay__input_email" type="email" placeholder="Enter Email" name="email" required>
                   </div>
                   <div class="overlay__container">
-                    <label class="overlay__label">User:</label>
-                    <input class="first-input overlay__input" type="text" placeholder="Enter Username" name="uname" required>
+                    <label class="overlay__label">Username:</label>
+                    <input class="overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
                   </div>
                   <div class="overlay__container">
-                    <label class="overlay__label">Pass:</label>
-                    <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
+                    <label class="overlay__label">Password:</label>
+                    <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
+                  </div>
+                  <div class="overlay__container">
+                      <div class="overlay__error">
+                          <p class="overlay__error__text">error</p>
+                      </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
                     <button type="button" class="cancelbtn">Cancel</button>

@@ -98,6 +98,7 @@ function loginDbUser (username, password) {
 }
 
 function createDbUser (username, password, email) {
+  console.log('Create DB User');
   return fetchDb.post('users', {
     _id: 'org.couchdb.user:' + username,
     roles: [],
@@ -112,25 +113,37 @@ function createDbUser (username, password, email) {
     }
   })
     .then(function (resp) {
+        console.log('resp.status');
       if (resp.status === 201) { return resp.json() }
+      if (resp.status === 409) {
+          showErrorUsernameTaken(username);
+          return resp.json();
+     }
       return fetchDb.reject(resp)
     })
+}
+
+function showErrorUsernameTaken(username) {
+    var errorBox = document.querySelector('.overlay__error');
+    var errorText = errorBox.querySelector('.overlay__error__text');
+    var errorMsg = 'Username "' + username + '" is already taken. Try another.';
+    errorText.innerHTML = errorMsg;
+    errorBox.classList.add('overlay__error--show');
+    console.log("C'est pris!");
+    clearInputUsername();
 }
 
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
-
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
 }
 
 function logout (ev) {
   ev.preventDefault()
-  // console.log('logout? Yeah sure', typeof ev, ev, myUsername)
   deleteDbSession()
     .then(function (json) {
-      // console.log('fetched4', json)
       currentUser = false
       personnages = {}
       personnageActuel = false
@@ -163,8 +176,8 @@ function loginMenu(evt) {
 }
 
 function closeLogin(evt) {
-  var overlay = document.querySelector('.js-login');
-  var cancelBtn = overlay.querySelector('.cancelbtn');
+    var overlay = document.querySelector('.js-login');
+    var cancelBtn = overlay.querySelector('.cancelbtn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
       var login = document.querySelector('.overlay--show');
@@ -175,8 +188,8 @@ function closeLogin(evt) {
 }
 
 function closeOverlay(evt) {
-  var overlay = document.querySelector('.overlay--show');
-  var cancelBtn = overlay.querySelector('.cancelbtn');
+    var overlay = document.querySelector('.overlay--show');
+    var cancelBtn = overlay.querySelector('.cancelbtn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
       var login = document.querySelector('.overlay--show');
@@ -184,6 +197,24 @@ function closeOverlay(evt) {
           login.classList.remove('overlay--show');
       }
     }
+}
+
+function clearInputFields() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    var inputList = currentOverlay.querySelectorAll('input');
+    var inputListLength = inputList.length;
+    console.log('inputList', inputList);
+    console.log('inputListLength', inputListLength);
+    while (inputListLength--) {
+        console.log(inputList[inputListLength].value)
+        inputList[inputListLength].value = '';
+    }
+}
+
+function clearInputUsername() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    var inputUsername = currentOverlay.querySelectorAll('.overlay__input__username');
+    inputUsername[0].value = '';
 }
 
 function login(evt) {
@@ -195,7 +226,7 @@ function login(evt) {
     var currentCharacter;
     login.classList.remove('overlay--show');
 
-  if (!username || !password) { return }
+    if (!username || !password) { return }
 
   loginDbUser(username, password)
     .then(function () {
@@ -445,6 +476,7 @@ function closeRegister(evt) {
     if (target === overlay || target === cancelBtn) {
       var register = document.querySelector('.overlay--show');
       if (register) {
+          clearInputFields();
           register.classList.remove('overlay--show');
       }
     }
@@ -457,10 +489,22 @@ function register (evt) {
     var username = event.target.children[1].lastElementChild.value;
     var password = event.target.children[2].lastElementChild.value;
     var register = document.querySelector('.overlay--show');
-    register.classList.remove('overlay--show');
+    //register.classList.remove('overlay--show');
 
-  if (!username || !password || !email) { return }
+  if (!username) {
+      console.log('missing username.');
+      return
+  }
+  if (!password) {
+      console.log('missing password.');
+      return
+  }
+  if (!email) {
+      console.log('missing email.');
+      return
+  }
 
+  console.log('Calling createDbUSer');
   createDbUser(username, password, email)
     .then(function () {
     // .then(function (json) {
@@ -480,7 +524,7 @@ function register (evt) {
          manageCharacters(currentUser)
     })
     .catch(function (err) {
-      console.error('err', err)
+      console.error('register err', err)
     })
 }
 
