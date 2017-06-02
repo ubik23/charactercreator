@@ -203,11 +203,15 @@ function clearInputFields() {
     var currentOverlay = document.querySelector('.overlay--show');
     var inputList = currentOverlay.querySelectorAll('input');
     var inputListLength = inputList.length;
+    var errorField = currentOverlay.querySelector('.overlay__error--show');
     console.log('inputList', inputList);
     console.log('inputListLength', inputListLength);
     while (inputListLength--) {
         console.log(inputList[inputListLength].value)
         inputList[inputListLength].value = '';
+    }
+    if (errorField) {
+        errorField.classList.remove('overlay__error--show');
     }
 }
 
