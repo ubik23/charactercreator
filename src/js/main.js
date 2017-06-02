@@ -1,5 +1,5 @@
 function isInArray(value, array) {
-       return array.indexOf(value) > -1;
+    return array.indexOf(value) > -1;
 }
 
 function clearCharacter() {
@@ -113,8 +113,6 @@ function Character(choices){
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
     this.choices.underwear = this.choices.underwear || 'plain';
     this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
-
-    //this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
 function modCharacter(myKey, myValue){

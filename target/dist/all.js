@@ -2061,7 +2061,7 @@ function saveChar() {
 
 
 function isInArray(value, array) {
-       return array.indexOf(value) > -1;
+    return array.indexOf(value) > -1;
 }
 
 function clearCharacter() {
@@ -2175,8 +2175,6 @@ function Character(choices){
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
     this.choices.underwear = this.choices.underwear || 'plain';
     this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
-
-    //this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
 };
 
 function modCharacter(myKey, myValue){
@@ -2360,8 +2358,6 @@ function resetCharacterTemplate() {
 }
 
 window.onload = function() {
-    //c = {};
-    //c.choices = {};
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -2379,11 +2375,11 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
-    if (document.attachEvent) { //if IE (and Opera depending on user setting)
-        document.attachEvent("on"+mousewheelevt, scrollZoom);
-    } else if (document.addEventListener) {//WC3 browsers
-        document.addEventListener(mousewheelevt, scrollZoom, false)
-    }
+    //if (document.attachEvent) { //if IE (and Opera depending on user setting)
+    //    document.attachEvent("on"+mousewheelevt, scrollZoom);
+    //} else if (document.addEventListener) {//WC3 browsers
+    //    document.addEventListener(mousewheelevt, scrollZoom, false)
+    //}
 
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
@@ -2395,21 +2391,17 @@ function startup() {
     var choices;
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
         choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
-    } else {
     }
     window.c = new Character(choices);
     interpretHash();
 }
 
 function interpretHash() {
-    //TODO Clean svg1 before creating a new character.
     var hashSex = hash.get("sex");
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
-    } else {
-        //TODO Nothing will happen until user selects a sex for their new character.
     }
 }
 
@@ -2681,8 +2673,6 @@ function launch() {
         multiLayer = multiLayerFemale;
     }
     forms = [form1, form2, form3, form4, form5,form6];
-    window.forms = forms;
-    window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
 

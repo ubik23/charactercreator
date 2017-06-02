@@ -13,6 +13,10 @@
 </head>
 <body >
 <svg style="display:none;">
+<symbol id="icon-cloud-upload" viewBox="0 0 32 32">
+<title>cloud-upload</title>
+<path d="M27.883 12.078c0.076-0.347 0.117-0.708 0.117-1.078 0-2.761-2.239-5-5-5-0.444 0-0.875 0.058-1.285 0.167-0.775-2.417-3.040-4.167-5.715-4.167-2.73 0-5.033 1.823-5.76 4.318-0.711-0.207-1.462-0.318-2.24-0.318-4.418 0-8 3.582-8 8s3.582 8 8 8h4v6h8v-6h7c2.761 0 5-2.239 5-5 0-2.46-1.777-4.505-4.117-4.922zM18 20v6h-4v-6h-5l7-7 7 7h-5z"></path>
+</symbol>
 <symbol id="icon-arrow-down" viewBox="0 0 1024 1024">
     <title>arrow-down</title>
     <path class="path1" d="M512 992l480-480h-288v-512h-384v512h-288z"></path>
@@ -45,7 +49,9 @@
                             <li id="logoutButton"><a href="#"><span class="menu-text">Logout</span></a></li>
                             <li id="registerButton"><a href="#"><span class="menu-text">Register</span></a></li>
                         </ul>
-                        <button class="save-btn">Save</button>
+                        <button class="save-btn">
+                            <svg class="icon icon-cloud-upload"><use xlink:href="#icon-cloud-upload"></use></svg>
+                        </button>
                     </div>
             </header>
         <div id="content">
@@ -131,6 +137,11 @@
                   <div class="overlay__container">
                     <label class="overlay__label">Password:</label>
                     <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
+                  </div>
+                  <div class="overlay__container">
+                      <div class="overlay__error">
+                          <p class="overlay__error__text">error</p>
+                      </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
                     <button type="button" class="cancelbtn">Cancel</button>
