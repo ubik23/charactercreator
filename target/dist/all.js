@@ -1487,8 +1487,13 @@ function getDbUser (username) {
 function updateDbUser (user) {
   return fetchDb.post('users', user)
     .then(function (resp) {
+      console.log('resp.status', resp.status);
       if (resp.ok) { return resp.json() }
       if (resp.status === 409) { return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match') }
+      if (resp.status === 404) {
+          //return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match')
+          loginMenu();
+      }
       return fetchDb.reject(resp)
     })
 }
@@ -1572,14 +1577,16 @@ function logoutUI(){
 }
 
 function loginMenu(evt) {
-  evt.preventDefault()
-  var overlay = document.querySelector('.js-login');
-  var loginForm = document.querySelector('#login-form');
-  var firstInput = overlay.querySelector('.first-input');
-  overlay.classList.add('overlay--show');
-  loginForm.addEventListener("submit", login, true);
-  overlay.addEventListener('click', closeLogin, true);
-  firstInput.focus();
+    if (evt) {
+        evt.preventDefault()
+    }
+    var overlay = document.querySelector('.js-login');
+    var loginForm = document.querySelector('#login-form');
+    var firstInput = overlay.querySelector('.first-input');
+    overlay.classList.add('overlay--show');
+    loginForm.addEventListener("submit", login, true);
+    overlay.addEventListener('click', closeLogin, true);
+    firstInput.focus();
 }
 
 function closeLogin(evt) {
@@ -1611,10 +1618,7 @@ function clearInputFields() {
     var inputList = currentOverlay.querySelectorAll('input');
     var inputListLength = inputList.length;
     var errorField = currentOverlay.querySelector('.overlay__error--show');
-    console.log('inputList', inputList);
-    console.log('inputListLength', inputListLength);
     while (inputListLength--) {
-        console.log(inputList[inputListLength].value)
         inputList[inputListLength].value = '';
     }
     if (errorField) {
@@ -1637,7 +1641,10 @@ function login(evt) {
     var currentCharacter;
     login.classList.remove('overlay--show');
 
-    if (!username || !password) { return }
+    if (!username || !password) {
+        console.log('missing username or password.');
+        return
+    }
 
   loginDbUser(username, password)
     .then(function () {
@@ -1652,13 +1659,7 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
-      //currentCharacter = characterInHash();
-      //if (t.length) {
-        //personnageActuelToHash(currentUser);
-      //}
       manageCharacters(user);
-      //inheritNewCharacter();
-      //interpretHash();
     })
     .catch(function (err) {
       console.error('err3', err)
@@ -1705,8 +1706,6 @@ function loadCharacter(evt) {
     evt.preventDefault();
     hash.clear();
     clearCharacter();
-    //TODO
-    //
     hashCharacter();
     startup();
     setHashTrigger();
@@ -1719,20 +1718,13 @@ function loadCharacter(evt) {
 }
 
 function closeNewCharacterOverlay(evt) {
-  var overlay = document.querySelector('.js-login-new-character');
-  //var cancelBtn = overlay.querySelector('.cancelbtn');
+    var overlay = document.querySelector('.js-login-new-character');
     var target = evt.target;
     if (target === overlay) {
       var modal = document.querySelector('.overlay--show');
       if (modal) {
           modal.classList.remove('overlay--show');
       }
-    }
-}
-function characterInHash() {
-    var hashSex = hash.get("sex");
-    if (hashSex) {
-    } else {
     }
 }
 
@@ -1744,13 +1736,8 @@ function hashCharacter() {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
       if (t.length) {
-        //TODO Populate hash without  reloading page.
-        //window.location = '/#' + t.join('&')
         personnageActuelToHash(currentUser);
       }
-      //manageCharacters(currentUser);
-      //TODO make sure the menu is reset before rebuilding it on top of existing menu.
-      //TODO Reset the svg1 viewport
 }
 
 function switchCharacter(evt) {
@@ -1858,7 +1845,6 @@ function manageCharacters() {
 }
 
 function resetCharacters() {
-    //TODO Reset colors too.
     var charUI = document.querySelector('.js-character-list');
     var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)');
     Array.prototype.forEach.call( charCards, function( node ) {
@@ -1871,9 +1857,11 @@ function registerMenu() {
   var overlay = document.querySelector('.js-register');
   var registerForm = document.querySelector('#register-form');
   var firstInput = overlay.querySelector('.first-input');
+
   if (loginMenu.classList.contains('overlay--show')) {
       loginMenu.classList.remove('overlay--show');
   }
+
   overlay.classList.add('overlay--show');
   registerForm.addEventListener("submit", register, true);
   overlay.addEventListener('click', closeRegister, true);
@@ -1881,9 +1869,10 @@ function registerMenu() {
 }
 
 function closeRegister(evt) {
-  var overlay = document.querySelector('.js-register');
-  var cancelBtn = overlay.querySelector('.cancelbtn');
+    var overlay = document.querySelector('.js-register');
+    var cancelBtn = overlay.querySelector('.cancelbtn');
     var target = evt.target;
+
     if (target === overlay || target === cancelBtn) {
       var register = document.querySelector('.overlay--show');
       if (register) {
@@ -1900,43 +1889,37 @@ function register (evt) {
     var username = event.target.children[1].lastElementChild.value;
     var password = event.target.children[2].lastElementChild.value;
     var register = document.querySelector('.overlay--show');
-    //register.classList.remove('overlay--show');
 
-  if (!username) {
+    if (!username) {
       console.log('missing username.');
       return
-  }
-  if (!password) {
+    }
+    if (!password) {
       console.log('missing password.');
       return
-  }
-  if (!email) {
+    }
+    if (!email) {
       console.log('missing email.');
       return
-  }
+    }
 
-  console.log('Calling createDbUSer');
-  createDbUser(username, password, email)
-    .then(function () {
-    // .then(function (json) {
-      // console.log('go on...', json)
-      return loginDbUser(username, password)
-    })
-    .then(function (json) {
-      // TODO, handle currentUser
-      console.log('fetched2', json)
-      //return json
-      return username
-    })
-    .then(getDbUser)
-    .then(function(user){
-         console.log('LE USER:', user)
-         currentUser = user
-         manageCharacters(currentUser)
-    })
-    .catch(function (err) {
-      console.error('register err', err)
-    })
+    console.log('Calling createDbUSer');
+    createDbUser(username, password, email)
+        .then(function () {
+          return loginDbUser(username, password)
+        })
+        .then(function (json) {
+            console.log('fetched2', json)
+            return username
+        })
+        .then(getDbUser)
+        .then(function(user){
+            currentUser = user
+            manageCharacters(currentUser)
+        })
+        .catch(function (err) {
+          console.error('register err', err)
+        })
 }
 
 getDbSession()
@@ -1959,14 +1942,8 @@ getDbSession()
           encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
         )
       }
-      //if (t.length) {
-        //TODO Populate hash without  reloading page.
-        //window.location = '/?#' + t.join('&')
-        //personnageActuelToHash(currentUser);
-      //}
     }
     manageCharacters(currentUser);
-    //setHashTrigger();
   })
   .catch(function (err) {
     console.log('getDbUser error', err)
@@ -1995,68 +1972,68 @@ function createChar() {
     var newCharName = newCharNameEl.value;
 
     newCard.classList.remove('overlay__char-new--create');
-    //TODO add character to UI and curentUser.cc
     var personnageActuel = newCharName;
-  if (!personnageActuel) { return }
-  if (!currentUser.cc) { currentUser.cc = {} }
-  if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
-  if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
-  currentUser.cc.personnages[personnageActuel] = window.hash.get();
-  Object.assign(currentUser.cc.personnages, personnages);
+    if (!personnageActuel) { return }
+    if (!currentUser.cc) { currentUser.cc = {} }
+    if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+    if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+    currentUser.cc.personnages[personnageActuel] = window.hash.get();
+    Object.assign(currentUser.cc.personnages, personnages);
 
-  updateDbUser(currentUser)
-    .then(function (json) {
-      currentUser._rev = json.rev
-      return json
-    })
-    .catch(function (err) {
-      console.log('err', err)
-    })
-    manageCharacters();
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+        manageCharacters();
 }
 
 function deleteChar() {
     var el = this;
     var disposible = el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML;
     delete currentUser.cc.personnages[disposible];
-  updateDbUser(currentUser)
-    .then(function (json) {
-      currentUser._rev = json.rev
-      return json
-    })
-    .catch(function (err) {
-      console.log('err', err)
-    })
-    manageCharacters();
+
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+        manageCharacters();
 }
 
 function saveChar() {
     var saveBtn = document.querySelector('.save-btn');
     saveBtn.classList.remove('save--enabled');
     var personnageActuel = currentUser.cc.personnageActuel;
-  if (!myUsername || !currentUser) { return }
-  if (!currentUser) { return }
+    if (!myUsername || !currentUser) { return }
+    if (!currentUser) { return }
 
+if (!personnageActuel) {
   //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
-  if (!personnageActuel) {
-      return;
-  }
-  if (!currentUser.cc) {
-      currentUser.cc = {};
-  }
-  if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
-  if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
-  currentUser.cc.personnages[personnageActuel] = window.hash.get();
-  Object.assign(currentUser.cc.personnages, personnages)
+  return;
+}
+if (!currentUser.cc) {
+  currentUser.cc = {};
+}
+if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+currentUser.cc.personnages[personnageActuel] = window.hash.get();
+Object.assign(currentUser.cc.personnages, personnages)
 
-  updateDbUser(currentUser)
-    .then(function (json) {
-      currentUser._rev = json.rev
-      return json
-    })
-    .catch(function (err) {
-      console.log('err', err)
-    })
+updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
 }
 
 
