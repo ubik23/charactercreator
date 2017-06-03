@@ -84,8 +84,8 @@ function updateDbUser (user) {
       if (resp.ok) { return resp.json() }
       if (resp.status === 409) { return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match') }
       if (resp.status === 404) {
-          //return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match')
           loginMenu();
+          return fetchDb.reject(resp, 'Not logged in.')
       }
       return fetchDb.reject(resp)
     })
@@ -98,8 +98,27 @@ function loginDbUser (username, password) {
   })
     .then(function (resp) {
       if (resp.status === 200) { return resp.json() }
+      if (resp.status === 401) {
+          showErrorUsernamePasswordMismatch();
+          //return resp.json();
+          return fetchDb.reject(resp)
+      }
       return fetchDb.reject(resp)
     })
+}
+
+function showErrorUsernamePasswordMismatch() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    console.log('currentOverlay', currentOverlay);
+    var errorBox = currentOverlay.querySelector('.overlay__error');
+    console.log('errorBox');
+    var errorText = errorBox.querySelector('.overlay__error__text');
+    var errorMsg = 'Sorry, username/password mismatch. Please try again.';
+    clearInputFields();
+    errorText.innerHTML = errorMsg;
+    errorBox.classList.add('overlay__error--show');
+    console.log('Sorry, username/password mismatch');
+    //clearInputUsername();
 }
 
 function createDbUser (username, password, email) {
@@ -129,7 +148,8 @@ function createDbUser (username, password, email) {
 }
 
 function showErrorUsernameTaken(username) {
-    var errorBox = document.querySelector('.overlay__error');
+    var currentOverlay = document.querySelector('.overlay--show');
+    var errorBox = currentOverlay.querySelector('.overlay__error');
     var errorText = errorBox.querySelector('.overlay__error__text');
     var errorMsg = 'Username "' + username + '" is already taken. Try another.';
     errorText.innerHTML = errorMsg;
@@ -232,7 +252,6 @@ function login(evt) {
     var password = event.target.children[1].lastElementChild.value;
     var login = document.querySelector('.overlay--show');
     var currentCharacter;
-    login.classList.remove('overlay--show');
 
     if (!username || !password) {
         console.log('missing username or password.');
@@ -252,6 +271,8 @@ function login(evt) {
       for (r in u) {
         t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
       }
+      clearInputFields();
+      login.classList.remove('overlay--show');
       manageCharacters(user);
     })
     .catch(function (err) {
