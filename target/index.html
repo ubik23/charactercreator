@@ -130,11 +130,11 @@
             </div>
             <div class="overlay__panel">
                 <form id="login-form"action="#">
-                  <div class="overlay__container">
+                  <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Username:</label>
                     <input class="first-input overlay__input" type="text" placeholder="Enter Username" name="uname" required>
                   </div>
-                  <div class="overlay__container">
+                  <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Password:</label>
                     <input class="overlay__input" type="password" placeholder="Enter Password" name="psw" required>
                   </div>
@@ -144,8 +144,8 @@
                       </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit">Login</button>
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="cancel-btn btn">Cancel</button>
                   </div>
                 </form>
             </div>
@@ -157,19 +157,19 @@
     <div class="overlay__modal js-register">
         <div class="overlay__wrapper">
             <div class="overlay__header">
-                <span class="overlay__title">Register</span>
+                <span class="overlay__title">Register a new user account</span>
             </div>
             <div class="overlay__panel">
                 <form id="register-form"action="#">
-                  <div class="overlay__container">
+                  <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Email address:</label>
                     <input class="first-input overlay__input overlay__input_email" type="email" placeholder="Enter Email" name="email" required>
                   </div>
-                  <div class="overlay__container">
+                  <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Username:</label>
                     <input class="overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
                   </div>
-                  <div class="overlay__container">
+                  <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Password:</label>
                     <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
                   </div>
@@ -179,8 +179,8 @@
                       </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit">Register</button>
+                    <button type="submit" class="btn">Register</button>
+                    <button type="button" class="cancel-btn btn">Cancel</button>
                   </div>
                 </form>
             </div>
@@ -198,8 +198,8 @@
                       <div class="overlay__char-card overlay__char-card--orig">
                           <span class="overlay__char-name">Character Name</span>
                           <div class="overlay__char-btns">
-                              <button class="overlay__char-edit">edit</button>
-                              <button class="overlay__char-delete">delete</button>
+                              <button class="overlay__char-edit btn">edit</button>
+                              <button class="overlay__char-delete btn">delete</button>
                           </div>
                       </div>
                       <div class="overlay__char-card overlay__char-new js-new-card">

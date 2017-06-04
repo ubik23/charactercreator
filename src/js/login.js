@@ -204,7 +204,7 @@ function loginMenu(evt) {
 
 function closeLogin(evt) {
     var overlay = document.querySelector('.js-login');
-    var cancelBtn = overlay.querySelector('.cancelbtn');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
       var login = document.querySelector('.overlay--show');
@@ -216,7 +216,7 @@ function closeLogin(evt) {
 
 function closeOverlay(evt) {
     var overlay = document.querySelector('.overlay--show');
-    var cancelBtn = overlay.querySelector('.cancelbtn');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
       var login = document.querySelector('.overlay--show');
@@ -484,7 +484,7 @@ function registerMenu() {
 
 function closeRegister(evt) {
     var overlay = document.querySelector('.js-register');
-    var cancelBtn = overlay.querySelector('.cancelbtn');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
     var target = evt.target;
 
     if (target === overlay || target === cancelBtn) {
