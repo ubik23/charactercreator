@@ -14,6 +14,7 @@
         transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
     }
     &__wrapper {
+        min-width: 50vw;
         border-radius: 5vmin;
         overflow: hidden;
         transition: transform 0.2s ease;
@@ -21,7 +22,7 @@
     }
     &__panel {
         background-color: white;
-        padding: 3vmin;
+        padding: 3vmin 10vw;
         overflow-y: auto;
         max-height: 65vh;
     }
@@ -53,12 +54,6 @@
         &__form {
             flex-direction: column;
             align-items: flex-start;
-        }
-    }
-    &__input {
-         width: 100%;
-
-         &-email {
         }
     }
     &__error {
@@ -176,7 +171,30 @@
     }
     &__label {
          display: block;
+         margin: 15px 0 5px 0;
+         color: #999;
     }
+    &__input {
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 15px;
+        box-sizing: border-box;
+
+        &__username {
+             width: 8em;
+        }
+
+        &__password {
+             width: 12em;
+        }
+
+        &__email {
+             width: 14em;
+        }
+    }
+
 }
 
 .overlay--show {
