@@ -129,6 +129,11 @@
                 <span class="overlay__title">Login</span>
             </div>
             <div class="overlay__panel">
+                  <div class="overlay__container">
+                      <div class="overlay__error">
+                          <p class="overlay__error__text">error</p>
+                      </div>
+                  </div>
                 <form id="login-form"action="#">
                   <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Username</label>
@@ -137,11 +142,6 @@
                   <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Password</label>
                     <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
-                  </div>
-                  <div class="overlay__container">
-                      <div class="overlay__error">
-                          <p class="overlay__error__text">error</p>
-                      </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
                     <button type="submit" class="btn">Login</button>
@@ -160,10 +160,15 @@
                 <span class="overlay__title">Register a new user account</span>
             </div>
             <div class="overlay__panel">
+                  <div class="overlay__container">
+                      <div class="overlay__error">
+                          <p class="overlay__error__text">error</p>
+                      </div>
+                  </div>
                 <form id="register-form"action="#">
                   <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Email address</label>
-                    <input class="first-input overlay__input overlay__input_email" type="email" placeholder="Enter Email" name="email" required>
+                    <input class="first-input overlay__input overlay__input__email" type="email" placeholder="Enter Email" name="email" required>
                   </div>
                   <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Username</label>
@@ -172,11 +177,6 @@
                   <div class="overlay__container overlay__container__form">
                     <label class="overlay__label">Password</label>
                     <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
-                  </div>
-                  <div class="overlay__container">
-                      <div class="overlay__error">
-                          <p class="overlay__error__text">error</p>
-                      </div>
                   </div>
                   <div class="overlay__container overlay__container--buttons">
                     <button type="submit" class="btn">Register</button>

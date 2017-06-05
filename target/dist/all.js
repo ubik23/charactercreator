@@ -1488,8 +1488,12 @@ function updateDbUser (user) {
   return fetchDb.post('users', user)
     .then(function (resp) {
       console.log('resp.status', resp.status);
-      if (resp.ok) { return resp.json() }
-      if (resp.status === 409) { return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match') }
+      if (resp.ok) {
+          return resp.json()
+      }
+      if (resp.status === 409) {
+          return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match')
+      }
       if (resp.status === 404) {
           loginMenu();
           return fetchDb.reject(resp, 'Not logged in.')
@@ -1506,12 +1510,22 @@ function loginDbUser (username, password) {
     .then(function (resp) {
       if (resp.status === 200) { return resp.json() }
       if (resp.status === 401) {
-          showErrorUsernamePasswordMismatch();
+          determineErrorMessage(username);
           //return resp.json();
           return fetchDb.reject(resp)
       }
       return fetchDb.reject(resp)
     })
+}
+
+function determineErrorMessage(username) {
+    var currentOverlay = document.querySelector('.overlay--show');
+    if (currentOverlay.classList.contains('js-login')) {
+        showErrorUsernamePasswordMismatch();
+    }
+    if (currentOverlay.classList.contains('js-register')) {
+        showErrorUsernameTaken(username);
+    }
 }
 
 function showErrorUsernamePasswordMismatch() {
@@ -1616,6 +1630,7 @@ function closeLogin(evt) {
     if (target === overlay || target === cancelBtn) {
       var login = document.querySelector('.overlay--show');
       if (login) {
+          clearInputFields();
           login.classList.remove('overlay--show');
       }
     }
@@ -2035,19 +2050,19 @@ function saveChar() {
     if (!myUsername || !currentUser) { return }
     if (!currentUser) { return }
 
-if (!personnageActuel) {
-  //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
-  return;
-}
-if (!currentUser.cc) {
-  currentUser.cc = {};
-}
-if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
-if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
-currentUser.cc.personnages[personnageActuel] = window.hash.get();
-Object.assign(currentUser.cc.personnages, personnages)
+    if (!personnageActuel) {
+      //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
+      return;
+    }
+    if (!currentUser.cc) {
+      currentUser.cc = {};
+    }
+    if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+    if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+    currentUser.cc.personnages[personnageActuel] = window.hash.get();
+    Object.assign(currentUser.cc.personnages, personnages)
 
-updateDbUser(currentUser)
+    updateDbUser(currentUser)
         .then(function (json) {
           currentUser._rev = json.rev
           return json

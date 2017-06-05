@@ -14,10 +14,9 @@
         transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
     }
     &__wrapper {
-        min-width: 50vw;
         border-radius: 5vmin;
         overflow: hidden;
-        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, width 0.2s ease;
         transform: translate3d(0, -100vh, 0);
     }
     &__panel {
@@ -38,6 +37,7 @@
 
             & .btn {
                 width: 50%;
+                font-size: 14px;
                 padding: 15px;
                 background-color: rgba(0, 255, 0, 0.5);
                 border: solid 1px #00ff00;
@@ -63,7 +63,7 @@
         font-size: 0.7em;
         border: solid 2px red;
         border-radius: 1em;
-        padding-left: 1.5vmin;
+        padding: 0 1.5vmin;
         background-color: rgba(255, 0, 0, 0.25);
         transition: opacity 0.2s ease, visibility 0s linear;
 
@@ -183,15 +183,15 @@
         box-sizing: border-box;
 
         &__username {
-             width: 8em;
+             width: 10em;
         }
 
         &__password {
-             width: 12em;
+             width: 14em;
         }
 
         &__email {
-             width: 14em;
+             width: 18em;
         }
     }
 
