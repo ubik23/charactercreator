@@ -1641,10 +1641,19 @@ function closeOverlay(evt) {
     var cancelBtn = overlay.querySelector('.cancel-btn');
     var target = evt.target;
     if (target === overlay || target === cancelBtn) {
-      var login = document.querySelector('.overlay--show');
-      if (login) {
-          login.classList.remove('overlay--show');
+      if (overlay) {
+          hideNewCharacterInputField();
+          overlay.classList.remove('overlay--show');
       }
+    }
+}
+
+function hideNewCharacterInputField() {
+    var overlay = document.querySelector('.overlay--show');
+    var newField = overlay.querySelector('.overlay__char-new--create');
+    if (newField) {
+        clearInputFields();
+        newField.classList.remove('overlay__char-new--create');
     }
 }
 
