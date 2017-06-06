@@ -2007,10 +2007,15 @@ function triggerSaveBtn() {
 
 function newChar() {
     var newCard = document.querySelector('.js-new-card');
+    var firstInput = newCard.querySelector('.first-input');
     newCard.classList.add('overlay__char-new--create');
+    firstInput.focus();
 }
 
-function createChar() {
+function createChar(evt) {
+    if (evt) {
+        evt.preventDefault();
+    }
     var el = this;
     var newCard = document.querySelector('.overlay__char-new--create');
     var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');

@@ -120,6 +120,18 @@
         background-color: $color-alpha;
         color: white;
         border-radius: 5vmin;
+
+        & .overlay__char-edit {
+            border: solid 1px #ffffff;
+            background-color: rgba(0, 255, 0, 1);
+            color: #f000;
+
+        }
+        & .overlay__char-delete {
+            border: solid 1px #ffffff;
+            background-color: rgba(255, 0, 0, 1);
+            color: #000;
+        }
     }
     &__char-new {
         position: relative;
@@ -147,8 +159,10 @@
             padding-right: 4vmin;
             width: 100%;
             box-sizing: border-box;
-            & .first-input {flex-grow: 1;}
 
+            & .first-input {
+                flex-grow: 1;
+            }
         }
         &--create {
             & .overlay__char-new-btn {

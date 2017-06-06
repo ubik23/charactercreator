@@ -204,10 +204,10 @@
                       </div>
                       <div class="overlay__char-card overlay__char-new js-new-card">
                           <button class="overlay__char-new-btn">New</button>
-                            <div class="overlay__char-new-form">
-                                <input class="first-input js-new-char-name" type="text" placeholder="Enter Character Name" name="charname" required>
-                                  <button class="overlay__char-create-btn">Create</button>
-                            </div>
+                            <form id="new-char-name-form" class="overlay__char-new-form" action="#">
+                                <input class="first-input js-new-char-name overlay__input" type="text" placeholder="Enter Character Name" name="charname" required>
+                                  <button type="submit" class="overlay__char-create-btn">Create</button>
+                            </form>
                       </div>
                   </div>
             </div>
