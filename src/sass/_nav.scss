@@ -65,11 +65,16 @@ sub {
     position: fixed;
     right: 0;
     bottom: 0;
-    margin: 0 5vmin 15vmin 0;
-    padding: 2vmin;
+    margin: 0 33vw 1vh 0;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.2s ease, visibility linear 0.2s;
+    transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
+    background: transparent;
+    border: none;
+    & .icon-cloud-upload {
+        width: 6em;
+        height: 6em;
+    }
 }
 
 .logged {
@@ -92,10 +97,13 @@ sub {
     .save-btn {
          visibility: visible;
          opacity: 0.2;
-         transition: opacity 0.2s ease, visibility linear 0;
+         transition: opacity 0.7s ease, visibility linear 0, color 0.7s ease;
+         color: $color-grey;
          z-index:23;
          &.save--enabled {
             opacity: 1;
+             color: $color-alpha;
+             transition: opacity 0.7s ease, color 0.7s ease;
         }
     }
 }
