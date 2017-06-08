@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="makeup_frekles" width="560" height="560">
+<g id="makeup_frekles">
   <g id="g39467" style="display:inline;enable-background:new">
     <g id="g33522">
       <path id="path50834-8-1" d="M290.8 142.8c.3 0 .3.3 0 .3-.2 0-.2-.2 0-.2z" style="display:inline;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"/>
@@ -58,4 +57,4 @@
     <path id="path50834-9-2-3-5-7-9" d="M283 146.7s0 .3.2.2v-.3z" style="display:inline;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"/>
     <path id="path50834-9-2-3-5-6-0" d="M272.6 144.8c-.2 0 0 .3 0 .2.2 0 0-.2 0-.2z" style="display:inline;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"/>
   </g>
-</svg>
+</g>

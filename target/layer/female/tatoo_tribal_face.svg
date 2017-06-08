@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="tatoo_tribal_face" width="560" height="560">
-  <g id="layer1">
+<g id="tatoo_tribal_face">
     <path id="path95251" d="M289.4 142.7c3.3.3 6.2-2 7-4-1 .2-1.7-1-3-2-1.6-1.3-4.4-2-6.8 0-2.2 2-1.4 5.6 2.8 6z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path95251-8" d="M286.7 113.2c2 2.8 2 11 1 15.5 3-3.3 7.3.8 7.8-1 1-4.7-2-11.2-4.5-13-.8-.7-3.5-1.4-4.3-1.5z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path95271" d="M286 135c.7-2.8 1.7-4.3 3.2-5 4.3-2 8.3 3.8 9.7 2.4v1.8c-1 .6-1 2.5-2.3 2.5-1.5 0-4.2-6-10.8-1.8z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
@@ -13,5 +11,4 @@
     <path id="path95273-0" d="M268.2 126c0 .6 0 2.2.3 3.3-1 1-1.5 1-1.6.3-.2-.7 0-2.8 1.2-3.7z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path95275-7" d="M268.5 123.6c-.6.6-.7 1-1 1.6.5-2 1.2-3.5 1.7-4-.5 1-.6 2.2-.7 2.4z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path95277-8" d="M270 120c-.4 0-.6.4-1 .7.4-1 1.3-2.2 1.8-2.6l-1 2z" style="color:#000000;fill:#5d6c53;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-  </g>
-</svg>
+</g>

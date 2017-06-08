@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="veil_niqab" width="560" height="560">
+<g id="veil_niqab">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="stroke-dasharray: none; stroke-opacity: 1; stroke-miterlimit: 4; stroke-linejoin: round; stroke-linecap: round; stroke-width: 0.5; stroke: #c0a0a1; fill: #F0C8C9;"/>
@@ -15,4 +14,4 @@
     <path id="path4286" d="m 559.40396,198.67769 c 0.52986,13.77646 2.91425,49.01242 3.97398,54.04613 -8.87522,4.37138 -28.48019,6.49083 -41.85926,-1.72206 1.98699,-11.39208 6.49083,-49.14489 7.0207,-52.58901 7.35471,7.10409 23.42092,7.96564 30.86458,0.26494 z" style="opacity:1;fill:#808080;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.85773575;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
     <path id="path4288" d="m 560.06629,186.88821 0,12.45181 c -10.9016,-3.14668 -20.65314,-3.29387 -32.45417,-0.7948 -0.26494,-2.64932 -0.26494,-10.72975 -0.3974,-11.78948 11.94619,-1.90378 24.21144,-1.66985 32.85157,0.13247 z" style="opacity:1;fill:#808080;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.85773575;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
   </g>
-</svg>
+</g>

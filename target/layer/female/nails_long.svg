@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="nails_long" width="560" height="560">
-  <g id="g34664" style="display:inline;enable-background:new">
+<g id="nails_long">
     <g id="g34666" style="display:inline;enable-background:new">
       <path id="path34668" d="M219.5 331.3c-.4.6-1.5 1.3-2.2.7 0 .5 1.4 5.8 1.7 6 .5.4 1.5.3 1.8-.3.2-.4-1-5.8-1.3-6.4z" style="fill:#ff0000;stroke:none"/>
       <path id="path34670" d="M206.7 341.4c-.4 0-1.3 0-1.6-.2l.3 5.7c.2.4 1 .7 1.3.3.3-.4 0-5.4 0-6z" style="fill:#ff0000;stroke:none"/>
@@ -12,5 +10,4 @@
       <path id="path34680" d="M320.4 300c-.5-.2-1.4-.6-1.7-1-.3.5-3 5-2.7 5.3.3.3 1 .7 1.3.5.4-.3 3-4.3 3-5z" style="fill:#ff0000;stroke:none"/>
       <path id="path34682" d="M325 302l-1.6-.3c0 .3-1.2 3.8-1 4 .4.2 1 .3 1.2 0 .3-.2 1.3-3.3 1.3-3.7z" style="fill:#ff0000;stroke:none"/>
     </g>
-  </g>
-</svg>
+</g>

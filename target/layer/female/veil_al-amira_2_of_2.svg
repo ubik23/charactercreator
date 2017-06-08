@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="veil_al-amira_2_of_2" width="560" height="560">
+<g id="veil_al-amira_2_of_2">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="stroke-dasharray: none; stroke-opacity: 1; stroke-miterlimit: 4; stroke-linejoin: round; stroke-linecap: round; stroke-width: 0.5; stroke: #c0a0a1; fill: #F0C8C9;"/>
@@ -17,4 +16,4 @@
   <path id="path4235" d="m 265.35956,149.73088 c -2.47481,12.55985 -12.0205,27.95009 -12.90437,32.37257 -0.88385,4.42248 2.82836,16.45164 4.06576,19.63582" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
   <path id="path4237" d="m 318.21438,182.63415 c -7.42441,7.42977 -28.28352,24.7659 -36.23825,26.18109" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
   <path id="path4239" d="m 319.27502,186.70283 c -5.65671,6.01458 -31.5702,26.02653 -43.40469,25.42885 -4.59361,-0.23199 -7.70774,-4.71844 -10.82227,-8.24901 -3.57325,-4.05057 -7.99679,-13.81875 -7.64325,-20.36402 0.35355,-6.54528 5.12639,-17.15924 7.07088,-29.36528" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
-</svg>
+</g>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="veil_hijab" width="560" height="560">
+<g id="veil_hijab">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="stroke-dasharray: none; stroke-opacity: 1; stroke-miterlimit: 4; stroke-linejoin: round; stroke-linecap: round; stroke-width: 0.5; stroke: #c0a0a1; fill: #F0C8C9;"/>
@@ -17,4 +16,4 @@
     <path id="path4208" d="m 141.20776,228.02682 c 1.81279,13.11478 14.24373,22.87989 23.72518,14.76165" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
     <path id="path4210" d="m 174.29322,212.63152 c -0.14255,1.72131 0.34917,18.94004 -6.38681,23.08562 -8.57046,5.27459 -20.33301,-6.68217 -25.57856,-15.77 0.58182,9.29745 9.20994,24.35039 20.0392,20.90652" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
   </g>
-</svg>
+</g>

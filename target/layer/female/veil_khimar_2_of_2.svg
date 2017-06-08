@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="veil_khimar_2_of_2" width="560" height="560">
+<g id="veil_khimar_2_of_2">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="stroke-dasharray: none; stroke-opacity: 1; stroke-miterlimit: 4; stroke-linejoin: round; stroke-linecap: round; stroke-width: 0.5; stroke: #c0a0a1; fill: #F0C8C9;"/>
@@ -16,4 +15,4 @@
     <path id="path4328-5" d="m 304.52754,240.40563 c 1.25288,-7.01159 -5.44891,-26.46612 -7.37973,-37.49545 -1.86774,-10.66901 1.34655,-27.85857 2.5909,-45.85639" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
     <path id="path4345" d="m 266.58658,252.76535 c -3.09734,-33.62831 14.70657,-77.55196 15.59153,-111.62275" style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
   </g>
-</svg>
+</g>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="headband_medium_1_of_2" width="560" height="560">
+<g id="headband_medium_1_of_2">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="stroke-dasharray: none; stroke-opacity: 1; stroke-miterlimit: 4; stroke-linejoin: round; stroke-linecap: round; stroke-width: 0.5; stroke: #826b55; fill: #a3866a;"/>
@@ -19,4 +18,4 @@
     <path id="path4170" d="m 276.68968,119.95835 c -2.81502,0.90827 -7.8843,3.75781 -9.30442,6.34526 -0.0196,0.13339 -0.009,0.25628 0.0215,0.3877 0.0626,0.2693 -0.006,0.69764 -0.18302,1.06401 4.00918,-3.88345 8.33891,-4.35604 11.19142,-3.72864 -2.75269,-0.83131 -5.31378,-1.31924 -9.69138,1.52064 2.58095,-2.04912 6.39279,-4.92575 7.96597,-5.58894 z" style="fill:#aa0000;fill-rule:evenodd;stroke:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
     <path id="path4195" d="m 288.05074,122.93808 c -3.29798,-1.13176 -7.15129,-2.76959 -9.81709,-2.12583 -2.66582,0.64374 -3.46253,1.95323 -3.46253,1.95323 2.18802,-1.5268 7.24874,-1.47859 13.27962,0.17267 z" style="fill:#aa0000;fill-rule:evenodd;stroke:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
   </g>
-</svg>
+</g>

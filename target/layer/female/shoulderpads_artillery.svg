@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="shoulderpads_artillery" width="560" height="560">
+<g id="shoulderpads_artillery">
   <g id="g4901-7-9" style="display:inline;enable-background:new">
     <g id="g4865-5-2-0">
       <path id="path3031-20-7-5-0" d="M261.5 269.4c-2-14.8-10-78.2-9.7-89.6-3 0-14 1.5-14.8 1.5.2 7.2 9.2 89.4 9.5 92.4 1 10 16.8 9.4 15-4.3z" style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#dca76b;fill-opacity:1;stroke:#bb763b;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"/>
@@ -90,4 +89,4 @@
       <path id="path4200-7-2-8" d="M329 166.8c-1.3 8-4.6 25-5.2 27.2-1.3 4-12.4 2.7-11-2.4l2.2-7.7 4.3-19.2c2.5 0 8.6 1.3 9.8 2z" style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#dca76b;fill-opacity:1;stroke:#bb763b;stroke-width:0.48583439;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"/>
     </g>
   </g>
-</svg>
+</g>

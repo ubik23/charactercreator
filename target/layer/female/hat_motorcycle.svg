@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="hat_motorcycle" width="560" height="560">
+<g id="hat_motorcycle">
   <g id="g56620" style="display:none;enable-background:new">
     <g id="g55231" style="display:inline;enable-background:new">
       <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.8 1.5 5 2.4 6.4 1 1.4 2.3 2 3 1" style="fill: #a57257; stroke: #845b46; stroke-width: 0.5; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1; stroke-dasharray: none;"/>
@@ -37,4 +36,4 @@
       <path style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M291.702 136.134c-2.002.087-3.852.385-5.587.394-1.593 7.79-4.282 9.41-4.345 20.745 1.17-.007 2.28-.065 3.334-.17 1.322-13.122 4.964-13.81 6.598-21.1zm-16.864-.09c1.226 9.194 2.99 11.716 3.784 21.08.532.058 1.078.106 1.648.13-.935-12.057 2.808-13.568 2.83-20.802-2.802-.015-5.812-.194-8.266-.408z" id="path4146-4"/>
     </g>
   </g>
-</svg>
+</g>
