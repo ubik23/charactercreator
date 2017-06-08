@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" id="brows_amusement">
+<g id="brows_amusement">
   <path style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" d="m 269.65662,136.40734 c 1.30013,-1.06646 2.47005,-1.42338 3.7599,-1.6552 1.77882,-0.31969 4.82264,-0.50861 6.53941,-0.0718 0.44294,0.1127 0.1709,1.22445 -0.28743,1.11641 -2.06865,-0.48763 -4.90242,-0.50154 -6.2176,-0.29463 -0.69508,0.10935 -2.45014,0.21654 -3.79428,0.90522 z" id="path75764"/>
   <path style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" d="m 295.5265,136.52603 c -0.5765,-1.07602 -2.55354,-1.50177 -3.88845,-1.75724 -1.3349,-0.25546 -4.55866,-0.27766 -6.61036,0.0761 -0.45049,0.0777 -0.233,1.1595 0.23597,1.12465 1.63412,-0.12143 4.38217,-0.7928 5.86147,-0.60696 1.66394,0.20903 2.96124,0.2643 4.40137,1.16345 z" id="path75766"/>
-</svg>
+</g>

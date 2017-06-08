@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" id="brows_anger">
+<g id="brows_anger">
   <path id="eyebrow-right" d="m 269.88445,136.94574 c 0.91367,-0.98121 2.80426,-1.44272 4.1213,-1.20751 1.31704,0.23521 5.55611,3.01271 6.13396,2.71001 0.19954,0.4112 -0.18574,1.20338 -0.59785,0.96995 -0.4121,-0.23343 -4.83859,-2.67351 -5.47107,-3.08386 -0.63248,-0.41045 -2.49959,-0.65523 -4.18634,0.61141 z" style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
   <path id="eyebrow-left" d="m 295.05857,136.14244 c -0.96524,-0.93052 -2.87795,-1.28932 -4.18041,-0.98353 -1.30244,0.30588 -5.38556,3.30801 -5.9789,3.03681 -0.17707,0.42146 0.25036,1.19161 0.64927,0.9363 0.39893,-0.25531 4.68741,-2.93041 5.29683,-3.37437 0.60942,-0.44395 2.46063,-0.78906 4.21321,0.38479 z" style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
-</svg>
+</g>

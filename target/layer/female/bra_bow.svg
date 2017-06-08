@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="bra_bow" width="560" height="560">
-  <g id="layer1">
-    <g id="g3455-0" style="display:inline;enable-background:new">
+<g id="bra_bow">
       <g id="g3430-8">
         <g id="g3402-9">
           <path id="path3161-0-1" d="M291.3 202v-2.4c-1.2 0-1-1.6 0-1.5 1 .3 4 0 4.7 0 1 .2.6 1.6 0 1.5v4.2c-1-1-4.7-1.6-4.7-1.6z" style="fill:#e6e6e6;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -36,6 +33,4 @@
         <path id="path3096-4-2" d="M269.6 215.5l2.5-1.4c1 1.5.3 3.7-.3 4.4l-2.4-1.3-2 1.4c-1-1.3-1-2.8-.4-4.2l2.6 1.3z" style="fill:#ffd5d5;stroke:#ffaaaa;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
         <path id="path3098-8-3" d="M269 215c-.4.4-.2 2-.2 2.5.2.2.5.5 1 0 .5-1.2.4-1.5.4-2.5-.7-.2-1.2 0-1.2 0z" style="fill:#ffd5d5;stroke:#ffaaaa;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
       </g>
-    </g>
-  </g>
-</svg>
+</g>
