@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="shirt_tshirt" width="560" height="560">
+<g id="shirt_tshirt">
   <path id="path2987-8-1-6-02" d="M265 160.8c-5 3.2-16.8 9.7-22.4 11-18.7 4.3-4.6 41.4-1 61.2 1.4 8.7 4.8 34.8 1.5 40.3-1.4 2.6-1.3 5 .3 6.4 1.3 1 2.8 3 1 4.3-2.7 2.2-1.4 4 0 4.6 1.6 1 .8 3.7 1 5.5 19 1.3 55.3-8.6 79.6-8.4-1.4-3 .4-4.6 1.4-7 .6-1.3 1-5.2-2-6.8-1-.5-1.4-3.7-.7-6.6.6-2.4-1.2-3-2.3-3.5-2.6-1.3-1-14.3-2-20-1.6-8 4-27.3 4.2-32 .3-4.7 12-34.5-4.7-36.5-2.7-.4-14-8.3-21-13.2 9.2 24.5-39 25-33 .8z" style="fill:#f2f2f2;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"/>
   <path id="path49715-46" d="M261.4 162.8c-3.8 15.6 13 20.4 20.7 20.4 8 0 25.3-4.8 20-19.8" style="color:#000000;fill:none;stroke:#b3b3b3;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 0.5;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   <path id="path294927-1" d="M265 160.8c-5 3.2-16.8 9.7-22.4 11-18.7 4.3-4.6 41.4-1 61.2 1.4 8.7 4.8 34.8 1.5 40.3-1.4 2.6-1.3 5 .3 6.4 1.3 1 2.8 3 1 4.3-2.7 2.2-1.4 4 0 4.6 1.6 1 .8 3.7 1 5.5 19 1.3 55.3-8.6 79.6-8.4-1.4-3 .4-4.6 1.4-7 .6-1.3 1-5.2-2-6.8-1-.5-1.4-3.7-.7-6.6.6-2.4-1.2-3-2.3-3.5-2.6-1.3-1-14.3-2-20-1.6-8 4-27.3 4.2-32 .3-4.7 12-34.5-4.7-36.5-2.7-.4-14-8.3-21-13.2 9.2 24.5-39 25-33 .8z" style="fill:#f2f2f2;stroke:#b3b3b3;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"/>
@@ -24,4 +23,4 @@
   <path id="path296869-8-6" d="M302.3 163.8c3.6 6.4 2.2 15.3-2 21.3 2.6-7 4.4-14.6 2-21.2z" style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   <path id="path296871-7-6" d="M261 163.7c-1.6 4.6-1.2 12.4 1 15.2-1-5.4-2-11.3-1-15.3z" style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
   <path id="path309740" d="M246.2 197.8c2.4 9.7-1 15-5.8 16.5-3.7 1-7.3-4-8.4-6.8-1.7-4.8-.5-6.3 2.4-3.7 3.4 3.2 10-3 11.8-6z" style="color:#000000;fill:#e6e6e6;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-</svg>
+</g>

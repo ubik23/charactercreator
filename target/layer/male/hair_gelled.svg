@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="hair_gelled" width="560" height="560">
-  <g id="layer1">
-    <g id="g40720-7" style="display:inline;enable-background:new">
+<g id="hair_gelled">
       <path id="path15177-7-9-9" d="M277.5 98.7c-2.2.2-5.4 1.6-6 2.3-1.8 0-2 .6-2.7 1-.8.7-5.8 9.7-6 12.3 0 2.3 0 6.8.4 8.3 1 3 2.6.8 3 9.5.8.8-.5.7.5 0 0-4.4-2.2-11-.3-15.6-.2-7.3 3.7-6.8 3.8-9.2 1.4 2.3 2.8 3.3 4.2 3.6 2 .4 4 .6 5.6 2 1 1 2.8 2.3 5 2 2.2-.2 4.3-1.2 6.2.2 1.3 1 3 .6 3.4 1.8 0 .5 2 2.7 1.7 4.8 1 2.8-.3 7.5 0 10.6.5-1.5.7-5.4 1-7.4 1.6-.4 2.3-4.3 2.8-5.4.6-1-.4-4-.6-5.4 0-1.2-1.6-19-22-15.3z" style="color:#000000;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd;stroke:#d4aa00;stroke-width:0.5;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
       <path id="path15205-3-8-2" d="M282.4 112.3c2.2 1 6.6-2 10 0-3.8-3.5-7-1.2-10 0z" style="color:#000000;fill:#ffe680;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
       <path id="path15211-0-1-8" d="M280 111c2.4.7 8.8-1.7 11.2-.6-4.5-2.7-9.8.7-11 .6z" style="color:#000000;fill:#ffe680;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
@@ -28,6 +25,4 @@
       <path id="path15279-7-2-5" d="M277.8 102.6c0-.3.6-1 1-1-.4.6-1 1-1 1z" style="opacity:0.31521738;color:#000000;fill:#ffe6d5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
       <path id="path15281-6-4-5" d="M273.8 100.5c.8-.5 1.8-.8 2.5-.8-.7.6-2.2.8-2.5.8z" style="opacity:0.31521738;color:#000000;fill:#ffe6d5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
       <path id="path15283-6-2-01" d="M298 109.2c0 .6-.2 1.4-.8 1.7.2-.7.6-1.3.8-1.8z" style="opacity:0.31521738;color:#000000;fill:#ffe6d5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </g>
-  </g>
-</svg>
+</g>

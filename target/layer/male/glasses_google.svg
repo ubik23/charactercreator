@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="glasses_google" width="560" height="560">
+<g id="glasses_google">
   <defs id="defs159377">
     <clipPath id="clipPath30513-1-9">
       <path id="path30515-4-4" d="M802.7 239.5c10-5.2 22-3.4 27 11.7 5 15 0 27.6 1.6 31.3 1.6 3.6 4 9.5 3.7 18.3-.2 9 1.6 9.5 4.4 18.4 2.8 8.8 3.6 49 4.4 54.2.8 5.3-1.2 7.7-2.4 10.3-1.2 2.6-8.3-1.2-9.3-3.8-1-2.8-.3-3.2.3-6s-5.8-30-8.2-36.5c-2.3-6.4-5.4-18.7-5.2-23.8.2-5-2.8-7.8-5.2-17-2.4-9-3.4-28.3-1.6-41.4" style="fill:none;stroke:#552200;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"/>
@@ -56,4 +55,4 @@
       </g>
     </g>
   </g>
-</svg>
+</g>

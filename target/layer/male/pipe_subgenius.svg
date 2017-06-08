@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="pipe_subgenius" width="560" height="560">
+<g id="pipe_subgenius">
     <path id="path2987-1-6" d="M277.6 142.3l-10 13.4c-1 1.2-4 2.8-5.8 0l-2-3.7c-.4-1 .7-2.5 2-3.4 1.6-1 3.6-1.4 4-.5l1.3 2.8c.2.4.4.3.7 0 1.3-1.2 8-8.8 8-8.8.4-.4 1.4-.4 2 .3z" style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path2987-1-1-6" d="M275.6 142s-6.6 7.6-8 8.8c-.2.3-.4.4-.5 0 0-.4-.4-1-1-2.2 0 .5-.3 1-.4 1.2-.7 1.5-.3 1-.4 1.5-.2.4.5 1.7 1 2.4.2.6.2 3.3-1.4 3.3-1.7 0-1.2-2.2-1.8-3.5-.2-.4-.8-.8-1.5-.7-.3 0-1 0-1.6-.7.2.8.8 2 1.8 3.7 1.7 2.8 4.8 1.2 5.7 0l10-13.4c-.4-.6-1.2-.6-2-.4zm-4.3 5.7c.2 0 .5 0 .8.6-.6 2-2.8 4-3.2 4.4-.3.5-1.2.3-1-1 .2-1 2.6-3.3 3-3.7.2-.2.3-.3.5-.3zm-6 0h0z" style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path2989-0-9-0" d="M263.8 151.4a1.8 3.6 55.4 1 1-2-3 1.8 3.6 55.4 1 1 2 3z" style="color:#000000;fill:#803300;stroke:#2b1100;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
     <path id="path2989-5-6-8" d="M263.2 150.7a.8 2 55.4 1 1-1-1.4.8 2 55.4 1 1 1 1.4z" style="color:#000000;fill:#552200;fill-opacity:1;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:new"/>
     <path id="path3009-6-5" d="M275.6 142l-5.3 6c1-.4 2 .6 1.8 1.7l5.6-7.4c-.7-1-1.5-.5-2-.3z" style="color:#000000;fill:#552200;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-</svg>
+</g>

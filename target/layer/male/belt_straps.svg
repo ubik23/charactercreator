@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="belt_straps" width="560" height="560">
+<g id="belt_straps">
   <g id="layer1">
     <g id="g305316" transform="translate(0 -1)" style="display:inline;enable-background:new">
       <path id="path305177" d="M253.5 169.2c-1 .6-2 1-3.3 1.6 3.5 1.5 6.5 8 8.6 18 1.4 7 2 16.8 2.5 28 .3 8 .6 16.6.7 24.7.4 19 .2 35 .2 35h5s.2-16-.2-35c0-8.3-.3-17-.7-25.4-.6-10.8-1.7-20.4-3.3-28-1.6-7.6-6-17.8-9.5-18.8z" style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"/>
@@ -18,4 +17,4 @@
       </g>
     </g>
   </g>
-</svg>
+</g>

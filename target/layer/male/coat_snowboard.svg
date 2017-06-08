@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="coat_snowboard" width="560" height="560">
+<g id="coat_snowboard">
   <defs id="defs38944">
     <clipPath id="clipPath30446-4-3">
       <path id="path30448-9-3" d="M751.28 2651.702c-9.88-6.05-18.147-7.058-27.22 3.83-9.075 10.89-2.22 30.046-5.043 36.7-2.823 6.655-3.428 10.688-4.234 20.367-.807 9.67-7.46 11.29-7.058 37.3.404 26.01 2.218 28.23 1.412 33.27-.807 5.04.403 2.42.806 7.06.404 4.63 12.3 1.01 12.704-4.04.403-5.05.605-3.84-.403-8.27s1.815-27.83 5.243-36.3c3.428-8.47 1.814-19.76 3.428-21.98 1.613-2.22 8.267-7.06 9.074-49.41" style="stroke-opacity: 1; stroke-linejoin: miter; stroke-linecap: butt; stroke-width: 1px; stroke: #c0a0a1; fill: none; display: inline;"/>
@@ -105,4 +104,4 @@
     <path id="path4405-4" d="M351.97 286.114c0-1.202-5.27-2.158-8.465-.08-3.195 2.077-7.987 4.953-7.827 5.673.16.72 8.866-4.555 10.303-4.874 1.44-.32 5.99.402 5.99-.72z" style="fill:#cccccc;fill-opacity:1;fill-rule:evenodd;"/>
     <path id="path4407-9" d="M330.913 313.353c4.857-5.084 11.182-2.146 23.38 6.667" style="fill:none;fill-rule:evenodd;stroke:#b3b3b3;stroke-width:1.00660932px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
   </g>
-</svg>
+</g>

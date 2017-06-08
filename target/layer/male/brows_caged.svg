@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="brows_caged" width="560" height="560">
+<g id="brows_caged">
   <path id="path66030" d="m 266.69612,124.10083 c 1.55354,-1.42957 2.40193,-2.28823 3.95054,-2.19173 1.54863,0.0964 7.60525,2.53689 7.92813,1.51567 0.11348,1.17662 -1.02502,1.92174 -1.37212,1.7737 -0.34709,-0.14814 -5.37156,-1.666 -6.54151,-2.001 -1.17005,-0.33476 -2.70642,-0.58024 -3.96506,0.90341 z" style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
   <path id="path66040" d="m 294.78765,124.30672 c -1.52951,-1.45526 -2.36348,-2.32797 -3.91349,-2.25716 -1.55003,0.0702 -7.64644,2.40981 -7.95226,1.38346 -0.13304,1.17454 0.99287,1.93846 1.34239,1.79629 0.34951,-0.1424 5.39854,-1.57637 6.57391,-1.89192 1.17536,-0.31546 2.7157,-0.53503 3.94945,0.96933 z" style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#d4aa00;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
-</svg>
+</g>

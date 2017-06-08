@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="socks_socks" width="560" height="560">
+<g id="socks_socks">
   <defs id="defs159377">
     <clipPath id="clipPath36057">
       <path id="path36059" d="M493 283.6c-.3 7.6.5 17.7-2.3 27.4s-5.7 47.6-3.6 69.4c2 21.7-2 38.7-3.2 47.2-1.2 8.4 1.6 22.5 3.3 35.8 1.7 13.4 4 24.6 2.5 28.7-1.6 4 .8 9-1.2 11.4-2 2.4-3.3 6.4-6 8.8-3 2.5-7.7 7.7-10.6 9.3-2.8 1.6-3.2 8.5 3.7 9.7 6.8 1.2 16-1.6 18-5.2 2-3.7 1.3-8 5.8-7.7 4.4.4 5.6-3.2 4.4-8.5-1.2-5.2-.4-7.2 0-7.6.4-.4 1.2-3.3 0-6.5s.4-27.4 4.8-36c4.5-8.3 3.7-18.8 2-27-1.6-8-2.4-14.4 1-21.3 3-6.8 4.3-18.5 7.5-33 3-14.6 12.8-23.4 12.8-60" style="fill:none;stroke:#e6e6e6;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"/>
@@ -24,4 +23,4 @@
       </g>
     </g>
   </g>
-</svg>
+</g>

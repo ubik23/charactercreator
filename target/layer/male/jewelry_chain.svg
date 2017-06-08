@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="jewelry_chain" width="560" height="560">
-  <g id="layer1">
+<g id="jewelry_chain">
     <path id="path31732" d="M267.7 157c-6 11.8-1 34.5 16.6 34.5 17.5 0 21.5-26.6 10.5-36.7" style="fill:none;stroke:#ffe680;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 1;stroke-dashoffset:0;display:inline;enable-background:new"/>
-  </g>
-</svg>
+</g>

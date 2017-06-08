@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="shoes_hightops" width="560" height="560">
-  <g id="layer1">
+<g id="shoes_hightops">
     <g id="g22703" style="display:inline;enable-background:new">
       <g id="g22078">
         <g id="g32558">
@@ -57,5 +55,4 @@
       <path id="path22144-5-1-8" d="M318.7 521c.3-4.3-1.6-3.7-3-9-.7-2-2.5-4.8-2.2-7 .3-2 1-3.7 1.8-6.2" style="color:#000000;fill:none;stroke:#ececec;stroke-width:0.38616535;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.77233072, 0.38616536;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
       <path id="path22144-5-1-8-2" d="M296.7 521c2.2-4 3-3.7 2.4-9.3-.3-4.3 1.2-5.2.5-7.2-.8-2-1.6-4-1.3-6" style="color:#000000;fill:none;stroke:#ececec;stroke-width:0.38616535;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.77233072, 0.38616536;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     </g>
-  </g>
-</svg>
+</g>
