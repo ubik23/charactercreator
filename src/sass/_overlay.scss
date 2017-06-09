@@ -34,6 +34,7 @@
             justify-content: space-around;
             margin-top: 3vmin;
             width: 100%;
+            font-size: 16px;
 
             & .btn {
                 width: 50%;
@@ -43,8 +44,8 @@
                 border: solid 1px #00ff00;
             }
             & .cancel-btn {
-                background-color: rgba(255, 0, 0, 0.5);
-                border: solid 1px #ff0000;
+                background-color: #e6e6e6;
+                border: solid 1px #cccccc;
             }
         }
         &--char-list {
