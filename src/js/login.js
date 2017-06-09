@@ -554,6 +554,7 @@ function register (evt) {
         .then(function(user){
             currentUser = user
             manageCharacters(currentUser)
+            register.classList.remove('overlay--show');
         })
         .catch(function (err) {
           console.error('register err', err)
