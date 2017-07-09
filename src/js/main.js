@@ -84,12 +84,19 @@ function resetForms() {
 }
 
 function Character(choices){
+    console.log('Character choices', choices.body_head);
+    if (!choices.body_head) {
+        choices.body_head = 'default';
+    }
+    if (!choices.ears) {
+        choices.ears = 'default';
+    }
+    if (!choices.nose) {
+        choices.nose = 'default';
+    }
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
-        body_head : 'default', //Or random from list
-        ears : 'default', // or rand
-        nose : 'default', // Or random
         lips : 'default', //or rand
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
@@ -99,9 +106,6 @@ function Character(choices){
     };
     this.choices.emotion = this.choices.emotion || 'neutral';
     this.choices.body = this.choices.body || 'athletic';
-    this.choices.body_head = this.choices.head || 'default';
-    this.choices.ears = this.choices.ears || 'default';
-    this.choices.nose = this.choices.nose || 'default';
     this.choices.lips = this.choices.lips || 'default';
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
@@ -113,6 +117,8 @@ function Character(choices){
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
     this.choices.underwear = this.choices.underwear || 'plain';
     this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
+
+    console.log('choices after:', this.choices);
 };
 
 function modCharacter(myKey, myValue){

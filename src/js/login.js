@@ -414,6 +414,7 @@ function switchCharacter(evt) {
         .then(function (json){
             window.sex = currentUser.cc.personnages[newChar].sex;
             choices = currentUser.cc.personnages[newChar];
+            console.log('choices', choices);
             c = new Character(choices);
             hash.clear();
             setTimeout(function(){
