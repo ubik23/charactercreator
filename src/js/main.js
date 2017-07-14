@@ -84,16 +84,6 @@ function resetForms() {
 }
 
 function Character(choices){
-    console.log('Character choices', choices.body_head);
-    if (!choices.body_head) {
-        choices.body_head = 'default';
-    }
-    if (!choices.ears) {
-        choices.ears = 'default';
-    }
-    if (!choices.nose) {
-        choices.nose = 'default';
-    }
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
@@ -118,7 +108,16 @@ function Character(choices){
     this.choices.underwear = this.choices.underwear || 'plain';
     this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
 
-    console.log('choices after:', this.choices);
+    choices = this.choices;
+    if (!choices.body_head) {
+        choices.body_head = 'default';
+    }
+    if (!choices.ears) {
+        choices.ears = 'default';
+    }
+    if (!choices.nose) {
+        choices.nose = 'default';
+    }
 };
 
 function modCharacter(myKey, myValue){
