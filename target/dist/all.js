@@ -2175,7 +2175,6 @@ function resetForms() {
 }
 
 function Character(choices){
-    console.log('The choices:', choices);
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
