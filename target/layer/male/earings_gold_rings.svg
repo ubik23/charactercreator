@@ -1,4 +1,4 @@
 <g id="earings_gold_rings">
-    <path id="earings_gold_rings--left" d="M297.8 134.6a1.6 1.6 0 1 1-1 2" style="fill:none;stroke:#d4aa00;stroke-width:0.5;stroke-linecap:round;"/>
-    <path id="earings_gold_rings--right" d="M265 135a-1.6 1.6 0 1 1 1 1.8" style="fill:none;stroke:#d4aa00;stroke-width:0.5;stroke-linecap:round;"/>
+    <path id="earings_gold_rings--left" class="alpha" d="M297.8 134.6a1.6 1.6 0 1 1-1 2" style="fill:none;stroke:#d4aa00;stroke-width:0.5;"/>
+    <path id="earings_gold_rings--right" class="alpha" d="M265 135a-1.6 1.6 0 1 1 1 1.8" style="fill:none;stroke:#d4aa00;stroke-width:0.5;"/>
 </g>
