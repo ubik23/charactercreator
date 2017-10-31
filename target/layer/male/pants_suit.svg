@@ -11,6 +11,8 @@
   <path id="path47860" class="beta" d="M285.8 277.5a1.7 1.7 0 0 1-3.4 0 1.7 1.7 0 1 1 3.4 0z" style="fill:#b7c4c8;stroke:#dbe2e3;stroke-width:0.5;"/>
   <path id="path47864" class="alpha--dark" d="M309.4 277c2.2 3.4 2.2 10 4 11.6 1.7 1.4 8.7 1 11.3 3.2" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
   <path id="path47862" class="alpha--dark" d="M261.6 281.6c.4 3 1.3 13-.4 15-1.8 1.6-10.5 3.4-14.5 3.4" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
+  <path id="path73219" class="alpha--dark" d="M280.8 275.3c.4 5.7 2.2 11.2 1.8 14.6-.2 1.7-.4 7.4.6 11.5.7 3 0 7.4 0 8 .3 1 3 2 5 2.7" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
+  <path id="path73221" class="alpha--dark" d="M289 323c1-2.2 1.5-3.3 0-4.4-1.7-1.2-2.4-2.8-1-3.4 1.3-.7-.5-1.4.2-3.2.7-1.8.7-9 0-11.3-.7-2.2-1-7.8-.4-10.3.7-2.5-.2-11.4-1-15.7" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
   <g id="pants_suit_belt">
       <path id="path47866" class="alpha" d="M244.8 276.2c6.4 3.4 27 4 33 3.3l14.5-1.4c6.5-1 23.2-7 27.6-10l1.3 5c-1.2 2.5-22.4 10.7-28.6 11l-14.6 1.4c-9.6.2-25.5 0-33.5-3.3z" style="fill:#aa4400;stroke:#552200;stroke-width:0.5;stroke-miterlimit:4;"/>
       <path id="rect47874" class="beta" d="M279.4 279.3l11-1 .8 6.8-11.2 1.2z" style="fill:#aa4400;stroke:#dbe2e3;stroke-width:1;"/>
@@ -19,10 +21,8 @@
       <path id="path310862" class="alpha--light" d="M286.3 279.6c-.8.2-2 1.7-1.6 1.8.4.2.7 1 .2 1.5-.6.4-.3 1.8 1.2 1.6 1.5-.3 2.8-.4 3.5-.4.7 0 0-1-.6-1.3-.4-.3-1-1.8-.5-2.2.6-.4.7-1.6 0-1.5-1 0-1.5.2-2.2.3z" style="fill:#d45500;stroke:none;stroke-width:0.5;"/>
       <path id="path310864" class="alpha--light" d="M296.4 278c-3 .7-3 5.6 0 5 3.2-.6 5.7-1.5 6.5-1.8-1.4 0-1.7-4.6-3.6-4-2 .3-2.2.4-3 .7z" style="fill:#d45500;stroke:none;stroke-width:0.5;"/>
   </g>
-  <path id="path73219" class="alpha--dark" d="M280.8 275.3c.4 5.7 2.2 11.2 1.8 14.6-.2 1.7-.4 7.4.6 11.5.7 3 0 7.4 0 8 .3 1 3 2 5 2.7" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
-  <path id="path73221" class="alpha--dark" d="M289 323c1-2.2 1.5-3.3 0-4.4-1.7-1.2-2.4-2.8-1-3.4 1.3-.7-.5-1.4.2-3.2.7-1.8.7-9 0-11.3-.7-2.2-1-7.8-.4-10.3.7-2.5-.2-11.4-1-15.7" style="fill:none;stroke:#4d4d4d;stroke-width:0.5;"/>
   <path id="path47890" class="alpha" d="M302.5 272.5c1.5 1.5 2 6.4 2.5 10.3 2.8-.2 2-.2 3-1-.5-4-.5-8.3-2.4-10l-3 .7z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
-  <path id="path47896" class="alpha" dd="M313.7 269.2c1.5 1.4 2 5.5 3 9.4.8-.5 1.6-.8 2.6-1.5-1-4-1.3-7.4-3.3-9-1 .4-2.3 1.2-2.3 1.2z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
-  <path id="path47884" class="alpha" dd="M268.4 276.7c-1 .8-.5 6.5 0 10.4 0 0-2.3 0-3-.2-.5-4-.7-9 0-10.2.6.2 3 0 3 0z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
-  <path id="path47902" class="alpha" dd="M252.2 275.8c-1 1.7-.5 6.5 0 10.4-1 0-2-.5-3-.7-.5-4-1.2-8 .3-10 1 0 2.7.3 2.7.3z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
+  <path id="path47896" class="alpha" d="M313.7 269.2c1.5 1.4 2 5.5 3 9.4.8-.5 1.6-.8 2.6-1.5-1-4-1.3-7.4-3.3-9-1 .4-2.3 1.2-2.3 1.2z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
+  <path id="path47884" class="alpha" d="M268.4 276.7c-1 .8-.5 6.5 0 10.4 0 0-2.3 0-3-.2-.5-4-.7-9 0-10.2.6.2 3 0 3 0z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
+  <path id="path47902" class="alpha" d="M252.2 275.8c-1 1.7-.5 6.5 0 10.4-1 0-2-.5-3-.7-.5-4-1.2-8 .3-10 1 0 2.7.3 2.7.3z" style="fill:#808080;stroke:#666666;stroke-width:0.25;"/>
 </g>
