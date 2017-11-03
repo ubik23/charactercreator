@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var concat = require('gulp-concat');
 var autoprefixer = require('autoprefixer');
 var postcss      = require('gulp-postcss');
 var sourcemaps   = require('gulp-sourcemaps');
@@ -21,7 +20,10 @@ gulp.task('default',function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['./src/lib/*.js', './src/js/*.js'])
+  //return gulp.src(['./src/lib/*.js', './src/js/*.js'])
+  return gulp.src([
+        './bower_components/promise-polyfill/promise.js', './bower_components/fetch/fetch.js', './src/lib/*.js', './src/js/*.js'
+  ])
     .pipe(concat('all.js'))
     .pipe(minify({
         exclude: ['tasks'],
@@ -33,7 +35,6 @@ gulp.task('scripts', function() {
 gulp.task('sass', function () {
     gulp.src('src/sass/**/*.scss')
         .pipe(sass())
-        //.pipe(gulp.dest('css'))
         .pipe(concat('styles.css'))
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))

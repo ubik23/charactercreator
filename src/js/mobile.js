@@ -1,17 +1,49 @@
 window.onload = function() {
-    maleSilhouette = document.getElementById("male_silhouette");
-    femaleSilhouette = document.getElementById("female_silhouette");
+    var whoBtn = document.querySelector("#whoButton");
+    var logoutBtn = document.querySelector("#logoutButton");
+    var loginBtn = document.querySelector("#loginButton");
+    var registerBtn = document.querySelector("#registerButton");
+    var registerLink = document.querySelector(".js-register-link");
+    var maleSilhouette = document.getElementById("male_silhouette");
+    var femaleSilhouette = document.getElementById("female_silhouette");
+    var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    var rightSidebar = document.querySelector('#sidebar');
+    rightSidebarClone = rightSidebar.cloneNode(true);
+
+    if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
+    if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
+    if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
+    if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
+    if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
+
+    //if (document.attachEvent) { //if IE (and Opera depending on user setting)
+    //    document.attachEvent("on"+mousewheelevt, scrollZoom);
+    //} else if (document.addEventListener) {//WC3 browsers
+    //    document.addEventListener(mousewheelevt, scrollZoom, false)
+    //}
+
+    if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
+    if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+
+    startup();
+}
+
+function startup() {
+    var choices;
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
+    }
+    window.c = new Character(choices);
+    interpretHash();
+}
+
+function interpretHash() {
     var hashSex = hash.get("sex");
-    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-    if (document.attachEvent) //if IE (and Opera depending on user setting)
-        document.attachEvent("on"+mousewheelevt, scrollZoom);
-    else if (document.addEventListener) //WC3 browsers
-        document.addEventListener(mousewheelevt, scrollZoom, false)
-    c = new Character();
     if (hashSex === "m"){
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
+<<<<<<< HEAD
     } else {
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
@@ -41,6 +73,12 @@ function scrollZoom(e) {
     }
 }
 function launch(layers, layerDirectory) {
+=======
+    }
+}
+
+function launch() {
+>>>>>>> master
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
@@ -94,6 +132,7 @@ function launch(layers, layerDirectory) {
     };
     var layersMale = [
     'wings_angel', 'wings_devil',
+    'cloak_default_4_of_4',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
     'headband_medium_2_of_2',
@@ -123,6 +162,8 @@ function launch(layers, layerDirectory) {
     'jacket_suit',
     'belt_utility',
     'coat_lab','coat_trench_1_of_2','coat_snowboard',
+    'cloak_default_3_of_4',
+    'cloak_default_2_of_4',
     'gloves_lab','gloves_motorcycle',
     'shoulderpads_general',
     'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
@@ -132,7 +173,6 @@ function launch(layers, layerDirectory) {
     'age_lines',
     'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
     'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
-    'sockets_neutral',
     'eyes_neutral','eyes_sterness','eyes_indignation','eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_revulsion', 'eyes_concern', 'eyes_anxiety', 'eyes_fear', 'eyes_terror', 'eyes_satisfaction', 'eyes_amusement', 'eyes_joy', 'eyes_laughing', 'eyes_dejection', 'eyes_alertness', 'eyes_betrayal', 'eyes_caged', 'eyes_cruel', 'eyes_desperation', 'eyes_eeww', 'eyes_horror', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage',
     'iris_neutral','iris_sterness','iris_indignation','iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_revulsion', 'iris_concern', 'iris_anxiety', 'iris_fear', 'iris_terror', 'iris_satisfaction', 'iris_amusement', 'iris_joy', 'iris_laughing', 'iris_dejection', 'iris_alertness', 'iris_betrayal', 'iris_caged', 'iris_cruel','iris_desperation', 'iris_eeww', 'iris_horror', 'iris_melancholy', 'iris_omg', 'iris_outrage',
     'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', 'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage',
@@ -150,6 +190,7 @@ function launch(layers, layerDirectory) {
     'jewelry_chain','jewelry_earings','jewelry_nosering','jewelry_watch',
     'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
     'horns_devil',
+    'cloak_default_1_of_4',
     'pipe_subgenius',
     'earpiece_microphone'
     ];
@@ -202,7 +243,7 @@ function launch(layers, layerDirectory) {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
-    'wings_devil','wings_angel',
+    'wings_devil', 'wings_angel',
     'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
     'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
     'headband_medium_2_of_2',
@@ -232,7 +273,6 @@ function launch(layers, layerDirectory) {
     'nose_default',
     'tatoo_tribal_face',
     'earings_perl','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_death_drop',
-    'sockets_neutral',
     'makeup_frekles','makeup_warpaint','makeup_gothic_eyeliner',
     'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
     'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
@@ -261,7 +301,7 @@ function launch(layers, layerDirectory) {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_trench', 2], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -273,7 +313,7 @@ function launch(layers, layerDirectory) {
     'ears_default', 'ears_pointed',
     'nose_default', 'nose_roman', 'nose_syrid',
     'mouth_shadow',
-    'age_lines', 'sockets_neutral', 'wings_devil',
+    'age_lines', 'wings_devil',
     'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage' ];
     hairLayers = ['facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_moustache', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
     'hair_balding', 'hair_balding_crazy', 'hair_short', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
@@ -304,11 +344,11 @@ function launch(layers, layerDirectory) {
         multiLayer = multiLayerFemale;
     }
     forms = [form1, form2, form3, form4, form5,form6];
-    window.forms = forms;
-    window.multiLayer = multiLayer;
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
+
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
     var myLoadList = layers.map(function(obj){
@@ -322,20 +362,23 @@ function displayPallette () {
     if (hashSkinColor != undefined){
          showForm();
     } else {
-        var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-        var gmenu = document.getElementById("gmenu");
-        gmenu.style["height"] = "12%";
-        for (color in skinTones) {
-            var newColor = skinTones[color];
-            var node = document.createElement("LI");
-            node.className = "skin-tone";
-            node.style.cssText = "background-color:" + newColor + ";";
-            gmenu.appendChild(node);
-            node.onclick = colorCutout;
-            node.onmouseover = colorOnHover;
-        };
-        TweenMax.staggerFrom(".skin-tone", 0.5, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.05);
+        chooseSkinColor();
     }
+}
+
+function chooseSkinColor() {
+    var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.add('skin-color__container--show');
+    for (color in skinTones) {
+        var newColor = skinTones[color];
+        var node = document.createElement("LI");
+        node.className = "skin-tone";
+        node.style.cssText = "background-color:" + newColor + ";";
+        gmenu.appendChild(node);
+        node.onclick = colorCutout;
+        node.onmouseover = colorOnHover;
+    };
 }
 
 function rgb2hex(rgb){
@@ -343,13 +386,12 @@ function rgb2hex(rgb){
     return (rgb && rgb.length === 4) ? "#" + ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
-// Color the silhouette when hovering color pallettes.
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
-     var newTone = this.style.backgroundColor;
-    TweenMax.to(malePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
-    TweenMax.to(femalePath, 0.5, {css:{color: newTone}, ease:Power2.easeOut}, 0.05);
+    var newTone = this.style.backgroundColor;
+    femalePath.style.fill = newTone;
+    malePath.style.fill = newTone;
 }
 
 function colorCutout(newColor){
@@ -361,14 +403,12 @@ function colorCutout(newColor){
     var lg = document.getElementsByClassName("lg");
     var obj = new Array();
     obj['skinColor'] =  newColor;
-    var tl = new TimelineLite({onComplete: showForm});
-    var gmenu = document.getElementById("gmenu");
-    tl.to(gmenu, 0.5, { bottom:'-100px'})
-    .to(femaleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .to(maleSilhouette, 0.5, {attr:{color: newColor, stroke: newColor}, ease:Elastic.easeOut} )
-    .staggerTo(lg, 0.5, {opacity:0.5, delay:0.5}, 0.05)
-    .to(gmenu, 0.5, {attr:{height: 0}, ease:Elastic.easeOut});
+    var gmenu = document.querySelector(".skin-color__container");
+    gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
+    setTimeout(function(){
+        showForm();
+    }, 300);
 }
 
 function showForm() {
@@ -377,30 +417,44 @@ function showForm() {
 
 function selectMale(event) {
     window.sex = "m";
+    var maleRadioBtn = document.querySelector('#mButton');
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    maleSilhouette.removeEventListener('click', selectMale, false);
+    if (maleRadioBtn) {
+        maleRadioBtn.checked = true;
+    }
+    if (maleSilhouette) {
+        maleSilhouette.removeEventListener('click', selectMale, false);
+    }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
-    malePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(malePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_male")
-    .to(femaleSilhouette, 0.3, {opacity:0}, "select_male")
-    .to(malePath, 1.5, {x:0, ease:SlowMo.easeIn}, "select_male");
+    mainSVG.classList.add('select-male');
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 function selectFemale(event) {
     window.sex = "f";
+    var femaleRadioBtn = document.querySelector('#fButton');
+    var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
-    femaleSilhouette.removeEventListener('click', selectFemale, false);
+    if (femaleRadioBtn) {
+        femaleRadioBtn.checked = true;
+    }
+    if (femaleSilhouette) {
+        femaleSilhouette.removeEventListener('click', selectFemale, false);
+    }
     hash.add({ sex: 'f' });
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
-    femalePath.className.baseVal = "path template";
-    var tl = new TimelineLite({onComplete: displayPallette});
-    tl.to(femalePath, 0.3, {attr:{'fill-opacity': 1}, ease:Linear.easeNone}, "select_female")
-    .to(maleSilhouette, 0.3, {opacity:0}, "select_female")
-    .to(femalePath, 1.5, {x:-0, ease:SlowMo.easeIn}, "select_female");
+    mainSVG.classList.add('select-female');
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 

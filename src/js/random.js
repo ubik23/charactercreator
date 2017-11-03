@@ -1,5 +1,4 @@
 function random(){
-    //for (form in forms) {
     var forms = window.forms;
         var formLen = forms.length;
         var formRand = Math.floor((Math.random() * formLen));
@@ -8,7 +7,6 @@ function random(){
         for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
         var keys = [];
         for (var key in forms[formRand]) {
-
             if (forms[formRand].hasOwnProperty(key)) {
                 keys.push(key);
             }
@@ -20,7 +18,6 @@ function random(){
                 var len = forms[formRand][myKey].length;
                 var rand = Math.floor((Math.random() * len));
                 var layer = forms[formRand][myKey][rand].toLowerCase();
-                //modCharacter(key.toLowerCase(), layer);
                 showRandom(key.toLowerCase(), layer);
 }
 
@@ -42,7 +39,6 @@ function showRandom(section, layer){  // Draw the SVG on screen
     }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
-        //ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(selectedOption);
         for (emo in emotions){
@@ -51,9 +47,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
         }
     };
     for (section in sections){
-
         sectionOptions = getOptions(sections[section]);
-
         var id = '#'+sections[section] + '_' + layer;
         for (option in sectionOptions){
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
@@ -84,10 +78,10 @@ function hideCompetition (section) {
     };
 }
 
-function hideArray (competition){
-    for (section in competition){
+function hideArray(competition) {
+    for (section in competition) {
         sectionOptions = getOptions(competition[section]);
-        for (option in sectionOptions){
+        for (option in sectionOptions) {
             optionId = '#' + competition[section] + '_' + sectionOptions[option];
             hideId(optionId)
             var obj = new Array();
@@ -97,11 +91,12 @@ function hideArray (competition){
         }
     }
 }
-function showId(id){
+
+function showId(id) {
         ga('send', 'event', 'menu', 'select', id);
-        for (lyr in multiLayer){
+        for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:1});
                 }
@@ -112,10 +107,10 @@ function showId(id){
     };
 }
 
-function hideId(id){
-        for (lyr in multiLayer){
-            if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+function hideId(id) {
+        for (lyr in multiLayer) {
+            if (id.slice(1) == multiLayer[lyr][0]) {
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:0});
                 }
@@ -126,10 +121,10 @@ function hideId(id){
     };
 }
 
-function getOptions(section){
+function getOptions(section) {
      var sectionOptions = [];
-     for (form in window.forms){
-         if ( capitalizeFirstLetter(section) in window.forms[form] ){
+     for (form in window.forms) {
+         if ( capitalizeFirstLetter(section) in window.forms[form] ) {
               return window.forms[form][capitalizeFirstLetter(section)];
          } else {
          }
@@ -139,3 +134,4 @@ function getOptions(section){
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+

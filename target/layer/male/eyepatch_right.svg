@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="eyepatch_right" width="560" height="560">
-  <g id="layer1">
-    <g id="g40066-2" style="display:inline;enable-background:new">
-      <path id="path2987-21-2" d="M294.7 107c-.4 4.7-13 14.8-15.4 16.7-2.3 1.8-8.8 1.4-12.5 5.8-1.8 2.2-.4 4.6-1.5 7" style="color:#000000;fill:none;stroke:#000000;stroke-width:1.22092247;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-      <path id="path2989-3-6" d="M279.6 123.2c-5.6-4.8-12.3-1-13.2 1.6-1.5 4.3 1.4 7.7 7.4 7.7 5.4 0 6.8-8.4 5.8-9.3z" style="color:#000000;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-      <path id="path2991-4-7" d="M269.8 124c3-2.5 6.6-2 7.4-1.6.8.3 4 2.4-.2 6.8.3-2 2-4.7-.4-6 1 1.7-2.5 11-7.6 2.8 4.8 2 7.3-5.5.8-2z" style="color:#000000;fill:#333333;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </g>
-  </g>
-</svg>
+<g id="eyepatch_right">
+    <path id="path2987-21-2" class="alpha" d="M294.7 107c-.4 4.7-13 14.8-15.4 16.7-2.3 1.8-8.8 1.4-12.5 5.8-1.8 2.2-.4 4.6-1.5 7" style="fill:none;stroke:#000000;stroke-width:1;"/>
+    <path id="path2989-3-6" class="alpha" d="M279.6 123.2c-5.6-4.8-12.3-1-13.2 1.6-1.5 4.3 1.4 7.7 7.4 7.7 5.4 0 6.8-8.4 5.8-9.3z" style="fill:#000000;stroke:#000000;stroke-width:0.5;"/>
+    <path id="path2991-4-7" class="alpha--light" d="M269.8 124c3-2.5 6.6-2 7.4-1.6.8.3 4 2.4-.2 6.8.3-2 2-4.7-.4-6 1 1.7-2.5 11-7.6 2.8 4.8 2 7.3-5.5.8-2z" style="fill:#333333;stroke:none;"/>
+</g>

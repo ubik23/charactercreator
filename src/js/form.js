@@ -1,86 +1,103 @@
+
 function createForm(sex, forms){
+    //TODO Check to see if there is already an existing form for the sex of the new character.
+    //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
+    var itemsThumbsContent = document.querySelector('#content_1');
+    itemsThumbsContent.innerHTML = '';
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
     var sectionHtml = '<h2 class="sidebar__title">Categories</h2>';
     sectionHtml += '<ul class="section__list">';
-    for (var f in forms){
+    for (var f in forms) {
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
-        var selcount = 0
+        var selcount = 0;
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">'+sectionNames[f]+'</span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
-        for(var x in forms[f]){
-            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">'+x+'</li></a>';
+        var formsLength = forms.length;
+        var formCounter = formsLength;
+        for(var x in forms[f]) {
+            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
-            newHtml += '    <div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
+            newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
-            var options = forms[f][x].map(function(d, i){
-            var tempId ='#'+t+'_'+d;
-            var sections = [tempId];
-            var multiLayer = window.multiLayer;
-            for (lyr in multiLayer){
-                if (tempId.slice(1) === multiLayer[lyr][0]){
-                    sections = [];
-                    for (var i=1;i<=multiLayer[lyr][1];i++){
-                        newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
-                        sections.push(newLayer);
-                    }
+            var options = forms[f][x].map(function(d, i) {
+                var tempId ='#' + t + '_' + d;
+                var multiLayer = window.multiLayer;
+                var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+                if (t === "emotion") {
+                    var sections = [];
+                    var emotions = GetEmotionGetLayers(d);
+                    for (emo in emotions) {
+                        var newEmo = '#' + emotions[emo] + '_' + d;
+                        sections.push(newEmo);
+                    };
+                }
+                var clonedNode = '';
+                for (i in sections) {
+                    var selectNode = document.querySelector(sections[i]);
+                    if (selectNode != null) {
+                        var newNode = selectNode.cloneNode(true).innerHTML;
+                        clonedNode += newNode;
+                    };
                 };
-            };
-            if (t === "emotion"){
-                var sections = [];
-                var emotions = GetEmotionGetLayers(d);
-                for (emo in emotions){
-                    var newEmo = '#' + emotions[emo] + '_' + d;
-                    sections.push(newEmo);
-                };
+                var viewBox = getViewBox(t, d);
+                newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+                var defaultValue = hash.get(x);
+                if (defaultValue !== undefined) {
+                    var defval = 'selected="' + defaultValue + '" ';
+                } else {
+                    var defval = '';
+                }
+                htagc = x.toLowerCase() + 'Color';
+                var hashColor = hash.get(htagc);
+                if (hashColor !== undefined) {
+                    var colorValue = hashColor;
+                }
+                else {
+                    var colorValue = '#ffffff'
+                }
+                newHtml += '    </div>';
+                newHtml += '</div>';
+                selcount ++;
             }
-            var clonedNode = '';
-            for (i in sections){
-                var selectNode = document.querySelector(sections[i]);
-                if (selectNode != null){
-                    var newNode = selectNode.cloneNode(true).innerHTML;
-                    clonedNode += newNode;
-                };
-            };
-            var viewBox = getViewBox(t, d);
-            newHtml += '    <div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
-            var defaultValue = hash.get(x);
-            if (defaultValue !== undefined) {
-                var defval = 'selected="'+ defaultValue + '" ';
-              }
-            else {var defval = '';}
-            htagc = x.toLowerCase() + 'Color';
-            var hashColor = hash.get(htagc);
-            if (hashColor !== undefined) {
-                var colorValue = hashColor;
-              }
-            else {
-                var colorValue = '#ffffff'
-            }
-            newHtml += '    </div>';
-            newHtml += '</div>';
-            selcount ++
+            sectionHtml += '</div>';
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = newHtml;
+            formContainer.appendChild(htmlObject);
         }
-        sectionHtml += '</div>';
-        var htmlObject = document.createElement('div');
-        htmlObject.innerHTML = newHtml;
-        formContainer.appendChild(htmlObject);
+        sectionHtml += '</ul>';
+        var sectionContainer = document.querySelector('#sidebar-left');
+        var sectionList = document.createElement('div');
+        sectionList.innerHTML = sectionHtml;
+        sectionContainer.innerHTML = '';
+        sectionContainer.appendChild(sectionList);
+        var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
+        var optionThumbnails  = document.querySelectorAll('.option__container');
+        var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+
+        addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
+        addEventListenerList(optionThumbnails, 'click', changeOption);
+        addEventListenerList(sectionButtons, 'click', toggleSection);
     }
-    sectionHtml += '</ul>';
-    var sectionContainer = document.querySelector('#sidebar-left');
-    var sectionList = document.createElement('div');
-    sectionList.innerHTML = sectionHtml;
-    sectionContainer.appendChild(sectionList);
-    var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
-    var optionThumbnails  = document.querySelectorAll('.option__container');
-    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-    addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-    addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
-    addEventListenerList(sidebarLeftOptions, 'click', openThumbs );
-    addEventListenerList(optionThumbnails, 'click', changeOption);
-    addEventListenerList(sectionButtons, 'click', toggleSection);
+
+function getSectionsFromIdMultiLayer(multiLayer, tempId) {
+    var sections = [];
+    for (lyr in multiLayer) {
+        if (tempId.slice(1) === multiLayer[lyr][0]) {
+            for (var i=1;i<=multiLayer[lyr][1];i++) {
+                newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
+                sections.push(newLayer);
+            }
+        }
+        if (sections.length === 0) {
+        sections = [tempId];
+        }
+    }
+    return sections;
 }
 
 function openThumbs() {
@@ -91,29 +108,67 @@ function openThumbs() {
     };
     showThumbOptions(_);
     _.classList.add('section--selected');
+
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
     var sidebarLeft = document.querySelector('#sidebar-left');
     var sidebarRight = document.querySelector('.sidebar-right');
 
-    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
+    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
     thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
-    if (thumbSectionBtn.classList.contains('section-btn--hide')){
+    if (thumbSectionBtn.classList.contains('section-btn--hide')) {
         thumbSectionBtn.classList.toggle('section-btn--hide');
     }
-    if (thumbSection.classList.contains('section--hide')){
+    if (thumbSection.classList.contains('section--hide')) {
         thumbSection.classList.toggle('section--hide');
     }
-    if (sidebarLeft.classList.contains('cherry')){
+    if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
+         //sidebarRight.classList.add("visible");
     }
+    sidebarRight.classList.add("visible");
+}
+
+function showSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.innerHTML  = '';
+}
+
+function showSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarRight() {
+    var sidebarParent = document.querySelector('#content');
+    var sidebarRight = document.querySelector('#sidebar');
+    sidebarParent.removeChild(sidebarRight);
+    sidebarParent.appendChild(rightSidebarClone);
 }
 
 function addEventListenerList(list, event, fn) {
-    for (var i = 0, len = list.length; i < len; i++) {
+    var listLength = list.length;
+    var listCounter = listLength;
+    var i;
+    while (listCounter--) {
+        i = listLength - listCounter - 1;
         list[i].addEventListener(event, fn, false);
     }
 }
@@ -134,7 +189,7 @@ function closeSections(exception) {
                 sectionContent.classList.toggle('section--hide');
             }
             if (!button.classList.contains('section-btn--hide')){
-                button.classList.toggle('section-btn--hide')
+                button.classList.toggle('section-btn--hide');
             }
         }
     }
@@ -202,13 +257,12 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    var tl = new TimelineLite({onComplete: ColorPicker(
+    ColorPicker(
         slide,
         picker,
         function(hex, hsv, rgb) {
           colorize(id, hex);
         })
-    });
 }
 
 function emptyPicker() {
@@ -266,6 +320,7 @@ function getViewBox(t, d) {
             "belt":"185 135 190 190",
             "body_head":"249 95 64 64",
             "coat":"95 134 360 360",
+            "cloak":"0 0 560 560",
             "earpiece":"280 125 25 25",
             "ears":"254 120 20 20",
             "earings":"256 87 50 50",
@@ -298,7 +353,7 @@ function getViewBox(t, d) {
             "vest":"185 135 190 190",
             "wings":"110 -30 350 350"
         }
-    } else if (sex==="f"){
+    } else if (sex==="f") {
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",

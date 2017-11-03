@@ -519,15 +519,28 @@ function ColorLuminance(hex, lum) {
     return rgb;
 }
 
+function colorizeByClass(elClassName, color) {
+    var elementList = document.querySelectorAll(('.' + elClassName));
+    var elementListLength = elementList.length;
+    var elCounter = elementListLength;
+    while (elCounter--) {
+        elementList[elementListLength - (elCounter + 1)].style.fill = color;
+    }
+}
+
+function colorSkin(color) {
+    // WIP function to collect all the elements that need to be colored
+    // when the color of the skin is changed by the user.
+    colorizeByClass('upperlip', shadeColor(color, -10));
+    colorizeByClass('lowerlip', shadeColor(color, 10));
+}
+
 function colorize(formId, _color){
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
-    // get all the options for that id
-    // Cycle through each form array
     for (var f in forms){
-        // Cycle through each element in the form
-         var form = Object.keys(forms[f]);
+        var form = Object.keys(forms[f]);
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
@@ -536,26 +549,27 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth'){
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
+                    colorSkin(_color);
                 }
-                else if (id ==='facialhair' || id === 'hair'){
+                else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
                     var myKey = 'hairColor';
                 }
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes'){
-                        for (i in forms[0]['Emotion']){
+                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes') {
+                        for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
                         }
                     } else {
-                        for (i in forms[f][capitalId]){
+                        for (i in forms[f][capitalId]) {
                             var tmpId = forms[f][capitalId][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
@@ -567,129 +581,130 @@ function colorize(formId, _color){
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
                 origList = affectedList
-                affectedList=[];
-                for (a in origList) {
-                    for (lyr in multiLayer){
-
-                        if (origList[a] == multiLayer[lyr][0]){
-
-                            for (var i=1;i<=multiLayer[lyr][1];i++){
-                                idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                //viewport.selectAll(idOf).attr({opacity:1});
-                                // Then append the idOf to affectedList
-                                affectedList.push(idOf);
-                            }
-                            // Take it out of the affectedList
-                            //var index = affectedList.indexOf(affectedList[a]);
-                            //if (index > -1) {
-                                //affectedList.splice(index, 1);
-                            //}
-                        } else {
-                            affectedList.push(origList[a]);
-
-                        };
-                    };
-                };
+                affectedList = getAffectedListFromOrig(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
-                obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+                obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
-                for (n in affectedList){
+                for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId);
-                    if (optLayer != null){
+                    if (optLayer != null) {
                         var optPaths = optLayer.selectAll('path')
                         if (fullId === '#body_athletic_2_of_2') {
                             var optEllipses = optLayer.selectAll('ellipse')
                             newArray = [];
-                            //for (e in optEllipses) {
-                            //    optPaths.insertAfter.apply(optEllipses[e]);
-                            //}
                             newArray.push.apply(newArray, optPaths);
                             newArray.push.apply(newArray, optEllipses);
                             optPaths = newArray;
                         }
-
-                        for (p in optPaths) {
-                            if ( typeof optPaths[p].attr === 'function'){
-                                var pathId = optPaths[p].attr("id");
-                                if (pathId ===  undefined){
-                                     break;
-                                };                                ;
-                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow"){
-                                    continue;
-                                };
-                                var pathStyle = viewport.select('#'+ pathId).attr("style");
-                                if (pathStyle ===  undefined){
-                                     break;
-                                };                                ;
-                                // Parse the style in a json object
-                                // Identify if the path is a shape or a shadow
-                                // apply newStyle if applicable
-                                var styles = pathStyle.split(';'),
-                                i= styles.length,
-                                json = {style: {}},
-                                style, k, v;
-                                while (i--){
-                                    style = styles[i].split(':');
-                                    if (style == " "||style.length === 1) {continue;};
-                                    k = style[0].trim();
-                                    v = style[1].trim();
-                                    if (k.length > 0 && v.length > 0){
-                                        json.style[k] = v;
-                                    }
-                                }
-                                // Query the style to determine if shape or shadow
-                                // Change the color
-                                var newColor = _color.toString();
-                                // json to string
-                                newStyle = json.style;
-                                var replacement = '';
-                                for (n in Object.keys(newStyle)){
-                                    var currentKey = Object.keys(newStyle)[n]
-                                    if (currentKey === 'fill'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] === undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.12);
-                                            }
-                                            else {
-                                                var currentValue = newColor;
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else if (currentKey === 'stroke'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] != undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.2);
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else {
-                                        var currentValue = newStyle[currentKey];
-                                    }
-                                    var keyVal = 	currentKey + ': ' + currentValue + '; '
-                                    replacement = replacement.concat(keyVal);
-                                }
-                                viewport.selectAll('#'+pathId).attr({style: replacement});
-                                newStroke = shadeColor(newColor, -25);
-                                if (json.style["stroke-width"] === undefined){
-                                    newColor = shadeColor(newColor, -25)
-                                }
-                            }
-                        }
+                        processPaths(optPaths, _color);
                     }
                 }
             }
         }
     }
+}
+
+function processPaths(optPaths, _color) {
+    for (p in optPaths) {
+        if ( typeof optPaths[p].attr === 'function') {
+            var pathId = optPaths[p].attr("id");
+            if (pathId ===  undefined) {
+                break;
+            };                                ;
+            if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
+                continue;
+            };
+            var pathStyle = viewport.select('#'+ pathId).attr("style");
+            if (pathStyle ===  undefined) {
+                break;
+            };                                ;
+            // Parse the style in a json object
+            // Identify if the path is a shape or a shadow
+            // apply newStyle if applicable
+            var styles = pathStyle.split(';'),
+                i= styles.length,
+                json = {style: {}},
+                style, k, v;
+            while (i--){
+                style = styles[i].split(':');
+                if (style == " "||style.length === 1) {continue;};
+                k = style[0].trim();
+                v = style[1].trim();
+                if (k.length > 0 && v.length > 0) {
+                    json.style[k] = v;
+                }
+            }
+            // Query the style to determine if shape or shadow
+            // Change the color
+            var newColor = _color.toString();
+            // json to string
+            var replacement = replacementStyle(json, newColor);
+            viewport.selectAll('#' + pathId).attr({style: replacement});
+            newStroke = shadeColor(newColor, -25);
+            if (json.style["stroke-width"] === undefined){
+                newColor = shadeColor(newColor, -25)
+            }
+        }
+    }
+}
+
+function getAffectedListFromOrig(origList, multiLayer) {
+    affectedList=[];
+    for (a in origList) {
+        for (lyr in multiLayer){
+            if (origList[a] == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
+                    // Then append the idOf to affectedList
+                    affectedList.push(idOf);
+                }
+            } else {
+                affectedList.push(origList[a]);
+            };
+        };
+    };
+    return affectedList;
+}
+
+function replacementStyle(json, newColor) {
+    var newStyle = json.style;
+    var replacement = '';
+    for (n in Object.keys(newStyle)){
+        var currentKey = Object.keys(newStyle)[n]
+        if (currentKey === 'fill'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] === undefined){
+                    var currentValue = ColorLuminance(newColor, -0.12);
+                }
+                else {
+                    var currentValue = newColor;
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else if (currentKey === 'stroke'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] != undefined){
+                    var currentValue = ColorLuminance(newColor, -0.2);
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else {
+            var currentValue = newStyle[currentKey];
+        }
+        var keyVal = 	currentKey + ': ' + currentValue + '; '
+        replacement = replacement.concat(keyVal);
+    }
+    return replacement;
 }
 
 function applyColor(id, newColor, optLayer){
@@ -701,9 +716,6 @@ function applyColor(id, newColor, optLayer){
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
             newArray = [];
-            //for (e in optEllipses) {
-            //    optPaths.insertAfter.apply(optEllipses[e]);
-            //}
             newArray.push.apply(newArray, optPaths);
             newArray.push.apply(newArray, optEllipses);
             optPaths = newArray;
@@ -774,6 +786,7 @@ function applyColor(id, newColor, optLayer){
                 newStroke = shadeColor(newColor, -25);
                 if (json.style["stroke-width"] === undefined){
                     //newColor = shadeColor(newColor, -25)
+                    //TODO
                 }
             }
         }
@@ -786,6 +799,9 @@ function download() {
     var svgRaw = document.getElementById('svg1').childNodes;
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
+    if (currentUser && currentUser.cc.personnageActuel !== ''){
+        filename = currentUser.cc.personnageActuel + ".svg";
+    }
     var svgNodes = Array.prototype.slice.call(svgRaw);
     svgNodes.forEach(function(item){
         //This is where we start filtering the nodes so that we can append them into our downloaded file.
@@ -816,89 +832,106 @@ function download() {
     }
 }
 
+
 function createForm(sex, forms){
+    //TODO Check to see if there is already an existing form for the sex of the new character.
+    //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
+    var itemsThumbsContent = document.querySelector('#content_1');
+    itemsThumbsContent.innerHTML = '';
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
     var sectionHtml = '<h2 class="sidebar__title">Categories</h2>';
     sectionHtml += '<ul class="section__list">';
-    for (var f in forms){
+    for (var f in forms) {
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
-        var selcount = 0
+        var selcount = 0;
         sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">'+sectionNames[f]+'</span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
-        for(var x in forms[f]){
-            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">'+x+'</li></a>';
+        var formsLength = forms.length;
+        var formCounter = formsLength;
+        for(var x in forms[f]) {
+            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
             var sectionTitle = x;
             var t = sectionTitle.toLowerCase();
-            newHtml += '    <div class="Row options__container options__'+t+'"><span class="svg__section__title">'+t+'</span><div class="thumbnails__container">';
+            newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
             var xsel = hash.get(t);
-            var options = forms[f][x].map(function(d, i){
-            var tempId ='#'+t+'_'+d;
-            var sections = [tempId];
-            var multiLayer = window.multiLayer;
-            for (lyr in multiLayer){
-                if (tempId.slice(1) === multiLayer[lyr][0]){
-                    sections = [];
-                    for (var i=1;i<=multiLayer[lyr][1];i++){
-                        newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
-                        sections.push(newLayer);
-                    }
+            var options = forms[f][x].map(function(d, i) {
+                var tempId ='#' + t + '_' + d;
+                var multiLayer = window.multiLayer;
+                var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+                if (t === "emotion") {
+                    var sections = [];
+                    var emotions = GetEmotionGetLayers(d);
+                    for (emo in emotions) {
+                        var newEmo = '#' + emotions[emo] + '_' + d;
+                        sections.push(newEmo);
+                    };
+                }
+                var clonedNode = '';
+                for (i in sections) {
+                    var selectNode = document.querySelector(sections[i]);
+                    if (selectNode != null) {
+                        var newNode = selectNode.cloneNode(true).innerHTML;
+                        clonedNode += newNode;
+                    };
                 };
-            };
-            if (t === "emotion"){
-                var sections = [];
-                var emotions = GetEmotionGetLayers(d);
-                for (emo in emotions){
-                    var newEmo = '#' + emotions[emo] + '_' + d;
-                    sections.push(newEmo);
-                };
+                var viewBox = getViewBox(t, d);
+                newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+                var defaultValue = hash.get(x);
+                if (defaultValue !== undefined) {
+                    var defval = 'selected="' + defaultValue + '" ';
+                } else {
+                    var defval = '';
+                }
+                htagc = x.toLowerCase() + 'Color';
+                var hashColor = hash.get(htagc);
+                if (hashColor !== undefined) {
+                    var colorValue = hashColor;
+                }
+                else {
+                    var colorValue = '#ffffff'
+                }
+                newHtml += '    </div>';
+                newHtml += '</div>';
+                selcount ++;
             }
-            var clonedNode = '';
-            for (i in sections){
-                var selectNode = document.querySelector(sections[i]);
-                if (selectNode != null){
-                    var newNode = selectNode.cloneNode(true).innerHTML;
-                    clonedNode += newNode;
-                };
-            };
-            var viewBox = getViewBox(t, d);
-            newHtml += '    <div class="option__container option__'+t+'_'+d+'" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option '+t+'_'+d+'">' + clonedNode + '</svg><span class="option__label">'+d+'</span></div>';}).join('\n');
-            var defaultValue = hash.get(x);
-            if (defaultValue !== undefined) {
-                var defval = 'selected="'+ defaultValue + '" ';
-              }
-            else {var defval = '';}
-            htagc = x.toLowerCase() + 'Color';
-            var hashColor = hash.get(htagc);
-            if (hashColor !== undefined) {
-                var colorValue = hashColor;
-              }
-            else {
-                var colorValue = '#ffffff'
-            }
-            newHtml += '    </div>';
-            newHtml += '</div>';
-            selcount ++
+            sectionHtml += '</div>';
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = newHtml;
+            formContainer.appendChild(htmlObject);
         }
-        sectionHtml += '</div>';
-        var htmlObject = document.createElement('div');
-        htmlObject.innerHTML = newHtml;
-        formContainer.appendChild(htmlObject);
+        sectionHtml += '</ul>';
+        var sectionContainer = document.querySelector('#sidebar-left');
+        var sectionList = document.createElement('div');
+        sectionList.innerHTML = sectionHtml;
+        sectionContainer.innerHTML = '';
+        sectionContainer.appendChild(sectionList);
+        var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
+        var optionThumbnails  = document.querySelectorAll('.option__container');
+        var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+
+        addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+        addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
+        addEventListenerList(optionThumbnails, 'click', changeOption);
+        addEventListenerList(sectionButtons, 'click', toggleSection);
     }
-    sectionHtml += '</ul>';
-    var sectionContainer = document.querySelector('#sidebar-left');
-    var sectionList = document.createElement('div');
-    sectionList.innerHTML = sectionHtml;
-    sectionContainer.appendChild(sectionList);
-    var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
-    var optionThumbnails  = document.querySelectorAll('.option__container');
-    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-    addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-    addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
-    addEventListenerList(sidebarLeftOptions, 'click', openThumbs );
-    addEventListenerList(optionThumbnails, 'click', changeOption);
-    addEventListenerList(sectionButtons, 'click', toggleSection);
+
+function getSectionsFromIdMultiLayer(multiLayer, tempId) {
+    var sections = [];
+    for (lyr in multiLayer) {
+        if (tempId.slice(1) === multiLayer[lyr][0]) {
+            for (var i=1;i<=multiLayer[lyr][1];i++) {
+                newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1];
+                sections.push(newLayer);
+            }
+        }
+        if (sections.length === 0) {
+        sections = [tempId];
+        }
+    }
+    return sections;
 }
 
 function openThumbs() {
@@ -909,29 +942,67 @@ function openThumbs() {
     };
     showThumbOptions(_);
     _.classList.add('section--selected');
+
     var thumbSection = document.querySelector('.widget');
     var thumbSectionBtn = thumbSection.previousSibling;
     var sidebarLeft = document.querySelector('#sidebar-left');
     var sidebarRight = document.querySelector('.sidebar-right');
 
-    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined){
+    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
         thumbSectionBtn = thumbSectionBtn.previousSibling;
     }
     thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
-    if (thumbSectionBtn.classList.contains('section-btn--hide')){
+    if (thumbSectionBtn.classList.contains('section-btn--hide')) {
         thumbSectionBtn.classList.toggle('section-btn--hide');
     }
-    if (thumbSection.classList.contains('section--hide')){
+    if (thumbSection.classList.contains('section--hide')) {
         thumbSection.classList.toggle('section--hide');
     }
-    if (sidebarLeft.classList.contains('cherry')){
+    if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
+         //sidebarRight.classList.add("visible");
     }
+    sidebarRight.classList.add("visible");
+}
+
+function showSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarLeft() {
+    var sidebarLeft = document.querySelector('#sidebar-left');
+    sidebarLeft.innerHTML  = '';
+}
+
+function showSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.add('visible');
+}
+
+function hideSidebarRight() {
+    var sidebarLeft = document.querySelector('#sidebar');
+    sidebarLeft.classList.remove('visible');
+}
+
+function clearSidebarRight() {
+    var sidebarParent = document.querySelector('#content');
+    var sidebarRight = document.querySelector('#sidebar');
+    sidebarParent.removeChild(sidebarRight);
+    sidebarParent.appendChild(rightSidebarClone);
 }
 
 function addEventListenerList(list, event, fn) {
-    for (var i = 0, len = list.length; i < len; i++) {
+    var listLength = list.length;
+    var listCounter = listLength;
+    var i;
+    while (listCounter--) {
+        i = listLength - listCounter - 1;
         list[i].addEventListener(event, fn, false);
     }
 }
@@ -952,7 +1023,7 @@ function closeSections(exception) {
                 sectionContent.classList.toggle('section--hide');
             }
             if (!button.classList.contains('section-btn--hide')){
-                button.classList.toggle('section-btn--hide')
+                button.classList.toggle('section-btn--hide');
             }
         }
     }
@@ -1020,13 +1091,12 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    var tl = new TimelineLite({onComplete: ColorPicker(
+    ColorPicker(
         slide,
         picker,
         function(hex, hsv, rgb) {
           colorize(id, hex);
         })
-    });
 }
 
 function emptyPicker() {
@@ -1084,6 +1154,7 @@ function getViewBox(t, d) {
             "belt":"185 135 190 190",
             "body_head":"249 95 64 64",
             "coat":"95 134 360 360",
+            "cloak":"0 0 560 560",
             "earpiece":"280 125 25 25",
             "ears":"254 120 20 20",
             "earings":"256 87 50 50",
@@ -1116,7 +1187,7 @@ function getViewBox(t, d) {
             "vest":"185 135 190 190",
             "wings":"110 -30 350 350"
         }
-    } else if (sex==="f"){
+    } else if (sex==="f") {
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
@@ -1248,23 +1319,28 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 });
 
 // it uses fragments, so they aren't loaded yet into the DOM fully
-
 function onAllLoaded() {
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
+    var characterSex;
+    var hashSex = hash.get('sex');
+    if (hashSex) {
+         characterSex = hashSex;
+    } else {
+        characterSex = window.sex;
+    }
     downloadBtn = document.querySelector("#downloadButton");
-    downloadBtn.addEventListener("click", download, false)
-    var tl = new TimelineLite({onComplete: createForm});
-    tl.add("sidebars",0.5)
-    .to(downloadBtn, 0.5, {attr:{opacity: 1}, ease:Elastic.easeOut}, 0.05)
-    .to(maleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05)
-    .to(femaleSilhouette, 0.5, {attr:{opacity: 0}, ease:Elastic.easeOut}, 0.05);
-    sideBarLeft.classList.toggle('visible');
+    downloadBtn.addEventListener("click", download, false);
+    downloadBtn.classList.add('enabled');
+    //TODO Hide silhouettes;
+    createForm(characterSex, forms);
+    sideBarLeft.classList.add('visible');
+    revealCharacter();
 }
 
-function onEachLoaded( frag, fileName ) {
+function onEachLoaded(frag, fileName) {
     var colorThis = false;
     var myLayer = fileName;
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
@@ -1272,8 +1348,12 @@ function onEachLoaded( frag, fileName ) {
     } else {var seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){var section = 'skin'};
-    if (section ==='facialhair' || section==='brows'){var section = 'hair'};
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){
+        var section = 'skin';
+    }
+    if (section ==='facialhair' || section==='brows') {
+        var section = 'hair';
+    }
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         var newColor = c.choices[section+'Color'];
@@ -1289,13 +1369,23 @@ function onEachLoaded( frag, fileName ) {
     frag.select("*").attr({ opacity: seen });
 }
 
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
-    for (var e in emotionLayers) {
-        selectedLayers.push(emotionLayers[e]);
-    };
+    var layersLength = emotionLayers.length;
+    var layersNum = emotionLayers.length;
+    while (layersNum--) {
+        selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
+    }
     //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
       choiceLayers.push( index + "_" + c.choices[index]);
@@ -1325,38 +1415,798 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
-    for (e in faceElements) {
-        if (faceElements[e] === 'pupils'){
+    var faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    var faceElLength = faceElements.length;
+    var faceElNum = faceElLength;
+    var faceCount;
+    while (faceElNum--) {
+        faceCount = (faceElLength - faceElNum - 1);
+        if (faceElements[faceCount] === 'pupils') {
             var pupils = hash.get('pupils');
-            if (pupils === undefined){
+            if (pupils === undefined) {
                 pupils = 'human';
             }
-             faceElements[e] += '_' + pupils;
+             faceElements[faceCount] += '_' + pupils;
         }
-        modElement = faceElements[e] + '_' + emotion;
+        modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
-    };
+    }
     return facialEpressionLayers;
 };
 
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "(whoami|login|logout|register)" }] */
+
+'use strict'
+
+// yucky globals
+var myUsername = false
+var currentUser = false
+var personnages = {}
+var personnageActuel = false
+
+var fetchDb = (function () {
+  var baseOpts = {
+    credentials: 'same-origin',
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+  var binary = ['get', 'delete', 'head']
+  var ternary = ['post', 'put']
+
+  var fetchDb = function (path, body, method) {
+    var url = '/api/' + path
+    var opts = {}
+    if (!method && typeof body === 'string') {
+      method = body
+      body = false
+    }
+    console.log('fetchDb', path, method || 'get')
+    if (body) {
+      opts.body = JSON.stringify(body)
+      opts.method = 'post'
+    }
+    if (method) {
+        opts.method = method;
+    }
+    return window.fetch(url, Object.assign(opts, baseOpts))
+  }
+
+  binary.forEach(function (m) { fetchDb[m] = function (path) { return fetchDb(path, m) } })
+  ternary.forEach(function (m) { fetchDb[m] = function (path, body) { return fetchDb(path, body, m) } })
+  fetchDb.reject = function (resp, message) {
+    var err = new Error(message || resp.statusText)
+    err.statusText = resp.statusText
+    err.status = resp.status
+    err.url = resp.url
+    return Promise.reject(err)
+  }
+  return fetchDb
+}())
+
+function deleteDbSession () {
+  return fetchDb.delete('session')
+    .then(function (resp) {
+      return resp.json()
+    })
+}
+
+function getDbSession () {
+  return fetchDb('session')
+    .then(function (resp) {
+      if (resp.ok) { return resp.json() }
+      return fetchDb.reject(resp)
+    })
+    .then(function (json) {
+      if (json.userCtx.name) {
+          return json.userCtx.name
+      }
+      return fetchDb.reject('Not connected')
+    })
+}
+
+function getDbUser (username) {
+  return fetchDb('users/' + username)
+    .then(function (resp) {
+      return resp.json()
+    })
+}
+
+function updateDbUser (user) {
+  return fetchDb.post('users', user)
+    .then(function (resp) {
+      console.log('resp.status', resp.status);
+      if (resp.ok) {
+          return resp.json()
+      }
+      if (resp.status === 409) {
+          return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match')
+      }
+      if (resp.status === 404) {
+          loginMenu();
+          return fetchDb.reject(resp, 'Not logged in.')
+      }
+      return fetchDb.reject(resp)
+    })
+}
+
+function loginDbUser (username, password) {
+  return fetchDb.post('session', {
+    name: username,
+    password: password
+  })
+    .then(function (resp) {
+      if (resp.status === 200) { return resp.json() }
+      if (resp.status === 401) {
+          determineErrorMessage(username);
+          //return resp.json();
+          return fetchDb.reject(resp)
+      }
+      return fetchDb.reject(resp)
+    })
+}
+
+function determineErrorMessage(username) {
+    var currentOverlay = document.querySelector('.overlay--show');
+    if (currentOverlay.classList.contains('js-login')) {
+        showErrorUsernamePasswordMismatch();
+    }
+    if (currentOverlay.classList.contains('js-register')) {
+        showErrorUsernameTaken(username);
+    }
+}
+
+function showErrorUsernamePasswordMismatch() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    console.log('currentOverlay', currentOverlay);
+    var errorBox = currentOverlay.querySelector('.overlay__error');
+    console.log('errorBox');
+    var errorText = errorBox.querySelector('.overlay__error__text');
+    var errorMsg = 'Sorry, username/password mismatch. Please try again.';
+    clearInputFields();
+    errorText.innerHTML = errorMsg;
+    errorBox.classList.add('overlay__error--show');
+    console.log('Sorry, username/password mismatch');
+    //clearInputUsername();
+}
+
+function createDbUser (username, password, email) {
+  console.log('Create DB User');
+  return fetchDb.post('users', {
+    _id: 'org.couchdb.user:' + username,
+    roles: [],
+    type: 'user',
+    name: username,
+    password: password,
+    email: email,
+    createdAt: new Date().toISOString(),
+    cc: {
+      personnages: {},
+      personnageActuel: false
+    }
+  })
+    .then(function (resp) {
+        console.log('resp.status');
+      if (resp.status === 201) { return resp.json() }
+      if (resp.status === 409) {
+          showErrorUsernameTaken(username);
+          return resp.json();
+     }
+      return fetchDb.reject(resp)
+    })
+}
+
+function showErrorUsernameTaken(username) {
+    var currentOverlay = document.querySelector('.overlay--show');
+    var errorBox = currentOverlay.querySelector('.overlay__error');
+    var errorText = errorBox.querySelector('.overlay__error__text');
+    var errorMsg = 'Username "' + username + '" is already taken. Try another.';
+    errorText.innerHTML = errorMsg;
+    errorBox.classList.add('overlay__error--show');
+    console.log("C'est pris!");
+    clearInputUsername();
+}
+
+function whoami (ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-character-list');
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+}
+
+function logout (ev) {
+  ev.preventDefault()
+  deleteDbSession()
+    .then(function (json) {
+      currentUser = false
+      personnages = {}
+      personnageActuel = false
+      myUsername = false
+      return json
+    })
+    .catch(function (err) {
+      console.error('err4', err)
+    })
+    logoutUI();
+}
+
+function logoutUI(){
+  var pageWrap = document.querySelector('.logged');
+  if (pageWrap) {
+       pageWrap.classList.remove('logged');
+       resetCharacters();
+  }
+}
+
+function loginMenu(evt) {
+    if (evt) {
+        evt.preventDefault()
+    }
+    var overlay = document.querySelector('.js-login');
+    var loginForm = document.querySelector('#login-form');
+    var firstInput = overlay.querySelector('.first-input');
+    overlay.classList.add('overlay--show');
+    loginForm.addEventListener("submit", login, true);
+    overlay.addEventListener('click', closeLogin, true);
+    firstInput.focus();
+}
+
+function closeLogin(evt) {
+    var overlay = document.querySelector('.js-login');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
+    var target = evt.target;
+    if (target === overlay || target === cancelBtn) {
+      var login = document.querySelector('.overlay--show');
+      if (login) {
+          clearInputFields();
+          login.classList.remove('overlay--show');
+      }
+    }
+}
+
+function closeOverlay(evt) {
+    var overlay = document.querySelector('.overlay--show');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
+    var target = evt.target;
+    if (target === overlay || target === cancelBtn) {
+      if (overlay) {
+          hideNewCharacterInputField();
+          overlay.classList.remove('overlay--show');
+      }
+    }
+}
+
+function hideNewCharacterInputField() {
+    var overlay = document.querySelector('.overlay--show');
+    var newField = overlay.querySelector('.overlay__char-new--create');
+    if (newField) {
+        clearInputFields();
+        newField.classList.remove('overlay__char-new--create');
+    }
+}
+
+function clearInputFields() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    var inputList = currentOverlay.querySelectorAll('input');
+    var inputListLength = inputList.length;
+    var errorField = currentOverlay.querySelector('.overlay__error--show');
+    while (inputListLength--) {
+        inputList[inputListLength].value = '';
+    }
+    if (errorField) {
+        errorField.classList.remove('overlay__error--show');
+    }
+}
+
+function clearInputUsername() {
+    var currentOverlay = document.querySelector('.overlay--show');
+    var inputUsername = currentOverlay.querySelectorAll('.overlay__input__username');
+    inputUsername[0].value = '';
+}
+
+function login(evt) {
+    evt.preventDefault()
+    var event = evt;
+    var username = event.target.children[0].lastElementChild.value;
+    var password = event.target.children[1].lastElementChild.value;
+    var login = document.querySelector('.overlay--show');
+    var currentCharacter;
+
+    if (!username || !password) {
+        console.log('missing username or password.');
+        return
+    }
+
+  loginDbUser(username, password)
+    .then(function () {
+      myUsername = username
+      return getDbUser(username)
+    })
+    .then(function (user) {
+      currentUser = user
+      var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
+      var r
+      var t = []
+      for (r in u) {
+        t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
+      }
+      clearInputFields();
+      login.classList.remove('overlay--show');
+      manageCharacters(user);
+    })
+    .catch(function (err) {
+      console.error('err3', err)
+    })
+}
+
+function inheritNewCharacter() {
+    var newCharModal = document.querySelector('.js-login-new-character');
+    var hasHash = hash.get('sex');
+    var continueBtn = document.querySelector('.js-continue-character');
+    var loadBtn = document.querySelector('.js-load-character');
+    if (!hasHash) {
+        //TODO check to see if there is a currentCharacter, and if so, load it.
+        return
+    }
+    loadBtn.addEventListener('click', loadCharacter, false);
+    continueBtn.addEventListener('click', continueNewCharacter, false);
+    newCharModal.classList.add('overlay--show');
+    newCharModal.addEventListener('click', closeNewCharacterOverlay, false);
+}
+
+function continueNewCharacter(evt) {
+    evt.preventDefault();
+    var newCharModal = document.querySelector('.overlay--show');
+    var nameCharModal = document.querySelector('.js-name-character');
+    var createBtn = nameCharModal.querySelector('.overlay__char-create-btn');
+    newCharModal.classList.remove('overlay--show');
+    //TODO open modal to ask for character name and save it before proceeding.
+    createBtn.addEventListener('click', requestNewCharacterName);
+    nameCharModal.classList.add('overlay--show');
+}
+
+function requestNewCharacterName(evt) {
+    evt.preventDefault();
+    var nameCharModal = document.querySelector('.overlay--show');
+    if (nameCharModal) {
+        nameCharModal.classList.remove('overlay--show');
+    }
+}
+
+function loadCharacter(evt) {
+    var characterSVG = document.querySelector('#svg1');
+    var newCharModal = document.querySelector('.overlay--show');
+    evt.preventDefault();
+    hash.clear();
+    clearCharacter();
+    hashCharacter();
+    startup();
+    setHashTrigger();
+    setTimeout(function(){
+        characterSVG.classList.remove('character--hide');
+        if (newCharModal) {
+            newCharModal.classList.remove('overlay--show');
+        }
+    },500);
+}
+
+function closeNewCharacterOverlay(evt) {
+    var overlay = document.querySelector('.js-login-new-character');
+    var target = evt.target;
+    if (target === overlay) {
+      var modal = document.querySelector('.overlay--show');
+      if (modal) {
+          modal.classList.remove('overlay--show');
+      }
+    }
+}
+
+function hashCharacter() {
+      var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
+      var r
+      var t = []
+      for (r in u) {
+        t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
+      }
+      if (t.length) {
+        personnageActuelToHash(currentUser);
+      }
+}
+
+function switchCharacter(evt) {
+    evt.preventDefault();
+    var choices;
+    var characterListUI = document.querySelector('.js-character-list');
+    var characterSVG = document.querySelector('#svg1');
+    var newCard = this.parentNode.parentNode;
+    var newChar = newCard.querySelector('.overlay__char-name').innerHTML;
+    var oldCard = document.querySelector('.overlay__char--current');
+    var currentClass = characterSVG.getAttribute('class');
+    var newClass = currentClass + ' ' + 'character--hide';
+    var charGender = currentUser.cc.personnages[newChar].sex;
+    if (currentClass === '') {
+        if (charGender === 'f') {
+            currentClass = 'select-female';
+        }
+        if (charGender === 'm') {
+            currentClass = 'select-male';
+        }
+        newClass = currentClass;
+    }
+    if (oldCard) {
+        oldCard.classList.remove('overlay__char--current');
+    }
+    newCard.classList.add('overlay__char--current');
+    currentUser.cc.personnageActuel = newChar;
+    characterListUI.classList.remove('overlay--show');
+    characterSVG.setAttribute('class', newClass);
+
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .then(function (json){
+            window.sex = currentUser.cc.personnages[newChar].sex;
+            choices = currentUser.cc.personnages[newChar];
+            console.log('choices', choices);
+            c = new Character(choices);
+            hash.clear();
+            setTimeout(function(){
+                clearCharacter();
+                hashCharacter();
+                setHashTrigger();
+            },500);
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+}
+
+function revealCharacter() {
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.remove('character--hide');
+}
+
+function manageCharacters() {
+    var charUI = document.querySelector('.js-character-list');
+    var userTitle = charUI.querySelector('.overlay__title');
+    var charCard = charUI.querySelector('.overlay__char-card--orig');
+    var charList = Object.keys(currentUser.cc.personnages);
+    var charNum = charList.length;
+    var charContainer = charUI.querySelector('.overlay__container--char-list');
+    var charCurrent = currentUser.cc.personnageActuel;
+    var usernameButton = document.querySelector('#usernameButton');
+    var usernameText = usernameButton.querySelector('.menu-text');
+    var pageWrap = document.querySelector('#pagewrap');
+    var editBtns;
+    var editBtnsNum;
+    var delBtns;
+    var delBtnsNum;
+    var saveBtn = document.querySelector('.save-btn');
+    var newBtn = charUI.querySelector('.overlay__char-new-btn');
+    var createBtn = charUI.querySelector('.overlay__char-create-btn');
+    var charName;
+
+    resetCharacters();
+    while (charNum--) {
+        charName = charList[charNum];
+        var newCard = charCard.cloneNode(true);
+        var charNameCard = newCard.querySelector('.overlay__char-name');
+        newCard.classList.remove('overlay__char-card--orig')
+        if (charName === charCurrent){
+            newCard.classList.add('overlay__char--current');
+        }
+        charNameCard.innerHTML = charName;
+        charContainer.appendChild(newCard);
+    }
+    editBtns = charUI.querySelectorAll('.overlay__char-edit');
+    editBtnsNum = editBtns.length;
+    while (editBtnsNum--) {
+        editBtns[editBtnsNum].addEventListener('click', switchCharacter);
+    }
+    delBtns = charUI.querySelectorAll('.overlay__char-delete');
+    delBtnsNum = delBtns.length;
+    while (delBtnsNum--) {
+        delBtns[delBtnsNum].addEventListener('click', deleteChar);
+    }
+    userTitle.innerHTML = currentUser.name;
+    usernameText.innerHTML = currentUser.name;
+    pageWrap.classList.add('logged');
+    saveBtn.addEventListener('click', saveChar, true);
+    newBtn.addEventListener('click', newChar, true);
+    createBtn.addEventListener('click', createChar, true);
+}
+
+function resetCharacters() {
+    var charUI = document.querySelector('.js-character-list');
+    var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)');
+    Array.prototype.forEach.call( charCards, function( node ) {
+        node.parentNode.removeChild( node );
+    });
+}
+
+function registerMenu() {
+  var loginMenu = document.querySelector('.js-login');
+  var overlay = document.querySelector('.js-register');
+  var registerForm = document.querySelector('#register-form');
+  var firstInput = overlay.querySelector('.first-input');
+
+  if (loginMenu.classList.contains('overlay--show')) {
+      loginMenu.classList.remove('overlay--show');
+  }
+
+  overlay.classList.add('overlay--show');
+  registerForm.addEventListener("submit", register, true);
+  overlay.addEventListener('click', closeRegister, true);
+  firstInput.focus();
+}
+
+function closeRegister(evt) {
+    var overlay = document.querySelector('.js-register');
+    var cancelBtn = overlay.querySelector('.cancel-btn');
+    var target = evt.target;
+
+    if (target === overlay || target === cancelBtn) {
+      var register = document.querySelector('.overlay--show');
+      if (register) {
+          clearInputFields();
+          register.classList.remove('overlay--show');
+      }
+    }
+}
+
+function register (evt) {
+    evt.preventDefault()
+    var event = evt;
+    var email = event.target.children[0].lastElementChild.value;
+    var username = event.target.children[1].lastElementChild.value;
+    var password = event.target.children[2].lastElementChild.value;
+    var register = document.querySelector('.overlay--show');
+
+    if (!username) {
+      console.log('missing username.');
+      return
+    }
+    if (!password) {
+      console.log('missing password.');
+      return
+    }
+    if (!email) {
+      console.log('missing email.');
+      return
+    }
+
+    console.log('Calling createDbUSer');
+    createDbUser(username, password, email)
+        .then(function () {
+          return loginDbUser(username, password)
+        })
+        .then(function (json) {
+            console.log('fetched2', json)
+            return username
+        })
+        .then(getDbUser)
+        .then(function(user){
+            currentUser = user
+            manageCharacters(currentUser)
+            register.classList.remove('overlay--show');
+        })
+        .catch(function (err) {
+          console.error('register err', err)
+        })
+}
+
+getDbSession()
+  .then(getDbUser)
+  .then(function (user) {
+    var r
+    var t = []
+    myUsername = user.name
+    currentUser = user
+    if (user.cc && user.cc.personnages &&
+      user.cc.personnageActuel &&
+      user.cc.personnages[user.cc.personnageActuel]
+    ) {
+      personnages = user.cc.personnages
+      personnageActuel = user.cc.personnageActuel
+
+      for (r in user.cc.personnages[user.cc.personnageActuel]) {
+        t.push(
+          encodeURIComponent(r) + '=' +
+          encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
+        )
+      }
+    }
+    manageCharacters(currentUser);
+  })
+  .catch(function (err) {
+    console.log('getDbUser error', err)
+  })
+
+function setHashTrigger() {
+    window.addEventListener('hashchange', triggerSaveBtn, false)
+}
+
+function triggerSaveBtn() {
+    var saveBtn = document.querySelector('.save-btn');
+    if (saveBtn) {
+        saveBtn.classList.add('save--enabled');
+    }
+}
+
+function newChar() {
+    var newCard = document.querySelector('.js-new-card');
+    var firstInput = newCard.querySelector('.first-input');
+    newCard.classList.add('overlay__char-new--create');
+    firstInput.focus();
+}
+
+function createChar(evt) {
+    if (evt) {
+        evt.preventDefault();
+    }
+    var el = this;
+    var newCard = document.querySelector('.overlay__char-new--create');
+    var newCharNameEl = el.parentNode.querySelector('.js-new-char-name');
+    var newCharName = newCharNameEl.value;
+
+    newCard.classList.remove('overlay__char-new--create');
+    var personnageActuel = newCharName;
+    if (!personnageActuel) { return }
+    if (!currentUser.cc) { currentUser.cc = {} }
+    if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+    if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+    currentUser.cc.personnages[personnageActuel] = window.hash.get();
+    Object.assign(currentUser.cc.personnages, personnages);
+
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+        manageCharacters();
+}
+
+function deleteChar() {
+    var el = this;
+    var disposible = el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML;
+    delete currentUser.cc.personnages[disposible];
+
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+        manageCharacters();
+}
+
+function saveChar() {
+    var saveBtn = document.querySelector('.save-btn');
+    saveBtn.classList.remove('save--enabled');
+    var personnageActuel = currentUser.cc.personnageActuel;
+    if (!myUsername || !currentUser) { return }
+    if (!currentUser) { return }
+
+    if (!personnageActuel) {
+      //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
+      return;
+    }
+    if (!currentUser.cc) {
+      currentUser.cc = {};
+    }
+    if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
+    if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+    currentUser.cc.personnages[personnageActuel] = window.hash.get();
+    Object.assign(currentUser.cc.personnages, personnages)
+
+    updateDbUser(currentUser)
+        .then(function (json) {
+          currentUser._rev = json.rev
+          return json
+        })
+        .catch(function (err) {
+          console.log('err', err)
+        })
+}
+
+
 function isInArray(value, array) {
-       return array.indexOf(value) > -1;
+    return array.indexOf(value) > -1;
+}
+
+function clearCharacter() {
+    var svgContainer = document.querySelector('#svg1');
+    var maleSilhouette = svgContainer.querySelector('#male_silhouette');
+    var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
+    svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
+}
+
+function personnageActuelToHash(currentUser) {
+    var personnageActuel = currentUser.cc.personnageActuel;
+    var personnageActuelData;
+    var itemsList;
+    var itemsCounter;
+    var currentCount;
+    var myKey;
+    var myValue;
+    var hashArgs = {};
+
+    if (personnageActuel && personnageActuel !== '') {
+        personnageActuelData = currentUser.cc.personnages[personnageActuel];
+        itemsList = Object.keys(personnageActuelData);
+        itemsListLength = itemsList.length;
+        itemsListCounter = itemsListLength;
+        while (itemsListCounter--) {
+            currentCount = itemsListLength - itemsListCounter - 1;
+            myKey = itemsList[currentCount];
+            myValue = personnageActuelData[itemsList[currentCount]];
+            //modCharacter(myKey, myValue);
+            //hash.add({mykey: myValue});
+            hashArgs[myKey] = myValue;
+            hash.add(hashArgs);
+        }
+        clearCharacter();
+        interpretHash();
+    } else {
+        return;
+    }
 }
 
 function trans(sex){
+    var characterSVG = document.querySelector('#svg1');
+    characterSVG.classList.add('character--hide');
+    hideForms();
     hash.add({ sex: sex });
-    hash.add({ emotion: 'neutral' });
-    location.reload();
+    hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
+         currentUser.cc.personnages[personnageActuel].sex = sex;
+    }
+    window.sex = sex;
+   buildCharacter(resetForms);
 }
 
-function Character(fullName, sex, emotion, choices, birthday){
+function buildCharacter(callback) {
+    var characterSVG = document.querySelector('#svg1');
+    setTimeout(function(){
+        clearForms();
+        clearCharacter();
+        interpretHash();
+        setTimeout(function(){
+            characterSVG.classList.remove('character--hide');
+            callback();
+        },500);
+    },500);
+}
+
+function hideForms() {
+    hideSidebarLeft();
+    hideSidebarRight();
+}
+
+function clearForms() {
+    clearSidebarLeft();
+    clearSidebarRight();
+}
+
+function resetForms() {
+    hideForms();
+    //TODO The following function should be a callback or a response to a promise.
+    createForm();
+    showSidebarLeft();
+}
+
+function Character(choices){
     this.choices = choices || {
-        emotion : emotion||'neutral',
+        emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
-        body_head : 'default', //Or random from list
-        ears : 'default', // or rand
-        nose : 'default', // Or random
         lips : 'default', //or rand
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
@@ -1364,7 +2214,30 @@ function Character(fullName, sex, emotion, choices, birthday){
         underwear : 'plain', // or random, whatever.
         underwearColor : '#f2f2f2', // Or random from a list of fabrics',
     };
-    this.birthday = birthday || new Date();// todo: today's date by default, with dropdown menu to change it manually || ;
+    this.choices.emotion = this.choices.emotion || 'neutral';
+    this.choices.body = this.choices.body || 'athletic';
+    this.choices.lips = this.choices.lips || 'default';
+    if (this.skinTone) {
+        this.choices.skinColor = this.skinTone;
+
+    } else {
+        //console.log('no skinTone found.')
+    }
+    this.choices.hairColor = this.choices.hairColor || '#ffe680';
+    this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
+    this.choices.underwear = this.choices.underwear || 'plain';
+    this.choices.underwearColor = this.choices.underwearColor || '#f2f2f2';
+
+    choices = this.choices;
+    if (!choices.body_head) {
+        choices.body_head = 'default';
+    }
+    if (!choices.ears) {
+        choices.ears = 'default';
+    }
+    if (!choices.nose) {
+        choices.nose = 'default';
+    }
 };
 
 function modCharacter(myKey, myValue){
@@ -1378,6 +2251,9 @@ function modCharacter(myKey, myValue){
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
+    if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
+        currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue;
+    }
 };
 
 function createCharacter(){
@@ -1396,11 +2272,15 @@ function createCharacter(){
                     if (id.slice(1) == multiLayer[lyr][0]){
                         for (var i=1;i<=multiLayer[lyr][1];i++){
                             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
+                            viewport.selectAll(idOf).attr({
+                                opacity:1
+                            });
                         }
                     }
                     else {
-                        viewport.selectAll(id).attr({opacity:1});
+                        viewport.selectAll(id).attr({
+                            opacity:1
+                        });
                     }
                 };
             }
@@ -1411,7 +2291,6 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    //faceElements = ['brows', 'eyes', 'lips', 'mouth', 'pupils', 'iris', 'sockets', 'eyelashes'];
     faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
     for (e in faceElements) {
         if (faceElements[e] === 'pupils'){
@@ -1442,7 +2321,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function show(userChoice, category){
+function show(userChoice, category) {
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -1452,8 +2331,12 @@ function show(userChoice, category){
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
+
     hideCompetition(sections[0]);
     hash.add(obj);
+    if (currentUser) {
+        triggerSaveBtn();
+    }
     if (sections[0] === "pupils") {
         sections[0] += "_" + selectedOption;
         selectedOption = hash.get('emotion');
@@ -1471,20 +2354,16 @@ function show(userChoice, category){
             sections.push(newEmo);
         }
     };
+    displaySections(sections, options, selectedOption, multiLayer);
+}
+
+function displaySections(sections, options, selectedOption, multiLayer) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:1});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:1});
-                    }
+                    sectionShow(multiLayer, id);
                 };
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
@@ -1498,19 +2377,47 @@ function show(userChoice, category){
             }
             else {
                 for (lyr in multiLayer){
-                    if (id.slice(1) == multiLayer[lyr][0]){
-                        for (var i=1;i<=multiLayer[lyr][1];i++){
-                            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                            viewport.selectAll(idOf).attr({opacity:0});
-                        }
-                    }
-                    else {
-                        viewport.selectAll(id).attr({opacity:0})
-                    };
+                    sectionHide(multiLayer, id);
                 };
             };
         });
     };
+}
+
+function sectionShow(multiLayer, id) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:1});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:1});
+    }
+}
+
+function sectionHide(multiLayer, id) {
+    if (id.slice(1) == multiLayer[lyr][0]){
+        for (var i=1;i<=multiLayer[lyr][1];i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            viewport.selectAll(idOf).attr({opacity:0});
+        }
+    }
+    else {
+        viewport.selectAll(id).attr({opacity:0})
+    };
+}
+
+function resetCharacterTemplate() {
+    var characterSVG = document.querySelector('#svg1');
+    var elements = characterSVG.querySelectorAll('*');
+    var elementsLength = elements.length;
+    var elementsCounter = elementsLength;
+    while (elementsCounter--) {
+        if (elements[elementsCounter].style.opacity !== 0) {
+            elements[elementsCounter].style.opactiy = "0";
+        }
+    }
 }
 
 window.onload = function() {
@@ -1920,30 +2827,26 @@ function selectFemale(event) {
 }
 
 
-function parseHash(){
-    var forms = window.forms;
-    var skinlayers = window.skinlayers;
-    var hairLayers = window.hairLayers;
-    var face = {
-        'Brows': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf'],
-        'Lashes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-        'Iris': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-        'Eyes': ['neutral', 'anger', 'indignation', 'sterness', 'rage', 'disdain', 'aversion', 'disgust', 'revulsion', 'concern', 'anxiety', 'fear', 'satisfaction', 'amusement', 'joy', 'laughing', 'dejection', 'amasement', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage'],
-        'Mouth': ['neutral', 'anger', 'alertness', 'anxiety', 'betrayal', 'caged', 'desperation', 'eeww', 'horror', 'melancholy', 'omg', 'outrage', 'sterness']
-    };
-    for (var f in forms){
-        for(var x in forms[f]){
+function parseHash(c, forms, skinLayers, hairLayers){
+    //var forms = window.forms;
+    //var skinlayers = window.skinlayers;
+    //var hairLayers = window.hairLayers;
+    var formsLength = forms.length;
+    var formsCounter = formsLength;
+    while (formsCounter--) {
+        var f = formsLength - formsCounter - 1;
+        for(var x in forms[f]) {
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
                 if (section === "pupils") {
                     var hashPupils = hash.get('pupils');
-                    if (hashPupils == undefined){
+                    if (hashPupils == undefined) {
                         hashPupils = 'human';
                     };
                     section += "_" + hashPupils;
                 }
                 var hashData = hash.get('emotion');
-                if (hashData === undefined){
+                if (hashData === undefined) {
                     hashData = 'neutral';
                 }
             } else {
@@ -1957,13 +2860,13 @@ function parseHash(){
             }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
                 modCharacter(section, 'neutral');
             };
-            if (id in skinLayers || section ==='body'){
+            if (id in skinLayers || section ==='body') {
                 section = 'skin';
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
             var hashColor = hash.get(section+'Color');
             // Now to get the color
-            if (hashColor != undefined && hashColor != ''){
+            if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
                 ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
@@ -1972,7 +2875,6 @@ function parseHash(){
 };
 
 function random(){
-    //for (form in forms) {
     var forms = window.forms;
         var formLen = forms.length;
         var formRand = Math.floor((Math.random() * formLen));
@@ -1981,7 +2883,6 @@ function random(){
         for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
         var keys = [];
         for (var key in forms[formRand]) {
-
             if (forms[formRand].hasOwnProperty(key)) {
                 keys.push(key);
             }
@@ -1993,7 +2894,6 @@ function random(){
                 var len = forms[formRand][myKey].length;
                 var rand = Math.floor((Math.random() * len));
                 var layer = forms[formRand][myKey][rand].toLowerCase();
-                //modCharacter(key.toLowerCase(), layer);
                 showRandom(key.toLowerCase(), layer);
 }
 
@@ -2015,7 +2915,6 @@ function showRandom(section, layer){  // Draw the SVG on screen
     }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
-        //ga('send', 'event', 'menu', 'select', id);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(selectedOption);
         for (emo in emotions){
@@ -2024,9 +2923,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
         }
     };
     for (section in sections){
-
         sectionOptions = getOptions(sections[section]);
-
         var id = '#'+sections[section] + '_' + layer;
         for (option in sectionOptions){
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
@@ -2057,10 +2954,10 @@ function hideCompetition (section) {
     };
 }
 
-function hideArray (competition){
-    for (section in competition){
+function hideArray(competition) {
+    for (section in competition) {
         sectionOptions = getOptions(competition[section]);
-        for (option in sectionOptions){
+        for (option in sectionOptions) {
             optionId = '#' + competition[section] + '_' + sectionOptions[option];
             hideId(optionId)
             var obj = new Array();
@@ -2070,11 +2967,12 @@ function hideArray (competition){
         }
     }
 }
-function showId(id){
+
+function showId(id) {
         ga('send', 'event', 'menu', 'select', id);
-        for (lyr in multiLayer){
+        for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:1});
                 }
@@ -2085,10 +2983,10 @@ function showId(id){
     };
 }
 
-function hideId(id){
-        for (lyr in multiLayer){
-            if (id.slice(1) == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
+function hideId(id) {
+        for (lyr in multiLayer) {
+            if (id.slice(1) == multiLayer[lyr][0]) {
+                for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     viewport.selectAll(idOf).attr({opacity:0});
                 }
@@ -2099,10 +2997,10 @@ function hideId(id){
     };
 }
 
-function getOptions(section){
+function getOptions(section) {
      var sectionOptions = [];
-     for (form in window.forms){
-         if ( capitalizeFirstLetter(section) in window.forms[form] ){
+     for (form in window.forms) {
+         if ( capitalizeFirstLetter(section) in window.forms[form] ) {
               return window.forms[form][capitalizeFirstLetter(section)];
          } else {
          }
@@ -2112,6 +3010,7 @@ function getOptions(section){
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 
 
 function tabSwitch(new_tab, new_content) {
@@ -2210,6 +3109,30 @@ function tabSwitch(new_tab, new_content) {
     })
 })()
 
+
+function scrollZoom(e) {
+    var svgViewBox = document.querySelector("#svg1");
+    var event = window.event || e;
+    var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
+    var zoomLevel = document.querySelector("#zoomLevel").value;
+    var zoom = document.querySelector("#zoomLevel");
+    //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
+    if (delta > 0 ){
+        zoomLevel = zoomLevel + 1;
+        if (zoomLevel > 3) {
+             zoomLevel = 3;
+        }
+        document.querySelector("#zoomLevel").value = zoomLevel;
+        document.querySelector("#zoomLevel").onchange();
+    } else {
+        zoomLevel = zoomLevel - 1;
+        if (zoomLevel < 0) {
+             zoomLevel = 0;
+        }
+        document.querySelector("#zoomLevel").value = zoomLevel;
+        document.querySelector("#zoomLevel").onchange();
+    }
+}
 
 function zoomIn() {
     var sex = c.sex;

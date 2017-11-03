@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="ears_pointed" width="560" height="560">
-  <g id="g55231" style="display:inline;enable-background:new">
-    <path id="path55233" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.7 1.5 4.8 2.4 6.3 1 1.4 2.2 2 2.8 1" style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"/>
-    <path id="path55235" d="M266.7 140c0 .8 0 1-.3 1-.2.4 0 1.5.2 1.8.3.4.2 1.2 0 1.2 0 0-.3 0-.3-.6 0-.8-1-.6-1.6-2.7-.3-1.7 0-2 .2-2s0-1.3-.2-1.6c0-.3-.4-.6-.6-.7-.2 0-.2.8 0 1.2 0 .4-.3 3.2.7 4.7 1 1.4 1.7 2.7 1.5 2.7-.2 0-1.5-2.2-2-3.4-.4-1.3-.8-3.2-1-4.5 0-1.2.2-1.4.5-1.3.3 0 1 1.2 1.4 2 .3 1 .6 1 1 1.2.2 0 .4.4.3 1z" style="fill:#e9afaf;stroke:none"/>
+<g id="ears_pointed">
+  <g id="ear_pointed_right">
+    <path id="path55233" class="skin" d="M267 137.3l-1-1.7c-.5-1-2-3.2-2.5-2.4-.4.7 0 1.8 0 2.6-.2.8 0 2 .2 3.3.8 3.7 1.5 4.8 2.4 6.3 1 1.4 2.2 2 2.8 1" style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.5;"/>
+    <path id="path55235" class="skin--dark" d="M266.7 140c0 .8 0 1-.3 1-.2.4 0 1.5.2 1.8.3.4.2 1.2 0 1.2 0 0-.3 0-.3-.6 0-.8-1-.6-1.6-2.7-.3-1.7 0-2 .2-2s0-1.3-.2-1.6c0-.3-.4-.6-.6-.7-.2 0-.2.8 0 1.2 0 .4-.3 3.2.7 4.7 1 1.4 1.7 2.7 1.5 2.7-.2 0-1.5-2.2-2-3.4-.4-1.3-.8-3.2-1-4.5 0-1.2.2-1.4.5-1.3.3 0 1 1.2 1.4 2 .3 1 .6 1 1 1.2.2 0 .4.4.3 1z" style="fill:#e9afaf;stroke:none"/>
   </g>
-  <g id="g55237" style="display:inline;enable-background:new">
-    <path id="path55239" d="M298 136.3l1.7-2.4c.5-.7 1-2 1.8-1.5.5.5 0 2 0 2.7.2.7.2 1.7 0 2.8-.6 3.7-1.3 4.8-2 6.3-1 1.5-2 2-2.8 1" style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"/>
-    <path id="path55241" d="M298.5 139.2c0 .7.2.8.4 1 0 .2 0 1.3-.2 1.7-.3.3-.2 1 0 1 0 0 .3.2.3-.6s1.2-.6 1.5-2.7c.3-1.7 0-2-.3-2-.2 0 0-1.3 0-1.6l.7-.7v1c0 .5.3 3.3-.6 4.8-1 1.6-1.7 3-1.4 3 .2 0 1.4-2.2 1.8-3.5.4-1.2.7-3 .7-4.4 0-1.2-.2-1.5-.5-1.3-.2 0-1 1.2-1.2 2-.3 1-.7 1-1 1.3-.2 0-.4.5-.3 1.2z" style="fill:#e9afaf;stroke:none"/>
+  <g id="ear_pointed_left">
+    <path id="path55239" class="skin" d="M298 136.3l1.7-2.4c.5-.7 1-2 1.8-1.5.5.5 0 2 0 2.7.2.7.2 1.7 0 2.8-.6 3.7-1.3 4.8-2 6.3-1 1.5-2 2-2.8 1" style="fill:#ffd5d5;stroke:#de8787;stroke-width:0.5;;stroke-dashoffset:0"/>
+    <path id="path55241" class="skin--dark" d="M298.5 139.2c0 .7.2.8.4 1 0 .2 0 1.3-.2 1.7-.3.3-.2 1 0 1 0 0 .3.2.3-.6s1.2-.6 1.5-2.7c.3-1.7 0-2-.3-2-.2 0 0-1.3 0-1.6l.7-.7v1c0 .5.3 3.3-.6 4.8-1 1.6-1.7 3-1.4 3 .2 0 1.4-2.2 1.8-3.5.4-1.2.7-3 .7-4.4 0-1.2-.2-1.5-.5-1.3-.2 0-1 1.2-1.2 2-.3 1-.7 1-1 1.3-.2 0-.4.5-.3 1.2z" style="fill:#e9afaf;stroke:none"/>
   </g>
-</svg>
+</g>

@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="scar_horizontal_nose" width="560" height="560">
-  <g id="layer1">
-    <path id="path229644" d="M282 130l1 .7c.6.3 1.5.8 1.8.8 1 .2 4.3.4 6.4 0-1.6.7-4 .8-6.3.4l-1.8-.6c-.3 0-1-.5-1.2-.6-.7-.2-1.4-.2-2.2 0l-1.4.6c-2 .7-6.2.8-8 0 2.2.4 6.2.3 8-.6.3 0 1-.7 1.3-.7h2.2z" style="color:#000000;fill:#de8787;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-  </g>
-</svg>
+<g id="scar_horizontal_nose">
+    <path id="path229644" class="skin--darker" d="M282 130l1 .7c.6.3 1.5.8 1.8.8 1 .2 4.3.4 6.4 0-1.6.7-4 .8-6.3.4l-1.8-.6c-.3 0-1-.5-1.2-.6-.7-.2-1.4-.2-2.2 0l-1.4.6c-2 .7-6.2.8-8 0 2.2.4 6.2.3 8-.6.3 0 1-.7 1.3-.7h2.2z" style="fill:#de8787;stroke:none;stroke-width:0.5;"/>
+</g>

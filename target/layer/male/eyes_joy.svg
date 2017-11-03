@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="eyes_joy" width="560" height="560">
+<g id="eyes_joy">
   <path id="path24500-3" d="m 291.53423,127.00462 c -1.46063,1.10581 -4.77257,0.98498 -6.11479,0.5018 1.46191,-1.80887 3.00105,-1.88947 6.11479,-0.5018 z" style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#de8787;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
   <path id="path104357-2" d="m 269.55233,127.41232 c 1.38571,0.70027 4.51079,0.90741 6.30294,0.1254 -1.63566,-1.60391 -2.95353,-1.63682 -6.30294,-0.1254 z" style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#de8787;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
-</svg>
+</g>

@@ -20,15 +20,28 @@ function ColorLuminance(hex, lum) {
     return rgb;
 }
 
+function colorizeByClass(elClassName, color) {
+    var elementList = document.querySelectorAll(('.' + elClassName));
+    var elementListLength = elementList.length;
+    var elCounter = elementListLength;
+    while (elCounter--) {
+        elementList[elementListLength - (elCounter + 1)].style.fill = color;
+    }
+}
+
+function colorSkin(color) {
+    // WIP function to collect all the elements that need to be colored
+    // when the color of the skin is changed by the user.
+    colorizeByClass('upperlip', shadeColor(color, -10));
+    colorizeByClass('lowerlip', shadeColor(color, 10));
+}
+
 function colorize(formId, _color){
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
-    // get all the options for that id
-    // Cycle through each form array
     for (var f in forms){
-        // Cycle through each element in the form
-         var form = Object.keys(forms[f]);
+        var form = Object.keys(forms[f]);
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
@@ -37,26 +50,27 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth'){
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
+                    colorSkin(_color);
                 }
-                else if (id ==='facialhair' || id === 'hair'){
+                else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
                     var myKey = 'hairColor';
                 }
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes'){
-                        for (i in forms[0]['Emotion']){
+                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashes') {
+                        for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
                         }
                     } else {
-                        for (i in forms[f][capitalId]){
+                        for (i in forms[f][capitalId]) {
                             var tmpId = forms[f][capitalId][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
@@ -68,129 +82,130 @@ function colorize(formId, _color){
                 // If one of those is in the multiLayer array
                 // Then take it out and replace it with the layers that need to be there
                 origList = affectedList
-                affectedList=[];
-                for (a in origList) {
-                    for (lyr in multiLayer){
-
-                        if (origList[a] == multiLayer[lyr][0]){
-
-                            for (var i=1;i<=multiLayer[lyr][1];i++){
-                                idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                                //viewport.selectAll(idOf).attr({opacity:1});
-                                // Then append the idOf to affectedList
-                                affectedList.push(idOf);
-                            }
-                            // Take it out of the affectedList
-                            //var index = affectedList.indexOf(affectedList[a]);
-                            //if (index > -1) {
-                                //affectedList.splice(index, 1);
-                            //}
-                        } else {
-                            affectedList.push(origList[a]);
-
-                        };
-                    };
-                };
+                affectedList = getAffectedListFromOrig(origList, multiLayer);
                 var myValue = _color.toString();
                 var obj = new Array();
-                obj[myKey] =  myValue;//obj[_selector.slice(1)+'c'] = fillHsl.toString();
+                obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
-                for (n in affectedList){
+                for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     // Else, the list is taken from the form.
                     var optLayer = viewport.select(fullId);
-                    if (optLayer != null){
+                    if (optLayer != null) {
                         var optPaths = optLayer.selectAll('path')
                         if (fullId === '#body_athletic_2_of_2') {
                             var optEllipses = optLayer.selectAll('ellipse')
                             newArray = [];
-                            //for (e in optEllipses) {
-                            //    optPaths.insertAfter.apply(optEllipses[e]);
-                            //}
                             newArray.push.apply(newArray, optPaths);
                             newArray.push.apply(newArray, optEllipses);
                             optPaths = newArray;
                         }
-
-                        for (p in optPaths) {
-                            if ( typeof optPaths[p].attr === 'function'){
-                                var pathId = optPaths[p].attr("id");
-                                if (pathId ===  undefined){
-                                     break;
-                                };                                ;
-                                if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow"){
-                                    continue;
-                                };
-                                var pathStyle = viewport.select('#'+ pathId).attr("style");
-                                if (pathStyle ===  undefined){
-                                     break;
-                                };                                ;
-                                // Parse the style in a json object
-                                // Identify if the path is a shape or a shadow
-                                // apply newStyle if applicable
-                                var styles = pathStyle.split(';'),
-                                i= styles.length,
-                                json = {style: {}},
-                                style, k, v;
-                                while (i--){
-                                    style = styles[i].split(':');
-                                    if (style == " "||style.length === 1) {continue;};
-                                    k = style[0].trim();
-                                    v = style[1].trim();
-                                    if (k.length > 0 && v.length > 0){
-                                        json.style[k] = v;
-                                    }
-                                }
-                                // Query the style to determine if shape or shadow
-                                // Change the color
-                                var newColor = _color.toString();
-                                // json to string
-                                newStyle = json.style;
-                                var replacement = '';
-                                for (n in Object.keys(newStyle)){
-                                    var currentKey = Object.keys(newStyle)[n]
-                                    if (currentKey === 'fill'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] === undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.12);
-                                            }
-                                            else {
-                                                var currentValue = newColor;
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else if (currentKey === 'stroke'){
-                                        if (newStyle[currentKey] != 'none'){
-                                            if (json.style["stroke-width"] != undefined){
-                                                var currentValue = ColorLuminance(newColor, -0.2);
-                                            }
-                                        }
-                                        else {
-                                            var currentValue = newStyle[currentKey];
-                                        }
-                                    }
-                                    else {
-                                        var currentValue = newStyle[currentKey];
-                                    }
-                                    var keyVal = 	currentKey + ': ' + currentValue + '; '
-                                    replacement = replacement.concat(keyVal);
-                                }
-                                viewport.selectAll('#'+pathId).attr({style: replacement});
-                                newStroke = shadeColor(newColor, -25);
-                                if (json.style["stroke-width"] === undefined){
-                                    newColor = shadeColor(newColor, -25)
-                                }
-                            }
-                        }
+                        processPaths(optPaths, _color);
                     }
                 }
             }
         }
     }
+}
+
+function processPaths(optPaths, _color) {
+    for (p in optPaths) {
+        if ( typeof optPaths[p].attr === 'function') {
+            var pathId = optPaths[p].attr("id");
+            if (pathId ===  undefined) {
+                break;
+            };                                ;
+            if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
+                continue;
+            };
+            var pathStyle = viewport.select('#'+ pathId).attr("style");
+            if (pathStyle ===  undefined) {
+                break;
+            };                                ;
+            // Parse the style in a json object
+            // Identify if the path is a shape or a shadow
+            // apply newStyle if applicable
+            var styles = pathStyle.split(';'),
+                i= styles.length,
+                json = {style: {}},
+                style, k, v;
+            while (i--){
+                style = styles[i].split(':');
+                if (style == " "||style.length === 1) {continue;};
+                k = style[0].trim();
+                v = style[1].trim();
+                if (k.length > 0 && v.length > 0) {
+                    json.style[k] = v;
+                }
+            }
+            // Query the style to determine if shape or shadow
+            // Change the color
+            var newColor = _color.toString();
+            // json to string
+            var replacement = replacementStyle(json, newColor);
+            viewport.selectAll('#' + pathId).attr({style: replacement});
+            newStroke = shadeColor(newColor, -25);
+            if (json.style["stroke-width"] === undefined){
+                newColor = shadeColor(newColor, -25)
+            }
+        }
+    }
+}
+
+function getAffectedListFromOrig(origList, multiLayer) {
+    affectedList=[];
+    for (a in origList) {
+        for (lyr in multiLayer){
+            if (origList[a] == multiLayer[lyr][0]){
+                for (var i=1;i<=multiLayer[lyr][1];i++){
+                    idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
+                    // Then append the idOf to affectedList
+                    affectedList.push(idOf);
+                }
+            } else {
+                affectedList.push(origList[a]);
+            };
+        };
+    };
+    return affectedList;
+}
+
+function replacementStyle(json, newColor) {
+    var newStyle = json.style;
+    var replacement = '';
+    for (n in Object.keys(newStyle)){
+        var currentKey = Object.keys(newStyle)[n]
+        if (currentKey === 'fill'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] === undefined){
+                    var currentValue = ColorLuminance(newColor, -0.12);
+                }
+                else {
+                    var currentValue = newColor;
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else if (currentKey === 'stroke'){
+            if (newStyle[currentKey] != 'none'){
+                if (json.style["stroke-width"] != undefined){
+                    var currentValue = ColorLuminance(newColor, -0.2);
+                }
+            }
+            else {
+                var currentValue = newStyle[currentKey];
+            }
+        }
+        else {
+            var currentValue = newStyle[currentKey];
+        }
+        var keyVal = 	currentKey + ': ' + currentValue + '; '
+        replacement = replacement.concat(keyVal);
+    }
+    return replacement;
 }
 
 function applyColor(id, newColor, optLayer){
@@ -202,9 +217,6 @@ function applyColor(id, newColor, optLayer){
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
             newArray = [];
-            //for (e in optEllipses) {
-            //    optPaths.insertAfter.apply(optEllipses[e]);
-            //}
             newArray.push.apply(newArray, optPaths);
             newArray.push.apply(newArray, optEllipses);
             optPaths = newArray;
@@ -275,6 +287,7 @@ function applyColor(id, newColor, optLayer){
                 newStroke = shadeColor(newColor, -25);
                 if (json.style["stroke-width"] === undefined){
                     //newColor = shadeColor(newColor, -25)
+                    //TODO
                 }
             }
         }

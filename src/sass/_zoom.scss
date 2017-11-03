@@ -1,0 +1,28 @@
+.zoom-container {
+    position: absolute;
+    top: 23%;
+    left: 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-150%);
+    transition: transform 0.2s ease-in-out;
+
+    @media screen and (min-width: 650px) {
+        top: 2%;
+    }
+
+    &--show {
+        transform: translateX(0);
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+.zoom-icon {
+    fill: currentColor;
+    color: $color-alpha;
+    width: 16px;
+    height: 16px;
+}
+

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" id="eyes_sadness">
+<g id="eyes_sadness">
   <path style="display:inline;fill:#f9f9f9;stroke:#de8787;stroke-width:0.22047825;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" d="m 272.71446,139.4369 c 1.88065,0.52003 3.76895,0.48489 5.55865,0.11059 -1.56162,0.10583 -3.6023,0.13165 -5.55865,-0.11059 z" id="path29912"/>
   <path style="display:inline;fill:#f9f9f9;stroke:#de8787;stroke-width:0.22047825;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" d="m 292.10978,139.34075 c -0.97955,0.28329 -3.79814,0.68586 -5.40771,0.18427 1.61073,0.16318 3.54798,0.0929 5.40771,-0.18427 z" id="path29914"/>
-</svg>
+</g>
