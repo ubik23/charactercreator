@@ -43,7 +43,6 @@ function interpretHash() {
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
-<<<<<<< HEAD
     } else {
     maleSilhouette.addEventListener('click', selectMale, false);
     femaleSilhouette.addEventListener('click', selectFemale, false);
@@ -73,12 +72,6 @@ function scrollZoom(e) {
     }
 }
 function launch(layers, layerDirectory) {
-=======
-    }
-}
-
-function launch() {
->>>>>>> master
     var maleForm1 = {
     'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
     'Ears' : ['default', 'pointed'],
