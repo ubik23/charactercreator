@@ -28,7 +28,6 @@
         bottom: auto;
         top: 3%;
         width: 27%;
-        margin: 0 3% 0 3%;
     }
 }
 
@@ -39,7 +38,6 @@
 
     @media screen and (min-width: 650px) {
         top: 3%;
-        margin-right: 6%;
     }
 }
 
@@ -47,10 +45,10 @@
     bottom: 0;
     left: 0;
     transform: translateX(-200%);
+
     @media screen and (min-width: 650px) {
         bottom: auto;
         width: 18%;
-        margin-left: 14%;
     }
 }
 

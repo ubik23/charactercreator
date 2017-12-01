@@ -10,7 +10,7 @@ sub {
 
 .site-title {
     font-family: "Helvetica";
-    text-align:left;
+    text-align: left;
     font-size: 3.5vh;
     font-weight: 500;
     padding-top: 0.45vh;
@@ -33,11 +33,11 @@ sub {
 }
 
 #horizontal li a {
-    color: $color-beta;
+    color: $color-alpha;
 }
 
 #horizontal li a:hover {
-    color: $color-beta--light;
+    color: $color-alpha--light;
 }
 
 .menu-text {
