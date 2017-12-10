@@ -510,6 +510,9 @@ function colorize(formId, _color){
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
+    var colorDark = shadeColor(_color, -25);
+    var colorDarker = shadeColor(_color, -50);
+    var colorDarkest = shadeColor(_color, -75);
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -560,23 +563,46 @@ function colorize(formId, _color){
                 modCharacter(myKey, myValue);
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
-                    // Else, the list is taken from the form.
-                    var optLayer = viewport.select(fullId);
-                    if (optLayer != null) {
-                        var optPaths = optLayer.selectAll('path')
-                        if (fullId === '#body_athletic_2_of_2') {
-                            var optEllipses = optLayer.selectAll('ellipse')
-                            newArray = [];
-                            newArray.push.apply(newArray, optPaths);
-                            newArray.push.apply(newArray, optEllipses);
-                            optPaths = newArray;
-                        }
-                        processPaths(optPaths, _color);
+                    var alphaNodes = document.querySelectorAll(fullId+" .alpha");
+                    var alphaDarkNodes = document.querySelectorAll(fullId+" .alpha--dark");
+                    var alphaNodesCounter = alphaNodes.length;
+                    var alphaDarkNodesCounter = alphaDarkNodes.length;
+                    while (alphaNodesCounter--){
+                        colorPaths(alphaNodes[alphaNodesCounter], _color, colorDarker);
                     }
+                    while (alphaDarkNodesCounter--){
+                        colorPaths(alphaDarkNodes[alphaDarkNodesCounter], colorDark, colorDarker);
+                    }
+
+                    // Else, the list is taken from the form.
+                    //var optLayer = viewport.select(fullId);
+                    //if (optLayer != null) {
+                        //var optPaths = optLayer.selectAll('path')
+                        //if (fullId === '#body_athletic_2_of_2') {
+                            //var optEllipses = optLayer.selectAll('ellipse')
+                            //newArray = [];
+                            //newArray.push.apply(newArray, optPaths);
+                            //newArray.push.apply(newArray, optEllipses);
+                            //optPaths = newArray;
+                        //}
+                        //processPaths(optPaths, _color);
+                    //}
                 }
             }
         }
     }
+}
+
+function colorPaths(node, _color, colorDarker){
+    if (node.style.fill != "none"){
+        node.style.fill = _color;
+    } else {
+    }
+    if (node.style.stroke != "none" && node.style.stroke != ""){
+        console.log("node.style.stroke", node.style.stroke);
+        node.style.stroke = colorDarker;
+    }
+    //console.log("node", node);
 }
 
 function processPaths(optPaths, _color) {
