@@ -39,7 +39,7 @@ function startup() {
 
 function interpretHash() {
     var hashSex = hash.get("sex");
-    if (hashSex === "m"){
+    if (hashSex === "m") {
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();

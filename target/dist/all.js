@@ -625,18 +625,22 @@ function processPaths(optPaths, _color) {
 
 function getAffectedListFromOrig(origList, multiLayer) {
     affectedList=[];
+    var match;
     for (a in origList) {
+        match = false;
         for (lyr in multiLayer){
             if (origList[a] == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++){
                     idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
                     // Then append the idOf to affectedList
                     affectedList.push(idOf);
+                    match = true;
                 }
-            } else {
-                affectedList.push(origList[a]);
             };
         };
+        if (!match) {
+            affectedList.push(origList[a]);
+        }
     };
     return affectedList;
 }
@@ -2432,7 +2436,7 @@ function startup() {
 
 function interpretHash() {
     var hashSex = hash.get("sex");
-    if (hashSex === "m"){
+    if (hashSex === "m") {
         selectMale();
     } else if (hashSex === "f") {
         selectFemale();
