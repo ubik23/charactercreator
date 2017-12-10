@@ -510,6 +510,9 @@ function colorize(formId, _color){
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
+    var colorLight = shadeColor(_color, 25);
+    var colorLighter = shadeColor(_color, 50);
+    var colorLightest = shadeColor(_color, 75);
     var colorDark = shadeColor(_color, -25);
     var colorDarker = shadeColor(_color, -50);
     var colorDarkest = shadeColor(_color, -75);
@@ -519,6 +522,7 @@ function colorize(formId, _color){
             // is x = to id?
             // if so, cycle through each element
             if(form[x].toLowerCase() === id){
+                console.log("id", id);
                 // Figure out which form to look in to find this id
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
@@ -564,14 +568,39 @@ function colorize(formId, _color){
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     var alphaNodes = document.querySelectorAll(fullId+" .alpha");
+                    var alphaLightNodes = document.querySelectorAll(fullId+" .alpha--light");
+                    var alphaLighterNodes = document.querySelectorAll(fullId+" .alpha--lighter");
+                    var alphaLightestNodes = document.querySelectorAll(fullId+" .alpha--lightest");
                     var alphaDarkNodes = document.querySelectorAll(fullId+" .alpha--dark");
+                    var alphaDarkerNodes = document.querySelectorAll(fullId+" .alpha--darker");
+                    var alphaDarkestNodes = document.querySelectorAll(fullId+" .alpha--darkest");
                     var alphaNodesCounter = alphaNodes.length;
+                    var alphaLightNodesCounter = alphaLightNodes.length;
+                    var alphaLighterNodesCounter = alphaLighterNodes.length;
+                    var alphaLightestNodesCounter = alphaLightestNodes.length;
                     var alphaDarkNodesCounter = alphaDarkNodes.length;
+                    var alphaDarkerNodesCounter = alphaDarkerNodes.length;
+                    var alphaDarkestNodesCounter = alphaDarkestNodes.length;
                     while (alphaNodesCounter--){
                         colorPaths(alphaNodes[alphaNodesCounter], _color, colorDarker);
                     }
+                    while (alphaLightNodesCounter--){
+                        colorPaths(alphaLightNodes[alphaLightNodesCounter], colorLight, colorDark);
+                    }
+                    while (alphaLighterNodesCounter--){
+                        colorPaths(alphaLighterNodes[alphaLighterNodesCounter], colorLighter, _color);
+                    }
+                    while (alphaLightestNodesCounter--){
+                        colorPaths(alphaLightestNodes[alphaLightestNodesCounter], colorLightest, colorLight);
+                    }
                     while (alphaDarkNodesCounter--){
                         colorPaths(alphaDarkNodes[alphaDarkNodesCounter], colorDark, colorDarker);
+                    }
+                    while (alphaDarkerNodesCounter--){
+                        colorPaths(alphaDarkerNodes[alphaDarkerNodesCounter], colorDarker, colorDarkest);
+                    }
+                    while (alphaDarkestNodesCounter--){
+                        colorPaths(alphaDarkestNodes[alphaDarkestNodesCounter], colorDarkest, colorDarkest);
                     }
 
                     // Else, the list is taken from the form.
@@ -594,17 +623,15 @@ function colorize(formId, _color){
 }
 
 function colorPaths(node, _color, colorDarker){
-    if (node.style.fill != "none"){
+    if (node.style.fill != "none" && node.style.fill != ""){
         node.style.fill = _color;
-    } else {
     }
     if (node.style.stroke != "none" && node.style.stroke != ""){
-        console.log("node.style.stroke", node.style.stroke);
         node.style.stroke = colorDarker;
     }
-    //console.log("node", node);
 }
 
+// TO BE REPLACED BY PREVIOUS FUNCTION.
 function processPaths(optPaths, _color) {
     for (p in optPaths) {
         if ( typeof optPaths[p].attr === 'function') {
