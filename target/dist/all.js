@@ -507,22 +507,22 @@ function colorSkin(color) {
 }
 
 function colorize(formId, _color){
+    var colorMultiplyer = 25;
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
-    var colorLight = shadeColor(_color, 25);
-    var colorLighter = shadeColor(_color, 50);
-    var colorLightest = shadeColor(_color, 75);
-    var colorDark = shadeColor(_color, -25);
-    var colorDarker = shadeColor(_color, -50);
-    var colorDarkest = shadeColor(_color, -75);
+    var colorLight = shadeColor(_color, colorMultiplyer);
+    var colorLighter = shadeColor(_color, (2 * colorMultiplyer));
+    var colorLightest = shadeColor(_color, (3 * colorMultiplyer));
+    var colorDark = shadeColor(_color, -1 * colorMultiplyer);
+    var colorDarker = shadeColor(_color, -1 * (2 * colorMultiplyer));
+    var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
             if(form[x].toLowerCase() === id){
-                console.log("id", id);
                 // Figure out which form to look in to find this id
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
@@ -685,7 +685,6 @@ function getAffectedListFromOrig(origList, multiLayer) {
             if (origList[a] == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++){
                     idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1];
-                    // Then append the idOf to affectedList
                     affectedList.push(idOf);
                     match = true;
                 }
