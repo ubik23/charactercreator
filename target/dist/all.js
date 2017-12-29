@@ -517,6 +517,13 @@ function colorize(formId, _color){
     var colorDark = shadeColor(_color, -1 * colorMultiplyer);
     var colorDarker = shadeColor(_color, -1 * (2 * colorMultiplyer));
     var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
+    var classPrefix = "alpha";
+    var classLightest = "--lightest";
+    var classLighter = "--lighter";
+    var classLight = "--light";
+    var classDark = "--dark";
+    var classDarker = "--darker";
+    var classDarkest = "--darkest";
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -530,7 +537,8 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
-                    colorSkin(_color);
+                    //colorSkin(_color);
+                    classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
@@ -567,13 +575,13 @@ function colorize(formId, _color){
                 modCharacter(myKey, myValue);
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
-                    var alphaNodes = document.querySelectorAll(fullId+" .alpha");
-                    var alphaLightNodes = document.querySelectorAll(fullId+" .alpha--light");
-                    var alphaLighterNodes = document.querySelectorAll(fullId+" .alpha--lighter");
-                    var alphaLightestNodes = document.querySelectorAll(fullId+" .alpha--lightest");
-                    var alphaDarkNodes = document.querySelectorAll(fullId+" .alpha--dark");
-                    var alphaDarkerNodes = document.querySelectorAll(fullId+" .alpha--darker");
-                    var alphaDarkestNodes = document.querySelectorAll(fullId+" .alpha--darkest");
+                    var alphaNodes = document.querySelectorAll(fullId+" ."+classPrefix);
+                    var alphaLightNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLight);
+                    var alphaLighterNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLighter);
+                    var alphaLightestNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLightest);
+                    var alphaDarkNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDark);
+                    var alphaDarkerNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDarker);
+                    var alphaDarkestNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDarkest);
                     var alphaNodesCounter = alphaNodes.length;
                     var alphaLightNodesCounter = alphaLightNodes.length;
                     var alphaLighterNodesCounter = alphaLighterNodes.length;
