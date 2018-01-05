@@ -1,4 +1,3 @@
-
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.
     //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.

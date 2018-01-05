@@ -507,7 +507,7 @@ function colorSkin(color) {
 }
 
 function colorize(formId, _color){
-    var colorMultiplyer = 25;
+    var colorMultiplyer = 10; // Color contrast.
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
@@ -866,7 +866,6 @@ function download() {
         pom.click();
     }
 }
-
 
 function createForm(sex, forms){
     //TODO Check to see if there is already an existing form for the sex of the new character.

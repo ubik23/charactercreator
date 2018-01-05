@@ -37,7 +37,7 @@ function colorSkin(color) {
 }
 
 function colorize(formId, _color){
-    var colorMultiplyer = 25;
+    var colorMultiplyer = 10; // Color contrast.
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
