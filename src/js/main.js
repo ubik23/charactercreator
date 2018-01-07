@@ -335,8 +335,36 @@ function displayPallette () {
 }
 
 function chooseSkinColor() {
+    //var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+    //
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
+    var eyeColorDict = [
+        ['#FFDFC4', "#6F918A"], // Grey
+        ['#F0D5BE', "#FF6600"], // Amber
+        ['#EECEB3', "#A0892C"], // Hazel
+        ['#E1B899', "#784421"], // Light Brown
+        ['#E5C298', "#784421"], // Light Brown
+        ['#FFDCB2', "#784421"], // Light Brown
+        ['#E5B887', "#784421"], // Light Brown
+        ['#E5A073', "#784421"], // Light Brown
+        ['#E79E6D', "#784421"], // Light Brown
+        ['#DB9065', "#784421"], // Light Brown
+        ['#CE967C', "#784421"], // Light Brown
+        ['#C67856', "#784421"], // Light Brown
+        ['#BA6C49', "#784421"], // Light Brown
+        ['#A57257', "#784421"], // Light Brown
+        ['#F0C8C9', "#37ABC8"], // Blue
+        ['#DDA8A0', "#AAD400"], // Green
+        ['#B97C6D', "#552200"], // Brown
+        ['#A8756C', "#552200"], // Brown
+        ['#AD6452', "#552200"], // Brown
+        ['#5C3836', "#552200"], // Brown
+        ['#CB8442', "#552200"], // Brown
+        ['#BD723C', "#552200"], // Brown
+        ['#704139', "#552200"], // Brown
+        ['#A3866A', "#552200"]  // Brown
+    ];
     gmenu.classList.add('skin-color__container--show');
     for (color in skinTones) {
         var newColor = skinTones[color];
