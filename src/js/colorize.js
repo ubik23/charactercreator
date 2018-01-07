@@ -273,6 +273,8 @@ function replacementStyle(json, newColor) {
 }
 
 function applyColor(id, newColor, optLayer){
+    var pathStyle;
+    var currentNode;
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
@@ -289,7 +291,11 @@ function applyColor(id, newColor, optLayer){
         for (p in optPaths) {
             if (typeof optPaths[p].attr === 'function'){
                 var pathId = optPaths[p].attr("id")
-                var pathStyle = optLayer.select('#'+ pathId).attr("style");
+                if (pathId === undefined){
+                    pathStyle = optPaths[p].node.style.cssText;
+                } else {
+                    pathStyle = optLayer.select('#'+ pathId).attr("style");
+                }
                 if (pathStyle == undefined) {
                     continue;
                 }
@@ -315,6 +321,8 @@ function applyColor(id, newColor, optLayer){
                 // Query the style to determine if shape or shadow
                 // Change the color
                 newStyle = json.style;
+                console.log("id", id);
+                console.log("newStyle", newStyle);
                 var replacement = '';
                 for (n in Object.keys(newStyle)){
                     var currentKey = Object.keys(newStyle)[n]

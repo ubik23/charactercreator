@@ -55,7 +55,7 @@ function onEachLoaded(frag, fileName) {
     } else {var seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'){
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'||section==='mouth'){
         var section = 'skin';
     }
     if (section ==='facialhair' || section==='brows') {
