@@ -2807,7 +2807,6 @@ function chooseSkinColor() {
 }
 
 function defaultEyeColor(skinColor){
-    console.log("skinColor", skinColor);
     var eyeColorDict = {
         '#ffdfc4' : "#6F918A", // Grey
         '#f0d5be' : "#FF6600", // Amber
@@ -2836,6 +2835,37 @@ function defaultEyeColor(skinColor){
     };
     var eyeColor = eyeColorDict[skinColor];
     hash.add({ irisColor: eyeColor });
+}
+
+function defaultHairColor(skinColor){
+    var hairColorDict = {
+        '#ffdfc4' : "#803300", // Light brown
+        '#f0d5be' : "#803300", // Light brown
+        '#eeceb3' : "#803300", // Light brown
+        '#e1b899' : "#1a1a1a", // Black
+        '#e5c298' : "#1a1a1a", // Black
+        '#ffdcb2' : "#1a1a1a", // Black
+        '#e5b887' : "#1a1a1a", // Black
+        '#e5a073' : "#1a1a1a", // Black
+        '#e79e6d' : "#1a1a1a", // Black
+        '#db9065' : "#1a1a1a", // Black
+        '#ce967c' : "#1a1a1a", // Black
+        '#c67856' : "#1a1a1a", // Black
+        '#ba6c49' : "#1a1a1a", // Black
+        '#a57257' : "#1a1a1a", // Black
+        '#f0c8c9' : "#ffcc00", // Blond
+        '#dda8a0' : "#ff6600", // Red
+        '#b97c6d' : "#1a1a1a", // Black
+        '#a8756c' : "#1a1a1a", // Black
+        '#ad6452' : "#1a1a1a", // Black
+        '#5c3836' : "#1a1a1a", // Black
+        '#cb8442' : "#1a1a1a", // Black
+        '#bd723c' : "#1a1a1a", // Black
+        '#704139' : "#1a1a1a", // Black
+        '#a3866a' : "#1a1a1a"  // Black
+    };
+    var newHairColor = hairColorDict[skinColor];
+    hash.add({ hairColor: newHairColor });
 }
 
 function rgb2hex(rgb){
@@ -2867,6 +2897,7 @@ function colorCutout(newColor){
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
     defaultEyeColor(newColor);
+    defaultHairColor(newColor);
     setTimeout(function(){
         launch();
     }, 300);
