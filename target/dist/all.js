@@ -799,7 +799,7 @@ function applyColor(id, newColor, optLayer){
                     if (currentKey === 'fill'){
                         if (newStyle[currentKey] != 'none'){
                             if (json.style["stroke-width"] === undefined){
-                                var currentValue = ColorLuminance(newColor, -0.12);
+                                var currentValue = ColorLuminance(newColor, -0.12); //TODO change hardcoded value for contrast into the variable.
                             }
                             else {
                                 var currentValue = '#'+ newColor;
@@ -812,7 +812,7 @@ function applyColor(id, newColor, optLayer){
                     else if (currentKey === 'stroke'){
                         if (newStyle[currentKey] != 'none'){
                             if (json.style["stroke-width"] != undefined){
-                                var currentValue = ColorLuminance(newColor, -0.2);
+                                var currentValue = ColorLuminance(newColor, -0.2); //TODO change hard coded value for contrast.
                             }
                         }
                         else {
