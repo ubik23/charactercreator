@@ -273,8 +273,10 @@ function replacementStyle(json, newColor) {
 }
 
 function applyColor(id, newColor, optLayer){
+    var colorMultiplyer = 10; // Color contrast.
     var pathStyle;
     var currentNode;
+    var colorContrast;
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
@@ -290,7 +292,30 @@ function applyColor(id, newColor, optLayer){
 
         for (p in optPaths) {
             if (typeof optPaths[p].attr === 'function'){
-                var pathId = optPaths[p].attr("id")
+                var colorContrast = "";
+                var pathId = optPaths[p].attr("id");
+                var pathClassGroup = optPaths[p].attr("class");
+                if (pathClassGroup != undefined){
+                    var pathClass = pathClassGroup.split(' ');
+                    var counter = pathClass.length;
+                    while (counter--){
+                        currentClass = pathClass[counter];
+                        if (currentClass === "alpha--dark"||currentClass === "skin--dark"||currentClass === "hair--dark"){
+                            colorContrast = "dark";
+                        } else if (currentClass === "alpha--darker"||currentClass === "skin--darker"||currentClass === "hair--darker"){
+                            colorContrast = "darker";
+                        } else if (currentClass === "alpha--light"||currentClass === "skin--light"||currentClass === "hair--light"){
+                            colorContrast = "light";
+                        } else if (currentClass === "alpha--lighter"||currentClass === "skin--lighter"||currentClass === "hair--lighter"){
+                            colorContrast = "lighter";
+                        } else if (currentClass === "alpha"||currentClass === "skin"||currentClass === "hair"){
+                            colorContrast = "base";
+                        } else {
+                        }
+                    }
+                } else {
+                    pathClass = pathClassGroup;
+                }
                 if (pathId === undefined){
                     pathStyle = optPaths[p].node.style.cssText;
                 } else {
@@ -299,9 +324,6 @@ function applyColor(id, newColor, optLayer){
                 if (pathStyle == undefined) {
                     continue;
                 }
-                // Parse the style in a json object
-                // Identify if the path is a shape or a shadow
-                // apply newStyle if applicable
                 var styles = pathStyle.split(';'),
                 i= styles.length,
                 json = {style: {}},
@@ -318,21 +340,28 @@ function applyColor(id, newColor, optLayer){
                         json.style[k] = v;
                     }
                 }
-                // Query the style to determine if shape or shadow
-                // Change the color
                 newStyle = json.style;
-                console.log("id", id);
-                console.log("newStyle", newStyle);
                 var replacement = '';
                 for (n in Object.keys(newStyle)){
                     var currentKey = Object.keys(newStyle)[n]
                     if (currentKey === 'fill'){
                         if (newStyle[currentKey] != 'none'){
-                            if (json.style["stroke-width"] === undefined){
-                                var currentValue = ColorLuminance(newColor, -0.12); //TODO change hardcoded value for contrast into the variable.
-                            }
-                            else {
-                                var currentValue = '#'+ newColor;
+                            if (colorContrast === 'dark'){
+                                var currentValue = shadeColor('#' + newColor,  -1 * colorMultiplyer);
+                            } else if (colorContrast === "darker"){
+                                var currentValue = shadeColor('#' + newColor,  -1 * (2 * colorMultiplyer));
+                            } else if (colorContrast === "darkest"){
+                                var currentValue = shadeColor('#' + newColor,  -1 * (3 * colorMultiplyer));
+                            } else if (colorContrast === "light"){
+                                var currentValue = shadeColor('#' + newColor,  colorMultiplyer);
+                            } else if (colorContrast === "lighter"){
+                                var currentValue = shadeColor('#' + newColor,  (2 * colorMultiplyer));
+                            } else if (colorContrast === "lightest"){
+                                var currentValue = shadeColor('#' + newColor,  (3 * colorMultiplyer));
+                            } else if (colorContrast === "base"){
+                                var currentValue =  '#' + newColor;
+                            } else if (colorContrast === ""){
+                                var currentValue = newStyle[currentKey];
                             }
                         }
                         else {
@@ -341,8 +370,22 @@ function applyColor(id, newColor, optLayer){
                     }
                     else if (currentKey === 'stroke'){
                         if (newStyle[currentKey] != 'none'){
-                            if (json.style["stroke-width"] != undefined){
-                                var currentValue = ColorLuminance(newColor, -0.2); //TODO change hard coded value for contrast.
+                            if (json.style["stroke-width"] != undefined&& colorContrast === "dark"){
+                                var currentValue = shadeColor('#' + newColor,  (-1 * colorMultiplyer));
+                            } else if (json.style["stroke-width"] != undefined&& colorContrast === "darker"){
+                                var currentValue = shadeColor('#' + newColor,  -1 * (2 * colorMultiplyer));
+                            } else if (json.style["stroke-width"] != undefined&& colorContrast === "darkest"){
+                                var currentValue = shadeColor('#' + newColor,  -1 * (3 * colorMultiplyer));
+                            } else if (json.style["stroke-width"] != undefined&& colorContrast === "light"){
+                                var currentValue = shadeColor('#' + newColor,  colorMultiplyer);
+                            } else if (json.style["stroke-width"] != undefined&& colorContrast === "lighter"){
+                                var currentValue = shadeColor('#' + newColor,  (2 * colorMultiplyer));
+                            } else if (json.style["stroke-width"] != undefined&& colorContrast === "lightest"){
+                                var currentValue = shadeColor('#' + newColor,  (3 * colorMultiplyer));
+                            } else if (json.style["stroke-width"] != undefined&&colorContrast === "base"){
+                                var currentValue =  '#' + newColor;
+                            } else if (json.style["stroke-width"] != undefined&&colorContrast === ""){
+                                var currentValue = newStyle[currentKey];
                             }
                         }
                         else {
@@ -355,12 +398,7 @@ function applyColor(id, newColor, optLayer){
                     var keyVal = 	currentKey + ': ' + currentValue + '; '
                     replacement = replacement.concat(keyVal);
                 }
-                optLayer.selectAll('#'+pathId).attr({style: replacement});
-                newStroke = shadeColor(newColor, -25);
-                if (json.style["stroke-width"] === undefined){
-                    //newColor = shadeColor(newColor, -25)
-                    //TODO
-                }
+                optLayer.selectAll('path')[p].attr({style: replacement});
             }
         }
     }
