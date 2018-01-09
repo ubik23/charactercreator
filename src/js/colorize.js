@@ -304,10 +304,14 @@ function applyColor(id, newColor, optLayer){
                             colorContrast = "dark";
                         } else if (currentClass === "alpha--darker"||currentClass === "skin--darker"||currentClass === "hair--darker"){
                             colorContrast = "darker";
+                        } else if (currentClass === "alpha--darkest"||currentClass === "skin--darkest"||currentClass === "hair--darkest"){
+                            colorContrast = "darkest";
                         } else if (currentClass === "alpha--light"||currentClass === "skin--light"||currentClass === "hair--light"){
                             colorContrast = "light";
                         } else if (currentClass === "alpha--lighter"||currentClass === "skin--lighter"||currentClass === "hair--lighter"){
                             colorContrast = "lighter";
+                        } else if (currentClass === "alpha--lightest"||currentClass === "skin--lightest"||currentClass === "hair--lightest"){
+                            colorContrast = "lightest";
                         } else if (currentClass === "alpha"||currentClass === "skin"||currentClass === "hair"){
                             colorContrast = "base";
                         } else {
