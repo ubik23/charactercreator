@@ -845,7 +845,7 @@ function applyColor(id, newColor, optLayer){
                     else if (currentKey === 'stroke'){
                         if (newStyle[currentKey] != 'none'){
                             if (json.style["stroke-width"] != undefined&& colorContrast === "dark"){
-                                var currentValue = shadeColor('#' + newColor,  -1 * (2 * colorMultiplyer));
+                                var currentValue = shadeColor('#' + newColor,  -1 * (3 * colorMultiplyer));
                             } else if (json.style["stroke-width"] != undefined&& colorContrast === "darker"){
                                 var currentValue = shadeColor('#' + newColor,  -1 * (3 * colorMultiplyer));
                             } else if (json.style["stroke-width"] != undefined&& colorContrast === "darkest"){
@@ -857,7 +857,7 @@ function applyColor(id, newColor, optLayer){
                             } else if (json.style["stroke-width"] != undefined&& colorContrast === "lightest"){
                                 var currentValue = shadeColor('#' + newColor,  (2 * colorMultiplyer));
                             } else if (json.style["stroke-width"] != undefined&&colorContrast === "base"){
-                                var currentValue = shadeColor('#' + newColor,  (-1 * colorMultiplyer));
+                                var currentValue = shadeColor('#' + newColor,  -1 * (2 * colorMultiplyer));
                             } else if (json.style["stroke-width"] != undefined&&colorContrast === ""){
                                 var currentValue = newStyle[currentKey];
                             }
