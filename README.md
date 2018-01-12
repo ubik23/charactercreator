@@ -3,15 +3,17 @@ A frontend interface for creating characters in SVG from a series of menus prese
 
 View it in action on https://charactercreator.org
 
+# Description
+
 This project is a prototype for creating characters quickly that can be exported for web projects, 2D gaming projects, Comics or other print materials.
 
 Downloaded characters can be openend in Inkscape, a free vector graphics program.
 
 https://inkscape.org
 
-Ths project is licensed AGPL, clone, modify and share your improvements!
+# MIssion
 
-Suggestions are welcomed. Post an issue on the project's github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
+The aim of this project is to create a fast, intuitive user interface for producing quality 2d character drawings.
 
 # Getting Started
 
@@ -39,4 +41,9 @@ if you want to open an SVG to edit it, make sure you add the following in the fi
 
 You can then edit the layer in Inkscape and export it again. Be sure to use a tool to optimize the file as much as possible (like svgomg) and replace the SVG tag by a Group tag. 
 
+# License
+
+Ths project is licensed AGPL, clone, modify and share your improvements!
+
+Suggestions are welcomed. Post an issue on the project's github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
 
