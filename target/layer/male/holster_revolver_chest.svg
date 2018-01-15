@@ -1,3 +1,4 @@
+<svg viewBox="10 50 540 540">
 <g id="holster_revolver_chest">
     <path id="path4120-6" class="alpha" d="M303.2 227.5v-.5l2.4-2.5c.4-.5 1.4-1 2.2 0 0 1.6-3.7 2.5-4.6 3z" style="fill:#c35a2e;stroke:#3c1406;stroke-width:0.5;"/>
     <path id="path2993-9-3-9" class="beta" d="M311.8 227a2.7 3.5 0 1 1-5.4 0 2.7 3.5 0 1 1 5.4 0z" style="fill:none;stroke:#808080;stroke-width:1.5;"/>
@@ -36,3 +37,4 @@
     <path id="path3787-0" class="alpha" d="M318.5 247c.2 1.5-.7 4.4-4 7l-4.2 3.3c-.6.4-2 .4-2.8-.3-1-.6-9.5-7.8-15.7-8.6-6.3-.7-13-2-15.5-6-2.4-3.8 0-6.3 4.2-7.4 4.2-1 8.2-3.5 9.4-8 .7-3 0-5 0-5" style="fill:none;stroke:#3c1406;stroke-width:0.25;stroke-dasharray:0.75, 0.25;"/>
     <path id="path4291-6" class="alpha" d="M288 221.6c-1 1.2-4 2-5.6 2.2-1.5 0-3.2 1-4 1.6 1-2 3-2.4 4.5-2.7 1.7-.4 3-.5 3-1.2s.7-.2 1 0h1z" style="fill:#c35a2e;stroke:#3c1406;stroke-width:0.5;"/>
 </g>
+</svg>
