@@ -1,18 +1,6 @@
 <g id="eyes_neutral">
-  <defs id="defs33019">
-    <clipPath id="clipPath17580">
-      <path id="path17582" d="M538 128c-.3.6-1.7 2.4-5.6.8l-1.6.2v-.2s.4-.4 1-.5c.5-.2 1.8-1.8 3-1.8 1.3 0 3 1 3 1.5z" style="color:#000000;fill:none;stroke:#008080;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-    <clipPath id="clipPath17632">
-      <path id="path17634" d="M515.6 128c.3.6 1.7 2.4 5.6.8l1.6.2v-.2s-.4-.4-1-.5c-.5-.2-1.8-1.8-3-1.8-1.3 0-3 1-3.2 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.02662179;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-    </clipPath>
-  </defs>
-  <g id="g33023" style="display:inline;enable-background:new">
     <path id="path17096-71" d="M291.7 127c-.3.6-1.6 2.4-5.6.8l-1.5.2v-.2s.4-.4 1-.5c.5-.2 1.8-1.8 3-1.8 1.3 0 3 1 3.2 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.125;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path17100-0" d="M532.4 128.8c0-.2 0-.4-.3-.7-2 .5-2.2 1.6.4.8z" transform="translate(-246.265 -1)" clip-path="url(#clipPath17580)" style="color:#000000;fill:#de8787;stroke:none;stroke-width:0.02662179;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-  </g>
-  <g id="g33027" style="display:inline;enable-background:new">
     <path id="path17096-71-3" d="M269.4 127c.2.6 1.6 2.4 5.5.8l1.5.2v-.2s-.4-.4-1-.5c-.4-.2-1.8-1.8-3-1.8-1.3 0-2.8 1-3 1.5z" style="color:#000000;fill:#e6e6e6;stroke:#de8787;stroke-width:0.125;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
     <path id="path17100-0-2" d="M521.2 128.8c0-.2 0-.4.3-.7-1.2.3-1.2.3 0 0 1.8.3 2.5 1.8-.3.8z" transform="translate(-246.265 -1)" clip-path="url(#clipPath17632)" style="color:#000000;fill:#de8787;fill-opacity:1;stroke:none;stroke-width:0.5;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"/>
-  </g>
 </g>
