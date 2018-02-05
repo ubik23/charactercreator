@@ -32,8 +32,9 @@ sub {
 
 #horizontal li {
     margin-left: 0.2em;
-    background-color: #eaebf0;
+    background-color: rgba(234, 235, 240, 0.5);
     padding: 0.2em;
+    border-radius: 0.2em;
 }
 
 #horizontal li a {
