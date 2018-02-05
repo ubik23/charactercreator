@@ -177,7 +177,7 @@ input[type=range][orient=vertical] {
     height: 94.5%;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
 }
