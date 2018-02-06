@@ -2524,11 +2524,11 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
-    //if (document.attachEvent) { //if IE (and Opera depending on user setting)
-    //    document.attachEvent("on"+mousewheelevt, scrollZoom);
-    //} else if (document.addEventListener) {//WC3 browsers
-    //    document.addEventListener(mousewheelevt, scrollZoom, false)
-    //}
+    if (document.attachEvent) { //if IE (and Opera depending on user setting)
+        document.attachEvent("on"+mousewheelevt, scrollZoom);
+    } else if (document.addEventListener) {//WC3 browsers
+        document.addEventListener(mousewheelevt, scrollZoom, false)
+    }
 
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
