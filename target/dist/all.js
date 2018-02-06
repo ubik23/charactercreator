@@ -1044,7 +1044,7 @@ function openThumbs() {
     }
     if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         //sidebarRight.classList.add("visible");
+         sidebarRight.classList.add("visible");
     }
     sidebarRight.classList.add("visible");
 }
@@ -1563,7 +1563,7 @@ function personnageActuelToHash(currentUser) {
 function trans(sex){
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
-    hideForms();
+    //hideForms();
     console.log('hideForms');
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
@@ -1571,7 +1571,7 @@ function trans(sex){
          currentUser.cc.personnages[personnageActuel].sex = sex;
     }
     window.sex = sex;
-   buildCharacter(resetForms);
+    buildCharacter(resetForms);
 }
 
 function buildCharacter(callback) {

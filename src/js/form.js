@@ -125,7 +125,7 @@ function openThumbs() {
     }
     if (sidebarLeft.classList.contains('cherry')) {
          sidebarLeft.classList.remove("cherry");
-         //sidebarRight.classList.add("visible");
+         sidebarRight.classList.add("visible");
     }
     sidebarRight.classList.add("visible");
 }
