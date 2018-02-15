@@ -16,11 +16,11 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
-    if (document.attachEvent) { //if IE (and Opera depending on user setting)
-        document.attachEvent("on"+mousewheelevt, scrollZoom);
-    } else if (document.addEventListener) {//WC3 browsers
-        document.addEventListener(mousewheelevt, scrollZoom, false)
-    }
+    //if (document.attachEvent) { //if IE (and Opera depending on user setting)
+    //    document.attachEvent("on"+mousewheelevt, scrollZoom);
+    //} else if (document.addEventListener) {//WC3 browsers
+    //    document.addEventListener(mousewheelevt, scrollZoom, false)
+    //}
 
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
@@ -250,9 +250,10 @@ function launch() {
     'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
     'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
     'shorts_bikini', 'shorts_short',
-    'holster_revolver_chest', 'holster_revolver_hip', 'holster_revolver_thigh_1_of_2',
+    'holster_revolver_hip', 'holster_revolver_thigh_1_of_2',
     'top_asymetric', 'top_loop', 'top_tank',
     'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
+    'holster_revolver_chest',
     'belt_satchel',
     'collar_metal',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
