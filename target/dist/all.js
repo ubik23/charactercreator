@@ -1283,8 +1283,8 @@ function getViewBox(t, d) {
     } else if (sex==="f") {
         var idDict = {
             "body_athletic":"65 130 430 430",
-            "coat_snowboard":"160 124 230 230",
-            "coat_trench":"130 124 290 290",
+            "coat_winter_tubecollar":"125 120 280 280",
+            "dress_bobafett":"160 165 230 230",
             "dress_corset":"175 180 200 200",
             "dress_japanese_pleat":"105 140 340 340",
             "dress_parisian_fall":"105 160 340 340",
@@ -1300,6 +1300,8 @@ function getViewBox(t, d) {
             "hat_tuque":"243 97 80 80",
             "hair_afro":"243 80 80 80",
             "hair_mohawk":"243 57 80 80",
+            "holster_revolver_hip":"213 245 130 130",
+            "holster_revolver_thigh":"213 285 130 130",
             "mask_horse":"233 92 100 100",
             "mask_robin":"261 120 40 40",
             "pet_canine":"82 403 150 150",
@@ -1327,6 +1329,7 @@ function getViewBox(t, d) {
             "tatoo_chaos_left":"298 170 48 48",
             "tatoo_chaos_right":"210 164 48 48",
             "tatoo_tribal_face":"258 105 50 50",
+            "top_tank":"215 165 120 120",
             "underwear_boxers":"224 258 120 120"
         }
         var sectionDict = {
@@ -1336,6 +1339,7 @@ function getViewBox(t, d) {
             "bra":"220 160 100 100",
             "bracelet":"316 252 48 48",
             "coat":"125 79 280 280",
+            "collar":"255 160 48 48",
             "dress":"160 150 230 230",
             "earpiece":"280 137 25 25",
             "earings":"257 141 20 20",
@@ -1369,6 +1373,7 @@ function getViewBox(t, d) {
             "socks":"225 442 120 120",
             "suit":"80 130 400 400",
             "tie":"241 140 80 80",
+            "top":"225 160 100 100",
             "underwear":"232 258 90 90",
             "veil":"207 97 150 150",
             "vest":"185 135 190 190",
