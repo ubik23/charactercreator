@@ -1200,6 +1200,7 @@ function getViewBox(t, d) {
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
+            "coat_fall_long":"130 124 290 290",
             "coat_trench":"130 124 290 290",
             "ears_plugged":"254 122 20 20",
             "ears_unplugged":"254 121 20 20",
@@ -2608,7 +2609,7 @@ function launch() {
     'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
     'Suit': ['', 'wetsuit'],
     'Jacket': ['', 'suit'],
-    'Coat': ['', 'lab', 'trench', 'snowboard'],
+    'Coat': ['', 'fall_long', 'lab', 'trench', 'snowboard'],
     'Cloak': ['', 'default'],
     'Watch': ['', 'generic'],
     'Gloves': ['', 'lab', 'motorcycle'],
@@ -2659,9 +2660,10 @@ function launch() {
     'belt_straps',
     'holster_revolver_chest', 'holster_revolver_hip',
     'jacket_suit',
+    'coat_fall_long_2_of_2',
     'belt_utility',
     'gloves_lab','gloves_motorcycle',
-    'coat_lab','coat_trench_1_of_3','coat_snowboard',
+    'coat_fall_long_1_of_2', 'coat_lab','coat_trench_1_of_3','coat_snowboard',
     'cloak_default_3_of_4',
     'cloak_default_2_of_4',
     'shoulderpads_general',
@@ -2818,7 +2820,7 @@ function launch() {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_trench', 3], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_fall_long', 2],['coat_trench', 3], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {

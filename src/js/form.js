@@ -281,6 +281,7 @@ function getViewBox(t, d) {
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
+            "coat_fall_long":"130 124 290 290",
             "coat_trench":"130 124 290 290",
             "ears_plugged":"254 122 20 20",
             "ears_unplugged":"254 121 20 20",
