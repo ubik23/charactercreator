@@ -1,4 +1,3 @@
+.cache
+dist
 node_modules
-was-node_modules
-log
-bower_components

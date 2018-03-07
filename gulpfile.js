@@ -20,10 +20,14 @@ gulp.task('default',function() {
 });
 
 gulp.task('scripts', function() {
-  //return gulp.src(['./src/lib/*.js', './src/js/*.js'])
-  return gulp.src([
-        './bower_components/promise-polyfill/promise.js', './bower_components/fetch/fetch.js', './src/lib/*.js', './src/js/*.js'
-  ])
+    return gulp.src([
+        './node_modules/promise-polyfill/promise.js',
+        './node_modules/fetch/fetch.js',
+        './node_modules/flexi-color-picker/colorpicker.js',
+        './node_modules/snapsvg/dist/snap.svg.js',
+        './src/lib/*.js',
+        './src/js/*.js'
+    ])
     .pipe(concat('all.js'))
     .pipe(minify({
         exclude: ['tasks'],

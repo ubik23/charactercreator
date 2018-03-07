@@ -19,11 +19,11 @@ The aim of this project is to create a fast, intuitive user interface for produc
 
 Install the dependencies:
 
-npm install 
+npm install
 
 Get the site up and running on your local machine:
 
-gulp
+npm start
 
 # Site Architecture
 
@@ -39,7 +39,7 @@ if you want to open an SVG to edit it, make sure you add the following in the fi
 [...]
 </svg>
 
-You can then edit the layer in Inkscape and export it again. Be sure to use a tool to optimize the file as much as possible (like svgomg) and replace the SVG tag by a Group tag. 
+You can then edit the layer in Inkscape and export it again. Be sure to use a tool to optimize the file as much as possible (like svgomg) and replace the SVG tag by a Group tag.
 
 # License
 
