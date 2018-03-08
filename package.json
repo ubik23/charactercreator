@@ -43,7 +43,7 @@
     "clean": "rimraf dist",
     "postinstall": "npm run bundle",
     "start": "gulp",
-    "start-ts": "parcel src/dev.html",
+    "start-ts": "parcel src/dev.html --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
