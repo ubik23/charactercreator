@@ -2539,6 +2539,7 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
 
+    // The following activates the scroll zoom.
     if (document.attachEvent) { //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     } else if (document.addEventListener) {//WC3 browsers
