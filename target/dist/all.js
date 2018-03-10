@@ -2018,6 +2018,13 @@ function whoami (ev) {
   overlay.addEventListener('click', closeOverlay, true);
 }
 
+function showAbout(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-about');
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+}
+
 function logout (ev) {
   ev.preventDefault()
   deleteDbSession()
@@ -2522,6 +2529,7 @@ function saveChar() {
 
 
 window.onload = function() {
+    var aboutBtn = document.querySelector("#aboutButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -2533,6 +2541,7 @@ window.onload = function() {
     var rightSidebar = document.querySelector('#sidebar');
     rightSidebarClone = rightSidebar.cloneNode(true);
 
+    if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }

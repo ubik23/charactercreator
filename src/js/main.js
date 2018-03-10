@@ -1,4 +1,5 @@
 window.onload = function() {
+    var aboutBtn = document.querySelector("#aboutButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -10,6 +11,7 @@ window.onload = function() {
     var rightSidebar = document.querySelector('#sidebar');
     rightSidebarClone = rightSidebar.cloneNode(true);
 
+    if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }

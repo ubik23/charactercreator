@@ -179,6 +179,13 @@ function whoami (ev) {
   overlay.addEventListener('click', closeOverlay, true);
 }
 
+function showAbout(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-about');
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+}
+
 function logout (ev) {
   ev.preventDefault()
   deleteDbSession()
