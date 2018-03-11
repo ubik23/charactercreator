@@ -99,7 +99,7 @@ function launch() {
     var maleForm5 = {
     'Underwear': ['plain', 'boxers'],
     'Pants': ['', 'suit', 'jeans', 'leather', 'snowboard'],
-    'Belt': ['', 'default', 'straps', 'utility', 'leather']
+    'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
     };
     var maleForm6 = {
     'Socks': ['','socks'],
@@ -132,7 +132,7 @@ function launch() {
     'shirt_colar_1_of_2',
     'vest_vest', 'vest_lined',
     'pants_jeans_1_of_2','pants_leather','pants_suit_1_of_2','pants_snowboard',
-    'belt_leather', 'belt_default',
+    'belt_leather', 'belt_default', 'belt_bullet',
     'pants_jeans_2_of_2', 'pants_suit_2_of_2',
     'shirt_tshirt',
     'tie_bow_1_of_2',
@@ -228,7 +228,7 @@ function launch() {
     'Shorts' : ['', 'bikini', 'short'],
     'Leggings': ['', 'regular', 'torn'],
     'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
-    'Belt' : ['','utility', 'satchel']
+    'Belt' : ['', 'bullet', 'utility', 'satchel']
     };
     var femaleForm6 = {
     'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
@@ -258,7 +258,7 @@ function launch() {
     'top_asymetric', 'top_loop', 'top_tank',
     'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
     'holster_revolver_chest',
-    'belt_satchel',
+    'belt_satchel', 'belt_bullet',
     'collar_metal',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
     'bracelet_rings',
