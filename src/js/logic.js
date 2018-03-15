@@ -44,7 +44,6 @@ function trans(sex){
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
     //hideForms();
-    console.log('hideForms');
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
