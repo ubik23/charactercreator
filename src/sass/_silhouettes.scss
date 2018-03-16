@@ -86,3 +86,11 @@
     }
 }
 
+.character-shadow {
+     opacity: 0;
+     transition: opacity 200ms ease 300ms;
+     &.shine {
+         opacity: 0.2;
+         transition: opacity 200ms ease 350ms;
+     }
+}

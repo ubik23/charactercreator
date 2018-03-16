@@ -485,6 +485,7 @@ function selectMale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    var shadow = document.querySelector('.character-shadow');
     if (maleRadioBtn) {
         maleRadioBtn.checked = true;
     }
@@ -494,6 +495,7 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
+    shadow.classList.add('shine');
 
     setTimeout(function(){
         displayPallette();
@@ -506,6 +508,7 @@ function selectFemale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    var shadow = document.querySelector('.character-shadow');
     if (femaleRadioBtn) {
         femaleRadioBtn.checked = true;
     }
@@ -516,6 +519,7 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
+    shadow.classList.add('shine');
 
     setTimeout(function(){
         displayPallette();
