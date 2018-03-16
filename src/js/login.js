@@ -166,27 +166,33 @@ function showErrorUsernameTaken(username) {
     var errorBox = currentOverlay.querySelector('.overlay__error');
     var errorText = errorBox.querySelector('.overlay__error__text');
     var errorMsg = 'Username "' + username + '" is already taken. Try another.';
-    var closeBtn = overlay.querySelector('.close-btn');
     errorText.innerHTML = errorMsg;
     errorBox.classList.add('overlay__error--show');
     console.log("C'est pris!");
     clearInputUsername();
-    closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
   var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
 }
-
+function closeAllOverlays() {
+    var overlays = document.querySelectorAll(".overlay--show");
+    var counter = overlays.length;
+    while (counter--){
+        overlays[counter].classList.remove('overlay--show');
+    }
+}
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
   var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
@@ -224,6 +230,7 @@ function loginMenu(evt) {
     var loginForm = document.querySelector('#login-form');
     var firstInput = overlay.querySelector('.first-input');
   var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
     overlay.classList.add('overlay--show');
     loginForm.addEventListener("submit", login, true);
     overlay.addEventListener('click', closeLogin, true);
@@ -519,6 +526,7 @@ function registerMenu() {
       loginMenu.classList.remove('overlay--show');
   }
 
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   registerForm.addEventListener("submit", register, true);
   overlay.addEventListener('click', closeRegister, true);
