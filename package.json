@@ -39,9 +39,10 @@
     "typescript": "^2.7.2"
   },
   "scripts": {
-    "bundle": "npm run clean && tsc -d",
+    "build": "npm run build-ts && gulp sass scripts",
+    "build-ts": "npm run clean && tsc -d",
     "clean": "rimraf dist",
-    "postinstall": "npm run bundle",
+    "scripts": "gulp scripts",
     "start": "gulp",
     "start-ts": "parcel src/dev.html --open",
     "test": "echo \"Error: no test specified\" && exit 1"

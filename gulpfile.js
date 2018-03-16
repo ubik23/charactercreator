@@ -9,9 +9,9 @@ var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 
-gulp.task('default',function() {
-    gulp.watch('src/sass/**/*.scss',['sass']);
-    gulp.watch('src/js/**/*.js',['scripts']);
+gulp.task('default', function () {
+    gulp.watch('src/sass/**/*.scss', ['sass']);
+    gulp.watch('src/js/**/*.js', ['scripts']);
     browserSync.init({
         server: {
             baseDir: "./target/"
@@ -19,9 +19,9 @@ gulp.task('default',function() {
     });
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src([
-        './node_modules/promise-polyfill/promise.js',
+        './node_modules/babel-polyfill/dist/polyfill.js',
         './node_modules/fetch/fetch.js',
         './node_modules/flexi-color-picker/colorpicker.js',
         './node_modules/snapsvg/dist/snap.svg.js',
@@ -31,7 +31,7 @@ gulp.task('scripts', function() {
     .pipe(concat('all.js'))
     .pipe(minify({
         exclude: ['tasks'],
-        ignoreFiles: ['.combo.js', '-min.js']
+        ignoreFiles: ['-min.js']
     }))
     .pipe(gulp.dest('./target/dist/'));
 });
