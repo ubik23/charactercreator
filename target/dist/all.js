@@ -2020,8 +2020,10 @@ function whoami (ev) {
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
+  var closeBtn = overlay.querySelector('.close-btn');
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, true);
 }
 
 function logout (ev) {
@@ -2075,10 +2077,15 @@ function closeLogin(evt) {
 }
 
 function closeOverlay(evt) {
+    if (evt) {
+        evt.preventDefault()
+    }
     var overlay = document.querySelector('.overlay--show');
+    if (overlay === null){ return };
     var cancelBtn = overlay.querySelector('.cancel-btn');
+    var closeBtn = overlay.querySelector('.js-close-btn');
     var target = evt.target;
-    if (target === overlay || target === cancelBtn) {
+    if (target === overlay || target === cancelBtn || target === closeBtn) {
       if (overlay) {
           hideNewCharacterInputField();
           overlay.classList.remove('overlay--show');
@@ -2811,8 +2818,8 @@ function launch() {
     'eyepatch_left','eyepatch_right',
     'mask_guy_fawkes',
     'tie_bow',
-    'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2', 'hair_pigtails_1_of_2',
     'glasses_hipster','glasses_fpv','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
+    'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2', 'hair_pigtails_1_of_2',
     'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
     'headband_medium_1_of_2',
     'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',

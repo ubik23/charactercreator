@@ -182,8 +182,10 @@ function whoami (ev) {
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
+  var closeBtn = overlay.querySelector('.close-btn');
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, true);
 }
 
 function logout (ev) {
@@ -237,10 +239,15 @@ function closeLogin(evt) {
 }
 
 function closeOverlay(evt) {
+    if (evt) {
+        evt.preventDefault()
+    }
     var overlay = document.querySelector('.overlay--show');
+    if (overlay === null){ return };
     var cancelBtn = overlay.querySelector('.cancel-btn');
+    var closeBtn = overlay.querySelector('.js-close-btn');
     var target = evt.target;
-    if (target === overlay || target === cancelBtn) {
+    if (target === overlay || target === cancelBtn || target === closeBtn) {
       if (overlay) {
           hideNewCharacterInputField();
           overlay.classList.remove('overlay--show');

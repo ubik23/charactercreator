@@ -60,6 +60,12 @@ body {
     transform: translateY(0.25em);
 }
 
+.close-btn {
+     position: absolute;
+     top: 0.8em;
+     right: 1.2em;
+}
+
 svg {
     overflow: visible;
 }
