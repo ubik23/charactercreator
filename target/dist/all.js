@@ -2004,17 +2004,21 @@ function showErrorUsernameTaken(username) {
     var errorBox = currentOverlay.querySelector('.overlay__error');
     var errorText = errorBox.querySelector('.overlay__error__text');
     var errorMsg = 'Username "' + username + '" is already taken. Try another.';
+    var closeBtn = overlay.querySelector('.close-btn');
     errorText.innerHTML = errorMsg;
     errorBox.classList.add('overlay__error--show');
     console.log("C'est pris!");
     clearInputUsername();
+    closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
+  var closeBtn = overlay.querySelector('.close-btn');
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function showAbout(ev) {
@@ -2057,10 +2061,12 @@ function loginMenu(evt) {
     var overlay = document.querySelector('.js-login');
     var loginForm = document.querySelector('#login-form');
     var firstInput = overlay.querySelector('.first-input');
+  var closeBtn = overlay.querySelector('.close-btn');
     overlay.classList.add('overlay--show');
     loginForm.addEventListener("submit", login, true);
     overlay.addEventListener('click', closeLogin, true);
     firstInput.focus();
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function closeLogin(evt) {
@@ -2345,6 +2351,7 @@ function registerMenu() {
   var overlay = document.querySelector('.js-register');
   var registerForm = document.querySelector('#register-form');
   var firstInput = overlay.querySelector('.first-input');
+  var closeBtn = overlay.querySelector('.close-btn');
 
   if (loginMenu.classList.contains('overlay--show')) {
       loginMenu.classList.remove('overlay--show');
@@ -2354,6 +2361,7 @@ function registerMenu() {
   registerForm.addEventListener("submit", register, true);
   overlay.addEventListener('click', closeRegister, true);
   firstInput.focus();
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function closeRegister(evt) {
