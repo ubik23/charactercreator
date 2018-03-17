@@ -269,7 +269,7 @@ function launch() {
     'collar_metal',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
     'bracelet_rings',
-    'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_1_of_3', 'coat_winter_tubecollar_2_of_3',
+    'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
     'shoulderpads_general',
     'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'hair_down_2_of_3',

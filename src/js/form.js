@@ -6,13 +6,13 @@ function createForm(sex, forms){
     var sex = sex || window.sex;
     var forms = forms || window.forms;
     var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<h2 class="sidebar__title">Categories</h2>';
+    var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
     sectionHtml += '<ul class="section__list">';
     for (var f in forms) {
         var formContainer = document.querySelector('#content_1');
         var newHtml = '';
         var selcount = 0;
-        sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title">'+sectionNames[f]+'</span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
+        sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
         var formsLength = forms.length;
         var formCounter = formsLength;
         for(var x in forms[f]) {
@@ -272,6 +272,39 @@ function emptyPicker() {
 function clearPicker() {
     var wrapper = document.querySelector(".colorpicker-wrapper");
     wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>';
+}
+
+function getIconId(sectionName, sex) {
+    console.log('sectionName', sectionName);
+    console.log('sex', sex);
+    var iconDictMale = {
+        "Head":"icon-face",
+        "Accessories":"icon-glasses",
+        "Torso":"icon-shirt",
+        "Body":"icon-underwear",
+        "Legs":"icon-pants",
+        "Feet":"icon-shoes"
+    }
+    var iconDictFemale = {
+        "Head":"icon-face",
+        "Accessories":"icon-glasses",
+        "Torso":"icon-shirt",
+        "Body":"icon-underwear",
+        "Legs":"icon-dress",
+        "Feet":"icon-shoes"
+    }
+    if (sex==="f"){
+         console.log('icon f',iconDictFemale[sectionName]);
+         return iconDictFemale[sectionName];
+
+    }
+    else if (sex==="m"){
+         console.log('icon m',iconDictMale[sectionName]);
+         return iconDictMale[sectionName];
+    } else {
+        console.log('none');
+        return 'icon-face';
+    }
 }
 
 function getViewBox(t, d) {
