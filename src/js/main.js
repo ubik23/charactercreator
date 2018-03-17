@@ -5,10 +5,12 @@ window.onload = function() {
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
     var registerLink = document.querySelector(".js-register-link");
+    var hamburgerBtn = document.querySelector(".hamburger-btn");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     var rightSidebar = document.querySelector('#sidebar');
+
     rightSidebarClone = rightSidebar.cloneNode(true);
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
@@ -17,6 +19,7 @@ window.onload = function() {
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
+    if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
 
     // The following activates the scroll zoom.
     if (document.attachEvent) { //if IE (and Opera depending on user setting)
@@ -29,6 +32,10 @@ window.onload = function() {
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
 
     startup();
+}
+function hamburger() {
+    var menu = document.querySelector("#horizontal");
+    menu.classList.toggle('hide');
 }
 
 function startup() {

@@ -13,6 +13,10 @@
     </head>
     <body >
         <svg style="display:none;">
+            <symbol id="icon-hamburger" viewBox="0 0 352.8 352.8">
+              <path d="m 18.567886,111.8855 c -15.7711554,0 -15.7711554,47.31347 0,47.31347 101.076544,0 238.313484,0 315.642014,0 15.77115,0 15.77115,-47.31347 0,-47.31347 -73.10257,0 -187.77357,0 -315.642014,0 z" style="fill:currentColor;stroke:none;" transform="translate(0,55.777773) translate(-2.0861112e-6,-3.4395847)"/>
+              <path d="M13.017252 204.92493v41.56737c0 20.0452 326.743278 20.0452 326.743278 0v-41.56737zM13.017252 31.118065V65.808071H339.76053V31.118065c0-59.390485-326.743278-59.390485-326.743278 0z" style="fill:currentColor;stroke:none;" transform="translate(0,55.777773) translate(-2.0861112e-6,-3.4395847)"/>
+            </symbol>
             <symbol id="x" viewBox="0 0 352.8 352.8">
               <path d="M51.574012-4.3297306L301.20375 245.30001M301.20376-4.3297253L51.574012 245.30002" style="stroke:currentColor;stroke-width:50;" transform="translate(0,55.777773)"/>
             </symbol>
@@ -177,7 +181,7 @@
             <header class="header">
                         <h1 class="site-title"><sup>The </sup>Character Creator</h1>
                         <nav class="links">
-                            <ul id="horizontal">
+                            <ul id="horizontal" class="hide">
                                 <li id="aboutButton"><a href="#" target="_blank" alt="About"><span class="menu-text">about</span><svg class="icon"><use xlink:href="#icon-mail3"></use></svg></a></li>
                                 <li id="githubButton"><a href="https://github.com/ubik23/charactercreator" target="_blank" alt="Github"><span class="menu-text">github</span><svg class="icon"><use xlink:href="#github-logo"></use></svg></a></li>
                                 <li opacity="0" id="downloadButton"><a href="#" alt="Download SVG"><span class="menu-text">Download</span><svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg></a>
@@ -187,10 +191,13 @@
                                 <li id="logoutButton"><a href="#"><span class="menu-text">Logout</span></a></li>
                                 <li id="registerButton"><a href="#"><span class="menu-text">Register</span></a></li>
                             </ul>
+                        </nav>
+                            <button class="hamburger-btn">
+                                <svg class="icon-hamburger"><use xlink:href="#icon-hamburger"></use></svg>
+                            </button>
                             <button class="save-btn">
                                 <svg class="icon icon-cloud-upload"><use xlink:href="#icon-cloud-upload"></use></svg>
                             </button>
-                        </nav>
                 </header>
             <main id="content">
                 <svg id="svg1" class="" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
