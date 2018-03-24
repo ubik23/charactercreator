@@ -5,10 +5,12 @@ window.onload = function() {
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
     var registerLink = document.querySelector(".js-register-link");
+    var hamburgerBtn = document.querySelector(".hamburger-btn");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     var rightSidebar = document.querySelector('#sidebar');
+
     rightSidebarClone = rightSidebar.cloneNode(true);
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
@@ -17,6 +19,7 @@ window.onload = function() {
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
+    if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
 
     // The following activates the scroll zoom.
     if (document.attachEvent) { //if IE (and Opera depending on user setting)
@@ -29,6 +32,10 @@ window.onload = function() {
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
 
     startup();
+}
+function hamburger() {
+    var menu = document.querySelector("#horizontal");
+    menu.classList.toggle('hide');
 }
 
 function startup() {
@@ -262,7 +269,7 @@ function launch() {
     'collar_metal',
     'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
     'bracelet_rings',
-    'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_1_of_3', 'coat_winter_tubecollar_2_of_3',
+    'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
     'shoulderpads_general',
     'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
     'hair_down_2_of_3',
@@ -282,8 +289,8 @@ function launch() {
     'eyepatch_left','eyepatch_right',
     'mask_guy_fawkes',
     'tie_bow',
-    'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2', 'hair_pigtails_1_of_2',
     'glasses_hipster','glasses_fpv','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
+    'hair_short','hair_afro','hair_mohawk','hair_bangs','hair_ponytail','hair_odango','hair_emo','hair_spider','hair_wreckingball','hair_down_1_of_3','hair_manga_1_of_2', 'hair_pigtails_1_of_2',
     'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
     'headband_medium_1_of_2',
     'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
@@ -488,6 +495,7 @@ function selectMale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    var shadow = document.querySelector('.character-shadow');
     if (maleRadioBtn) {
         maleRadioBtn.checked = true;
     }
@@ -497,6 +505,7 @@ function selectMale(event) {
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
+    shadow.classList.add('shine');
 
     setTimeout(function(){
         displayPallette();
@@ -509,6 +518,7 @@ function selectFemale(event) {
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
+    var shadow = document.querySelector('.character-shadow');
     if (femaleRadioBtn) {
         femaleRadioBtn.checked = true;
     }
@@ -519,6 +529,7 @@ function selectFemale(event) {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
+    shadow.classList.add('shine');
 
     setTimeout(function(){
         displayPallette();

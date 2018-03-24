@@ -175,15 +175,27 @@ function showErrorUsernameTaken(username) {
 function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
-
+function closeAllOverlays() {
+    var overlays = document.querySelectorAll(".overlay--show");
+    var counter = overlays.length;
+    while (counter--){
+        overlays[counter].classList.remove('overlay--show');
+    }
+}
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function logout (ev) {
@@ -217,10 +229,13 @@ function loginMenu(evt) {
     var overlay = document.querySelector('.js-login');
     var loginForm = document.querySelector('#login-form');
     var firstInput = overlay.querySelector('.first-input');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
     overlay.classList.add('overlay--show');
     loginForm.addEventListener("submit", login, true);
     overlay.addEventListener('click', closeLogin, true);
     firstInput.focus();
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function closeLogin(evt) {
@@ -238,9 +253,11 @@ function closeLogin(evt) {
 
 function closeOverlay(evt) {
     var overlay = document.querySelector('.overlay--show');
+    if (overlay === null){ return };
     var cancelBtn = overlay.querySelector('.cancel-btn');
+    var closeBtn = overlay.querySelector('.close-btn');
     var target = evt.target;
-    if (target === overlay || target === cancelBtn) {
+    if (target === overlay || target === cancelBtn || target === closeBtn) {
       if (overlay) {
           hideNewCharacterInputField();
           overlay.classList.remove('overlay--show');
@@ -503,15 +520,18 @@ function registerMenu() {
   var overlay = document.querySelector('.js-register');
   var registerForm = document.querySelector('#register-form');
   var firstInput = overlay.querySelector('.first-input');
+  var closeBtn = overlay.querySelector('.close-btn');
 
   if (loginMenu.classList.contains('overlay--show')) {
       loginMenu.classList.remove('overlay--show');
   }
 
+  closeAllOverlays();
   overlay.classList.add('overlay--show');
   registerForm.addEventListener("submit", register, true);
   overlay.addEventListener('click', closeRegister, true);
   firstInput.focus();
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function closeRegister(evt) {

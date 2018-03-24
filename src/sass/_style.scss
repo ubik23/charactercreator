@@ -60,6 +60,18 @@ body {
     transform: translateY(0.25em);
 }
 
+.close-btn {
+    background: #fff;
+    color: $color-alpha;
+    position: absolute;
+    top: 0.8em;
+    right: 1.2em;
+    border-radius: 0.5em;
+    & use {
+        pointer-events: none;
+    }
+}
+
 svg {
     overflow: visible;
 }
