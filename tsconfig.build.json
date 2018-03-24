@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "system"
+    },
+    "exclude": [
+        "src/dev.tsx",
+        "src/components/App.tsx",
+        "node_modules"
+    ]
+}

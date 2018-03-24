@@ -4,6 +4,7 @@
   "description": "A character creation library written in JavaScript.",
   "main": "gulpfile.js",
   "dependencies": {
+    "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "fetch": "^1.1.0",
     "flexi-color-picker": "^1.0.1",
@@ -17,7 +18,6 @@
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
     "autoprefixer": "^8.1.0",
-    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.11.1",
@@ -39,7 +39,7 @@
   },
   "scripts": {
     "build": "npm run build-ts && gulp sass scripts",
-    "build-ts": "npm run clean && tsc -d",
+    "build-ts": "npm run clean && tsc -d -p tsconfig.build.json",
     "clean": "rimraf dist",
     "scripts": "gulp scripts",
     "start": "gulp",

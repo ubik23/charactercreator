@@ -10,7 +10,7 @@
             "es2016",
             "es2017"
         ],
-        "module": "system",
+        "module": "es2015",
         "noImplicitAny": true,
         "outDir": "dist",
         "outFile": "target/dist/bundle.js",
@@ -30,8 +30,6 @@
         "src/**/*.tsx"
     ],
     "exclude": [
-        "src/dev.tsx",
-        "src/components/App.tsx",
         "node_modules"
     ]
 }
