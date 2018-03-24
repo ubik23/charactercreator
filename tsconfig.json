@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "jsx": "react",
+        "lib": [
+            "dom",
+            "es5",
+            "es6",
+            "es2016",
+            "es2017"
+        ],
+        "module": "es2015",
+        "noImplicitAny": true,
+        "outDir": "dist",
+        "outFile": "target/dist/bundle.js",
+        "paths": {
+            "*": [
+                "src/*"
+            ]
+        },
+        "sourceMap": true,
+        "target": "es5",
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
