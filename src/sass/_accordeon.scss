@@ -12,20 +12,20 @@
 
     &:hover {
         background: $color-alpha;
-        color: #FFFFFF;
+        color: $color-white;
         transition: background 0.2s, color 0.2s;
         & circle {
-            stroke: #FFFFFF;
+            stroke: $color-white;
             transition: stroke 0.2s;
         }
         & polygon {
-            fill: #FFFFFF;
+            fill: $color-white;
             transition: fill 0.2s;
         }
     }
 
     & circle {
-        stroke: #E6E6E6;
+        stroke: $color-border;
         transition: stroke 0.3s;
     }
 
@@ -52,9 +52,9 @@
 .accordeon__content {
     width: 100%;
     height: auto;
-    max-height: 999px;
+    max-height: $color-dark-grey;
     box-sizing: border-box;
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid $color-border;
     opacity: 1;
     transition: max-height 0.2s, opacity 0.2s;
     overflow: visible;
@@ -89,10 +89,9 @@
 
 @keyframes blink-alert {
     from {
-        fill: #fff;
+        fill: $color-white;
     }
     to {
         fill: $color-alpha;
     }
 }
-

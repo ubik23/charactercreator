@@ -2,10 +2,10 @@
 .colorpicker-wrapper {
     width: 100%;
     height: auto;
-    color: #808080;
+    color: $color-link;
     padding: 0 5px 0 5px;
     overflow: hidden;
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid $color-border;
 }
 
 .colorpicker-controls {
@@ -39,4 +39,3 @@
     height: 200px;
     display: inline-block;
 }
-

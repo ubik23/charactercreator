@@ -43,11 +43,11 @@
                 font-size: 14px;
                 padding: 15px;
                 background-color: rgba(0, 255, 0, 0.5);
-                border: solid 1px #00ff00;
+                border: solid 1px $color-green;
             }
             & .cancel-btn {
-                background-color: #e6e6e6;
-                border: solid 1px #cccccc;
+                background-color: $color-border;
+                border: solid 1px $color-grey;
             }
         }
         &--char-list {
@@ -64,7 +64,7 @@
         visibility: hidden;
         opacity: 0;
         font-size: 0.7em;
-        border: solid 2px red;
+        border: solid 2px $color-error;
         border-radius: 1em;
         padding: 0 1.5vmin;
         background-color: rgba(255, 0, 0, 0.25);
@@ -90,14 +90,14 @@
         position: relative;
     }
     &__header {
-        color: white;
+        color: $color-white;
     }
     &__footer {
         &__text {
             font-size: 0.8em;
         }
         &__link {
-            color: white;
+            color: $color-white;
         }
     }
     &__char-card {
@@ -112,11 +112,11 @@
     }
     &__char-btns {
          & .btn {
-            border: solid 1px #00ff00;
+            border: solid 1px $color-green;
             background-color: rgba(0, 255, 0, 0.5);
          }
          & .overlay__char-delete {
-            border: solid 1px #ff0000;
+            border: solid 1px $color-error;
             background-color: rgba(255, 0, 0, 0.5);
          }
     }
@@ -126,15 +126,15 @@
         border-radius: 5vmin;
 
         & .overlay__char-edit {
-            border: solid 1px #ffffff;
+            border: solid 1px $color-white;
             background-color: rgba(0, 255, 0, 1);
-            color: #000;
+            color: $color-black;
 
         }
         & .overlay__char-delete {
-            border: solid 1px #ffffff;
+            border: solid 1px $color-white;
             background-color: rgba(255, 0, 0, 1);
-            color: #000;
+            color: $color-black;
         }
     }
     &__char-new {
@@ -149,7 +149,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: solid 1px #00ff00;
+            border: solid 1px $color-green;
             background-color: rgba(0, 255, 0, 0.5);
             padding: 15px;
         }
@@ -184,14 +184,14 @@
     &__char {
         &-create-btn {
             margin-left: 0.45em;
-            border: solid 1px #00ff00;
+            border: solid 1px $color-green;
             background-color: rgba(0, 255, 0, 0.5);
         }
     }
     &__label {
          display: block;
          margin: 15px 0 5px 0;
-         color: #999;
+         color: $color-dark-grey;
     }
     &__input {
         max-width: 100%;
@@ -226,4 +226,3 @@
             transition: transform 0.2s ease 0.1s;
         }
 }
-

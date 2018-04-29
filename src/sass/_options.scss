@@ -28,14 +28,13 @@
     transition: transform 0.3s;
 
     &:hover > .option__label {
-        color: #a4433b;
+        color: $color-label;
     }
     &:hover {
         transform: scale(1.05);
     }
     &:hover > .svg__option {
-        border: 1px solid #a4433b;
-        background: #FFF;
+        border: 1px solid $color-label;
+        background: $color-white;
     }
 }
-

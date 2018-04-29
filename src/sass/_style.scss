@@ -20,8 +20,8 @@ body {
     left: 5%;
     width: 90%;
     height: 68%;
-    background-color: #f2f2f2;
-    box-shadow: 5px 10px 5px #888888;
+    background-color: $color-beta;
+    box-shadow: 5px 10px 5px $color-shadow;
     visibility: hidden;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .close-btn {
-    background: #fff;
+    background: $color-white;
     color: $color-alpha;
     position: absolute;
     top: 0.8em;
@@ -88,7 +88,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     width: 8px;
     height: 175px;
-    background: #ddd;
+    background: $color-light-grey;
     border: none;
     border-radius: 3px;
 }
@@ -108,13 +108,13 @@ input[type=range]:focus {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+    background: $color-grey;
 }
 
 input[type=range]::-moz-range-track {
     width: 8px;
     height: 175px;
-    background: #ddd;
+    background: $color-light-grey;
     border: none;
     border-radius: 3px;
 }
@@ -129,7 +129,7 @@ input[type=range]::-moz-range-thumb {
 
 /*hide the outline behind the border*/
 input[type=range]:-moz-focusring{
-    outline: 1px solid white;
+    outline: 1px solid $color-white;
     outline-offset: -1px;
 }
 
@@ -146,12 +146,12 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-    background: #777;
+    background: $color-darker-grey;
     border-radius: 10px;
 }
 
 input[type=range]::-ms-fill-upper {
-    background: #ddd;
+    background: $color-light-grey;
     border-radius: 10px;
 }
 
@@ -164,11 +164,11 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]:focus::-ms-fill-lower {
-    background: #888;
+    background: $color-shadow;
 }
 
 input[type=range]:focus::-ms-fill-upper {
-    background: #ccc;
+    background: $color-grey;
 }
 
 input[type=range][orient=vertical] {
@@ -206,14 +206,14 @@ input[type=range][orient=vertical] {
 
 #article h2 {
     font-family: helvetica, arial, verdana, sans-serif;
-    color: #d40000;
+    color: $color-title;
     font-size: 1.5em;
     padding-bottom: 0.3em;
 }
 
 #article p {
     font-family: arial, verdana, sans-serif;
-    color: #000;
+    color: $color-black;
     padding-bottom: 1em;
     text-align: justify;
 }
@@ -224,17 +224,17 @@ input[type=range][orient=vertical] {
 
 #article a {
     font-family: arial, verdana, sans-serif;
-    color: #d40000;
+    color: $color-title;
     text-decoration: none;
 }
 
 #article a:hover {
-    color: #f00;
+    color: $color-error;
 }
 
 #back {
     font-family: arial, verdana, sans-serif;
-    color: #d40000;
+    color: $color-title;
     font-size: 0.8em;
     text-transform: uppercase;
     text-decoration: none;
@@ -316,7 +316,7 @@ input.color{
     height: 100%;
     width: 5%;
     float: left;
-    color: #fff;
+    color: $color-white;
     opacity: 0;
 }
 
@@ -324,10 +324,10 @@ input.color{
     height: 100%;
     padding: 1vh 0;
     display: inline-block;
-    color: #f2f2f2;
+    color: $color-beta;
     font-size: 3vh;
     font-family: arial, verdana, sans-serif;
-    text-transform: uppercase;  
+    text-transform: uppercase;
     text-decoration: none;
     text-align: middle;
     opacity: 0;
@@ -342,7 +342,7 @@ input.color{
     height: 100%;
     width: 5%;
     float: right;
-    color: #fff;
+    color: $color-white;
     opacity: 0;
 }
 
@@ -363,11 +363,11 @@ input.color{
 
     sup {
         vertical-align: super;
-        font-size: .5em; 
+        font-size: .5em;
     }
 
     sub {
-        font-size: .5em; 
+        font-size: .5em;
         text-align:left;
     }
 
