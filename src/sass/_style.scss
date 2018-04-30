@@ -352,7 +352,7 @@ input.color{
     height: 100px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
     #pagewrap {
         width: 100%;
     }
@@ -372,7 +372,7 @@ input.color{
     }
 
     .menu-text {
-        display: none;
+        //display: none;
     }
 
     #main-nav {

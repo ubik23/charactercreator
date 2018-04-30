@@ -24,9 +24,12 @@ sub {
     justify-content: center;
     align-items: center;
     margin: 0 1em 0 0;
-    overflow: hidden;
     position: relative;
+    @media only screen and (min-width: 768px) {
+      margin: 0;
+    }
 }
+
 .hamburger-btn {
     display: inline-flex;
     justify-content: center;
@@ -52,19 +55,36 @@ sub {
 }
 .hamburger-btn {
   display: block;
+  cursor: pointer;
+  @media only screen and (min-width: 768px) {
+    display: none;
+    //opacity: 0.5;
+  }
 }
 
 #horizontal {
-    display: inline-flex;
-    list-style: none;
-    font-size: 12px;
-    align-items: center;
-    transform: translateX(0);
-    padding: 0 1.5em 0 0;
-    transition: transform 200ms ease-out;
-    &.hide {
-         transform: translateX(100%);
-    }
+  position: absolute;
+  top: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  list-style: none;
+  font-size: 12px;
+  align-items: center;
+  transform: translateX(0);
+  padding: 0 1.5em 0 0;
+  transition: transform 200ms ease-out;
+  @media only screen and (min-width: 768px) {
+    position: inherit;
+    flex-direction: row;
+    top: inherit;
+    padding: 0;
+  }
+  &.hide {
+       transform: translateX(100%);
+       @media only screen and (min-width: 768px) {
+         transform: translateY(0);
+       }
+  }
 }
 
 #horizontal li {
