@@ -12,12 +12,18 @@ var sass = require('gulp-sass');
 gulp.task('default',function() {
     gulp.watch('src/sass/**/*.scss',['sass']);
     gulp.watch('src/js/**/*.js',['scripts']);
+    gulp.watch('src/*.html',['copy']);
     browserSync.init({
         server: {
             baseDir: "./target/"
         }
     });
 });
+
+gulp.task('copy', function() {
+   gulp.src('./src/*.{html}')
+   .pipe(gulp.dest('./target'));
+})
 
 gulp.task('scripts', function() {
   //return gulp.src(['./src/lib/*.js', './src/js/*.js'])
