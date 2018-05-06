@@ -2592,8 +2592,7 @@ window.onload = function() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     var rightSidebar = document.querySelector('#sidebar');
-
-    rightSidebarClone = rightSidebar.cloneNode(true);
+    var rightSidebarClone = rightSidebar.cloneNode(true);
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
@@ -2603,7 +2602,7 @@ window.onload = function() {
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
     if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
 
-    // The following activates the scroll zoom.
+    // Scroll zoom.
     if (document.attachEvent) { //if IE (and Opera depending on user setting)
         document.attachEvent("on"+mousewheelevt, scrollZoom);
     } else if (document.addEventListener) {//WC3 browsers
@@ -2615,6 +2614,7 @@ window.onload = function() {
 
     startup();
 }
+
 function hamburger() {
     var menu = document.querySelector("#horizontal");
     menu.classList.toggle('hide');
@@ -2939,7 +2939,6 @@ function launch() {
     // Go through all the forms
 
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
-
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
     var myLoadList = layers.map(function(obj){
