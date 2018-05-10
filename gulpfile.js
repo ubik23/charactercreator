@@ -21,12 +21,11 @@ gulp.task('default',function() {
 });
 
 gulp.task('copy', function() {
-   gulp.src('./src/*.{html}')
+   gulp.src('./src/*.{html, htm}')
    .pipe(gulp.dest('./target'));
 })
 
 gulp.task('scripts', function() {
-  //return gulp.src(['./src/lib/*.js', './src/js/*.js'])
   return gulp.src([
         './bower_components/promise-polyfill/promise.js', './bower_components/fetch/fetch.js', './src/lib/*.js', './src/js/*.js'
   ])

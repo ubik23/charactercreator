@@ -69,7 +69,7 @@ sub {
   flex-direction: column;
   list-style: none;
   font-size: 12px;
-  align-items: center;
+  align-items: flex-end;
   transform: translateX(0);
   padding: 0 1.5em 0 0;
   transition: transform 200ms ease-out;
