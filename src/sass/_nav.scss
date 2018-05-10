@@ -23,7 +23,7 @@ sub {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 1em 0 0;
+    margin: 0;
     position: relative;
     @media only screen and (min-width: 768px) {
       margin: 0;
@@ -34,7 +34,7 @@ sub {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 0 1em 0 0;
+    margin: 0;
     transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
     background: $color-canvas;
     border: 1px solid $color-alpha;
@@ -42,8 +42,8 @@ sub {
     width: 2.5em;
     height: 2.5em;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
+    //position: absolute;
+    //right: 0;
     z-index: 1;
 
     & .icon-hamburger {
@@ -64,14 +64,15 @@ sub {
 
 #horizontal {
   position: absolute;
-  top: 1em;
+  top: 1.5em;
+  right: 0;
   display: inline-flex;
   flex-direction: column;
   list-style: none;
   font-size: 12px;
   align-items: flex-end;
   transform: translateX(0);
-  padding: 0 1.5em 0 0;
+  padding: 0;
   transition: transform 200ms ease-out;
   @media only screen and (min-width: 768px) {
     position: inherit;
