@@ -61,7 +61,6 @@ function buildCharacter(callback) {
         interpretHash();
         setTimeout(function(){
             characterSVG.classList.remove('character--hide');
-            console.log('buildCharacter');
             callback();
         },500);
     },500);
@@ -101,8 +100,6 @@ function Character(choices){
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
 
-    } else {
-        //console.log('no skinTone found.')
     }
     this.choices.hairColor = this.choices.hairColor || '#ffe680';
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';

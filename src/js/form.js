@@ -275,8 +275,6 @@ function clearPicker() {
 }
 
 function getIconId(sectionName, sex) {
-    console.log('sectionName', sectionName);
-    console.log('sex', sex);
     var iconDictMale = {
         "Head":"icon-face",
         "Accessories":"icon-glasses",
@@ -294,15 +292,12 @@ function getIconId(sectionName, sex) {
         "Feet":"icon-shoes"
     }
     if (sex==="f"){
-         console.log('icon f',iconDictFemale[sectionName]);
          return iconDictFemale[sectionName];
 
     }
     else if (sex==="m"){
-         console.log('icon m',iconDictMale[sectionName]);
          return iconDictMale[sectionName];
     } else {
-        console.log('none');
         return 'icon-face';
     }
 }

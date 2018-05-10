@@ -26,7 +26,7 @@ var fetchDb = (function () {
       method = body
       body = false
     }
-    console.log('fetchDb', path, method || 'get')
+    //console.log('fetchDb', path, method || 'get')
     if (body) {
       opts.body = JSON.stringify(body)
       opts.method = 'post'
@@ -80,7 +80,7 @@ function getDbUser (username) {
 function updateDbUser (user) {
   return fetchDb.post('users', user)
     .then(function (resp) {
-      console.log('resp.status', resp.status);
+      //console.log('resp.status', resp.status);
       if (resp.ok) {
           return resp.json()
       }
@@ -123,20 +123,20 @@ function determineErrorMessage(username) {
 
 function showErrorUsernamePasswordMismatch() {
     var currentOverlay = document.querySelector('.overlay--show');
-    console.log('currentOverlay', currentOverlay);
+    //console.log('currentOverlay', currentOverlay);
     var errorBox = currentOverlay.querySelector('.overlay__error');
-    console.log('errorBox');
+    //console.log('errorBox');
     var errorText = errorBox.querySelector('.overlay__error__text');
     var errorMsg = 'Sorry, username/password mismatch. Please try again.';
     clearInputFields();
     errorText.innerHTML = errorMsg;
     errorBox.classList.add('overlay__error--show');
-    console.log('Sorry, username/password mismatch');
+    //console.log('Sorry, username/password mismatch');
     //clearInputUsername();
 }
 
 function createDbUser (username, password, email) {
-  console.log('Create DB User');
+  //console.log('Create DB User');
   return fetchDb.post('users', {
     _id: 'org.couchdb.user:' + username,
     roles: [],
@@ -151,7 +151,7 @@ function createDbUser (username, password, email) {
     }
   })
     .then(function (resp) {
-        console.log('resp.status');
+        //console.log('resp.status');
       if (resp.status === 201) { return resp.json() }
       if (resp.status === 409) {
           showErrorUsernameTaken(username);
@@ -168,7 +168,7 @@ function showErrorUsernameTaken(username) {
     var errorMsg = 'Username "' + username + '" is already taken. Try another.';
     errorText.innerHTML = errorMsg;
     errorBox.classList.add('overlay__error--show');
-    console.log("C'est pris!");
+    //console.log("C'est pris!");
     clearInputUsername();
 }
 
@@ -302,7 +302,7 @@ function login(evt) {
     var currentCharacter;
 
     if (!username || !password) {
-        console.log('missing username or password.');
+        //console.log('missing username or password.');
         return
     }
 
@@ -438,7 +438,7 @@ function switchCharacter(evt) {
         .then(function (json){
             window.sex = currentUser.cc.personnages[newChar].sex;
             choices = currentUser.cc.personnages[newChar];
-            console.log('choices', choices);
+            //console.log('choices', choices);
             c = new Character(choices);
             hash.clear();
             setTimeout(function(){
@@ -448,7 +448,7 @@ function switchCharacter(evt) {
             },500);
         })
         .catch(function (err) {
-          console.log('err', err)
+          //console.log('err', err)
         })
 }
 
@@ -557,25 +557,25 @@ function register (evt) {
     var register = document.querySelector('.overlay--show');
 
     if (!username) {
-      console.log('missing username.');
+      //console.log('missing username.');
       return
     }
     if (!password) {
-      console.log('missing password.');
+      //console.log('missing password.');
       return
     }
     if (!email) {
-      console.log('missing email.');
+      //console.log('missing email.');
       return
     }
 
-    console.log('Calling createDbUSer');
+    //console.log('Calling createDbUSer');
     createDbUser(username, password, email)
         .then(function () {
           return loginDbUser(username, password)
         })
         .then(function (json) {
-            console.log('fetched2', json)
+            //console.log('fetched2', json)
             return username
         })
         .then(getDbUser)
@@ -585,7 +585,7 @@ function register (evt) {
             register.classList.remove('overlay--show');
         })
         .catch(function (err) {
-          console.error('register err', err)
+          //console.error('register err', err)
         })
 }
 
@@ -613,7 +613,7 @@ getDbSession()
     manageCharacters(currentUser);
   })
   .catch(function (err) {
-    console.log('getDbUser error', err)
+    //console.log('getDbUser error', err)
   })
 
 function setHashTrigger() {
@@ -658,7 +658,7 @@ function createChar(evt) {
           return json
         })
         .catch(function (err) {
-          console.log('err', err)
+          //console.log('err', err)
         })
         manageCharacters();
 }
@@ -674,7 +674,7 @@ function deleteChar() {
           return json
         })
         .catch(function (err) {
-          console.log('err', err)
+          //console.log('err', err)
         })
         manageCharacters();
 }
@@ -704,7 +704,6 @@ function saveChar() {
           return json
         })
         .catch(function (err) {
-          console.log('err', err)
+          //console.log('err', err)
         })
 }
-
