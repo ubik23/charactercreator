@@ -479,6 +479,7 @@ function colorCutout(newColor){
     obj['skinColor'] =  newColor;
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.remove('skin-color__container--show');
+
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
@@ -528,7 +529,6 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
-
     setTimeout(function(){
         displayPallette();
     }, 350);

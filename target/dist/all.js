@@ -1452,6 +1452,7 @@ Snap.plugin( function( Snap, Element, Paper, global ) {
 
 // it uses fragments, so they aren't loaded yet into the DOM fully
 function onAllLoaded() {
+  var zoomContainer = document.querySelector('.zoom-container');
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -1470,6 +1471,7 @@ function onAllLoaded() {
     createForm(characterSex, forms);
     sideBarLeft.classList.add('visible');
     revealCharacter();
+    zoomContainer.classList.add('zoom-container--show');
 }
 
 function onEachLoaded(frag, fileName) {
@@ -3061,6 +3063,7 @@ function colorCutout(newColor){
     obj['skinColor'] =  newColor;
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.remove('skin-color__container--show');
+
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
@@ -3110,7 +3113,6 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
-
     setTimeout(function(){
         displayPallette();
     }, 350);
