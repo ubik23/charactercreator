@@ -6,11 +6,13 @@ window.onload = function() {
     var registerBtn = document.querySelector("#registerButton");
     var registerLink = document.querySelector(".js-register-link");
     var hamburgerBtn = document.querySelector(".hamburger-btn");
+    var zoomBtn = document.querySelector("#zoomLevel");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     var rightSidebar = document.querySelector('#sidebar');
     var rightSidebarClone = rightSidebar.cloneNode(true);
+
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
@@ -19,13 +21,15 @@ window.onload = function() {
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
     if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
+    if (zoomBtn && typeof viewBoxZoom === 'function') { zoomBtn.addEventListener("change", viewBoxZoom, false) }
+
 
     // Scroll zoom.
-    if (document.attachEvent) { //if IE (and Opera depending on user setting)
-        document.attachEvent("on"+mousewheelevt, scrollZoom);
-    } else if (document.addEventListener) {//WC3 browsers
-        document.addEventListener(mousewheelevt, scrollZoom, false)
-    }
+    // if (document.attachEvent) { //if IE (and Opera depending on user setting)
+    //     document.attachEvent("on"+mousewheelevt, scrollZoom);
+    // } else if (document.addEventListener) {//WC3 browsers
+    //     document.addEventListener(mousewheelevt, scrollZoom, false)
+    // }
 
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
