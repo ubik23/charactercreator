@@ -32,6 +32,7 @@ function onAllLoaded() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
+    var downloadBtn = document.querySelector("#downloadButton");
     var characterSex;
     var hashSex = hash.get('sex');
     if (hashSex) {
@@ -39,7 +40,7 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-    downloadBtn = document.querySelector("#downloadButton");
+
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";

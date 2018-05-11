@@ -194,7 +194,13 @@ function closeSections(exception) {
     }
 }
 
-function toggleSection() {
+
+
+function toggleSection(ev) {
+
+  var el = ev.target;
+  var parent = getParent(el, '.accordeon__section-label');
+  var sectionLabel = parent.querySelector('.accordeon__section-title__text');
     var _ = this;
     if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
          closeSections(_);

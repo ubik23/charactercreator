@@ -1113,7 +1113,13 @@ function closeSections(exception) {
     }
 }
 
-function toggleSection() {
+
+
+function toggleSection(ev) {
+
+  var el = ev.target;
+  var parent = getParent(el, '.accordeon__section-label');
+  var sectionLabel = parent.querySelector('.accordeon__section-title__text');
     var _ = this;
     if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
          closeSections(_);
@@ -1418,6 +1424,14 @@ function getViewBox(t, d) {
     }
 }
 
+function getParent(el, sel) {
+  if ((el.matches || el.matchesSelector).call(el,sel)) {
+    return el;
+  };
+  while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el,sel)));
+  return el;
+}
+
 
 Snap.plugin( function( Snap, Element, Paper, global ) {
     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
@@ -1452,6 +1466,7 @@ function onAllLoaded() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
     var sideBarLeft = document.querySelector(".sidebar-left");
+    var downloadBtn = document.querySelector("#downloadButton");
     var characterSex;
     var hashSex = hash.get('sex');
     if (hashSex) {
@@ -1459,7 +1474,7 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-    downloadBtn = document.querySelector("#downloadButton");
+
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
