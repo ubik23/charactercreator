@@ -195,7 +195,7 @@ input[type=range][orient=vertical] {
     position: relative;
     overflow: visible;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #article {

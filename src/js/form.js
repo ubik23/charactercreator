@@ -199,9 +199,15 @@ function closeSections(exception) {
 function toggleSection(ev) {
 
   var el = ev.target;
+  var sectionLabel;
+  var elChild;
   var parent = getParent(el, '.accordeon__section-label');
-  var sectionLabel = parent.querySelector('.accordeon__section-title__text').innerHTML;
-  sectionZoom(sectionLabel);
+
+  elChild = parent.querySelector('.accordeon__section-title__text');
+  if (elChild != null) {
+    sectionLabel = elChild.innerHTML;
+    sectionZoom(sectionLabel);
+  }
   var _ = this;
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
        closeSections(_);

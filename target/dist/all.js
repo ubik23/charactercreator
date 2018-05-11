@@ -524,6 +524,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
+    console.log('id', id);
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -534,7 +535,7 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                     //colorSkin(_color);
@@ -1118,9 +1119,15 @@ function closeSections(exception) {
 function toggleSection(ev) {
 
   var el = ev.target;
+  var sectionLabel;
+  var elChild;
   var parent = getParent(el, '.accordeon__section-label');
-  var sectionLabel = parent.querySelector('.accordeon__section-title__text').innerHTML;
-  sectionZoom(sectionLabel);
+
+  elChild = parent.querySelector('.accordeon__section-title__text');
+  if (elChild != null) {
+    sectionLabel = elChild.innerHTML;
+    sectionZoom(sectionLabel);
+  }
   var _ = this;
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
        closeSections(_);
@@ -1495,7 +1502,7 @@ function onEachLoaded(frag, fileName) {
     } else {var seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='sockets'||section==='age'||section==='mouth'){
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'){
         var section = 'skin';
     }
     if (section ==='facialhair' || section==='brows') {
@@ -2914,6 +2921,7 @@ function launch() {
         return size;
     };
     skinLayers = [
+      'eyes_neutral',
       'age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
       'ears_default', 'ears_pointed',
       'nose_default', 'nose_roman', 'nose_syrid',

@@ -54,6 +54,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
+    console.log('id', id);
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -64,7 +65,7 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id.slice(0,4) === 'mouth') {
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                     //colorSkin(_color);
