@@ -1462,7 +1462,8 @@ function onAllLoaded() {
     downloadBtn = document.querySelector("#downloadButton");
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
-    //TODO Hide silhouettes;
+    femaleSilhouette.style.opacity = "0";
+    maleSilhouette.style.opacity = "0";
     createForm(characterSex, forms);
     sideBarLeft.classList.add('visible');
     revealCharacter();
