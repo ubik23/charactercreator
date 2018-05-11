@@ -3372,10 +3372,10 @@ function zoomFace() {
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
-      newViewBox = "240 90 80 80";
+      newViewBox = "240 99 80 80";
         //shape.setAttribute("viewBox", "240 90 80 80");
     } else {
-      newViewBox = "243 102 80 80";
+      newViewBox = "243 109 80 80";
         //shape.setAttribute("viewBox", "243 102 80 80");
     }
     animateZoom(newViewBox);
@@ -3443,9 +3443,9 @@ function viewBoxZoom(ev) {
 
 function sectionZoom(sectionLabel) {
     if (sectionLabel === "Head") {zoomFace();}
-    if (sectionLabel === "Accessories") {zoomTorso();}
-    if (sectionLabel === "Torso") {zoomBody();}
-    if (sectionLabel === "Body") {zoomFull();}
+    if (sectionLabel === "Accessories") {zoomFace();}
+    if (sectionLabel === "Torso") {zoomTorso();}
+    if (sectionLabel === "Body") {zoomBody();}
     if (sectionLabel === "Legs") {zoomFull();}
     if (sectionLabel === "Feet") {zoomFull();}
 }
