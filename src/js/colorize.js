@@ -54,7 +54,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
-    console.log('id', id);
+    
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){

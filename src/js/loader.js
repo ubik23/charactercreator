@@ -54,22 +54,25 @@ function onAllLoaded() {
 function onEachLoaded(frag, fileName) {
     var colorThis = false;
     var myLayer = fileName;
+    var newColor;
+    var seen;
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
-        var seen = 1;
-    } else {var seen = 0;};
+        seen = 1;
+    } else {seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'){
-        var section = 'skin';
+    var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
+        section = 'skin';
     }
     if (section ==='facialhair' || section==='brows') {
-        var section = 'hair';
+        section = 'hair';
     }
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
-        var newColor = c.choices[section+'Color'];
+        newColor = c.choices[section+'Color'];
         // We now have a new color
-        var colorThis = true;
+        colorThis = true;
     };
     // Get a list
     //Check to see if the Color suffix is available for each toBeShown

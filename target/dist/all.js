@@ -524,7 +524,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
-    console.log('id', id);
+    
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -1497,22 +1497,25 @@ function onAllLoaded() {
 function onEachLoaded(frag, fileName) {
     var colorThis = false;
     var myLayer = fileName;
+    var newColor;
+    var seen;
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
-        var seen = 1;
-    } else {var seen = 0;};
+        seen = 1;
+    } else {seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'){
-        var section = 'skin';
+    var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
+    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
+        section = 'skin';
     }
     if (section ==='facialhair' || section==='brows') {
-        var section = 'hair';
+        section = 'hair';
     }
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
-        var newColor = c.choices[section+'Color'];
+        newColor = c.choices[section+'Color'];
         // We now have a new color
-        var colorThis = true;
+        colorThis = true;
     };
     // Get a list
     //Check to see if the Color suffix is available for each toBeShown
@@ -3450,12 +3453,13 @@ function viewBoxZoom(ev) {
 }
 
 function sectionZoom(sectionLabel) {
-    if (sectionLabel === "Head") {zoomFace();}
-    if (sectionLabel === "Accessories") {zoomFace();}
-    if (sectionLabel === "Torso") {zoomTorso();}
-    if (sectionLabel === "Body") {zoomBody();}
-    if (sectionLabel === "Legs") {zoomFull();}
-    if (sectionLabel === "Feet") {zoomFull();}
+  var zoomInput = document.querySelector('#zoomLevel');
+  if (sectionLabel === "Head") {zoomInput.value = 3;zoomFace();}
+  if (sectionLabel === "Accessories") {zoomInput.value = 3;zoomFace();}
+  if (sectionLabel === "Torso") {zoomInput.value = 2;zoomTorso();}
+  if (sectionLabel === "Body") {zoomInput.value = 1;zoomBody();}
+  if (sectionLabel === "Legs") {zoomInput.value = 0;zoomFull();}
+  if (sectionLabel === "Feet") {zoomInput.value = 0;zoomFull();}
 }
 
 function animateZoom(newViewBox) {

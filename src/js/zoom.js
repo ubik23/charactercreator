@@ -123,12 +123,13 @@ function viewBoxZoom(ev) {
 }
 
 function sectionZoom(sectionLabel) {
-    if (sectionLabel === "Head") {zoomFace();}
-    if (sectionLabel === "Accessories") {zoomFace();}
-    if (sectionLabel === "Torso") {zoomTorso();}
-    if (sectionLabel === "Body") {zoomBody();}
-    if (sectionLabel === "Legs") {zoomFull();}
-    if (sectionLabel === "Feet") {zoomFull();}
+  var zoomInput = document.querySelector('#zoomLevel');
+  if (sectionLabel === "Head") {zoomInput.value = 3;zoomFace();}
+  if (sectionLabel === "Accessories") {zoomInput.value = 3;zoomFace();}
+  if (sectionLabel === "Torso") {zoomInput.value = 2;zoomTorso();}
+  if (sectionLabel === "Body") {zoomInput.value = 1;zoomBody();}
+  if (sectionLabel === "Legs") {zoomInput.value = 0;zoomFull();}
+  if (sectionLabel === "Feet") {zoomInput.value = 0;zoomFull();}
 }
 
 function animateZoom(newViewBox) {
