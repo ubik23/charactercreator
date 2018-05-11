@@ -200,32 +200,34 @@ function toggleSection(ev) {
 
   var el = ev.target;
   var parent = getParent(el, '.accordeon__section-label');
-  var sectionLabel = parent.querySelector('.accordeon__section-title__text');
-    var _ = this;
-    if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
-         closeSections(_);
-    };
-    var alert = document.querySelector('.alert');
-    if (alert != null){
-        alert.classList.remove('alert');
-    }
-    if (_.classList.contains('alert')){
-        _.classList.remove('alert');
-    };
-    var sectionContent = _.nextSibling;
-    if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
-        sectionContent = sectionContent.nextSibling;
-    }
-    var maxHeight = sectionContent.clientHeight;
-    var displayButton = _.querySelector('.accordeon__svg-container');
-    if (sectionContent.classList.contains('accordeon__content')) {
-        if (sectionContent.classList.contains('section--hide')){
-        } else {
-            sectionContent.style.maxHeight = maxHeight;
-        };
-        sectionContent.classList.toggle('section--hide');
-        displayButton.classList.toggle('section-btn--hide');
-    }
+  var sectionLabel = parent.querySelector('.accordeon__section-title__text').innerHTML;
+  sectionZoom(sectionLabel);
+  var _ = this;
+  if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
+       closeSections(_);
+  };
+  var alert = document.querySelector('.alert');
+  if (alert != null){
+      alert.classList.remove('alert');
+  }
+  if (_.classList.contains('alert')){
+      _.classList.remove('alert');
+  };
+  var sectionContent = _.nextSibling;
+  if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
+      sectionContent = sectionContent.nextSibling;
+  }
+  var maxHeight = sectionContent.clientHeight;
+  var displayButton = _.querySelector('.accordeon__svg-container');
+  if (sectionContent.classList.contains('accordeon__content')) {
+      if (sectionContent.classList.contains('section--hide')){
+      } else {
+          sectionContent.style.maxHeight = maxHeight;
+      };
+      sectionContent.classList.toggle('section--hide');
+      displayButton.classList.toggle('section-btn--hide');
+  }
+
 }
 
 function showThumbOptions(_) {

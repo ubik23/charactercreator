@@ -121,6 +121,16 @@ function viewBoxZoom(ev) {
          zoomFull();
      }
 }
+
+function sectionZoom(sectionLabel) {
+    if (sectionLabel === "Head") {zoomFace();}
+    if (sectionLabel === "Accessories") {zoomTorso();}
+    if (sectionLabel === "Torso") {zoomBody();}
+    if (sectionLabel === "Body") {zoomFull();}
+    if (sectionLabel === "Legs") {zoomFull();}
+    if (sectionLabel === "Feet") {zoomFull();}
+}
+
 function animateZoom(newViewBox) {
   newViewBox = newViewBox.split(' ');
   var characterSVG = document.querySelector('#svg1');
