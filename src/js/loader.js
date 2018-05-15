@@ -61,6 +61,7 @@ function onEachLoaded(frag, fileName) {
     } else {seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
+
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
         section = 'skin';
@@ -129,7 +130,7 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    var faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    var faceElements = ['brows', 'eyes', 'mouth', 'lashes'];
     var faceElLength = faceElements.length;
     var faceElNum = faceElLength;
     var faceCount;
@@ -140,10 +141,12 @@ function fromEmotionGetLayers(emotion) {
             if (pupils === undefined) {
                 pupils = 'human';
             }
-             faceElements[faceCount] += '_' + pupils;
+            //todo add cat's eyes option.
+            //faceElements[faceCount] += '_' + pupils;
         }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
+    facialEpressionLayers.push('eyes_default');
     return facialEpressionLayers;
 };

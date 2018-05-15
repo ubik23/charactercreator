@@ -1,0 +1,22 @@
+<g id="eyes_default">
+    <g id="eye_right" clip-path="url(#eyes_neutral--right)">
+        <g id="eyeball_right">
+          <circle class="alpha" cx="275.70959" cy="139.26958" r="1.148168" style="fill:#2ad4ff;stroke:#00aad4;stroke-width:.37166417;stroke-linecap:round"/>
+          <path class="alpha--dark" d="m 276.87228,139.27363 c 0,0.2956 -0.11171,0.56512 -0.29523,0.76863 -0.0368,-0.4604 -0.029,-0.79933 -0.81827,-0.79933 -0.70415,0 -1.00212,0.37932 -0.78763,0.89752 -0.24212,-0.21051 -0.3952,-0.52079 -0.3952,-0.86682 0,-0.63412 0.51405,-1.14817 1.14816,-1.14817 0.63412,0 1.14817,0.51405 1.14817,1.14817 z" style="fill:#089cc1;stroke-width:.74332833"/>
+          <circle class="pupil" cx="275.70959" cy="139.26958" r="0.45610803" style="fill:#000;stroke-width:.04762633"/>
+          <circle class="highlight" cx="275.95309" cy="139.53062" r="0.1283714" style="fill:#fff;stroke-width:1.87789023"/>
+          <circle class="highlight" cx="276.32904" cy="139.67732" r="0.1971418" style="fill:#fff;stroke-width:2.88390279"/>
+        </g>
+        <path class="glaze" d="m 273.35966,139.62236 c -0.0773,-0.90734 4.40609,-1.07018 4.5985,0.0826 0.11067,0.66306 -4.51475,0.90104 -4.5985,-0.0826 z" style="fill:#fff;fill-opacity:.34031414;stroke-width:.5;stroke-miterlimit:4.06053257"/>
+    </g>
+    <g id="eye_left" clip-path="url(#eyes_neutral--left)">
+        <g id="eyeball_left">
+          <circle class="alpha" cx="289.3009" cy="138.94099" r="1.148168" style="fill:#2ad4ff;stroke:#00aad4;stroke-width:.37166417;stroke-linecap:round"/>
+          <path class="alpha--dark" d="m 290.44907,138.94099 c 0,0.29561 -0.11171,0.56513 -0.29523,0.76864 -0.0368,-0.4604 -0.029,-0.79932 -0.81827,-0.79932 -0.70414,0 -1.00212,0.37931 -0.78763,0.89751 -0.24213,-0.21051 -0.39521,-0.52079 -0.39521,-0.86683 0,-0.63411 0.51406,-1.14816 1.14817,-1.14816 0.63412,0 1.14817,0.51405 1.14817,1.14816 z" style="fill:#089cc1;stroke-width:.11989051"/>
+          <circle class="pupil" cx="289.3009" cy="138.94099" r="0.45610803" style="fill:#000;stroke-width:.04762633"/>
+          <circle class="highlight" cx="289.56491" cy="139.20569" r="0.1283714" style="fill:#fff;stroke-width:1.87789023"/>
+          <circle class="highlight" cx="289.94086" cy="139.3524" r="0.1971418" style="fill:#fff;stroke-width:2.88390279"/>
+        </g>
+        <path class="glaze" d="m 287.04566,139.53629 c -0.28211,-1.12813 4.45692,-1.37927 4.57096,-0.3029 0.0878,0.82883 -4.39626,1.00153 -4.57096,0.3029 z" style="fill:#fff;fill-opacity:.34031414;stroke-width:.5;stroke-miterlimit:4.06053257"/>
+    </g>
+</g>

@@ -728,8 +728,22 @@ function replacementStyle(json, newColor) {
     }
     return replacement;
 }
-
+// function applyColorNew(id, newColor, optLayer){
+//   var suffix = ['', 'dark', 'darker', 'darkest', 'light', 'lighter', 'lightest'];
+//   var suffixCounter = suffix.length;
+//
+//   var group = optLayer.node;
+//   var groupLayers;
+//   var counter = group.length;
+//   var element;
+//   while(counter--){
+//     element = alphaLayers[counter];
+//     console.log('fill', element.style.fill);
+//     console.log('stroke', element.style.stroke);
+//   }
+// }
 function applyColor(id, newColor, optLayer){
+
     var colorMultiplyer = 10; // Color contrast.
     var pathStyle;
     var currentNode;
@@ -737,7 +751,7 @@ function applyColor(id, newColor, optLayer){
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
-        var optPaths = optLayer.selectAll('path')
+        var optPaths = optLayer.selectAll('path');
         // Change the color of nipples (ellipses) if the optlayer is the body.
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
@@ -1490,6 +1504,7 @@ function onEachLoaded(frag, fileName) {
     } else {seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
+
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
         section = 'skin';
@@ -1558,7 +1573,7 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    var faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    var faceElements = ['brows', 'eyes', 'mouth', 'lashes'];
     var faceElLength = faceElements.length;
     var faceElNum = faceElLength;
     var faceCount;
@@ -1569,11 +1584,13 @@ function fromEmotionGetLayers(emotion) {
             if (pupils === undefined) {
                 pupils = 'human';
             }
-             faceElements[faceCount] += '_' + pupils;
+            //todo add cat's eyes option.
+            //faceElements[faceCount] += '_' + pupils;
         }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
+    facialEpressionLayers.push('eyes_default');
     return facialEpressionLayers;
 };
 
@@ -2747,8 +2764,9 @@ function launch() {
       'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
       'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
       'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock',  'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
-      'iris_neutral','iris_sterness','iris_indignation','iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_revulsion', 'iris_concern', 'iris_anxiety', 'iris_fear', 'iris_terror', 'iris_satisfaction', 'iris_amusement', 'iris_joy', 'iris_laughing', 'iris_dejection', 'iris_alertness', 'iris_betrayal', 'iris_caged', 'iris_cruel','iris_desperation', 'iris_eeww', 'iris_horror', 'iris_melancholy', 'iris_omg', 'iris_outrage',
-      'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', 'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage',
+      //'iris_neutral','iris_sterness','iris_indignation','iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_revulsion', 'iris_concern', 'iris_anxiety', 'iris_fear', 'iris_terror', 'iris_satisfaction', 'iris_amusement', 'iris_joy', 'iris_laughing', 'iris_dejection', 'iris_alertness', 'iris_betrayal', 'iris_caged', 'iris_cruel','iris_desperation', 'iris_eeww', 'iris_horror', 'iris_melancholy', 'iris_omg', 'iris_outrage',
+      //'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', //'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage',
+      'eyes_default',
       'lashes_neutral',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
       'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
@@ -2772,6 +2790,19 @@ function launch() {
       'horns_large',
       'pipe_subgenius',
       'earpiece_microphone'
+    ];
+    var layersMaleGenesis = [
+      'body_athletic_2_of_2',
+      'underwear_plain',
+      'body_athletic_1_of_2',
+      'body_head_default',
+      'ears_default',
+      'eyes_neutral',
+      'eyes_default',
+      'lashes_neutral',
+      'brows_neutral',
+      'mouth_neutral',
+      'nose_default',
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
@@ -2866,8 +2897,9 @@ function launch() {
       'freckles_medium',
       'makeup_blush', 'makeup_warpaint','makeup_gothic_eyeliner',
       'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
-      'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
-      'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughter', 'pupils_human_dejection', 'pupils_human_melancholy', 'pupils_human_alertness', 'pupils_human_wonder', 'pupils_human_surprise', 'pupils_human_shock',
+      //'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
+      //'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughter', 'pupils_human_dejection', 'pupils_human_melancholy', 'pupils_human_alertness', 'pupils_human_wonder', 'pupils_human_surprise', 'pupils_human_shock',
+      'eyes_default',
       'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust', 'lashes_amusement', 'lashes_joy', 'lashes_laughter', 'lashes_dejection', 'lashes_melancholy', 'lashes_sadness', 'lashes_grief', 'lashes_alertness', 'lashes_wonder', 'lashes_surprise', 'lashes_shock',
       'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
       'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
@@ -2888,6 +2920,20 @@ function launch() {
       'belt_utility',
       'pipe_subgenius',
       'earpiece_microphone'
+    ];
+    var layersFemaleGenesis = [
+      'body_athletic',
+      'underwear_plain',
+      'bra_bow',
+      'body_head_default',
+      'ears_default',
+      'nose_default',
+      'eyes_neutral',
+      'eyes_default',
+      'lashes_neutral',
+      'mouth_neutral',
+      'brows_neutral',
+      'body_hand',
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
@@ -2925,7 +2971,7 @@ function launch() {
         var form5 = maleForm5;
         var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
-        var layers = layersMale;
+        var layers = layersMaleGenesis;
         multiLayer = multiLayerMale;
     } else {
         var form1 = femaleForm1;
@@ -2935,7 +2981,7 @@ function launch() {
         var form5 = femaleForm5;
         var form6 = femaleForm6;
         var layerDirectory = layerDirectoryFemale;
-        var layers = layersFemale;
+        var layers = layersFemaleGenesis;
         multiLayer = multiLayerFemale;
     }
     forms = [form1, form2, form3, form4, form5,form6];

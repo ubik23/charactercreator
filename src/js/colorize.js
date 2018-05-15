@@ -258,8 +258,22 @@ function replacementStyle(json, newColor) {
     }
     return replacement;
 }
-
+// function applyColorNew(id, newColor, optLayer){
+//   var suffix = ['', 'dark', 'darker', 'darkest', 'light', 'lighter', 'lightest'];
+//   var suffixCounter = suffix.length;
+//
+//   var group = optLayer.node;
+//   var groupLayers;
+//   var counter = group.length;
+//   var element;
+//   while(counter--){
+//     element = alphaLayers[counter];
+//     console.log('fill', element.style.fill);
+//     console.log('stroke', element.style.stroke);
+//   }
+// }
 function applyColor(id, newColor, optLayer){
+
     var colorMultiplyer = 10; // Color contrast.
     var pathStyle;
     var currentNode;
@@ -267,7 +281,7 @@ function applyColor(id, newColor, optLayer){
     fullId = '#' + id;
     ga('send', 'event', 'menu', 'color', fullId+'_#'+newColor );
     if (optLayer != null){
-        var optPaths = optLayer.selectAll('path')
+        var optPaths = optLayer.selectAll('path');
         // Change the color of nipples (ellipses) if the optlayer is the body.
         if (id === 'body_athletic_2_of_2') {
             var optEllipses = optLayer.selectAll('ellipse')
