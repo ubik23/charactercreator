@@ -524,7 +524,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
-    
+
     for (var f in forms){
         var form = Object.keys(forms[f]);
         for(var x in form){
@@ -611,20 +611,6 @@ function colorize(formId, _color){
                     while (alphaDarkestNodesCounter--){
                         colorPaths(alphaDarkestNodes[alphaDarkestNodesCounter], colorDarkest, colorDarkest);
                     }
-
-                    // Else, the list is taken from the form.
-                    //var optLayer = viewport.select(fullId);
-                    //if (optLayer != null) {
-                        //var optPaths = optLayer.selectAll('path')
-                        //if (fullId === '#body_athletic_2_of_2') {
-                            //var optEllipses = optLayer.selectAll('ellipse')
-                            //newArray = [];
-                            //newArray.push.apply(newArray, optPaths);
-                            //newArray.push.apply(newArray, optEllipses);
-                            //optPaths = newArray;
-                        //}
-                        //processPaths(optPaths, _color);
-                    //}
                 }
             }
         }
