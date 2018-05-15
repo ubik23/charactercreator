@@ -22,15 +22,6 @@ window.onload = function() {
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
     if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
     if (zoomBtn && typeof viewBoxZoom === 'function') { zoomBtn.addEventListener("change", viewBoxZoom, false) }
-
-
-    // Scroll zoom.
-    // if (document.attachEvent) { //if IE (and Opera depending on user setting)
-    //     document.attachEvent("on"+mousewheelevt, scrollZoom);
-    // } else if (document.addEventListener) {//WC3 browsers
-    //     document.addEventListener(mousewheelevt, scrollZoom, false)
-    // }
-
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
 

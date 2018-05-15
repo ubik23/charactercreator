@@ -1,51 +1,20 @@
-
-function scrollZoom(e) {
-    var svgViewBox = document.querySelector("#svg1");
-    var event = window.event || e;
-    var delta = event.detail? event.detail*(-120) : event.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
-    var zoomLevel = document.querySelector("#zoomLevel").value;
-    var zoom = document.querySelector("#zoomLevel");
-    //document.getElementById("wheelvalue").innerHTML=delta //delta returns +120 when wheel is scrolled up, -120 when down
-    if (delta > 0 ){
-        zoomLevel = zoomLevel + 1;
-        if (zoomLevel > 3) {
-             zoomLevel = 3;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
-    } else {
-        zoomLevel = zoomLevel - 1;
-        if (zoomLevel < 0) {
-             zoomLevel = 0;
-        }
-        document.querySelector("#zoomLevel").value = zoomLevel;
-        document.querySelector("#zoomLevel").onchange();
-    }
-}
-
 function zoomIn() {
     var sex = c.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
       newViewBox = "140 73 290 290";
-        //shape.setAttribute("viewBox", "140 73 290 290");
     }
     else {
       newViewBox = "225 86 110 110";
-        //shape.setAttribute("viewBox", "225 86 110 110");
     }
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", newViewBox);
 }
 
 function zoomOut() {
     var sex = c.sex;
     shape = document.getElementById(("svg1"));
-    //shape.setAttribute("viewBox", "0 0 560 560");
-    //shape.setAttribute("viewBox", "-10 0 580 580"); // Complete view
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", "10 50 540 540"); // Full body view
 }
 
 function zoomFace() {
@@ -54,13 +23,10 @@ function zoomFace() {
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
       newViewBox = "240 99 80 80";
-        //shape.setAttribute("viewBox", "240 90 80 80");
     } else {
       newViewBox = "243 109 80 80";
-        //shape.setAttribute("viewBox", "243 102 80 80");
     }
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", newViewBox);
 }
 
 function zoomTorso() {
@@ -69,13 +35,10 @@ function zoomTorso() {
     shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
     if (sex == 'm'){
       newViewBox = "204 85 150 150";
-        //shape.setAttribute("viewBox", "204 85 150 150");
     } else {
       newViewBox = "207 97 150 150";
-        //shape.setAttribute("viewBox", "207 97 150 150");
     }
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", newViewBox);
 }
 
 function zoomBody() {
@@ -84,13 +47,10 @@ function zoomBody() {
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
       newViewBox = "136 73 290 290";
-        //shape.setAttribute("viewBox", "136 73 290 290");
     } else {
       newViewBox = "140 84 290 290";
-        //shape.setAttribute("viewBox", "140 84 290 290");
     }
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", newViewBox);
 }
 
 function zoomFull() {
@@ -99,18 +59,14 @@ function zoomFull() {
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
       newViewBox = "10 50 540 540";
-        //shape.setAttribute("viewBox", "10 50 540 540");
     } else {
       newViewBox = "10 50 540 540";
-        //shape.setAttribute("viewBox", "10 50 540 540");
     }
     animateZoom(newViewBox);
-    //shape.setAttribute("viewBox", newViewBox);
 }
 
 function viewBoxZoom(ev) {
     var zoomLevel = ev.target.value;
-       //var zoomLevel = document.querySelector("#zoomLevel").value;
      if (zoomLevel == 3){
         zoomFace();
      } else if (zoomLevel == 2){
