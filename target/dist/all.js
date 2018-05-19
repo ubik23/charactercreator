@@ -1018,9 +1018,61 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     }
     return sections;
 }
-
+function getSectionLayersList(section) {
+  var sex = c.sex;
+  var formList;
+  var formCounter;
+  var itemList;
+  if (sex === "m") {
+    formList = window.maleFormList;
+  } else {
+    formList = window.femaleFormList;
+  }
+  formCounter = formList.length;
+  while (formCounter--) {
+    if (section in formList[formCounter]) {
+      itemList = formList[formCounter][section];
+    }
+  }
+  return itemList;
+}
+function loadSectionLayers(section, layersList) {
+  var sex = c.sex;
+  var layerDirectory;
+  var counter = layersList.length;
+  var xhr;
+  var file;
+  var layerID;
+  var inDom;
+  if (sex === 'm') {
+    layerDirectory = 'layer/male/';
+  } else {
+    layerDirectory = 'layer/female/';
+  }
+  while (counter--) {
+    layerID = section + '_' + layersList[counter];
+    inDom = document.querySelector('#' + layerID);
+    if (inDom != null) {return}
+    file = layerDirectory + section + '_' + layersList[counter] + '.svg';
+    console.log(file);
+    xhr= new XMLHttpRequest();
+    xhr.open('GET', file, true);
+    xhr.onreadystatechange= function() {
+        if (this.readyState!==4) return;
+        if (this.status!==200) return; // or whatever error handling you want
+        //document.getElementById('y').innerHTML= this.responseText;
+        // Find first previous sibling in inDom.
+        // Inject this.responseText after ^.
+    };
+    xhr.send();
+  }
+}
 function openThumbs() {
     var _ = this;
+    var section = _.innerHTML;
+    var layersList = getSectionLayersList(section);
+    sectionLowerCase = section.toLowerCase();
+    loadSectionLayers(sectionLowerCase, layersList);
     var previousSelection = document.querySelector('.section--selected');
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
@@ -2615,10 +2667,8 @@ window.onload = function() {
     var zoomBtn = document.querySelector("#zoomLevel");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
-    var mousewheelevt = (/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
     var rightSidebar = document.querySelector('#sidebar');
     var rightSidebarClone = rightSidebar.cloneNode(true);
-
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
@@ -2764,8 +2814,6 @@ function launch() {
       'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
       'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
       'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock',  'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
-      //'iris_neutral','iris_sterness','iris_indignation','iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_revulsion', 'iris_concern', 'iris_anxiety', 'iris_fear', 'iris_terror', 'iris_satisfaction', 'iris_amusement', 'iris_joy', 'iris_laughing', 'iris_dejection', 'iris_alertness', 'iris_betrayal', 'iris_caged', 'iris_cruel','iris_desperation', 'iris_eeww', 'iris_horror', 'iris_melancholy', 'iris_omg', 'iris_outrage',
-      //'pupils_human_neutral', 'pupils_human_sterness',  'pupils_human_indignation','pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_revulsion', 'pupils_human_concern', 'pupils_human_anxiety', 'pupils_human_fear', 'pupils_human_terror', 'pupils_human_satisfaction', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughing', 'pupils_human_dejection', 'pupils_human_alertness', 'pupils_human_betrayal', //'pupils_human_caged', 'pupils_human_cruel', 'pupils_human_desperation', 'pupils_human_eeww', 'pupils_human_horror', 'pupils_human_melancholy', 'pupils_human_omg', 'pupils_human_outrage',
       'eyes_default',
       'lashes_neutral',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
@@ -2963,6 +3011,8 @@ function launch() {
     ];
     c.sex  = hash.get('sex');
     var sex = c.sex;
+    window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
+    window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;

@@ -98,9 +98,61 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     }
     return sections;
 }
-
+function getSectionLayersList(section) {
+  var sex = c.sex;
+  var formList;
+  var formCounter;
+  var itemList;
+  if (sex === "m") {
+    formList = window.maleFormList;
+  } else {
+    formList = window.femaleFormList;
+  }
+  formCounter = formList.length;
+  while (formCounter--) {
+    if (section in formList[formCounter]) {
+      itemList = formList[formCounter][section];
+    }
+  }
+  return itemList;
+}
+function loadSectionLayers(section, layersList) {
+  var sex = c.sex;
+  var layerDirectory;
+  var counter = layersList.length;
+  var xhr;
+  var file;
+  var layerID;
+  var inDom;
+  if (sex === 'm') {
+    layerDirectory = 'layer/male/';
+  } else {
+    layerDirectory = 'layer/female/';
+  }
+  while (counter--) {
+    layerID = section + '_' + layersList[counter];
+    inDom = document.querySelector('#' + layerID);
+    if (inDom != null) {return}
+    file = layerDirectory + section + '_' + layersList[counter] + '.svg';
+    console.log(file);
+    xhr= new XMLHttpRequest();
+    xhr.open('GET', file, true);
+    xhr.onreadystatechange= function() {
+        if (this.readyState!==4) return;
+        if (this.status!==200) return; // or whatever error handling you want
+        //document.getElementById('y').innerHTML= this.responseText;
+        // Find first previous sibling in inDom.
+        // Inject this.responseText after ^.
+    };
+    xhr.send();
+  }
+}
 function openThumbs() {
     var _ = this;
+    var section = _.innerHTML;
+    var layersList = getSectionLayersList(section);
+    sectionLowerCase = section.toLowerCase();
+    loadSectionLayers(sectionLowerCase, layersList);
     var previousSelection = document.querySelector('.section--selected');
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
