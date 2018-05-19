@@ -126,8 +126,9 @@ function loadSectionLayers(section, layersList) {
   var layerID;
   var inDom;
   var item;
-  var previousSibling;
+  var nextLayerSibling;
   var emotionCounter;
+  var htmlObject;
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -150,37 +151,43 @@ function loadSectionLayers(section, layersList) {
     } else {
       file = layerDirectory + section + '_' + item + '.svg';
     }
-    previousSibling = findPreviousLayerInDom(layerID);
+    // Find first previous sibling in inDom.
+    nextLayerSibling = findNextLayerInDom(layerID);
+    console.log(nextLayerSibling);
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
     xhr.onreadystatechange= function() {
         if (this.readyState!==4) return;
         if (this.status!==200) return; // or whatever error handling you want
         //document.getElementById('y').innerHTML= this.responseText;
-        // Find first previous sibling in inDom.
-
         // Inject this.responseText after ^.
+        htmlObject = document.createElement('svg');
+        htmlObject.innerHTML = this.responseText;
+        console.log(nextLayerSibling);
+        //nextLayerSibling.parentNode.insertBefore(htmlObject.querySelector('g'), nextLayerSibling);
     };
     xhr.send();
   }
 }
-function findPreviousLayerInDom(item) {
+function findNextLayerInDom(item) {
   var sex = c.sex;
-  var previousSibling = null;
+  var nextLayerSibling = null;
   var layers;
+  var amountLayers;
   var itemPosition;
   if (sex === 'm') {
     layers = window.layersMale;
   } else {
     layers = window.layersFemale;
   }
+  amountLayers = layers.length;
   itemPosition = layers.indexOf(item);
-  while (previousSibling === null) {
-    itemPosition--;
-    previousSibling = document.querySelector('#' + layers[itemPosition]);
-    if (itemPosition < 0) {return}
+  while (nextLayerSibling === null) {
+    ++itemPosition;
+    nextLayerSibling = document.querySelector('#' + layers[itemPosition]);
+    if (itemPosition > amountLayers) {return}
   }
-  return previousSibling;
+  return nextLayerSibling;
 }
 function openThumbs() {
     var _ = this;
