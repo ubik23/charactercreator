@@ -1037,6 +1037,7 @@ function getSectionLayersList(section) {
   return itemList;
 }
 function loadSectionLayers(section, layersList) {
+  var emotionLayerList = [];
   var sex = c.sex;
   var layerDirectory;
   var counter = layersList.length;
@@ -1046,6 +1047,14 @@ function loadSectionLayers(section, layersList) {
   var inDom;
   var item;
   var previousSibling;
+  var emotionCounter;
+  if (section === 'emotion') {
+    emotionCounter = layersList.length;
+    while (emotionCounter--) {
+        emotionLayerList = emotionLayerList.concat(fromEmotionGetLayers(layersList[emotionCounter]));
+    }
+    layersList = emotionLayerList;
+  }
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
   } else {
@@ -1056,7 +1065,11 @@ function loadSectionLayers(section, layersList) {
     layerID = section + '_' + item;
     inDom = document.querySelector('#' + layerID);
     if (inDom != null) {return}
-    file = layerDirectory + section + '_' + item + '.svg';
+    if (section === "emotion") {
+      file = layerDirectory + item + '.svg';
+    } else {
+      file = layerDirectory + section + '_' + item + '.svg';
+    }
     previousSibling = findPreviousLayerInDom(layerID);
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
@@ -1085,6 +1098,7 @@ function findPreviousLayerInDom(item) {
   while (previousSibling === null) {
     itemPosition--;
     previousSibling = document.querySelector('#' + layers[itemPosition]);
+    if (itemPosition < 0) {return}
   }
   return previousSibling;
 }
