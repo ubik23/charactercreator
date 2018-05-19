@@ -355,6 +355,9 @@ function launch() {
     var sex = c.sex;
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
+    window.layersFemale = layersFemale;
+    window.layersMale = layersMale;
+    
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;

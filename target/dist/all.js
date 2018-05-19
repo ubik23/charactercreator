@@ -1044,17 +1044,20 @@ function loadSectionLayers(section, layersList) {
   var file;
   var layerID;
   var inDom;
+  var item;
+  var previousSibling;
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
   } else {
     layerDirectory = 'layer/female/';
   }
   while (counter--) {
-    layerID = section + '_' + layersList[counter];
+    item = layersList[counter];
+    layerID = section + '_' + item;
     inDom = document.querySelector('#' + layerID);
     if (inDom != null) {return}
-    file = layerDirectory + section + '_' + layersList[counter] + '.svg';
-    console.log(file);
+    file = layerDirectory + section + '_' + item + '.svg';
+    previousSibling = findPreviousLayerInDom(layerID);
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
     xhr.onreadystatechange= function() {
@@ -1062,10 +1065,28 @@ function loadSectionLayers(section, layersList) {
         if (this.status!==200) return; // or whatever error handling you want
         //document.getElementById('y').innerHTML= this.responseText;
         // Find first previous sibling in inDom.
+
         // Inject this.responseText after ^.
     };
     xhr.send();
   }
+}
+function findPreviousLayerInDom(item) {
+  var sex = c.sex;
+  var previousSibling = null;
+  var layers;
+  var itemPosition;
+  if (sex === 'm') {
+    layers = window.layersMale;
+  } else {
+    layers = window.layersFemale;
+  }
+  itemPosition = layers.indexOf(item);
+  while (previousSibling === null) {
+    itemPosition--;
+    previousSibling = document.querySelector('#' + layers[itemPosition]);
+  }
+  return previousSibling;
 }
 function openThumbs() {
     var _ = this;
@@ -3013,6 +3034,9 @@ function launch() {
     var sex = c.sex;
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
+    window.layersFemale = layersFemale;
+    window.layersMale = layersMale;
+    
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;
