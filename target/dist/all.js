@@ -1064,16 +1064,23 @@ function loadSectionLayers(section, layersList) {
   while (counter--) {
     item = layersList[counter];
     layerID = section + '_' + item;
-    inDom = document.querySelector('#' + layerID);
-    if (inDom != null) {return}
+
+
     if (section === "emotion") {
+      inDom = document.querySelector('#' + item);
+
       file = layerDirectory + item + '.svg';
+      nextLayerSibling = findNextLayerInDom(item);
     } else {
+      inDom = document.querySelector('#' + layerID);
+
       file = layerDirectory + section + '_' + item + '.svg';
+      nextLayerSibling = findNextLayerInDom(layerID);
     }
+    if (inDom != null) {return}
     // Find first previous sibling in inDom.
-    nextLayerSibling = findNextLayerInDom(layerID);
-    console.log(nextLayerSibling);
+
+    //console.log(nextLayerSibling);
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
     xhr.onreadystatechange= function() {
@@ -1083,12 +1090,19 @@ function loadSectionLayers(section, layersList) {
         // Inject this.responseText after ^.
         htmlObject = document.createElement('svg');
         htmlObject.innerHTML = this.responseText;
-        console.log(nextLayerSibling);
-        //nextLayerSibling.parentNode.insertBefore(htmlObject.querySelector('g'), nextLayerSibling);
+        //console.log('nextLayerSibling.nextSibling', nextLayerSibling.nextSibling);
+        console.log('node type', htmlObject.querySelector('g').nodeType);
+        // if (nextLayerSibling.nextSibling != null) {
+        //   nextLayerSibling.parentNode.insertBefore(htmlObject.querySelector('g'), nextLayerSibling.nextSibling);
+        // } else {
+        //
+         document.querySelector('#svg1').appendChild(htmlObject.querySelector('g'));
+        // if no nextLayerSibbling, then parent.appendChild(child_to_be_last);
     };
     xhr.send();
   }
 }
+
 function findNextLayerInDom(item) {
   var sex = c.sex;
   var nextLayerSibling = null;
@@ -1105,10 +1119,13 @@ function findNextLayerInDom(item) {
   while (nextLayerSibling === null) {
     ++itemPosition;
     nextLayerSibling = document.querySelector('#' + layers[itemPosition]);
-    if (itemPosition > amountLayers) {return}
+    if (itemPosition > amountLayers) {
+      return
+    }
   }
   return nextLayerSibling;
 }
+
 function openThumbs() {
     var _ = this;
     var section = _.innerHTML;
