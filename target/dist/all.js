@@ -516,7 +516,6 @@ function colorElement(el) {
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
   if (newColor != undefined) {
-    console.log('not undefined');
      el = colorElementLoop(el, colorPrefix, newColor);
   }
   return el;
@@ -532,15 +531,13 @@ function colorElementLoop(el, colorPrefix, newColor) {
   var colorList = getColorList(newColor);
   var colorListIndex;
   var colorPair;
-  // first run without prefix. Ex: 'alpha' or 'skin'.
+  // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
     while (counter--) {
-      //childrenList[counter].style.fill = colorPair[0];
-      //childrenList[counter].style.stroke = colorPair[1];
       childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
     }
   }
@@ -1135,6 +1132,7 @@ function loadSectionLayers(section, layersList) {
   var emotionCounter;
   var htmlObject;
   var svgObject;
+  var layers;
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -1144,29 +1142,27 @@ function loadSectionLayers(section, layersList) {
   }
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
+    layers = window.layersMale;
   } else {
     layerDirectory = 'layer/female/';
+    layers = window.layersFemale;
   }
   while (counter--) {
     item = layersList[counter];
     layerID = section + '_' + item;
-
-
     if (section === "emotion") {
+      if (layers.indexOf(item) === -1) {return}
       inDom = document.querySelector('#' + item);
-
       file = layerDirectory + item + '.svg';
       nextLayerSibling = findNextLayerInDom(item);
     } else {
+      if (layers.indexOf(layerID) === -1) {return}
       inDom = document.querySelector('#' + layerID);
-
       file = layerDirectory + section + '_' + item + '.svg';
       nextLayerSibling = findNextLayerInDom(layerID);
     }
     if (inDom != null) {return}
     // Find first previous sibling in inDom.
-
-    //console.log(nextLayerSibling);
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
     xhr.onreadystatechange= function() {
@@ -1179,13 +1175,11 @@ function loadSectionLayers(section, layersList) {
         svgObject = htmlObject.querySelector('g');
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
-        //console.log('nextLayerSibling.nextSibling', nextLayerSibling.nextSibling);
-        if (nextLayerSibling.nextSibling != null) {
-          nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling.nextSibling);
+        if (nextLayerSibling != null) {
+          nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
         } else {
           document.querySelector('#svg1').appendChild(svgObject);
         }
-        // if no nextLayerSibbling, then parent.appendChild(child_to_be_last);
     };
     xhr.send();
   }
@@ -1205,7 +1199,7 @@ function findNextLayerInDom(item) {
   amountLayers = layers.length;
   itemPosition = layers.indexOf(item);
   while (nextLayerSibling === null) {
-    nextLayerSibling = document.querySelector('#' + layers[itemPosition]);
+    nextLayerSibling = document.querySelector('#' + layers[itemPosition + 1]);
     if (itemPosition > amountLayers) {
       return
     }

@@ -46,7 +46,6 @@ function colorElement(el) {
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
   if (newColor != undefined) {
-    console.log('not undefined');
      el = colorElementLoop(el, colorPrefix, newColor);
   }
   return el;
@@ -62,15 +61,13 @@ function colorElementLoop(el, colorPrefix, newColor) {
   var colorList = getColorList(newColor);
   var colorListIndex;
   var colorPair;
-  // first run without prefix. Ex: 'alpha' or 'skin'.
+  // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
     while (counter--) {
-      //childrenList[counter].style.fill = colorPair[0];
-      //childrenList[counter].style.stroke = colorPair[1];
       childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
     }
   }
