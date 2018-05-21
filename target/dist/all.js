@@ -1035,16 +1035,8 @@ function createForm(sex, forms){
                         sections.push(newEmo);
                     };
                 }
-                var clonedNode = '';
-                for (i in sections) {
-                    var selectNode = document.querySelector(sections[i]);
-                    if (selectNode != null) {
-                        var newNode = selectNode.cloneNode(true).innerHTML;
-                        clonedNode += newNode;
-                    };
-                };
                 var viewBox = getViewBox(t, d);
-                newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + clonedNode + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+                newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '"></svg><span class="option__label">' + d + '</span></div>';}).join('\n');
                 var defaultValue = hash.get(x);
                 if (defaultValue !== undefined) {
                     var defval = 'selected="' + defaultValue + '" ';
@@ -1118,7 +1110,7 @@ function getSectionLayersList(section) {
   }
   return itemList;
 }
-function loadSectionLayers(section, layersList) {
+function loadSectionLayers(section, layersList, callback) {
   var emotionLayerList = [];
   var sex = c.sex;
   var layerDirectory;
@@ -1149,19 +1141,18 @@ function loadSectionLayers(section, layersList) {
   }
   while (counter--) {
     item = layersList[counter];
-    layerID = section + '_' + item;
+
     if (section === "emotion") {
-      if (layers.indexOf(item) === -1) {return}
-      inDom = document.querySelector('#' + item);
-      file = layerDirectory + item + '.svg';
-      nextLayerSibling = findNextLayerInDom(item);
+      layerID = item;
     } else {
-      if (layers.indexOf(layerID) === -1) {return}
-      inDom = document.querySelector('#' + layerID);
-      file = layerDirectory + section + '_' + item + '.svg';
-      nextLayerSibling = findNextLayerInDom(layerID);
+      layerID = section + '_' + item;
     }
-    if (inDom != null) {return}
+    if (layers.indexOf(layerID) === -1) {continue}
+    inDom = document.querySelector('#' + layerID);
+    file = layerDirectory + section + '_' + item + '.svg';
+    nextLayerSibling = findNextLayerInDom(layerID);
+
+    if (inDom != null) {continue}
     // Find first previous sibling in inDom.
     xhr= new XMLHttpRequest();
     xhr.open('GET', file, true);
@@ -1177,9 +1168,11 @@ function loadSectionLayers(section, layersList) {
         svgObject = colorElement(svgObject);
         if (nextLayerSibling != null) {
           nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
+          //if (typeof callback === 'function') {callback(layerID, svgObject);}
         } else {
           document.querySelector('#svg1').appendChild(svgObject);
         }
+
     };
     xhr.send();
   }
@@ -1207,13 +1200,34 @@ function findNextLayerInDom(item) {
   }
   return nextLayerSibling;
 }
+function populateThumbs(layerID, svgObject) {
+  console.log('layerID', layerID);
+  svgObject.style.opacity = 1;
+  document.querySelector('#content_1 .' + layerID).appendChild(svgObject);
+  // var thumbnailSVGList = document.querySelectorAll('#content_1 .selected--option svg');
+  // console.log('thumbnailContainer', thumbnailSVGList);
+  // var counter = thumbnailSVGList.length;
+  // var useObject;
+  // var id;
+  // var selectNode;
+  // var newNode;
+  // while (counter--) {
+  //   id = thumbnailSVGList[counter].classList[1];
+  //   selectNode = document.querySelector('#' + id);
+  //   if (selectNode != null) {
+  //       newNode = selectNode.cloneNode(true);
+  //       thumbnailSVGList[counter].appendChild(newNode);
+  //   };
+  // }
+  return;
+}
 
 function openThumbs() {
     var _ = this;
     var section = _.innerHTML;
     var layersList = getSectionLayersList(section);
     sectionLowerCase = section.toLowerCase();
-    loadSectionLayers(sectionLowerCase, layersList);
+    loadSectionLayers(sectionLowerCase, layersList, populateThumbs);
     var previousSelection = document.querySelector('.section--selected');
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
