@@ -105,8 +105,8 @@ function colorElementLoop(el, colorPrefix, newColor) {
 }
 
 function applyColorToChild(child, colorPair) {
-  if (child.style.fill != 'none') {child.style.fill = colorPair[0];}
-  if (child.style.stroke != 'none') {child.style.stroke = colorPair[1];}
+  if (child.style.fill != 'none' && child.style.fill != '') {child.style.fill = colorPair[0];}
+  if (child.style.stroke != 'none' && child.style.stroke != '') {child.style.stroke = colorPair[1];}
   return child;
 }
 
