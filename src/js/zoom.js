@@ -22,7 +22,7 @@ function zoomFace() {
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
-      newViewBox = "240 99 80 80";
+      newViewBox = "239.3 99 80 80";
     } else {
       newViewBox = "243 109 80 80";
     }

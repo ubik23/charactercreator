@@ -523,51 +523,76 @@ function colorElement(el) {
 }
 
 function colorElementLoop(el, colorPrefix, newColor) {
-  var colorContrasts = ['light', 'dark'];
+  var colorContrasts = ['dark', 'light'];
   var contrastCounter = colorContrasts.length;
   var colorSuffixes = ['er', 'est'];
-  var suffixCounter = colorSuffixes.length;
+  var suffixCounter;
   var childrenList;
   var counter;
   var colorList = getColorList(newColor);
+  var colorListIndex;
+  var colorPair;
   // first run without prefix. Ex: 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
-  console.log('colorPrefix', colorPrefix);
-  console.log('counter', counter);
   if (counter > 0) {
+    colorListIndex = 3;
+    colorPair = getColorPair(colorList, colorListIndex);
     while (counter--) {
-      console.log(colorPrefix);
-      console.log('fill', childrenList[counter].style.fill);
-      console.log('stroke', childrenList[counter].style.stroke);
+      //childrenList[counter].style.fill = colorPair[0];
+      //childrenList[counter].style.stroke = colorPair[1];
+      childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
     }
   }
   while (contrastCounter--) {
     childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter]);
     counter = childrenList.length;
     if (counter > 0) {
+      if (colorContrasts[contrastCounter] === 'light') {colorListIndex = 4;}
+      if (colorContrasts[contrastCounter] === 'dark') {colorListIndex = 2;}
+      colorPair = getColorPair(colorList, colorListIndex);
       while (counter--) {
-        console.log(colorPrefix + '--' + colorContrasts[contrastCounter]);
-        console.log('fill', childrenList[counter].style.fill);
-        console.log('stroke', childrenList[counter].style.stroke);
+        childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
       }
     }
+    suffixCounter = colorSuffixes.length;
     while (suffixCounter--) {
       childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
       counter = childrenList.length;
       if (counter > 0) {
+        if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darkest') {colorListIndex = 0;}
+        if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darker') {colorListIndex = 1;}
+        if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lighter') {colorListIndex = 5;}
+        if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lightest') {colorListIndex = 6;}
+        colorPair = getColorPair(colorList, colorListIndex);
         while (counter--) {
-          console.log(colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
-          console.log('fill', childrenList[counter].style.fill);
-          console.log('stroke', childrenList[counter].style.stroke);
+          childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
         }
       }
     }
   }
-  console.log('returning from loop');
   return el;
 }
 
+function applyColorToChild(child, colorPair) {
+  if (child.style.fill != 'none') {child.style.fill = colorPair[0];}
+  if (child.style.stroke != 'none') {child.style.stroke = colorPair[1];}
+  return child;
+}
+
+function getColorPair(colorList, colorListIndex) {
+  var fillColor = colorList[colorListIndex];
+  var strokeColor;
+  var colorPair = [];
+  colorPair.push(fillColor);
+  if (colorListIndex - 2 < 0) {
+    strokeColor = colorList[0];
+  } else {
+    strokeColor = colorList[colorListIndex - 2];
+  }
+  colorPair.push(strokeColor);
+  return colorPair;
+}
 function getColorList(newColor) {
   var colorMultiplyer = 10; // Color contrast.
   var colorList = [];
@@ -580,6 +605,7 @@ function getColorList(newColor) {
   colorList.push(shadeColor(newColor, (3 * colorMultiplyer)));
   return colorList;
 }
+
 function colorize(formId, _color){
     var colorMultiplyer = 10; // Color contrast.
     var forms = window.forms;
@@ -3554,7 +3580,7 @@ function zoomFace() {
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
-      newViewBox = "240 99 80 80";
+      newViewBox = "239.3 99 80 80";
     } else {
       newViewBox = "243 109 80 80";
     }
