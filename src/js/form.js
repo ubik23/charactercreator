@@ -129,6 +129,7 @@ function loadSectionLayers(section, layersList) {
   var nextLayerSibling;
   var emotionCounter;
   var htmlObject;
+  var svgObject;
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -168,15 +169,17 @@ function loadSectionLayers(section, layersList) {
         if (this.status!==200) return; // or whatever error handling you want
         //document.getElementById('y').innerHTML= this.responseText;
         // Inject this.responseText after ^.
-        htmlObject = document.createElement('svg');
+        htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         htmlObject.innerHTML = this.responseText;
+        svgObject = htmlObject.querySelector('g');
+        svgObject.style.opacity = 0;
+        svgObject = colorElement(svgObject);
         //console.log('nextLayerSibling.nextSibling', nextLayerSibling.nextSibling);
-        console.log('node type', htmlObject.querySelector('g').nodeType);
-        // if (nextLayerSibling.nextSibling != null) {
-        //   nextLayerSibling.parentNode.insertBefore(htmlObject.querySelector('g'), nextLayerSibling.nextSibling);
-        // } else {
-        //
-         document.querySelector('#svg1').appendChild(htmlObject.querySelector('g'));
+        if (nextLayerSibling.nextSibling != null) {
+          nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling.nextSibling);
+        } else {
+          document.querySelector('#svg1').appendChild(svgObject);
+        }
         // if no nextLayerSibbling, then parent.appendChild(child_to_be_last);
     };
     xhr.send();
@@ -197,11 +200,11 @@ function findNextLayerInDom(item) {
   amountLayers = layers.length;
   itemPosition = layers.indexOf(item);
   while (nextLayerSibling === null) {
-    ++itemPosition;
     nextLayerSibling = document.querySelector('#' + layers[itemPosition]);
     if (itemPosition > amountLayers) {
       return
     }
+    ++itemPosition;
   }
   return nextLayerSibling;
 }

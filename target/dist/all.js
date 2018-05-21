@@ -506,6 +506,80 @@ function colorSkin(color) {
     colorizeByClass('lowerlip', shadeColor(color, 10));
 }
 
+function colorElement(el) {
+  var section = el.id.split('_')[0];
+  var newColor;
+  var colorPrefix = 'alpha';
+
+
+  section = processSection(section);
+  if (section === 'skin') {colorPrefix = 'skin'}
+  newColor = c.choices[section+'Color'];
+  if (newColor != undefined) {
+    console.log('not undefined');
+     el = colorElementLoop(el, colorPrefix, newColor);
+  }
+  return el;
+}
+
+function colorElementLoop(el, colorPrefix, newColor) {
+  var colorContrasts = ['light', 'dark'];
+  var contrastCounter = colorContrasts.length;
+  var colorSuffixes = ['er', 'est'];
+  var suffixCounter = colorSuffixes.length;
+  var childrenList;
+  var counter;
+  var colorList = getColorList(newColor);
+  // first run without prefix. Ex: 'alpha' or 'skin'.
+  childrenList = el.querySelectorAll('.' + colorPrefix);
+  counter = childrenList.length;
+  console.log('colorPrefix', colorPrefix);
+  console.log('counter', counter);
+  if (counter > 0) {
+    while (counter--) {
+      console.log(colorPrefix);
+      console.log('fill', childrenList[counter].style.fill);
+      console.log('stroke', childrenList[counter].style.stroke);
+    }
+  }
+  while (contrastCounter--) {
+    childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter]);
+    counter = childrenList.length;
+    if (counter > 0) {
+      while (counter--) {
+        console.log(colorPrefix + '--' + colorContrasts[contrastCounter]);
+        console.log('fill', childrenList[counter].style.fill);
+        console.log('stroke', childrenList[counter].style.stroke);
+      }
+    }
+    while (suffixCounter--) {
+      childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
+      counter = childrenList.length;
+      if (counter > 0) {
+        while (counter--) {
+          console.log(colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
+          console.log('fill', childrenList[counter].style.fill);
+          console.log('stroke', childrenList[counter].style.stroke);
+        }
+      }
+    }
+  }
+  console.log('returning from loop');
+  return el;
+}
+
+function getColorList(newColor) {
+  var colorMultiplyer = 10; // Color contrast.
+  var colorList = [];
+  colorList.push(shadeColor(newColor, -1 * (3 * colorMultiplyer)));
+  colorList.push(shadeColor(newColor, -1 * (2 * colorMultiplyer)));
+  colorList.push(shadeColor(newColor, -1 * colorMultiplyer));
+  colorList.push(newColor);
+  colorList.push(shadeColor(newColor, colorMultiplyer));
+  colorList.push(shadeColor(newColor, (2 * colorMultiplyer)));
+  colorList.push(shadeColor(newColor, (3 * colorMultiplyer)));
+  return colorList;
+}
 function colorize(formId, _color){
     var colorMultiplyer = 10; // Color contrast.
     var forms = window.forms;
@@ -576,13 +650,13 @@ function colorize(formId, _color){
                 modCharacter(myKey, myValue);
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
-                    var alphaNodes = document.querySelectorAll(fullId+" ."+classPrefix);
-                    var alphaLightNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLight);
-                    var alphaLighterNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLighter);
-                    var alphaLightestNodes = document.querySelectorAll(fullId+" ."+classPrefix+classLightest);
-                    var alphaDarkNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDark);
-                    var alphaDarkerNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDarker);
-                    var alphaDarkestNodes = document.querySelectorAll(fullId+" ."+classPrefix+classDarkest);
+                    var alphaNodes = document.querySelectorAll(fullId + " ." + classPrefix);
+                    var alphaLightNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLight);
+                    var alphaLighterNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLighter);
+                    var alphaLightestNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLightest);
+                    var alphaDarkNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDark);
+                    var alphaDarkerNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDarker);
+                    var alphaDarkestNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDarkest);
                     var alphaNodesCounter = alphaNodes.length;
                     var alphaLightNodesCounter = alphaLightNodes.length;
                     var alphaLighterNodesCounter = alphaLighterNodes.length;
@@ -728,22 +802,8 @@ function replacementStyle(json, newColor) {
     }
     return replacement;
 }
-// function applyColorNew(id, newColor, optLayer){
-//   var suffix = ['', 'dark', 'darker', 'darkest', 'light', 'lighter', 'lightest'];
-//   var suffixCounter = suffix.length;
-//
-//   var group = optLayer.node;
-//   var groupLayers;
-//   var counter = group.length;
-//   var element;
-//   while(counter--){
-//     element = alphaLayers[counter];
-//     console.log('fill', element.style.fill);
-//     console.log('stroke', element.style.stroke);
-//   }
-// }
-function applyColor(id, newColor, optLayer){
 
+function applyColor(id, newColor, optLayer){
     var colorMultiplyer = 10; // Color contrast.
     var pathStyle;
     var currentNode;
@@ -760,7 +820,6 @@ function applyColor(id, newColor, optLayer){
             newArray.push.apply(newArray, optEllipses);
             optPaths = newArray;
         }
-
         for (p in optPaths) {
             if (typeof optPaths[p].attr === 'function'){
                 var colorContrast = "";
@@ -1049,6 +1108,7 @@ function loadSectionLayers(section, layersList) {
   var nextLayerSibling;
   var emotionCounter;
   var htmlObject;
+  var svgObject;
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -1088,15 +1148,17 @@ function loadSectionLayers(section, layersList) {
         if (this.status!==200) return; // or whatever error handling you want
         //document.getElementById('y').innerHTML= this.responseText;
         // Inject this.responseText after ^.
-        htmlObject = document.createElement('svg');
+        htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         htmlObject.innerHTML = this.responseText;
+        svgObject = htmlObject.querySelector('g');
+        svgObject.style.opacity = 0;
+        svgObject = colorElement(svgObject);
         //console.log('nextLayerSibling.nextSibling', nextLayerSibling.nextSibling);
-        console.log('node type', htmlObject.querySelector('g').nodeType);
-        // if (nextLayerSibling.nextSibling != null) {
-        //   nextLayerSibling.parentNode.insertBefore(htmlObject.querySelector('g'), nextLayerSibling.nextSibling);
-        // } else {
-        //
-         document.querySelector('#svg1').appendChild(htmlObject.querySelector('g'));
+        if (nextLayerSibling.nextSibling != null) {
+          nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling.nextSibling);
+        } else {
+          document.querySelector('#svg1').appendChild(svgObject);
+        }
         // if no nextLayerSibbling, then parent.appendChild(child_to_be_last);
     };
     xhr.send();
@@ -1117,11 +1179,11 @@ function findNextLayerInDom(item) {
   amountLayers = layers.length;
   itemPosition = layers.indexOf(item);
   while (nextLayerSibling === null) {
-    ++itemPosition;
     nextLayerSibling = document.querySelector('#' + layers[itemPosition]);
     if (itemPosition > amountLayers) {
       return
     }
+    ++itemPosition;
   }
   return nextLayerSibling;
 }
@@ -1605,6 +1667,16 @@ function onAllLoaded() {
     zoomContainer.classList.add('zoom-container--show');
 }
 
+function processSection(section) {
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
+      section = 'skin';
+  }
+  if (section ==='facialhair' || section==='brows') {
+      section = 'hair';
+  }
+  return section;
+}
+
 function onEachLoaded(frag, fileName) {
     var colorThis = false;
     var myLayer = fileName;
@@ -1615,14 +1687,9 @@ function onEachLoaded(frag, fileName) {
     } else {seen = 0;};
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
-
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
-    if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
-        section = 'skin';
-    }
-    if (section ==='facialhair' || section==='brows') {
-        section = 'hair';
-    }
+
+    section = processSection(section);
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         newColor = c.choices[section+'Color'];
