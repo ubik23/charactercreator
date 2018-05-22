@@ -1,79 +1,79 @@
 function createForm(sex, forms){
-    //TODO Check to see if there is already an existing form for the sex of the new character.
-    //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
-    var itemsThumbsContent = document.querySelector('#content_1');
-    itemsThumbsContent.innerHTML = '';
-    var sex = sex || window.sex;
-    var forms = forms || window.forms;
-    var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
-    var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
-    sectionHtml += '<ul class="section__list">';
-    for (var f in forms) {
-        var formContainer = document.querySelector('#content_1');
-        var newHtml = '';
-        var selcount = 0;
-        sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
-        var formsLength = forms.length;
-        var formCounter = formsLength;
-        for(var x in forms[f]) {
-            sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
-            var sectionTitle = x;
-            var t = sectionTitle.toLowerCase();
-            newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
-            var xsel = hash.get(t);
-            var options = forms[f][x].map(function(d, i) {
-                var tempId ='#' + t + '_' + d;
-                var multiLayer = window.multiLayer;
-                var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
-                if (t === "emotion") {
-                    var sections = [];
-                    var emotions = GetEmotionGetLayers(d);
-                    for (emo in emotions) {
-                        var newEmo = '#' + emotions[emo] + '_' + d;
-                        sections.push(newEmo);
-                    };
-                }
-                var viewBox = getViewBox(t, d);
-                newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '"></svg><span class="option__label">' + d + '</span></div>';}).join('\n');
-                var defaultValue = hash.get(x);
-                if (defaultValue !== undefined) {
-                    var defval = 'selected="' + defaultValue + '" ';
-                } else {
-                    var defval = '';
-                }
-                htagc = x.toLowerCase() + 'Color';
-                var hashColor = hash.get(htagc);
-                if (hashColor !== undefined) {
-                    var colorValue = hashColor;
-                }
-                else {
-                    var colorValue = '#ffffff'
-                }
-                newHtml += '    </div>';
-                newHtml += '</div>';
-                selcount ++;
+  //TODO Check to see if there is already an existing form for the sex of the new character.
+  //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
+  var itemsThumbsContent = document.querySelector('#content_1');
+  itemsThumbsContent.innerHTML = '';
+  var sex = sex || window.sex;
+  var forms = forms || window.forms;
+  var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
+  var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
+  sectionHtml += '<ul class="section__list">';
+  for (var f in forms) {
+    var formContainer = document.querySelector('#content_1');
+    var newHtml = '';
+    var selcount = 0;
+    sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="25" height="25"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
+    var formsLength = forms.length;
+    var formCounter = formsLength;
+    for(var x in forms[f]) {
+        sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
+        var sectionTitle = x;
+        var t = sectionTitle.toLowerCase();
+        newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">';
+        var xsel = hash.get(t);
+        var options = forms[f][x].map(function(d, i) {
+            var tempId ='#' + t + '_' + d;
+            var multiLayer = window.multiLayer;
+            var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+            if (t === "emotion") {
+                var sections = [];
+                var emotions = GetEmotionGetLayers(d);
+                for (emo in emotions) {
+                    var newEmo = '#' + emotions[emo] + '_' + d;
+                    sections.push(newEmo);
+                };
             }
-            sectionHtml += '</div>';
-            var htmlObject = document.createElement('div');
-            htmlObject.innerHTML = newHtml;
-            formContainer.appendChild(htmlObject);
+            var viewBox = getViewBox(t, d);
+            newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '"></svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+            var defaultValue = hash.get(x);
+            if (defaultValue !== undefined) {
+                var defval = 'selected="' + defaultValue + '" ';
+            } else {
+                var defval = '';
+            }
+            htagc = x.toLowerCase() + 'Color';
+            var hashColor = hash.get(htagc);
+            if (hashColor !== undefined) {
+                var colorValue = hashColor;
+            }
+            else {
+                var colorValue = '#ffffff'
+            }
+            newHtml += '    </div>';
+            newHtml += '</div>';
+            selcount ++;
         }
-        sectionHtml += '</ul>';
-        var sectionContainer = document.querySelector('#sidebar-left');
-        var sectionList = document.createElement('div');
-        sectionList.innerHTML = sectionHtml;
-        sectionContainer.innerHTML = '';
-        sectionContainer.appendChild(sectionList);
-        var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
-        var optionThumbnails  = document.querySelectorAll('.option__container');
-        var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
-
-        addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
-        addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
-        addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
-        addEventListenerList(optionThumbnails, 'click', changeOption);
-        addEventListenerList(sectionButtons, 'click', toggleSection);
+        sectionHtml += '</div>';
+        var htmlObject = document.createElement('div');
+        htmlObject.innerHTML = newHtml;
+        formContainer.appendChild(htmlObject);
     }
+    sectionHtml += '</ul>';
+    var sectionContainer = document.querySelector('#sidebar-left');
+    var sectionList = document.createElement('div');
+    sectionList.innerHTML = sectionHtml;
+    sectionContainer.innerHTML = '';
+    sectionContainer.appendChild(sectionList);
+    var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
+    var optionThumbnails  = document.querySelectorAll('.option__container');
+    var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+
+    addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
+    addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
+    addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
+    addEventListenerList(optionThumbnails, 'click', changeOption);
+    addEventListenerList(sectionButtons, 'click', toggleSection);
+}
 
 function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     var sections = [];
@@ -109,6 +109,8 @@ function getSectionLayersList(section) {
   return itemList;
 }
 function loadSectionLayers(section, layersList, callback) {
+  console.log('section', section);
+  console.log('layersList', layersList);
   var emotionLayerList = [];
   var sex = c.sex;
   var layerDirectory;
@@ -146,10 +148,13 @@ function loadSectionLayers(section, layersList, callback) {
       layerID = section + '_' + item;
     }
 
-    if (layers.indexOf(layerID) === -1) {continue}
+    if (layers.indexOf(layerID) === -1) {
+      console.log('index', layers.indexOf(layerID));
+      continue
+    }
 
     file = layerDirectory + section + '_' + item + '.svg';
-
+    console.log('file', file);
 
     fetch(file).then(function(response) {
         return response.text();
@@ -163,6 +168,7 @@ function loadSectionLayers(section, layersList, callback) {
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+        console.log('layerID', layerID);
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((document.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
@@ -200,6 +206,7 @@ function findNextLayerInDom(item) {
   }
   return nextLayerSibling;
 }
+
 function populateThumbs(svgObject) {
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
