@@ -1170,7 +1170,6 @@ function loadSectionLayers(section, layersList, callback) {
   } else {
     layersList = replaceMultilayer(section, layersList);
   }
-  console.log(layersList);
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
@@ -1181,14 +1180,11 @@ function loadSectionLayers(section, layersList, callback) {
   counter = layersList.length;
   while (counter--) {
     layerID = layersList[counter];
-    console.log('Treating', layerID);
     if (layers.indexOf(layerID) === -1) {
-      console.log('reject:', layerID);
       continue
     }
 
     file = layerDirectory + layerID + '.svg';
-    console.log('file ', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -1204,7 +1200,6 @@ function loadSectionLayers(section, layersList, callback) {
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((document.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
-            console.log('Injecting', layerID);
             nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
           } else {
             document.querySelector('#svg1').appendChild(svgObject);
