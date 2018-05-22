@@ -1147,26 +1147,21 @@ function loadSectionLayers(section, layersList, callback) {
     } else {
       layerID = section + '_' + item;
     }
+
     if (layers.indexOf(layerID) === -1) {continue}
+
     inDom = document.querySelector('#' + layerID);
     file = layerDirectory + section + '_' + item + '.svg';
     nextLayerSibling = findNextLayerInDom(layerID);
 
     if (inDom != null) {continue}
-    // Find first previous sibling in inDom.
-    // xhr= new XMLHttpRequest();
-    // xhr.open('GET', file, true);
-    // xhr.onreadystatechange= function() {
-    //     if (this.readyState!==4) return;
-    //     if (this.status!==200) return;
+
     fetch(file).then(function(response) {
         return response.text();
       }).then(function (text) {
-        // console.log(text);
         htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
-        console.log(svgObject.style.opacity);
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
         if (nextLayerSibling != null) {
@@ -1174,7 +1169,9 @@ function loadSectionLayers(section, layersList, callback) {
         } else {
           document.querySelector('#svg1').appendChild(svgObject);
         }
-        if (typeof callback === 'function') {callback(layerID, svgObject);}
+        return svgObject;
+    }).then(function(svgObject){
+      if (typeof callback === 'function') {callback(svgObject);}
     })
     // xhr.send();
   }
@@ -1202,25 +1199,11 @@ function findNextLayerInDom(item) {
   }
   return nextLayerSibling;
 }
-function populateThumbs(layerID, svgObject) {
-  svgObject.style.opacity = 1;
-  document.querySelector('#content_1 .' + layerID).appendChild(svgObject);
-  // var thumbnailSVGList = document.querySelectorAll('#content_1 .selected--option svg');
-  // console.log('thumbnailContainer', thumbnailSVGList);
-  // var counter = thumbnailSVGList.length;
-  // var useObject;
-  // var id;
-  // var selectNode;
-  // var newNode;
-  // while (counter--) {
-  //   id = thumbnailSVGList[counter].classList[1];
-  //   selectNode = document.querySelector('#' + id);
-  //   if (selectNode != null) {
-  //       newNode = selectNode.cloneNode(true);
-  //       thumbnailSVGList[counter].appendChild(newNode);
-  //   };
-  // }
-  return;
+function populateThumbs(svgObject) {
+  var thumbObject = svgObject.cloneNode(true);;
+  var layerID = thumbObject.id;
+  thumbObject.style.opacity = 1;
+  document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
 }
 
 function openThumbs() {
@@ -1321,8 +1304,6 @@ function closeSections(exception) {
         }
     }
 }
-
-
 
 function toggleSection(ev) {
 
