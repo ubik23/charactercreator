@@ -1110,9 +1110,42 @@ function getSectionLayersList(section) {
   }
   return itemList;
 }
+
+function replaceMultilayer(section, layersList) {
+  var counter = layersList.length;
+  var multilayer;
+  var multiCounter;
+  var fullList = [];
+  var currentItem;
+  var currentQty;
+  var currentIndex;
+  var qtyCounter;
+  if (sex === 'm') {
+    multilayer = window.multiLayerMale;
+  } else {
+    multilayer = window.multiLayerFemale;
+  }
+  while (counter--) {
+    if (layersList[counter] != '') {
+      fullList.push(section + '_' + layersList[counter]);
+    }
+  }
+  multiCounter = multiLayer.length;
+  while (multiCounter--) {
+    currentItem = multilayer[multiCounter][0];
+    if (isInArray(currentItem, fullList)) {
+      currentIndex = fullList.indexOf(currentItem);
+      fullList.splice(currentIndex, 1);
+      currentQty = multilayer[multiCounter][1];
+      qtyCounter = currentQty;
+      while (qtyCounter--) {
+        fullList.push(currentItem + '_' + (qtyCounter + 1) + '_of_' + currentQty);
+      }
+    }
+  }
+  return fullList;
+}
 function loadSectionLayers(section, layersList, callback) {
-  console.log('section', section);
-  console.log('layersList', layersList);
   var emotionLayerList = [];
   var sex = c.sex;
   var layerDirectory;
@@ -1127,6 +1160,7 @@ function loadSectionLayers(section, layersList, callback) {
   var htmlObject;
   var svgObject;
   var layers;
+  layersList = replaceMultilayer(section, layersList);
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -1143,7 +1177,6 @@ function loadSectionLayers(section, layersList, callback) {
   }
   while (counter--) {
     item = layersList[counter];
-
     if (section === "emotion") {
       layerID = item;
     } else {
@@ -1151,15 +1184,13 @@ function loadSectionLayers(section, layersList, callback) {
     }
 
     if (layers.indexOf(layerID) === -1) {
-      console.log('index', layers.indexOf(layerID));
       continue
     }
 
     file = layerDirectory + section + '_' + item + '.svg';
-    console.log('file', file);
 
     fetch(file).then(function(response) {
-        return response.text();
+      return response.text();
       }).then(function (text) {
         var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         var svgObject;
@@ -1170,7 +1201,6 @@ function loadSectionLayers(section, layersList, callback) {
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
-        console.log('layerID', layerID);
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((document.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
@@ -3167,7 +3197,8 @@ function launch() {
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
     window.layersMale = layersMale;
-    
+    window.multiLayerMale = multiLayerMale;
+    window.multiLayerFemale = multiLayerFemale;
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;

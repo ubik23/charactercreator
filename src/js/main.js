@@ -357,7 +357,8 @@ function launch() {
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
     window.layersMale = layersMale;
-    
+    window.multiLayerMale = multiLayerMale;
+    window.multiLayerFemale = multiLayerFemale;
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;
