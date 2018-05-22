@@ -1207,7 +1207,7 @@ function loadSectionLayers(section, layersList, callback) {
         }
         return svgObject;
     }).then(function(svgObject){
-      //if (typeof callback === 'function') {callback(svgObject);}
+      if (typeof callback === 'function') {callback(svgObject);}
     })
   }
 }
@@ -1238,8 +1238,13 @@ function findNextLayerInDom(item) {
 function populateThumbs(svgObject) {
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
+  // Check to see if it's a multilayer;
+  // If so, determine where to inject the object within the SVG.
+  if (layerID.slice(-5, -1) === '_of_') {
+    console.log('multilayer!!!', layerID);
+  }
   thumbObject.style.opacity = 1;
-  document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
+  //document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
 }
 
 function openThumbs() {
