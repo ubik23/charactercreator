@@ -1150,30 +1150,33 @@ function loadSectionLayers(section, layersList, callback) {
 
     if (layers.indexOf(layerID) === -1) {continue}
 
-    inDom = document.querySelector('#' + layerID);
     file = layerDirectory + section + '_' + item + '.svg';
-    nextLayerSibling = findNextLayerInDom(layerID);
 
-    if (inDom != null) {continue}
 
     fetch(file).then(function(response) {
         return response.text();
       }).then(function (text) {
-        htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+        var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+        var svgObject;
+        var layerID;
+        var nextLayerSibling;
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
-        if (nextLayerSibling != null) {
-          nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
-        } else {
-          document.querySelector('#svg1').appendChild(svgObject);
+        layerID = svgObject.id;
+        nextLayerSibling = findNextLayerInDom(layerID);
+        if ((document.querySelector('#' + layerID)) === null) {
+          if (nextLayerSibling != null) {
+            nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
+          } else {
+            document.querySelector('#svg1').appendChild(svgObject);
+          }
         }
         return svgObject;
     }).then(function(svgObject){
       if (typeof callback === 'function') {callback(svgObject);}
     })
-    // xhr.send();
   }
 }
 
