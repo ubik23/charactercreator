@@ -147,7 +147,7 @@ function loadSectionLayers(section, layersList, callback) {
   var emotionLayerList = [];
   var sex = c.sex;
   var layerDirectory;
-  var counter = layersList.length;
+  var counter;
   var xhr;
   var file;
   var layerID;
@@ -158,14 +158,17 @@ function loadSectionLayers(section, layersList, callback) {
   var htmlObject;
   var svgObject;
   var layers;
-  layersList = replaceMultilayer(section, layersList);
+
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
         emotionLayerList = emotionLayerList.concat(fromEmotionGetLayers(layersList[emotionCounter]));
     }
     layersList = emotionLayerList;
+  } else {
+    layersList = replaceMultilayer(section, layersList);
   }
+  console.log(layersList);
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
@@ -173,20 +176,17 @@ function loadSectionLayers(section, layersList, callback) {
     layerDirectory = 'layer/female/';
     layers = window.layersFemale;
   }
+  counter = layersList.length;
   while (counter--) {
-    item = layersList[counter];
-    if (section === "emotion") {
-      layerID = item;
-    } else {
-      layerID = section + '_' + item;
-    }
-
+    layerID = layersList[counter];
+    console.log('Treating', layerID);
     if (layers.indexOf(layerID) === -1) {
+      console.log('reject:', layerID);
       continue
     }
 
-    file = layerDirectory + section + '_' + item + '.svg';
-
+    file = layerDirectory + layerID + '.svg';
+    console.log('file ', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -202,6 +202,7 @@ function loadSectionLayers(section, layersList, callback) {
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((document.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
+            console.log('Injecting', layerID);
             nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
           } else {
             document.querySelector('#svg1').appendChild(svgObject);
@@ -209,7 +210,7 @@ function loadSectionLayers(section, layersList, callback) {
         }
         return svgObject;
     }).then(function(svgObject){
-      if (typeof callback === 'function') {callback(svgObject);}
+      //if (typeof callback === 'function') {callback(svgObject);}
     })
   }
 }
