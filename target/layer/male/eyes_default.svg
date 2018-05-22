@@ -1,9 +1,9 @@
 <g id="eyes_default">
   <g id="eye_right" clip-path="url(#eyes_neutral--right)">
       <g id="eyeball_right">
-        <circle class="alpha" style="fill:#2ad4ff;" cx="272.74722" cy="127.04607" r="1.5446309"/>
+        <circle class="alpha" style="fill:#2ad4ff;stroke:none;" cx="272.74722" cy="127.04607" r="1.5446309"/>
         <path class="alpha--dark" style="fill:#089cc1" d="m 274.31139,127.05153 c 0,0.39768 -0.15029,0.76026 -0.39717,1.03405 -0.0495,-0.61938 -0.039,-1.07534 -1.10082,-1.07534 -0.94729,0 -1.34815,0.5103 -1.0596,1.20743 -0.32573,-0.2832 -0.53167,-0.70062 -0.53167,-1.16614 0,-0.85308 0.69155,-1.54463 1.54463,-1.54463 0.85308,0 1.54463,0.69155 1.54463,1.54463 z"/>
-        <circle class="alpha" style="stroke:#00aad4;stroke-width:.5;" cx="272.74722" cy="127.04607" r="1.5446309"/>
+        <circle class="alpha" style="stroke:#00aad4;stroke-width:.5;fill:none;" cx="272.74722" cy="127.04607" r="1.5446309"/>
         <circle class="pupil" style="fill:#000;stroke-width:.06407173" cx="272.74722" cy="127.04607" r="0.6136024"/>
         <circle class="highlight" style="fill:#fff;stroke-width:1.87789023" cx="272.9964" cy="127.23601" r="0.1283714"/>
         <circle class="highlight" style="fill:#fff;stroke-width:2.88390279" cx="273.37234" cy="127.38271" r="0.1971418"/>
@@ -12,9 +12,9 @@
   </g>
   <g id="eye_left" clip-path="url(#eyes_neutral--left)">
       <g id="eyeball_right">
-        <circle class="alpha" style="fill:#2ad4ff;" cx="288.35782" cy="126.83508" r="1.5446309"/>
+        <circle class="alpha" style="fill:#2ad4ff;stroke:none;" cx="288.35782" cy="126.83508" r="1.5446309"/>
         <path class="alpha--dark" style="fill:#089cc1;stroke-width:.16128875" d="m 289.90246,126.83507 c 0,0.39768 -0.15029,0.76026 -0.39717,1.03405 -0.0495,-0.61938 -0.039,-1.07533 -1.10082,-1.07533 -0.94729,0 -1.34815,0.51029 -1.0596,1.20742 -0.32574,-0.2832 -0.53168,-0.70062 -0.53168,-1.16614 0,-0.85308 0.69156,-1.54463 1.54463,-1.54463 0.85308,0 1.54464,0.69155 1.54464,1.54463 z"/>
-        <circle class="alpha" style="stroke:#00aad4;stroke-width:.5;" cx="288.35782" cy="126.83508" r="1.5446309"/>
+        <circle class="alpha" style="stroke:#00aad4;stroke-width:.5;fill:none;" cx="288.35782" cy="126.83508" r="1.5446309"/>
         <circle class="pupil" style="fill:#000;stroke-width:.06407173" cx="288.35782" cy="126.83508" r="0.6136024"/>
         <circle class="highlight" style="fill:#fff;stroke-width:1.87789023" cx="288.59015" cy="127.07976" r="0.1283714"/>
         <circle class="highlight" style="fill:#fff;stroke-width:2.88390279" cx="288.96609" cy="127.22646" r="0.1971418"/>

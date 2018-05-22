@@ -1154,27 +1154,29 @@ function loadSectionLayers(section, layersList, callback) {
 
     if (inDom != null) {continue}
     // Find first previous sibling in inDom.
-    xhr= new XMLHttpRequest();
-    xhr.open('GET', file, true);
-    xhr.onreadystatechange= function() {
-        if (this.readyState!==4) return;
-        if (this.status!==200) return; // or whatever error handling you want
-        //document.getElementById('y').innerHTML= this.responseText;
-        // Inject this.responseText after ^.
+    // xhr= new XMLHttpRequest();
+    // xhr.open('GET', file, true);
+    // xhr.onreadystatechange= function() {
+    //     if (this.readyState!==4) return;
+    //     if (this.status!==200) return;
+    fetch(file).then(function(response) {
+        return response.text();
+      }).then(function (text) {
+        // console.log(text);
         htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-        htmlObject.innerHTML = this.responseText;
+        htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
+        console.log(svgObject.style.opacity);
         svgObject.style.opacity = 0;
         svgObject = colorElement(svgObject);
         if (nextLayerSibling != null) {
           nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
-          //if (typeof callback === 'function') {callback(layerID, svgObject);}
         } else {
           document.querySelector('#svg1').appendChild(svgObject);
         }
-
-    };
-    xhr.send();
+        if (typeof callback === 'function') {callback(layerID, svgObject);}
+    })
+    // xhr.send();
   }
 }
 
@@ -1201,7 +1203,6 @@ function findNextLayerInDom(item) {
   return nextLayerSibling;
 }
 function populateThumbs(layerID, svgObject) {
-  console.log('layerID', layerID);
   svgObject.style.opacity = 1;
   document.querySelector('#content_1 .' + layerID).appendChild(svgObject);
   // var thumbnailSVGList = document.querySelectorAll('#content_1 .selected--option svg');
