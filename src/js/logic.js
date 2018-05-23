@@ -87,7 +87,7 @@ function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
-        lips : 'default', //or rand
+        //lips : 'default', //or rand
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
         irisColor : '#2ad4ff', // Or some random eye color
@@ -96,10 +96,9 @@ function Character(choices){
     };
     this.choices.emotion = this.choices.emotion || 'neutral';
     this.choices.body = this.choices.body || 'athletic';
-    this.choices.lips = this.choices.lips || 'default';
+    //this.choices.lips = this.choices.lips || 'default';
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
-
     }
     this.choices.hairColor = this.choices.hairColor || '#ffe680';
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';

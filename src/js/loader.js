@@ -74,6 +74,7 @@ function onEachLoaded(frag, fileName) {
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
 
     section = processSection(section);
+
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         newColor = c.choices[section+'Color'];
@@ -96,6 +97,23 @@ Object.size = function(obj) {
     }
     return size;
 };
+function choicesToList(c) {
+  var layersList = [];
+  var sex = c.sex;
+  var counter = Object.keys(c.choices).length;
+  var keyChoice;
+  var valueChoice;
+  var layerChoice;
+  while (counter--) {
+    keyChoice = Object.keys(c.choices)[counter];
+    if (keyChoice.slice(-5) != 'Color') {
+      valueChoice = c.choices[keyChoice];
+      layerChoice = keyChoice + '_' + valueChoice;
+      console.log('layerChoice', layerChoice);
+    }
+  }
+  return layersList;
+}
 
 function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
@@ -152,6 +170,6 @@ function fromEmotionGetLayers(emotion) {
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    facialEpressionLayers.push('eyes_default');
+    facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };

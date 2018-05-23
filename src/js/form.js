@@ -145,20 +145,7 @@ function replaceMultilayer(section, layersList) {
 }
 function loadSectionLayers(section, layersList, callback) {
   var emotionLayerList = [];
-  var sex = c.sex;
-  var layerDirectory;
-  var counter;
-  var xhr;
-  var file;
-  var layerID;
-  var inDom;
-  var item;
-  var nextLayerSibling;
   var emotionCounter;
-  var htmlObject;
-  var svgObject;
-  var layers;
-
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -168,6 +155,16 @@ function loadSectionLayers(section, layersList, callback) {
   } else {
     layersList = replaceMultilayer(section, layersList);
   }
+  loadFilesFromList(layersList, callback);
+}
+
+function loadFilesFromList(layersList, callback){
+  var layerDirectory;
+  var sex = c.sex;
+  var file;
+  var layerID;
+  var counter;
+  var layers;
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
@@ -205,11 +202,13 @@ function loadSectionLayers(section, layersList, callback) {
         }
         return svgObject;
     }).then(function(svgObject){
-      if (typeof callback === 'function') {callback(svgObject);}
+      if (typeof callback === 'function') {
+        console.log('fire callback');
+        callback(svgObject);
+      }
     })
   }
 }
-
 function findNextLayerInDom(item) {
   var sex = c.sex;
   var nextLayerSibling = null;
@@ -243,24 +242,16 @@ function populateThumbs(svgObject) {
   var counter;
   var loopRank;
   thumbObject.style.opacity = 1
-  // Check to see if it's a multilayer;
-  // If so, determine where to inject the object within the SVG.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
     groupTotal = parseInt(layerID.slice(-1));
     layerID = layerID.slice(0, -7);
-    // Check if this is the last of the group.
     parentEl = document.querySelector('#content_1 .' + layerID);
     if (groupRank === groupTotal || !parentEl.firstChild) {
       parentEl.appendChild(thumbObject);
     } else if (groupTotal === 2) {
-      // insertBefore other.
       parentEl.insertBefore(thumbObject, parentEl.firstChild);
     } else {
-      // figure out where to place it.
-      // get the rank of the first child, if it's after our rank, then insert before.
-      // if not, move to the next child.
-      // repeat until the right spot is located.
       groupInPlace = parentEl.childNodes;
       counter = groupInPlace.length;
       while (counter--) {

@@ -510,8 +510,6 @@ function colorElement(el) {
   var section = el.id.split('_')[0];
   var newColor;
   var colorPrefix = 'alpha';
-
-
   section = processSection(section);
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
@@ -1147,20 +1145,7 @@ function replaceMultilayer(section, layersList) {
 }
 function loadSectionLayers(section, layersList, callback) {
   var emotionLayerList = [];
-  var sex = c.sex;
-  var layerDirectory;
-  var counter;
-  var xhr;
-  var file;
-  var layerID;
-  var inDom;
-  var item;
-  var nextLayerSibling;
   var emotionCounter;
-  var htmlObject;
-  var svgObject;
-  var layers;
-
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -1170,6 +1155,16 @@ function loadSectionLayers(section, layersList, callback) {
   } else {
     layersList = replaceMultilayer(section, layersList);
   }
+  loadFilesFromList(layersList, callback);
+}
+
+function loadFilesFromList(layersList, callback){
+  var layerDirectory;
+  var sex = c.sex;
+  var file;
+  var layerID;
+  var counter;
+  var layers;
   if (sex === 'm') {
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
@@ -1207,11 +1202,13 @@ function loadSectionLayers(section, layersList, callback) {
         }
         return svgObject;
     }).then(function(svgObject){
-      if (typeof callback === 'function') {callback(svgObject);}
+      if (typeof callback === 'function') {
+        console.log('fire callback');
+        callback(svgObject);
+      }
     })
   }
 }
-
 function findNextLayerInDom(item) {
   var sex = c.sex;
   var nextLayerSibling = null;
@@ -1245,24 +1242,16 @@ function populateThumbs(svgObject) {
   var counter;
   var loopRank;
   thumbObject.style.opacity = 1
-  // Check to see if it's a multilayer;
-  // If so, determine where to inject the object within the SVG.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
     groupTotal = parseInt(layerID.slice(-1));
     layerID = layerID.slice(0, -7);
-    // Check if this is the last of the group.
     parentEl = document.querySelector('#content_1 .' + layerID);
     if (groupRank === groupTotal || !parentEl.firstChild) {
       parentEl.appendChild(thumbObject);
     } else if (groupTotal === 2) {
-      // insertBefore other.
       parentEl.insertBefore(thumbObject, parentEl.firstChild);
     } else {
-      // figure out where to place it.
-      // get the rank of the first child, if it's after our rank, then insert before.
-      // if not, move to the next child.
-      // repeat until the right spot is located.
       groupInPlace = parentEl.childNodes;
       counter = groupInPlace.length;
       while (counter--) {
@@ -1780,6 +1769,7 @@ function onEachLoaded(frag, fileName) {
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
 
     section = processSection(section);
+
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         newColor = c.choices[section+'Color'];
@@ -1802,6 +1792,23 @@ Object.size = function(obj) {
     }
     return size;
 };
+function choicesToList(c) {
+  var layersList = [];
+  var sex = c.sex;
+  var counter = Object.keys(c.choices).length;
+  var keyChoice;
+  var valueChoice;
+  var layerChoice;
+  while (counter--) {
+    keyChoice = Object.keys(c.choices)[counter];
+    if (keyChoice.slice(-5) != 'Color') {
+      valueChoice = c.choices[keyChoice];
+      layerChoice = keyChoice + '_' + valueChoice;
+      console.log('layerChoice', layerChoice);
+    }
+  }
+  return layersList;
+}
 
 function choicesToLayers(c, multiLayer){
     var selectedLayers = [];
@@ -1858,7 +1865,7 @@ function fromEmotionGetLayers(emotion) {
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    facialEpressionLayers.push('eyes_default');
+    facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };
 
@@ -1951,7 +1958,7 @@ function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
-        lips : 'default', //or rand
+        //lips : 'default', //or rand
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
         irisColor : '#2ad4ff', // Or some random eye color
@@ -1960,10 +1967,9 @@ function Character(choices){
     };
     this.choices.emotion = this.choices.emotion || 'neutral';
     this.choices.body = this.choices.body || 'athletic';
-    this.choices.lips = this.choices.lips || 'default';
+    //this.choices.lips = this.choices.lips || 'default';
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
-
     }
     this.choices.hairColor = this.choices.hairColor || '#ffe680';
     this.choices.irisColor = this.choices.irisColor || '#2ad4ff';
@@ -3030,7 +3036,7 @@ function launch() {
       'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
       'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
       'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock',  'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
-      'eyes_default',
+      'eyeballs_default',
       'lashes_neutral',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
       'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
@@ -3062,7 +3068,7 @@ function launch() {
       'body_head_default',
       'ears_default',
       'eyes_neutral',
-      'eyes_default',
+      'eyeballs_default',
       'lashes_neutral',
       'brows_neutral',
       'mouth_neutral',
@@ -3163,7 +3169,7 @@ function launch() {
       'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
       //'iris_neutral', 'iris_sterness', 'iris_indignation', 'iris_anger', 'iris_rage', 'iris_disdain', 'iris_aversion', 'iris_disgust', 'iris_amusement', 'iris_joy', 'iris_laughter', 'iris_dejection', 'iris_melancholy','iris_alertness', 'iris_wonder', 'iris_surprise', 'iris_shock',
       //'pupils_human_neutral', 'pupils_human_sterness', 'pupils_human_indignation', 'pupils_human_anger', 'pupils_human_rage', 'pupils_human_disdain', 'pupils_human_aversion', 'pupils_human_disgust', 'pupils_human_amusement', 'pupils_human_joy', 'pupils_human_laughter', 'pupils_human_dejection', 'pupils_human_melancholy', 'pupils_human_alertness', 'pupils_human_wonder', 'pupils_human_surprise', 'pupils_human_shock',
-      'eyes_default',
+      'eyeballs_default',
       'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust', 'lashes_amusement', 'lashes_joy', 'lashes_laughter', 'lashes_dejection', 'lashes_melancholy', 'lashes_sadness', 'lashes_grief', 'lashes_alertness', 'lashes_wonder', 'lashes_surprise', 'lashes_shock',
       'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
       'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
@@ -3193,7 +3199,7 @@ function launch() {
       'ears_default',
       'nose_default',
       'eyes_neutral',
-      'eyes_default',
+      'eyeballs_default',
       'lashes_neutral',
       'mouth_neutral',
       'brows_neutral',
@@ -3228,7 +3234,7 @@ function launch() {
     c.sex  = hash.get('sex');
     var sex = c.sex;
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
-    window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3. femaleForm4, femaleForm5, femaleForm6];
+    window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
     window.layersMale = layersMale;
     window.multiLayerMale = multiLayerMale;
@@ -3259,12 +3265,14 @@ function launch() {
     // Go through all the forms
 
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
+    choicesToList(c);
     toBeShown = choicesToLayers(c, multiLayer);
     viewport = Snap("#svg1");
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
-    viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    loadFilesFromList(myLoadList).then(function(){onAllLoaded});
+    // viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 }
 
 function displayPallette () {
