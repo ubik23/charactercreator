@@ -236,13 +236,46 @@ function findNextLayerInDom(item) {
 function populateThumbs(svgObject) {
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
+  var groupTotal;
+  var groupRank;
+  var parentEl;
+  var groupInPlace;
+  var counter;
+  var loopRank;
+  thumbObject.style.opacity = 1
   // Check to see if it's a multilayer;
   // If so, determine where to inject the object within the SVG.
   if (layerID.slice(-5, -1) === '_of_') {
-    console.log('multilayer!!!', layerID);
+    groupRank = parseInt(layerID.slice(-6, -5));
+    groupTotal = parseInt(layerID.slice(-1));
+    layerID = layerID.slice(0, -7);
+    // Check if this is the last of the group.
+    parentEl = document.querySelector('#content_1 .' + layerID);
+    if (groupRank === groupTotal || !parentEl.firstChild) {
+      parentEl.appendChild(thumbObject);
+    } else if (groupTotal === 2) {
+      // insertBefore other.
+      parentEl.insertBefore(thumbObject, parentEl.firstChild);
+    } else {
+      // figure out where to place it.
+      // get the rank of the first child, if it's after our rank, then insert before.
+      // if not, move to the next child.
+      // repeat until the right spot is located.
+      groupInPlace = parentEl.childNodes;
+      counter = groupInPlace.length;
+      while (counter--) {
+        loopRank = parseInt(groupInPlace[counter].id.slice(-6, -5));
+        if (loopRank > groupRank) {
+          parentEl.insertBefore(thumbObject, groupInPlace[counter]);
+        }
+      }
+      if (groupRank > groupInPlace[groupInPlace.length - 1].id.slice(-6, -5)) {
+        document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
+      }
+    }
+  } else {
+    document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
-  thumbObject.style.opacity = 1;
-  //document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
 }
 
 function openThumbs() {
