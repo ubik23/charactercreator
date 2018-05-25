@@ -204,18 +204,14 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         return svgObject;
     }).then(function(svgObject){
-      console.log('then...');
       if (typeof callback === 'function' && callbackLoopFlag) {
-        console.log('fire loop callback');
         callback(svgObject);
       }
     })
   }
-  if (typeof callback === 'function' && !callbackLoopFlag) {
-    console.log('fire one-time callback');
-    callback();
-  }
+  return;
 }
+
 function findNextLayerInDom(item) {
   var sex = c.sex;
   var nextLayerSibling = null;

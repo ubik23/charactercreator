@@ -1206,18 +1206,14 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         return svgObject;
     }).then(function(svgObject){
-      console.log('then...');
       if (typeof callback === 'function' && callbackLoopFlag) {
-        console.log('fire loop callback');
         callback(svgObject);
       }
     })
   }
-  if (typeof callback === 'function' && !callbackLoopFlag) {
-    console.log('fire one-time callback');
-    callback();
-  }
+  return;
 }
+
 function findNextLayerInDom(item) {
   var sex = c.sex;
   var nextLayerSibling = null;
@@ -3278,8 +3274,7 @@ function launch() {
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
-    loadFilesFromList(layers, onAllLoaded, false);
-    // viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
+    Promise.resolve().then(function(){loadFilesFromList(layers);}).then(function(){onAllLoaded();});
 }
 
 function displayPallette () {
