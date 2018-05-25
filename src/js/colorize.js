@@ -37,10 +37,12 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
-  var section = el.id.split('_')[0];
+  var id = el.id.split('_');
+  var section = id[0];
+  var item = id[1];
   var newColor;
   var colorPrefix = 'alpha';
-  section = processSection(section);
+  section = processSection(section, item);
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
   if (newColor != undefined) {

@@ -391,7 +391,7 @@ function launch() {
     var myLoadList = layers.map(function(obj){
         return layerDirectory + obj;
     });
-    loadFilesFromList(myLoadList).then(function(){onAllLoaded});
+    loadFilesFromList(layers, onAllLoaded, false);
     // viewport.loadFilesDisplayOrdered( myLoadList, onAllLoaded, onEachLoaded );
 }
 

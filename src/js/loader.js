@@ -51,7 +51,7 @@ function onAllLoaded() {
     zoomContainer.classList.add('zoom-container--show');
 }
 
-function processSection(section) {
+function processSection(section, item) {
   if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
       section = 'skin';
   }
@@ -72,8 +72,7 @@ function onEachLoaded(frag, fileName) {
     //Get the section, then the color
     var section = myLayer.split("/")[2].split('_')[0];
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
-
-    section = processSection(section);
+    section = processSection(section, item);
 
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
@@ -109,7 +108,6 @@ function choicesToList(c) {
     if (keyChoice.slice(-5) != 'Color') {
       valueChoice = c.choices[keyChoice];
       layerChoice = keyChoice + '_' + valueChoice;
-      console.log('layerChoice', layerChoice);
     }
   }
   return layersList;

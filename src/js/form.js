@@ -143,7 +143,7 @@ function replaceMultilayer(section, layersList) {
   }
   return fullList;
 }
-function loadSectionLayers(section, layersList, callback) {
+function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   var emotionLayerList = [];
   var emotionCounter;
   if (section === 'emotion') {
@@ -155,10 +155,10 @@ function loadSectionLayers(section, layersList, callback) {
   } else {
     layersList = replaceMultilayer(section, layersList);
   }
-  loadFilesFromList(layersList, callback);
+  loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
-function loadFilesFromList(layersList, callback){
+function loadFilesFromList(layersList, callback, callbackLoopFlag){
   var layerDirectory;
   var sex = c.sex;
   var file;
@@ -189,7 +189,9 @@ function loadFilesFromList(layersList, callback){
         var nextLayerSibling;
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
-        svgObject.style.opacity = 0;
+        if (callbackLoopFlag) {
+          svgObject.style.opacity = 0;
+        }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
         nextLayerSibling = findNextLayerInDom(layerID);
@@ -202,11 +204,16 @@ function loadFilesFromList(layersList, callback){
         }
         return svgObject;
     }).then(function(svgObject){
-      if (typeof callback === 'function') {
-        console.log('fire callback');
+      console.log('then...');
+      if (typeof callback === 'function' && callbackLoopFlag) {
+        console.log('fire loop callback');
         callback(svgObject);
       }
     })
+  }
+  if (typeof callback === 'function' && !callbackLoopFlag) {
+    console.log('fire one-time callback');
+    callback();
   }
 }
 function findNextLayerInDom(item) {
@@ -274,7 +281,7 @@ function openThumbs() {
     var section = _.innerHTML;
     var layersList = getSectionLayersList(section);
     sectionLowerCase = section.toLowerCase();
-    loadSectionLayers(sectionLowerCase, layersList, populateThumbs);
+    loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
     var previousSelection = document.querySelector('.section--selected');
     if (previousSelection != null) {
         previousSelection.classList.remove('section--selected');
