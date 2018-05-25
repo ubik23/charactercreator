@@ -272,16 +272,35 @@ function populateThumbs(svgObject) {
   }
 }
 
+function purgeHiddenLayers() {
+  var thumbsSVG = document.querySelectorAll('#content_1 .selected--option svg')
+  var svg = document.querySelector('#svg1');
+  var counter = thumbsSVG.length;
+  var currentSVG;
+  while (counter--) {
+    currentSVG = svg.querySelector('#' + thumbsSVG[counter].classList[1]);
+    if (currentSVG.style.opacity === '0') {
+      console.log('hidden', currentSVG.id);
+      svg .removeChild(currentSVG);
+    }
+  }
+
+
+}
+
 function openThumbs() {
     var _ = this;
     var section = _.innerHTML;
     var layersList = getSectionLayersList(section);
-    sectionLowerCase = section.toLowerCase();
-    loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
+    var sectionLowerCase = section.toLowerCase();
     var previousSelection = document.querySelector('.section--selected');
+
     if (previousSelection != null) {
-        previousSelection.classList.remove('section--selected');
+      purgeHiddenLayers();
+      previousSelection.classList.remove('section--selected');
     };
+
+    loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
     showThumbOptions(_);
     _.classList.add('section--selected');
 
