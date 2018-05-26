@@ -1112,7 +1112,7 @@ function getSectionLayersList(section) {
 }
 
 function replaceMultilayer(layersList, section) {
-  console.log(section);
+  console.log('section', section);
   if (section != undefined) {
     console.log('we have section.');
   }
@@ -1161,6 +1161,7 @@ function replaceMultilayer(layersList, section) {
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   var emotionLayerList = [];
   var emotionCounter;
+  console.log('loadSectionLayers section', section);
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -1251,6 +1252,7 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
+  var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
   var groupTotal;
@@ -1259,6 +1261,7 @@ function populateThumbs(svgObject) {
   var groupInPlace;
   var counter;
   var loopRank;
+  var splitArray;
   thumbObject.style.opacity = 1
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
@@ -1282,7 +1285,15 @@ function populateThumbs(svgObject) {
         document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
       }
     }
+  } else if (emotion) {
+    console.log('layerID', layerID);
+    splitArray = layerID.split('_');
+    if (layerID != 'eyeballs_default') {
+      document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
+    }
+
   } else {
+    console.log('layerID', layerID);
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
 }
