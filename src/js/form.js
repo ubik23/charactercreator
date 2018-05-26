@@ -109,7 +109,11 @@ function getSectionLayersList(section) {
   return itemList;
 }
 
-function replaceMultilayer(section, layersList) {
+function replaceMultilayer(layersList, section) {
+  console.log(section);
+  if (section != undefined) {
+    console.log('we have section.');
+  }
   var counter = layersList.length;
   var multilayer;
   var multiCounter;
@@ -123,9 +127,18 @@ function replaceMultilayer(section, layersList) {
   } else {
     multilayer = window.multiLayerFemale;
   }
-  while (counter--) {
-    if (layersList[counter] != '') {
-      fullList.push(section + '_' + layersList[counter]);
+  if (section != undefined) {
+    while (counter--) {
+      if (layersList[counter] != '') {
+        fullList.push(section + '_' + layersList[counter]);
+      }
+    }
+  } else {
+    counter = layersList.length;
+    while (counter--) {
+      if (layersList[counter].slice(-1) != '_') {
+        fullList.push(layersList[counter])
+      }
     }
   }
   multiCounter = multiLayer.length;
@@ -153,7 +166,7 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
     }
     layersList = emotionLayerList;
   } else {
-    layersList = replaceMultilayer(section, layersList);
+    layersList = replaceMultilayer(layersList, section);
   }
   loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
@@ -273,19 +286,24 @@ function populateThumbs(svgObject) {
 }
 
 function purgeHiddenLayers() {
+  var section = document.querySelector('#content_1 .selected--option').classList[2].slice(9);
   var thumbsSVG = document.querySelectorAll('#content_1 .selected--option svg')
   var svg = document.querySelector('#svg1');
   var counter = thumbsSVG.length;
   var currentSVG;
+  var layersList = [];
+  var mutlilayerList = [];
   while (counter--) {
-    currentSVG = svg.querySelector('#' + thumbsSVG[counter].classList[1]);
-    if (currentSVG.style.opacity === '0') {
-      console.log('hidden', currentSVG.id);
-      svg .removeChild(currentSVG);
+    layersList.push(thumbsSVG[counter].classList[1]);
+  }
+  layersList = replaceMultilayer(layersList);
+  counter = layersList.length;
+  while (counter--) {
+    currentSVG = svg.querySelector('#' + layersList[counter]);
+    if (currentSVG != null && currentSVG.style.opacity === '0') {
+      svg.removeChild(currentSVG);
     }
   }
-
-
 }
 
 function openThumbs() {
