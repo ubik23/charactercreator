@@ -262,26 +262,45 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  var svgContainer = document.querySelector('#svg1');
     if (id.slice(1) == multiLayer[lyr][0]){
         for (var i=1;i<=multiLayer[lyr][1];i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            viewport.selectAll(idOf).attr({opacity:1});
+            console.log('idOf', idOf);
+            // viewport.selectAll(idOf).attr({opacity:1});
+            svgContainer.querySelector(idOf).style.opacity = 1;
         }
     }
     else {
-        viewport.selectAll(id).attr({opacity:1});
+      console.log('id', id);
+        // viewport.selectAll(id).attr({opacity:1});
+        svgContainer.querySelector(id).style.opacity = 1;
     }
 }
 
 function sectionHide(multiLayer, id) {
+  var svgContainer = document.querySelector('#svg1');
+  var sectionToHide;
+  console.log('id.slice(1)', id.slice(1));
+  console.log('multiLayer[lyr][0]', multiLayer[lyr][0]);
     if (id.slice(1) == multiLayer[lyr][0]){
         for (var i=1;i<=multiLayer[lyr][1];i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            viewport.selectAll(idOf).attr({opacity:0});
+            console.log('idOf', idOf);
+            // viewport.selectAll(idOf).attr({opacity:0});
+            sectionToHide = svgContainer.querySelector(idOf);
+            if (sectionToHide != null) {
+              sectionToHide.style.opacity = 0;
+            }
         }
     }
     else {
-        viewport.selectAll(id).attr({opacity:0})
+      console.log('id', id);
+        // viewport.selectAll(id).attr({opacity:0})
+        sectionToHide = svgContainer.querySelector(id);
+        if (sectionToHide != null) {
+          sectionToHide.style.opacity = 0;
+        }
     };
 }
 

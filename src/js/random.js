@@ -50,7 +50,9 @@ function showRandom(section, layer){  // Draw the SVG on screen
         sectionOptions = getOptions(sections[section]);
         var id = '#'+sections[section] + '_' + layer;
         for (option in sectionOptions){
+          console.log('sectionOptions[option]', sectionOptions[option]);
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
+            console.log('>>optionId', optionId);
             hideId(optionId)
         }
         showId(id);
@@ -79,52 +81,73 @@ function hideCompetition (section) {
 }
 
 function hideArray(competition) {
+  console.log('competition', competition);
     for (section in competition) {
         sectionOptions = getOptions(competition[section]);
+        console.log('sectionOptions', sectionOptions);
         for (option in sectionOptions) {
+            console.log('sectionOptions[option]', sectionOptions[option]);
+          if (sectionOptions[option] != '') {
             optionId = '#' + competition[section] + '_' + sectionOptions[option];
+            console.log('optionId', optionId);
             hideId(optionId)
             var obj = new Array();
             obj[competition[section]] = "";
             hash.add(obj);
             modCharacter(competition[section], "");
+          }
         }
     }
 }
 
 function showId(id) {
+  var svgContainer = document.querySelector('#svg1');
         ga('send', 'event', 'menu', 'select', id);
         for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    viewport.selectAll(idOf).attr({opacity:1});
+                    // viewport.selectAll(idOf).attr({opacity:1});
+                    svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
             else {
-                viewport.selectAll(id).attr({opacity:1});
+                // viewport.selectAll(id).attr({opacity:1});
+                svgContainer.querySelector(id).style.opacity = 1;
             }
     };
 }
 
 function hideId(id) {
+  var svgContainer = document.querySelector('#svg1');
+  var layerToHide;
         for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]) {
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    viewport.selectAll(idOf).attr({opacity:0});
+                    // viewport.selectAll(idOf).attr({opacity:0});
+                    layerToHide = svgContainer.querySelector(idOf);
+                    if (layerToHide != null) {
+                      layerToHide.style.opacity = 0;
+                    }
                 }
             }
             else {
-                viewport.selectAll(id).attr({opacity:0});
+                // viewport.selectAll(id).attr({opacity:0});
+                layerToHide = svgContainer.querySelector(id);
+                if (layerToHide != null) {
+                  layerToHide.style.opacity = 0;
+                }
             }
     };
 }
 
 function getOptions(section) {
+  console.log('getOptions');
      var sectionOptions = [];
      for (form in window.forms) {
          if ( capitalizeFirstLetter(section) in window.forms[form] ) {
+           console.log('capitalizeFirstLetter(section)', capitalizeFirstLetter(section));
               return window.forms[form][capitalizeFirstLetter(section)];
          } else {
          }
@@ -134,4 +157,3 @@ function getOptions(section) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
