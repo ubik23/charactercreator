@@ -110,10 +110,6 @@ function getSectionLayersList(section) {
 }
 
 function replaceMultilayer(layersList, section) {
-  console.log('section', section);
-  if (section != undefined) {
-    console.log('we have section.');
-  }
   var counter = layersList.length;
   var multilayer;
   var multiCounter;
@@ -159,7 +155,6 @@ function replaceMultilayer(layersList, section) {
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   var emotionLayerList = [];
   var emotionCounter;
-  console.log('loadSectionLayers section', section);
   if (section === 'emotion') {
     emotionCounter = layersList.length;
     while (emotionCounter--) {
@@ -201,6 +196,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var svgObject;
         var layerID;
         var nextLayerSibling;
+        var svgContainer = document.querySelector('#svg1');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
         if (callbackLoopFlag) {
@@ -209,7 +205,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
         nextLayerSibling = findNextLayerInDom(layerID);
-        if ((document.querySelector('#' + layerID)) === null) {
+        if ((svgContainer.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
             nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
           } else {
@@ -228,6 +224,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
 
 function findNextLayerInDom(item) {
   var sex = c.sex;
+  var svgContainer = document.querySelector('#svg1');
   var nextLayerSibling = null;
   var layers;
   var amountLayers;
@@ -240,7 +237,7 @@ function findNextLayerInDom(item) {
   amountLayers = layers.length;
   itemPosition = layers.indexOf(item);
   while (nextLayerSibling === null) {
-    nextLayerSibling = document.querySelector('#' + layers[itemPosition + 1]);
+    nextLayerSibling = svgContainer.querySelector('#' + layers[itemPosition + 1]);
     if (itemPosition > amountLayers) {
       return
     }
@@ -284,14 +281,12 @@ function populateThumbs(svgObject) {
       }
     }
   } else if (emotion) {
-    console.log('layerID', layerID);
     splitArray = layerID.split('_');
     if (layerID != 'eyeballs_default') {
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
 
   } else {
-    console.log('layerID', layerID);
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
 }
@@ -420,7 +415,6 @@ function closeSections(exception) {
 }
 
 function toggleSection(ev) {
-
   var el = ev.target;
   var sectionLabel;
   var elChild;
@@ -456,7 +450,6 @@ function toggleSection(ev) {
       sectionContent.classList.toggle('section--hide');
       displayButton.classList.toggle('section-btn--hide');
   }
-
 }
 
 function showThumbOptions(_) {
