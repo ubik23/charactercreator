@@ -73,7 +73,6 @@ function onEachLoaded(frag, fileName) {
     var section = myLayer.split("/")[2].split('_')[0];
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     section = processSection(section, item);
-
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         newColor = c.choices[section+'Color'];
@@ -168,6 +167,6 @@ function fromEmotionGetLayers(emotion) {
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    facialEpressionLayers.push('eyeballs_default');
+    // facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };

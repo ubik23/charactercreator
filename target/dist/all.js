@@ -1284,10 +1284,12 @@ function populateThumbs(svgObject) {
     }
   } else if (emotion) {
     splitArray = layerID.split('_');
+    console.log('layerID', layerID);
     if (layerID != 'eyeballs_default') {
+      console.log('layerID not eyeballs_default', layerID);
+      console.log('.emotion_' + splitArray[splitArray.length-1]);
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
-
   } else {
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
@@ -1814,7 +1816,6 @@ function onEachLoaded(frag, fileName) {
     var section = myLayer.split("/")[2].split('_')[0];
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     section = processSection(section, item);
-
     // Make a list of all the color keys in c.choices
     if (c.choices[section+'Color'] != undefined) {
         newColor = c.choices[section+'Color'];
@@ -1909,7 +1910,7 @@ function fromEmotionGetLayers(emotion) {
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    facialEpressionLayers.push('eyeballs_default');
+    // facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };
 
@@ -2002,7 +2003,7 @@ function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
         body : 'athletic', // Or a random body shape eventually
-        //lips : 'default', //or rand
+        eyeballs : 'default', //or rand
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
         irisColor : '#2ad4ff', // Or some random eye color

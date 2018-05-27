@@ -282,10 +282,12 @@ function populateThumbs(svgObject) {
     }
   } else if (emotion) {
     splitArray = layerID.split('_');
+    console.log('layerID', layerID);
     if (layerID != 'eyeballs_default') {
+      console.log('layerID not eyeballs_default', layerID);
+      console.log('.emotion_' + splitArray[splitArray.length-1]);
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
-
   } else {
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
