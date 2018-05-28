@@ -1253,7 +1253,6 @@ function populateThumbs(svgObject) {
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
-  console.log(layerID);
   var groupTotal;
   var groupRank;
   var parentEl;
@@ -1286,10 +1285,7 @@ function populateThumbs(svgObject) {
     }
   } else if (emotion) {
     splitArray = layerID.split('_');
-    console.log('layerID', layerID);
     if (layerID != 'eyeballs_default') {
-      console.log('layerID not eyeballs_default', layerID);
-      console.log('.emotion_' + splitArray[splitArray.length-1]);
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
   } else {
