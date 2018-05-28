@@ -239,9 +239,8 @@ function displaySections(sections, options, selectedOption, multiLayer) {
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(d === selectedOption){
-                for (lyr in multiLayer){
-                    sectionShow(multiLayer, id);
-                };
+                sectionShow(multiLayer, id);
+
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
                 } else {
@@ -263,30 +262,32 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   var svgContainer = document.querySelector('#svg1');
-    if (id.slice(1) == multiLayer[lyr][0]){
-        for (var i=1;i<=multiLayer[lyr][1];i++){
-            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            console.log('idOf', idOf);
-            // viewport.selectAll(idOf).attr({opacity:1});
-            svgContainer.querySelector(idOf).style.opacity = 1;
-        }
+  var isMultiLayered = false;
+  for (lyr in multiLayer){
+    if (id.slice(1) === multiLayer[lyr][0]){
+      isMultiLayered = true;
+      break;
     }
-    else {
-      console.log('id', id);
-        // viewport.selectAll(id).attr({opacity:1});
-        svgContainer.querySelector(id).style.opacity = 1;
-    }
+  }
+  if (id.slice(1) === multiLayer[lyr][0]){
+      for (var i=1;i<=multiLayer[lyr][1];i++){
+          idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+          // viewport.selectAll(idOf).attr({opacity:1});
+          svgContainer.querySelector(idOf).style.opacity = 1;
+      }
+  }
+  else {
+      // viewport.selectAll(id).attr({opacity:1});
+      svgContainer.querySelector(id).style.opacity = 1;
+  }
 }
 
 function sectionHide(multiLayer, id) {
   var svgContainer = document.querySelector('#svg1');
   var sectionToHide;
-  console.log('id.slice(1)', id.slice(1));
-  console.log('multiLayer[lyr][0]', multiLayer[lyr][0]);
-    if (id.slice(1) == multiLayer[lyr][0]){
-        for (var i=1;i<=multiLayer[lyr][1];i++){
+    if (id.slice(1) == multiLayer[lyr][0]) {
+        for (var i=1;i<=multiLayer[lyr][1];i++) {
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            console.log('idOf', idOf);
             // viewport.selectAll(idOf).attr({opacity:0});
             sectionToHide = svgContainer.querySelector(idOf);
             if (sectionToHide != null) {
@@ -295,7 +296,6 @@ function sectionHide(multiLayer, id) {
         }
     }
     else {
-      console.log('id', id);
         // viewport.selectAll(id).attr({opacity:0})
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {

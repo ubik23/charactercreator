@@ -152,6 +152,7 @@ function replaceMultilayer(layersList, section) {
   }
   return fullList;
 }
+
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   var emotionLayerList = [];
   var emotionCounter;

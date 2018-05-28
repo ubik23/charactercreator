@@ -50,9 +50,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
         sectionOptions = getOptions(sections[section]);
         var id = '#'+sections[section] + '_' + layer;
         for (option in sectionOptions){
-          console.log('sectionOptions[option]', sectionOptions[option]);
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
-            console.log('>>optionId', optionId);
             hideId(optionId)
         }
         showId(id);
@@ -81,15 +79,11 @@ function hideCompetition (section) {
 }
 
 function hideArray(competition) {
-  console.log('competition', competition);
     for (section in competition) {
         sectionOptions = getOptions(competition[section]);
-        console.log('sectionOptions', sectionOptions);
         for (option in sectionOptions) {
-            console.log('sectionOptions[option]', sectionOptions[option]);
           if (sectionOptions[option] != '') {
             optionId = '#' + competition[section] + '_' + sectionOptions[option];
-            console.log('optionId', optionId);
             hideId(optionId)
             var obj = new Array();
             obj[competition[section]] = "";
@@ -143,11 +137,9 @@ function hideId(id) {
 }
 
 function getOptions(section) {
-  console.log('getOptions');
      var sectionOptions = [];
      for (form in window.forms) {
          if ( capitalizeFirstLetter(section) in window.forms[form] ) {
-           console.log('capitalizeFirstLetter(section)', capitalizeFirstLetter(section));
               return window.forms[form][capitalizeFirstLetter(section)];
          } else {
          }
