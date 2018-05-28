@@ -2152,7 +2152,7 @@ function displaySections(sections, options, selectedOption, multiLayer) {
     for (section in sections){
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
-            if(d === selectedOption){
+            if(selectedOption != '' && d === selectedOption){
                 sectionShow(multiLayer, id);
 
                 if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
