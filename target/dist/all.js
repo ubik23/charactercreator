@@ -2166,14 +2166,26 @@ function sectionShow(multiLayer, id) {
   if (id.slice(1) === multiLayer[lyr][0]){
       for (var i=1;i<=multiLayer[lyr][1];i++){
           idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-          // viewport.selectAll(idOf).attr({opacity:1});
           svgContainer.querySelector(idOf).style.opacity = 1;
       }
   }
   else {
-      // viewport.selectAll(id).attr({opacity:1});
       svgContainer.querySelector(id).style.opacity = 1;
   }
+  if (id.slice(1).split('_')[0] === 'eyes') {
+    changeClipPathOnEyes(id);
+  }
+}
+
+function changeClipPathOnEyes(id) {
+  var emotion = id.slice(1).split('_')[1];
+  var svgContainer = document.querySelector('#svg1');
+  var eyeRight = svgContainer.querySelector('#eye_right');
+  var eyeLeft = svgContainer.querySelector('#eye_left');
+  console.log('emotion', emotion);
+  console.log('eyeRight.getAttribute', eyeRight.getAttribute('clip-path'));
+  eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
+  eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
 }
 
 function sectionHide(multiLayer, id) {
