@@ -18,7 +18,7 @@
 }
 
 .option__container {
-    width: 24%;
+    width: 100%;
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -26,6 +26,10 @@
     margin: 0.5%;
     transform: scale(1);
     transition: transform 0.3s;
+
+    @media screen and (min-width: 650px) {
+      width: 24%;
+    }
 
     &:hover > .option__label {
         color: $color-label;

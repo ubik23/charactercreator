@@ -1,7 +1,7 @@
 .accordeon__section-label {
     width: 100%;
     box-sizing: border-box;
-    padding: 0  5px 0 5px;
+    padding: 0  0 0 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,6 +9,9 @@
     background: transparent;
     border-bottom: 1px solid #E6E6E6;
     transition: background 0.3s, color 0.3s;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
 
     &:hover {
         background: $color-alpha;
@@ -38,8 +41,18 @@
 
 .accordeon__section-title {
     font-size: 16px;
-    font-weight: 500;
-    padding-top: 3.65px
+    font-weight: 700;
+    padding-top: 3.65px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+    & .icon {
+      display: none;
+
+      @media screen and (min-width: 1024px) {
+        display: block;
+      }
+    }
 }
 
 .accordeon__svg-container {
@@ -52,7 +65,7 @@
 .accordeon__content {
     width: 100%;
     height: auto;
-    max-height: $color-dark-grey;
+    max-height: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid $color-border;
     opacity: 1;
