@@ -24,13 +24,13 @@
         border-bottom: 1px solid $color-alpha;
         transform-origin: 0 50%;
         transform: translate3d(30px,0,0);
-        font-weight: 700;
+        font-weight: 300;
     }
 
     & li.section--selected {
         background: $color-white;
         color: $color-black;
-        font-weight: 700;
+        font-weight: 300;
         transform: translate3d(0,0,0);
         transition: transform 0.2s, color 0.2s, background 0.2s;
     }
@@ -39,6 +39,10 @@
 .section__link {
     color: $color-link;
     text-decoration: none;
+    & .sbl__option {
+      overflow: hidden;
+      text-overflow:ellipsis;
+    }
 }
 
 .section__link:active {

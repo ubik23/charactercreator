@@ -70,17 +70,21 @@ sub {
   display: inline-flex;
   flex-direction: column;
   list-style: none;
-  font-size: 12px;
+  font-size: 16px;
   align-items: flex-end;
   transform: translateX(0);
   padding: 0;
   transition: transform 200ms ease-out;
+  background-color: rgba(234, 235, 240, 1);
+  border-radius: 0.2em;
+
   @media only screen and (min-width: 768px) {
     position: inherit;
     flex-direction: row;
     top: inherit;
     padding: 0;
   }
+
   &.hide {
        transform: translateX(100%);
        @media only screen and (min-width: 768px) {
@@ -91,9 +95,9 @@ sub {
 
 #horizontal li {
     margin-left: 0.2em;
-    background-color: rgba(234, 235, 240, 0.5);
+
     padding: 0.2em;
-    border-radius: 0.2em;
+
 }
 
 #horizontal li a {
