@@ -339,7 +339,7 @@ function launch() {
       'age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
       'ears_default', 'ears_pointed',
       'nose_default', 'nose_roman', 'nose_syrid',
-      'mouth_shadow',
+      'mouth_shadow', 'freckles_medium',
       'age_lines', 'wings_devil',
       'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage'
     ];

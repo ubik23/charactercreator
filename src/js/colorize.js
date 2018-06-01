@@ -162,7 +162,7 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id.slice(0,4) === 'mouth') {
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id==='freckles' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                     //colorSkin(_color);
