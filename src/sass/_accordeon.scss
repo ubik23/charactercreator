@@ -74,9 +74,10 @@
 }
 
 .accordeon__svg-container {
-    width: 25px;
-    height: 25px;
+    width: 1em;
+    height: 1em;
     transform: rotate(-90deg);
+    transform-origin: 0.5em 0.5em;
     transition: transform 0.2s ease-in 0.1s;
 }
 
@@ -91,6 +92,7 @@
 
 .section-btn--hide {
     transform: rotate(90deg);
+    transform-origin: 0.5em 0.5em;
     transition: transform 0.2s ease-in 0.1s;
 }
 

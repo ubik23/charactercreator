@@ -21,7 +21,7 @@
     color: $color-link;
     padding: 0;
     border:1px solid $color-border;
-    width: 23vw;
+    width: 20vw;
     max-height: 100%;
 
     @media screen and (min-width: 650px) {
@@ -76,10 +76,10 @@
     font-weight: 100;
     background: $color-alpha;
     color: $color-white;
-    font-size: 14px;
+    font-size: 12px;
     border-bottom: 1px solid $color-border;
     margin: 0;
-    padding: 12px 0 8px 0;
+    padding: 0.5em 0 8px 0;
 
     & .icon {
       display: none;
