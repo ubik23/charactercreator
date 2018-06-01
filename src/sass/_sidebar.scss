@@ -14,14 +14,14 @@
     display: block;
     height: auto;
     font-family: helvetica, sans-serif;
-    font-size: 0.8em;
+    font-size: 12px;
     overflow: visible;
     box-sizing: border-box;
     background-color:rgba(255,255,255,0.75);
     color: $color-link;
     padding: 0;
     border:1px solid $color-border;
-    width: 20vw;
+    width: 18vw;
     max-height: 100%;
 
     @media screen and (min-width: 650px) {

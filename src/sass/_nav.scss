@@ -65,8 +65,8 @@ sub {
 
 #horizontal {
   position: absolute;
-  top: 1.5em;
-  right: 0;
+  top: 1em;
+  right: -0.25em;
   display: inline-flex;
   flex-direction: column;
   list-style: none;
@@ -75,8 +75,11 @@ sub {
   transform: translateX(0);
   padding: 0;
   transition: transform 200ms ease-out;
-  background-color: rgba(234, 235, 240, 1);
+  background-color: $color-white;
   border-radius: 0.2em;
+  margin-left: 0.2em;
+  border: 1px solid $color-alpha;
+  box-sizing: border-box;
 
   @media only screen and (min-width: 768px) {
     position: inherit;
@@ -86,7 +89,7 @@ sub {
   }
 
   &.hide {
-       transform: translateX(100%);
+       transform: translateX(105%);
        @media only screen and (min-width: 768px) {
          transform: translateY(0);
        }
@@ -94,20 +97,28 @@ sub {
 }
 
 #horizontal li {
-    margin-left: 0.2em;
-
-    padding: 0.2em;
-
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #horizontal li a {
     color: $color-alpha;
+    text-decoration: none;
+    width: 100%;
+    padding: 0.2em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 #horizontal li a:hover {
     color: $color-alpha--light;
 }
 
+#horizontal li a:active {
+    color: $color-white;
+    background-color: $color-alpha;
+}
 .menu-text {
     font-family: "Helvetica";
     margin: 4px;
