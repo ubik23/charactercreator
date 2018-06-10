@@ -413,6 +413,7 @@ function defaultEyeColor(skinColor){
         '#a3866a' : "#552200"  // Brown
     };
     var eyeColor = eyeColorDict[skinColor];
+    c.choices['irisColor'] = eyeColor;
     hash.add({ irisColor: eyeColor });
 }
 
@@ -444,6 +445,7 @@ function defaultHairColor(skinColor){
         '#a3866a' : "#1a1a1a"  // Black
     };
     var newHairColor = hairColorDict[skinColor];
+    c.choices['hairColor'] = newHairColor;
     hash.add({ hairColor: newHairColor });
 }
 

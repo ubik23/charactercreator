@@ -487,14 +487,19 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
+  console.log('colorElement(el)', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
   var newColor;
   var colorPrefix = 'alpha';
   section = processSection(section, item);
+  console.log('section', section);
+  if (section === 'eyeballs') {section = 'iris'}
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
+  console.log('new section', section);
+  console.log('newColor', newColor);
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
@@ -514,6 +519,7 @@ function colorElementLoop(el, colorPrefix, newColor) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+  console.log('counter', counter);
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
@@ -3185,6 +3191,7 @@ function defaultEyeColor(skinColor){
         '#a3866a' : "#552200"  // Brown
     };
     var eyeColor = eyeColorDict[skinColor];
+    c.choices['irisColor'] = eyeColor;
     hash.add({ irisColor: eyeColor });
 }
 
@@ -3216,6 +3223,7 @@ function defaultHairColor(skinColor){
         '#a3866a' : "#1a1a1a"  // Black
     };
     var newHairColor = hairColorDict[skinColor];
+    c.choices['hairColor'] = newHairColor;
     hash.add({ hairColor: newHairColor });
 }
 
