@@ -1,31 +1,4 @@
-//
-// Snap.plugin( function( Snap, Element, Paper, global ) {
-//     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
-//         for( var count = 0; count < fragList.length; count++ ) {
-//         myEl = whichSVG.append( fragList[ count ] );
-//         }
-//         runWhenFinishedFunc();
-//     }
-//     Paper.prototype.loadFilesDisplayOrdered = function( list, afterAllLoadedFunc, onEachElementLoadFunc ) {
-//         var image, fragLoadedCount = 0, listLength = list.length, fragList = new Array(), whichSVG = this;
-//         for( var count = 0; count < listLength; count++ ) {
-//             (function() {
-//                 var whichEl = count,
-//                 fileName = list[ whichEl ]+'.svg',
-//                 image = Snap.load( fileName, function ( loadedFragment ) {
-//                     fragLoadedCount++;
-//                     onEachElementLoadFunc( loadedFragment, fileName );
-//                     fragList[ whichEl ] = loadedFragment;
-//                     if( fragLoadedCount >= listLength ) {
-//                         addLoadedFrags( whichSVG, fragList, afterAllLoadedFunc );
-//                     }
-//                 });
-//             })();
-//         }
-//     };
-// });
 
-// it uses fragments, so they aren't loaded yet into the DOM fully
 function onAllLoaded() {
   var zoomContainer = document.querySelector('.zoom-container');
     var maleSilhouette = document.getElementById("male_silhouette");
@@ -52,7 +25,7 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='wings' && item === 'devil'){
       section = 'skin';
   }
   if (section ==='facialhair' || section==='brows') {
@@ -120,10 +93,6 @@ function choicesToLayers(c, multiLayer){
     var layersNum = emotionLayers.length;
     var counter;
     var tmpList;
-    // while (layersNum--) {
-    //     selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
-    // }
-    //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
       if (index.slice(-5) != 'Color'){
         choiceLayers.push( index + "_" + c.choices[index]);
@@ -143,22 +112,6 @@ function choicesToLayers(c, multiLayer){
             selectedLayers.push(tmpList[counter].slice(1));
           }
         }
-
-        // for (lyr in multiLayer){
-        //     console.log('Processing :', choiceLayers[cl]);
-        //     if (choiceLayers[cl] == multiLayer[lyr][0]){
-        //         for (var i=1;i<=multiLayer[lyr][1];i++){
-        //             idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
-        //             selectedLayers.push(idOf);
-        //             console.log('Adding :', idOf);
-        //         }
-        //     } else {
-        //         if (isInArray(choiceLayers[cl], selectedLayers)===false){
-        //           selectedLayers.push(choiceLayers[cl]);
-        //           console.log('Adding :', choiceLayers[cl]);
-        //         }
-        //     }
-        // };
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){

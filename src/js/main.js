@@ -181,31 +181,18 @@ function launch() {
       'pipe_subgenius',
       'earpiece_microphone'
     ];
-    var layersMaleGenesis = [
-      'body_athletic_2_of_2',
-      'underwear_plain',
-      'body_athletic_1_of_2',
-      'body_head_default',
-      'ears_default',
-      'eyes_neutral',
-      'eyeballs_default',
-      'lashes_neutral',
-      'brows_neutral',
-      'mouth_neutral',
-      'nose_default',
-    ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
       'Ears' : ['default', 'pointed'],
       // 'Iris' : ['neutral'],
       'Nose' : ['default'],
-      'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
-      'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball']
+      'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
+      'Freckles': ['', 'medium'],
+      'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
     };
     var femaleForm2 = {
       'Pipe' : ['', 'subgenius'],
       'Makeup': ['', 'blush', 'gothic_eyeliner', 'warpaint'],
-      'Freckles': ['', 'medium'],
       'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
       'Eyepatch': ['', 'left', 'right'],
       'Glasses': ['', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
@@ -309,20 +296,7 @@ function launch() {
       'pipe_subgenius',
       'earpiece_microphone'
     ];
-    var layersFemaleGenesis = [
-      'body_athletic',
-      'underwear_plain',
-      'bra_bow',
-      'body_head_default',
-      'ears_default',
-      'nose_default',
-      'eyes_neutral',
-      'eyeballs_default',
-      'lashes_neutral',
-      'mouth_neutral',
-      'brows_neutral',
-      'body_hand',
-    ];
+
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
@@ -365,7 +339,6 @@ function launch() {
         var form5 = maleForm5;
         var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
-        var layers = layersMaleGenesis;
         multiLayer = multiLayerMale;
     } else {
         var form1 = femaleForm1;
@@ -375,7 +348,6 @@ function launch() {
         var form5 = femaleForm5;
         var form6 = femaleForm6;
         var layerDirectory = layerDirectoryFemale;
-        var layers = layersFemaleGenesis;
         multiLayer = multiLayerFemale;
     }
     window.forms = [form1, form2, form3, form4, form5,form6];
@@ -385,12 +357,6 @@ function launch() {
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     choicesToList(c);
     toBeShown = choicesToLayers(c, multiLayer);
-    // viewport = Snap("#svg1");
-    // var myLoadList = layers.map(function(obj){
-    //     return layerDirectory + obj;
-    // });
-    console.log('layers', layers);
-    console.log('toBeShown', toBeShown);
     Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();});
 }
 
