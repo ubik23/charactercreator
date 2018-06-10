@@ -8,7 +8,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
-            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'mouth'||section === 'lashes'){
+            if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'){
                 // if (section === "pupils") {
                 //     var hashPupils = hash.get('pupils');
                 //     if (hashPupils == undefined) {
@@ -28,7 +28,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'mouth') {
+            }else if(section === 'brows'||section === 'eyes'||section === 'mouth') {
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body') {

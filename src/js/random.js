@@ -30,13 +30,13 @@ function showRandom(section, layer){  // Draw the SVG on screen
     var id = '#'+sections[0]+'_'+selectedOption;
     obj[sections[0]] = selectedOption;
     hash.add(obj);
-    if (sections[0] === "pupils") {
-        sections[0] += "_" + selectedOption;
-        selectedOption = hash.get('emotion');
-        if (selectedOption == undefined){
-            selectedOption = 'neutral';
-        };
-    }
+    // if (sections[0] === "pupils") {
+    //     sections[0] += "_" + selectedOption;
+    //     selectedOption = hash.get('emotion');
+    //     if (selectedOption == undefined){
+    //         selectedOption = 'neutral';
+    //     };
+    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
@@ -54,7 +54,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
             hideId(optionId)
         }
         showId(id);
-        if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+        if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'){
             modCharacter(sections[section], selectedOption);
         } else {
             var obj = new Array();

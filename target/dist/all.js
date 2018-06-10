@@ -1834,8 +1834,6 @@ function choicesToList(c) {
 }
 
 function choicesToLayers(c, multiLayer){
-  console.log('Enter choicesToLayers func.');
-  console.log('c.choices', c.choices);
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
@@ -1852,16 +1850,21 @@ function choicesToLayers(c, multiLayer){
         choiceLayers.push( index + "_" + c.choices[index]);
       }
     }
-
-    console.log('choiceLayers', choiceLayers);
     for (var cl in choiceLayers) {
-        console.log('get sections:', getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]));
-        tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
-        counter = tmpList.length;
-        while (counter--) {
-          console.log(tmpList[counter].slice(1));
-          selectedLayers.push(tmpList[counter].slice(1));
+        if (choiceLayers[cl].slice(0, 7) === 'emotion') {
+          tmpList = fromEmotionGetLayers(choiceLayers[cl].split('_')[1]);
+          counter = tmpList.length;
+          while (counter--) {
+            selectedLayers.push(tmpList[counter]);
+          }
+        } else {
+          tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
+          counter = tmpList.length;
+          while (counter--) {
+            selectedLayers.push(tmpList[counter].slice(1));
+          }
         }
+
         // for (lyr in multiLayer){
         //     console.log('Processing :', choiceLayers[cl]);
         //     if (choiceLayers[cl] == multiLayer[lyr][0]){
@@ -1882,7 +1885,6 @@ function choicesToLayers(c, multiLayer){
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
-    console.log('Exit choicesToLayers func.');
     return selectedLayers;
 };
 
@@ -2080,7 +2082,7 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'iris', 'mouth', 'lashes'];
+    faceElements = ['brows', 'eyes', 'mouth', 'lashes'];
     for (e in faceElements) {
         // if (faceElements[e] === 'pupils'){
         //     var pupils = hash.get('pupils');
@@ -2153,7 +2155,7 @@ function displaySections(sections, options, selectedOption, multiLayer) {
             if(selectedOption != '' && d === selectedOption){
                 sectionShow(multiLayer, id);
 
-                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'lashes'){
+                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
                 } else {
                     var obj = new Array();
@@ -3005,7 +3007,7 @@ function launch() {
     var maleForm1 = {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
-      'Iris' : ['neutral'],
+      // 'Iris' : ['neutral'],
       // 'Pupils' : ['human', 'lizard'],
       'Nose' : ['default', 'roman', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
@@ -3149,7 +3151,7 @@ function launch() {
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
       'Ears' : ['default', 'pointed'],
-      'Iris' : ['neutral'],
+      // 'Iris' : ['neutral'],
       'Nose' : ['default'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder'],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball']
@@ -3343,7 +3345,7 @@ function launch() {
     // });
     console.log('layers', layers);
     console.log('toBeShown', toBeShown);
-    Promise.resolve().then(function(){loadFilesFromList(layers);}).then(function(){onAllLoaded();});
+    Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();});
 }
 
 function displayPallette () {
@@ -3525,7 +3527,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
-            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'mouth'||section === 'lashes'){
+            if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'){
                 // if (section === "pupils") {
                 //     var hashPupils = hash.get('pupils');
                 //     if (hashPupils == undefined) {
@@ -3545,7 +3547,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'mouth') {
+            }else if(section === 'brows'||section === 'eyes'||section === 'mouth') {
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body') {
@@ -3594,13 +3596,13 @@ function showRandom(section, layer){  // Draw the SVG on screen
     var id = '#'+sections[0]+'_'+selectedOption;
     obj[sections[0]] = selectedOption;
     hash.add(obj);
-    if (sections[0] === "pupils") {
-        sections[0] += "_" + selectedOption;
-        selectedOption = hash.get('emotion');
-        if (selectedOption == undefined){
-            selectedOption = 'neutral';
-        };
-    }
+    // if (sections[0] === "pupils") {
+    //     sections[0] += "_" + selectedOption;
+    //     selectedOption = hash.get('emotion');
+    //     if (selectedOption == undefined){
+    //         selectedOption = 'neutral';
+    //     };
+    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
@@ -3618,7 +3620,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
             hideId(optionId)
         }
         showId(id);
-        if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+        if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'){
             modCharacter(sections[section], selectedOption);
         } else {
             var obj = new Array();

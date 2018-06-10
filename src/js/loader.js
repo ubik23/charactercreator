@@ -113,8 +113,6 @@ function choicesToList(c) {
 }
 
 function choicesToLayers(c, multiLayer){
-  console.log('Enter choicesToLayers func.');
-  console.log('c.choices', c.choices);
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
@@ -131,16 +129,21 @@ function choicesToLayers(c, multiLayer){
         choiceLayers.push( index + "_" + c.choices[index]);
       }
     }
-
-    console.log('choiceLayers', choiceLayers);
     for (var cl in choiceLayers) {
-        console.log('get sections:', getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]));
-        tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
-        counter = tmpList.length;
-        while (counter--) {
-          console.log(tmpList[counter].slice(1));
-          selectedLayers.push(tmpList[counter].slice(1));
+        if (choiceLayers[cl].slice(0, 7) === 'emotion') {
+          tmpList = fromEmotionGetLayers(choiceLayers[cl].split('_')[1]);
+          counter = tmpList.length;
+          while (counter--) {
+            selectedLayers.push(tmpList[counter]);
+          }
+        } else {
+          tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
+          counter = tmpList.length;
+          while (counter--) {
+            selectedLayers.push(tmpList[counter].slice(1));
+          }
         }
+
         // for (lyr in multiLayer){
         //     console.log('Processing :', choiceLayers[cl]);
         //     if (choiceLayers[cl] == multiLayer[lyr][0]){
@@ -161,7 +164,6 @@ function choicesToLayers(c, multiLayer){
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
-    console.log('Exit choicesToLayers func.');
     return selectedLayers;
 };
 
