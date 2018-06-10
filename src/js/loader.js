@@ -1,4 +1,4 @@
-// 
+//
 // Snap.plugin( function( Snap, Element, Paper, global ) {
 //     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
 //         for( var count = 0; count < fragList.length; count++ ) {
@@ -113,37 +113,55 @@ function choicesToList(c) {
 }
 
 function choicesToLayers(c, multiLayer){
+  console.log('Enter choicesToLayers func.');
+  console.log('c.choices', c.choices);
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
     var layersLength = emotionLayers.length;
     var layersNum = emotionLayers.length;
-    while (layersNum--) {
-        selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
-    }
+    var counter;
+    var tmpList;
+    // while (layersNum--) {
+    //     selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
+    // }
     //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
-      choiceLayers.push( index + "_" + c.choices[index]);
+      if (index.slice(-5) != 'Color'){
+        choiceLayers.push( index + "_" + c.choices[index]);
+      }
     }
+
+    console.log('choiceLayers', choiceLayers);
     for (var cl in choiceLayers) {
-        for (lyr in multiLayer){
-            if (choiceLayers[cl] == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
-                    idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
-                    selectedLayers.push(idOf);
-                }
-            }
-            else {
-                if (isInArray(choiceLayers[cl], selectedLayers)===false){
-                selectedLayers.push(choiceLayers[cl]);
-                }
-            }
-        };
+        console.log('get sections:', getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]));
+        tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
+        counter = tmpList.length;
+        while (counter--) {
+          console.log(tmpList[counter].slice(1));
+          selectedLayers.push(tmpList[counter].slice(1));
+        }
+        // for (lyr in multiLayer){
+        //     console.log('Processing :', choiceLayers[cl]);
+        //     if (choiceLayers[cl] == multiLayer[lyr][0]){
+        //         for (var i=1;i<=multiLayer[lyr][1];i++){
+        //             idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
+        //             selectedLayers.push(idOf);
+        //             console.log('Adding :', idOf);
+        //         }
+        //     } else {
+        //         if (isInArray(choiceLayers[cl], selectedLayers)===false){
+        //           selectedLayers.push(choiceLayers[cl]);
+        //           console.log('Adding :', choiceLayers[cl]);
+        //         }
+        //     }
+        // };
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
+    console.log('Exit choicesToLayers func.');
     return selectedLayers;
 };
 
@@ -156,14 +174,14 @@ function fromEmotionGetLayers(emotion) {
     var faceCount;
     while (faceElNum--) {
         faceCount = (faceElLength - faceElNum - 1);
-        if (faceElements[faceCount] === 'pupils') {
-            var pupils = hash.get('pupils');
-            if (pupils === undefined) {
-                pupils = 'human';
-            }
-            //todo add cat's eyes option.
-            //faceElements[faceCount] += '_' + pupils;
-        }
+        // if (faceElements[faceCount] === 'pupils') {
+        //     var pupils = hash.get('pupils');
+        //     if (pupils === undefined) {
+        //         pupils = 'human';
+        //     }
+        //     //todo add cat's eyes option.
+        //     //faceElements[faceCount] += '_' + pupils;
+        // }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }

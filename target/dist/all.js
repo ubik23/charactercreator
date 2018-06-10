@@ -1719,7 +1719,7 @@ function getParent(el, sel) {
   return el;
 }
 
-// 
+//
 // Snap.plugin( function( Snap, Element, Paper, global ) {
 //     function addLoadedFrags( whichSVG, fragList, runWhenFinishedFunc ) { // This is called once all the loaded frags are complete
 //         for( var count = 0; count < fragList.length; count++ ) {
@@ -1834,37 +1834,55 @@ function choicesToList(c) {
 }
 
 function choicesToLayers(c, multiLayer){
+  console.log('Enter choicesToLayers func.');
+  console.log('c.choices', c.choices);
     var selectedLayers = [];
     var emotionLayers = fromEmotionGetLayers(c.choices.emotion);
     var choiceLayers = [];
     var layersLength = emotionLayers.length;
     var layersNum = emotionLayers.length;
-    while (layersNum--) {
-        selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
-    }
+    var counter;
+    var tmpList;
+    // while (layersNum--) {
+    //     selectedLayers.push(emotionLayers[(layersLength - layersNum - 1)]);
+    // }
     //for each key in c.choices, get the value and build a layerName
     for(var index in c.choices) {
-      choiceLayers.push( index + "_" + c.choices[index]);
+      if (index.slice(-5) != 'Color'){
+        choiceLayers.push( index + "_" + c.choices[index]);
+      }
     }
+
+    console.log('choiceLayers', choiceLayers);
     for (var cl in choiceLayers) {
-        for (lyr in multiLayer){
-            if (choiceLayers[cl] == multiLayer[lyr][0]){
-                for (var i=1;i<=multiLayer[lyr][1];i++){
-                    idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
-                    selectedLayers.push(idOf);
-                }
-            }
-            else {
-                if (isInArray(choiceLayers[cl], selectedLayers)===false){
-                selectedLayers.push(choiceLayers[cl]);
-                }
-            }
-        };
+        console.log('get sections:', getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]));
+        tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl]);
+        counter = tmpList.length;
+        while (counter--) {
+          console.log(tmpList[counter].slice(1));
+          selectedLayers.push(tmpList[counter].slice(1));
+        }
+        // for (lyr in multiLayer){
+        //     console.log('Processing :', choiceLayers[cl]);
+        //     if (choiceLayers[cl] == multiLayer[lyr][0]){
+        //         for (var i=1;i<=multiLayer[lyr][1];i++){
+        //             idOf = choiceLayers[cl] + '_' + i + '_of_' + multiLayer[lyr][1];
+        //             selectedLayers.push(idOf);
+        //             console.log('Adding :', idOf);
+        //         }
+        //     } else {
+        //         if (isInArray(choiceLayers[cl], selectedLayers)===false){
+        //           selectedLayers.push(choiceLayers[cl]);
+        //           console.log('Adding :', choiceLayers[cl]);
+        //         }
+        //     }
+        // };
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
+    console.log('Exit choicesToLayers func.');
     return selectedLayers;
 };
 
@@ -1877,14 +1895,14 @@ function fromEmotionGetLayers(emotion) {
     var faceCount;
     while (faceElNum--) {
         faceCount = (faceElLength - faceElNum - 1);
-        if (faceElements[faceCount] === 'pupils') {
-            var pupils = hash.get('pupils');
-            if (pupils === undefined) {
-                pupils = 'human';
-            }
-            //todo add cat's eyes option.
-            //faceElements[faceCount] += '_' + pupils;
-        }
+        // if (faceElements[faceCount] === 'pupils') {
+        //     var pupils = hash.get('pupils');
+        //     if (pupils === undefined) {
+        //         pupils = 'human';
+        //     }
+        //     //todo add cat's eyes option.
+        //     //faceElements[faceCount] += '_' + pupils;
+        // }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
@@ -2062,15 +2080,15 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    faceElements = ['brows', 'eyes', 'iris', 'mouth', 'lashes'];
     for (e in faceElements) {
-        if (faceElements[e] === 'pupils'){
-            var pupils = hash.get('pupils');
-            if (pupils === undefined){
-                pupils = 'human';
-            }
-             faceElements[e] += '_' + pupils;
-        }
+        // if (faceElements[e] === 'pupils'){
+        //     var pupils = hash.get('pupils');
+        //     if (pupils === undefined){
+        //         pupils = 'human';
+        //     }
+        //      faceElements[e] += '_' + pupils;
+        // }
         var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
@@ -2108,13 +2126,13 @@ function show(userChoice, category) {
     if (currentUser) {
         triggerSaveBtn();
     }
-    if (sections[0] === "pupils") {
-        sections[0] += "_" + selectedOption;
-        selectedOption = hash.get('emotion');
-        if (selectedOption == undefined){
-            selectedOption = 'neutral';
-        };
-    }
+    // if (sections[0] === "pupils") {
+    //     sections[0] += "_" + selectedOption;
+    //     selectedOption = hash.get('emotion');
+    //     if (selectedOption == undefined){
+    //         selectedOption = 'neutral';
+    //     };
+    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
@@ -2135,7 +2153,7 @@ function displaySections(sections, options, selectedOption, multiLayer) {
             if(selectedOption != '' && d === selectedOption){
                 sectionShow(multiLayer, id);
 
-                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
                 } else {
                     var obj = new Array();
@@ -2988,7 +3006,7 @@ function launch() {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['neutral'],
-      'Pupils' : ['human', 'lizard'],
+      // 'Pupils' : ['human', 'lizard'],
       'Nose' : ['default', 'roman', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
       'Hair': ['', 'balding', 'balding_crazy', 'balding_crown', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
@@ -3323,6 +3341,8 @@ function launch() {
     // var myLoadList = layers.map(function(obj){
     //     return layerDirectory + obj;
     // });
+    console.log('layers', layers);
+    console.log('toBeShown', toBeShown);
     Promise.resolve().then(function(){loadFilesFromList(layers);}).then(function(){onAllLoaded();});
 }
 
@@ -3505,14 +3525,14 @@ function parseHash(c, forms, skinLayers, hairLayers){
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
-            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'pupils'||section === 'mouth'||section === 'lashes'){
-                if (section === "pupils") {
-                    var hashPupils = hash.get('pupils');
-                    if (hashPupils == undefined) {
-                        hashPupils = 'human';
-                    };
-                    section += "_" + hashPupils;
-                }
+            if (section ==='brows'||section === 'eyes'||section ==='iris'||section === 'mouth'||section === 'lashes'){
+                // if (section === "pupils") {
+                //     var hashPupils = hash.get('pupils');
+                //     if (hashPupils == undefined) {
+                //         hashPupils = 'human';
+                //     };
+                //     section += "_" + hashPupils;
+                // }
                 var hashData = hash.get('emotion');
                 if (hashData === undefined) {
                     hashData = 'neutral';
@@ -3525,7 +3545,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
                 // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'pupils_human' ||section === 'mouth') {
+            }else if(section === 'brows'||section === 'eyes'||section === 'iris'||section === 'mouth') {
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body') {

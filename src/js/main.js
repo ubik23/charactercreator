@@ -54,7 +54,7 @@ function launch() {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['neutral'],
-      'Pupils' : ['human', 'lizard'],
+      // 'Pupils' : ['human', 'lizard'],
       'Nose' : ['default', 'roman', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
       'Hair': ['', 'balding', 'balding_crazy', 'balding_crown', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
@@ -389,6 +389,8 @@ function launch() {
     // var myLoadList = layers.map(function(obj){
     //     return layerDirectory + obj;
     // });
+    console.log('layers', layers);
+    console.log('toBeShown', toBeShown);
     Promise.resolve().then(function(){loadFilesFromList(layers);}).then(function(){onAllLoaded();});
 }
 

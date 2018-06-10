@@ -168,15 +168,15 @@ function createCharacter(){
 function GetEmotionGetLayers(option) {
     var facialExpressionLayers = [];
     var modElement = '';
-    faceElements = ['brows', 'eyes', 'iris', 'pupils', 'mouth', 'lashes'];
+    faceElements = ['brows', 'eyes', 'iris', 'mouth', 'lashes'];
     for (e in faceElements) {
-        if (faceElements[e] === 'pupils'){
-            var pupils = hash.get('pupils');
-            if (pupils === undefined){
-                pupils = 'human';
-            }
-             faceElements[e] += '_' + pupils;
-        }
+        // if (faceElements[e] === 'pupils'){
+        //     var pupils = hash.get('pupils');
+        //     if (pupils === undefined){
+        //         pupils = 'human';
+        //     }
+        //      faceElements[e] += '_' + pupils;
+        // }
         var eLayer = faceElements[e]//+'_'+option;
         facialExpressionLayers.push(eLayer);
     };
@@ -214,13 +214,13 @@ function show(userChoice, category) {
     if (currentUser) {
         triggerSaveBtn();
     }
-    if (sections[0] === "pupils") {
-        sections[0] += "_" + selectedOption;
-        selectedOption = hash.get('emotion');
-        if (selectedOption == undefined){
-            selectedOption = 'neutral';
-        };
-    }
+    // if (sections[0] === "pupils") {
+    //     sections[0] += "_" + selectedOption;
+    //     selectedOption = hash.get('emotion');
+    //     if (selectedOption == undefined){
+    //         selectedOption = 'neutral';
+    //     };
+    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
@@ -241,7 +241,7 @@ function displaySections(sections, options, selectedOption, multiLayer) {
             if(selectedOption != '' && d === selectedOption){
                 sectionShow(multiLayer, id);
 
-                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'pupils_human'||sections[section] === 'lashes'){
+                if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'iris'||sections[section] === 'mouth'||sections[section] === 'lashes'){
                     modCharacter(sections[section], selectedOption);
                 } else {
                     var obj = new Array();
