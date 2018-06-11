@@ -487,19 +487,15 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
-  console.log('colorElement(el)', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
   var newColor;
   var colorPrefix = 'alpha';
   section = processSection(section, item);
-  console.log('section', section);
   if (section === 'eyeballs') {section = 'iris'}
   if (section === 'skin') {colorPrefix = 'skin'}
   newColor = c.choices[section+'Color'];
-  console.log('new section', section);
-  console.log('newColor', newColor);
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
@@ -519,7 +515,6 @@ function colorElementLoop(el, colorPrefix, newColor) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
-  console.log('counter', counter);
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
@@ -943,6 +938,7 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     }
     return sections;
 }
+
 function getSectionLayersList(section) {
   var sex = c.sex;
   var formList;
@@ -1018,7 +1014,7 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section);
   }
-  loadFilesFromList(layersList, callback, callbackLoopFlag);
+    loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
@@ -1766,8 +1762,6 @@ function personnageActuelToHash(currentUser) {
             currentCount = itemsListLength - itemsListCounter - 1;
             myKey = itemsList[currentCount];
             myValue = personnageActuelData[itemsList[currentCount]];
-            //modCharacter(myKey, myValue);
-            //hash.add({mykey: myValue});
             hashArgs[myKey] = myValue;
             hash.add(hashArgs);
         }
@@ -2026,8 +2020,6 @@ function changeClipPathOnEyes(id) {
   var svgContainer = document.querySelector('#svg1');
   var eyeRight = svgContainer.querySelector('#eye_right');
   var eyeLeft = svgContainer.querySelector('#eye_left');
-  console.log('emotion', emotion);
-  console.log('eyeRight.getAttribute', eyeRight.getAttribute('clip-path'));
   eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
   eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
 }
@@ -2038,7 +2030,6 @@ function sectionHide(multiLayer, id) {
     if (id.slice(1) == multiLayer[lyr][0]) {
         for (var i=1;i<=multiLayer[lyr][1];i++) {
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            // viewport.selectAll(idOf).attr({opacity:0});
             sectionToHide = svgContainer.querySelector(idOf);
             if (sectionToHide != null) {
               sectionToHide.style.opacity = 0;
@@ -2833,7 +2824,7 @@ function launch() {
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       // 'Iris' : ['neutral'],
       // 'Pupils' : ['human', 'lizard'],
-      'Nose' : ['default', 'roman', 'syrid'],
+      'Nose' : ['default', 'pointed', 'roman', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
       'Hair': ['', 'balding', 'balding_crazy', 'balding_crown', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
       'Freckles': ['', 'medium'],
@@ -2938,7 +2929,7 @@ function launch() {
       'lashes_neutral',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'br  ows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
       'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
-      'nose_default', 'nose_roman', 'nose_syrid',
+      'nose_default', 'nose_pointed', 'nose_roman', 'nose_syrid',
       'warpaint_football',
       'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap', 'facialhair_beard_raw',
       'facialhair_chinpuff',
@@ -3090,7 +3081,7 @@ function launch() {
       'eyes_neutral',
       'age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
       'ears_default', 'ears_pointed',
-      'nose_default', 'nose_roman', 'nose_syrid',
+      'nose_default', 'nose_pointed', 'nose_roman', 'nose_syrid',
       'mouth_shadow', 'freckles_medium',
       'age_lines', 'wings_devil',
       'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage'
@@ -3310,9 +3301,6 @@ function selectFemale(event) {
 }
 
 function parseHash(c, forms, skinLayers, hairLayers){
-    //var forms = window.forms;
-    //var skinlayers = window.skinlayers;
-    //var hairLayers = window.hairLayers;
     var formsLength = forms.length;
     var formsCounter = formsLength;
     while (formsCounter--) {
@@ -3459,12 +3447,10 @@ function showId(id) {
             if (id.slice(1) == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    // viewport.selectAll(idOf).attr({opacity:1});
                     svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
             else {
-                // viewport.selectAll(id).attr({opacity:1});
                 svgContainer.querySelector(id).style.opacity = 1;
             }
     };
@@ -3477,7 +3463,6 @@ function hideId(id) {
             if (id.slice(1) == multiLayer[lyr][0]) {
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    // viewport.selectAll(idOf).attr({opacity:0});
                     layerToHide = svgContainer.querySelector(idOf);
                     if (layerToHide != null) {
                       layerToHide.style.opacity = 0;
@@ -3485,7 +3470,6 @@ function hideId(id) {
                 }
             }
             else {
-                // viewport.selectAll(id).attr({opacity:0});
                 layerToHide = svgContainer.querySelector(id);
                 if (layerToHide != null) {
                   layerToHide.style.opacity = 0;

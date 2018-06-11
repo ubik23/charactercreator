@@ -1,7 +1,4 @@
 function parseHash(c, forms, skinLayers, hairLayers){
-    //var forms = window.forms;
-    //var skinlayers = window.skinlayers;
-    //var hairLayers = window.hairLayers;
     var formsLength = forms.length;
     var formsCounter = formsLength;
     while (formsCounter--) {

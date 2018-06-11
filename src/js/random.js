@@ -101,12 +101,10 @@ function showId(id) {
             if (id.slice(1) == multiLayer[lyr][0]){
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    // viewport.selectAll(idOf).attr({opacity:1});
                     svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
             else {
-                // viewport.selectAll(id).attr({opacity:1});
                 svgContainer.querySelector(id).style.opacity = 1;
             }
     };
@@ -119,7 +117,6 @@ function hideId(id) {
             if (id.slice(1) == multiLayer[lyr][0]) {
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    // viewport.selectAll(idOf).attr({opacity:0});
                     layerToHide = svgContainer.querySelector(idOf);
                     if (layerToHide != null) {
                       layerToHide.style.opacity = 0;
@@ -127,7 +124,6 @@ function hideId(id) {
                 }
             }
             else {
-                // viewport.selectAll(id).attr({opacity:0});
                 layerToHide = svgContainer.querySelector(id);
                 if (layerToHide != null) {
                   layerToHide.style.opacity = 0;

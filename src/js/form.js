@@ -90,6 +90,7 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     }
     return sections;
 }
+
 function getSectionLayersList(section) {
   var sex = c.sex;
   var formList;
@@ -165,7 +166,7 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section);
   }
-  loadFilesFromList(layersList, callback, callbackLoopFlag);
+    loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){

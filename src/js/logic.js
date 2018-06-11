@@ -28,8 +28,6 @@ function personnageActuelToHash(currentUser) {
             currentCount = itemsListLength - itemsListCounter - 1;
             myKey = itemsList[currentCount];
             myValue = personnageActuelData[itemsList[currentCount]];
-            //modCharacter(myKey, myValue);
-            //hash.add({mykey: myValue});
             hashArgs[myKey] = myValue;
             hash.add(hashArgs);
         }
@@ -288,8 +286,6 @@ function changeClipPathOnEyes(id) {
   var svgContainer = document.querySelector('#svg1');
   var eyeRight = svgContainer.querySelector('#eye_right');
   var eyeLeft = svgContainer.querySelector('#eye_left');
-  console.log('emotion', emotion);
-  console.log('eyeRight.getAttribute', eyeRight.getAttribute('clip-path'));
   eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
   eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
 }
@@ -300,7 +296,6 @@ function sectionHide(multiLayer, id) {
     if (id.slice(1) == multiLayer[lyr][0]) {
         for (var i=1;i<=multiLayer[lyr][1];i++) {
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            // viewport.selectAll(idOf).attr({opacity:0});
             sectionToHide = svgContainer.querySelector(idOf);
             if (sectionToHide != null) {
               sectionToHide.style.opacity = 0;
