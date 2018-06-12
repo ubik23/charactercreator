@@ -112,12 +112,12 @@ sub {
 }
 
 #horizontal li a:hover {
-    color: $color-alpha--light;
+  color: $color-white;
+  background-color: $color-alpha;
 }
 
 #horizontal li a:active {
-    color: $color-white;
-    background-color: $color-alpha;
+
 }
 .menu-text {
     font-family: "Helvetica";

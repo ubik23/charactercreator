@@ -1,8 +1,8 @@
 .zoom-container {
+  display: none;
     position: absolute;
     top: 23%;
     left: 0.5%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -10,6 +10,7 @@
     transition: transform 0.2s ease-in-out;
 
     @media screen and (min-width: 650px) {
+      display: flex;
         top: 2%;
     }
 
