@@ -21,8 +21,9 @@ function zoomFace() {
     var sex = c.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
+    // TODO Consider size of window where rezooming.
     if (sex == 'm'){
-      newViewBox = "239.3 99 80 80";
+      newViewBox = "240.4 99 80 80";
     } else {
       newViewBox = "243 109 80 80";
     }

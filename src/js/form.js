@@ -1,6 +1,7 @@
 function createForm(sex, forms){
   //TODO Check to see if there is already an existing form for the sex of the new character.
   //If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
+  var svgContent = '';
   var itemsThumbsContent = document.querySelector('#content_1');
   itemsThumbsContent.innerHTML = '';
   var sex = sex || window.sex;
@@ -12,7 +13,7 @@ function createForm(sex, forms){
     var formContainer = document.querySelector('#content_1');
     var newHtml = '';
     var selcount = 0;
-    sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
+    sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+ getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
     var formsLength = forms.length;
     var formCounter = formsLength;
     for(var x in forms[f]) {
@@ -34,7 +35,8 @@ function createForm(sex, forms){
                 };
             }
             var viewBox = getViewBox(t, d);
-            newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '"></svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+            if (d === '') {svgContent = '<use xlink:href="#icon-none"></use>';} else {svgContent = '';}
+            newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
             var defaultValue = hash.get(x);
             if (defaultValue !== undefined) {
                 var defval = 'selected="' + defaultValue + '" ';
@@ -721,9 +723,9 @@ function getViewBox(t, d) {
             "wings":"110 -30 350 350"
         }
     }
-    if (idDict[id]) {
+    if (idDict[id] && d != '') {
         return idDict[id];
-    } else if (sectionDict[t]) {
+    } else if (sectionDict[t] && d != '') {
         return sectionDict[t];
     } else {
         return "0 0 560 560";
