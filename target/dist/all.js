@@ -1135,7 +1135,7 @@ function populateThumbs(svgObject) {
   } else if (emotion) {
     splitArray = layerID.split('_');
     if (layerID != 'eyeballs_default') {
-      document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
+        document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
   } else {
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
@@ -1165,40 +1165,44 @@ function purgeHiddenLayers() {
 
 function openThumbs() {
     var _ = this;
-    var section = _.innerHTML;
-    var layersList = getSectionLayersList(section);
-    var sectionLowerCase = section.toLowerCase();
-    var previousSelection = document.querySelector('.section--selected');
+    openThumbsLogic(_)
+}
 
-    if (previousSelection != null) {
-      purgeHiddenLayers();
-      previousSelection.classList.remove('section--selected');
-    };
+function openThumbsLogic(_) {
+  var section = _.innerHTML;
+  var layersList = getSectionLayersList(section);
+  var sectionLowerCase = section.toLowerCase();
+  var previousSelection = document.querySelector('.section--selected');
 
-    loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
-    showThumbOptions(_);
-    _.classList.add('section--selected');
+  if (previousSelection != null) {
+    purgeHiddenLayers();
+    previousSelection.classList.remove('section--selected');
+  };
 
-    var thumbSection = document.querySelector('.widget');
-    var thumbSectionBtn = thumbSection.previousSibling;
-    var sidebarLeft = document.querySelector('#sidebar-left');
-    var sidebarRight = document.querySelector('.sidebar-right');
+  loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
+  showThumbOptions(_);
+  _.classList.add('section--selected');
 
-    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
-        thumbSectionBtn = thumbSectionBtn.previousSibling;
-    }
-    thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
-    if (thumbSectionBtn.classList.contains('section-btn--hide')) {
-        thumbSectionBtn.classList.toggle('section-btn--hide');
-    }
-    if (thumbSection.classList.contains('section--hide')) {
-        thumbSection.classList.toggle('section--hide');
-    }
-    if (sidebarLeft.classList.contains('cherry')) {
-         sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
-    }
-    sidebarRight.classList.add("visible");
+  var thumbSection = document.querySelector('.widget');
+  var thumbSectionBtn = thumbSection.previousSibling;
+  var sidebarLeft = document.querySelector('#sidebar-left');
+  var sidebarRight = document.querySelector('.sidebar-right');
+
+  if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
+      thumbSectionBtn = thumbSectionBtn.previousSibling;
+  }
+  thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
+  if (thumbSectionBtn.classList.contains('section-btn--hide')) {
+      thumbSectionBtn.classList.toggle('section-btn--hide');
+  }
+  if (thumbSection.classList.contains('section--hide')) {
+      thumbSection.classList.toggle('section--hide');
+  }
+  if (sidebarLeft.classList.contains('cherry')) {
+       sidebarLeft.classList.remove("cherry");
+       sidebarRight.classList.add("visible");
+  }
+  sidebarRight.classList.add("visible");
 }
 
 function showSidebarLeft() {
@@ -2817,7 +2821,15 @@ function clickSelect(ev) {
   var sectionList = document.querySelectorAll('section.accordeon__section-label');
   var isClosed;
   var sectionLabel;
-  formSection = fromItemGetFormSection(el.id);
+  var prefix;
+  var prefixIndex;
+  var itemButtonList;
+  var itemButton;
+  if (c.sex === undefined) {return}
+
+  prefix = fromItemGetPrefix(el.id);
+  formSection = fromPrefixGetFormSection(prefix)
+
   // toggleSection
   // Check to see if the section is already open in sidebarRight
   // If not open, close all sections and open it.
@@ -2830,7 +2842,33 @@ function clickSelect(ev) {
     if (isClosed) {
       showSection(sectionList[formSection]);
     }
+    // Get Prefix Index;
+    prefixIndex = getSectionButton(formSection, prefix);
+    if (prefixIndex > -1) {
+      itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
+      itemButton = itemButtonList[prefixIndex];
+      console.log('itemButton', itemButton);
+      openThumbsLogic(itemButton);
+    }
   }
+}
+
+function getSectionButton(formSection, prefix) {
+  var keyCounter = 0;
+  if (c.sex ==='m') {
+    formList = window.maleFormList;
+  } else {
+    formList = window.femaleFormList;
+  }
+  console.log('prefix',prefix);
+  for (key in formList[formSection]) {
+    console.log(keyCounter, key);
+    if (prefix === key.toLowerCase()) {
+      return keyCounter;
+    }
+    ++keyCounter;
+  }
+  return -1;
 }
 
 function getGroupParent(el) {
@@ -2847,29 +2885,28 @@ function getGroupParent(el) {
   return el;
 }
 
-function fromItemGetFormSection(id) {
-
-  var fromItemGetFormSection;
-  var formList;
-  var form;
-  var item;
-  var formSection;
-  var counterForm;
-  var counterSection;
+function fromItemGetPrefix(id) {
   var idList = id.split('_');
-  var prefix
+  var prefix;
 
   if (idList[0] === 'body' && idList[1] === 'head') {
     prefix = 'body_head';
   } else {
     prefix = idList[0];
   }
+  return prefix
+}
+
+function fromPrefixGetFormSection(prefix) {
+  var item;
+  var formSection;
+  var counterForm;
+  var counterSection;
+  var formList;
   if (c.sex === 'm') {
     formList = window.maleFormList;
-  } else if (c.sex === 'f') {
-    formList = window.femaleFormList;
   } else {
-    return -1;
+    formList = window.femaleFormList;
   }
   while (formSection === undefined) {
     counterForm = formList.length;
@@ -2882,6 +2919,7 @@ function fromItemGetFormSection(id) {
   }
   return formSection;
 }
+
 
 function hamburger() {
     var menu = document.querySelector("#horizontal");

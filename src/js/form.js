@@ -287,7 +287,7 @@ function populateThumbs(svgObject) {
   } else if (emotion) {
     splitArray = layerID.split('_');
     if (layerID != 'eyeballs_default') {
-      document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
+        document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
   } else {
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
@@ -317,40 +317,44 @@ function purgeHiddenLayers() {
 
 function openThumbs() {
     var _ = this;
-    var section = _.innerHTML;
-    var layersList = getSectionLayersList(section);
-    var sectionLowerCase = section.toLowerCase();
-    var previousSelection = document.querySelector('.section--selected');
+    openThumbsLogic(_)
+}
 
-    if (previousSelection != null) {
-      purgeHiddenLayers();
-      previousSelection.classList.remove('section--selected');
-    };
+function openThumbsLogic(_) {
+  var section = _.innerHTML;
+  var layersList = getSectionLayersList(section);
+  var sectionLowerCase = section.toLowerCase();
+  var previousSelection = document.querySelector('.section--selected');
 
-    loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
-    showThumbOptions(_);
-    _.classList.add('section--selected');
+  if (previousSelection != null) {
+    purgeHiddenLayers();
+    previousSelection.classList.remove('section--selected');
+  };
 
-    var thumbSection = document.querySelector('.widget');
-    var thumbSectionBtn = thumbSection.previousSibling;
-    var sidebarLeft = document.querySelector('#sidebar-left');
-    var sidebarRight = document.querySelector('.sidebar-right');
+  loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
+  showThumbOptions(_);
+  _.classList.add('section--selected');
 
-    if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
-        thumbSectionBtn = thumbSectionBtn.previousSibling;
-    }
-    thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
-    if (thumbSectionBtn.classList.contains('section-btn--hide')) {
-        thumbSectionBtn.classList.toggle('section-btn--hide');
-    }
-    if (thumbSection.classList.contains('section--hide')) {
-        thumbSection.classList.toggle('section--hide');
-    }
-    if (sidebarLeft.classList.contains('cherry')) {
-         sidebarLeft.classList.remove("cherry");
-         sidebarRight.classList.add("visible");
-    }
-    sidebarRight.classList.add("visible");
+  var thumbSection = document.querySelector('.widget');
+  var thumbSectionBtn = thumbSection.previousSibling;
+  var sidebarLeft = document.querySelector('#sidebar-left');
+  var sidebarRight = document.querySelector('.sidebar-right');
+
+  if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
+      thumbSectionBtn = thumbSectionBtn.previousSibling;
+  }
+  thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
+  if (thumbSectionBtn.classList.contains('section-btn--hide')) {
+      thumbSectionBtn.classList.toggle('section-btn--hide');
+  }
+  if (thumbSection.classList.contains('section--hide')) {
+      thumbSection.classList.toggle('section--hide');
+  }
+  if (sidebarLeft.classList.contains('cherry')) {
+       sidebarLeft.classList.remove("cherry");
+       sidebarRight.classList.add("visible");
+  }
+  sidebarRight.classList.add("visible");
 }
 
 function showSidebarLeft() {
