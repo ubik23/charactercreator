@@ -432,19 +432,19 @@ function toggleSection(ev) {
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
        closeSections(_);
   };
-  var alert = document.querySelector('.alert');
-  if (alert != null){
-      alert.classList.remove('alert');
-  }
-  if (_.classList.contains('alert')){
-      _.classList.remove('alert');
-  };
+  removeAlert(_);
+  showSection(_);
+}
+
+function showSection(_) {
   var sectionContent = _.nextSibling;
+  var maxHeight;
+  var displayButton;
   if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
       sectionContent = sectionContent.nextSibling;
   }
-  var maxHeight = sectionContent.clientHeight;
-  var displayButton = _.querySelector('.accordeon__svg-container');
+  maxHeight = sectionContent.clientHeight;
+  displayButton = _.querySelector('.accordeon__svg-container');
   if (sectionContent.classList.contains('accordeon__content')) {
       if (sectionContent.classList.contains('section--hide')){
       } else {
@@ -453,6 +453,16 @@ function toggleSection(ev) {
       sectionContent.classList.toggle('section--hide');
       displayButton.classList.toggle('section-btn--hide');
   }
+}
+
+function removeAlert(_) {
+  var alert = document.querySelector('.alert');
+  if (alert != null){
+      alert.classList.remove('alert');
+  }
+  if (_.classList.contains('alert')){
+      _.classList.remove('alert');
+  };
 }
 
 function showThumbOptions(_) {

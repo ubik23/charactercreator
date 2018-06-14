@@ -11,6 +11,7 @@ window.onload = function() {
     var femaleSilhouette = document.getElementById("female_silhouette");
     var rightSidebar = document.querySelector('#sidebar');
     var rightSidebarClone = rightSidebar.cloneNode(true);
+    var svgContainer = document.querySelector('#svg1');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
@@ -22,8 +23,75 @@ window.onload = function() {
     if (zoomBtn && typeof viewBoxZoom === 'function') { zoomBtn.addEventListener("change", viewBoxZoom, false) }
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+    if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
 
     startup();
+}
+
+function clickSelect(ev) {
+  var el = ev.target;
+  var el = getGroupParent(el);
+  var formSection;
+  var sidebarLeft = document.querySelector('#sidebar-left');
+  var sectionList = document.querySelectorAll('section.accordeon__section-label');
+  var isClosed;
+  console.log('clickSelect', el.id);
+  formSection = fromItemGetFormSection(el.id);
+  console.log('formSection', formSection);
+  // toggleSection
+  // Check to see if the section is already open in sidebarRight
+  // If not open, close all sections and open it.
+  // Same thing for item thumbnails, if not open, open them.
+  console.log(sectionList[formSection].nextSibling.classList.contains('section--hide')); // .nextSibling.contains('section--hide')
+  isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide');
+  closeSections(sectionList[formSection]);
+  if (isClosed) {
+    showSection(sectionList[formSection]);
+  }
+}
+
+function getGroupParent(el) {
+  if (c.sex === 'm') {
+    layers = window.layersMale;
+  } else if (c.sex === 'f') {
+    layers = window.layersFemale;
+  } else {
+    return document.querySelector('#svg1');
+  }
+  while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
+    el = el.parentNode;
+  }
+  return el;
+}
+
+function fromItemGetFormSection(id) {
+
+  var fromItemGetFormSection;
+  var formList;
+  var form;
+  var item;
+  var formSection;
+  var counterForm;
+  var counterSection;
+  var idList = id.split('_');
+  var prefix
+
+  if (idList[0] === 'body' && idList[1] === 'head') {prefix = 'body_head'} else {prefix = idList[0];}
+  if (c.sex === 'm') {
+    formList = window.maleFormList;
+  } else {
+    formList = window.femaleFormList;
+  }
+  while (formSection === undefined) {
+    counterForm = formList.length;
+    while (counterForm--) {
+      for (key in formList[counterForm]) {
+        if (key.toLowerCase() === prefix) {formSection = counterForm}
+      }
+    }
+    if (formSection === undefined) {formSection = -1;}
+  }
+  return formSection;
 }
 
 function hamburger() {
