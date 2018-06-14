@@ -35,18 +35,20 @@ function clickSelect(ev) {
   var sidebarLeft = document.querySelector('#sidebar-left');
   var sectionList = document.querySelectorAll('section.accordeon__section-label');
   var isClosed;
-  console.log('clickSelect', el.id);
+  var sectionLabel;
   formSection = fromItemGetFormSection(el.id);
-  console.log('formSection', formSection);
   // toggleSection
   // Check to see if the section is already open in sidebarRight
   // If not open, close all sections and open it.
   // Same thing for item thumbnails, if not open, open them.
-  console.log(sectionList[formSection].nextSibling.classList.contains('section--hide')); // .nextSibling.contains('section--hide')
-  isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide');
-  closeSections(sectionList[formSection]);
-  if (isClosed) {
-    showSection(sectionList[formSection]);
+  if (formSection > -1) {
+    sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML;
+    sectionZoom(sectionLabel);
+    isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide');
+    closeSections(sectionList[formSection]);
+    if (isClosed) {
+      showSection(sectionList[formSection]);
+    }
   }
 }
 
@@ -76,11 +78,17 @@ function fromItemGetFormSection(id) {
   var idList = id.split('_');
   var prefix
 
-  if (idList[0] === 'body' && idList[1] === 'head') {prefix = 'body_head'} else {prefix = idList[0];}
+  if (idList[0] === 'body' && idList[1] === 'head') {
+    prefix = 'body_head';
+  } else {
+    prefix = idList[0];
+  }
   if (c.sex === 'm') {
     formList = window.maleFormList;
-  } else {
+  } else if (c.sex === 'f') {
     formList = window.femaleFormList;
+  } else {
+    return -1;
   }
   while (formSection === undefined) {
     counterForm = formList.length;
