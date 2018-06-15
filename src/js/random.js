@@ -66,7 +66,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
 }
 
 function hideCompetition (section) {
-    var headPiece = ["hair", "mask", "hat", "veil"];
+    var headPiece = ["hair", "mask", "veil"];
     var topPiece = ["shorts", "pants"];
     var overPiece = ["jacket", "coat"];
     if (headPiece.indexOf(section) != -1 ){
