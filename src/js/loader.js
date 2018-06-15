@@ -25,7 +25,7 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='scar'||section==='wings' && item === 'devil'){
       section = 'skin';
   }
   if (section ==='facialhair' || section==='brows') {

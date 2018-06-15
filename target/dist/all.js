@@ -1629,7 +1629,7 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='scar'||section==='wings' && item === 'devil'){
       section = 'skin';
   }
   if (section ==='facialhair' || section==='brows') {
@@ -2847,7 +2847,6 @@ function clickSelect(ev) {
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
       itemButton = itemButtonList[prefixIndex];
-      console.log('itemButton', itemButton);
       openThumbsLogic(itemButton);
     }
   }
@@ -2860,9 +2859,7 @@ function getSectionButton(formSection, prefix) {
   } else {
     formList = window.femaleFormList;
   }
-  console.log('prefix',prefix);
   for (key in formList[formSection]) {
-    console.log(keyCounter, key);
     if (prefix === key.toLowerCase()) {
       return keyCounter;
     }
@@ -3049,13 +3046,14 @@ function launch() {
       'age_lines',
       'freckles_medium',
       'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
-      'scar_horizontal_nose','scar_vertical_left','scar_vertical_right',
+      'scar_vertical_left','scar_vertical_right',
       'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock',  'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
       'eyeballs_default',
       'lashes_neutral',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'br  ows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
       'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
       'nose_default', 'nose_pointed', 'nose_roman', 'nose_syrid',
+      'scar_horizontal_nose',
       'warpaint_football',
       'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap', 'facialhair_beard_raw',
       'facialhair_chinpuff',
@@ -3209,6 +3207,7 @@ function launch() {
       'ears_default', 'ears_pointed',
       'nose_default', 'nose_pointed', 'nose_roman', 'nose_syrid',
       'mouth_shadow', 'freckles_medium',
+      'scar_horizontal_neck', 'scar_horizontal_nose', 'scar_vertical_heart', 'scar_vertical_left', 'scar_vertical_right',
       'age_lines', 'wings_devil',
       'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_betrayal', 'mouth_caged', 'mouth_cruel', 'mouth_desperation', 'mouth_eeww', 'mouth_horror', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage'
     ];
