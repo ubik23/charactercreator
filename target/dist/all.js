@@ -1947,6 +1947,8 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
+  console.log('show userChoice', userChoice);
+  console.log('show category', category);
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -1958,7 +1960,13 @@ function show(userChoice, category) {
     var id = '#'+sections[0]+'_'+selectedOption;
 
     hideCompetition(sections[0]);
-    hash.add(obj);
+    console.log('show hash.add', obj);
+    obj[category] = userChoice;
+    if (userChoice === '') {
+      hash.remove(category);
+    } else {
+      hash.add(obj);
+    }
     if (currentUser) {
         triggerSaveBtn();
     }
@@ -3426,6 +3434,7 @@ function selectFemale(event) {
 }
 
 function parseHash(c, forms, skinLayers, hairLayers){
+    newParseHash();
     var formsLength = forms.length;
     var formsCounter = formsLength;
     while (formsCounter--) {
@@ -3468,6 +3477,18 @@ function parseHash(c, forms, skinLayers, hairLayers){
         };
     };
 };
+function newParseHash() {
+  var hashDict = hash.get();
+  var keys = Object.keys(hashDict);
+  var key;
+  console.log('hashDict', hashDict);
+  console.log('keys', keys);
+  for (key in hashDict) {
+    console.log('key', key);
+    console.log('value', hashDict[key]);
+  }
+  console.log('c', c);
+}
 
 function random(){
     var forms = window.forms;

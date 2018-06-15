@@ -1,4 +1,5 @@
 function parseHash(c, forms, skinLayers, hairLayers){
+    newParseHash();
     var formsLength = forms.length;
     var formsCounter = formsLength;
     while (formsCounter--) {
@@ -41,3 +42,15 @@ function parseHash(c, forms, skinLayers, hairLayers){
         };
     };
 };
+function newParseHash() {
+  var hashDict = hash.get();
+  var keys = Object.keys(hashDict);
+  var key;
+  console.log('hashDict', hashDict);
+  console.log('keys', keys);
+  for (key in hashDict) {
+    console.log('key', key);
+    console.log('value', hashDict[key]);
+  }
+  console.log('c', c);
+}
