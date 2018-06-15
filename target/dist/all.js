@@ -3617,6 +3617,18 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function isLandscape() {
+  var w = window;
+  var d = document;
+  var e = d.documentElement;
+  var g = d.getElementsByTagName('body')[0];
+  var x = w.innerWidth || e.clientWidth || g.clientWidth;
+  var y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  var isLandscape;
+  if (x > y) {isLandscape = true;} else {isLandscape = false;}
+  return isLandscape;
+}
+
 function zoomIn() {
     var sex = c.sex;
     var newViewBox;
@@ -3637,6 +3649,7 @@ function zoomOut() {
 }
 
 function zoomFace() {
+    var landscape = isLandscape(); // TODO change newViewBox is in landscape mode.
     var sex = c.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
