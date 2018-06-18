@@ -46,11 +46,7 @@ function newParseHash() {
   var hashDict = hash.get();
   var keys = Object.keys(hashDict);
   var key;
-  console.log('hashDict', hashDict);
-  console.log('keys', keys);
   for (key in hashDict) {
-    console.log('key', key);
-    console.log('value', hashDict[key]);
+    if (hashDict[key] === '') {hash.remove(key);}
   }
-  console.log('c', c);
 }

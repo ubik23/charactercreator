@@ -53,7 +53,12 @@ function showRandom(section, layer){  // Draw the SVG on screen
             optionId = '#' + sections[section] + '_' + sectionOptions[option];
             hideId(optionId)
         }
-        showId(id);
+
+        if (id.slice(-1) != '_') {
+          showId(id);
+        }
+        // loadFilesFromList(layersList, callback, callbackLoopFlag)
+        //
         if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'){
             modCharacter(sections[section], selectedOption);
         } else {
@@ -95,19 +100,26 @@ function hideArray(competition) {
 }
 
 function showId(id) {
+  var showList = [];
+  var inMuliLayer = false;
   var svgContainer = document.querySelector('#svg1');
         ga('send', 'event', 'menu', 'select', id);
         for (lyr in multiLayer) {
             if (id.slice(1) == multiLayer[lyr][0]){
+                inMuliLayer = true;
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    svgContainer.querySelector(idOf).style.opacity = 1;
+                    showList.push(idOf.slice(1));
+                    // svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
-            else {
-                svgContainer.querySelector(id).style.opacity = 1;
-            }
-    };
+        };
+    if (inMuliLayer === false) {
+      showList.push(id.slice(1));
+    }
+    // Check to see if it's already in the DOM and displayed.
+    // Don't load if that's the case.
+    loadFilesFromList(showList);
 }
 
 function hideId(id) {
@@ -119,14 +131,14 @@ function hideId(id) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     layerToHide = svgContainer.querySelector(idOf);
                     if (layerToHide != null) {
-                      layerToHide.style.opacity = 0;
+                      svgContainer.removeChild(layerToHide);
                     }
                 }
             }
             else {
                 layerToHide = svgContainer.querySelector(id);
                 if (layerToHide != null) {
-                  layerToHide.style.opacity = 0;
+                  svgContainer.removeChild(layerToHide);
                 }
             }
     };

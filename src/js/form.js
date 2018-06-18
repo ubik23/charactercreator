@@ -218,7 +218,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         return svgObject;
     }).then(function(svgObject){
-      if (typeof callback === 'function' && callbackLoopFlag) {
+      if (callback && typeof callback === 'function' && callbackLoopFlag) {
         callback(svgObject);
       }
     })
@@ -317,7 +317,7 @@ function purgeHiddenLayers() {
 
 function openThumbs() {
     var _ = this;
-    openThumbsLogic(_)
+    openThumbsLogic(_);
 }
 
 function openThumbsLogic(_) {

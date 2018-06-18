@@ -197,8 +197,6 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
-  console.log('show userChoice', userChoice);
-  console.log('show category', category);
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -210,7 +208,6 @@ function show(userChoice, category) {
     var id = '#'+sections[0]+'_'+selectedOption;
 
     hideCompetition(sections[0]);
-    console.log('show hash.add', obj);
     obj[category] = userChoice;
     if (userChoice === '') {
       hash.remove(category);
