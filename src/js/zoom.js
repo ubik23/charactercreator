@@ -71,11 +71,7 @@ function zoomFull() {
     var sex = c.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
-    if (sex == 'm'){
-      newViewBox = "10 50 540 540";
-    } else {
-      newViewBox = "10 50 540 540";
-    }
+    newViewBox = "10 50 540 540";
     animateZoom(newViewBox);
 }
 

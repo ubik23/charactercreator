@@ -46,7 +46,6 @@ function trans(sex){
     if (c.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
-    //hideForms();
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
     // ^ Should really check to see if the emotion doesn't exist before forcing a change to neutral.
@@ -60,6 +59,7 @@ function trans(sex){
 function buildCharacter(callback) {
     var characterSVG = document.querySelector('#svg1');
     setTimeout(function(){
+        zoomFull();
         clearForms();
         clearCharacter();
         interpretHash();

@@ -1796,7 +1796,6 @@ function trans(sex){
     if (c.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
-    //hideForms();
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
     // ^ Should really check to see if the emotion doesn't exist before forcing a change to neutral.
@@ -1810,6 +1809,7 @@ function trans(sex){
 function buildCharacter(callback) {
     var characterSVG = document.querySelector('#svg1');
     setTimeout(function(){
+        zoomFull();
         clearForms();
         clearCharacter();
         interpretHash();
@@ -2820,8 +2820,11 @@ window.onload = function() {
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
-
+    if (window && typeof processHashChange === 'funtion') {winddow.addEventListener('hashchange', processHashChange, false)}
     startup();
+}
+function processHashChange() {
+  console.log('hash changed.');
 }
 
 function clickSelect(ev) {
@@ -3719,11 +3722,7 @@ function zoomFull() {
     var sex = c.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
-    if (sex == 'm'){
-      newViewBox = "10 50 540 540";
-    } else {
-      newViewBox = "10 50 540 540";
-    }
+    newViewBox = "10 50 540 540";
     animateZoom(newViewBox);
 }
 
