@@ -110,15 +110,12 @@ function showId(id) {
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     showList.push(idOf.slice(1));
-                    // svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
         };
     if (inMuliLayer === false) {
       showList.push(id.slice(1));
     }
-    // Check to see if it's already in the DOM and displayed.
-    // Don't load if that's the case.
     loadFilesFromList(showList);
 }
 

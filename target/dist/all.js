@@ -1231,10 +1231,10 @@ function hideSidebarRight() {
 }
 
 function clearSidebarRight() {
-    var sidebarParent = document.querySelector('#content');
+    var sidebarContent = document.querySelector('#content_1');
     var sidebarRight = document.querySelector('#sidebar');
-    sidebarParent.removeChild(sidebarRight);
-    sidebarParent.appendChild(rightSidebarClone);
+    sidebarRight.classList.remove('visible');
+    sidebarContent.innerHTML = '';
 }
 
 function addEventListenerList(list, event, fn) {
@@ -1754,9 +1754,13 @@ function isInArray(value, array) {
 
 function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
-    var maleSilhouette = svgContainer.querySelector('#male_silhouette');
-    var femaleSilhouette = svgContainer.querySelector('#female_silhouette');
-    svgContainer.innerHTML = maleSilhouette + femaleSilhouette;
+    var toBeRemovedList = document.querySelectorAll('#svg1 > g');
+    var counter = toBeRemovedList.length;
+    while (counter--) {
+      if (toBeRemovedList[counter].id != 'male_silhouette' && toBeRemovedList[counter].id != 'female_silhouette') {
+        svgContainer.removeChild(toBeRemovedList[counter]);
+      }
+    }
 }
 
 function personnageActuelToHash(currentUser) {
@@ -1789,11 +1793,13 @@ function personnageActuelToHash(currentUser) {
 }
 
 function trans(sex){
+    if (c.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
     //hideForms();
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
+    // ^ Should really check to see if the emotion doesn't exist before forcing a change to neutral.
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
          currentUser.cc.personnages[personnageActuel].sex = sex;
     }
@@ -3595,15 +3601,12 @@ function showId(id) {
                 for (var i=1;i<=multiLayer[lyr][1];i++) {
                     idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
                     showList.push(idOf.slice(1));
-                    // svgContainer.querySelector(idOf).style.opacity = 1;
                 }
             }
         };
     if (inMuliLayer === false) {
       showList.push(id.slice(1));
     }
-    // Check to see if it's already in the DOM and displayed.
-    // Don't load if that's the case.
     loadFilesFromList(showList);
 }
 

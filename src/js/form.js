@@ -383,10 +383,10 @@ function hideSidebarRight() {
 }
 
 function clearSidebarRight() {
-    var sidebarParent = document.querySelector('#content');
+    var sidebarContent = document.querySelector('#content_1');
     var sidebarRight = document.querySelector('#sidebar');
-    sidebarParent.removeChild(sidebarRight);
-    sidebarParent.appendChild(rightSidebarClone);
+    sidebarRight.classList.remove('visible');
+    sidebarContent.innerHTML = '';
 }
 
 function addEventListenerList(list, event, fn) {
