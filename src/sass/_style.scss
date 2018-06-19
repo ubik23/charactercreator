@@ -266,6 +266,24 @@ input[type=range][orient=vertical] {
     padding: 2px 10px 2px 10px;
 }
 
+.hud__list-item input {
+  padding-right: 0.25em;
+}
+
+.hud__list-item div {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.abbreviation {
+  display: none;
+  @media screen and (min-width: 650px) {
+      display: inline-block;
+  }
+}
+
 .svg__section__title {
     display: none;
     text-transform: uppercase;
