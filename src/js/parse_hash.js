@@ -49,4 +49,7 @@ function newParseHash() {
   for (key in hashDict) {
     if (hashDict[key] === '') {hash.remove(key);}
   }
+  if (hashDict['irisColor'] != '') {
+      modCharacter('irisColor', hashDict['irisColor']);
+  }
 }
