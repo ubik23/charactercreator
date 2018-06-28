@@ -2120,7 +2120,10 @@ var fetchDb = (function () {
     if (method) {
         opts.method = method;
     }
-    return window.fetch(url, Object.assign(opts, baseOpts))
+    if (typeof window.fetch === 'function') {
+      return window.fetch(url, Object.assign(opts, baseOpts))
+    }
+
   }
 
   binary.forEach(function (m) { fetchDb[m] = function (path) { return fetchDb(path, m) } })
@@ -2675,33 +2678,34 @@ function register (evt) {
         })
 }
 
-getDbSession()
-  .then(getDbUser)
-  .then(function (user) {
-    var r
-    var t = []
-    myUsername = user.name
-    currentUser = user
-    if (user.cc && user.cc.personnages &&
-      user.cc.personnageActuel &&
-      user.cc.personnages[user.cc.personnageActuel]
-    ) {
-      personnages = user.cc.personnages
-      personnageActuel = user.cc.personnageActuel
+if (typeof window.fetch === 'function') {
+  getDbSession()
+    .then(getDbUser)
+    .then(function (user) {
+      var r
+      var t = []
+      myUsername = user.name
+      currentUser = user
+      if (user.cc && user.cc.personnages &&
+        user.cc.personnageActuel &&
+        user.cc.personnages[user.cc.personnageActuel]
+      ) {
+        personnages = user.cc.personnages
+        personnageActuel = user.cc.personnageActuel
 
-      for (r in user.cc.personnages[user.cc.personnageActuel]) {
-        t.push(
-          encodeURIComponent(r) + '=' +
-          encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
-        )
+        for (r in user.cc.personnages[user.cc.personnageActuel]) {
+          t.push(
+            encodeURIComponent(r) + '=' +
+            encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
+          )
+        }
       }
-    }
-    manageCharacters(currentUser);
-  })
-  .catch(function (err) {
-    //console.log('getDbUser error', err)
-  })
-
+      manageCharacters(currentUser);
+    })
+    .catch(function (err) {
+      //console.log('getDbUser error', err)
+    })
+}
 function setHashTrigger() {
     window.addEventListener('hashchange', triggerSaveBtn, false)
 }
