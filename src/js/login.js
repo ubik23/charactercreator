@@ -8,6 +8,7 @@ var currentUser = false
 var personnages = {}
 var personnageActuel = false
 
+
 var fetchDb = (function () {
   var baseOpts = {
     credentials: 'same-origin',
@@ -184,6 +185,7 @@ function whoami (ev) {
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
 }
+
 function closeAllOverlays() {
     var overlays = document.querySelectorAll(".overlay--show");
     var counter = overlays.length;
@@ -191,6 +193,7 @@ function closeAllOverlays() {
         overlays[counter].classList.remove('overlay--show');
     }
 }
+
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
@@ -592,34 +595,34 @@ function register (evt) {
         })
 }
 
-if (typeof window.fetch === 'function') {
-  getDbSession()
-    .then(getDbUser)
-    .then(function (user) {
-      var r
-      var t = []
-      myUsername = user.name
-      currentUser = user
-      if (user.cc && user.cc.personnages &&
-        user.cc.personnageActuel &&
-        user.cc.personnages[user.cc.personnageActuel]
-      ) {
-        personnages = user.cc.personnages
-        personnageActuel = user.cc.personnageActuel
 
-        for (r in user.cc.personnages[user.cc.personnageActuel]) {
-          t.push(
-            encodeURIComponent(r) + '=' +
-            encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
-          )
-        }
+getDbSession()
+  .then(getDbUser)
+  .then(function (user) {
+    var r
+    var t = []
+    myUsername = user.name
+    currentUser = user
+    if (user.cc && user.cc.personnages &&
+      user.cc.personnageActuel &&
+      user.cc.personnages[user.cc.personnageActuel]
+    ) {
+      personnages = user.cc.personnages
+      personnageActuel = user.cc.personnageActuel
+
+      for (r in user.cc.personnages[user.cc.personnageActuel]) {
+        t.push(
+          encodeURIComponent(r) + '=' +
+          encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
+        )
       }
-      manageCharacters(currentUser);
-    })
-    .catch(function (err) {
-      //console.log('getDbUser error', err)
-    })
-}
+    }
+    manageCharacters(currentUser);
+  })
+  .catch(function (err) {
+    //console.log('getDbUser error', err)
+  })
+
 function setHashTrigger() {
     window.addEventListener('hashchange', triggerSaveBtn, false)
 }

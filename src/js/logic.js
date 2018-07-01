@@ -212,8 +212,7 @@ function show(userChoice, category) {
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-
-    hideCompetition(sections[0]);
+    //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
       hash.remove(category);

@@ -325,12 +325,10 @@ function openThumbsLogic(_) {
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
-
   if (previousSelection != null) {
     purgeHiddenLayers();
     previousSelection.classList.remove('section--selected');
   };
-
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
   showThumbOptions(_);
   _.classList.add('section--selected');

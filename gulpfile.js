@@ -43,7 +43,6 @@ gulp.task('sass', function () {
         .pipe(concat('styles.css'))
         .pipe(sourcemaps.init())
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-        .pipe(sourcemaps.write('.'))
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./target/css/'));
 });

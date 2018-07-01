@@ -1173,12 +1173,10 @@ function openThumbsLogic(_) {
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
-
   if (previousSelection != null) {
     purgeHiddenLayers();
     previousSelection.classList.remove('section--selected');
   };
-
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
   showThumbOptions(_);
   _.classList.add('section--selected');
@@ -1953,6 +1951,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
+    console.log('function show');
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -1962,8 +1961,8 @@ function show(userChoice, category) {
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-
-    hideCompetition(sections[0]);
+    console.log('hideCompetition', sections[0]);
+    //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
       hash.remove(category);
@@ -2052,6 +2051,7 @@ function changeClipPathOnEyes(id) {
 }
 
 function sectionHide(multiLayer, id) {
+  console.log('hide', id);
   var svgContainer = document.querySelector('#svg1');
   var sectionToHide;
     if (id.slice(1) == multiLayer[lyr][0]) {
@@ -2093,6 +2093,7 @@ var myUsername = false
 var currentUser = false
 var personnages = {}
 var personnageActuel = false
+
 
 var fetchDb = (function () {
   var baseOpts = {
@@ -2270,6 +2271,7 @@ function whoami (ev) {
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
 }
+
 function closeAllOverlays() {
     var overlays = document.querySelectorAll(".overlay--show");
     var counter = overlays.length;
@@ -2277,6 +2279,7 @@ function closeAllOverlays() {
         overlays[counter].classList.remove('overlay--show');
     }
 }
+
 function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
@@ -2678,34 +2681,34 @@ function register (evt) {
         })
 }
 
-if (typeof window.fetch === 'function') {
-  getDbSession()
-    .then(getDbUser)
-    .then(function (user) {
-      var r
-      var t = []
-      myUsername = user.name
-      currentUser = user
-      if (user.cc && user.cc.personnages &&
-        user.cc.personnageActuel &&
-        user.cc.personnages[user.cc.personnageActuel]
-      ) {
-        personnages = user.cc.personnages
-        personnageActuel = user.cc.personnageActuel
 
-        for (r in user.cc.personnages[user.cc.personnageActuel]) {
-          t.push(
-            encodeURIComponent(r) + '=' +
-            encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
-          )
-        }
+getDbSession()
+  .then(getDbUser)
+  .then(function (user) {
+    var r
+    var t = []
+    myUsername = user.name
+    currentUser = user
+    if (user.cc && user.cc.personnages &&
+      user.cc.personnageActuel &&
+      user.cc.personnages[user.cc.personnageActuel]
+    ) {
+      personnages = user.cc.personnages
+      personnageActuel = user.cc.personnageActuel
+
+      for (r in user.cc.personnages[user.cc.personnageActuel]) {
+        t.push(
+          encodeURIComponent(r) + '=' +
+          encodeURIComponent(user.cc.personnages[user.cc.personnageActuel][r])
+        )
       }
-      manageCharacters(currentUser);
-    })
-    .catch(function (err) {
-      //console.log('getDbUser error', err)
-    })
-}
+    }
+    manageCharacters(currentUser);
+  })
+  .catch(function (err) {
+    //console.log('getDbUser error', err)
+  })
+
 function setHashTrigger() {
     window.addEventListener('hashchange', triggerSaveBtn, false)
 }
@@ -2824,11 +2827,7 @@ window.onload = function() {
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
-    if (window && typeof processHashChange === 'funtion') {winddow.addEventListener('hashchange', processHashChange, false)}
     startup();
-}
-function processHashChange() {
-  console.log('hash changed.');
 }
 
 function clickSelect(ev) {
@@ -3280,7 +3279,7 @@ function displayPallette () {
     if (hashSkinColor != undefined){
          launch();
     } else {
-        chooseSkinColor();
+      chooseSkinColor();
     }
 }
 

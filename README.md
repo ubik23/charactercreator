@@ -19,7 +19,7 @@ The aim of this project is to create a fast, intuitive user interface for produc
 
 Install the dependencies:
 
-npm install 
+npm install
 
 Get the site up and running on your local machine:
 
@@ -27,7 +27,7 @@ gulp
 
 # Site Architecture
 
-The project is still in its alpha stage, so you might find some legacy code from when the project was created in 2014. I try to keep it up to date but some parts get neglected in favor of new shiny features. Feel
+The project is still in its alpha stage, so you might find some legacy code from when the project was created in 2014. I try to keep it up to date but some parts get neglected in favor of new shiny features.
 
 The items are seperated into layers, some items require multiple layers while other only need one. Most SVG paths have classes that tell the App what color the path should be. The order of the SVGs are important to preserve the illusion of 3d in this 2d environment.
 
@@ -39,11 +39,10 @@ if you want to open an SVG to edit it, make sure you add the following in the fi
 [...]
 </svg>
 
-You can then edit the layer in Inkscape and export it again. Be sure to use a tool to optimize the file as much as possible (like svgomg) and replace the SVG tag by a Group tag. 
+You can then edit the layer in Inkscape and export it again. Be sure to use a tool to optimize the file as much as possible (like svgomg) and replace the SVG tag by a Group tag.
 
 # License
 
 Ths project is licensed AGPL, clone, modify and share your improvements!
 
 Suggestions are welcomed. Post an issue on the project's github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
-

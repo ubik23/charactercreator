@@ -24,11 +24,7 @@ window.onload = function() {
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
-    if (window && typeof processHashChange === 'funtion') {winddow.addEventListener('hashchange', processHashChange, false)}
     startup();
-}
-function processHashChange() {
-  console.log('hash changed.');
 }
 
 function clickSelect(ev) {
@@ -480,7 +476,7 @@ function displayPallette () {
     if (hashSkinColor != undefined){
          launch();
     } else {
-        chooseSkinColor();
+      chooseSkinColor();
     }
 }
 
