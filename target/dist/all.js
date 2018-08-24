@@ -1951,7 +1951,6 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
-    console.log('function show');
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -1961,7 +1960,6 @@ function show(userChoice, category) {
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    console.log('hideCompetition', sections[0]);
     //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
@@ -2051,7 +2049,6 @@ function changeClipPathOnEyes(id) {
 }
 
 function sectionHide(multiLayer, id) {
-  console.log('hide', id);
   var svgContainer = document.querySelector('#svg1');
   var sectionToHide;
     if (id.slice(1) == multiLayer[lyr][0]) {
@@ -2801,7 +2798,7 @@ function saveChar() {
         })
 }
 
-window.onload = function() {
+  window.onload = function() {
     var aboutBtn = document.querySelector("#aboutButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");

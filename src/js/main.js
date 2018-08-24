@@ -1,4 +1,4 @@
-window.onload = function() {
+  window.onload = function() {
     var aboutBtn = document.querySelector("#aboutButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
