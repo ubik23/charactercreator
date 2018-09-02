@@ -11,7 +11,7 @@
       <path class="glaze" d="m 270.40295,127.32775 c -0.0773,-0.90734 4.40609,-1.07018 4.5985,0.0826 0.11067,0.66306 -4.51475,0.90104 -4.5985,-0.0826 z" style="fill:#fff;fill-opacity:.34031414;stroke-width:.5;stroke-miterlimit:4.06053257"/>
   </g>
   <g id="eye_left" clip-path="url(#eyes_neutral--left)">
-      <g id="eyeball_right">
+      <g id="eyeball_left">
         <circle class="alpha" style="fill:#2ad4ff;stroke:none;" cx="288.35782" cy="126.83508" r="1.5446309"/>
         <path class="alpha--dark" style="fill:#089cc1;stroke-width:.15;" d="m 289.90246,126.83507 c 0,0.39768 -0.15029,0.76026 -0.39717,1.03405 -0.0495,-0.61938 -0.039,-1.07533 -1.10082,-1.07533 -0.94729,0 -1.34815,0.51029 -1.0596,1.20742 -0.32574,-0.2832 -0.53168,-0.70062 -0.53168,-1.16614 0,-0.85308 0.69156,-1.54463 1.54463,-1.54463 0.85308,0 1.54464,0.69155 1.54464,1.54463 z"/>
         <circle class="alpha" style="stroke:#00aad4;stroke-width:.5;fill:none;" cx="288.35782" cy="126.83508" r="1.5446309"/>
