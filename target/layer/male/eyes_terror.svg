@@ -1,4 +1,12 @@
 <g id="eyes_terror">
-  <path id="path38974" d="m 269.55233,127.41231 c 0.91991,0.0331 4.68565,-0.0571 6.30294,0.1254 -0.24331,-4.03556 -5.72235,-4.1471 -6.30294,-0.1254 z" style="display:inline;fill:#f9f9f9;stroke:#de8787;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
-  <path id="path38976" d="m 291.53423,127.00461 c -1.09106,0.0105 -4.26687,0.23635 -6.11479,0.5018 -0.16551,-3.72305 5.50523,-4.65179 6.11479,-0.5018 z" style="display:inline;fill:#f9f9f9;stroke:#de8787;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"/>
+    <defs>
+        <clipPath id="eyes_terror--right">
+            <path d="m 270.5543,127.41231 c 0.94523,2.38029 5.7255,2.00039 6.30294,0.1254 -1.2514,-3.07895 -4.89956,-3.15197 -6.30294,-0.1254 z"/>
+        </clipPath>
+        <clipPath id="eyes_terror--left">
+            <path d="m 291.53423,127.21009 c -0.38915,1.96329 -5.22172,2.63534 -6.11479,0.5018 0.87647,-3.09786 4.76227,-3.46462 6.11479,-0.5018 z"/>
+        </clipPath>
+    </defs>
+  <path id="eyes_terror_left" d="m 291.53423,127.21009 c -0.38915,1.96329 -5.22172,2.63534 -6.11479,0.5018 0.87647,-3.09786 4.76227,-3.46462 6.11479,-0.5018 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+  <path id="eyes_terror_right" d="m 270.5543,127.41231 c 0.94523,2.38029 5.7255,2.00039 6.30294,0.1254 -1.2514,-3.07895 -4.89956,-3.15197 -6.30294,-0.1254 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
 </g>

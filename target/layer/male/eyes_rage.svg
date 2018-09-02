@@ -1,18 +1,10 @@
 <g id="eyes_rage">
-  <defs id="defs33019">
-    <clipPath id="clipPath17580">
-      <path id="path17582" fill="none" stroke="teal" stroke-width=".027" d="M537.942 127.974c-.242.595-1.617 2.453-5.538.874-.595.056-1.562.148-1.6.13-.036-.02-.092-.13-.017-.186.074-.056.39-.39.93-.52.538-.13 1.857-1.747 3.103-1.747 1.245 0 2.843.966 3.122 1.45z"/>
-    </clipPath>
-    <clipPath id="clipPath17632">
-      <path id="path17634" fill="#e6e6e6" stroke="#de8787" stroke-width=".027" d="M515.637 127.974c.24.595 1.617 2.453 5.538.874.595.056 1.56.148 1.6.13.036-.02.09-.13.017-.186-.074-.056-.39-.39-.93-.52-.538-.13-1.858-1.747-3.103-1.747-1.247 0-2.845.966-3.124 1.45z"/>
-    </clipPath>
-    <clipPath id="clipPath63810">
-      <path id="path63812" fill="#f9f9f9" stroke="#de8787" stroke-width=".25" d="M537.097 128.005c-1.187.407-4.938.663-6.115.5.345-1.08 5.884-1.837 6.115-.5z"/>
-    </clipPath>
-    <clipPath id="clipPath63832">
-      <path id="path63834" fill="#f9f9f9" stroke="#de8787" stroke-width=".25" d="M515.115 128.412c1.963.446 5.186.294 6.303.126-.61-.694-5.324-2.01-6.303-.126z"/>
-    </clipPath>
-  </defs>
-  <path id="path34281-0" fill="#f9f9f9" stroke="#de8787" stroke-width=".25" d="M291.534 127.005c-1.187.407-4.938.663-6.115.5.343-1.08 5.882-1.837 6.113-.5z"/>
-  <path id="path34279-3" fill="#f9f9f9" stroke="#de8787" stroke-width=".25" d="M269.552 127.412c1.964.446 5.187.294 6.303.126-.61-.694-5.323-2.01-6.303-.126z"/>
+    <defs>
+        <clipPath id="eyes_rage--right">
+        </clipPath>
+        <clipPath id="eyes_rage--left">
+        </clipPath>
+    </defs>
+  <path id="eyes_rage_left" d="m 291.53423,127.21174 c -1.18675,0.40747 -4.93775,0.66315 -6.11479,0.5018 0.34469,-1.08052 5.88372,-1.83801 6.11479,-0.5018 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+  <path id="eyes_rage_right" d="m 270.54145,127.41231 c 1.9636,0.44608 5.18625,0.294 6.30294,0.1254 -0.60899,-0.69391 -5.32354,-2.01058 -6.30294,-0.1254 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
 </g>
