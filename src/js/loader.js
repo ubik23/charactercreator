@@ -25,7 +25,7 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='scar'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='sockets'||section==='scar'||section==='wings' && item === 'devil'){
       section = 'skin';
   }
   if (section ==='facialhair' || section==='brows') {
@@ -123,7 +123,7 @@ function choicesToLayers(c, multiLayer){
 function fromEmotionGetLayers(emotion) {
     var facialEpressionLayers = [];
     var modElement = '';
-    var faceElements = ['brows', 'eyes', 'mouth', 'lashes'];
+    var faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets'];
     var faceElLength = faceElements.length;
     var faceElNum = faceElLength;
     var faceCount;
