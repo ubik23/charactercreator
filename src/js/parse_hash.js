@@ -23,10 +23,9 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             var id = section + '_' + hashData;
             if (hashData != undefined){
-                // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
+            } else if (section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body') {
@@ -42,6 +41,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
         };
     };
 };
+
 function newParseHash() {
   var hashDict = hash.get();
   var keys = Object.keys(hashDict);

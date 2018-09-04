@@ -1047,6 +1047,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         var svgObject;
         var layerID;
+        var layerIDArray;
         var nextLayerSibling;
         var svgContainer = document.querySelector('#svg1');
         htmlObject.innerHTML = text;
@@ -1056,6 +1057,11 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+        layerIDArray = layerID.split('_');
+        // if (layerIDArray[0] === 'eyeballs') {
+        //   console.log('emotion', c.choices.emotion);
+        //   svgObject = processClipPathOnEyes(svgObject, c.choices.emotion);
+        // }
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
@@ -1602,7 +1608,7 @@ function getParent(el, sel) {
 
 
 function onAllLoaded() {
-  var zoomContainer = document.querySelector('.zoom-container');
+    var zoomContainer = document.querySelector('.zoom-container');
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -1615,7 +1621,6 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
@@ -2044,8 +2049,16 @@ function changeClipPathOnEyes(id) {
   var svgContainer = document.querySelector('#svg1');
   var eyeRight = svgContainer.querySelector('#eye_right');
   var eyeLeft = svgContainer.querySelector('#eye_left');
-  eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
-  eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
+  if (eyeRight && eyeLeft) {
+    eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
+    eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
+  }
+}
+
+function applyClipPath() {
+  setTimeout(function(){
+    changeClipPathOnEyes('#eyes_' + c.choices.emotion);
+  },1);
 }
 
 function sectionHide(multiLayer, id) {
@@ -3266,11 +3279,10 @@ function launch() {
     window.forms = [form1, form2, form3, form4, form5,form6];
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
-
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     choicesToList(c);
     toBeShown = choicesToLayers(c, multiLayer);
-    Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();});
+    Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();}).then(function(){applyClipPath();});
 }
 
 function displayPallette () {
@@ -3469,10 +3481,9 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             var id = section + '_' + hashData;
             if (hashData != undefined){
-                // Add the key/value pair to c.choices here
                 modCharacter(section, hashData);
                 ga('send', 'event', 'hash', 'select', id);
-            }else if(section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
+            } else if (section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
                 modCharacter(section, 'neutral');
             };
             if (id in skinLayers || section ==='body') {
@@ -3488,6 +3499,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
         };
     };
 };
+
 function newParseHash() {
   var hashDict = hash.get();
   var keys = Object.keys(hashDict);

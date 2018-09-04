@@ -199,6 +199,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         var svgObject;
         var layerID;
+        var layerIDArray;
         var nextLayerSibling;
         var svgContainer = document.querySelector('#svg1');
         htmlObject.innerHTML = text;
@@ -208,6 +209,11 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+        layerIDArray = layerID.split('_');
+        // if (layerIDArray[0] === 'eyeballs') {
+        //   console.log('emotion', c.choices.emotion);
+        //   svgObject = processClipPathOnEyes(svgObject, c.choices.emotion);
+        // }
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {

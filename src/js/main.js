@@ -466,11 +466,10 @@ function launch() {
     window.forms = [form1, form2, form3, form4, form5,form6];
     // Get all the hash key/value pairs and include them in the c.choices object
     // Go through all the forms
-
     parseHash(c, forms, skinLayers, hairLayers);  //Hashed elements are added in the character object
     choicesToList(c);
     toBeShown = choicesToLayers(c, multiLayer);
-    Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();});
+    Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();}).then(function(){applyClipPath();});
 }
 
 function displayPallette () {

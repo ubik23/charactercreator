@@ -1,6 +1,6 @@
 
 function onAllLoaded() {
-  var zoomContainer = document.querySelector('.zoom-container');
+    var zoomContainer = document.querySelector('.zoom-container');
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
     var sideBarRight = document.querySelector(".sidebar-right");
@@ -13,7 +13,6 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
