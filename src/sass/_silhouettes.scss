@@ -69,6 +69,7 @@
     & .female {
         opacity: 0;
         transition: opacity 0.3s ease;
+        cursor: default;
     }
     & .male {
         transform: translate3d(0, 0, 0);
@@ -88,6 +89,7 @@
     & .male {
         opacity: 0;
         transition: opacity 0.3s ease;
+        cursor: default;
     }
 }
 

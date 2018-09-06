@@ -604,6 +604,8 @@ function selectMale(event) {
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     var shadow = document.querySelector('.character-shadow');
+    //Remove event listener to female silhouette.
+    femaleSilhouette.removeEventListener('click', selectFemale);
     if (maleRadioBtn) {
         maleRadioBtn.checked = true;
     }
@@ -627,6 +629,7 @@ function selectFemale(event) {
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     var shadow = document.querySelector('.character-shadow');
+    maleSilhouette.removeEventListener('click', selectMale);
     if (femaleRadioBtn) {
         femaleRadioBtn.checked = true;
     }
