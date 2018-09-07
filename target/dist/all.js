@@ -1191,7 +1191,6 @@ function openThumbsLogic(_) {
   var thumbSectionBtn = thumbSection.previousSibling;
   var sidebarLeft = document.querySelector('#sidebar-left');
   var sidebarRight = document.querySelector('.sidebar-right');
-
   if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
       thumbSectionBtn = thumbSectionBtn.previousSibling;
   }
@@ -1325,13 +1324,19 @@ function showThumbOptions(_) {
     var _ = _.target || _;
     var showOptionThumbs = document.querySelector('.options__'+_.innerHTML.toLowerCase());
     var allOptions  = document.querySelectorAll('.options__container');
+    var i = allOptions.length;
     var sectionSelected = document.querySelector('.section--selected');
     if (sectionSelected === null){
-        for (var i = 0, len = allOptions.length; i < len; i++) {
+
+
+        //for (var i = 0, len = allOptions.length; i < len; i++) {
+        while (i--) {
             allOptions[i].classList.remove('selected--option');
         }
+
         showOptionThumbs.classList.add('selected--option');
         var section = _.innerHTML.toLowerCase();
+
         getColor(section);
     };
 }
@@ -1360,7 +1365,8 @@ function getColor(sectionId) {
         picker,
         function(hex, hsv, rgb) {
           colorize(id, hex);
-        })
+        });
+    //TODO fix for Safari
 }
 
 function emptyPicker() {
