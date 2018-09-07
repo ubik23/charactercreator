@@ -71,7 +71,7 @@ sub {
   flex-direction: column;
   list-style: none;
   font-size: 16px;
-  align-items: flex-end;
+  align-items: center;
   transform: translateX(0);
   padding: 0;
   transition: transform 200ms ease-out;
@@ -158,7 +158,7 @@ sub {
 
 .logged {
     & #usernameButton {
-        display: inline-block;
+        display: block;
     }
     & #loginButton {
         display: none;
