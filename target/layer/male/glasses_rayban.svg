@@ -1,4 +1,4 @@
-<g id="glasses_rayban">
+<g id="glasses_rayban" transform="translate(0.4 0)">
     <path class="glass" d="M266 128c-.4 5.6 3 6.8 6.2 6.7 2.8 0 6.8-3.7 6.7-7.2 0-3.5-6.3-3-8-3-2 0-4.6-.2-5 3.6z" style="opacity:0.75;fill:#000000;stroke:none;stroke-width:0.5;"/>
     <path class="glass" d="M295.4 128c.4 5.6-3 6.8-6.2 6.7-2.7 0-6.7-3.7-6.7-7.2s6.2-3 8-3c2 0 4.6-.2 5 3.6z" style="opacity:0.75;fill:#000000;stroke:none;stroke-width:0.5;"/>
     <path class="alpha" d="M266 128c-.4 5.6 3 6.8 6.2 6.7 2.8 0 6.8-3.7 6.7-7.2 0-3.5-6.3-3-8-3-2 0-4.6-.2-5 3.6z" style="fill:none;stroke:#aa8800;stroke-width:0.5;"/>

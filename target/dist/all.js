@@ -1730,6 +1730,10 @@ function choicesToLayers(c, multiLayer){
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
+    //Make sure the eyeballs are included.
+    if (selectedLayers.indexOf('eyeballs_default') < 0) {
+      selectedLayers.push('eyeballs_default');
+    }
     return selectedLayers;
 };
 
@@ -1885,6 +1889,9 @@ function modCharacter(myKey, myValue){
     if (myKey in c.choices){
         delete c.choices[myKey];
     };
+    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets" || myKey === "mouth") {
+      return;
+    }
     // If there, modify the value
     //if not, add it in, with the value
     //if the value is '', then delete the key from the object,
@@ -2064,7 +2071,7 @@ function changeClipPathOnEyes(id) {
 function applyClipPath() {
   setTimeout(function(){
     changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },1);
+  },10);
 }
 
 function sectionHide(multiLayer, id) {
@@ -2104,7 +2111,7 @@ function resetCharacterTemplate() {
 
 'use strict'
 
-// yucky globals
+// globals
 var myUsername = false
 var currentUser = false
 var personnages = {}
@@ -2237,12 +2244,12 @@ function showErrorUsernamePasswordMismatch() {
     clearInputFields();
     errorText.innerHTML = errorMsg;
     errorBox.classList.add('overlay__error--show');
-    //console.log('Sorry, username/password mismatch');
+    console.log('Sorry, username/password mismatch');
     //clearInputUsername();
 }
 
 function createDbUser (username, password, email) {
-  //console.log('Create DB User');
+  console.log('Create DB User');
   return fetchDb.post('users', {
     _id: 'org.couchdb.user:' + username,
     roles: [],
@@ -2257,7 +2264,7 @@ function createDbUser (username, password, email) {
     }
   })
     .then(function (resp) {
-        //console.log('resp.status');
+        console.log('resp.status');
       if (resp.status === 201) { return resp.json() }
       if (resp.status === 409) {
           showErrorUsernameTaken(username);
@@ -2410,7 +2417,7 @@ function login(evt) {
     var currentCharacter;
 
     if (!username || !password) {
-        //console.log('missing username or password.');
+        console.log('missing username or password.');
         return
     }
 
@@ -2546,7 +2553,6 @@ function switchCharacter(evt) {
         .then(function (json){
             window.sex = currentUser.cc.personnages[newChar].sex;
             choices = currentUser.cc.personnages[newChar];
-            //console.log('choices', choices);
             c = new Character(choices);
             hash.clear();
             setTimeout(function(){
@@ -2556,7 +2562,7 @@ function switchCharacter(evt) {
             },500);
         })
         .catch(function (err) {
-          //console.log('err', err)
+          console.log('err', err)
         })
 }
 
@@ -2665,25 +2671,25 @@ function register (evt) {
     var register = document.querySelector('.overlay--show');
 
     if (!username) {
-      //console.log('missing username.');
+      console.log('missing username.');
       return
     }
     if (!password) {
-      //console.log('missing password.');
+      console.log('missing password.');
       return
     }
     if (!email) {
-      //console.log('missing email.');
+      console.log('missing email.');
       return
     }
 
-    //console.log('Calling createDbUSer');
+    console.log('Calling createDbUSer');
     createDbUser(username, password, email)
         .then(function () {
           return loginDbUser(username, password)
         })
         .then(function (json) {
-            //console.log('fetched2', json)
+            console.log('fetched2', json)
             return username
         })
         .then(getDbUser)
@@ -2693,7 +2699,7 @@ function register (evt) {
             register.classList.remove('overlay--show');
         })
         .catch(function (err) {
-          //console.error('register err', err)
+          console.error('register err', err)
         })
 }
 
@@ -2722,7 +2728,7 @@ getDbSession()
     manageCharacters(currentUser);
   })
   .catch(function (err) {
-    //console.log('getDbUser error', err)
+    console.log('getDbUser error', err)
   })
 
 function setHashTrigger() {
@@ -2767,7 +2773,7 @@ function createChar(evt) {
           return json
         })
         .catch(function (err) {
-          //console.log('err', err)
+          console.log('err', err)
         })
         manageCharacters();
 }
@@ -2783,7 +2789,7 @@ function deleteChar() {
           return json
         })
         .catch(function (err) {
-          //console.log('err', err)
+          console.log('err', err)
         })
         manageCharacters();
 }
@@ -2813,7 +2819,7 @@ function saveChar() {
           return json
         })
         .catch(function (err) {
-          //console.log('err', err)
+          console.log('err', err)
         })
 }
 
@@ -3085,8 +3091,8 @@ function launch() {
       'eyeballs_default',
       'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
-      'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
       'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_syrid_2_of_2', 'nose_strong_2_of_2',
+      'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
       'nose_default_1_of_2', 'nose_strong_1_of_2',
       'warpaint_football',
       'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap', 'facialhair_beard_raw',
@@ -3580,8 +3586,6 @@ function showRandom(section, layer){  // Draw the SVG on screen
         if (id.slice(-1) != '_') {
           showId(id);
         }
-        // loadFilesFromList(layersList, callback, callbackLoopFlag)
-        //
         if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'||sections[section] === 'sockets'){
             modCharacter(sections[section], selectedOption);
         } else {

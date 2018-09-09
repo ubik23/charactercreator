@@ -126,6 +126,9 @@ function modCharacter(myKey, myValue){
     if (myKey in c.choices){
         delete c.choices[myKey];
     };
+    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets" || myKey === "mouth") {
+      return;
+    }
     // If there, modify the value
     //if not, add it in, with the value
     //if the value is '', then delete the key from the object,
@@ -305,7 +308,7 @@ function changeClipPathOnEyes(id) {
 function applyClipPath() {
   setTimeout(function(){
     changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },1);
+  },10);
 }
 
 function sectionHide(multiLayer, id) {

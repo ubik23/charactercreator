@@ -116,6 +116,10 @@ function choicesToLayers(c, multiLayer){
     if (c.sex === 'f'){
         selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
     };
+    //Make sure the eyeballs are included.
+    if (selectedLayers.indexOf('eyeballs_default') < 0) {
+      selectedLayers.push('eyeballs_default');
+    }
     return selectedLayers;
 };
 

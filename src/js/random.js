@@ -57,8 +57,6 @@ function showRandom(section, layer){  // Draw the SVG on screen
         if (id.slice(-1) != '_') {
           showId(id);
         }
-        // loadFilesFromList(layersList, callback, callbackLoopFlag)
-        //
         if (sections[section] === 'brows'||sections[section] === 'eyes'||sections[section] === 'mouth'||sections[section] === 'lashes'||sections[section] === 'sockets'){
             modCharacter(sections[section], selectedOption);
         } else {
