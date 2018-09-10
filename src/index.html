@@ -308,7 +308,11 @@
                   </style>
                     <script type="text/javascript" src="dist/all.js" defer></script>
                     <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-                    <script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"ecf5dd5779b0ea1993c6bfccc","lid":"4adb17f2f1","uniqueMethods":true}) })</script>
+                    <script type="text/javascript">
+                      if (window.dojoRequire && typeof window.dojoRequire === 'function') {
+                          window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"ecf5dd5779b0ea1993c6bfccc","lid":"4adb17f2f1","uniqueMethods":true}) })
+                      }
+                    </script>
                 </footer>
             </main>
         <div class="overlay__modal js-login">
