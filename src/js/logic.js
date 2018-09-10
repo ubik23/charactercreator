@@ -308,7 +308,7 @@ function changeClipPathOnEyes(id) {
 function applyClipPath() {
   setTimeout(function(){
     changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },100);
+  },10);
 }
 
 function sectionHide(multiLayer, id) {
