@@ -69,12 +69,14 @@ function createForm(sex, forms){
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
+    var sectionColor  = document.querySelectorAll('.section__color');
 
     addEventListenerList(sidebarLeftOptions, 'mouseover', showThumbOptions);
     addEventListenerList(sidebarLeftOptions, 'focus', showThumbOptions);
     addEventListenerList(sidebarLeftOptions, 'click', openThumbs);
     addEventListenerList(optionThumbnails, 'click', changeOption);
     addEventListenerList(sectionButtons, 'click', toggleSection);
+    addEventListenerList(sectionColor, 'click', addColorPicker);
 }
 
 function getSectionsFromIdMultiLayer(multiLayer, tempId) {
@@ -322,6 +324,10 @@ function purgeHiddenLayers() {
 }
 
 function openThumbs() {
+    var colorPicker  = document.querySelector('.colorpicker-wrapper');
+    if (colorPicker && !colorPicker.classList.contains('section--hide')) {
+      colorPicker.classList.add('section--hide');
+    }
     var _ = this;
     openThumbsLogic(_);
 }
@@ -479,17 +485,11 @@ function showThumbOptions(_) {
     var i = allOptions.length;
     var sectionSelected = document.querySelector('.section--selected');
     if (sectionSelected === null){
-
-
         //for (var i = 0, len = allOptions.length; i < len; i++) {
         while (i--) {
             allOptions[i].classList.remove('selected--option');
         }
-
         showOptionThumbs.classList.add('selected--option');
-        var section = _.innerHTML.toLowerCase();
-
-        getColor(section);
     };
 }
 
@@ -502,6 +502,11 @@ function changeOption() {
     }
     show(userChoice, category);
     colors.classList.add('alert');
+}
+
+function addColorPicker() {
+  var section = document.querySelector('.section--selected').innerHTML.toLowerCase();
+  getColor(section);
 }
 
 function getColor(sectionId) {
@@ -688,6 +693,8 @@ function getViewBox(t, d) {
             "scar_vertical_left":"264 110 32 32",
             "scar_vertical_right":"264 110 32 32",
             "scarf_drape":"185 140 190 190",
+            "suit_asymetric":"175 140 200 200",
+            "suit_onepiece":"175 140 200 200",
             "tatoo_archeopteryx_left":"282 173 64 64",
             "tatoo_aum_chest":"248 165 64 64",
             "tatoo_aum_left":"298 157 64 64",
