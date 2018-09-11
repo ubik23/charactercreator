@@ -336,6 +336,7 @@ function launch() {
     var femaleForm5 = {
       'Underwear': ['', 'plain', 'string'],
       'Shorts' : ['', 'bikini', 'short'],
+      'Skirt' : ['', 'school'],
       'Leggings': ['', 'regular', 'torn'],
       'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
       'Belt' : ['', 'bullet', 'utility', 'satchel']
@@ -364,6 +365,7 @@ function launch() {
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
       'shorts_bikini', 'shorts_short',
+      'skirt_school',
       'holster_revolver_hip', 'holster_revolver_thigh_1_of_2',
       'top_asymetric', 'top_loop', 'top_tank',
       'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',

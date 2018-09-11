@@ -517,12 +517,16 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    ColorPicker(
-        slide,
-        picker,
-        function(hex, hsv, rgb) {
-          colorize(id, hex);
-        });
+    try {
+      ColorPicker(
+          slide,
+          picker,
+          function(hex, hsv, rgb) {
+            colorize(id, hex);
+          });
+    } catch(error) {
+      console.error(error);
+    }
     //TODO fix for Safari
 }
 
@@ -743,6 +747,7 @@ function getViewBox(t, d) {
             "shirt":"190 140 190 190",
             "shoes":"225 442 120 120",
             "shorts":"215 245 120 120",
+            "skirt":"190 220 180 180",
             "shoulderpads":"207 100 150 150",
             "socks":"225 442 120 120",
             "suit":"80 130 400 400",

@@ -9,9 +9,9 @@
 
     // This HTML snippet is inserted into the innerHTML property of the passed color picker element
     // when the no-hassle call to ColorPicker() is used, i.e. ColorPicker(function(hex, hsv, rgb) { ... });
-    
+
     var colorpickerHTMLSnippet = [
-        
+
         '<div class="picker-wrapper">',
                 '<div class="picker"></div>',
                 '<div class="picker-indicator"></div>',
@@ -20,7 +20,7 @@
                 '<div class="slide"></div>',
                 '<div class="slide-indicator"></div>',
         '</div>'
-        
+
     ].join('');
 
     /**
@@ -122,7 +122,7 @@
             '</v:rect>',
             '</DIV>'
         ].join('');
-        
+
         if (!document.namespaces['v'])
             document.namespaces.add('v', 'urn:schemas-microsoft-com:vml', '#default#VML');
     }
@@ -134,7 +134,7 @@
     function hsv2rgb(hsv) {
         var R, G, B, X, C;
         var h = (hsv.h % 360) / 60;
-        
+
         C = hsv.v * hsv.s;
         X = C * (1 - Math.abs(h % 2 - 1));
         R = G = B = hsv.v - C;
@@ -160,7 +160,7 @@
         var r = rgb.r;
         var g = rgb.g;
         var b = rgb.b;
-        
+
         if (rgb.r > 1 || rgb.g > 1 || rgb.b > 1) {
             r /= 255;
             g /= 255;
@@ -182,7 +182,7 @@
     /**
      * Return click event handler for the slider.
      * Sets picker background color and calls ctx.callback if provided.
-     */  
+     */
     function slideListener(ctx, slideElement, pickerElement) {
         return function(evt) {
             evt = evt || window.event;
@@ -198,12 +198,12 @@
     /**
      * Return click event handler for the picker.
      * Calls ctx.callback if provided.
-     */  
+     */
     function pickerListener(ctx, pickerElement) {
         return function(evt) {
             evt = evt || window.event;
             var mouse = mousePosition(evt),
-                width = pickerElement.offsetWidth,            
+                width = pickerElement.offsetWidth,
                 height = pickerElement.offsetHeight;
 
             ctx.s = mouse.x / width;
@@ -214,7 +214,7 @@
     };
 
     var uniqID = 0;
-    
+
     /**
      * ColorPicker.
      * @param {DOMElement} slideElement HSV slide element.
@@ -222,7 +222,7 @@
      * @param {Function} callback Called whenever the color is changed provided chosen color in RGB HEX format as the only argument.
      */
     function ColorPicker(slideElement, pickerElement, callback) {
-        
+
         if (!(this instanceof ColorPicker)) return new ColorPicker(slideElement, pickerElement, callback);
 
         this.h = 0;
@@ -234,23 +234,23 @@
 
             var element = slideElement;
             element.innerHTML = colorpickerHTMLSnippet;
-            
+
             this.slideElement = element.getElementsByClassName('slide')[0];
             this.pickerElement = element.getElementsByClassName('picker')[0];
             var slideIndicator = element.getElementsByClassName('slide-indicator')[0];
             var pickerIndicator = element.getElementsByClassName('picker-indicator')[0];
-            
+
             ColorPicker.fixIndicators(slideIndicator, pickerIndicator);
 
             this.callback = function(hex, hsv, rgb, pickerCoordinate, slideCoordinate) {
 
                 ColorPicker.positionIndicators(slideIndicator, pickerIndicator, slideCoordinate, pickerCoordinate);
-                
+
                 pickerElement(hex, hsv, rgb);
             };
-            
+
         } else {
-        
+
             this.callback = callback;
             this.pickerElement = pickerElement;
             this.slideElement = slideElement;
@@ -263,20 +263,25 @@
 
             var slideClone = slide.cloneNode(true);
             var pickerClone = picker.cloneNode(true);
-            
-            var hsvGradient = slideClone.getElementById('gradient-hsv');
-            
+
+            //Fix for Safari:
+            //https://github.com/deini/FlexiColorPicker/tree/safari
+            //var hsvGradient = slideClone.getElementById('gradient-hsv');
+            var hsvGradient = slideClone.getElementsByTagName('defs')[0].firstChild;
+
             var hsvRect = slideClone.getElementsByTagName('rect')[0];
-            
+
             hsvGradient.id = 'gradient-hsv-' + uniqID;
             hsvRect.setAttribute('fill', 'url(#' + hsvGradient.id + ')');
 
-            var blackAndWhiteGradients = [pickerClone.getElementById('gradient-black'), pickerClone.getElementById('gradient-white')];
+            //var blackAndWhiteGradients = [pickerClone.getElementById('gradient-black'), pickerClone.getElementById('gradient-white')];
+            var gradientDefs = pickerClone.getElementsByTagName('defs')[0];
+            var blackAndWhiteGradients = [gradientDefs.firstChild, gradientDefs.lastChild];
             var whiteAndBlackRects = pickerClone.getElementsByTagName('rect');
-            
+
             blackAndWhiteGradients[0].id = 'gradient-black-' + uniqID;
             blackAndWhiteGradients[1].id = 'gradient-white-' + uniqID;
-            
+
             whiteAndBlackRects[0].setAttribute('fill', 'url(#' + blackAndWhiteGradients[1].id + ')');
             whiteAndBlackRects[1].setAttribute('fill', 'url(#' + blackAndWhiteGradients[0].id + ')');
 
@@ -284,11 +289,11 @@
             this.pickerElement.appendChild(pickerClone);
 
             uniqID++;
-            
+
         } else {
-            
+
             this.slideElement.innerHTML = slide;
-            this.pickerElement.innerHTML = picker;            
+            this.pickerElement.innerHTML = picker;
         }
 
         addEventListener(this.slideElement, 'click', slideListener(this, this.slideElement, this.pickerElement));
@@ -301,9 +306,9 @@
     function addEventListener(element, event, listener) {
 
         if (element.attachEvent) {
-            
+
             element.attachEvent('on' + event, listener);
-            
+
         } else if (element.addEventListener) {
 
             element.addEventListener(event, listener, false);
@@ -317,7 +322,7 @@
     * @param {Function} listener Function that will be called whenever mouse is dragged over the element with event object as argument.
     */
     function enableDragging(ctx, element, listener) {
-        
+
         var mousedown = false;
 
         addEventListener(element, 'mousedown', function(evt) { mousedown = true;  });
@@ -326,7 +331,7 @@
         addEventListener(element, 'mousemove', function(evt) {
 
             if (mousedown) {
-                
+
                 listener(evt);
             }
         });
@@ -338,21 +343,21 @@
         delete rgbHex.hex;
         return rgbHex;
     };
-    
+
     ColorPicker.hsv2hex = function(hsv) {
         return hsv2rgb(hsv).hex;
     };
-    
+
     ColorPicker.rgb2hsv = rgb2hsv;
 
     ColorPicker.rgb2hex = function(rgb) {
         return hsv2rgb(rgb2hsv(rgb)).hex;
     };
-    
+
     ColorPicker.hex2hsv = function(hex) {
         return rgb2hsv(ColorPicker.hex2rgb(hex));
     };
-    
+
     ColorPicker.hex2rgb = function(hex) {
         return { r: parseInt(hex.substr(1, 2), 16), g: parseInt(hex.substr(3, 2), 16), b: parseInt(hex.substr(5, 2), 16) };
     };
@@ -368,24 +373,24 @@
          ctx.h = hsv.h % 360;
          ctx.s = hsv.s;
          ctx.v = hsv.v;
-         
+
          var c = hsv2rgb(ctx);
-         
+
          var mouseSlide = {
              y: (ctx.h * ctx.slideElement.offsetHeight) / 360,
              x: 0    // not important
          };
-         
+
          var pickerHeight = ctx.pickerElement.offsetHeight;
-         
+
          var mousePicker = {
              x: ctx.s * ctx.pickerElement.offsetWidth,
              y: pickerHeight - ctx.v * pickerHeight
          };
-         
+
          ctx.pickerElement.style.backgroundColor = hsv2rgb({ h: ctx.h, s: 1, v: 1 }).hex;
          ctx.callback && ctx.callback(hex || c.hex, { h: ctx.h, s: ctx.s, v: ctx.v }, rgb || { r: c.r, g: c.g, b: c.b }, mousePicker, mouseSlide);
-         
+
          return ctx;
     };
 
@@ -396,7 +401,7 @@
     ColorPicker.prototype.setHsv = function(hsv) {
         return setColor(this, hsv);
     };
-    
+
     /**
      * Sets color of the picker in rgb format.
      * @param {object} rgb Object of the form: { r: <red>, g: <green>, b: <blue> }.
@@ -421,14 +426,14 @@
      * @param {object} mousePicker Coordinates of the mouse cursor in the picker area.
      */
     ColorPicker.positionIndicators = function(slideIndicator, pickerIndicator, mouseSlide, mousePicker) {
-        
+
         if (mouseSlide) {
             slideIndicator.style.top = (mouseSlide.y - slideIndicator.offsetHeight/2) + 'px';
         }
         if (mousePicker) {
             pickerIndicator.style.top = (mousePicker.y - pickerIndicator.offsetHeight/2) + 'px';
             pickerIndicator.style.left = (mousePicker.x - pickerIndicator.offsetWidth/2) + 'px';
-        } 
+        }
     };
 
     /**
@@ -1365,12 +1370,16 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    ColorPicker(
-        slide,
-        picker,
-        function(hex, hsv, rgb) {
-          colorize(id, hex);
-        });
+    try {
+      ColorPicker(
+          slide,
+          picker,
+          function(hex, hsv, rgb) {
+            colorize(id, hex);
+          });
+    } catch(error) {
+      console.error(error);
+    }
     //TODO fix for Safari
 }
 
@@ -1591,6 +1600,7 @@ function getViewBox(t, d) {
             "shirt":"190 140 190 190",
             "shoes":"225 442 120 120",
             "shorts":"215 245 120 120",
+            "skirt":"190 220 180 180",
             "shoulderpads":"207 100 150 150",
             "socks":"225 442 120 120",
             "suit":"80 130 400 400",
@@ -3168,6 +3178,7 @@ function launch() {
     var femaleForm5 = {
       'Underwear': ['', 'plain', 'string'],
       'Shorts' : ['', 'bikini', 'short'],
+      'Skirt' : ['', 'school'],
       'Leggings': ['', 'regular', 'torn'],
       'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
       'Belt' : ['', 'bullet', 'utility', 'satchel']
@@ -3196,6 +3207,7 @@ function launch() {
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
       'shorts_bikini', 'shorts_short',
+      'skirt_school',
       'holster_revolver_hip', 'holster_revolver_thigh_1_of_2',
       'top_asymetric', 'top_loop', 'top_tank',
       'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
