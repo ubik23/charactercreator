@@ -11,7 +11,7 @@ Downloaded characters can be openend in Inkscape, a free vector graphics program
 
 https://inkscape.org
 
-# MIssion
+# Mission
 
 The aim of this project is to create a fast, intuitive user interface for producing quality 2d character drawings.
 
@@ -29,7 +29,7 @@ gulp
 
 The project is still in its alpha stage, so you might find some legacy code from when the project was created in 2014. I try to keep it up to date but some parts get neglected in favor of new shiny features.
 
-The items are seperated into layers, some items require multiple layers while other only need one. Most SVG paths have classes that tell the App what color the path should be. The order of the SVGs are important to preserve the illusion of 3d in this 2d environment.
+The items are separated into layers, some items require multiple layers while others only need one. Most SVG paths have classes that tell the App what color the path should be. The order of the SVGs are important to preserve the illusion of 3d in this 2d environment.
 
 All SVGs are optimized to remove as much excess styles and attributes as possible. Each layer is a group with an id that is used to show/hide the layer according to the user's choices.
 
@@ -43,6 +43,7 @@ You can then edit the layer in Inkscape and export it again. Be sure to use a to
 
 # License
 
-Ths project is licensed AGPL, clone, modify and share your improvements!
+The project is licensed AGPL, clone, modify and share your improvements!
 
-Suggestions are welcomed. Post an issue on the project's github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
+Suggestions are welcomed. Post an issue on the project's Github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
+
