@@ -24,7 +24,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 modCharacter(section, hashData);
-                ga('send', 'event', 'hash', 'select', id);
+                // ga('send', 'event', 'hash', 'select', id);
             } else if (section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
                 modCharacter(section, 'neutral');
             };
@@ -36,7 +36,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             // Now to get the color
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
-                ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };
     };

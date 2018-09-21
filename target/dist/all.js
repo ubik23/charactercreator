@@ -813,6 +813,7 @@ function replacementStyle(json, newColor) {
 }
 
 function download() {
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     var filename = "my_character.svg";
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;
@@ -2454,6 +2455,7 @@ function login(evt) {
       clearInputFields();
       login.classList.remove('overlay--show');
       manageCharacters(user);
+      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login'});
     })
     .catch(function (err) {
       console.error('err3', err)
@@ -2577,6 +2579,7 @@ function switchCharacter(evt) {
                 hashCharacter();
                 setHashTrigger();
             },500);
+            ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -2714,6 +2717,7 @@ function register (evt) {
             currentUser = user
             manageCharacters(currentUser)
             register.classList.remove('overlay--show');
+            ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Register', eventLabel: 'Successfuly Registered account'});
         })
         .catch(function (err) {
           console.error('register err', err)
@@ -2788,6 +2792,7 @@ function createChar(evt) {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -2804,6 +2809,7 @@ function deleteChar() {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -2834,6 +2840,7 @@ function saveChar() {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -3168,7 +3175,7 @@ function launch() {
       'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
       'Nails': ['short', 'long', 'claws'],
       'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
-      'Suit': ['', 'asymetric', 'onepiece', 'wetsuit'],
+      'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
       'Coat' : ['', 'winter_furcollar', 'winter_tubecollar'],
       'Bracelet' : ['','rings'],
@@ -3202,7 +3209,7 @@ function launch() {
       'underwear_plain','underwear_string',
       'leggings_regular', 'leggings_torn',
       'bra_bow',
-      'suit_asymetric', 'suit_onepiece', 'suit_wetsuit',
+      'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
       'necklace_perl','necklace_princess',
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
@@ -3433,10 +3440,10 @@ function colorCutout(newColor){
     obj['skinColor'] =  newColor;
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.remove('skin-color__container--show');
-
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
     setTimeout(function(){
         launch();
     }, 300);
@@ -3461,7 +3468,7 @@ function selectMale(event) {
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
     shadow.classList.add('shine');
-
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -3486,6 +3493,7 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -3517,7 +3525,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             var id = section + '_' + hashData;
             if (hashData != undefined){
                 modCharacter(section, hashData);
-                ga('send', 'event', 'hash', 'select', id);
+                // ga('send', 'event', 'hash', 'select', id);
             } else if (section === 'brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets') {
                 modCharacter(section, 'neutral');
             };
@@ -3529,7 +3537,7 @@ function parseHash(c, forms, skinLayers, hairLayers){
             // Now to get the color
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
-                ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };
     };

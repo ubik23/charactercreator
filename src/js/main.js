@@ -326,7 +326,7 @@ function launch() {
       'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
       'Nails': ['short', 'long', 'claws'],
       'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
-      'Suit': ['', 'asymetric', 'onepiece', 'wetsuit'],
+      'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
       'Coat' : ['', 'winter_furcollar', 'winter_tubecollar'],
       'Bracelet' : ['','rings'],
@@ -360,7 +360,7 @@ function launch() {
       'underwear_plain','underwear_string',
       'leggings_regular', 'leggings_torn',
       'bra_bow',
-      'suit_asymetric', 'suit_onepiece', 'suit_wetsuit',
+      'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
       'necklace_perl','necklace_princess',
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
@@ -591,10 +591,10 @@ function colorCutout(newColor){
     obj['skinColor'] =  newColor;
     var gmenu = document.querySelector(".skin-color__container");
     gmenu.classList.remove('skin-color__container--show');
-
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
     setTimeout(function(){
         launch();
     }, 300);
@@ -619,7 +619,7 @@ function selectMale(event) {
     var malePath = document.getElementById("path_male");
     mainSVG.classList.add('select-male');
     shadow.classList.add('shine');
-
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -644,6 +644,7 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
     setTimeout(function(){
         displayPallette();
     }, 350);

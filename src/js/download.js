@@ -1,4 +1,5 @@
 function download() {
+    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     var filename = "my_character.svg";
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;

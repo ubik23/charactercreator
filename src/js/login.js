@@ -328,6 +328,7 @@ function login(evt) {
       clearInputFields();
       login.classList.remove('overlay--show');
       manageCharacters(user);
+      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login'});
     })
     .catch(function (err) {
       console.error('err3', err)
@@ -451,6 +452,7 @@ function switchCharacter(evt) {
                 hashCharacter();
                 setHashTrigger();
             },500);
+            ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -588,6 +590,7 @@ function register (evt) {
             currentUser = user
             manageCharacters(currentUser)
             register.classList.remove('overlay--show');
+            ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Register', eventLabel: 'Successfuly Registered account'});
         })
         .catch(function (err) {
           console.error('register err', err)
@@ -662,6 +665,7 @@ function createChar(evt) {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -678,6 +682,7 @@ function deleteChar() {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character'});
         })
         .catch(function (err) {
           console.log('err', err)
@@ -708,6 +713,7 @@ function saveChar() {
         .then(function (json) {
           currentUser._rev = json.rev
           return json
+          ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character'});
         })
         .catch(function (err) {
           console.log('err', err)
