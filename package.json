@@ -37,7 +37,7 @@
     "svg"
   ],
   "author": "Frederic Guimont",
-  "license": "AGPL",
+  "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/ubik23/charactercreator/issues"
   },
