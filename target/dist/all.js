@@ -813,21 +813,26 @@ function replacementStyle(json, newColor) {
 }
 
 function download() {
+    console.log('Download');
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     var filename = "my_character.svg";
     var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;
+    console.log('svgRaw', svgRaw);
+
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
     if (currentUser && currentUser.cc.personnageActuel !== ''){
         filename = currentUser.cc.personnageActuel + ".svg";
     }
     var svgNodes = Array.prototype.slice.call(svgRaw);
+    console.log('svgNodes', svgNodes);
     svgNodes.forEach(function(item){
-        //This is where we start filtering the nodes so that we can append them into our downloaded file.
-        if (item.style != undefined){
+      if (item.innerHTML != undefined) {
             //This removes only useless layers and allows us to o the next test.
-            if (item.style.opacity != 0){
+            console.log('item', item);
+            console.log('item.innerHTML', item.innerHTML);
+            if (!item.style || !item.style.opacity || item.style.opacity != 0){
                 var svgString = item.innerHTML;
                 if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
                     svgString = svgString.slice(0, -43);
@@ -835,8 +840,7 @@ function download() {
                 text += svgString;
             } else {
             };
-        } else {
-        };
+      }
     });
     text += '</svg>';
     var pom = document.createElement('a');
