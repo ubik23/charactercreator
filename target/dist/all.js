@@ -3156,7 +3156,7 @@ function launch() {
     var femaleForm2 = {
       'Pipe' : ['', 'subgenius'],
       'Makeup': ['', 'blush', 'gothic_eyeliner', 'warpaint'],
-      'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'death_drop'],
+      'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
       'Eyepatch': ['', 'left', 'right'],
       'Glasses': ['', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'wayrafer'],
       'Headband': ['', 'medium'],
@@ -3234,7 +3234,7 @@ function launch() {
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
       'ears_default','ears_pointed',
       'tatoo_tribal_face',
-      'earings_perl','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_death_drop',
+      'earings_bells','earings_death_drop','earings_double-drop','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_lightning','earings_perl','earings_triangle_mobile',
       'sockets_neutral', 'sockets_sterness', 'sockets_indignation', 'sockets_anger', 'sockets_rage', 'sockets_disdain', 'sockets_aversion', 'sockets_disgust', 'sockets_amusement', 'sockets_joy', 'sockets_laughter', 'sockets_dejection', 'sockets_melancholy', 'sockets_sadness', 'sockets_grief', 'sockets_alertness', 'sockets_wonder', 'sockets_surprise', 'sockets_shock',
       'nose_default',
       'freckles_medium',
