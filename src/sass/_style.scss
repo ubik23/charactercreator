@@ -1,17 +1,20 @@
 html {
     height: 100%;
+    width: 100%;
     font-family: Helvetica;
     font-size: 16px;
+    overflow: hidden;
 }
 
 body {
     margin: 0;
     height: 100%;
+    width: 100%;
     background: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* Standard syntax */
-    overflow-y:hidden;
+    overflow: hidden;
     position: relative;
 }
 
@@ -27,13 +30,13 @@ body {
 }
 
 #pagewrap {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
+
+    //height: 100%;
+    //margin: 0 auto;
+
+    //position: absolute;
+    //top: 0;
+    //left: 0;
 }
 
 .header {
