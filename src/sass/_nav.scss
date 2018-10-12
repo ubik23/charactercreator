@@ -25,6 +25,7 @@ sub {
     align-items: center;
     margin: 0;
     position: relative;
+    overflow: hidden;
     @media only screen and (min-width: 768px) {
       margin: 0;
     }
@@ -65,8 +66,8 @@ sub {
 
 #horizontal {
   position: absolute;
-  top: 5.1vh;
-  right: -0.25em;
+  top: 5.5vh;
+  right: 0;
   display: inline-flex;
   flex-direction: column;
   list-style: none;
@@ -89,26 +90,38 @@ sub {
   }
 
   &.hide {
-       transform: translateX(105%);
+       transform: translateX(110%);
        @media only screen and (min-width: 768px) {
          transform: translateY(0);
        }
+  }
+
+  & .icon {
+    padding-bottom: 0.5em;
   }
 }
 
 #horizontal li {
     width: 100%;
     box-sizing: border-box;
+
 }
 
 #horizontal li a {
     color: $color-alpha;
     text-decoration: none;
     width: 100%;
-    padding: 0.2em;
+    padding: 0.5em;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    @media only screen and (min-width: 768px) {
+
+    }
 }
 
 #horizontal li a:hover {

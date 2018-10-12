@@ -28,13 +28,13 @@
     @media screen and (min-width: 650px) {
         position: absolute;
         bottom: auto;
-        top: 3%;
+        // top: 3%;
         width: 27%;
     }
     @media screen and (min-width: 1024px) {
         position: absolute;
         bottom: auto;
-        top: 3%;
+        // top: 3%;
         width: 15vw;
     }
 }
@@ -62,7 +62,7 @@
     overflow-y: scroll;
 
     @media screen and (min-width: 650px) {
-        top: 3%;
+        // top: 3%;
         margin-right: 1em;
     }
 }

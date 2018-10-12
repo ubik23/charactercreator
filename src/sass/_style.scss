@@ -203,9 +203,9 @@ input[type=range][orient=vertical] {
     margin: 0 auto;
     position: absolute;
     top: 0;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 #article {
