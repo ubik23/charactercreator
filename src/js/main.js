@@ -159,7 +159,7 @@ function launch() {
     var maleForm1 = {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
-      // 'Iris' : ['neutral'],
+      'Iris' : ['default'],
       // 'Pupils' : ['human', 'lizard'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
@@ -294,7 +294,7 @@ function launch() {
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
       'Ears' : ['default', 'pointed'],
-      // 'Iris' : ['neutral'],
+      'Iris' : ['default'],
       'Nose' : ['default'],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
       'Freckles': ['', 'medium'],

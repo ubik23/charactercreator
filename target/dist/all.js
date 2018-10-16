@@ -1028,7 +1028,8 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section);
   }
-    loadFilesFromList(layersList, callback, callbackLoopFlag);
+  console.log('layersList', layersList);
+  loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
@@ -1071,8 +1072,8 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         layerID = svgObject.id;
         layerIDArray = layerID.split('_');
         // if (layerIDArray[0] === 'eyeballs') {
-        //   console.log('emotion', c.choices.emotion);
-        //   svgObject = processClipPathOnEyes(svgObject, c.choices.emotion);
+        //   console.log('eyeballs');
+        // //   svgObject = processClipPathOnEyes(svgObject, c.choices.emotion);
         // }
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
@@ -1084,7 +1085,12 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         return svgObject;
     }).then(function(svgObject){
+      var iris;
       if (callback && typeof callback === 'function' && callbackLoopFlag) {
+        iris = svgObject.querySelector('#eyeball_right');
+        if (iris) {
+          svgObject = iris;
+        }
         callback(svgObject);
       }
     })
@@ -1117,7 +1123,9 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
+  console.log('svgObject', svgObject);
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
+  console.log('emotion', emotion);
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
   var groupTotal;
@@ -1152,10 +1160,14 @@ function populateThumbs(svgObject) {
     }
   } else if (emotion) {
     splitArray = layerID.split('_');
-    if (layerID != 'eyeballs_default') {
-        document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
-    }
+    // if (layerID != 'eyeballs_default') {
+    //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
+    // }
   } else {
+    console.log('layerID', layerID);
+    if (layerID === "eyeball_right") {
+      layerID = "iris_default";
+    }
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
 }
@@ -1192,9 +1204,13 @@ function openThumbs() {
 
 function openThumbsLogic(_) {
   var section = _.innerHTML;
+  console.log('section', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
+  if (sectionLowerCase === "iris") {
+    sectionLowerCase = "eyeballs";
+  }
   if (previousSelection != null) {
     purgeHiddenLayers();
     previousSelection.classList.remove('section--selected');
@@ -3012,7 +3028,7 @@ function launch() {
     var maleForm1 = {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
-      // 'Iris' : ['neutral'],
+      'Iris' : ['default'],
       // 'Pupils' : ['human', 'lizard'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
@@ -3147,7 +3163,7 @@ function launch() {
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
       'Ears' : ['default', 'pointed'],
-      // 'Iris' : ['neutral'],
+      'Iris' : ['default'],
       'Nose' : ['default'],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
       'Freckles': ['', 'medium'],
