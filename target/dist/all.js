@@ -1065,6 +1065,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var layerIDArray;
         var nextLayerSibling;
         var svgContainer = document.querySelector('#svg1');
+        var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
         if (callbackLoopFlag) {
@@ -1079,7 +1080,11 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
           if (nextLayerSibling != null) {
             nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
           } else {
-            document.querySelector('#svg1').appendChild(svgObject);
+            if (outline) {
+              outline.parentNode.insertBefore(svgObject, outline);
+            } else {
+              document.querySelector('#svg1').appendChild(svgObject);
+            }
           }
         }
         return svgObject;
@@ -1975,14 +1980,7 @@ function GetEmotionGetLayers(option) {
     var modElement = '';
     faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets'];
     for (e in faceElements) {
-        // if (faceElements[e] === 'pupils'){
-        //     var pupils = hash.get('pupils');
-        //     if (pupils === undefined){
-        //         pupils = 'human';
-        //     }
-        //      faceElements[e] += '_' + pupils;
-        // }
-        var eLayer = faceElements[e]//+'_'+option;
+        var eLayer = faceElements[e];
         facialExpressionLayers.push(eLayer);
     };
     return facialExpressionLayers;
@@ -2023,13 +2021,6 @@ function show(userChoice, category) {
     if (currentUser) {
         triggerSaveBtn();
     }
-    // if (sections[0] === "pupils") {
-    //     sections[0] += "_" + selectedOption;
-    //     selectedOption = hash.get('emotion');
-    //     if (selectedOption == undefined){
-    //         selectedOption = 'neutral';
-    //     };
-    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
@@ -2896,7 +2887,26 @@ function saveChar() {
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
+    if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
     startup();
+}
+
+function layerHighlight(ev) {
+  var el = ev.target;
+  var el = getGroupParent(el);
+  var masks = document.querySelectorAll("#contour use");
+  var masksLen = masks.length;
+  if (masks[0].getAttribute("xlink:href") === el.id) {
+    return
+  } else if (el.id === "svg1") {
+    while (masksLen--) {
+      masks[masksLen].setAttribute("xlink:href", '');
+    }
+  } else {
+    while (masksLen--) {
+      masks[masksLen].setAttribute("xlink:href", "#" + el.id);
+    }
+  }
 }
 
 function clickSelect(ev) {
@@ -3534,13 +3544,6 @@ function parseHash(c, forms, skinLayers, hairLayers){
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets'){
-                // if (section === "pupils") {
-                //     var hashPupils = hash.get('pupils');
-                //     if (hashPupils == undefined) {
-                //         hashPupils = 'human';
-                //     };
-                //     section += "_" + hashPupils;
-                // }
                 var hashData = hash.get('emotion');
                 if (hashData === undefined) {
                     hashData = 'neutral';
@@ -3560,7 +3563,6 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
             var hashColor = hash.get(section+'Color');
-            // Now to get the color
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );

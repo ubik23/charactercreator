@@ -24,7 +24,26 @@
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
+    if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
     startup();
+}
+
+function layerHighlight(ev) {
+  var el = ev.target;
+  var el = getGroupParent(el);
+  var masks = document.querySelectorAll("#contour use");
+  var masksLen = masks.length;
+  if (masks[0].getAttribute("xlink:href") === el.id) {
+    return
+  } else if (el.id === "svg1") {
+    while (masksLen--) {
+      masks[masksLen].setAttribute("xlink:href", '');
+    }
+  } else {
+    while (masksLen--) {
+      masks[masksLen].setAttribute("xlink:href", "#" + el.id);
+    }
+  }
 }
 
 function clickSelect(ev) {

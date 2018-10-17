@@ -177,14 +177,7 @@ function GetEmotionGetLayers(option) {
     var modElement = '';
     faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets'];
     for (e in faceElements) {
-        // if (faceElements[e] === 'pupils'){
-        //     var pupils = hash.get('pupils');
-        //     if (pupils === undefined){
-        //         pupils = 'human';
-        //     }
-        //      faceElements[e] += '_' + pupils;
-        // }
-        var eLayer = faceElements[e]//+'_'+option;
+        var eLayer = faceElements[e];
         facialExpressionLayers.push(eLayer);
     };
     return facialExpressionLayers;
@@ -225,13 +218,6 @@ function show(userChoice, category) {
     if (currentUser) {
         triggerSaveBtn();
     }
-    // if (sections[0] === "pupils") {
-    //     sections[0] += "_" + selectedOption;
-    //     selectedOption = hash.get('emotion');
-    //     if (selectedOption == undefined){
-    //         selectedOption = 'neutral';
-    //     };
-    // }
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);

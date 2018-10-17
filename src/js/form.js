@@ -204,6 +204,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var layerIDArray;
         var nextLayerSibling;
         var svgContainer = document.querySelector('#svg1');
+        var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
         if (callbackLoopFlag) {
@@ -218,7 +219,11 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
           if (nextLayerSibling != null) {
             nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling);
           } else {
-            document.querySelector('#svg1').appendChild(svgObject);
+            if (outline) {
+              outline.parentNode.insertBefore(svgObject, outline);
+            } else {
+              document.querySelector('#svg1').appendChild(svgObject);
+            }
           }
         }
         return svgObject;

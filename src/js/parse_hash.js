@@ -7,13 +7,6 @@ function parseHash(c, forms, skinLayers, hairLayers){
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
             if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets'){
-                // if (section === "pupils") {
-                //     var hashPupils = hash.get('pupils');
-                //     if (hashPupils == undefined) {
-                //         hashPupils = 'human';
-                //     };
-                //     section += "_" + hashPupils;
-                // }
                 var hashData = hash.get('emotion');
                 if (hashData === undefined) {
                     hashData = 'neutral';
@@ -33,7 +26,6 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'};
             var hashColor = hash.get(section+'Color');
-            // Now to get the color
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
