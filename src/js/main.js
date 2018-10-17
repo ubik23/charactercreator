@@ -61,6 +61,7 @@ function clickSelect(ev) {
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
       itemButton = itemButtonList[prefixIndex];
+      hideColorPicker();
       openThumbsLogic(itemButton);
     }
   }

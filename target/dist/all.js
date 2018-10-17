@@ -1188,11 +1188,15 @@ function purgeHiddenLayers() {
   }
 }
 
-function openThumbs() {
+function hideColorPicker() {
     var colorPicker  = document.querySelector('.colorpicker-wrapper');
     if (colorPicker && !colorPicker.classList.contains('section--hide')) {
       colorPicker.classList.add('section--hide');
     }
+}
+
+function openThumbs() {
+    hideColorPicker();
     var _ = this;
     openThumbsLogic(_);
 }
@@ -2923,6 +2927,7 @@ function clickSelect(ev) {
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
       itemButton = itemButtonList[prefixIndex];
+      hideColorPicker();
       openThumbsLogic(itemButton);
     }
   }

@@ -327,11 +327,15 @@ function purgeHiddenLayers() {
   }
 }
 
-function openThumbs() {
+function hideColorPicker() {
     var colorPicker  = document.querySelector('.colorpicker-wrapper');
     if (colorPicker && !colorPicker.classList.contains('section--hide')) {
       colorPicker.classList.add('section--hide');
     }
+}
+
+function openThumbs() {
+    hideColorPicker();
     var _ = this;
     openThumbsLogic(_);
 }
