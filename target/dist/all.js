@@ -621,12 +621,15 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
-                    //colorSkin(_color);
                     classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
                     var myKey = 'hairColor';
+                }
+                else if (id ==='iris') {
+                    affectedList = ['eyeballs_default'];
+                    var myKey = 'irisColor';
                 }
                 else {
                     affectedList = [];
@@ -1028,7 +1031,6 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section);
   }
-  console.log('layersList', layersList);
   loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
@@ -1071,10 +1073,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
         layerIDArray = layerID.split('_');
-        // if (layerIDArray[0] === 'eyeballs') {
-        //   console.log('eyeballs');
-        // //   svgObject = processClipPathOnEyes(svgObject, c.choices.emotion);
-        // }
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
           if (nextLayerSibling != null) {
@@ -1123,9 +1121,7 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
-  console.log('svgObject', svgObject);
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
-  console.log('emotion', emotion);
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
   var groupTotal;
@@ -1164,7 +1160,6 @@ function populateThumbs(svgObject) {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
   } else {
-    console.log('layerID', layerID);
     if (layerID === "eyeball_right") {
       layerID = "iris_default";
     }
@@ -1204,7 +1199,6 @@ function openThumbs() {
 
 function openThumbsLogic(_) {
   var section = _.innerHTML;
-  console.log('section', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
@@ -1359,7 +1353,6 @@ function showThumbOptions(_) {
     var i = allOptions.length;
     var sectionSelected = document.querySelector('.section--selected');
     if (sectionSelected === null){
-        //for (var i = 0, len = allOptions.length; i < len; i++) {
         while (i--) {
             allOptions[i].classList.remove('selected--option');
         }
@@ -1401,7 +1394,6 @@ function getColor(sectionId) {
     } catch(error) {
       console.error(error);
     }
-    //TODO fix for Safari
 }
 
 function emptyPicker() {
@@ -2073,6 +2065,7 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
   for (lyr in multiLayer){

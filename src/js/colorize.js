@@ -166,12 +166,15 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets' || id.slice(0,4) === 'mouth') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
-                    //colorSkin(_color);
                     classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
                     var myKey = 'hairColor';
+                }
+                else if (id ==='iris') {
+                    affectedList = ['eyeballs_default'];
+                    var myKey = 'irisColor';
                 }
                 else {
                     affectedList = [];
