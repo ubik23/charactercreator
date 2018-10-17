@@ -208,6 +208,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         svgObject = htmlObject.querySelector('g');
         if (callbackLoopFlag) {
           svgObject.style.opacity = 0;
+          svgObject.style.pointerEvents = 'none';
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
