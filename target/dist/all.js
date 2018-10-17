@@ -2925,7 +2925,10 @@ function clickSelect(ev) {
 
   prefix = fromItemGetPrefix(el.id);
   formSection = fromPrefixGetFormSection(prefix)
-
+  if (prefix === 'svg1') {
+    zoomFull();
+    return;
+  }
   // toggleSection
   // Check to see if the section is already open in sidebarRight
   // If not open, close all sections and open it.
