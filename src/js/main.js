@@ -408,7 +408,7 @@ function launch() {
       'tatoo_tribal_face',
       'earings_bells','earings_death_drop','earings_double-drop','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_lightning','earings_perl','earings_triangle_mobile',
       'sockets_neutral', 'sockets_sterness', 'sockets_indignation', 'sockets_anger', 'sockets_rage', 'sockets_disdain', 'sockets_aversion', 'sockets_disgust', 'sockets_amusement', 'sockets_joy', 'sockets_laughter', 'sockets_dejection', 'sockets_melancholy', 'sockets_sadness', 'sockets_grief', 'sockets_alertness', 'sockets_wonder', 'sockets_surprise', 'sockets_shock',
-      'nose_default_1_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_syrid_2_of_2', 'nose_strong_2_of_2',
+      'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_syrid_2_of_2', 'nose_strong_2_of_2',
       'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
       'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_syrid_1_of_2', 'nose_strong_1_of_2',
       'freckles_medium',
