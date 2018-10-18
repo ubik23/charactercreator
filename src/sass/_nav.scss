@@ -24,7 +24,8 @@ sub {
     justify-content: center;
     align-items: center;
     margin: 0;
-    @media only screen and (min-width: 768px) {
+
+    @media only screen and (min-width: 992px) {
       margin: 0;
     }
 }
@@ -64,7 +65,7 @@ sub {
 .hamburger-btn {
   display: block;
   cursor: pointer;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 992px) {
     display: none;
     //opacity: 0.5;
   }
@@ -89,6 +90,10 @@ sub {
   box-sizing: border-box;
 
   @media only screen and (min-width: 768px) {
+
+  }
+
+  @media only screen and (min-width : 992px) {
     position: inherit;
     flex-direction: row;
     top: inherit;
@@ -97,7 +102,8 @@ sub {
 
   &.hide {
        transform: translateX(110%);
-       @media only screen and (min-width: 768px) {
+
+       @media only screen and (min-width: 992px) {
          transform: translateY(0);
        }
   }
