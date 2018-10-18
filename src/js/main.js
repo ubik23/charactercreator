@@ -317,7 +317,7 @@ function launch() {
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
-      'Ears' : ['default', 'pointed'],
+      'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['default'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
@@ -404,7 +404,7 @@ function launch() {
       'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
       'hair_down_2_of_3',
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
-      'ears_default','ears_pointed',
+      'ears_default', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
       'tatoo_tribal_face',
       'earings_bells','earings_death_drop','earings_double-drop','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_lightning','earings_perl','earings_triangle_mobile',
       'sockets_neutral', 'sockets_sterness', 'sockets_indignation', 'sockets_anger', 'sockets_rage', 'sockets_disdain', 'sockets_aversion', 'sockets_disgust', 'sockets_amusement', 'sockets_joy', 'sockets_laughter', 'sockets_dejection', 'sockets_melancholy', 'sockets_sadness', 'sockets_grief', 'sockets_alertness', 'sockets_wonder', 'sockets_surprise', 'sockets_shock',
