@@ -1768,7 +1768,7 @@ function choicesToLayers(c, multiLayer){
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('body_hand', 'bra_bow', 'nails_short');
+        selectedLayers.push('body_hand', 'bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
     };
     //Make sure the eyeballs are included.
     if (selectedLayers.indexOf('eyeballs_default') < 0) {
@@ -3247,6 +3247,7 @@ function launch() {
       'shoes_flip-flops_2_of_2',
       'holster_revolver_thigh_2_of_2',
       'body_athletic',
+      'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
       'underwear_plain','underwear_string',
       'leggings_regular', 'leggings_torn',
@@ -3293,7 +3294,7 @@ function launch() {
       'headband_medium_1_of_2',
       'hat_beach_1_of_2', 'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
       'body_hand',
-      'nails_short','nails_long','nails_claws',
+      'nails_short_1_of_2','nails_long_1_of_2','nails_claws_1_of_2',
       'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
       'horns_devil',
       'coat_winter_furcollar_1_of_3',
@@ -3305,7 +3306,7 @@ function launch() {
 
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
+    var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
     var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
