@@ -237,12 +237,12 @@ function launch() {
     var layersMale = [
       'wings_angel', 'wings_devil',
       'cloak_default_4_of_4',
-      'coat_trench_3_of_3',
+      'coat_trench_4_of_4',
       'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
       'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
       'headband_medium_2_of_2',
       'hair_manga_2_of_2',
-      'coat_trench_2_of_3',
+      'coat_trench_3_of_4',
       'shoes_flip-flops_2_of_2',
       'body_athletic_2_of_2',
       'tatoo_aum_chest','tatoo_chaos_chest',
@@ -271,12 +271,14 @@ function launch() {
       'jacket_suit',
       'coat_fall_long_2_of_2',
       'gloves_lab','gloves_motorcycle',
-      'coat_fall_long_1_of_2', 'coat_lab','coat_trench_1_of_3','coat_snowboard',
+      'coat_fall_long_1_of_2', 'coat_lab','coat_trench_2_of_4','coat_snowboard',
       'belt_utility', 'belt_bullet',
       'cloak_default_3_of_4',
       'cloak_default_2_of_4',
-      'shoulderpads_artillery', 'shoulderpads_general',
-      'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',      
+      'shoulderpads_general',
+      'coat_trench_1_of_4',
+      'shoulderpads_artillery',
+      'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
       'hair_wavy',
       'ears_default', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
@@ -438,7 +440,7 @@ function launch() {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_fall_long', 2],['coat_trench', 3], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4],['coat_fall_long', 2],['coat_trench', 4], ['hat_fedora', 2], ['headband_medium', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
