@@ -132,17 +132,8 @@ function fromEmotionGetLayers(emotion) {
     var faceCount;
     while (faceElNum--) {
         faceCount = (faceElLength - faceElNum - 1);
-        // if (faceElements[faceCount] === 'pupils') {
-        //     var pupils = hash.get('pupils');
-        //     if (pupils === undefined) {
-        //         pupils = 'human';
-        //     }
-        //     //todo add cat's eyes option.
-        //     //faceElements[faceCount] += '_' + pupils;
-        // }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    // facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };

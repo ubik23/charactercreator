@@ -348,6 +348,7 @@ function openThumbs() {
 
 function openThumbsLogic(_) {
   var section = _.innerHTML;
+  console.log('section', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');

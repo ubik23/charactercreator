@@ -1209,6 +1209,7 @@ function openThumbs() {
 
 function openThumbsLogic(_) {
   var section = _.innerHTML;
+  console.log('section', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
@@ -1786,18 +1787,9 @@ function fromEmotionGetLayers(emotion) {
     var faceCount;
     while (faceElNum--) {
         faceCount = (faceElLength - faceElNum - 1);
-        // if (faceElements[faceCount] === 'pupils') {
-        //     var pupils = hash.get('pupils');
-        //     if (pupils === undefined) {
-        //         pupils = 'human';
-        //     }
-        //     //todo add cat's eyes option.
-        //     //faceElements[faceCount] += '_' + pupils;
-        // }
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-    // facialEpressionLayers.push('eyeballs_default');
     return facialEpressionLayers;
 };
 
@@ -3046,7 +3038,7 @@ function launch() {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['default'],
-      // 'Pupils' : ['human', 'lizard'],
+      'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
       'Hair': ['', 'balding', 'balding_crazy', 'balding_crown', 'short', 'gelled', 'wavy', 'manga', 'mohawk', 'crewcut'],
@@ -3186,6 +3178,7 @@ function launch() {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
       'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['default'],
+      'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
       'Freckles': ['', 'medium'],
