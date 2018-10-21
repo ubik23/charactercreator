@@ -3379,7 +3379,7 @@ function launch() {
     skinLayers = [
       'eyes_neutral',
       'age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-      'ears_default', 'ears_pointed',
+      'ears_default', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
       'nose_default',
       'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_strong_1_of_2', 'nose_syrid_1_of_2',
       'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_strong_2_of_2', 'nose_syrid_2_of_2',
