@@ -2042,8 +2042,6 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
-    console.log('userChoice', userChoice);
-    console.log('category', category);
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -2107,9 +2105,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   var pupilShape;
-  console.log('sectionShow',id);
-  console.log('multiLayer',multiLayer);
-  console.log('sliced', id.slice(1, 7))
   if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -2139,14 +2134,11 @@ function sectionShow(multiLayer, id) {
 }
 
 function showPupils(pupilShape) {
-  console.log('pupilShape', pupilShape);
   var svg = document.querySelector('#svg1');
   var pupils = svg.querySelectorAll('.pupil');
   var counter = pupils.length;
   while (counter--) {
-    console.log(pupils[counter]);
     if (pupils[counter].classList.contains('pupil--' + pupilShape)) {
-      console.log('=>',pupils[counter].classList);
       pupils[counter].style.opacity = 1;
       pupils[counter].style.pointerEvents = 'auto';
     } else {
@@ -3467,7 +3459,7 @@ function chooseSkinColor() {
 
 function defaultPupilShape() {
   c.choices['pupils'] = 'round';
-  hash.add({ irisColor: 'round' });
+  hash.add({ pupils: 'round' });
 }
 
 function defaultEyeColor(skinColor){

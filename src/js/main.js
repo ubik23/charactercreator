@@ -535,7 +535,7 @@ function chooseSkinColor() {
 
 function defaultPupilShape() {
   c.choices['pupils'] = 'round';
-  hash.add({ irisColor: 'round' });
+  hash.add({ pupils: 'round' });
 }
 
 function defaultEyeColor(skinColor){
