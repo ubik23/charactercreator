@@ -6,6 +6,9 @@ function parseHash(c, forms, skinLayers, hairLayers){
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
+            if (section === 'pupils') {
+              modCharacter(section, hashData);
+            }
             if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets'){
                 var hashData = hash.get('emotion');
                 if (hashData === undefined) {

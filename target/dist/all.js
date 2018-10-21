@@ -1064,6 +1064,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
       }).then(function (text) {
         var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         var svgObject;
+        var pupilShape;
         var layerID;
         var layerIDArray;
         var nextLayerSibling;
@@ -1077,6 +1078,12 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+        if (layerID === 'eyeballs_default') {
+          console.log('layerID', layerID);
+          console.log('svgObject', svgObject);
+          pupilShape = getPupilShape();
+          svgObject = showPupil(svgObject, pupilShape);
+        }
         layerIDArray = layerID.split('_');
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
@@ -1130,7 +1137,6 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
-  console.log('populate thumbs');
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
@@ -1144,7 +1150,6 @@ function populateThumbs(svgObject) {
   var openedDrawer;
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
-  console.log('layerID', layerID);
   thumbObject.style.opacity = 1
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
@@ -1179,7 +1184,6 @@ function populateThumbs(svgObject) {
       openedDrawer = document.querySelector('.selected--option').classList;
       if (openedDrawer.contains('options__iris')) {
         pupilShape = getPupilShape();
-        console.log('pupilShape', getPupilShape());
         thumbObject = showPupil(thumbObject, pupilShape);
       }
       if (openedDrawer.contains('options__pupils')) {
@@ -1752,6 +1756,7 @@ function onEachLoaded(frag, fileName) {
     if (colorThis === true){
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }
+    console.log('frag', frag);
     frag.select("*").attr({ opacity: seen });
 }
 
@@ -2034,6 +2039,8 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
+    console.log('userChoice', userChoice);
+    console.log('category', category);
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -2043,13 +2050,14 @@ function show(userChoice, category) {
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
-      c.choices[category] = userChoice;
+      // c.choices[category] = userChoice;
+      modCharacter(category, userChoice);
       hash.remove(category);
     } else {
-      c.choices[category] = userChoice;
+      // c.choices[category] = userChoice;
+      modCharacter(category, userChoice);
       hash.add(obj);
     }
     if (currentUser) {
@@ -2095,8 +2103,10 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  var pupilShape;
   console.log('sectionShow',id);
   console.log('multiLayer',multiLayer);
+  console.log('sliced', id.slice(1, 7))
   if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -2106,20 +2116,40 @@ function sectionShow(multiLayer, id) {
       break;
     }
   }
-  if (id.slice(1) === multiLayer[lyr][0]){
+  if (id.slice(1, 7) === 'pupils'){
+    pupilShape = id.slice(1).split('_')[1];
+    showPupils(pupilShape);
+  } else if (id.slice(1) === multiLayer[lyr][0]){
       for (var i=1;i<=multiLayer[lyr][1];i++){
           idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
       }
-  }
-  else {
+  } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
 
   }
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);
+  }
+}
+
+function showPupils(pupilShape) {
+  console.log('pupilShape', pupilShape);
+  var svg = document.querySelector('#svg1');
+  var pupils = svg.querySelectorAll('.pupil');
+  var counter = pupils.length;
+  while (counter--) {
+    console.log(pupils[counter]);
+    if (pupils[counter].classList.contains('pupil--' + pupilShape)) {
+      console.log('=>',pupils[counter].classList);
+      pupils[counter].style.opacity = 1;
+      pupils[counter].style.pointerEvents = 'auto';
+    } else {
+      pupils[counter].style.opacity = 0;
+      pupils[counter].style.pointerEvents = 'none';
+    }
   }
 }
 
@@ -3590,6 +3620,9 @@ function parseHash(c, forms, skinLayers, hairLayers){
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
             var section =  x.toLowerCase();
+            if (section === 'pupils') {
+              modCharacter(section, hashData);
+            }
             if (section ==='brows'||section === 'eyes'||section === 'mouth'||section === 'lashes'||section === 'sockets'){
                 var hashData = hash.get('emotion');
                 if (hashData === undefined) {

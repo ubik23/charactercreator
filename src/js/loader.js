@@ -57,6 +57,7 @@ function onEachLoaded(frag, fileName) {
     if (colorThis === true){
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }
+    console.log('frag', frag);
     frag.select("*").attr({ opacity: seen });
 }
 

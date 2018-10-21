@@ -199,6 +199,8 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
+    console.log('userChoice', userChoice);
+    console.log('category', category);
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -208,13 +210,14 @@ function show(userChoice, category) {
     var options = getOptions(sections[0])
     var obj = new Array();
     var id = '#'+sections[0]+'_'+selectedOption;
-    //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
-      c.choices[category] = userChoice;
+      // c.choices[category] = userChoice;
+      modCharacter(category, userChoice);
       hash.remove(category);
     } else {
-      c.choices[category] = userChoice;
+      // c.choices[category] = userChoice;
+      modCharacter(category, userChoice);
       hash.add(obj);
     }
     if (currentUser) {
@@ -260,8 +263,10 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  var pupilShape;
   console.log('sectionShow',id);
   console.log('multiLayer',multiLayer);
+  console.log('sliced', id.slice(1, 7))
   if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -271,20 +276,40 @@ function sectionShow(multiLayer, id) {
       break;
     }
   }
-  if (id.slice(1) === multiLayer[lyr][0]){
+  if (id.slice(1, 7) === 'pupils'){
+    pupilShape = id.slice(1).split('_')[1];
+    showPupils(pupilShape);
+  } else if (id.slice(1) === multiLayer[lyr][0]){
       for (var i=1;i<=multiLayer[lyr][1];i++){
           idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
       }
-  }
-  else {
+  } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
 
   }
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);
+  }
+}
+
+function showPupils(pupilShape) {
+  console.log('pupilShape', pupilShape);
+  var svg = document.querySelector('#svg1');
+  var pupils = svg.querySelectorAll('.pupil');
+  var counter = pupils.length;
+  while (counter--) {
+    console.log(pupils[counter]);
+    if (pupils[counter].classList.contains('pupil--' + pupilShape)) {
+      console.log('=>',pupils[counter].classList);
+      pupils[counter].style.opacity = 1;
+      pupils[counter].style.pointerEvents = 'auto';
+    } else {
+      pupils[counter].style.opacity = 0;
+      pupils[counter].style.pointerEvents = 'none';
+    }
   }
 }
 

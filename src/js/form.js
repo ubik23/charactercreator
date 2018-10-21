@@ -203,6 +203,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
       }).then(function (text) {
         var htmlObject = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
         var svgObject;
+        var pupilShape;
         var layerID;
         var layerIDArray;
         var nextLayerSibling;
@@ -216,6 +217,12 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+        if (layerID === 'eyeballs_default') {
+          console.log('layerID', layerID);
+          console.log('svgObject', svgObject);
+          pupilShape = getPupilShape();
+          svgObject = showPupil(svgObject, pupilShape);
+        }
         layerIDArray = layerID.split('_');
         nextLayerSibling = findNextLayerInDom(layerID);
         if ((svgContainer.querySelector('#' + layerID)) === null) {
@@ -269,7 +276,6 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
-  console.log('populate thumbs');
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
@@ -283,7 +289,6 @@ function populateThumbs(svgObject) {
   var openedDrawer;
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
-  console.log('layerID', layerID);
   thumbObject.style.opacity = 1
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
@@ -318,7 +323,6 @@ function populateThumbs(svgObject) {
       openedDrawer = document.querySelector('.selected--option').classList;
       if (openedDrawer.contains('options__iris')) {
         pupilShape = getPupilShape();
-        console.log('pupilShape', getPupilShape());
         thumbObject = showPupil(thumbObject, pupilShape);
       }
       if (openedDrawer.contains('options__pupils')) {
