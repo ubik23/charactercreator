@@ -1201,7 +1201,6 @@ function populateThumbs(svgObject) {
 }
 
 function getPupilShape() {
-  var pupilShape;
   return c.choices.pupils || 'round';
 }
 
