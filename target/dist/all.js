@@ -957,7 +957,6 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
 }
 
 function getSectionLayersList(section) {
-  console.log('getSectionLayersList', section);
   var sex = c.sex;
   var formList;
   var formCounter;
@@ -1079,10 +1078,8 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
         if (layerID === 'eyeballs_default') {
-          console.log('layerID', layerID);
-          console.log('svgObject', svgObject);
           pupilShape = getPupilShape();
-          svgObject = showPupil(svgObject, pupilShape);
+          svgObject = showPupilObject(svgObject, pupilShape);
         }
         layerIDArray = layerID.split('_');
         nextLayerSibling = findNextLayerInDom(layerID);
@@ -1138,7 +1135,7 @@ function findNextLayerInDom(item) {
 
 function populateThumbs(svgObject) {
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
-  var thumbObject = svgObject.cloneNode(true);;
+  var thumbObject = svgObject.cloneNode(true);
   var layerID = thumbObject.id;
   var groupTotal;
   var groupRank;
@@ -1150,6 +1147,7 @@ function populateThumbs(svgObject) {
   var openedDrawer;
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
+  var counter = pupilShapeList.length;
   thumbObject.style.opacity = 1
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
@@ -1184,14 +1182,21 @@ function populateThumbs(svgObject) {
       openedDrawer = document.querySelector('.selected--option').classList;
       if (openedDrawer.contains('options__iris')) {
         pupilShape = getPupilShape();
-        thumbObject = showPupil(thumbObject, pupilShape);
+        thumbObject = showPupilObject(thumbObject, pupilShape);
+        layerID = "iris_default";
+        document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
       }
       if (openedDrawer.contains('options__pupils')) {
+        while (counter--) {
+          pupilObject = showPupilObject(thumbObject, pupilShapeList[counter]).cloneNode(true);
+          document.querySelector('#content_1 .pupils_' + pupilShapeList[counter]).appendChild(pupilObject);
+        }
       }
-      layerID = "iris_default";
-      thumbObject = showPupil(thumbObject, pupilShape);
+
+    } else {
+      document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
     }
-    document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
+
   }
 }
 
@@ -1200,11 +1205,10 @@ function getPupilShape() {
   return c.choices.pupils;
 }
 
-function showPupil(object, shape) {
+function showPupilObject(object, shape) {
   var pupils = object.querySelectorAll('.pupil');
   var shown = object.querySelectorAll('.pupil--' + shape);
   var counter = pupils.length;
-  console.log('showPupil', shape);
   while (counter--) {
     // pupils[counter].style
     if (pupils[counter].classList.contains('pupil--' + shape)) {
@@ -1212,7 +1216,6 @@ function showPupil(object, shape) {
     } else {
       pupils[counter].style.opacity = 0;
     }
-    console.log('pupil', pupils[counter].classList.contains('pupil--' + shape));
   }
   return object;
 }
@@ -1562,7 +1565,7 @@ function getViewBox(t, d) {
             "nose":"265 115 32 32",
             "pants":"130 244 290 290",
             "pipe":"252 132 32 32",
-            "pupils":"270.25 124.85 40 40",
+            "pupils":"271.72 125.05 4 4",
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
             "shoes":"210 442 120 120",
@@ -1663,7 +1666,7 @@ function getViewBox(t, d) {
             "nose":"265 127 32 32",
             "pants":"130 244 290 290",
             "pipe":"255 144 32 32",
-            "pupils":"270.25 124.85 40 40",
+            "pupils":"274.125 137.55 3.2 3.2",
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
             "shoes":"225 442 120 120",
@@ -3462,6 +3465,11 @@ function chooseSkinColor() {
     };
 }
 
+function defaultPupilShape() {
+  c.choices['pupils'] = 'round';
+  hash.add({ irisColor: 'round' });
+}
+
 function defaultEyeColor(skinColor){
     var eyeColorDict = {
         '#ffdfc4' : "#6F918A", // Grey
@@ -3556,6 +3564,7 @@ function colorCutout(newColor){
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
+    defaultPupilShape();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
     setTimeout(function(){
         launch();

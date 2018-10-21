@@ -533,6 +533,11 @@ function chooseSkinColor() {
     };
 }
 
+function defaultPupilShape() {
+  c.choices['pupils'] = 'round';
+  hash.add({ irisColor: 'round' });
+}
+
 function defaultEyeColor(skinColor){
     var eyeColorDict = {
         '#ffdfc4' : "#6F918A", // Grey
@@ -627,6 +632,7 @@ function colorCutout(newColor){
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
+    defaultPupilShape();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
     setTimeout(function(){
         launch();
