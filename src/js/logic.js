@@ -211,8 +211,10 @@ function show(userChoice, category) {
     //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
+      c.choices[category] = userChoice;
       hash.remove(category);
     } else {
+      c.choices[category] = userChoice;
       hash.add(obj);
     }
     if (currentUser) {
@@ -258,6 +260,8 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  console.log('sectionShow',id);
+  console.log('multiLayer',multiLayer);
   if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;

@@ -957,6 +957,7 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
 }
 
 function getSectionLayersList(section) {
+  console.log('getSectionLayersList', section);
   var sex = c.sex;
   var formList;
   var formCounter;
@@ -1028,6 +1029,8 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
         emotionLayerList = emotionLayerList.concat(fromEmotionGetLayers(layersList[emotionCounter]));
     }
     layersList = emotionLayerList;
+  } else if (section ==='pupils') {
+    layersList = ['eyeballs_default'];
   } else {
     layersList = replaceMultilayer(layersList, section);
   }
@@ -1127,6 +1130,7 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
+  console.log('populate thumbs');
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);;
   var layerID = thumbObject.id;
@@ -1137,6 +1141,10 @@ function populateThumbs(svgObject) {
   var counter;
   var loopRank;
   var splitArray;
+  var openedDrawer;
+  var pupilShape;
+  var pupilShapeList = ['round', 'feline', 'star'];
+  console.log('layerID', layerID);
   thumbObject.style.opacity = 1
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
@@ -1166,11 +1174,43 @@ function populateThumbs(svgObject) {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
   } else {
+    // TODO Check if we are populating iris or pupils here.
     if (layerID === "eyeball_right") {
+      openedDrawer = document.querySelector('.selected--option').classList;
+      if (openedDrawer.contains('options__iris')) {
+        pupilShape = getPupilShape();
+        console.log('pupilShape', getPupilShape());
+        thumbObject = showPupil(thumbObject, pupilShape);
+      }
+      if (openedDrawer.contains('options__pupils')) {
+      }
       layerID = "iris_default";
+      thumbObject = showPupil(thumbObject, pupilShape);
     }
     document.querySelector('#content_1 .' + layerID).appendChild(thumbObject);
   }
+}
+
+function getPupilShape() {
+  var pupilShape;
+  return c.choices.pupils;
+}
+
+function showPupil(object, shape) {
+  var pupils = object.querySelectorAll('.pupil');
+  var shown = object.querySelectorAll('.pupil--' + shape);
+  var counter = pupils.length;
+  console.log('showPupil', shape);
+  while (counter--) {
+    // pupils[counter].style
+    if (pupils[counter].classList.contains('pupil--' + shape)) {
+      pupils[counter].style.opacity = 1;
+    } else {
+      pupils[counter].style.opacity = 0;
+    }
+    console.log('pupil', pupils[counter].classList.contains('pupil--' + shape));
+  }
+  return object;
 }
 
 function purgeHiddenLayers() {
@@ -1209,12 +1249,12 @@ function openThumbs() {
 
 function openThumbsLogic(_) {
   var section = _.innerHTML;
-  console.log('section', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
-  if (sectionLowerCase === "iris") {
+  if (sectionLowerCase === "iris" || sectionLowerCase === "pupils") {
     sectionLowerCase = "eyeballs";
+    layersList = ['default'];
   }
   if (previousSelection != null) {
     purgeHiddenLayers();
@@ -2006,8 +2046,10 @@ function show(userChoice, category) {
     //hideCompetition(sections[0]);
     obj[category] = userChoice;
     if (userChoice === '') {
+      c.choices[category] = userChoice;
       hash.remove(category);
     } else {
+      c.choices[category] = userChoice;
       hash.add(obj);
     }
     if (currentUser) {
@@ -2053,6 +2095,8 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  console.log('sectionShow',id);
+  console.log('multiLayer',multiLayer);
   if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
