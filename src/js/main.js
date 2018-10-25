@@ -181,7 +181,7 @@ function interpretHash() {
 function launch() {
     var maleForm1 = {
       'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
-      'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
+      'Ears' : ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
@@ -284,7 +284,7 @@ function launch() {
       'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
       'hair_wavy',
-      'ears_default', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
+      'ears_default', 'ears_elven', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
       'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
       'sockets_neutral', 'sockets_alertness', 'sockets_amusement', 'sockets_anger', 'sockets_anxiety', 'sockets_aversion', 'sockets_betrayal', 'sockets_caged', 'sockets_concern', 'sockets_cruel', 'sockets_dejection', 'sockets_desperation', 'sockets_disdain', 'sockets_disgust', 'sockets_eeww', 'sockets_fear', 'sockets_grief', 'sockets_horror', 'sockets_indignation', 'sockets_joy', 'sockets_laughing', 'sockets_melancholy', 'sockets_omg', 'sockets_outrage', 'sockets_pain', 'sockets_rage', 'sockets_revulsion', 'sockets_sadness', 'sockets_satisfaction', 'sockets_shock', 'sockets_sterness', 'sockets_surprise', 'sockets_terror', 'sockets_wonder', 'sockets_wtf',
       'age_lines',
@@ -321,7 +321,7 @@ function launch() {
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
-      'Ears' : ['default', 'pointed', 'outstretched', 'plugged', 'unplugged'],
+      'Ears' : ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
@@ -410,7 +410,7 @@ function launch() {
       'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
       'hair_down_2_of_3',
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
-      'ears_default', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
+      'ears_default', 'ears_elven', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
       'tatoo_tribal_face',
       'earings_bells','earings_death_drop','earings_double-drop','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_lightning','earings_perl','earings_triangle_mobile',
       'sockets_neutral', 'sockets_sterness', 'sockets_indignation', 'sockets_anger', 'sockets_rage', 'sockets_disdain', 'sockets_aversion', 'sockets_disgust', 'sockets_amusement', 'sockets_joy', 'sockets_laughter', 'sockets_dejection', 'sockets_melancholy', 'sockets_sadness', 'sockets_grief', 'sockets_alertness', 'sockets_wonder', 'sockets_surprise', 'sockets_shock',
@@ -456,7 +456,7 @@ function launch() {
     skinLayers = [
       'eyes_neutral',
       'age_lines', 'body_athletic', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-      'ears_default', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
+      'ears_default', 'ears_elven', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
       'nose_default',
       'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_strong_1_of_2', 'nose_syrid_1_of_2',
       'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_strong_2_of_2', 'nose_syrid_2_of_2',
