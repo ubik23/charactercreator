@@ -721,6 +721,7 @@ function getViewBox(t, d) {
     } else if (sex==="f") {
         var idDict = {
             "body_athletic":"65 130 430 430",
+            "coat_lab":"125 140 280 280",
             "coat_winter_tubecollar":"125 120 280 280",
             "dress_bobafett":"160 165 230 230",
             "dress_corset":"175 180 200 200",

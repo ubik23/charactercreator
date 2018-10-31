@@ -357,7 +357,7 @@ function launch() {
       'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
       'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
-      'Coat' : ['', 'winter_furcollar', 'winter_tubecollar'],
+      'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
       'Bracelet' : ['','rings'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
       'Wings' : ['', 'devil', 'angel']
@@ -376,10 +376,9 @@ function launch() {
     var layersFemale = [
       'wings_devil', 'wings_angel',
       'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
-      'coat_winter_tubecollar_3_of_3',
+      'coat_lab_3_of_3', 'coat_winter_furcollar_3_of_3', 'coat_winter_tubecollar_3_of_3',
       'hat_beach_2_of_2', 'hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
       'headband_medium_2_of_2',
-      'coat_winter_furcollar_3_of_3',
       'veil_shayla_2_of_2',
       'hair_down_3_of_3','hair_manga_2_of_2', 'hair_pigtails_2_of_2',
       'shoes_flip-flops_2_of_2',
@@ -397,15 +396,16 @@ function launch() {
       'holster_revolver_thigh_1_of_2',
       'skirt_school',
       'holster_revolver_hip',
+      'necklace_perl','necklace_princess',
       'top_asymetric', 'top_loop', 'top_tank',
       'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
       'holster_revolver_chest',
       'belt_satchel', 'belt_bullet',
       'collar_metal',
-      'necklace_perl','necklace_princess',
       'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
       'bracelet_rings',
-      'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
+      'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
+      'coat_lab_1_of_3', 
       'shoulderpads_general',
       'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
       'hair_down_2_of_3',
@@ -444,7 +444,7 @@ function launch() {
 
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
+    var multiLayerFemale = [['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
     var multiLayerMale = [['body_athletic', 2],['hair_manga', 2], ['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2]];
     var size = function(obj) {
         var size = 0, key;
