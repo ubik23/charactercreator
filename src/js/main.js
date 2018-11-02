@@ -346,7 +346,7 @@ function launch() {
       'Collar' : ['', 'metal'],
       'Necklace' : ['', 'perl', 'princess'],
       'Bra': ['', 'bow', 'grid', 'sports'],
-      'Top': ['', 'asymetric', 'loop', 'tank'],
+      'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
       'Shoulderpads' : ['', 'artillery', 'general'],
       'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
@@ -397,7 +397,7 @@ function launch() {
       'skirt_school',
       'holster_revolver_hip',
       'necklace_perl','necklace_princess',
-      'top_asymetric', 'top_loop', 'top_tank',
+      'top_asymetric', 'top_loop', 'top_tank', 'top_tube_v',
       'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall',
       'holster_revolver_chest',
       'belt_satchel', 'belt_bullet',
