@@ -358,7 +358,7 @@ function launch() {
       'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression'],
       'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-      'Bracelet' : ['','rings'],
+      'Bracelet' : ['','rings', 'wonder'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
       'Wings' : ['', 'devil', 'angel']
     };
@@ -403,7 +403,7 @@ function launch() {
       'belt_satchel', 'belt_bullet',
       'collar_metal',
       'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
-      'bracelet_rings',
+      'bracelet_rings', 'bracelet_wonder',
       'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
       'coat_lab_1_of_3',
       'shoulderpads_general',
