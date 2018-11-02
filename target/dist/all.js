@@ -3270,7 +3270,7 @@ function launch() {
     var femaleForm3 = {
       'Collar' : ['', 'metal'],
       'Necklace' : ['', 'perl', 'princess'],
-      'Bra': ['', 'bow', 'grid'],
+      'Bra': ['', 'bow', 'grid', 'sports'],
       'Top': ['', 'asymetric', 'loop', 'tank'],
       'Shoulderpads' : ['', 'artillery', 'general'],
       'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
@@ -3313,7 +3313,7 @@ function launch() {
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
       'underwear_plain','underwear_string',
       'leggings_regular', 'leggings_torn',
-      'bra_bow', 'bra_grid',
+      'bra_bow', 'bra_grid', 'bra_sports',
       'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
