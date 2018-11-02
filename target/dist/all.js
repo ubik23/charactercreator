@@ -1633,6 +1633,7 @@ function getViewBox(t, d) {
             "tatoo_chaos_right":"210 164 48 48",
             "tatoo_tribal_face":"258 105 50 50",
             "top_tank":"215 165 120 120",
+            "top_tube_v":"223 170 120 120",
             "underwear_boxers":"224 258 120 120"
         }
         var sectionDict = {
