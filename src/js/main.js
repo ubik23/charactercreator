@@ -222,7 +222,7 @@ function launch() {
       'Cloak': ['', 'default'],
       'Watch': ['', 'generic'],
       'Gloves': ['', 'lab', 'motorcycle'],
-      'Wings' : ['', 'angel', 'devil'],
+      'Wings' : ['', 'angel', 'devil', 'skeleton'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
     };
     var maleForm5 = {
@@ -235,7 +235,7 @@ function launch() {
       'Shoes': ['','hightops', 'leather', 'flip-flops']
     };
     var layersMale = [
-      'wings_angel', 'wings_devil',
+      'wings_angel', 'wings_devil', 'wings_skeleton',
       'shoulderpads_spikes_2_of_2',
       'cloak_default_4_of_4',
       'coat_trench_4_of_4',
@@ -361,7 +361,7 @@ function launch() {
       'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
       'Bracelet' : ['','rings', 'wonder'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
-      'Wings' : ['', 'devil', 'angel']
+      'Wings' : ['', 'angel', 'devil', 'skeleton']
     };
     var femaleForm5 = {
       'Underwear': ['', 'plain', 'string'],
@@ -375,7 +375,7 @@ function launch() {
       'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
     };
     var layersFemale = [
-      'wings_devil', 'wings_angel',
+      'wings_devil', 'wings_angel', 'wings_skeleton',
       'shoulderpads_spikes_2_of_2',
       'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
       'coat_lab_3_of_3', 'coat_winter_furcollar_3_of_3', 'coat_winter_tubecollar_3_of_3',
