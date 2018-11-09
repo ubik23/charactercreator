@@ -79,9 +79,14 @@ body {
     top: 0.8em;
     right: 1.2em;
     border-radius: 0.5em;
+    cursor: pointer;
     & use {
         pointer-events: none;
     }
+}
+
+button {
+  cursor: pointer;
 }
 
 svg {

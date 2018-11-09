@@ -235,13 +235,13 @@ function loginMenu(evt) {
     var overlay = document.querySelector('.js-login');
     var loginForm = document.querySelector('#login-form');
     var firstInput = overlay.querySelector('.first-input');
-  var closeBtn = overlay.querySelector('.close-btn');
-  closeAllOverlays();
+    var closeBtn = overlay.querySelector('.close-btn');
+    closeAllOverlays();
     overlay.classList.add('overlay--show');
     loginForm.addEventListener("submit", login, true);
     overlay.addEventListener('click', closeLogin, true);
     firstInput.focus();
-  closeBtn.addEventListener('click', closeOverlay, false);
+    closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function closeLogin(evt) {

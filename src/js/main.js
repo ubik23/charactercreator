@@ -5,6 +5,7 @@
     var loginBtn = document.querySelector("#loginButton");
     var registerBtn = document.querySelector("#registerButton");
     var registerLink = document.querySelector(".js-register-link");
+    var creditsBtn = document.querySelector("#creditsButton");
     var hamburgerBtn = document.querySelector(".hamburger-btn");
     var zoomBtn = document.querySelector("#zoomLevel");
     var maleSilhouette = document.getElementById("male_silhouette");
@@ -19,6 +20,7 @@
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
     if (registerBtn && typeof registerMenu === 'function') { registerBtn.addEventListener("click", registerMenu, false) }
     if (registerLink && typeof registerMenu === 'function') { registerLink.addEventListener("click", registerMenu, false) }
+    if (creditsBtn && typeof rollCredits === 'function') { creditsBtn.addEventListener("click", rollCredits, false) }
     if (hamburgerBtn && typeof hamburger === 'function') { hamburgerBtn.addEventListener("click", hamburger, false) }
     if (zoomBtn && typeof viewBoxZoom === 'function') { zoomBtn.addEventListener("change", viewBoxZoom, false) }
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
@@ -26,6 +28,30 @@
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
     startup();
+}
+
+function rollCredits(evt) {
+  if (evt) {
+      evt.preventDefault()
+  }
+  var overlay = document.querySelector('.js-credits');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeCredits, true);
+  setTimeout(function(){closeAllOverlays()},50000);
+}
+
+function closeCredits(evt) {
+    var overlay = document.querySelector('.js-credits');
+    var target = evt.target;
+    var credits;
+    if (target === overlay) {
+      credits = document.querySelector('.overlay--show');
+      if (credits) {
+          credits.classList.remove('overlay--show');
+      }
+    }
 }
 
 function layerHighlight(ev) {
