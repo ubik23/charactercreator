@@ -28,6 +28,12 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
+
+        &__row {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
     }
     &__wrapper {
         border-radius: 5vmin;
@@ -43,14 +49,24 @@
         }
     }
     &__slider {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       width: auto;
-      max-width: 640px;
+      max-width: 480px;
       margin: 100vh auto 0 auto;
+      padding: 0 5vw;
+      box-sizing: border-box;
       font-family: arial, sans-serif;
       color: #fff;
-      & h2 {
-        display: inline-block;
+      width: 100%;
+
+      & h2, & h3 {
+        display: block;
         margin: 0 auto;
+        text-align: center;
+        margin: 0.25em 0 0.25em 0;
       }
     }
     &__panel {
@@ -124,6 +140,9 @@
     }
     &__header {
         color: $color-white;
+        & .close-btn {
+          top: calc(50% - 12px);
+        }
     }
     &__footer {
         &__text {
