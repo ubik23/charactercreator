@@ -33,6 +33,12 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+          align-items: center;
+          padding: 1em 0;
+
+          & img {
+            width: 45%;
+          }
         }
     }
     &__wrapper {
@@ -141,7 +147,7 @@
     &__header {
         color: $color-white;
         & .close-btn {
-          top: calc(50% - 12px);
+          top: calc(50% - 0.8em);
         }
     }
     &__footer {
