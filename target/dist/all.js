@@ -2965,7 +2965,7 @@ function rollCredits(evt) {
   closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeCredits, true);
-  setTimeout(function(){closeAllOverlays()},43500);
+  setTimeout(function(){closeAllOverlays()},52000);
 }
 
 function closeCredits(evt) {

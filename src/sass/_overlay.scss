@@ -288,7 +288,7 @@
         }
 
         & .overlay__slider {
-          transform: translateY(calc(-100% - 100vw));
+          transform: translateY(calc(-100% - 100vh));
           transition: transform 50s linear 0.1s;
         }
 }
