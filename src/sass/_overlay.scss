@@ -29,7 +29,7 @@
         visibility: hidden;
         transition: opacity 0.3s ease 0.1s, visibility linear 0.4s;
 
-        &__row {
+        &__row, &__row--text {
           width: 100%;
           display: flex;
           justify-content: space-between;
@@ -39,6 +39,9 @@
           & img {
             width: 45%;
           }
+        }
+        &__row--text  {
+          padding: 0;
         }
     }
     &__wrapper {
