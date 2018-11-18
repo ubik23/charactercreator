@@ -3316,7 +3316,7 @@ function launch() {
       'Wings' : ['', 'angel', 'devil', 'skeleton']
     };
     var femaleForm5 = {
-      'Underwear': ['', 'plain', 'string'],
+      'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
       'Shorts' : ['', 'bikini', 'short'],
       'Skirt' : ['', 'school'],
       'Leggings': ['', 'regular', 'torn'],
@@ -3340,7 +3340,7 @@ function launch() {
       'body_athletic',
       'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
-      'underwear_plain','underwear_string',
+      'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
       'leggings_regular', 'leggings_torn',
       'bra_bow', 'bra_grid', 'bra_sports',
       'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
