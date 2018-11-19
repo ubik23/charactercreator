@@ -3318,7 +3318,7 @@ function launch() {
     var femaleForm5 = {
       'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
       'Shorts' : ['', 'bikini', 'short'],
-      'Skirt' : ['', 'school'],
+      'Skirt' : ['', 'school_short', 'school', 'school_long'],
       'Leggings': ['', 'regular', 'torn'],
       'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
       'Belt' : ['', 'bullet', 'utility', 'satchel']
@@ -3348,7 +3348,7 @@ function launch() {
       'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
       'shorts_bikini', 'shorts_short',
       'holster_revolver_thigh_1_of_2',
-      'skirt_school',
+      'skirt_school','skirt_school_short','skirt_school_long',
       'holster_revolver_hip',
       'necklace_perl','necklace_princess',
       'top_asymetric', 'top_loop', 'top_tank', 'top_tube_v',
