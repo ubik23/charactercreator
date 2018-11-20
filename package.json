@@ -10,7 +10,7 @@
     "gulp-concat-css": "^2.2.0",
     "gulp-minify": "^2.1.0",
     "gulp-postcss": "^6.0.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.5",
@@ -22,8 +22,7 @@
   "devDependencies": {
     "browser-sync": "^2.24.7",
     "gulp": "^3.9.1",
-    "proxy-middleware": "^0.15.0",
-    "url": "^0.11.0"
+    "proxy-middleware": "^0.15.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
