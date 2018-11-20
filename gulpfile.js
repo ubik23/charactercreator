@@ -67,7 +67,7 @@ gulp.task('browser-sync', function() {
     var proxyOptionsUsers = {
         target: 'http://localhost:5984',
         pathRewrite: function (path, req) {
-            return path.replace(/^\/api\/users\//, '/_users/org.couchdb.user:')
+            return path === '/api/users' ? '/_users' : path.replace(/^\/api\/users\//, '/_users/org.couchdb.user:')
         }
     }
     browserSync({
