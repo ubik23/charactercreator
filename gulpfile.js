@@ -1,3 +1,7 @@
+// core
+var url = require('url');
+
+// npm
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var autoprefixer = require('autoprefixer');
@@ -8,7 +12,6 @@ var cleanCSS = require('gulp-clean-css');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
-var url = require('url');
 var proxy = require('proxy-middleware');
 //var proxyOptions = url.parse('http://localhost:5984/api/session');
 //proxyOptions.route = '/api/session';
@@ -54,9 +57,10 @@ gulp.task('default',function() {
 // }
 
 gulp.task('browser-sync', function() {
-    var proxyOptionsSession = url.parse('http://localhost:5984/_session');
+    var proxyOptionsSession = url.parse('http://localhost:5993/_session');
     proxyOptionsSession.route = '/api/session';
-    var proxyOptionsUsers = url.parse('http://localhost:5984/_users');
+    var proxyOptionsUsers = url.parse('http://localhost:5993/_users');
+    console.log('proxyOptionsUsers:', proxyOptionsUsers)
     proxyOptionsUsers.route = '/api/users';
     // requests to `/api/x/y/z` are proxied to `http://localhost:3000/secret-api`
     browserSync({
