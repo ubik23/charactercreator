@@ -12,7 +12,7 @@ var cleanCSS = require('gulp-clean-css');
 var watch = require('gulp-watch');
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
-var proxy = require('proxy-middleware');
+var proxy = require('http-proxy-middleware');
 //var proxyOptions = url.parse('http://localhost:5984/api/session');
 //proxyOptions.route = '/api/session';
 
@@ -57,18 +57,28 @@ gulp.task('default',function() {
 // }
 
 gulp.task('browser-sync', function() {
-    var proxyOptionsSession = url.parse('http://localhost:5993/_session');
-    proxyOptionsSession.route = '/api/session';
-    var proxyOptionsUsers = url.parse('http://localhost:5993/_users');
-    console.log('proxyOptionsUsers:', proxyOptionsUsers)
-    proxyOptionsUsers.route = '/api/users';
-    // requests to `/api/x/y/z` are proxied to `http://localhost:3000/secret-api`
+    var proxyOptionsSession = {
+        target: 'http://localhost:5984',
+        pathRewrite: {
+            '^/api/session': '/_session'
+        }
+    }
+
+    var proxyOptionsUsers = {
+        target: 'http://localhost:5984',
+        pathRewrite: function (path, req) {
+            return path.replace(/^\/api\/users\//, '/_users/org.couchdb.user:')
+        }
+    }
     browserSync({
         open: true,
         port: 3000,
         server: {
             baseDir: "./target/",
-            middleware: [proxy(proxyOptionsSession), proxy(proxyOptionsUsers)]
+            middleware: [
+                proxy('/api/session', proxyOptionsSession),
+                proxy('/api/users', proxyOptionsUsers)
+            ]
         }
     });
 });
