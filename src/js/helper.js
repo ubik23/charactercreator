@@ -5,3 +5,7 @@ function getParent(el, sel) {
   while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el,sel)));
   return el;
 }
+
+function hasClass(element, className) {
+    return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+}

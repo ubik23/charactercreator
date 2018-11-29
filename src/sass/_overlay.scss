@@ -292,3 +292,22 @@
           transition: transform 50s linear 0.1s;
         }
 }
+
+.ui-buttons {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+    & button, & a {
+      background-color: $color-alpha;
+      border-radius: 25px;
+      width: 100%;
+      margin: 0.25em;
+
+      &:hover {
+        background-color: $color-alpha--light;
+      }
+    }
+}

@@ -21,6 +21,8 @@ Install the dependencies:
 
 npm install
 
+Install CouchDB
+
 Get the site up and running on your local machine:
 
 gulp

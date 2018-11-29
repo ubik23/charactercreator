@@ -13,6 +13,9 @@
     var rightSidebar = document.querySelector('#sidebar');
     var rightSidebarClone = rightSidebar.cloneNode(true);
     var svgContainer = document.querySelector('#svg1');
+    var patreonBtn = document.querySelector('#patreon-btn');
+    var newCharBtn = document.querySelector('#new-char-btn');
+    var loadCharBtn = document.querySelector('#load-char-btn');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
@@ -26,8 +29,119 @@
     if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
-    if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
+    if (svgContainer && typeof layerHighlight === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
+    if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
+    if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
+    if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     startup();
+}
+
+function gotoPatreon(evt) {
+  if (evt) {
+      evt.preventDefault()
+  }
+ console.log('gotoPatreon');
+ closeAllOverlays();
+ setTimeout(function(){ window.open("https://www.patreon.com/charactercreator");}, 500);
+}
+
+function gotoNewChar(evt) {
+  if (evt) {
+      evt.preventDefault()
+  }
+ console.log('gotoNewChar');
+ closeAllOverlays();
+ setTimeout(function(){
+   resetCharacter();
+ }, 500);
+}
+
+function resetCharacter() {
+  var choices = [];
+  // Hide menus.
+  hideMenus();
+  // Fade out SVG.
+  fadeOutSVG();
+  // Remove all groups.
+  removeGroups();
+  // Zoom out in case we were zoomed in.
+  zoomFull();
+  // reset silhouettes
+  resetSilhouettes();
+  // Clean hash.
+  // Clear 'c' variable.
+  // Fade in SVG.
+  c = new Character(choices);
+  fadeInSVG();
+  // launch anew.
+  // launch();
+}
+
+function removeGroups() {
+  var svgContainer = document.querySelector('#svg1');
+  var groups = svgContainer.querySelectorAll('#svg1 > g');
+  var counter = groups.length;
+  console.log('counter', counter);
+  while (counter--) {
+    if (groups[counter].id != 'female_silhouette' && groups[counter].id != 'male_silhouette'){
+      svgContainer.removeChild(groups[counter]);
+    }
+  }
+}
+
+function hideMenus() {
+  var menus = document.querySelectorAll('.sidebar.visible');
+  var counter = menus.length;
+  console.log('menus', menus);
+  while(counter--) {
+    menus[counter].classList.remove('visible');
+  }
+}
+
+function fadeOutSVG() {
+  var svgContainer = document.querySelector('#svg1');
+  svgContainer.style.opacity = 0;
+}
+
+function fadeInSVG() {
+  var svgContainer = document.querySelector('#svg1');
+  svgContainer.style.opacity = 1;
+}
+
+function resetSilhouettes() {
+  var defaultColor = '#e35a4e';
+  var svgContainer = document.querySelector('#svg1');
+  var maleSilhouette = svgContainer.querySelector('#path_male');
+  var femaleSilhouette = svgContainer.querySelector('#path_female');
+  var silhouetteRemaining;
+  console.log('class', svgContainer.classList);
+  if (svgContainer.classList.contains('select-female')) {
+    console.log('female');
+    silhouette = svgContainer.querySelector('#female_silhouette');
+    silhouetteRemaining = svgContainer.querySelector('#male_silhouette');
+  } else if (svgContainer.classList.contains('select-male')) {
+    console.log('male');
+    silhouette = svgContainer.querySelector('#male_silhouette');
+    silhouetteRemaining = svgContainer.querySelector('#female_silhouette');
+  }
+  svgContainer.classList = '';
+  // var timer = 1000;
+  // svgContainer.style.opacity = 0;
+  maleSilhouette.style.fill = defaultColor;
+  femaleSilhouette.style.fill = defaultColor;
+  if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
+  if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+  silhouette.style.opacity = 1;
+  silhouetteRemaining.style.opacity = 1;
+}
+
+function gotoLoadChar(evt) {
+  if (evt) {
+      evt.preventDefault()
+  }
+ console.log('gotoLoadChar');
+ closeAllOverlays();
+ setTimeout(function(){ }, 500);
 }
 
 function rollCredits(evt) {
@@ -52,6 +166,15 @@ function closeCredits(evt) {
           credits.classList.remove('overlay--show');
       }
     }
+}
+
+function caboose() {
+  var overlay = document.querySelector('.js-caboose');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
 }
 
 function layerHighlight(ev) {
@@ -546,19 +669,20 @@ function displayPallette () {
 }
 
 function chooseSkinColor() {
-    //var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
+    if (!gmenu.firstChild) {
+      for (color in skinTones) {
+          var newColor = skinTones[color];
+          var node = document.createElement("LI");
+          node.className = "skin-tone";
+          node.style.cssText = "background-color:" + newColor + ";";
+          gmenu.appendChild(node);
+          node.onclick = colorCutout;
+          node.onmouseover = colorOnHover;
+      };
+    }
     gmenu.classList.add('skin-color__container--show');
-    for (color in skinTones) {
-        var newColor = skinTones[color];
-        var node = document.createElement("LI");
-        node.className = "skin-tone";
-        node.style.cssText = "background-color:" + newColor + ";";
-        gmenu.appendChild(node);
-        node.onclick = colorCutout;
-        node.onmouseover = colorOnHover;
-    };
 }
 
 function defaultPupilShape() {
