@@ -13,6 +13,7 @@
     var rightSidebar = document.querySelector('#sidebar');
     var rightSidebarClone = rightSidebar.cloneNode(true);
     var svgContainer = document.querySelector('#svg1');
+    var patreonLink = document.querySelector('#patreonButton');
     var patreonBtn = document.querySelector('#patreon-btn');
     var newCharBtn = document.querySelector('#new-char-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
@@ -30,10 +31,15 @@
     if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
     if (svgContainer && typeof clickSelect === 'function') {svgContainer.addEventListener('click', clickSelect, false)}
     if (svgContainer && typeof layerHighlight === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
+    if (patreonLink && typeof tattle === 'function') {patreonBtn.addEventListener('click', tattle, false)}
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     startup();
+}
+
+function tattle() {
+  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Navbar | Patreon', eventLabel: 'Open Patreon page from the Navbar/Hamburger menu.'});
 }
 
 function gotoPatreon(evt) {
@@ -101,9 +107,14 @@ function hideMenus() {
 function fadeOutSVG() {
   var svgContainer = document.querySelector('#svg1');
   var characterShadow = svgContainer.querySelector('.character-shadow.shine');
+  var downloadBtn = document.querySelector('#downloadButton.enabled');
   if (characterShadow) {
     // Remove shine class.
     characterShadow.classList.remove('shine');
+  }
+  if (downloadBtn) {
+    downloadBtn.classList.remove('enabled');
+    downloadBtn.removeEventListener('click', download);
   }
   svgContainer.classList.add('character--hide');
 }

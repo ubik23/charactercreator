@@ -590,7 +590,7 @@ function register (evt) {
             currentUser = user
             manageCharacters(currentUser)
             register.classList.remove('overlay--show');
-            ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Register', eventLabel: 'Successfuly Registered account'});
+            ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account'});
         })
         .catch(function (err) {
           console.error('register err', err)
