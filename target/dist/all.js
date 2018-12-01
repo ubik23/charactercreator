@@ -2976,7 +2976,7 @@ function gotoPatreon(evt) {
   if (evt) {
       evt.preventDefault()
   }
- console.log('gotoPatreon');
+ ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Patreon', eventLabel: 'Open Patreon page from Caboose modal.'});
  closeAllOverlays();
  setTimeout(function(){ window.open("https://www.patreon.com/charactercreator");}, 500);
 }
@@ -2985,7 +2985,7 @@ function gotoNewChar(evt) {
   if (evt) {
       evt.preventDefault()
   }
- console.log('gotoNewChar');
+ ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | New character', eventLabel: 'Reset to new character from Caboose.'});
  closeAllOverlays();
  setTimeout(function(){
    resetCharacter();
@@ -3005,10 +3005,10 @@ function resetCharacter() {
   // reset silhouettes
   resetSilhouettes();
   // Clean hash.
-  // Clear 'c' variable.
   // Fade in SVG.
+  // Clear 'c' variable.
   c = new Character(choices);
-  fadeInSVG();
+  setTimeout(function(){fadeInSVG();}, 300);
   // launch anew.
   // launch();
 }
@@ -3036,12 +3036,17 @@ function hideMenus() {
 
 function fadeOutSVG() {
   var svgContainer = document.querySelector('#svg1');
-  svgContainer.style.opacity = 0;
+  var characterShadow = svgContainer.querySelector('.character-shadow.shine');
+  if (characterShadow) {
+    // Remove shine class.
+    characterShadow.classList.remove('shine');
+  }
+  svgContainer.classList.add('character--hide');
 }
 
 function fadeInSVG() {
   var svgContainer = document.querySelector('#svg1');
-  svgContainer.style.opacity = 1;
+  svgContainer.classList.remove('character--hide');
 }
 
 function resetSilhouettes() {
@@ -3077,7 +3082,6 @@ function gotoLoadChar(evt) {
   }
  console.log('gotoLoadChar');
  closeAllOverlays();
- setTimeout(function(){ }, 500);
 }
 
 function rollCredits(evt) {
