@@ -36,8 +36,11 @@
           align-items: center;
           padding: 1em 0;
 
-          & img {
+          & a {
             width: 45%;
+            & img {
+              width: 100%;
+            }
           }
         }
         &__row--text  {
