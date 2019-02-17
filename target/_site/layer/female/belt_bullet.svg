@@ -1,0 +1,272 @@
+<g id="belt_bullet">
+    <g>
+      <path class="alpha--dark" d="M232.5 287.8l6.8.2-.2 8.4-6.8-.2z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M235.6 310.3c0 .1-.2.1-.2 0l-.2-.6a19.8 19.8 0 0 1-.9-6l1.3-1 1.3 1c0 2-.4 4-1.1 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M234.5 306.7l.7 3 .2.6c0 .1.2.1.2 0l.2-.5.1-.4a19.8 19.8 0 0 1-.8-6l-.8.2c0 1 0 2 .2 3.1z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M233.4 298.4l2.4-1.4 2.3 1.5-.9 2.1-1.5.7-1.5-.7z" style="fill:#ccc"/>
+      <path class="beta" d="M233.4 298.4l.8 2.2 1-.2-.6-2.1-1.2.1z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M234.1 303.6v-3c.9-.3 2.1-.3 3.1 0v3h-.3c-.7-.1-2-.2-2.6 0z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M234.1 303.6v-3l1-.2v3.1l-.8.1zm-.1-18.3h3.9v2.5H234z" style="fill:#999"/>
+      <path class="beta--darker" d="M234 285.3h1.3v1.2h-1.2z" style="fill:gray"/>
+      <path class="beta" d="M238.3 286.6l-.2 12a9.8 9.8 0 0 0-4.7-.2l.2-12a13 13 0 0 1 4.7.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M234.8 286.3l-.2 12-1.2.1.2-12h1.2z" style="fill:#999"/>
+      <path class="beta" d="M233.4 285h.3c1.6-.3 3-.3 4.6 0 .2 0 .4.2.4.4s-.2.3-.4.3c-1.3 0-2.4-.2-4.7 0-.2 0-.3-.2-.3-.4v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M234.8 285.6l-.2-.4c0-.2.1-.3.3-.4l-1.3.1-.3.3c0 .2 0 .4.2.4h.3z" style="fill:#999"/>
+      <path class="alpha" d="M233.5 287.3c-.4 0-.8.3-.8.8v.9l6.4.1v-.8c0-.5-.3-.9-.8-.9zm-.9 2.9v3.7l6.4.2v-3.8zm-.1 4.9v1c0 .4.3.7.8.8h4.8c.4 0 .8-.3.8-.7v-1z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M310.1 274.7l5.4-4.2 5.1 6.6-5.3 4.2z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M326.8 290c0 .1 0 .2-.2.1l-.4-.3a19.8 19.8 0 0 1-4.6-4.2l.4-1.4 1.6-.1c1.3 1.6 2.3 3.4 3 5.4z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M323.7 288l2.5 1.8.4.3c.1.1.2 0 .2 0l-.2-.6-.1-.4a19.8 19.8 0 0 1-4.4-4l-.5.5c.6.9 1.3 1.6 2.1 2.3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M321.9 281.6l-.8 1.5-1.6.3-2-1.1 1-2.7 2.7-.2.7 2.1z" style="fill:#ccc"/>
+      <path class="beta" d="M317.6 282.3l2 1.1.6-.7-1.8-1.3c-.3.2-.7.5-.8.9z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M321.4 285.8l-1.9-2.4c.5-.7 1.4-1.5 2.4-1.9l1.9 2.4-.2.2c-.7.3-1.7 1-2 1.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M321.4 285.8l-1.9-2.4c0-.2.5-.5.7-.7l1.9 2.4-.5.5zm-11.7-14.1l3-2.4 1.5 1.9-3 2.5z" style="fill:#999"/>
+      <path class="beta--darker" d="M309.7 271.7l1-.8.7 1-1 .7z" style="fill:gray"/>
+      <path class="beta" d="M313.8 270l7.4 9.4a9.8 9.8 0 0 0-3.6 2.9l-7.5-9.4a13 13 0 0 1 3.7-3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M311 272l7.3 9.4-.7.9-7.5-9.4c0-.2.6-.6.9-.9z" style="fill:#999"/>
+      <path class="beta" d="M309 272l.1-.3a22 22 0 0 1 3.7-3l.5.1c.2.2.1.4 0 .5-1.1.8-2 1.4-3.7 3l-.5-.1-.1-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M310.5 271.4h-.5a.4.4 0 0 1 0-.6l-.9.9v.5c0 .1.2.2.4.1l.2-.2z" style="fill:#999"/>
+      <path class="alpha" d="M310.6 273.6c-.4.3-.5.8-.2 1.2l.6.7 5-4-.5-.7a.8.8 0 0 0-1.2-.2zm1 2.8l2.4 3 5-4-2.2-3zm3.1 3.9l.6.7c.3.3.8.4 1.2.1l3.7-3c.4-.2.5-.7.2-1.1l-.6-.7z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M232.3 288.3l6.7.7-.8 8.4-6.8-.7z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M233.7 311h-.2l-.1-.6a19.8 19.8 0 0 1-.5-6.2l1.3-.8 1.3 1c-.2 2.1-.7 4.1-1.6 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M232.9 307.3c0 1 .2 2 .5 3v.7h.3l.2-.6.2-.3a19.8 19.8 0 0 1-.4-6l-.8.1v3.1z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M236 301.5l-1.6.5-1.4-.8-.6-2.2 2.5-1.3 2.1 1.7z" style="fill:#ccc"/>
+      <path class="beta" d="M232.4 299l.6 2.2 1-.1-.4-2.2h-1.2z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M232.7 304.2l.3-3c.8-.2 2-.1 3 .3l-.3 3h-.2a6 6 0 0 0-2.6-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M232.7 304.2l.3-3 1-.1-.3 3-.8.1zm1.1-15.8l.2-2.5 3.8.4-.2 2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M234 287.1V286l1.3.1-.1 1.2z" style="fill:gray"/>
+      <path class="beta" d="M238.1 287.5l-1 12a9.8 9.8 0 0 0-4.7-.5l1-12a13 13 0 0 1 4.7.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M234.7 287l-1.2 11.9h-1.1l1-11.8h1.3z" style="fill:#999"/>
+      <path class="beta" d="M233.4 285.6l.2-.1c1.7 0 3 0 4.7.4.2 0 .3.2.3.4s-.2.4-.4.4c-1.3-.2-2.4-.4-4.6-.5a.4.4 0 0 1-.4-.4s0-.2.2-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M234.8 286.3c-.1 0-.3-.2-.3-.4s.2-.4.3-.4h-1.2c-.2 0-.3.1-.4.3 0 .2 0 .4.3.4h.2z" style="fill:#999"/>
+      <path class="alpha" d="M233.3 287.9a1 1 0 0 0-.9.7v.9l6.3.6.1-.8c0-.5-.2-.9-.7-1zm-1.1 2.8l-.4 3.7 6.5.6.3-3.7zm-.5 4.9v.9c-.1.4.2.8.7.9l4.8.5c.4 0 .8-.3.9-.8v-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M308.4 275.3l5.6-3.8 4.7 7-5.6 3.8z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M324 291.8l-.2.1-.5-.3a19.8 19.8 0 0 1-4.3-4.5l.5-1.4h1.6c1.2 1.7 2 3.5 2.7 5.6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M321 289.5l2.3 2 .5.4h.1l-.1-.6-.1-.4a19.8 19.8 0 0 1-4.1-4.4l-.6.6 2 2.4z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M319.6 283l-.8 1.5-1.7.2-1.9-1.3 1.2-2.5 2.7-.1.5 2.2z" style="fill:#ccc"/>
+      <path class="beta" d="M315.2 283.4l2 1.3.6-.7-1.7-1.4-.9.8z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M318.8 287.2l-1.7-2.5a5 5 0 0 1 2.5-1.7l1.7 2.5-.2.1c-.7.3-1.7 1-2 1.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M318.8 287.2l-1.7-2.5c0-.2.5-.5.7-.7l1.8 2.6c-.3 0-.4.3-.6.5zm-10.6-14.9l3.1-2.1 1.4 2-3.1 2.2z" style="fill:#999"/>
+      <path class="beta--darker" d="M308.2 272.3l1-.7.7 1-1 .7z" style="fill:gray"/>
+      <path class="beta" d="M312.3 271l6.8 9.8a9.8 9.8 0 0 0-3.9 2.6l-6.7-9.8a13 13 0 0 1 3.8-2.7z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M309.4 272.8l6.7 9.8-.9.8-6.7-9.8c0-.2.6-.6.9-.8z" style="fill:#999"/>
+      <path class="beta" d="M307.4 272.5l.2-.2c1.2-1.1 2.3-2 3.9-2.7l.5.1-.1.5c-1.2.7-2.2 1.3-3.9 2.7-.1.1-.4 0-.5-.1v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M309 272.1l-.5-.1a.4.4 0 0 1 0-.5l-1 .8s-.1.3 0 .4c0 .2.3.3.4.2l.2-.1z" style="fill:#999"/>
+      <path class="alpha" d="M308.9 274.3c-.4.3-.5.8-.3 1.1l.5.8 5.4-3.7-.5-.7a.8.8 0 0 0-1.1-.2zm.9 2.9l2.1 3 5.4-3.6-2.1-3zm2.8 4l.5.8c.2.4.7.5 1.1.2l4-2.7c.4-.2.5-.7.2-1.1l-.5-.8z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M305.4 276.9l5.8-3.5 4.3 7.3-5.9 3.4z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" class="gamma" d="M319.9 294.3c0 .1-.1.2-.2.1l-.4-.4a19.8 19.8 0 0 1-4-4.7l.6-1.4h1.6a26 26 0 0 1 2.3 5.8z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M317 291.8l2.3 2.2.4.4.2-.1-.1-.6-.1-.3a19.8 19.8 0 0 1-3.8-4.7l-.6.6c.5.9 1.1 1.7 1.8 2.5z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M316 285.3l-.8 1.4h-1.7v.1l-1.8-1.4 1.3-2.5 2.7.1.4 2.3z" style="fill:#ccc"/>
+      <path class="beta" d="M311.7 285.4l1.8 1.4.8-.6-1.6-1.6-1 .8z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M315 289.4l-1.5-2.6c.6-.7 1.6-1.3 2.6-1.5l1.6 2.6h-.2c-.7.3-1.8 1-2.2 1.4z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M315 289.4l-1.5-2.6c.1-.2.5-.5.8-.6l1.5 2.6-.5.5zm-9.6-15.5l3.2-2 1.3 2-3.3 2.1z" style="fill:#999"/>
+      <path class="beta--darker" d="M305.4 273.9l1-.7.7 1-1.1.7z" style="fill:gray"/>
+      <path class="beta" d="M309.6 272.7l6.2 10.3c-1.3.3-3 1.4-4 2.4l-6.2-10.3c.9-.8 3-2 4-2.4z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M306.6 274.4l6 10.2-.9.8-6.1-10.3 1-.7z" style="fill:#999"/>
+      <path class="beta" d="M304.6 274l.2-.2c1.3-1 2.4-1.8 4-2.4.2-.1.4 0 .5.1.1.2 0 .4-.1.5-1.2.6-2.2 1.1-4 2.4-.2.1-.4 0-.5-.1v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M306.2 273.7c-.1 0-.4 0-.5-.2a.4.4 0 0 1 0-.4l-1 .7v.5l.4.2.2-.2z" style="fill:#999"/>
+      <path class="alpha" d="M306 275.9c-.5.2-.6.7-.4 1.1l.5.8 5.6-3.3-.5-.8a.8.8 0 0 0-1.1-.3zm.7 2.9l1.9 3.2 5.6-3.3-2-3.2zm2.5 4.2l.5.8c.2.4.7.6 1 .3l4.2-2.4c.4-.3.6-.8.3-1.1l-.4-.8z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M233.8 288.9l6.8.3-.3 8.3-6.8-.2z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M236.6 311.4c0 .1-.1 0-.2 0l-.1-.6a19.8 19.8 0 0 1-.8-6.1l1.2-.8 1.3.9c0 2-.4 4-1.2 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M235.6 307.8l.7 3 .1.6s.2.1.2 0l.2-.5.2-.4a19.8 19.8 0 0 1-.7-6l-.8.2.1 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M238.4 301.8l-1.6.6-1.4-.8-.8-2 2.4-1.5 2.3 1.6z" style="fill:#ccc"/>
+      <path class="beta" d="M234.6 299.5l.7 2.2 1-.2-.5-2.1-1.2.1z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M235.2 304.7l.1-3c.9-.3 2.1-.3 3 0v3h-.3a7 7 0 0 0-2.5 0z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M235.2 304.7l.1-3c.2-.2.7-.2 1-.2v3l-.8.2zm.2-15.8v-2.5l3.9.1-.1 2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M235.4 287.6v-1.2h1.3v1.2z" style="fill:gray"/>
+      <path class="beta" d="M239.7 287.7l-.4 12a9.8 9.8 0 0 0-4.7-.2l.4-12a13 13 0 0 1 4.7.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M236.2 287.4l-.5 12-1.1.1.4-12h1.2z" style="fill:#999"/>
+      <path class="beta" d="M234.8 286h.2c1.7-.2 3-.2 4.7.1.2 0 .4.2.4.4s-.2.4-.4.4c-1.3-.2-2.5-.3-4.7-.2a.4.4 0 0 1-.4-.4s0-.2.2-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M236.2 286.7c-.1 0-.3-.2-.3-.4s.2-.4.3-.4H235c-.2 0-.3.2-.4.4 0 .2.1.3.3.4h.3z" style="fill:#999"/>
+      <path class="alpha" d="M234.8 288.4c-.4 0-.8.3-.8.8v.8l6.4.3v-.9c0-.5-.3-.8-.7-.8zm-.9 2.8l-.1 3.8 6.4.2.2-3.7zm-.2 5v.9c0 .4.3.8.8.8l4.8.2c.5 0 .8-.3.8-.8v-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M238.5 288.6l6.8.2-.3 8.4-6.8-.2z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M241.4 311.1c0 .1-.2.1-.2 0l-.2-.6a19.8 19.8 0 0 1-.8-6l1.2-1 1.4 1c-.1 2-.5 4-1.2 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M240.4 307.5l.6 3 .2.6c0 .1.2.1.2 0l.2-.5.1-.4a19.8 19.8 0 0 1-.7-6l-.8.2c0 1 0 2 .2 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M243 301.4l-1.5.7-1.4-.7-.8-2.2 2.4-1.4 2.3 1.6-1 2z" style="fill:#ccc"/>
+      <path class="beta" d="M239.3 299.2l.7 2.2 1-.2-.5-2.1-1.2.1z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M240 304.4v-3c.9-.3 2.1-.3 3 0v3h-.2c-.8-.1-2-.2-2.6 0z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M240 304.4v-3c.2-.2.8-.2 1-.2v3.1h-.8v.1zm0-18.4l3.9.2v2.4H240z" style="fill:#999"/>
+      <path class="beta--darker" d="M240 286l1.3.1v1.2H240z" style="fill:gray"/>
+      <path class="beta" d="M244.3 287.4l-.3 12a9.8 9.8 0 0 0-4.7-.2l.3-12a13 13 0 0 1 4.7.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M240.8 287.1c0 4-.2 8-.4 12l-1.1.1.3-12h1.2z" style="fill:#999"/>
+      <path class="beta" d="M239.4 285.8l.3-.1c1.6-.2 3-.2 4.6.1.2 0 .4.2.4.4s-.2.4-.4.4c-1.3-.1-2.4-.3-4.7-.2-.2 0-.3-.1-.3-.3v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M240.8 286.4l-.2-.4c0-.2.1-.3.3-.4h-1.3c-.1 0-.3.2-.3.4s0 .4.2.4h.3z" style="fill:#999"/>
+      <path class="alpha" d="M239.5 288c-.5 0-.8.4-.9.9v.9l6.5.2v-.9c0-.5-.3-.8-.8-.9zm-1 3v3.7l6.4.2.1-3.7zm0 4.9l-.1.9c0 .4.3.8.8.8l4.8.2c.4 0 .8-.3.8-.8v-1z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M242.8 289l6.8-.2.3 8.4-6.8.2z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M247.2 311.3h-.2l-.2-.6a19.8 19.8 0 0 1-1.2-6l1.1-1 1.4.9c.1 2-.2 4.1-.7 6.1z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M246 307.7c.1 1 .4 2 .8 3l.2.6h.2l.2-.6v-.3a19.8 19.8 0 0 1-1-6l-.8.3.3 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M248.2 301.5l-1.5.8-1.5-.7-1-2 2.4-1.6 2.4 1.4-.8 2.1z" style="fill:#ccc"/>
+      <path class="beta" d="M244.3 299.6l.9 2 1-.2-.7-2c-.4 0-.9 0-1.2.2z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M245.3 304.7l-.1-3a5 5 0 0 1 3-.2l.2 3h-.3c-.7 0-2 0-2.5.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M245.3 304.7l-.1-3c.2-.2.7-.2 1-.3v3.1l-.6.2zm-1.1-18.3l3.8-.1.1 2.3-3.8.3z" style="fill:#999"/>
+      <path class="beta--darker" d="M244.2 286.4h1.3v1.1h-1.3z" style="fill:gray"/>
+      <path class="beta" d="M248.5 287.4l.5 12a9.8 9.8 0 0 0-4.7.2l-.5-12a13 13 0 0 1 4.7-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M245 287.4l.4 12s-.8 0-1.1.2l-.5-12 1.2-.2z" style="fill:#999"/>
+      <path class="beta" d="M243.5 286.2l.3-.2c1.6-.3 3-.3 4.6-.2.2 0 .4.2.4.4s-.1.4-.3.4c-1.4 0-2.5-.1-4.7.2a.4.4 0 0 1-.4-.4l.1-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M245 286.6c-.1 0-.3-.1-.3-.3l.2-.4-1.2.1c-.1 0-.3.2-.3.4s.1.3.3.4h.2z" style="fill:#999"/>
+      <path class="alpha" d="M243.8 288.4c-.5 0-.9.4-.8.9v.9l6.4-.3v-.8c0-.5-.4-.9-.8-.8zm-.8 3l.2 3.7 6.4-.2-.1-3.8zm.2 4.9v.9c0 .4.4.8.9.8l4.8-.2c.5 0 .8-.4.8-.8v-1z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M248.6 290l6.8-.6.7 8.3-6.8.6z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M254.1 312h-.2l-.2-.6a19.8 19.8 0 0 1-1.5-6l1.1-1 1.4.8c.2 2 0 4.1-.4 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M252.7 308.5l1 3 .2.4c0 .1.2.1.2 0l.2-.5v-.4a19.8 19.8 0 0 1-1.4-5.8l-.7.2c0 1 .2 2 .5 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M254.6 302.1l-1.4.9-1.5-.6-1-2 2.2-1.7 2.4 1.3-.6 2.2z" style="fill:#ccc"/>
+      <path class="beta" d="M250.7 300.4l1 2 1-.2-.9-2.1c-.3 0-.8.1-1.1.3z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M252 305.4l-.3-3a5 5 0 0 1 3-.2l.3 3h-.3c-.7-.1-2 0-2.5.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M252 305.4l-.3-3 1-.2.2 3-.7.2zm-2-18.2l3.7-.3.2 2.4-3.8.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M250 287.2h1.2v1.1l-1.2.1z" style="fill:gray"/>
+      <path class="beta" d="M254.3 288l1 12c-1.3-.3-3.3 0-4.6.4l-1.1-12a13 13 0 0 1 4.7-.4z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M250.8 288.2l1 11.9-1.1.3-1.1-12 1.2-.2z" style="fill:#999"/>
+      <path class="beta" d="M249.2 287l.2-.1c1.7-.4 3-.5 4.7-.4.2 0 .4.1.4.3 0 .2-.1.4-.3.4-1.3 0-2.5 0-4.7.4-.2 0-.4-.1-.4-.3v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M250.7 287.4c-.1 0-.3-.1-.3-.3l.2-.4-1.2.2c-.1 0-.3.2-.3.4 0 .1.1.3.3.3h.3z" style="fill:#999"/>
+      <path class="alpha" d="M249.6 289.3c-.5 0-.8.4-.8.9v.9l6.5-.6v-.9c0-.4-.5-.7-1-.7zm-.6 3l.3 3.7 6.4-.6-.3-3.7zm.4 4.9v.9c.1.4.5.8 1 .7l4.8-.4c.4 0 .8-.4.7-.9v-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M254.4 290l6.7-1.2 1.3 8.3-6.7 1.1z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M261.5 311.4c0 .1-.2.2-.2 0l-.3-.4a19.8 19.8 0 0 1-2-6l1-1 1.5.7c.4 2 .4 4.1 0 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M259.8 308l1.2 3 .3.5h.2v-.6l.1-.4a19.8 19.8 0 0 1-1.8-5.7l-.8.3c.2 1 .4 2 .8 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M261.3 301.6l-1.4 1-1.6-.5-1.2-2 2.1-1.8 2.6 1.1-.5 2.2z" style="fill:#ccc"/>
+      <path class="beta" d="M257.1 300.2l1.2 2 1-.4-1-2c-.4 0-.8.2-1.2.4z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M258.8 305.1l-.5-3a5 5 0 0 1 3-.4l.5 3h-.3c-.7 0-2 0-2.5.4z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M258.8 305.1l-.5-3 1-.3.4 3-.7.3zm-3.3-18l3.7-.6.4 2.4-3.7.7z" style="fill:#999"/>
+      <path class="beta--darker" d="M255.5 287.1l1.2-.2.2 1.2-1.3.2z" style="fill:gray"/>
+      <path class="beta" d="M259.8 287.6l2 11.8a10 10 0 0 0-4.7.8l-1.9-11.8a13 13 0 0 1 4.6-.8z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M256.4 288l1.9 11.8-1.2.4-1.9-11.8c.1-.2.8-.3 1.2-.4z" style="fill:#999"/>
+      <path class="beta" d="M254.7 287l.3-.2c1.6-.5 2.9-.7 4.6-.7.2 0 .4 0 .4.3 0 .2 0 .4-.3.4-1.3.1-2.5.2-4.6.7-.2 0-.4 0-.4-.3v-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M256.3 287.3l-.4-.3c0-.3.1-.4.2-.5l-1.2.3c-.1 0-.3.2-.2.4 0 .2.1.3.3.3h.2z" style="fill:#999"/>
+      <path class="alpha" d="M255.3 289.2c-.5 0-.8.5-.7 1l.1.8 6.4-1-.1-.9c-.1-.4-.5-.7-1-.7zm-.4 3l.6 3.7 6.4-1-.6-3.7zm.8 4.9l.1.9c0 .4.5.7 1 .6l4.7-.7c.5 0 .8-.5.7-1l-.2-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M261 289.3l6.8-.7 1 8.3-6.8.8z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M267.2 311.1c0 .1-.1.2-.2 0l-.2-.5a19.8 19.8 0 0 1-1.7-6l1-1 1.5.8c.2 2 .2 4.1-.3 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M265.7 307.7l1 3 .3.5h.2l.1-.6.1-.4a19.8 19.8 0 0 1-1.6-5.8l-.7.3c0 1 .3 2 .6 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M267.5 301.4l-1.5.8-1.5-.5-1.1-2 2.2-1.8 2.5 1.3z" style="fill:#ccc"/>
+      <path class="beta" d="M263.4 299.7l1 2h.1l1-.3-1-2c-.3 0-.8.1-1.1.3z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M264.8 304.7l-.3-3a5 5 0 0 1 3-.3l.3 3h-.2a5 5 0 0 0-2.5.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M264.8 304.7l-.3-3 1-.3.3 3c-.3 0-.5.2-.7.3zm-2.2-15.7l-.3-2.4 3.8-.5.3 2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M262.4 287.8l-.1-1.2 1.2-.2.2 1.2z" style="fill:gray"/>
+      <path class="beta" d="M266.6 287.3l1.5 11.9c-1.3-.3-3.3 0-4.7.5l-1.4-11.9a13 13 0 0 1 4.6-.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M263.2 287.5l1.3 11.9-1.1.3-1.4-11.9 1.2-.3z" style="fill:#999"/>
+      <path class="beta" d="M261.6 286.4l.2-.1c1.6-.5 3-.6 4.7-.6.2 0 .4.1.4.3 0 .2-.1.4-.3.4-1.4.1-2.5.1-4.7.6-.2 0-.4-.1-.4-.3v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M263 286.8l-.2-.4c0-.2 0-.3.2-.4-.5 0-.8.2-1.2.3-.2 0-.3.2-.3.3 0 .2.1.4.3.4h.3z" style="fill:#999"/>
+      <path class="alpha" d="M262 288.6c-.5.1-.8.5-.7 1v.8l6.5-.7-.1-.9c0-.4-.5-.7-1-.7zm-.5 3l.4 3.7 6.4-.7-.4-3.7zm.6 5v.8c.1.5.5.8 1 .7l4.8-.5c.4 0 .7-.5.7-1l-.1-.8z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M267.2 288.8l6.7-1.3 1.6 8.3-6.7 1.3z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M275 310c0 .2 0 .2-.1.1l-.3-.5a19.8 19.8 0 0 1-2.2-5.8l1-1 1.5.5c.4 2 .5 4.1.3 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M273.3 306.8c.3 1 .8 2 1.3 2.8l.3.5c0 .1.2 0 .2 0v-.9a19.8 19.8 0 0 1-2-5.7l-.7.3.9 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M274.6 300.3l-1.4 1-1.6-.4-1.2-2 2-1.9 2.6 1z" style="fill:#ccc"/>
+      <path class="beta" d="M270.4 299l1.2 1.9 1-.4-1.1-2-1.1.5z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M272.2 303.9l-.6-3a5 5 0 0 1 3-.6l.6 3h-.3c-.7 0-2 .2-2.5.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M272.2 303.9l-.6-3c.1-.2.6-.3 1-.4l.5 3-.7.3zm-3.5-15.5l-.5-2.4 3.7-.8.5 2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M268.4 287.2l-.2-1.2 1.2-.2.3 1.1z" style="fill:gray"/>
+      <path class="beta" d="M272.6 286.3l2.4 11.8c-1.4-.2-3.3.3-4.6.9l-2.4-11.8a13 13 0 0 1 4.6-.9z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M269.2 286.9l2.3 11.7-1.1.4-2.4-11.8 1.2-.3z" style="fill:#999"/>
+      <path class="beta" d="M267.5 285.9l.2-.2c1.6-.5 2.9-.8 4.6-1 .2 0 .4.2.4.4s0 .4-.3.4c-1.3.2-2.4.3-4.6 1a.4.4 0 0 1-.4-.4v-.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M269 286.1c-.1 0-.3-.1-.3-.3l.1-.4c-.4 0-.7.2-1.1.3-.2 0-.3.2-.3.4s.2.3.3.3h.3z" style="fill:#999"/>
+      <path class="alpha" d="M268 288c-.4.2-.7.6-.6 1l.2.9 6.3-1.2-.1-.9c-.1-.4-.6-.7-1-.7zm-.2 3l.7 3.7 6.4-1.2-.7-3.7zm1 5l.1.8c.1.5.6.7 1 .7l4.7-1c.5 0 .8-.5.7-1l-.2-.8z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M273.9 287.5l6.7-1 1.3 8.3-6.8 1z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M280.9 309.1h-.3l-.2-.5a19.8 19.8 0 0 1-2-5.9l1.1-1 1.5.7c.3 2 .3 4 0 6.1z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M279.2 305.8c.3 1 .7 1.9 1.2 2.8l.2.6h.3v-.7l.1-.3a19.8 19.8 0 0 1-1.8-5.8l-.7.3c.1 1 .4 2 .7 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M281.2 297.1l-.4 2.2-1.4 1-1.6-.5-1.2-2 2.1-1.8z" style="fill:#ccc"/>
+      <path class="beta" d="M276.6 297.8l1.2 2 .9-.3-1-2a2 2 0 0 0-1 .3z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M278.2 302.8l-.4-3c.7-.4 2-.6 3-.5l.4 3h-.2c-.8 0-2 .2-2.5.4z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M278.2 302.8l-.4-3c.1-.2.6-.3.9-.3l.5 3-.7.2zm1-16.3l-3.8.7-.4-2.4 3.8-.6z" style="fill:#999"/>
+      <path class="beta--darker" d="M276.5 285.7l-1.3.2-.2-1.1 1.3-.2z" style="fill:gray"/>
+      <path class="beta" d="M279.4 285.3l1.8 11.8c-1.3-.2-3.2.2-4.6.7l-1.8-11.8a13 13 0 0 1 4.6-.7z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M276 285.7l1.7 11.7-1 .4-2-11.8 1.2-.3z" style="fill:#999"/>
+      <path class="beta" d="M274.3 284.6l.2-.2c1.6-.4 3-.7 4.7-.7.2 0 .3.1.4.3 0 .2-.1.4-.3.5a16 16 0 0 0-4.7.7c-.2 0-.3-.1-.4-.3v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M275.8 284.9s-.3-.1-.3-.3c0-.2 0-.4.2-.5l-1.2.3c-.2 0-.3.3-.3.4 0 .2.2.4.3.4h.3z" style="fill:#999"/>
+      <path class="alpha" d="M274.8 286.8c-.4.1-.8.5-.7 1l.1.8 6.4-1-.1-.8c0-.4-.5-.8-1-.7zm-.4 3l.6 3.7 6.4-1-.6-3.7zm.8 4.9v.9c.2.4.6.7 1 .7l4.8-.7c.4-.1.7-.5.7-1l-.2-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M279.4 286.4l6.6-1.7 2 8.2-6.5 1.6z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M288.4 307.2s-.1.1-.2 0l-.3-.4a19.8 19.8 0 0 1-2.5-5.7l1-1.2 1.5.5c.5 2 .7 4.1.6 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M286.5 304l1.4 2.8.3.4c0 .1.2 0 .2 0v-.6l.1-.3a19.8 19.8 0 0 1-2.3-5.6l-.8.4 1 2.9z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M287.7 295.2l-.3 2.2-1.3 1.1-1.6-.3-1.4-1.8 2-2z" style="fill:#ccc"/>
+      <path class="beta" d="M283.1 296.4l1.4 1.8.9-.4-1.2-2c-.3.2-.8.3-1 .6z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M285.2 301.1l-.7-2.9c.7-.5 1.9-.8 3-.8l.7 3h-.3c-.7 0-2 .3-2.5.7z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M285.2 301.1l-.7-2.9c0-.2.6-.3.9-.4l.7 3-.7.3zm-.6-16.2l-3.7 1-.6-2.4 3.7-1z" style="fill:#999"/>
+      <path class="beta--darker" d="M281.8 284.3l-1.2.3-.3-1.1 1.2-.3z" style="fill:gray"/>
+      <path class="beta" d="M284.7 283.6l3 11.6c-1.3-.1-3.3.5-4.6 1.2l-3-11.6a13 13 0 0 1 4.6-1.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M281.3 284.3l3 11.6-1.2.5-3-11.6c.2-.2.8-.4 1.2-.5z" style="fill:#999"/>
+      <path class="beta" d="M279.6 283.4l.2-.2c1.5-.6 2.8-1 4.5-1.1.2 0 .4 0 .5.2 0 .2-.1.4-.3.5-1.3.2-2.4.4-4.5 1.1-.2.1-.4 0-.5-.2v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M281.1 283.6c-.1 0-.3-.1-.3-.3-.1-.2 0-.4.1-.5l-1.1.4c-.2 0-.3.3-.3.4 0 .2.2.4.4.4h.2z" style="fill:#999"/>
+      <path class="alpha" d="M280.3 285.6c-.5 0-.7.5-.6 1l.2.8 6.3-1.5-.3-.9a.8.8 0 0 0-1-.6zm-.1 3l.9 3.6 6.3-1.6-1-3.6zm1.2 4.8l.2.9c.1.4.6.7 1 .6l4.7-1.2c.4-.1.7-.6.6-1l-.3-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M285.9 284.9l6.5-1.8 2.3 8-6.6 1.9z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M295.3 305.5s-.1.1-.2 0l-.3-.4a19.8 19.8 0 0 1-2.6-5.7l1-1.1 1.5.4c.5 2 .8 4.1.7 6.2z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M293.3 302.3c.4 1 1 1.9 1.5 2.8l.3.4c.1.1.2 0 .2 0v-1a19.8 19.8 0 0 1-2.4-5.5l-.7.4 1 3z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M291.7 292.7l2.6.8-.2 2.3-1.3 1-1.6-.2-1.4-1.8z" style="fill:#ccc"/>
+      <path class="beta" d="M289.8 294.8l1.4 1.8.9-.4-1.2-2c-.3.2-.8.3-1.1.6z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M292 299.5l-.8-3c.7-.4 1.9-.8 2.9-.7l.8 2.9h-.2c-.8 0-2 .4-2.5.7z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M292 299.5l-.8-3 .9-.4.8 3c-.3 0-.5.2-.7.3zm-1.7-18.5l.7 2.2-3.7 1.2-.6-2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M287.9 281.6l.3 1.2-1.2.3-.3-1.1z" style="fill:gray"/>
+      <path class="beta" d="M291 282l3.3 11.5a11 11 0 0 0-4.5 1.3l-3.2-11.6a13 13 0 0 1 4.5-1.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M287.7 282.8c1 3.8 2 7.6 3.2 11.5l-1.1.5-3.2-11.6 1-.4z" style="fill:#999"/>
+      <path class="beta" d="M286 281.9l.1-.2c1.6-.6 2.8-1 4.5-1.2.2 0 .4 0 .5.2 0 .2 0 .4-.3.5-1.2.3-2.4.5-4.5 1.2-.2.1-.4 0-.4-.2v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M287.5 282c-.1 0-.3 0-.4-.2 0-.2 0-.4.2-.5l-1.2.4c-.2 0-.3.3-.2.4 0 .2.2.4.3.4l.3-.1z" style="fill:#999"/>
+      <path class="alpha" d="M286.7 284c-.4.2-.7.6-.6 1l.3 1 6.2-1.8-.3-.8a.8.8 0 0 0-1-.6zm0 3l1 3.7 6.2-1.7-1-3.6zm1.3 4.8l.2.9c.1.4.6.7 1 .6l4.7-1.3c.4-.1.7-.6.5-1l-.2-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M291.8 283.1l6.5-2 2.6 7.9-6.5 2.1z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M302.3 303.2c0 .2-.1.2-.2.1l-.4-.4a19.8 19.8 0 0 1-2.8-5.5l.8-1.2 1.6.4c.6 2 1 4 1 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M300 300.2l1.7 2.7.4.4c0 .1.2 0 .2 0v-1a19.8 19.8 0 0 1-2.8-5.4l-.6.5c.3 1 .7 1.9 1.2 2.8z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M298 290.7l2.7.6-.1 2.3h-.1l-1.2 1.2-1.6-.3-1.5-1.7z" style="fill:#ccc"/>
+      <path class="beta" d="M296.2 292.8l1.5 1.8.8-.5-1.2-1.8-1 .5z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M298.6 297.4l-1-2.8c.8-.6 2-1 3-1l1 2.9h-.3c-.8.1-2 .5-2.4.9z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M298.6 297.4l-1-2.8 1-.5 1 3a1 1 0 0 0-.7.3zM296 279l.8 2.3-3.6 1.3-.8-2.4z" style="fill:#999"/>
+      <path class="beta--darker" d="M293.6 279.8l.4 1.1-1.2.4-.4-1z" style="fill:gray"/>
+      <path class="beta" d="M296.9 280l3.8 11.3a11 11 0 0 0-4.5 1.5l-3.8-11.3a13 13 0 0 1 4.5-1.5z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M293.5 281l3.8 11.3-1 .5-3.9-11.3c.1-.2.7-.4 1.1-.6z" style="fill:#999"/>
+      <path class="beta" d="M291.7 280.2l.2-.2a17 17 0 0 1 4.5-1.5c.2 0 .4 0 .4.2s0 .4-.2.5c-1.3.3-2.4.6-4.5 1.5-.1 0-.4 0-.4-.2v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M293.3 280.2c-.1 0-.4 0-.4-.2l.1-.5-1.1.5c-.2 0-.3.2-.2.4 0 .2.2.3.3.3h.3z" style="fill:#999"/>
+      <path class="alpha" d="M292.6 282.3c-.5.1-.7.6-.5 1l.2.9 6.2-2-.3-.9a.8.8 0 0 0-1-.5zm.1 3l1.2 3.6 6.1-2-1.2-3.6zm1.5 4.7l.3.8c.2.5.6.7 1 .6l4.6-1.5c.5-.2.7-.6.6-1l-.3-1z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M302 278.9l6-3.3 4 7.4-6 3.3z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M315.9 296.8c0 .1-.1.2-.2.1l-.4-.4a19.8 19.8 0 0 1-3.8-4.9l.6-1.3 1.6.1c1 1.8 1.7 3.8 2 5.8z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M313.2 294.2l2 2.3.5.4h.2l-.1-.7-.1-.3a19.8 19.8 0 0 1-3.6-4.8l-.6.5c.5 1 1 1.8 1.7 2.6z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M312.2 285.4l.3 2.2-1 1.4h-1.7v.1l-1.7-1.5 1.3-2.4z" style="fill:#ccc"/>
+      <path class="beta" d="M308 287.6l1.8 1.5.8-.6-1.6-1.6-1 .7z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M311.2 291.8l-1.4-2.7c.6-.7 1.7-1.3 2.7-1.5l1.4 2.7-.2.1c-.7.2-1.8.8-2.2 1.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M311.2 291.8l-1.4-2.7c0-.2.5-.5.8-.6l1.4 2.7c-.2 0-.3.3-.5.4zm-4.6-15.6l-3.3 1.9-1.2-2.2 3.4-1.8z" style="fill:#999"/>
+      <path class="beta--darker" d="M303.8 276.3l-1.1.6-.6-1 1.1-.6z" style="fill:gray"/>
+      <path class="beta" d="M306.4 274.9l5.8 10.5c-1.3.2-3 1.3-4.1 2.2l-5.8-10.5c1-.8 3-2 4.1-2.2z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M303.3 276.4L309 287l-1 .7-5.7-10.5 1-.7z" style="fill:#999"/>
+      <path class="beta" d="M301.4 276l.1-.2c1.4-1 2.5-1.7 4.1-2.3.2 0 .4 0 .5.2.1.1 0 .4-.1.5-1.2.5-2.3 1-4.1 2.2-.2.1-.4 0-.5-.1v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M303 275.8c-.2 0-.4 0-.5-.2a.4.4 0 0 1 0-.5l-1 .7c-.1 0-.2.3-.1.4 0 .2.2.3.4.3l.2-.2z" style="fill:#999"/>
+      <path class="alpha" d="M302.6 278c-.4.1-.5.6-.3 1l.4.8 5.7-3-.4-.8a.8.8 0 0 0-1.2-.4zm.7 2.8l1.7 3.3 5.7-3-1.8-3.3zm2.3 4.4l.4.8c.3.4.8.5 1.2.3l4.2-2.3c.4-.2.5-.7.3-1l-.4-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+    <g>
+      <path class="alpha--dark" d="M297.5 281.3l6.3-2.7 3.3 7.8-6.3 2.6z" style="fill:#333;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+      <path class="gamma" d="M309.5 300.5c0 .1 0 .2-.2 0l-.3-.3a19.8 19.8 0 0 1-3.3-5.3l.7-1.3 1.6.3c.8 2 1.3 4 1.5 6z" style="fill:#fcbb29"/>
+      <path class="gamma--dark" d="M307.1 297.6c.5 1 1.2 1.8 1.9 2.6l.3.4h.2v-1a19.8 19.8 0 0 1-3.2-5.2l-.6.5c.4 1 .8 1.9 1.4 2.7z" style="fill:#d39a29"/>
+      <path class="beta--light" d="M304.3 288.3l2.7.5v2.2l-1 1.3-1.7-.1-1.6-1.6z" style="fill:#ccc"/>
+      <path class="beta" d="M302.7 290.6l1.6 1.6.8-.5-1.4-1.7c-.3.1-.7.3-1 .6z" style="fill:#b3b3b3"/>
+      <path class="beta" d="M305.4 295l-1.1-2.8a6 6 0 0 1 2.8-1.2l1.2 2.8-.3.1c-.7.1-1.9.6-2.3 1z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M305.4 295l-1.1-2.8c0-.2.6-.4.8-.5l1.2 2.8c-.3 0-.4.3-.6.4zm-3.9-18.2l1 2.2-3.6 1.6-1-2.3z" style="fill:#999"/>
+      <path class="beta--darker" d="M299.1 277.8l.5 1.1-1.2.5-.4-1.1z" style="fill:gray"/>
+      <path class="beta" d="M302.3 277.7l4.7 11a11 11 0 0 0-4.3 1.9l-4.7-11a13 13 0 0 1 4.3-1.9z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M299 279l4.7 11-1 .6-4.7-11c.1-.2.7-.5 1-.7z" style="fill:#999"/>
+      <path class="beta" d="M297.2 278.3l.2-.2c1.4-.8 2.7-1.4 4.3-1.8.2 0 .4 0 .5.2 0 .2 0 .4-.2.5a29 29 0 0 0-4.3 1.8c-.2 0-.4 0-.5-.2v-.3z" style="fill:#b3b3b3"/>
+      <path class="beta--dark" d="M298.8 278.2c-.1 0-.3 0-.4-.2v-.5c-.3.2-.6.5-1 .6-.2 0-.3.3-.2.5l.4.2h.3z" style="fill:#999"/>
+      <path class="alpha" d="M298.3 280.4c-.5.1-.7.6-.5 1l.4.8 6-2.4-.4-.9a.8.8 0 0 0-1.1-.4zm.3 3l1.4 3.4 6-2.5-1.4-3.4zm1.9 4.5l.4.8c.1.5.6.7 1 .5l4.5-1.9c.4-.1.6-.6.4-1l-.3-.9z" style="fill:#4d4d4d;stroke-width:.25;stroke-miterlimit:4.06053257;"/>
+    </g>
+</g>

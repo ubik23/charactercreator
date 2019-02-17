@@ -1,0 +1,10 @@
+<g id="eyes_disappointment">
+    <defs>
+        <clipPath id="eyes_disappointment--right">
+        </clipPath>
+        <clipPath id="eyes_disappointment--left">
+        </clipPath>
+    </defs>
+  <path id="eyes_disappointment_right" d="m 270.53915,127.41231 c 0.70764,0.4914 4.56839,0.35328 6.30294,0.1254 -0.55453,-4.09794 -5.84084,-3.32816 -6.30294,-0.1254 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+  <path id="eyes_disappointment_left" d="m 291.53423,127.21009 c -1.09409,0.37394 -4.26461,0.98266 -6.11479,0.5018 0.49905,-4.21542 5.43433,-3.65506 6.11479,-0.5018 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+</g>
