@@ -1,14 +1,14 @@
 function download() {
     console.log('Download');
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
+    // TODO make the filename the character's name if possible.
     var filename = "my_character.svg";
-    var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" id="character" width="560" height="560">\n'
+    var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
     var svgRaw = document.getElementById('svg1').childNodes;
     var svgNodes;
     var svgString;
     var pom;
     var event;
-    // console.log('svgRaw', svgRaw);
 
     //This previous version of the text contains all svg files shown and hidden
     //It will need to be filtered to keep only the layers needed for our purpose
