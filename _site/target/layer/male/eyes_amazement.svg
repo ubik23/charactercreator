@@ -1,0 +1,12 @@
+<g id="eyes_amazement">
+    <defs>
+        <clipPath id="eyes_amazement--right">
+            <path d="m 270.53475,127.41231 c 1.38571,0.70027 4.51079,0.90741 6.30294,0.1254 -1.63566,-1.60391 -2.95353,-1.63682 -6.30294,-0.1254 z"/>
+        </clipPath>
+        <clipPath id="eyes_amazement--left">
+            <path id="eyes_amazement_left" d="m 291.56514,127.19004 c -1.46063,1.10581 -4.77257,0.98498 -6.11479,0.5018 1.46191,-1.80887 3.00105,-1.88947 6.11479,-0.5018 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+        </clipPath>
+    </defs>
+  <path id="eyes_amazement_left" d="m 291.56514,127.19004 c -1.46063,1.10581 -4.77257,0.98498 -6.11479,0.5018 1.46191,-1.80887 3.00105,-1.88947 6.11479,-0.5018 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+  <path id="eyes_amazement_right" d="m 270.53475,127.41231 c 1.38571,0.70027 4.51079,0.90741 6.30294,0.1254 -1.63566,-1.60391 -2.95353,-1.63682 -6.30294,-0.1254 z" style="fill:#f9f9f9;stroke:#de8787;stroke-width:.25"/>
+</g>

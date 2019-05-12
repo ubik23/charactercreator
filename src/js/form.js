@@ -724,6 +724,8 @@ function getViewBox(t, d) {
             "bracelet_wonder":"316 240 48 48",
             "bracelet_band_right":"198 299 24 24",
             "bracelet_band_left":"322 272 24 24",
+            "bracelet_ornamental_right":"200 294 24 24",
+            "bracelet_ornamental_left":"326 270 24 24",
             "bracelet_perl_right":"198 299 24 24",
             "bracelet_perl_left":"322 272 24 24",
             "coat_lab":"125 140 280 280",

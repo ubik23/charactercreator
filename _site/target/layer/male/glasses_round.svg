@@ -1,0 +1,9 @@
+<g id="glasses_round" transform="translate(0.75 0)">
+    <path class="glass" d="M293.2 128.5a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 1 1 9.6 0z" style="opacity:0.5;fill:#ffffff;stroke:none;"/>
+    <path class="glass" d="M277.4 128.5a4.8 4.8 0 1 1-9.7 0 4.8 4.8 0 1 1 9.7 0z" style="opacity:0.5;fill:#ffffff;stroke:none;"/>
+    <path class="alpha" d="M277.4 128.5a4.8 4.8 0 1 1-9.7 0 4.8 4.8 0 1 1 9.7 0z" style="fill:none;stroke:#000000;"/>
+    <path class="alpha" d="M293.2 128.5a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 1 1 9.6 0z" style="fill:none;stroke:#000000;"/>
+    <path class="alpha" d="M277.8 129c0-1.6 1.2-2 2.6-2 1.4 0 2.6.4 2.6 2" style="fill:none;stroke:#000000;stroke-width:0.5;"/>
+    <path class="alpha" d="M267.6 128.2h-1.3l-1.2-3.4" style="fill:none;stroke:#000000;stroke-width:1;"/>
+    <path class="alpha" d="M293.5 128h1.4l2.3-3" style="fill:none;stroke:#000000;stroke-width:1;"/>
+</g>
