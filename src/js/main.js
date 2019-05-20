@@ -35,6 +35,7 @@
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
+
     startup();
 }
 
@@ -150,6 +151,7 @@ function gotoLoadChar(evt) {
   if (evt) {
       evt.preventDefault()
   }
+
  closeAllOverlays();
 }
 
@@ -219,7 +221,8 @@ function clickSelect(ev) {
   if (c.sex === undefined) {return}
 
   prefix = fromItemGetPrefix(el.id);
-  formSection = fromPrefixGetFormSection(prefix)
+  formSection = fromPrefixGetFormSection(prefix);
+  
   if (prefix === 'svg1') {
     zoomFull();
     return;
@@ -869,7 +872,7 @@ function selectFemale(event) {
 
 function bodyTypesToLayers(type) {
   var layers = [];
-  
+
   layers.push('body_torso_' + type);
   layers.push('body_leg_left_' + type);
   layers.push('body_leg_right_' + type);

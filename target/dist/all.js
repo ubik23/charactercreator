@@ -1733,7 +1733,7 @@ function onAllLoaded() {
     } else {
         characterSex = window.sex;
     }
-    
+
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
@@ -1774,11 +1774,12 @@ function onEachLoaded(frag, fileName) {
     };
     // Get a list
     //Check to see if the Color suffix is available for each toBeShown
-    // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored
+    // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored.
+
     if (colorThis === true){
         applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
     }
-    console.log('frag', frag);
+
     frag.select("*").attr({ opacity: seen });
 }
 
@@ -1789,6 +1790,7 @@ Object.size = function(obj) {
     }
     return size;
 };
+
 function choicesToList(c) {
   var layersList = [];
   var sex = c.sex;
@@ -1814,11 +1816,26 @@ function choicesToLayers(c, multiLayer){
     var layersNum = emotionLayers.length;
     var counter;
     var tmpList;
+    var bodyType;
+    var bodyTypeList;
+    var bodyTypeCounter;
+
     for(var index in c.choices) {
       if (index.slice(-5) != 'Color'){
-        choiceLayers.push( index + "_" + c.choices[index]);
+        if (index + "_" + c.choices[index] === 'body_athletic' || index + "_" + c.choices[index] === 'body_default' || index + "_" + c.choices[index] === 'body_veiny') {
+          bodyType = c.choices[index];
+          bodyTypeList = bodyTypesToLayers(bodyType);
+          bodyTypeCounter = bodyTypeList.length;
+          while (bodyTypeCounter--) {
+            choiceLayers.push( bodyTypeList[bodyTypeCounter]);
+          }
+        } else {
+          choiceLayers.push( index + "_" + c.choices[index]);
+        }
       }
     }
+    console.log('choiceLayers', choiceLayers);
+
     for (var cl in choiceLayers) {
         if (choiceLayers[cl].slice(0, 7) === 'emotion') {
           tmpList = fromEmotionGetLayers(choiceLayers[cl].split('_')[1]);
@@ -1852,11 +1869,13 @@ function fromEmotionGetLayers(emotion) {
     var faceElLength = faceElements.length;
     var faceElNum = faceElLength;
     var faceCount;
+
     while (faceElNum--) {
         faceCount = (faceElLength - faceElNum - 1);
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
+
     return facialEpressionLayers;
 };
 
@@ -2979,6 +2998,7 @@ function saveChar() {
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
+
     startup();
 }
 
@@ -3094,6 +3114,7 @@ function gotoLoadChar(evt) {
   if (evt) {
       evt.preventDefault()
   }
+
  closeAllOverlays();
 }
 
@@ -3163,7 +3184,8 @@ function clickSelect(ev) {
   if (c.sex === undefined) {return}
 
   prefix = fromItemGetPrefix(el.id);
-  formSection = fromPrefixGetFormSection(prefix)
+  formSection = fromPrefixGetFormSection(prefix);
+  
   if (prefix === 'svg1') {
     zoomFull();
     return;
@@ -3813,7 +3835,7 @@ function selectFemale(event) {
 
 function bodyTypesToLayers(type) {
   var layers = [];
-  
+
   layers.push('body_torso_' + type);
   layers.push('body_leg_left_' + type);
   layers.push('body_leg_right_' + type);
