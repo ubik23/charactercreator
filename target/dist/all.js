@@ -1727,11 +1727,13 @@ function onAllLoaded() {
     var downloadBtn = document.querySelector("#downloadButton");
     var characterSex;
     var hashSex = hash.get('sex');
+
     if (hashSex) {
          characterSex = hashSex;
     } else {
         characterSex = window.sex;
     }
+    
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
@@ -1950,8 +1952,8 @@ function resetForms() {
 function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
-        body : 'athletic', // Or a random body shape eventually
-        eyeballs : 'default', //or rand
+        body : 'athletic', // Or 'default' or 'veiny'.
+        eyeballs : 'default',
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
         irisColor : '#2ad4ff', // Or some random eye color
@@ -2122,9 +2124,10 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   var pupilShape;
-  if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
+
+  if (id === "#iris_default") {return};
   for (lyr in multiLayer){
     if (id.slice(1) === multiLayer[lyr][0]){
       isMultiLayered = true;
@@ -3806,6 +3809,24 @@ function selectFemale(event) {
     setTimeout(function(){
         displayPallette();
     }, 350);
+}
+
+function bodyTypesToLayers(type) {
+  var layers = [];
+  
+  layers.push('body_torso_' + type);
+  layers.push('body_leg_left_' + type);
+  layers.push('body_leg_right_' + type);
+  layers.push('body_foot_left');
+  layers.push('body_foot_right');
+  layers.push('body_arm_left_' + type);
+  layers.push('body_arm_right_' + type);
+  layers.push('body_forearm_left_' + type);
+  layers.push('body_forearm_right_' + type);
+  layers.push('body_hand_left');
+  layers.push('body_hand_right');
+
+  return layers;
 }
 
 function parseHash(c, forms, skinLayers, hairLayers){

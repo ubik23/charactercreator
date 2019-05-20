@@ -90,8 +90,8 @@ function resetForms() {
 function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
-        body : 'athletic', // Or a random body shape eventually
-        eyeballs : 'default', //or rand
+        body : 'athletic', // Or 'default' or 'veiny'.
+        eyeballs : 'default',
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
         irisColor : '#2ad4ff', // Or some random eye color
@@ -262,9 +262,10 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   var pupilShape;
-  if (id === "#iris_default") {return}
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
+
+  if (id === "#iris_default") {return};
   for (lyr in multiLayer){
     if (id.slice(1) === multiLayer[lyr][0]){
       isMultiLayered = true;

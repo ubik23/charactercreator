@@ -8,11 +8,13 @@ function onAllLoaded() {
     var downloadBtn = document.querySelector("#downloadButton");
     var characterSex;
     var hashSex = hash.get('sex');
+
     if (hashSex) {
          characterSex = hashSex;
     } else {
         characterSex = window.sex;
     }
+    
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
