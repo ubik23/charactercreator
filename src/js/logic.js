@@ -140,7 +140,7 @@ function modCharacter(myKey, myValue){
     }
 };
 
-function createCharacter(){
+function createCharacter() {
     document.getElementById(sex+"Button").checked=true;
     //Draw the essential stuff
     //Draw stuff from the hash

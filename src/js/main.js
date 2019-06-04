@@ -222,15 +222,17 @@ function clickSelect(ev) {
 
   prefix = fromItemGetPrefix(el.id);
   formSection = fromPrefixGetFormSection(prefix);
-  
+
   if (prefix === 'svg1') {
     zoomFull();
     return;
   }
+
   // toggleSection
   // Check to see if the section is already open in sidebarRight
   // If not open, close all sections and open it.
   // Same thing for item thumbnails, if not open, open them.
+
   if (formSection > -1) {
     sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML;
     sectionZoom(sectionLabel);
@@ -314,7 +316,6 @@ function fromPrefixGetFormSection(prefix) {
   }
   return formSection;
 }
-
 
 function hamburger() {
     var menu = document.querySelector("#horizontal");
@@ -409,7 +410,6 @@ function launch() {
       'coat_lab_2_of_2',
       'jacket_suit_2_of_2',
       'shoes_flip-flops_2_of_2',
-      // 'body_athletic_2_of_2',
       'body_torso_default', 'body_torso_athletic', 'body_torso_veiny',
       'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny',
       'body_foot_right', 'body_foot_left',
@@ -417,7 +417,6 @@ function launch() {
       'scar_vertical_heart', 'scar_horizontal_neck',
       'underwear_plain','underwear_boxers',
       'shirt_tanktop_2_of_2',
-      // 'body_athletic_1_of_2',
       'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny',
       'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny',
       'body_hand_right', 'body_hand_left',
@@ -615,7 +614,6 @@ function launch() {
       'pipe_subgenius',
       'earpiece_microphone'
     ];
-
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
@@ -653,13 +651,16 @@ function launch() {
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
     ];
     c.sex  = hash.get('sex');
+
     var sex = c.sex;
+
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
     window.layersMale = layersMale;
     window.multiLayerMale = multiLayerMale;
     window.multiLayerFemale = multiLayerFemale;
+
     if (sex ==='m') {
         var form1 = maleForm1;
         var form2 = maleForm2;
@@ -669,6 +670,7 @@ function launch() {
         var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
         multiLayer = multiLayerMale;
+
     } else {
         var form1 = femaleForm1;
         var form2 = femaleForm2;
@@ -873,17 +875,24 @@ function selectFemale(event) {
 function bodyTypesToLayers(type) {
   var layers = [];
 
-  layers.push('body_torso_' + type);
-  layers.push('body_leg_left_' + type);
-  layers.push('body_leg_right_' + type);
-  layers.push('body_foot_left');
-  layers.push('body_foot_right');
-  layers.push('body_arm_left_' + type);
-  layers.push('body_arm_right_' + type);
-  layers.push('body_forearm_left_' + type);
-  layers.push('body_forearm_right_' + type);
-  layers.push('body_hand_left');
-  layers.push('body_hand_right');
+  console.log('c.sex', c.sex);
+
+  if (c.sex === 'm') {
+    layers.push('body_torso_' + type);
+    layers.push('body_leg_left_' + type);
+    layers.push('body_leg_right_' + type);
+    layers.push('body_foot_left');
+    layers.push('body_foot_right');
+    layers.push('body_arm_left_' + type);
+    layers.push('body_arm_right_' + type);
+    layers.push('body_forearm_left_' + type);
+    layers.push('body_forearm_right_' + type);
+    layers.push('body_hand_left');
+    layers.push('body_hand_right');
+  } else {
+    layers.push('body_athletic');
+    layers.push('body_hand');
+  }
 
   return layers;
 }
