@@ -199,6 +199,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function show(userChoice, category) {
+
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -210,11 +211,9 @@ function show(userChoice, category) {
     var id = '#'+sections[0]+'_'+selectedOption;
     obj[category] = userChoice;
     if (userChoice === '') {
-      // c.choices[category] = userChoice;
       modCharacter(category, userChoice);
       hash.remove(category);
     } else {
-      // c.choices[category] = userChoice;
       modCharacter(category, userChoice);
       hash.add(obj);
     }
@@ -224,18 +223,21 @@ function show(userChoice, category) {
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         ga('send', 'event', 'menu', 'select', id);
-        sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
+        sections = []; //Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
         var emotions = GetEmotionGetLayers(selectedOption);
         for (emo in emotions){
             var newEmo = emotions[emo];
             sections.push(newEmo);
         }
     };
+    console.log('multilayer', multiLayer);
     displaySections(sections, options, selectedOption, multiLayer);
 }
 
 function displaySections(sections, options, selectedOption, multiLayer) {
+  console.log('multiLayer', multiLayer);
     for (section in sections){
+      console.log('sections', sections);
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(selectedOption != '' && d === selectedOption){
@@ -261,6 +263,8 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  // console.log('sectionShow multilayer',multilayer);
+  console.log('sectionShow id', id);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -272,19 +276,47 @@ function sectionShow(multiLayer, id) {
       break;
     }
   }
+
   if (id.slice(1, 7) === 'pupils'){
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
   } else if (id.slice(1) === multiLayer[lyr][0]){
-      for (var i=1;i<=multiLayer[lyr][1];i++){
-          idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+      // For male template do this
+      if (id.slice(1,5) === "body" & c.sex === 'm') {
+        var idList = id.split('_');
+        var bodySuffix = idList[idList.length-1];
+        var bodyLayers = [];
+        var bodyLayersCounter;
+        bodyLayers.push('body_hand_right');
+        bodyLayers.push('body_hand_left');
+        bodyLayers.push('body_torso_' + bodySuffix);
+        bodyLayers.push('body_arm_right_' + bodySuffix);
+        bodyLayers.push('body_arm_left_' + bodySuffix);
+        bodyLayers.push('body_forearm_right_' + bodySuffix);
+        bodyLayers.push('body_forearm_left_' + bodySuffix);
+        bodyLayers.push('body_leg_right_' + bodySuffix);
+        bodyLayers.push('body_leg_left_' + bodySuffix);
+        bodyLayers.push('body_foot_right');
+        bodyLayers.push('body_foot_left');
+
+        bodyLayersCounter = bodyLayers.length;
+        while (bodyLayersCounter--) {
+          idOf = '#' + bodyLayers[bodyLayersCounter];
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+        }
+      } else {
+        // if female template do this
+        for (var i = 1;i <= multiLayer[lyr][1]; i++){
+            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+            console.log('idOf', idOf);
+            svgContainer.querySelector(idOf).style.opacity = 1;
+            svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+        }
       }
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
-
   }
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);

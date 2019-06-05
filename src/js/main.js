@@ -375,7 +375,7 @@ function launch() {
       'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
     };
     var maleForm4 = {
-      'Body': ['athletic'],
+      'Body': [ 'default', 'athletic', 'veiny'],
       'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
       'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
       'Suit': ['', 'wetsuit'],
@@ -874,8 +874,6 @@ function selectFemale(event) {
 
 function bodyTypesToLayers(type) {
   var layers = [];
-
-  console.log('c.sex', c.sex);
 
   if (c.sex === 'm') {
     layers.push('body_torso_' + type);
