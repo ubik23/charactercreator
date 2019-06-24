@@ -1025,6 +1025,7 @@ function replaceMultilayer(layersList, section) {
 }
 
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
+  console.log('loadSectionLayers');
   var emotionLayerList = [];
   var emotionCounter;
   if (section === 'emotion') {
@@ -1042,6 +1043,7 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
+  console.log('loadFilesFromList');
   var layerDirectory;
   var sex = c.sex;
   var file;
@@ -1063,6 +1065,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
+    console.log('file', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -1139,6 +1142,7 @@ function findNextLayerInDom(item) {
 }
 
 function populateThumbs(svgObject) {
+  console.log('populateThumbs', svgObject);
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);
   var layerID = thumbObject.id;
@@ -1259,6 +1263,7 @@ function openThumbs() {
 }
 
 function openThumbsLogic(_) {
+  console.log('openThumbsLogic');
   var section = _.innerHTML;
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
@@ -1272,6 +1277,7 @@ function openThumbsLogic(_) {
     previousSelection.classList.remove('section--selected');
   };
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
+  console.log('back from loadSectionLayers');
   showThumbOptions(_);
   _.classList.add('section--selected');
 
