@@ -48,3 +48,53 @@ function newParseHash() {
       modCharacter('irisColor', hashDict['irisColor']);
   }
 }
+
+function hashCharacter() {
+      var u = currentUser.cc.personnages[currentUser.cc.personnageActuel]
+      var r
+      var t = []
+      for (r in u) {
+        t.push(encodeURIComponent(r) + '=' + encodeURIComponent(u[r]))
+      }
+      if (t.length) {
+        personnageActuelToHash(currentUser);
+      }
+}
+
+function personnageActuelToHash(currentUser) {
+    var personnageActuel = currentUser.cc.personnageActuel;
+    var personnageActuelData;
+    var itemsList;
+    var itemsCounter;
+    var currentCount;
+    var myKey;
+    var myValue;
+    var hashArgs = {};
+
+    if (personnageActuel && personnageActuel !== '') {
+        personnageActuelData = currentUser.cc.personnages[personnageActuel];
+        itemsList = Object.keys(personnageActuelData);
+        itemsListLength = itemsList.length;
+        itemsListCounter = itemsListLength;
+        while (itemsListCounter--) {
+            currentCount = itemsListLength - itemsListCounter - 1;
+            myKey = itemsList[currentCount];
+            myValue = personnageActuelData[itemsList[currentCount]];
+            hashArgs[myKey] = myValue;
+            hash.add(hashArgs);
+        }
+        clearCharacter();
+        interpretHash();
+    } else {
+        return;
+    }
+}
+
+function interpretHash() {
+    var hashSex = hash.get("sex");
+    if (hashSex === "m") {
+        selectMale();
+    } else if (hashSex === "f") {
+        selectFemale();
+    }
+}

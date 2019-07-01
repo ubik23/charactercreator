@@ -151,32 +151,7 @@ function gotoLoadChar(evt) {
   if (evt) {
       evt.preventDefault()
   }
-
  closeAllOverlays();
-}
-
-function rollCredits(evt) {
-  if (evt) {
-      evt.preventDefault()
-  }
-  var overlay = document.querySelector('.js-credits');
-  var closeBtn = overlay.querySelector('.close-btn');
-  closeAllOverlays();
-  overlay.classList.add('overlay--show');
-  overlay.addEventListener('click', closeCredits, true);
-  setTimeout(function(){closeAllOverlays()},52000);
-}
-
-function closeCredits(evt) {
-    var overlay = document.querySelector('.js-credits');
-    var target = evt.target;
-    var credits;
-    if (target === overlay) {
-      credits = document.querySelector('.overlay--show');
-      if (credits) {
-          credits.classList.remove('overlay--show');
-      }
-    }
 }
 
 function caboose() {
@@ -317,11 +292,6 @@ function fromPrefixGetFormSection(prefix) {
   return formSection;
 }
 
-function hamburger() {
-    var menu = document.querySelector("#horizontal");
-    menu.classList.toggle('hide');
-}
-
 function startup() {
     var choices;
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
@@ -329,15 +299,6 @@ function startup() {
     }
     window.c = new Character(choices);
     interpretHash();
-}
-
-function interpretHash() {
-    var hashSex = hash.get("sex");
-    if (hashSex === "m") {
-        selectMale();
-    } else if (hashSex === "f") {
-        selectFemale();
-    }
 }
 
 function launch() {
@@ -721,78 +682,6 @@ function defaultPupilShape() {
   hash.add({ pupils: 'round' });
 }
 
-function defaultEyeColor(skinColor){
-    var eyeColorDict = {
-        '#ffdfc4' : "#6F918A", // Grey
-        '#f0d5be' : "#FF6600", // Amber
-        '#eeceb3' : "#A0892C", // Hazel
-        '#e1b899' : "#784421", // Light Brown
-        '#e5c298' : "#784421", // Light Brown
-        '#ffdcb2' : "#784421", // Light Brown
-        '#e5b887' : "#784421", // Light Brown
-        '#e5a073' : "#784421", // Light Brown
-        '#e79e6d' : "#784421", // Light Brown
-        '#db9065' : "#784421", // Light Brown
-        '#ce967c' : "#784421", // Light Brown
-        '#c67856' : "#784421", // Light Brown
-        '#ba6c49' : "#784421", // Light Brown
-        '#a57257' : "#784421", // Light Brown
-        '#f0c8c9' : "#37ABC8", // Blue
-        '#dda8a0' : "#AAD400", // Green
-        '#b97c6d' : "#552200", // Brown
-        '#a8756c' : "#552200", // Brown
-        '#ad6452' : "#552200", // Brown
-        '#5c3836' : "#552200", // Brown
-        '#cb8442' : "#552200", // Brown
-        '#bd723c' : "#552200", // Brown
-        '#704139' : "#552200", // Brown
-        '#a3866a' : "#552200"  // Brown
-    };
-    var eyeColor = eyeColorDict[skinColor];
-    c.choices['irisColor'] = eyeColor;
-    hash.add({ irisColor: eyeColor });
-}
-
-function defaultHairColor(skinColor){
-    var hairColorDict = {
-        '#ffdfc4' : "#803300", // Light brown
-        '#f0d5be' : "#803300", // Light brown
-        '#eeceb3' : "#803300", // Light brown
-        '#e1b899' : "#1a1a1a", // Black
-        '#e5c298' : "#1a1a1a", // Black
-        '#ffdcb2' : "#1a1a1a", // Black
-        '#e5b887' : "#1a1a1a", // Black
-        '#e5a073' : "#1a1a1a", // Black
-        '#e79e6d' : "#1a1a1a", // Black
-        '#db9065' : "#1a1a1a", // Black
-        '#ce967c' : "#1a1a1a", // Black
-        '#c67856' : "#1a1a1a", // Black
-        '#ba6c49' : "#1a1a1a", // Black
-        '#a57257' : "#1a1a1a", // Black
-        '#f0c8c9' : "#ffcc00", // Blond
-        '#dda8a0' : "#ff6600", // Red
-        '#b97c6d' : "#1a1a1a", // Black
-        '#a8756c' : "#1a1a1a", // Black
-        '#ad6452' : "#1a1a1a", // Black
-        '#5c3836' : "#1a1a1a", // Black
-        '#cb8442' : "#1a1a1a", // Black
-        '#bd723c' : "#1a1a1a", // Black
-        '#704139' : "#1a1a1a", // Black
-        '#a3866a' : "#1a1a1a"  // Black
-    };
-    var newHairColor = hairColorDict[skinColor];
-    c.choices['hairColor'] = newHairColor;
-    hash.add({ hairColor: newHairColor });
-}
-
-function rgb2hex(rgb){
- rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
- return (rgb && rgb.length === 4) ? "#" +
-  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
-}
-
 function colorOnHover() {
     var malePath = document.getElementById("path_male");
     var femalePath = document.getElementById("path_female");
@@ -891,6 +780,5 @@ function bodyTypesToLayers(type) {
     layers.push('body_athletic');
     layers.push('body_hand');
   }
-
   return layers;
 }

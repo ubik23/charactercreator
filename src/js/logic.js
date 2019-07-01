@@ -1,47 +1,5 @@
-function isInArray(value, array) {
-    return array.indexOf(value) > -1;
-}
 
-function clearCharacter() {
-    var svgContainer = document.querySelector('#svg1');
-    var toBeRemovedList = document.querySelectorAll('#svg1 > g');
-    var counter = toBeRemovedList.length;
-    while (counter--) {
-      if (toBeRemovedList[counter].id != 'male_silhouette' && toBeRemovedList[counter].id != 'female_silhouette') {
-        svgContainer.removeChild(toBeRemovedList[counter]);
-      }
-    }
-}
-
-function personnageActuelToHash(currentUser) {
-    var personnageActuel = currentUser.cc.personnageActuel;
-    var personnageActuelData;
-    var itemsList;
-    var itemsCounter;
-    var currentCount;
-    var myKey;
-    var myValue;
-    var hashArgs = {};
-
-    if (personnageActuel && personnageActuel !== '') {
-        personnageActuelData = currentUser.cc.personnages[personnageActuel];
-        itemsList = Object.keys(personnageActuelData);
-        itemsListLength = itemsList.length;
-        itemsListCounter = itemsListLength;
-        while (itemsListCounter--) {
-            currentCount = itemsListLength - itemsListCounter - 1;
-            myKey = itemsList[currentCount];
-            myValue = personnageActuelData[itemsList[currentCount]];
-            hashArgs[myKey] = myValue;
-            hash.add(hashArgs);
-        }
-        clearCharacter();
-        interpretHash();
-    } else {
-        return;
-    }
-}
-
+// Change sex of character from male to female or vice versa.
 function trans(sex){
     if (c.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
@@ -56,6 +14,7 @@ function trans(sex){
     buildCharacter(resetForms);
 }
 
+// TODO change setTimeout to promises.
 function buildCharacter(callback) {
     var characterSVG = document.querySelector('#svg1');
     setTimeout(function(){
@@ -130,8 +89,8 @@ function modCharacter(myKey, myValue){
       return;
     }
     // If there, modify the value
-    //if not, add it in, with the value
-    //if the value is '', then delete the key from the object,
+    // if not, add it in, with the value
+    // if the value is '', then delete the key from the object,
     if (myValue != ''){
         c.choices[myKey] = myValue;
     };
@@ -194,12 +153,7 @@ function getOptions (section) {
     }
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 function show(userChoice, category) {
-
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
@@ -281,7 +235,8 @@ function sectionShow(multiLayer, id) {
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
   } else if (id.slice(1) === multiLayer[lyr][0]){
-      // For male template do this
+      // For male template do this.
+      // Necessary because of the introduction of modular body parts.
       if (id.slice(1,5) === "body" & c.sex === 'm') {
         var idList = id.split('_');
         var bodySuffix = idList[idList.length-1];
@@ -338,23 +293,6 @@ function showPupils(pupilShape) {
   }
 }
 
-function changeClipPathOnEyes(id) {
-  var emotion = id.slice(1).split('_')[1];
-  var svgContainer = document.querySelector('#svg1');
-  var eyeRight = svgContainer.querySelector('#eye_right');
-  var eyeLeft = svgContainer.querySelector('#eye_left');
-  if (eyeRight && eyeLeft) {
-    eyeRight.setAttribute('clip-path', 'url(' + id + '--right)');
-    eyeLeft.setAttribute('clip-path', 'url(' + id + '--left)');
-  }
-}
-
-function applyClipPath() {
-  setTimeout(function(){
-    changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },50);
-}
-
 function sectionHide(multiLayer, id) {
   var svgContainer = document.querySelector('#svg1');
   var sectionToHide;
@@ -375,17 +313,4 @@ function sectionHide(multiLayer, id) {
           sectionToHide.style.pointerEvents = 'none';
         }
     };
-}
-
-function resetCharacterTemplate() {
-    var characterSVG = document.querySelector('#svg1');
-    var elements = characterSVG.querySelectorAll('*');
-    var elementsLength = elements.length;
-    var elementsCounter = elementsLength;
-    while (elementsCounter--) {
-        if (elements[elementsCounter].style.opacity !== 0) {
-            elements[elementsCounter].style.opactiy = "0";
-            selements[elementsCounter].style.pointerEvents = 'none';
-        }
-    }
 }

@@ -30,7 +30,7 @@ function colorizeByClass(elClassName, color) {
 }
 
 function colorSkin(color) {
-    // WIP function to collect all the elements that need to be colored
+    // Collect all the elements that need to be colored
     // when the color of the skin is changed by the user.
     colorizeByClass('upperlip', shadeColor(color, -10));
     colorizeByClass('lowerlip', shadeColor(color, 10));
@@ -121,6 +121,7 @@ function getColorPair(colorList, colorListIndex) {
   colorPair.push(strokeColor);
   return colorPair;
 }
+
 function getColorList(newColor) {
   var colorMultiplyer = 10; // Color contrast.
   var colorList = [];

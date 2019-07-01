@@ -156,6 +156,5 @@ function fromEmotionGetLayers(emotion) {
         modElement = faceElements[faceCount] + '_' + emotion;
         facialEpressionLayers.push(modElement);
     }
-
     return facialEpressionLayers;
 };
