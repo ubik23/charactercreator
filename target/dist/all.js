@@ -2010,6 +2010,7 @@ function sectionShow(multiLayer, id) {
   var isMultiLayered = false;
 
   if (id === "#iris_default") {return};
+
   for (lyr in multiLayer){
     if (id.slice(1) === multiLayer[lyr][0]){
       isMultiLayered = true;
@@ -2020,16 +2021,17 @@ function sectionShow(multiLayer, id) {
   if (id.slice(1, 7) === 'pupils'){
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
-  } else if (id.slice(1) === multiLayer[lyr][0]){
+  } else if (id.slice(1,5) === "body"){
+    console.log('else if');
       // For male template do this.
       // Necessary because of the introduction of modular body parts.
-      if (id.slice(1,5) === "body" & c.sex === 'm') {
+      if (c.sex === 'm') {
         var idList = id.split('_');
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
         var bodyLayersCounter;
-        bodyLayers.push('body_hand_right');
-        bodyLayers.push('body_hand_left');
+        // bodyLayers.push('body_hand_right');
+        // bodyLayers.push('body_hand_left');
         bodyLayers.push('body_torso_' + bodySuffix);
         bodyLayers.push('body_arm_right_' + bodySuffix);
         bodyLayers.push('body_arm_left_' + bodySuffix);
@@ -2037,12 +2039,13 @@ function sectionShow(multiLayer, id) {
         bodyLayers.push('body_forearm_left_' + bodySuffix);
         bodyLayers.push('body_leg_right_' + bodySuffix);
         bodyLayers.push('body_leg_left_' + bodySuffix);
-        bodyLayers.push('body_foot_right');
-        bodyLayers.push('body_foot_left');
+        // bodyLayers.push('body_foot_right');
+        // bodyLayers.push('body_foot_left');
 
         bodyLayersCounter = bodyLayers.length;
         while (bodyLayersCounter--) {
           idOf = '#' + bodyLayers[bodyLayersCounter];
+          console.log('show', idOf);
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
@@ -2091,8 +2094,44 @@ function sectionHide(multiLayer, id) {
               sectionToHide.style.pointerEvents = 'none';
             }
         }
-    }
-    else {
+    } else if (id.slice(1,5) === "body"){
+      console.log('else if');
+        // For male template do this.
+        // Necessary because of the introduction of modular body parts.
+        if (c.sex === 'm') {
+          var idList = id.split('_');
+          var bodySuffix = idList[idList.length-1];
+          var bodyLayers = [];
+          var bodyLayersCounter;
+          // bodyLayers.push('body_hand_right');
+          // bodyLayers.push('body_hand_left');
+          bodyLayers.push('body_torso_' + bodySuffix);
+          bodyLayers.push('body_arm_right_' + bodySuffix);
+          bodyLayers.push('body_arm_left_' + bodySuffix);
+          bodyLayers.push('body_forearm_right_' + bodySuffix);
+          bodyLayers.push('body_forearm_left_' + bodySuffix);
+          bodyLayers.push('body_leg_right_' + bodySuffix);
+          bodyLayers.push('body_leg_left_' + bodySuffix);
+          // bodyLayers.push('body_foot_right');
+          // bodyLayers.push('body_foot_left');
+
+          bodyLayersCounter = bodyLayers.length;
+          while (bodyLayersCounter--) {
+            idOf = '#' + bodyLayers[bodyLayersCounter];
+            console.log('show', idOf);
+            svgContainer.querySelector(idOf).style.opacity = 0;
+            svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+          }
+        } else {
+          // if female template do this
+          for (var i = 1;i <= multiLayer[lyr][1]; i++){
+              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+              console.log('idOf', idOf);
+              svgContainer.querySelector(idOf).style.opacity = 0;
+              svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+          }
+        }
+    } else {
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {
           sectionToHide.style.opacity = 0;
