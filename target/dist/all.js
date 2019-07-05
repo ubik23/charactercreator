@@ -1054,8 +1054,8 @@ function closeCredits(evt) {
 
 // Content for Credits located in index.html
 
+
 function download() {
-    console.log('Download');
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = "my_character.svg";
@@ -1270,25 +1270,40 @@ function replaceMultilayer(layersList, section) {
 }
 
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
-  console.log('loadSectionLayers');
-  var emotionLayerList = [];
-  var emotionCounter;
+  console.log('loadSectionLayers', layersList);
+  console.log('section', section);
+  var tempLayerList = [];
+  var layerCounter;
+  layerCounter = layersList.length;
+
   if (section === 'emotion') {
-    emotionCounter = layersList.length;
-    while (emotionCounter--) {
-        emotionLayerList = emotionLayerList.concat(fromEmotionGetLayers(layersList[emotionCounter]));
+
+    while (layerCounter--) {
+        tempLayerList = tempLayerList.concat(fromEmotionGetLayers(layersList[layerCounter]));
     }
-    layersList = emotionLayerList;
+    layersList = tempLayerList;
+
   } else if (section ==='pupils') {
+
     layersList = ['eyeballs_default'];
+
+  } else if (section ==='body') {
+
+    while (layerCounter--) {
+        tempLayerList = tempLayerList.concat(bodyTypesToLayers(layersList[layerCounter]));
+    }
+    layersList = tempLayerList;
+
   } else {
+
     layersList = replaceMultilayer(layersList, section);
+
   }
   loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
-  console.log('loadFilesFromList');
+  console.log('loadFilesFromList', layersList);
   var layerDirectory;
   var sex = c.sex;
   var file;
@@ -3839,7 +3854,10 @@ function populateThumbs(svgObject) {
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
-  thumbObject.style.opacity = 1
+  thumbObject.style.opacity = 1;
+  console.log('layerID', layerID);
+
+  // TODO check if body layer so you can interpret modular body elements and append it to the right thumbnail.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
     groupTotal = parseInt(layerID.slice(-1));
@@ -3867,6 +3885,15 @@ function populateThumbs(svgObject) {
     // if (layerID != 'eyeballs_default') {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
+  } else if (layerID.slice(0, 4) === 'body'){
+    console.log('body!!!', layerID.slice(-5));
+    if (layerID.slice(-5) === 'fault') {
+      document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'letic') {
+      document.querySelector('#content_1 .' + 'body_athletic').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'veiny') {
+      document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
+    }
   } else {
     // TODO Check if we are populating iris or pupils here.
     if (layerID === "eyeball_right") {

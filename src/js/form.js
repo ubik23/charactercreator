@@ -165,25 +165,40 @@ function replaceMultilayer(layersList, section) {
 }
 
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
-  console.log('loadSectionLayers');
-  var emotionLayerList = [];
-  var emotionCounter;
+  console.log('loadSectionLayers', layersList);
+  console.log('section', section);
+  var tempLayerList = [];
+  var layerCounter;
+  layerCounter = layersList.length;
+
   if (section === 'emotion') {
-    emotionCounter = layersList.length;
-    while (emotionCounter--) {
-        emotionLayerList = emotionLayerList.concat(fromEmotionGetLayers(layersList[emotionCounter]));
+
+    while (layerCounter--) {
+        tempLayerList = tempLayerList.concat(fromEmotionGetLayers(layersList[layerCounter]));
     }
-    layersList = emotionLayerList;
+    layersList = tempLayerList;
+
   } else if (section ==='pupils') {
+
     layersList = ['eyeballs_default'];
+
+  } else if (section ==='body') {
+
+    while (layerCounter--) {
+        tempLayerList = tempLayerList.concat(bodyTypesToLayers(layersList[layerCounter]));
+    }
+    layersList = tempLayerList;
+
   } else {
+
     layersList = replaceMultilayer(layersList, section);
+
   }
   loadFilesFromList(layersList, callback, callbackLoopFlag);
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
-  console.log('loadFilesFromList');
+  console.log('loadFilesFromList', layersList);
   var layerDirectory;
   var sex = c.sex;
   var file;

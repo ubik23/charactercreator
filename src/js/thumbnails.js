@@ -63,7 +63,10 @@ function populateThumbs(svgObject) {
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
-  thumbObject.style.opacity = 1
+  thumbObject.style.opacity = 1;
+  console.log('layerID', layerID);
+
+  // TODO check if body layer so you can interpret modular body elements and append it to the right thumbnail.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
     groupTotal = parseInt(layerID.slice(-1));
@@ -91,6 +94,15 @@ function populateThumbs(svgObject) {
     // if (layerID != 'eyeballs_default') {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
+  } else if (layerID.slice(0, 4) === 'body'){
+    console.log('body!!!', layerID.slice(-5));
+    if (layerID.slice(-5) === 'fault') {
+      document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'letic') {
+      document.querySelector('#content_1 .' + 'body_athletic').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'veiny') {
+      document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
+    }
   } else {
     // TODO Check if we are populating iris or pupils here.
     if (layerID === "eyeball_right") {
