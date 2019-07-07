@@ -8,7 +8,6 @@ function openThumbs() {
 }
 
 function openThumbsLogic(_) {
-  console.log('openThumbsLogic');
   var section = _.innerHTML;
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
@@ -22,7 +21,6 @@ function openThumbsLogic(_) {
     previousSelection.classList.remove('section--selected');
   };
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
-  console.log('back from loadSectionLayers');
   showThumbOptions(_);
   _.classList.add('section--selected');
 
@@ -48,7 +46,6 @@ function openThumbsLogic(_) {
 }
 
 function populateThumbs(svgObject) {
-  console.log('populateThumbs', svgObject);
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);
   var layerID = thumbObject.id;
@@ -64,7 +61,6 @@ function populateThumbs(svgObject) {
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
   thumbObject.style.opacity = 1;
-  console.log('layerID', layerID);
 
   // TODO check if body layer so you can interpret modular body elements and append it to the right thumbnail.
   if (layerID.slice(-5, -1) === '_of_') {
@@ -94,8 +90,7 @@ function populateThumbs(svgObject) {
     // if (layerID != 'eyeballs_default') {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
-  } else if (layerID.slice(0, 4) === 'body'){
-    console.log('body!!!', layerID.slice(-5));
+  } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head' ){
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'letic') {
@@ -126,7 +121,6 @@ function populateThumbs(svgObject) {
 }
 
 function showThumbOptions(_) {
-    console.log('showThumbOptions');
     var _ = _.target || _;
     var showOptionThumbs = document.querySelector('.options__'+_.innerHTML.toLowerCase());
     var allOptions  = document.querySelectorAll('.options__container');

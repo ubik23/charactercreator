@@ -218,7 +218,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   // console.log('sectionShow multilayer',multilayer);
-  console.log('sectionShow id', id);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -235,8 +234,7 @@ function sectionShow(multiLayer, id) {
   if (id.slice(1, 7) === 'pupils'){
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
-  } else if (id.slice(1,5) === "body"){
-    console.log('else if');
+  } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
       // For male template do this.
       // Necessary because of the introduction of modular body parts.
       if (c.sex === 'm') {
@@ -259,7 +257,6 @@ function sectionShow(multiLayer, id) {
         bodyLayersCounter = bodyLayers.length;
         while (bodyLayersCounter--) {
           idOf = '#' + bodyLayers[bodyLayersCounter];
-          console.log('show', idOf);
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
@@ -267,7 +264,6 @@ function sectionShow(multiLayer, id) {
         // if female template do this
         for (var i = 1;i <= multiLayer[lyr][1]; i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            console.log('idOf', idOf);
             svgContainer.querySelector(idOf).style.opacity = 1;
             svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
@@ -308,8 +304,8 @@ function sectionHide(multiLayer, id) {
               sectionToHide.style.pointerEvents = 'none';
             }
         }
-    } else if (id.slice(1,5) === "body"){
-      console.log('else if');
+    } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
+
         // For male template do this.
         // Necessary because of the introduction of modular body parts.
         if (c.sex === 'm') {
@@ -332,7 +328,6 @@ function sectionHide(multiLayer, id) {
           bodyLayersCounter = bodyLayers.length;
           while (bodyLayersCounter--) {
             idOf = '#' + bodyLayers[bodyLayersCounter];
-            console.log('show', idOf);
             svgContainer.querySelector(idOf).style.opacity = 0;
             svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }
@@ -340,7 +335,6 @@ function sectionHide(multiLayer, id) {
           // if female template do this
           for (var i = 1;i <= multiLayer[lyr][1]; i++){
               idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-              console.log('idOf', idOf);
               svgContainer.querySelector(idOf).style.opacity = 0;
               svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }

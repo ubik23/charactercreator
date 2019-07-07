@@ -165,8 +165,6 @@ function replaceMultilayer(layersList, section) {
 }
 
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
-  console.log('loadSectionLayers', layersList);
-  console.log('section', section);
   var tempLayerList = [];
   var layerCounter;
   layerCounter = layersList.length;
@@ -198,7 +196,6 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
-  console.log('loadFilesFromList', layersList);
   var layerDirectory;
   var sex = c.sex;
   var file;
@@ -220,7 +217,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
-    console.log('file', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {

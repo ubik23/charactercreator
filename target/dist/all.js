@@ -1270,8 +1270,6 @@ function replaceMultilayer(layersList, section) {
 }
 
 function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
-  console.log('loadSectionLayers', layersList);
-  console.log('section', section);
   var tempLayerList = [];
   var layerCounter;
   layerCounter = layersList.length;
@@ -1303,7 +1301,6 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
 }
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
-  console.log('loadFilesFromList', layersList);
   var layerDirectory;
   var sex = c.sex;
   var file;
@@ -1325,7 +1322,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
-    console.log('file', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -2004,7 +2000,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 
 function sectionShow(multiLayer, id) {
   // console.log('sectionShow multilayer',multilayer);
-  console.log('sectionShow id', id);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -2021,8 +2016,7 @@ function sectionShow(multiLayer, id) {
   if (id.slice(1, 7) === 'pupils'){
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
-  } else if (id.slice(1,5) === "body"){
-    console.log('else if');
+  } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
       // For male template do this.
       // Necessary because of the introduction of modular body parts.
       if (c.sex === 'm') {
@@ -2045,7 +2039,6 @@ function sectionShow(multiLayer, id) {
         bodyLayersCounter = bodyLayers.length;
         while (bodyLayersCounter--) {
           idOf = '#' + bodyLayers[bodyLayersCounter];
-          console.log('show', idOf);
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
@@ -2053,7 +2046,6 @@ function sectionShow(multiLayer, id) {
         // if female template do this
         for (var i = 1;i <= multiLayer[lyr][1]; i++){
             idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            console.log('idOf', idOf);
             svgContainer.querySelector(idOf).style.opacity = 1;
             svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
@@ -2094,8 +2086,8 @@ function sectionHide(multiLayer, id) {
               sectionToHide.style.pointerEvents = 'none';
             }
         }
-    } else if (id.slice(1,5) === "body"){
-      console.log('else if');
+    } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
+
         // For male template do this.
         // Necessary because of the introduction of modular body parts.
         if (c.sex === 'm') {
@@ -2118,7 +2110,6 @@ function sectionHide(multiLayer, id) {
           bodyLayersCounter = bodyLayers.length;
           while (bodyLayersCounter--) {
             idOf = '#' + bodyLayers[bodyLayersCounter];
-            console.log('show', idOf);
             svgContainer.querySelector(idOf).style.opacity = 0;
             svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }
@@ -2126,7 +2117,6 @@ function sectionHide(multiLayer, id) {
           // if female template do this
           for (var i = 1;i <= multiLayer[lyr][1]; i++){
               idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-              console.log('idOf', idOf);
               svgContainer.querySelector(idOf).style.opacity = 0;
               svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }
@@ -3838,7 +3828,6 @@ function openThumbs() {
 }
 
 function openThumbsLogic(_) {
-  console.log('openThumbsLogic');
   var section = _.innerHTML;
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
@@ -3852,7 +3841,6 @@ function openThumbsLogic(_) {
     previousSelection.classList.remove('section--selected');
   };
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
-  console.log('back from loadSectionLayers');
   showThumbOptions(_);
   _.classList.add('section--selected');
 
@@ -3878,7 +3866,6 @@ function openThumbsLogic(_) {
 }
 
 function populateThumbs(svgObject) {
-  console.log('populateThumbs', svgObject);
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion');
   var thumbObject = svgObject.cloneNode(true);
   var layerID = thumbObject.id;
@@ -3894,7 +3881,6 @@ function populateThumbs(svgObject) {
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
   thumbObject.style.opacity = 1;
-  console.log('layerID', layerID);
 
   // TODO check if body layer so you can interpret modular body elements and append it to the right thumbnail.
   if (layerID.slice(-5, -1) === '_of_') {
@@ -3924,8 +3910,7 @@ function populateThumbs(svgObject) {
     // if (layerID != 'eyeballs_default') {
     //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     // }
-  } else if (layerID.slice(0, 4) === 'body'){
-    console.log('body!!!', layerID.slice(-5));
+  } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head' ){
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'letic') {
@@ -3956,7 +3941,6 @@ function populateThumbs(svgObject) {
 }
 
 function showThumbOptions(_) {
-    console.log('showThumbOptions');
     var _ = _.target || _;
     var showOptionThumbs = document.querySelector('.options__'+_.innerHTML.toLowerCase());
     var allOptions  = document.querySelectorAll('.options__container');
