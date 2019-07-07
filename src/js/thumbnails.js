@@ -62,7 +62,6 @@ function populateThumbs(svgObject) {
   var counter = pupilShapeList.length;
   thumbObject.style.opacity = 1;
 
-  // TODO check if body layer so you can interpret modular body elements and append it to the right thumbnail.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
     groupTotal = parseInt(layerID.slice(-1));
@@ -87,9 +86,9 @@ function populateThumbs(svgObject) {
     }
   } else if (emotion) {
     splitArray = layerID.split('_');
-    // if (layerID != 'eyeballs_default') {
-    //     document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
-    // }
+    if (layerID != 'eyeballs_default') {
+        document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
+    }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head' ){
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);

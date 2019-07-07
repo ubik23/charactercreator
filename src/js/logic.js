@@ -184,14 +184,11 @@ function show(userChoice, category) {
             sections.push(newEmo);
         }
     };
-    console.log('multilayer', multiLayer);
     displaySections(sections, options, selectedOption, multiLayer);
 }
 
 function displaySections(sections, options, selectedOption, multiLayer) {
-  console.log('multiLayer', multiLayer);
     for (section in sections){
-      console.log('sections', sections);
         options.forEach(function(d, i){
             var id = '#'+sections[section]+'_'+d;
             if(selectedOption != '' && d === selectedOption){
