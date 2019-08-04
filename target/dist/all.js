@@ -1072,12 +1072,9 @@ function download() {
         filename = currentUser.cc.personnageActuel + ".svg";
     }
     svgNodes = Array.prototype.slice.call(svgRaw);
-    // console.log('svgNodes', svgNodes);
     svgNodes.forEach(function(item){
       if (item.innerHTML != undefined) {
-            // //This removes only useless layers and allows us to o the next test.
-            // console.log('item', item);
-            // console.log('item.innerHTML', item.innerHTML);
+            // This removes only useless layers and allows us to o the next test.
             if (!item.style || !item.style.opacity || item.style.opacity != 0){
                 svgString = item.innerHTML;
                 if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
