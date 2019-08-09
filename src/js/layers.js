@@ -82,3 +82,21 @@ function findNextLayerInDom(item) {
   }
   return nextLayerSibling;
 }
+
+function bodyTypesToLayers(type) {
+  var layers = [];
+
+  layers.push('body_torso_' + type);
+  layers.push('body_leg_left_' + type);
+  layers.push('body_leg_right_' + type);
+  layers.push('body_foot_left');
+  layers.push('body_foot_right');
+  layers.push('body_arm_left_' + type);
+  layers.push('body_arm_right_' + type);
+  layers.push('body_forearm_left_' + type);
+  layers.push('body_forearm_right_' + type);
+  layers.push('body_hand_left');
+  layers.push('body_hand_right');
+
+  return layers;
+}

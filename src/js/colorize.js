@@ -258,51 +258,6 @@ function colorPaths(node, _color, colorDarker){
     }
 }
 
-// TO BE REPLACED BY PREVIOUS FUNCTION.
-function processPaths(optPaths, _color) {
-    for (p in optPaths) {
-        if ( typeof optPaths[p].attr === 'function') {
-            var pathId = optPaths[p].attr("id");
-            if (pathId ===  undefined) {
-                break;
-            };                                ;
-            if (fullId.slice(0,6) === "#mouth" && pathId != "upperlip" && pathId != 'lowerlip' && pathId != "lowerlip-shadow" && pathId != "upperlip-shadow") {
-                continue;
-            };
-            var pathStyle = viewport.select('#'+ pathId).attr("style");
-            if (pathStyle ===  undefined) {
-                break;
-            };                                ;
-            // Parse the style in a json object
-            // Identify if the path is a shape or a shadow
-            // apply newStyle if applicable
-            var styles = pathStyle.split(';'),
-                i= styles.length,
-                json = {style: {}},
-                style, k, v;
-            while (i--){
-                style = styles[i].split(':');
-                if (style == " "||style.length === 1) {continue;};
-                k = style[0].trim();
-                v = style[1].trim();
-                if (k.length > 0 && v.length > 0) {
-                    json.style[k] = v;
-                }
-            }
-            // Query the style to determine if shape or shadow
-            // Change the color
-            var newColor = _color.toString();
-            // json to string
-            var replacement = replacementStyle(json, newColor);
-            viewport.selectAll('#' + pathId).attr({style: replacement});
-            newStroke = shadeColor(newColor, -25);
-            if (json.style["stroke-width"] === undefined){
-                newColor = shadeColor(newColor, -25)
-            }
-        }
-    }
-}
-
 function getAffectedListFromOrig(origList, multiLayer) {
     affectedList=[];
     var match;

@@ -154,6 +154,7 @@ function gotoLoadChar(evt) {
  closeAllOverlays();
 }
 
+// The 'caboose' is the modal at the end of the story.
 function caboose() {
   var overlay = document.querySelector('.js-caboose');
   var closeBtn = overlay.querySelector('.close-btn');
@@ -207,7 +208,6 @@ function clickSelect(ev) {
   // Check to see if the section is already open in sidebarRight
   // If not open, close all sections and open it.
   // Same thing for item thumbnails, if not open, open them.
-
   if (formSection > -1) {
     sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML;
     sectionZoom(sectionLabel);
@@ -587,7 +587,7 @@ function launch() {
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
     var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['body_athletic', 2], ['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_spikes', 2]];
+    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_spikes', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -709,12 +709,15 @@ function colorCutout(newColor){
     var obj = new Array();
     obj['skinColor'] =  newColor;
     var gmenu = document.querySelector(".skin-color__container");
+
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
     defaultPupilShape();
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
+
     setTimeout(function(){
         launch();
     }, 300);
@@ -768,26 +771,4 @@ function selectFemale(event) {
     setTimeout(function(){
         displayPallette();
     }, 350);
-}
-
-function bodyTypesToLayers(type) {
-  var layers = [];
-
-  // if (c.sex === 'm') {
-  layers.push('body_torso_' + type);
-  layers.push('body_leg_left_' + type);
-  layers.push('body_leg_right_' + type);
-  layers.push('body_foot_left');
-  layers.push('body_foot_right');
-  layers.push('body_arm_left_' + type);
-  layers.push('body_arm_right_' + type);
-  layers.push('body_forearm_left_' + type);
-  layers.push('body_forearm_right_' + type);
-  layers.push('body_hand_left');
-  layers.push('body_hand_right');
-  // } else {
-  //   layers.push('body_athletic');
-  //   layers.push('body_hand');
-  // }
-  return layers;
 }
