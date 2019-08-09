@@ -1993,7 +1993,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
-  // console.log('sectionShow multilayer',multilayer);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -2013,7 +2012,7 @@ function sectionShow(multiLayer, id) {
   } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
       // For male template do this.
       // Necessary because of the introduction of modular body parts.
-      if (c.sex === 'm') {
+      // if (c.sex === 'm') {
         var idList = id.split('_');
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
@@ -2036,14 +2035,14 @@ function sectionShow(multiLayer, id) {
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
-      } else {
-        // if female template do this
-        for (var i = 1;i <= multiLayer[lyr][1]; i++){
-            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            svgContainer.querySelector(idOf).style.opacity = 1;
-            svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-        }
-      }
+      // } else {
+      //   // if female template do this
+      //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
+      //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+      //       svgContainer.querySelector(idOf).style.opacity = 1;
+      //       svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+      //   }
+      // }
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
@@ -2057,6 +2056,7 @@ function showPupils(pupilShape) {
   var svg = document.querySelector('#svg1');
   var pupils = svg.querySelectorAll('.pupil');
   var counter = pupils.length;
+
   while (counter--) {
     if (pupils[counter].classList.contains('pupil--' + pupilShape)) {
       pupils[counter].style.opacity = 1;
@@ -2081,10 +2081,9 @@ function sectionHide(multiLayer, id) {
             }
         }
     } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
-
         // For male template do this.
         // Necessary because of the introduction of modular body parts.
-        if (c.sex === 'm') {
+        // if (c.sex === 'm') {
           var idList = id.split('_');
           var bodySuffix = idList[idList.length-1];
           var bodyLayers = [];
@@ -2102,19 +2101,20 @@ function sectionHide(multiLayer, id) {
           // bodyLayers.push('body_foot_left');
 
           bodyLayersCounter = bodyLayers.length;
+
           while (bodyLayersCounter--) {
             idOf = '#' + bodyLayers[bodyLayersCounter];
             svgContainer.querySelector(idOf).style.opacity = 0;
             svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }
-        } else {
-          // if female template do this
-          for (var i = 1;i <= multiLayer[lyr][1]; i++){
-              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-              svgContainer.querySelector(idOf).style.opacity = 0;
-              svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-          }
-        }
+        // } else {
+        //   // if female template do this
+        //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
+        //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+        //       svgContainer.querySelector(idOf).style.opacity = 0;
+        //       svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+        //   }
+        // }
     } else {
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {
@@ -3132,7 +3132,7 @@ function launch() {
       'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
     var femaleForm4 = {
-      'Body': ['athletic'],
+      'Body': [ 'default', 'athletic', 'veiny'],
       'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
       'Nails': ['short', 'long', 'claws'],
       'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
@@ -3167,7 +3167,16 @@ function launch() {
       'shoes_flip-flops_2_of_2',
       'holster_revolver_thigh_2_of_2',
       'bracelet_band_right_2_of_2', 'bracelet_band_left_2_of_2', 'bracelet_ornamental_left_2_of_2', 'bracelet_ornamental_right_2_of_2', 'bracelet_perl_right_2_of_2', 'bracelet_perl_left_2_of_2',
-      'body_athletic',
+      'body_arm_right_athletic', 'body_arm_right_default', 'body_arm_right_veiny',
+      'body_torso_athletic', 'body_torso_default','body_torso_veiny',
+      'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny',
+      'body_foot_right',
+      'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny',
+      'body_foot_left',
+      'body_arm_left_athletic', 'body_arm_left_default', 'body_arm_left_veiny',
+      'body_forearm_left_athletic', 'body_forearm_left_default', 'body_forearm_left_veiny',
+      'body_forearm_right_athletic', 'body_forearm_right_default', 'body_forearm_right_veiny',
+      'body_hand_right',
       'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
       'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
@@ -3216,7 +3225,7 @@ function launch() {
       'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
       'headband_medium_1_of_2',
       'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
-      'body_hand',
+      'body_hand_left',
       'bracelet_perl_left_1_of_2','bracelet_ornamental_left_1_of_2',
       'nails_short_1_of_2','nails_long_1_of_2','nails_claws_1_of_2',
       'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
@@ -3416,22 +3425,22 @@ function selectFemale(event) {
 function bodyTypesToLayers(type) {
   var layers = [];
 
-  if (c.sex === 'm') {
-    layers.push('body_torso_' + type);
-    layers.push('body_leg_left_' + type);
-    layers.push('body_leg_right_' + type);
-    layers.push('body_foot_left');
-    layers.push('body_foot_right');
-    layers.push('body_arm_left_' + type);
-    layers.push('body_arm_right_' + type);
-    layers.push('body_forearm_left_' + type);
-    layers.push('body_forearm_right_' + type);
-    layers.push('body_hand_left');
-    layers.push('body_hand_right');
-  } else {
-    layers.push('body_athletic');
-    layers.push('body_hand');
-  }
+  // if (c.sex === 'm') {
+  layers.push('body_torso_' + type);
+  layers.push('body_leg_left_' + type);
+  layers.push('body_leg_right_' + type);
+  layers.push('body_foot_left');
+  layers.push('body_foot_right');
+  layers.push('body_arm_left_' + type);
+  layers.push('body_arm_right_' + type);
+  layers.push('body_forearm_left_' + type);
+  layers.push('body_forearm_right_' + type);
+  layers.push('body_hand_left');
+  layers.push('body_hand_right');
+  // } else {
+  //   layers.push('body_athletic');
+  //   layers.push('body_hand');
+  // }
   return layers;
 }
 
@@ -4103,6 +4112,7 @@ function getViewBox(t, d) {
         var sectionDict = {
             "age":"261 121 40 40",
             "belt":"175 185 190 190",
+            "body":"65 130 430 430",
             "body_head":"249 107 64 64",
             "bra":"220 160 100 100",
             "bracelet":"316 252 48 48",

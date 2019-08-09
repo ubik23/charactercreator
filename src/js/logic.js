@@ -214,7 +214,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
-  // console.log('sectionShow multilayer',multilayer);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -234,7 +233,7 @@ function sectionShow(multiLayer, id) {
   } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
       // For male template do this.
       // Necessary because of the introduction of modular body parts.
-      if (c.sex === 'm') {
+      // if (c.sex === 'm') {
         var idList = id.split('_');
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
@@ -257,14 +256,14 @@ function sectionShow(multiLayer, id) {
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
-      } else {
-        // if female template do this
-        for (var i = 1;i <= multiLayer[lyr][1]; i++){
-            idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-            svgContainer.querySelector(idOf).style.opacity = 1;
-            svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-        }
-      }
+      // } else {
+      //   // if female template do this
+      //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
+      //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+      //       svgContainer.querySelector(idOf).style.opacity = 1;
+      //       svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+      //   }
+      // }
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
@@ -278,6 +277,7 @@ function showPupils(pupilShape) {
   var svg = document.querySelector('#svg1');
   var pupils = svg.querySelectorAll('.pupil');
   var counter = pupils.length;
+
   while (counter--) {
     if (pupils[counter].classList.contains('pupil--' + pupilShape)) {
       pupils[counter].style.opacity = 1;
@@ -302,10 +302,9 @@ function sectionHide(multiLayer, id) {
             }
         }
     } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
-
         // For male template do this.
         // Necessary because of the introduction of modular body parts.
-        if (c.sex === 'm') {
+        // if (c.sex === 'm') {
           var idList = id.split('_');
           var bodySuffix = idList[idList.length-1];
           var bodyLayers = [];
@@ -323,19 +322,20 @@ function sectionHide(multiLayer, id) {
           // bodyLayers.push('body_foot_left');
 
           bodyLayersCounter = bodyLayers.length;
+
           while (bodyLayersCounter--) {
             idOf = '#' + bodyLayers[bodyLayersCounter];
             svgContainer.querySelector(idOf).style.opacity = 0;
             svgContainer.querySelector(idOf).style.pointerEvents = 'none';
           }
-        } else {
-          // if female template do this
-          for (var i = 1;i <= multiLayer[lyr][1]; i++){
-              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-              svgContainer.querySelector(idOf).style.opacity = 0;
-              svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-          }
-        }
+        // } else {
+        //   // if female template do this
+        //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
+        //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+        //       svgContainer.querySelector(idOf).style.opacity = 0;
+        //       svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+        //   }
+        // }
     } else {
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {

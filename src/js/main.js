@@ -480,7 +480,7 @@ function launch() {
       'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
     var femaleForm4 = {
-      'Body': ['athletic'],
+      'Body': [ 'default', 'athletic', 'veiny'],
       'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
       'Nails': ['short', 'long', 'claws'],
       'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
@@ -515,7 +515,16 @@ function launch() {
       'shoes_flip-flops_2_of_2',
       'holster_revolver_thigh_2_of_2',
       'bracelet_band_right_2_of_2', 'bracelet_band_left_2_of_2', 'bracelet_ornamental_left_2_of_2', 'bracelet_ornamental_right_2_of_2', 'bracelet_perl_right_2_of_2', 'bracelet_perl_left_2_of_2',
-      'body_athletic',
+      'body_arm_right_athletic', 'body_arm_right_default', 'body_arm_right_veiny',
+      'body_torso_athletic', 'body_torso_default','body_torso_veiny',
+      'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny',
+      'body_foot_right',
+      'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny',
+      'body_foot_left',
+      'body_arm_left_athletic', 'body_arm_left_default', 'body_arm_left_veiny',
+      'body_forearm_left_athletic', 'body_forearm_left_default', 'body_forearm_left_veiny',
+      'body_forearm_right_athletic', 'body_forearm_right_default', 'body_forearm_right_veiny',
+      'body_hand_right',
       'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
       'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
@@ -564,7 +573,7 @@ function launch() {
       'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
       'headband_medium_1_of_2',
       'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_waitress','hat_police','hat_cowboy','hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
-      'body_hand',
+      'body_hand_left',
       'bracelet_perl_left_1_of_2','bracelet_ornamental_left_1_of_2',
       'nails_short_1_of_2','nails_long_1_of_2','nails_claws_1_of_2',
       'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
@@ -764,21 +773,21 @@ function selectFemale(event) {
 function bodyTypesToLayers(type) {
   var layers = [];
 
-  if (c.sex === 'm') {
-    layers.push('body_torso_' + type);
-    layers.push('body_leg_left_' + type);
-    layers.push('body_leg_right_' + type);
-    layers.push('body_foot_left');
-    layers.push('body_foot_right');
-    layers.push('body_arm_left_' + type);
-    layers.push('body_arm_right_' + type);
-    layers.push('body_forearm_left_' + type);
-    layers.push('body_forearm_right_' + type);
-    layers.push('body_hand_left');
-    layers.push('body_hand_right');
-  } else {
-    layers.push('body_athletic');
-    layers.push('body_hand');
-  }
+  // if (c.sex === 'm') {
+  layers.push('body_torso_' + type);
+  layers.push('body_leg_left_' + type);
+  layers.push('body_leg_right_' + type);
+  layers.push('body_foot_left');
+  layers.push('body_foot_right');
+  layers.push('body_arm_left_' + type);
+  layers.push('body_arm_right_' + type);
+  layers.push('body_forearm_left_' + type);
+  layers.push('body_forearm_right_' + type);
+  layers.push('body_hand_left');
+  layers.push('body_hand_right');
+  // } else {
+  //   layers.push('body_athletic');
+  //   layers.push('body_hand');
+  // }
   return layers;
 }

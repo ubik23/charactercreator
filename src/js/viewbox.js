@@ -154,6 +154,7 @@ function getViewBox(t, d) {
         var sectionDict = {
             "age":"261 121 40 40",
             "belt":"175 185 190 190",
+            "body":"65 130 430 430",
             "body_head":"249 107 64 64",
             "bra":"220 160 100 100",
             "bracelet":"316 252 48 48",
