@@ -660,6 +660,7 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
+  console.log('colorElement', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
@@ -672,6 +673,7 @@ function colorElement(el) {
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
+  console.log('section', section);
   return el;
 }
 
@@ -1074,6 +1076,7 @@ function createForm(sex, forms){
     sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+ getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
     var formsLength = forms.length;
     var formCounter = formsLength;
+
     for(var x in forms[f]) {
         sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
         var sectionTitle = x;
@@ -1163,10 +1166,6 @@ function getSectionLayersList(section) {
   } else {
     formList = window.femaleFormList;
   }
-
-  // if (section === "body") {
-  //   itemlist =
-  // }
 
   formCounter = formList.length;
   while (formCounter--) {
@@ -1259,21 +1258,31 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
   var layerID;
   var counter;
   var layers;
+
   if (sex === 'm') {
+
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
+
   } else {
+
     layerDirectory = 'layer/female/';
     layers = window.layersFemale;
+
   }
+
   counter = layersList.length;
+
   while (counter--) {
+
     layerID = layersList[counter];
+
     if (layers.indexOf(layerID) === -1) {
       continue
     }
 
     file = layerDirectory + layerID + '.svg';
+    console.log('file', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -1384,11 +1393,13 @@ function showSection(_) {
   var sectionContent = _.nextSibling;
   var maxHeight;
   var displayButton;
+
   if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
       sectionContent = sectionContent.nextSibling;
   }
   maxHeight = sectionContent.clientHeight;
   displayButton = _.querySelector('.accordeon__svg-container');
+
   if (sectionContent.classList.contains('accordeon__content')) {
       if (sectionContent.classList.contains('section--hide')){
       } else {
@@ -1627,6 +1638,7 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
+    console.log('colorThis', fileName);
     var colorThis = false;
     var myLayer = fileName;
     var newColor;
@@ -1725,7 +1737,7 @@ function choicesToLayers(c, multiLayer){
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('body_hand', 'bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
+        selectedLayers.push('bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
     };
     //Make sure the eyeballs are included.
     if (selectedLayers.indexOf('eyeballs_default') < 0) {
@@ -1801,7 +1813,7 @@ function resetForms() {
 function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
-        body : 'athletic', // Or 'default' or 'veiny'.
+        body : 'default', // Or 'default' or 'veiny'.
         eyeballs : 'default',
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
@@ -1810,7 +1822,7 @@ function Character(choices){
         underwearColor : '#f2f2f2', // Or random from a list of fabrics',
     };
     this.choices.emotion = this.choices.emotion || 'neutral';
-    this.choices.body = this.choices.body || 'athletic';
+    this.choices.body = this.choices.body || 'default';
     //this.choices.lips = this.choices.lips || 'default';
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
@@ -1990,8 +2002,6 @@ function sectionShow(multiLayer, id) {
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
         var bodyLayersCounter;
-        // bodyLayers.push('body_hand_right');
-        // bodyLayers.push('body_hand_left');
         bodyLayers.push('body_torso_' + bodySuffix);
         bodyLayers.push('body_arm_right_' + bodySuffix);
         bodyLayers.push('body_arm_left_' + bodySuffix);
@@ -1999,8 +2009,6 @@ function sectionShow(multiLayer, id) {
         bodyLayers.push('body_forearm_left_' + bodySuffix);
         bodyLayers.push('body_leg_right_' + bodySuffix);
         bodyLayers.push('body_leg_left_' + bodySuffix);
-        // bodyLayers.push('body_foot_right');
-        // bodyLayers.push('body_foot_left');
 
         bodyLayersCounter = bodyLayers.length;
         while (bodyLayersCounter--) {
@@ -2008,14 +2016,6 @@ function sectionShow(multiLayer, id) {
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
-      // } else {
-      //   // if female template do this
-      //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
-      //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-      //       svgContainer.querySelector(idOf).style.opacity = 1;
-      //       svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-      //   }
-      // }
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
@@ -2054,40 +2054,24 @@ function sectionHide(multiLayer, id) {
             }
         }
     } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
-        // For male template do this.
-        // Necessary because of the introduction of modular body parts.
-        // if (c.sex === 'm') {
-          var idList = id.split('_');
-          var bodySuffix = idList[idList.length-1];
-          var bodyLayers = [];
-          var bodyLayersCounter;
-          // bodyLayers.push('body_hand_right');
-          // bodyLayers.push('body_hand_left');
-          bodyLayers.push('body_torso_' + bodySuffix);
-          bodyLayers.push('body_arm_right_' + bodySuffix);
-          bodyLayers.push('body_arm_left_' + bodySuffix);
-          bodyLayers.push('body_forearm_right_' + bodySuffix);
-          bodyLayers.push('body_forearm_left_' + bodySuffix);
-          bodyLayers.push('body_leg_right_' + bodySuffix);
-          bodyLayers.push('body_leg_left_' + bodySuffix);
-          // bodyLayers.push('body_foot_right');
-          // bodyLayers.push('body_foot_left');
+        var idList = id.split('_');
+        var bodySuffix = idList[idList.length-1];
+        var bodyLayers = [];
+        var bodyLayersCounter;
+        bodyLayers.push('body_torso_' + bodySuffix);
+        bodyLayers.push('body_arm_right_' + bodySuffix);
+        bodyLayers.push('body_arm_left_' + bodySuffix);
+        bodyLayers.push('body_forearm_right_' + bodySuffix);
+        bodyLayers.push('body_forearm_left_' + bodySuffix);
+        bodyLayers.push('body_leg_right_' + bodySuffix);
+        bodyLayers.push('body_leg_left_' + bodySuffix);
+        bodyLayersCounter = bodyLayers.length;
 
-          bodyLayersCounter = bodyLayers.length;
-
-          while (bodyLayersCounter--) {
-            idOf = '#' + bodyLayers[bodyLayersCounter];
-            svgContainer.querySelector(idOf).style.opacity = 0;
-            svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-          }
-        // } else {
-        //   // if female template do this
-        //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
-        //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-        //       svgContainer.querySelector(idOf).style.opacity = 0;
-        //       svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-        //   }
-        // }
+        while (bodyLayersCounter--) {
+          idOf = '#' + bodyLayers[bodyLayersCounter];
+          svgContainer.querySelector(idOf).style.opacity = 0;
+          svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+        }
     } else {
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {
@@ -3875,7 +3859,6 @@ function populateThumbs(svgObject) {
       document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
     }
   } else {
-    // TODO Check if we are populating iris or pupils here.
     if (layerID === "eyeball_right") {
       openedDrawer = document.querySelector('.selected--option').classList;
       if (openedDrawer.contains('options__iris')) {

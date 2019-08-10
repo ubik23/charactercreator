@@ -36,6 +36,7 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
+    console.log('colorThis', fileName);
     var colorThis = false;
     var myLayer = fileName;
     var newColor;
@@ -134,7 +135,7 @@ function choicesToLayers(c, multiLayer){
     };
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('body_hand', 'bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
+        selectedLayers.push('bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
     };
     //Make sure the eyeballs are included.
     if (selectedLayers.indexOf('eyeballs_default') < 0) {

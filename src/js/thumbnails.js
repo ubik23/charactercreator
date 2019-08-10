@@ -98,7 +98,6 @@ function populateThumbs(svgObject) {
       document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
     }
   } else {
-    // TODO Check if we are populating iris or pupils here.
     if (layerID === "eyeball_right") {
       openedDrawer = document.querySelector('.selected--option').classList;
       if (openedDrawer.contains('options__iris')) {

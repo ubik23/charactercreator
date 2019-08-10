@@ -49,7 +49,7 @@ function resetForms() {
 function Character(choices){
     this.choices = choices || {
         emotion : 'neutral',
-        body : 'athletic', // Or 'default' or 'veiny'.
+        body : 'default', // Or 'default' or 'veiny'.
         eyeballs : 'default',
         skinColor : this.skinTone, //'#ffd5d5', // Or some random skin color from
         hairColor : '#ffe680', // Or random from list of hair colors',
@@ -58,7 +58,7 @@ function Character(choices){
         underwearColor : '#f2f2f2', // Or random from a list of fabrics',
     };
     this.choices.emotion = this.choices.emotion || 'neutral';
-    this.choices.body = this.choices.body || 'athletic';
+    this.choices.body = this.choices.body || 'default';
     //this.choices.lips = this.choices.lips || 'default';
     if (this.skinTone) {
         this.choices.skinColor = this.skinTone;
@@ -238,8 +238,6 @@ function sectionShow(multiLayer, id) {
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
         var bodyLayersCounter;
-        // bodyLayers.push('body_hand_right');
-        // bodyLayers.push('body_hand_left');
         bodyLayers.push('body_torso_' + bodySuffix);
         bodyLayers.push('body_arm_right_' + bodySuffix);
         bodyLayers.push('body_arm_left_' + bodySuffix);
@@ -247,8 +245,6 @@ function sectionShow(multiLayer, id) {
         bodyLayers.push('body_forearm_left_' + bodySuffix);
         bodyLayers.push('body_leg_right_' + bodySuffix);
         bodyLayers.push('body_leg_left_' + bodySuffix);
-        // bodyLayers.push('body_foot_right');
-        // bodyLayers.push('body_foot_left');
 
         bodyLayersCounter = bodyLayers.length;
         while (bodyLayersCounter--) {
@@ -256,14 +252,6 @@ function sectionShow(multiLayer, id) {
           svgContainer.querySelector(idOf).style.opacity = 1;
           svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
         }
-      // } else {
-      //   // if female template do this
-      //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
-      //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-      //       svgContainer.querySelector(idOf).style.opacity = 1;
-      //       svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-      //   }
-      // }
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
@@ -302,40 +290,24 @@ function sectionHide(multiLayer, id) {
             }
         }
     } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
-        // For male template do this.
-        // Necessary because of the introduction of modular body parts.
-        // if (c.sex === 'm') {
-          var idList = id.split('_');
-          var bodySuffix = idList[idList.length-1];
-          var bodyLayers = [];
-          var bodyLayersCounter;
-          // bodyLayers.push('body_hand_right');
-          // bodyLayers.push('body_hand_left');
-          bodyLayers.push('body_torso_' + bodySuffix);
-          bodyLayers.push('body_arm_right_' + bodySuffix);
-          bodyLayers.push('body_arm_left_' + bodySuffix);
-          bodyLayers.push('body_forearm_right_' + bodySuffix);
-          bodyLayers.push('body_forearm_left_' + bodySuffix);
-          bodyLayers.push('body_leg_right_' + bodySuffix);
-          bodyLayers.push('body_leg_left_' + bodySuffix);
-          // bodyLayers.push('body_foot_right');
-          // bodyLayers.push('body_foot_left');
+        var idList = id.split('_');
+        var bodySuffix = idList[idList.length-1];
+        var bodyLayers = [];
+        var bodyLayersCounter;
+        bodyLayers.push('body_torso_' + bodySuffix);
+        bodyLayers.push('body_arm_right_' + bodySuffix);
+        bodyLayers.push('body_arm_left_' + bodySuffix);
+        bodyLayers.push('body_forearm_right_' + bodySuffix);
+        bodyLayers.push('body_forearm_left_' + bodySuffix);
+        bodyLayers.push('body_leg_right_' + bodySuffix);
+        bodyLayers.push('body_leg_left_' + bodySuffix);
+        bodyLayersCounter = bodyLayers.length;
 
-          bodyLayersCounter = bodyLayers.length;
-
-          while (bodyLayersCounter--) {
-            idOf = '#' + bodyLayers[bodyLayersCounter];
-            svgContainer.querySelector(idOf).style.opacity = 0;
-            svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-          }
-        // } else {
-        //   // if female template do this
-        //   for (var i = 1;i <= multiLayer[lyr][1]; i++){
-        //       idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-        //       svgContainer.querySelector(idOf).style.opacity = 0;
-        //       svgContainer.querySelector(idOf).style.pointerEvents = 'none';
-        //   }
-        // }
+        while (bodyLayersCounter--) {
+          idOf = '#' + bodyLayers[bodyLayersCounter];
+          svgContainer.querySelector(idOf).style.opacity = 0;
+          svgContainer.querySelector(idOf).style.pointerEvents = 'none';
+        }
     } else {
         sectionToHide = svgContainer.querySelector(id);
         if (sectionToHide != null) {

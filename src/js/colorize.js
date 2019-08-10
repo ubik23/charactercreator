@@ -37,6 +37,7 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
+  console.log('colorElement', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
@@ -49,6 +50,7 @@ function colorElement(el) {
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
+  console.log('section', section);
   return el;
 }
 

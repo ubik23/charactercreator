@@ -17,6 +17,7 @@ function createForm(sex, forms){
     sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+ getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
     var formsLength = forms.length;
     var formCounter = formsLength;
+
     for(var x in forms[f]) {
         sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x +'</li></a>';
         var sectionTitle = x;
@@ -106,10 +107,6 @@ function getSectionLayersList(section) {
   } else {
     formList = window.femaleFormList;
   }
-
-  // if (section === "body") {
-  //   itemlist =
-  // }
 
   formCounter = formList.length;
   while (formCounter--) {
@@ -202,21 +199,31 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
   var layerID;
   var counter;
   var layers;
+
   if (sex === 'm') {
+
     layerDirectory = 'layer/male/';
     layers = window.layersMale;
+
   } else {
+
     layerDirectory = 'layer/female/';
     layers = window.layersFemale;
+
   }
+
   counter = layersList.length;
+
   while (counter--) {
+
     layerID = layersList[counter];
+
     if (layers.indexOf(layerID) === -1) {
       continue
     }
 
     file = layerDirectory + layerID + '.svg';
+    console.log('file', file);
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -327,11 +334,13 @@ function showSection(_) {
   var sectionContent = _.nextSibling;
   var maxHeight;
   var displayButton;
+
   if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
       sectionContent = sectionContent.nextSibling;
   }
   maxHeight = sectionContent.clientHeight;
   displayButton = _.querySelector('.accordeon__svg-container');
+
   if (sectionContent.classList.contains('accordeon__content')) {
       if (sectionContent.classList.contains('section--hide')){
       } else {
