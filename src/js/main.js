@@ -88,6 +88,7 @@ function removeGroups() {
   var svgContainer = document.querySelector('#svg1');
   var groups = svgContainer.querySelectorAll('#svg1 > g');
   var counter = groups.length;
+
   while (counter--) {
     if (groups[counter].id != 'female_silhouette' && groups[counter].id != 'male_silhouette'){
       svgContainer.removeChild(groups[counter]);
@@ -98,6 +99,7 @@ function removeGroups() {
 function hideMenus() {
   var menus = document.querySelectorAll('.sidebar.visible');
   var counter = menus.length;
+
   while(counter--) {
     menus[counter].classList.remove('visible');
   }
@@ -107,10 +109,12 @@ function fadeOutSVG() {
   var svgContainer = document.querySelector('#svg1');
   var characterShadow = svgContainer.querySelector('.character-shadow.shine');
   var downloadBtn = document.querySelector('#downloadButton.enabled');
+
   if (characterShadow) {
     // Remove shine class.
     characterShadow.classList.remove('shine');
   }
+
   if (downloadBtn) {
     downloadBtn.classList.remove('enabled');
     downloadBtn.removeEventListener('click', download);
@@ -129,6 +133,7 @@ function resetSilhouettes() {
   var maleSilhouette = svgContainer.querySelector('#path_male');
   var femaleSilhouette = svgContainer.querySelector('#path_female');
   var silhouetteRemaining;
+
   if (svgContainer.classList.contains('select-female')) {
     silhouette = svgContainer.querySelector('#female_silhouette');
     silhouetteRemaining = svgContainer.querySelector('#male_silhouette');
@@ -137,12 +142,12 @@ function resetSilhouettes() {
     silhouetteRemaining = svgContainer.querySelector('#female_silhouette');
   }
   svgContainer.classList = '';
-  // var timer = 1000;
-  // svgContainer.style.opacity = 0;
   maleSilhouette.style.fill = defaultColor;
   femaleSilhouette.style.fill = defaultColor;
+
   if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
   if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+
   silhouette.style.opacity = 1;
   silhouetteRemaining.style.opacity = 1;
 }
@@ -158,7 +163,9 @@ function gotoLoadChar(evt) {
 function caboose() {
   var overlay = document.querySelector('.js-caboose');
   var closeBtn = overlay.querySelector('.close-btn');
+
   closeAllOverlays();
+
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
@@ -169,6 +176,7 @@ function layerHighlight(ev) {
   var el = getGroupParent(el);
   var masks = document.querySelectorAll("#contour use");
   var masksLen = masks.length;
+
   if (masks[0].getAttribute("xlink:href") === el.id) {
     return
   } else if (el.id === "svg1") {
@@ -194,6 +202,7 @@ function clickSelect(ev) {
   var prefixIndex;
   var itemButtonList;
   var itemButton;
+
   if (c.sex === undefined) {return}
 
   prefix = fromItemGetPrefix(el.id);
@@ -213,11 +222,13 @@ function clickSelect(ev) {
     sectionZoom(sectionLabel);
     isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide');
     closeSections(sectionList[formSection]);
+
     if (isClosed) {
       showSection(sectionList[formSection]);
     }
     // Get Prefix Index;
     prefixIndex = getSectionButton(formSection, prefix);
+
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
       itemButton = itemButtonList[prefixIndex];
@@ -282,6 +293,7 @@ function fromPrefixGetFormSection(prefix) {
   }
   while (formSection === undefined) {
     counterForm = formList.length;
+
     while (counterForm--) {
       for (key in formList[counterForm]) {
         if (key.toLowerCase() === prefix) {formSection = counterForm}
@@ -294,6 +306,7 @@ function fromPrefixGetFormSection(prefix) {
 
 function startup() {
     var choices;
+
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
         choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
     }
@@ -620,10 +633,9 @@ function launch() {
       'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
     ];
+
     c.sex  = hash.get('sex');
-
     var sex = c.sex;
-
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
@@ -662,6 +674,7 @@ function launch() {
 
 function displayPallette () {
     var hashSkinColor = hash.get("skinColor");
+
     if (hashSkinColor != undefined){
          launch();
     } else {
@@ -672,6 +685,7 @@ function displayPallette () {
 function chooseSkinColor() {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
+
     if (!gmenu.firstChild) {
       for (color in skinTones) {
           var newColor = skinTones[color];
@@ -732,6 +746,7 @@ function selectMale(event) {
     var shadow = document.querySelector('.character-shadow');
     //Remove event listener to female silhouette.
     femaleSilhouette.removeEventListener('click', selectFemale);
+
     if (maleRadioBtn) {
         maleRadioBtn.checked = true;
     }
@@ -740,9 +755,12 @@ function selectMale(event) {
     }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
+
     mainSVG.classList.add('select-male');
     shadow.classList.add('shine');
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
+
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -755,7 +773,9 @@ function selectFemale(event) {
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     var shadow = document.querySelector('.character-shadow');
+
     maleSilhouette.removeEventListener('click', selectMale);
+
     if (femaleRadioBtn) {
         femaleRadioBtn.checked = true;
     }
@@ -767,7 +787,9 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
+
     setTimeout(function(){
         displayPallette();
     }, 350);

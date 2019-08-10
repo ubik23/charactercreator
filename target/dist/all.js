@@ -516,7 +516,6 @@ function saveChar() {
     if (!currentUser) { return }
 
     if (!personnageActuel) {
-      //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
       return;
     }
     if (!currentUser.cc) {
@@ -653,8 +652,6 @@ function colorizeByClass(elClassName, color) {
 }
 
 function colorSkin(color) {
-    // Collect all the elements that need to be colored
-    // when the color of the skin is changed by the user.
     colorizeByClass('upperlip', shadeColor(color, -10));
     colorizeByClass('lowerlip', shadeColor(color, 10));
 }
@@ -667,9 +664,12 @@ function colorElement(el) {
   var newColor;
   var colorPrefix = 'alpha';
   section = processSection(section, item);
+
   if (section === 'eyeballs') {section = 'iris'}
   if (section === 'skin') {colorPrefix = 'skin'}
+
   newColor = c.choices[section+'Color'];
+
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
@@ -690,6 +690,7 @@ function colorElementLoop(el, colorPrefix, newColor) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
@@ -697,27 +698,36 @@ function colorElementLoop(el, colorPrefix, newColor) {
       childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
     }
   }
+
   while (contrastCounter--) {
     childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter]);
     counter = childrenList.length;
+
     if (counter > 0) {
       if (colorContrasts[contrastCounter] === 'light') {colorListIndex = 4;}
       if (colorContrasts[contrastCounter] === 'dark') {colorListIndex = 2;}
+
       colorPair = getColorPair(colorList, colorListIndex);
+
       while (counter--) {
         childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
       }
     }
+
     suffixCounter = colorSuffixes.length;
+
     while (suffixCounter--) {
       childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
       counter = childrenList.length;
+
       if (counter > 0) {
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darkest') {colorListIndex = 0;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darker') {colorListIndex = 1;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lighter') {colorListIndex = 5;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lightest') {colorListIndex = 6;}
+
         colorPair = getColorPair(colorList, colorListIndex);
+
         while (counter--) {
           childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
         }
@@ -738,6 +748,7 @@ function getColorPair(colorList, colorListIndex) {
   var strokeColor;
   var colorPair = [];
   colorPair.push(fillColor);
+
   if (colorListIndex - 2 < 0) {
     strokeColor = colorList[0];
   } else {
@@ -748,6 +759,7 @@ function getColorPair(colorList, colorListIndex) {
 }
 
 function getColorList(newColor) {
+  // TODO Allow user to customize color contrast.
   var colorMultiplyer = 10; // Color contrast.
   var colorList = [];
   colorList.push(shadeColor(newColor, -1 * (3 * colorMultiplyer)));
@@ -1612,18 +1624,26 @@ function onAllLoaded() {
     var hashSex = hash.get('sex');
 
     if (hashSex) {
+
          characterSex = hashSex;
+
     } else {
+
         characterSex = window.sex;
+
     }
 
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
     maleSilhouette.style.opacity = "0";
+
     createForm(characterSex, forms);
+
     sideBarLeft.classList.add('visible');
+
     revealCharacter();
+    
     zoomContainer.classList.add('zoom-container--show');
 }
 
@@ -1638,7 +1658,6 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
-    console.log('colorThis', fileName);
     var colorThis = false;
     var myLayer = fileName;
     var newColor;
@@ -1995,31 +2014,32 @@ function sectionShow(multiLayer, id) {
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
   } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
-      // For male template do this.
-      // Necessary because of the introduction of modular body parts.
-      // if (c.sex === 'm') {
-        var idList = id.split('_');
-        var bodySuffix = idList[idList.length-1];
-        var bodyLayers = [];
-        var bodyLayersCounter;
-        bodyLayers.push('body_torso_' + bodySuffix);
-        bodyLayers.push('body_arm_right_' + bodySuffix);
-        bodyLayers.push('body_arm_left_' + bodySuffix);
-        bodyLayers.push('body_forearm_right_' + bodySuffix);
-        bodyLayers.push('body_forearm_left_' + bodySuffix);
-        bodyLayers.push('body_leg_right_' + bodySuffix);
-        bodyLayers.push('body_leg_left_' + bodySuffix);
+      var idList = id.split('_');
+      var bodySuffix = idList[idList.length-1];
+      var bodyLayers = [];
+      var bodyLayersCounter;
 
-        bodyLayersCounter = bodyLayers.length;
-        while (bodyLayersCounter--) {
-          idOf = '#' + bodyLayers[bodyLayersCounter];
-          svgContainer.querySelector(idOf).style.opacity = 1;
-          svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-        }
+      bodyLayers.push('body_torso_' + bodySuffix);
+      bodyLayers.push('body_arm_right_' + bodySuffix);
+      bodyLayers.push('body_arm_left_' + bodySuffix);
+      bodyLayers.push('body_forearm_right_' + bodySuffix);
+      bodyLayers.push('body_forearm_left_' + bodySuffix);
+      bodyLayers.push('body_leg_right_' + bodySuffix);
+      bodyLayers.push('body_leg_left_' + bodySuffix);
+
+      bodyLayersCounter = bodyLayers.length;
+
+      while (bodyLayersCounter--) {
+        idOf = '#' + bodyLayers[bodyLayersCounter];
+        svgContainer.querySelector(idOf).style.opacity = 1;
+        svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+      }
+
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
   }
+
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);
   }
@@ -2058,6 +2078,7 @@ function sectionHide(multiLayer, id) {
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
         var bodyLayersCounter;
+
         bodyLayers.push('body_torso_' + bodySuffix);
         bodyLayers.push('body_arm_right_' + bodySuffix);
         bodyLayers.push('body_arm_left_' + bodySuffix);
@@ -2065,6 +2086,7 @@ function sectionHide(multiLayer, id) {
         bodyLayers.push('body_forearm_left_' + bodySuffix);
         bodyLayers.push('body_leg_right_' + bodySuffix);
         bodyLayers.push('body_leg_left_' + bodySuffix);
+
         bodyLayersCounter = bodyLayers.length;
 
         while (bodyLayersCounter--) {
@@ -2074,6 +2096,7 @@ function sectionHide(multiLayer, id) {
         }
     } else {
         sectionToHide = svgContainer.querySelector(id);
+
         if (sectionToHide != null) {
           sectionToHide.style.opacity = 0;
           sectionToHide.style.pointerEvents = 'none';
@@ -2697,6 +2720,7 @@ function removeGroups() {
   var svgContainer = document.querySelector('#svg1');
   var groups = svgContainer.querySelectorAll('#svg1 > g');
   var counter = groups.length;
+
   while (counter--) {
     if (groups[counter].id != 'female_silhouette' && groups[counter].id != 'male_silhouette'){
       svgContainer.removeChild(groups[counter]);
@@ -2707,6 +2731,7 @@ function removeGroups() {
 function hideMenus() {
   var menus = document.querySelectorAll('.sidebar.visible');
   var counter = menus.length;
+
   while(counter--) {
     menus[counter].classList.remove('visible');
   }
@@ -2716,10 +2741,12 @@ function fadeOutSVG() {
   var svgContainer = document.querySelector('#svg1');
   var characterShadow = svgContainer.querySelector('.character-shadow.shine');
   var downloadBtn = document.querySelector('#downloadButton.enabled');
+
   if (characterShadow) {
     // Remove shine class.
     characterShadow.classList.remove('shine');
   }
+
   if (downloadBtn) {
     downloadBtn.classList.remove('enabled');
     downloadBtn.removeEventListener('click', download);
@@ -2738,6 +2765,7 @@ function resetSilhouettes() {
   var maleSilhouette = svgContainer.querySelector('#path_male');
   var femaleSilhouette = svgContainer.querySelector('#path_female');
   var silhouetteRemaining;
+
   if (svgContainer.classList.contains('select-female')) {
     silhouette = svgContainer.querySelector('#female_silhouette');
     silhouetteRemaining = svgContainer.querySelector('#male_silhouette');
@@ -2746,12 +2774,12 @@ function resetSilhouettes() {
     silhouetteRemaining = svgContainer.querySelector('#female_silhouette');
   }
   svgContainer.classList = '';
-  // var timer = 1000;
-  // svgContainer.style.opacity = 0;
   maleSilhouette.style.fill = defaultColor;
   femaleSilhouette.style.fill = defaultColor;
+
   if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
   if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
+
   silhouette.style.opacity = 1;
   silhouetteRemaining.style.opacity = 1;
 }
@@ -2767,7 +2795,9 @@ function gotoLoadChar(evt) {
 function caboose() {
   var overlay = document.querySelector('.js-caboose');
   var closeBtn = overlay.querySelector('.close-btn');
+
   closeAllOverlays();
+
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
   closeBtn.addEventListener('click', closeOverlay, false);
@@ -2778,6 +2808,7 @@ function layerHighlight(ev) {
   var el = getGroupParent(el);
   var masks = document.querySelectorAll("#contour use");
   var masksLen = masks.length;
+
   if (masks[0].getAttribute("xlink:href") === el.id) {
     return
   } else if (el.id === "svg1") {
@@ -2803,6 +2834,7 @@ function clickSelect(ev) {
   var prefixIndex;
   var itemButtonList;
   var itemButton;
+
   if (c.sex === undefined) {return}
 
   prefix = fromItemGetPrefix(el.id);
@@ -2822,11 +2854,13 @@ function clickSelect(ev) {
     sectionZoom(sectionLabel);
     isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide');
     closeSections(sectionList[formSection]);
+
     if (isClosed) {
       showSection(sectionList[formSection]);
     }
     // Get Prefix Index;
     prefixIndex = getSectionButton(formSection, prefix);
+
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option');
       itemButton = itemButtonList[prefixIndex];
@@ -2891,6 +2925,7 @@ function fromPrefixGetFormSection(prefix) {
   }
   while (formSection === undefined) {
     counterForm = formList.length;
+
     while (counterForm--) {
       for (key in formList[counterForm]) {
         if (key.toLowerCase() === prefix) {formSection = counterForm}
@@ -2903,6 +2938,7 @@ function fromPrefixGetFormSection(prefix) {
 
 function startup() {
     var choices;
+
     if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
         choices = currentUser.cc.personnages[currentUser.cc.personnageActuel];
     }
@@ -3229,10 +3265,9 @@ function launch() {
       'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
     ];
+
     c.sex  = hash.get('sex');
-
     var sex = c.sex;
-
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
@@ -3271,6 +3306,7 @@ function launch() {
 
 function displayPallette () {
     var hashSkinColor = hash.get("skinColor");
+
     if (hashSkinColor != undefined){
          launch();
     } else {
@@ -3281,6 +3317,7 @@ function displayPallette () {
 function chooseSkinColor() {
     var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
     var gmenu = document.querySelector(".skin-color__container");
+
     if (!gmenu.firstChild) {
       for (color in skinTones) {
           var newColor = skinTones[color];
@@ -3341,6 +3378,7 @@ function selectMale(event) {
     var shadow = document.querySelector('.character-shadow');
     //Remove event listener to female silhouette.
     femaleSilhouette.removeEventListener('click', selectFemale);
+
     if (maleRadioBtn) {
         maleRadioBtn.checked = true;
     }
@@ -3349,9 +3387,12 @@ function selectMale(event) {
     }
     hash.add({ sex: 'm' });
     var malePath = document.getElementById("path_male");
+
     mainSVG.classList.add('select-male');
     shadow.classList.add('shine');
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
+
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -3364,7 +3405,9 @@ function selectFemale(event) {
     var maleSilhouette = document.querySelector("#male_silhouette");
     var femaleSilhouette = document.querySelector("#female_silhouette");
     var shadow = document.querySelector('.character-shadow');
+
     maleSilhouette.removeEventListener('click', selectMale);
+
     if (femaleRadioBtn) {
         femaleRadioBtn.checked = true;
     }
@@ -3376,7 +3419,9 @@ function selectFemale(event) {
     var femalePath = document.getElementById("path_female")
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
+
     setTimeout(function(){
         displayPallette();
     }, 350);
@@ -3583,25 +3628,25 @@ function interpretHash() {
 
 function random(){
     var forms = window.forms;
-        var formLen = forms.length;
-        var formRand = Math.floor((Math.random() * formLen));
-        var count = 0;
-        var randForm = forms[formRand];
-        for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
-        var keys = [];
-        for (var key in forms[formRand]) {
-            if (forms[formRand].hasOwnProperty(key)) {
-                keys.push(key);
-            }
+    var formLen = forms.length;
+    var formRand = Math.floor((Math.random() * formLen));
+    var count = 0;
+    var randForm = forms[formRand];
+    for (k in randForm) if (randForm.hasOwnProperty(k)) count++;
+    var keys = [];
+    for (var key in forms[formRand]) {
+        if (forms[formRand].hasOwnProperty(key)) {
+            keys.push(key);
         }
-        var lenKey = keys.length;
-        var randKey = Math.floor((Math.random() * lenKey));
-        var key = keys[randKey];
-                var myKey = key;
-                var len = forms[formRand][myKey].length;
-                var rand = Math.floor((Math.random() * len));
-                var layer = forms[formRand][myKey][rand].toLowerCase();
-                showRandom(key.toLowerCase(), layer);
+    }
+    var lenKey = keys.length;
+    var randKey = Math.floor((Math.random() * lenKey));
+    var key = keys[randKey];
+    var myKey = key;
+    var len = forms[formRand][myKey].length;
+    var rand = Math.floor((Math.random() * len));
+    var layer = forms[formRand][myKey][rand].toLowerCase();
+    showRandom(key.toLowerCase(), layer);
 }
 
 function showRandom(section, layer){  // Draw the SVG on screen
@@ -3613,7 +3658,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
     var id = '#'+sections[0]+'_'+selectedOption;
     obj[sections[0]] = selectedOption;
     hash.add(obj);
-    
+
     if (sections[0] === 'emotion'){
         modCharacter(sections[0], selectedOption);
         sections = [];//Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
@@ -3623,6 +3668,7 @@ function showRandom(section, layer){  // Draw the SVG on screen
             sections.push(newEmo);
         }
     };
+
     for (section in sections){
         sectionOptions = getOptions(sections[section]);
         var id = '#'+sections[section] + '_' + layer;
@@ -3649,6 +3695,7 @@ function hideCompetition (section) {
     var headPiece = ["hair", "mask", "veil"];
     var topPiece = ["shorts", "pants"];
     var overPiece = ["jacket", "coat"];
+
     if (headPiece.indexOf(section) != -1 ){
         hideArray(headPiece);
     } else if (topPiece.indexOf(section) != -1) {
@@ -3678,52 +3725,55 @@ function showId(id) {
   var showList = [];
   var inMuliLayer = false;
   var svgContainer = document.querySelector('#svg1');
-        ga('send', 'event', 'menu', 'select', id);
-        for (lyr in multiLayer) {
-            if (id.slice(1) == multiLayer[lyr][0]){
-                inMuliLayer = true;
-                for (var i=1;i<=multiLayer[lyr][1];i++) {
-                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    showList.push(idOf.slice(1));
-                }
-            }
-        };
-    if (inMuliLayer === false) {
-      showList.push(id.slice(1));
-    }
-    loadFilesFromList(showList);
+  ga('send', 'event', 'menu', 'select', id);
+
+  for (lyr in multiLayer) {
+      if (id.slice(1) == multiLayer[lyr][0]){
+          inMuliLayer = true;
+          for (var i=1;i<=multiLayer[lyr][1];i++) {
+              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+              showList.push(idOf.slice(1));
+          }
+      }
+  };
+
+  if (inMuliLayer === false) {
+    showList.push(id.slice(1));
+  }
+  loadFilesFromList(showList);
 }
 
 function hideId(id) {
   var svgContainer = document.querySelector('#svg1');
   var layerToHide;
-        for (lyr in multiLayer) {
-            if (id.slice(1) == multiLayer[lyr][0]) {
-                for (var i=1;i<=multiLayer[lyr][1];i++) {
-                    idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
-                    layerToHide = svgContainer.querySelector(idOf);
-                    if (layerToHide != null) {
-                      svgContainer.removeChild(layerToHide);
-                    }
-                }
-            }
-            else {
-                layerToHide = svgContainer.querySelector(id);
-                if (layerToHide != null) {
-                  svgContainer.removeChild(layerToHide);
-                }
-            }
-    };
+
+  for (lyr in multiLayer) {
+      if (id.slice(1) == multiLayer[lyr][0]) {
+          for (var i=1;i<=multiLayer[lyr][1];i++) {
+              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+              layerToHide = svgContainer.querySelector(idOf);
+              if (layerToHide != null) {
+                svgContainer.removeChild(layerToHide);
+              }
+          }
+      }
+      else {
+          layerToHide = svgContainer.querySelector(id);
+          if (layerToHide != null) {
+            svgContainer.removeChild(layerToHide);
+          }
+      }
+  };
 }
 
 function getOptions(section) {
-     var sectionOptions = [];
-     for (form in window.forms) {
-         if ( capitalizeFirstLetter(section) in window.forms[form] ) {
-              return window.forms[form][capitalizeFirstLetter(section)];
-         } else {
-         }
-     }
+   var sectionOptions = [];
+   for (form in window.forms) {
+       if ( capitalizeFirstLetter(section) in window.forms[form] ) {
+            return window.forms[form][capitalizeFirstLetter(section)];
+       } else {
+       }
+   }
 }
 
 

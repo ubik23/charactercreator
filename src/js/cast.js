@@ -61,7 +61,6 @@ function saveChar() {
     if (!currentUser) { return }
 
     if (!personnageActuel) {
-      //if (!personnageActuel) { personnageActuel = window.prompt('Nom du personnage') }
       return;
     }
     if (!currentUser.cc) {

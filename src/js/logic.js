@@ -231,31 +231,32 @@ function sectionShow(multiLayer, id) {
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
   } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
-      // For male template do this.
-      // Necessary because of the introduction of modular body parts.
-      // if (c.sex === 'm') {
-        var idList = id.split('_');
-        var bodySuffix = idList[idList.length-1];
-        var bodyLayers = [];
-        var bodyLayersCounter;
-        bodyLayers.push('body_torso_' + bodySuffix);
-        bodyLayers.push('body_arm_right_' + bodySuffix);
-        bodyLayers.push('body_arm_left_' + bodySuffix);
-        bodyLayers.push('body_forearm_right_' + bodySuffix);
-        bodyLayers.push('body_forearm_left_' + bodySuffix);
-        bodyLayers.push('body_leg_right_' + bodySuffix);
-        bodyLayers.push('body_leg_left_' + bodySuffix);
+      var idList = id.split('_');
+      var bodySuffix = idList[idList.length-1];
+      var bodyLayers = [];
+      var bodyLayersCounter;
 
-        bodyLayersCounter = bodyLayers.length;
-        while (bodyLayersCounter--) {
-          idOf = '#' + bodyLayers[bodyLayersCounter];
-          svgContainer.querySelector(idOf).style.opacity = 1;
-          svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
-        }
+      bodyLayers.push('body_torso_' + bodySuffix);
+      bodyLayers.push('body_arm_right_' + bodySuffix);
+      bodyLayers.push('body_arm_left_' + bodySuffix);
+      bodyLayers.push('body_forearm_right_' + bodySuffix);
+      bodyLayers.push('body_forearm_left_' + bodySuffix);
+      bodyLayers.push('body_leg_right_' + bodySuffix);
+      bodyLayers.push('body_leg_left_' + bodySuffix);
+
+      bodyLayersCounter = bodyLayers.length;
+
+      while (bodyLayersCounter--) {
+        idOf = '#' + bodyLayers[bodyLayersCounter];
+        svgContainer.querySelector(idOf).style.opacity = 1;
+        svgContainer.querySelector(idOf).style.pointerEvents = 'auto';
+      }
+
   } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
   }
+
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);
   }
@@ -294,6 +295,7 @@ function sectionHide(multiLayer, id) {
         var bodySuffix = idList[idList.length-1];
         var bodyLayers = [];
         var bodyLayersCounter;
+
         bodyLayers.push('body_torso_' + bodySuffix);
         bodyLayers.push('body_arm_right_' + bodySuffix);
         bodyLayers.push('body_arm_left_' + bodySuffix);
@@ -301,6 +303,7 @@ function sectionHide(multiLayer, id) {
         bodyLayers.push('body_forearm_left_' + bodySuffix);
         bodyLayers.push('body_leg_right_' + bodySuffix);
         bodyLayers.push('body_leg_left_' + bodySuffix);
+
         bodyLayersCounter = bodyLayers.length;
 
         while (bodyLayersCounter--) {
@@ -310,6 +313,7 @@ function sectionHide(multiLayer, id) {
         }
     } else {
         sectionToHide = svgContainer.querySelector(id);
+
         if (sectionToHide != null) {
           sectionToHide.style.opacity = 0;
           sectionToHide.style.pointerEvents = 'none';

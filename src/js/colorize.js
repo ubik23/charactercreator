@@ -30,8 +30,6 @@ function colorizeByClass(elClassName, color) {
 }
 
 function colorSkin(color) {
-    // Collect all the elements that need to be colored
-    // when the color of the skin is changed by the user.
     colorizeByClass('upperlip', shadeColor(color, -10));
     colorizeByClass('lowerlip', shadeColor(color, 10));
 }
@@ -44,9 +42,12 @@ function colorElement(el) {
   var newColor;
   var colorPrefix = 'alpha';
   section = processSection(section, item);
+
   if (section === 'eyeballs') {section = 'iris'}
   if (section === 'skin') {colorPrefix = 'skin'}
+
   newColor = c.choices[section+'Color'];
+
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor);
   }
@@ -67,6 +68,7 @@ function colorElementLoop(el, colorPrefix, newColor) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+
   if (counter > 0) {
     colorListIndex = 3;
     colorPair = getColorPair(colorList, colorListIndex);
@@ -74,27 +76,36 @@ function colorElementLoop(el, colorPrefix, newColor) {
       childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
     }
   }
+
   while (contrastCounter--) {
     childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter]);
     counter = childrenList.length;
+
     if (counter > 0) {
       if (colorContrasts[contrastCounter] === 'light') {colorListIndex = 4;}
       if (colorContrasts[contrastCounter] === 'dark') {colorListIndex = 2;}
+
       colorPair = getColorPair(colorList, colorListIndex);
+
       while (counter--) {
         childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
       }
     }
+
     suffixCounter = colorSuffixes.length;
+
     while (suffixCounter--) {
       childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter] + colorSuffixes[suffixCounter]);
       counter = childrenList.length;
+
       if (counter > 0) {
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darkest') {colorListIndex = 0;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'darker') {colorListIndex = 1;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lighter') {colorListIndex = 5;}
         if (colorContrasts[contrastCounter] + colorSuffixes[suffixCounter] === 'lightest') {colorListIndex = 6;}
+
         colorPair = getColorPair(colorList, colorListIndex);
+
         while (counter--) {
           childrenList[counter] = applyColorToChild(childrenList[counter], colorPair);
         }
@@ -115,6 +126,7 @@ function getColorPair(colorList, colorListIndex) {
   var strokeColor;
   var colorPair = [];
   colorPair.push(fillColor);
+
   if (colorListIndex - 2 < 0) {
     strokeColor = colorList[0];
   } else {
@@ -125,6 +137,7 @@ function getColorPair(colorList, colorListIndex) {
 }
 
 function getColorList(newColor) {
+  // TODO Allow user to customize color contrast.
   var colorMultiplyer = 10; // Color contrast.
   var colorList = [];
   colorList.push(shadeColor(newColor, -1 * (3 * colorMultiplyer)));

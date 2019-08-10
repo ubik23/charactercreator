@@ -10,18 +10,26 @@ function onAllLoaded() {
     var hashSex = hash.get('sex');
 
     if (hashSex) {
+
          characterSex = hashSex;
+
     } else {
+
         characterSex = window.sex;
+
     }
 
     downloadBtn.addEventListener("click", download, false);
     downloadBtn.classList.add('enabled');
     femaleSilhouette.style.opacity = "0";
     maleSilhouette.style.opacity = "0";
+
     createForm(characterSex, forms);
+
     sideBarLeft.classList.add('visible');
+
     revealCharacter();
+    
     zoomContainer.classList.add('zoom-container--show');
 }
 
@@ -36,7 +44,6 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
-    console.log('colorThis', fileName);
     var colorThis = false;
     var myLayer = fileName;
     var newColor;
