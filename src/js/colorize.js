@@ -171,6 +171,7 @@ function colorize(formId, _color){
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
+
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
@@ -221,6 +222,7 @@ function colorize(formId, _color){
                 obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
+
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     var alphaNodes = document.querySelectorAll(fullId + " ." + classPrefix);
@@ -237,6 +239,7 @@ function colorize(formId, _color){
                     var alphaDarkNodesCounter = alphaDarkNodes.length;
                     var alphaDarkerNodesCounter = alphaDarkerNodes.length;
                     var alphaDarkestNodesCounter = alphaDarkestNodes.length;
+
                     while (alphaNodesCounter--){
                         colorPaths(alphaNodes[alphaNodesCounter], _color, colorDarker);
                     }
@@ -299,6 +302,7 @@ function replacementStyle(json, newColor) {
     var replacement = '';
     for (n in Object.keys(newStyle)){
         var currentKey = Object.keys(newStyle)[n]
+        
         if (currentKey === 'fill'){
             if (newStyle[currentKey] != 'none'){
                 if (json.style["stroke-width"] === undefined){

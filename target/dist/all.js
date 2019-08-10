@@ -512,18 +512,16 @@ function saveChar() {
     var saveBtn = document.querySelector('.save-btn');
     saveBtn.classList.remove('save--enabled');
     var personnageActuel = currentUser.cc.personnageActuel;
+
     if (!myUsername || !currentUser) { return }
     if (!currentUser) { return }
-
-    if (!personnageActuel) {
-      return;
-    }
-    if (!currentUser.cc) {
-      currentUser.cc = {};
-    }
+    if (!personnageActuel) {return;}
+    if (!currentUser.cc) {currentUser.cc = {}}
     if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
     if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+
     currentUser.cc.personnages[personnageActuel] = window.hash.get();
+
     Object.assign(currentUser.cc.personnages, personnages)
 
     updateDbUser(currentUser)
@@ -793,6 +791,7 @@ function colorize(formId, _color){
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
+
         for(var x in form){
             // is x = to id?
             // if so, cycle through each element
@@ -843,6 +842,7 @@ function colorize(formId, _color){
                 obj[myKey] =  myValue;
                 hash.add(obj);
                 modCharacter(myKey, myValue);
+
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
                     var alphaNodes = document.querySelectorAll(fullId + " ." + classPrefix);
@@ -859,6 +859,7 @@ function colorize(formId, _color){
                     var alphaDarkNodesCounter = alphaDarkNodes.length;
                     var alphaDarkerNodesCounter = alphaDarkerNodes.length;
                     var alphaDarkestNodesCounter = alphaDarkestNodes.length;
+
                     while (alphaNodesCounter--){
                         colorPaths(alphaNodes[alphaNodesCounter], _color, colorDarker);
                     }
@@ -921,6 +922,7 @@ function replacementStyle(json, newColor) {
     var replacement = '';
     for (n in Object.keys(newStyle)){
         var currentKey = Object.keys(newStyle)[n]
+        
         if (currentKey === 'fill'){
             if (newStyle[currentKey] != 'none'){
                 if (json.style["stroke-width"] === undefined){
@@ -998,14 +1000,19 @@ function clearPicker() {
 
 
 function rollCredits(evt) {
+
   if (evt) {
       evt.preventDefault()
   }
+
   var overlay = document.querySelector('.js-credits');
   var closeBtn = overlay.querySelector('.close-btn');
+
   closeAllOverlays();
+
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeCredits, true);
+
   setTimeout(function(){closeAllOverlays()},52000);
 }
 
@@ -1013,6 +1020,7 @@ function closeCredits(evt) {
     var overlay = document.querySelector('.js-credits');
     var target = evt.target;
     var credits;
+    
     if (target === overlay) {
       credits = document.querySelector('.overlay--show');
       if (credits) {
@@ -1040,7 +1048,9 @@ function download() {
     if (currentUser && currentUser.cc.personnageActuel !== ''){
         filename = currentUser.cc.personnageActuel + ".svg";
     }
+
     svgNodes = Array.prototype.slice.call(svgRaw);
+
     svgNodes.forEach(function(item){
       if (item.innerHTML != undefined) {
             // This removes only useless layers and allows us to o the next test.
@@ -1054,15 +1064,18 @@ function download() {
             };
       }
     });
+
     text += '</svg>';
     pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
+
     if (document.createEvent) {
         event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
         pom.dispatchEvent(event);
     }
+
     else {
         pom.click();
     }
@@ -1070,22 +1083,25 @@ function download() {
 }
 
 function createForm(sex, forms){
-  // TODO Check to see if there is already an existing form for the sex of the new character.
-  // If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
   var svgContent = '';
   var itemsThumbsContent = document.querySelector('#content_1');
+
   itemsThumbsContent.innerHTML = '';
+
   var sex = sex || window.sex;
   var forms = forms || window.forms;
   var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
   var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
+
   sectionHtml += '<ul class="section__list">';
 
   for (var f in forms) {
     var formContainer = document.querySelector('#content_1');
     var newHtml = '';
     var selcount = 0;
+
     sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+ getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
+
     var formsLength = forms.length;
     var formCounter = formsLength;
 
@@ -1099,6 +1115,7 @@ function createForm(sex, forms){
             var tempId ='#' + t + '_' + d;
             var multiLayer = window.multiLayer;
             var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+
             if (t === "emotion") {
                 var sections = [];
                 var emotions = GetEmotionGetLayers(d);
@@ -1107,17 +1124,23 @@ function createForm(sex, forms){
                     sections.push(newEmo);
                 };
             }
+
             var viewBox = getViewBox(t, d);
+
             if (d === '') {svgContent = '<use xlink:href="#icon-none"></use>';} else {svgContent = '';}
             newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+
             var defaultValue = hash.get(x);
+
             if (defaultValue !== undefined) {
                 var defval = 'selected="' + defaultValue + '" ';
             } else {
                 var defval = '';
             }
+
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
+
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
             }
@@ -1136,9 +1159,11 @@ function createForm(sex, forms){
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
     var sectionList = document.createElement('div');
+
     sectionList.innerHTML = sectionHtml;
     sectionContainer.innerHTML = '';
     sectionContainer.appendChild(sectionList);
+
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
@@ -1154,6 +1179,7 @@ function createForm(sex, forms){
 
 function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     var sections = [];
+
     for (lyr in multiLayer) {
         if (tempId.slice(1) === multiLayer[lyr][0]) {
             for (var i=1;i<=multiLayer[lyr][1];i++) {
@@ -1173,6 +1199,7 @@ function getSectionLayersList(section) {
   var formList;
   var formCounter;
   var itemList;
+
   if (sex === "m") {
     formList = window.maleFormList;
   } else {
@@ -1197,6 +1224,7 @@ function replaceMultilayer(layersList, section) {
   var currentQty;
   var currentIndex;
   var qtyCounter;
+
   if (sex === 'm') {
     multilayer = window.multiLayerMale;
   } else {
@@ -1217,6 +1245,7 @@ function replaceMultilayer(layersList, section) {
     }
   }
   multiCounter = multiLayer.length;
+
   while (multiCounter--) {
     currentItem = multilayer[multiCounter][0];
     if (isInArray(currentItem, fullList)) {
@@ -1294,7 +1323,9 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
+
     console.log('file', file);
+
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -1308,12 +1339,14 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
+
         if (callbackLoopFlag) {
           svgObject.style.opacity = 0;
           svgObject.style.pointerEvents = 'none';
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+
         if (layerID === 'eyeballs_default') {
           pupilShape = getPupilShape();
           svgObject = showPupilObject(svgObject, pupilShape);
@@ -1364,11 +1397,14 @@ function closeSections(exception) {
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     var displayButtons = document.querySelectorAll('.accordeon__svg-container');
     var i = sectionButtons.length;
+
     while (i--){
         var section = sectionButtons[i];
+
         if (section !== exception && section.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
             var button = displayButtons[i];
             var sectionContent = section.nextSibling;
+
             if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
                 sectionContent = sectionContent.nextSibling;
             }
@@ -1387,13 +1423,15 @@ function toggleSection(ev) {
   var sectionLabel;
   var elChild;
   var parent = getParent(el, '.accordeon__section-label');
-
   elChild = parent.querySelector('.accordeon__section-title__text');
+
   if (elChild != null) {
     sectionLabel = elChild.innerHTML;
     sectionZoom(sectionLabel);
   }
+
   var _ = this;
+
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
        closeSections(_);
   };
@@ -3823,14 +3861,17 @@ function openThumbsLogic(_) {
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
+
   if (sectionLowerCase === "iris" || sectionLowerCase === "pupils") {
     sectionLowerCase = "eyeballs";
     layersList = ['default'];
   }
+
   if (previousSelection != null) {
     purgeHiddenLayers();
     previousSelection.classList.remove('section--selected');
   };
+
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
   showThumbOptions(_);
   _.classList.add('section--selected');
@@ -3839,16 +3880,20 @@ function openThumbsLogic(_) {
   var thumbSectionBtn = thumbSection.previousSibling;
   var sidebarLeft = document.querySelector('#sidebar-left');
   var sidebarRight = document.querySelector('.sidebar-right');
+
   if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
       thumbSectionBtn = thumbSectionBtn.previousSibling;
   }
   thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
+
   if (thumbSectionBtn.classList.contains('section-btn--hide')) {
       thumbSectionBtn.classList.toggle('section-btn--hide');
   }
+
   if (thumbSection.classList.contains('section--hide')) {
       thumbSection.classList.toggle('section--hide');
   }
+
   if (sidebarLeft.classList.contains('cherry')) {
        sidebarLeft.classList.remove("cherry");
        sidebarRight.classList.add("visible");
@@ -4278,18 +4323,21 @@ function animateZoom(newViewBox) {
   var widthNew;
   var heightNew;
   var animateViewBox;
+
   function repeatOften() {
     currentTime = Date.now();
     timeElapsed = currentTime - startTime;
     multiplyer = timeElapsed / animationDuration;
+
     if (multiplyer > 1) {multiplyer = 1};
-    // Do whatever
     xNew = xOld + (xDiff * multiplyer);
     yNew = yOld + (yDiff * multiplyer);
     widthNew = widthOld + (widthDiff * multiplyer);
     heightNew = heightOld + (heightDiff * multiplyer);
     animateViewBox = xNew + ' ' + yNew + ' ' + widthNew + ' ' + heightNew;
+    
     characterSVG.setAttribute("viewBox", animateViewBox);
+
     if (timeElapsed >= animationDuration) {
       cancelAnimationFrame(globalID);
       return;

@@ -121,18 +121,21 @@ function animateZoom(newViewBox) {
   var widthNew;
   var heightNew;
   var animateViewBox;
+
   function repeatOften() {
     currentTime = Date.now();
     timeElapsed = currentTime - startTime;
     multiplyer = timeElapsed / animationDuration;
+
     if (multiplyer > 1) {multiplyer = 1};
-    // Do whatever
     xNew = xOld + (xDiff * multiplyer);
     yNew = yOld + (yDiff * multiplyer);
     widthNew = widthOld + (widthDiff * multiplyer);
     heightNew = heightOld + (heightDiff * multiplyer);
     animateViewBox = xNew + ' ' + yNew + ' ' + widthNew + ' ' + heightNew;
+    
     characterSVG.setAttribute("viewBox", animateViewBox);
+
     if (timeElapsed >= animationDuration) {
       cancelAnimationFrame(globalID);
       return;

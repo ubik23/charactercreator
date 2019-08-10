@@ -57,18 +57,16 @@ function saveChar() {
     var saveBtn = document.querySelector('.save-btn');
     saveBtn.classList.remove('save--enabled');
     var personnageActuel = currentUser.cc.personnageActuel;
+
     if (!myUsername || !currentUser) { return }
     if (!currentUser) { return }
-
-    if (!personnageActuel) {
-      return;
-    }
-    if (!currentUser.cc) {
-      currentUser.cc = {};
-    }
+    if (!personnageActuel) {return;}
+    if (!currentUser.cc) {currentUser.cc = {}}
     if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
     if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+
     currentUser.cc.personnages[personnageActuel] = window.hash.get();
+
     Object.assign(currentUser.cc.personnages, personnages)
 
     updateDbUser(currentUser)

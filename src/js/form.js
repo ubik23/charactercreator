@@ -1,20 +1,23 @@
 function createForm(sex, forms){
-  // TODO Check to see if there is already an existing form for the sex of the new character.
-  // If not, check to see if there is an existing form of the opposite sex and remove it before creating another.
   var svgContent = '';
   var itemsThumbsContent = document.querySelector('#content_1');
+
   itemsThumbsContent.innerHTML = '';
+
   var sex = sex || window.sex;
   var forms = forms || window.forms;
   var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
   var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
+
   sectionHtml += '<ul class="section__list">';
 
   for (var f in forms) {
     var formContainer = document.querySelector('#content_1');
     var newHtml = '';
     var selcount = 0;
+
     sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#'+ getIconId(sectionNames[f], sex)+'"></use></svg><span class="accordeon__section-title__text">'+sectionNames[f]+'</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">';
+
     var formsLength = forms.length;
     var formCounter = formsLength;
 
@@ -28,6 +31,7 @@ function createForm(sex, forms){
             var tempId ='#' + t + '_' + d;
             var multiLayer = window.multiLayer;
             var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+
             if (t === "emotion") {
                 var sections = [];
                 var emotions = GetEmotionGetLayers(d);
@@ -36,17 +40,23 @@ function createForm(sex, forms){
                     sections.push(newEmo);
                 };
             }
+
             var viewBox = getViewBox(t, d);
+
             if (d === '') {svgContent = '<use xlink:href="#icon-none"></use>';} else {svgContent = '';}
             newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
+
             var defaultValue = hash.get(x);
+
             if (defaultValue !== undefined) {
                 var defval = 'selected="' + defaultValue + '" ';
             } else {
                 var defval = '';
             }
+
             htagc = x.toLowerCase() + 'Color';
             var hashColor = hash.get(htagc);
+
             if (hashColor !== undefined) {
                 var colorValue = hashColor;
             }
@@ -65,9 +75,11 @@ function createForm(sex, forms){
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
     var sectionList = document.createElement('div');
+
     sectionList.innerHTML = sectionHtml;
     sectionContainer.innerHTML = '';
     sectionContainer.appendChild(sectionList);
+
     var sidebarLeftOptions  = document.querySelectorAll('.sbl__option');
     var optionThumbnails  = document.querySelectorAll('.option__container');
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
@@ -83,6 +95,7 @@ function createForm(sex, forms){
 
 function getSectionsFromIdMultiLayer(multiLayer, tempId) {
     var sections = [];
+
     for (lyr in multiLayer) {
         if (tempId.slice(1) === multiLayer[lyr][0]) {
             for (var i=1;i<=multiLayer[lyr][1];i++) {
@@ -102,6 +115,7 @@ function getSectionLayersList(section) {
   var formList;
   var formCounter;
   var itemList;
+
   if (sex === "m") {
     formList = window.maleFormList;
   } else {
@@ -126,6 +140,7 @@ function replaceMultilayer(layersList, section) {
   var currentQty;
   var currentIndex;
   var qtyCounter;
+
   if (sex === 'm') {
     multilayer = window.multiLayerMale;
   } else {
@@ -146,6 +161,7 @@ function replaceMultilayer(layersList, section) {
     }
   }
   multiCounter = multiLayer.length;
+
   while (multiCounter--) {
     currentItem = multilayer[multiCounter][0];
     if (isInArray(currentItem, fullList)) {
@@ -223,7 +239,9 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
+
     console.log('file', file);
+
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -237,12 +255,14 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
+
         if (callbackLoopFlag) {
           svgObject.style.opacity = 0;
           svgObject.style.pointerEvents = 'none';
         }
         svgObject = colorElement(svgObject);
         layerID = svgObject.id;
+
         if (layerID === 'eyeballs_default') {
           pupilShape = getPupilShape();
           svgObject = showPupilObject(svgObject, pupilShape);
@@ -293,11 +313,14 @@ function closeSections(exception) {
     var sectionButtons  = document.querySelectorAll('.accordeon__section-label');
     var displayButtons = document.querySelectorAll('.accordeon__svg-container');
     var i = sectionButtons.length;
+
     while (i--){
         var section = sectionButtons[i];
+
         if (section !== exception && section.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
             var button = displayButtons[i];
             var sectionContent = section.nextSibling;
+
             if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined){
                 sectionContent = sectionContent.nextSibling;
             }
@@ -316,13 +339,15 @@ function toggleSection(ev) {
   var sectionLabel;
   var elChild;
   var parent = getParent(el, '.accordeon__section-label');
-
   elChild = parent.querySelector('.accordeon__section-title__text');
+
   if (elChild != null) {
     sectionLabel = elChild.innerHTML;
     sectionZoom(sectionLabel);
   }
+
   var _ = this;
+
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')){
        closeSections(_);
   };

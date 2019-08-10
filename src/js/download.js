@@ -15,7 +15,9 @@ function download() {
     if (currentUser && currentUser.cc.personnageActuel !== ''){
         filename = currentUser.cc.personnageActuel + ".svg";
     }
+
     svgNodes = Array.prototype.slice.call(svgRaw);
+
     svgNodes.forEach(function(item){
       if (item.innerHTML != undefined) {
             // This removes only useless layers and allows us to o the next test.
@@ -29,15 +31,18 @@ function download() {
             };
       }
     });
+
     text += '</svg>';
     pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
+
     if (document.createEvent) {
         event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
         pom.dispatchEvent(event);
     }
+
     else {
         pom.click();
     }

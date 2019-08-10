@@ -12,14 +12,17 @@ function openThumbsLogic(_) {
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
+
   if (sectionLowerCase === "iris" || sectionLowerCase === "pupils") {
     sectionLowerCase = "eyeballs";
     layersList = ['default'];
   }
+
   if (previousSelection != null) {
     purgeHiddenLayers();
     previousSelection.classList.remove('section--selected');
   };
+
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true);
   showThumbOptions(_);
   _.classList.add('section--selected');
@@ -28,16 +31,20 @@ function openThumbsLogic(_) {
   var thumbSectionBtn = thumbSection.previousSibling;
   var sidebarLeft = document.querySelector('#sidebar-left');
   var sidebarRight = document.querySelector('.sidebar-right');
+
   if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
       thumbSectionBtn = thumbSectionBtn.previousSibling;
   }
   thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container');
+
   if (thumbSectionBtn.classList.contains('section-btn--hide')) {
       thumbSectionBtn.classList.toggle('section-btn--hide');
   }
+
   if (thumbSection.classList.contains('section--hide')) {
       thumbSection.classList.toggle('section--hide');
   }
+
   if (sidebarLeft.classList.contains('cherry')) {
        sidebarLeft.classList.remove("cherry");
        sidebarRight.classList.add("visible");
