@@ -2035,23 +2035,26 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
+  console.log('multiLayer', multiLayer);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
 
   if (id === "#iris_default") {return};
 
-  for (lyr in multiLayer){
+  for (lyr in multiLayer) {
     if (id.slice(1) === multiLayer[lyr][0]){
       isMultiLayered = true;
+      console.log('isMultiLayered', isMultiLayered);
       break;
     }
   }
 
-  if (id.slice(1, 7) === 'pupils'){
+  if (id.slice(1, 7) === 'pupils') {
     pupilShape = id.slice(1).split('_')[1];
     showPupils(pupilShape);
-  } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head'){
+
+  } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head') {
       var idList = id.split('_');
       var bodySuffix = idList[idList.length-1];
       var bodyLayers = [];
@@ -2074,8 +2077,21 @@ function sectionShow(multiLayer, id) {
       }
 
   } else {
+    console.log('id', id);
+    if (isMultiLayered) {
+      for (var i=1;i<=multiLayer[lyr][1];i++) {
+          idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
+          sectionToHide = svgContainer.querySelector(idOf);
+          if (sectionToHide != null) {
+            sectionToHide.style.opacity = 1;
+            sectionToHide.style.pointerEvents = 'auto';
+          }
+      }
+    } else {
       svgContainer.querySelector(id).style.opacity = 1;
       svgContainer.querySelector(id).style.pointerEvents = 'auto';
+    }
+
   }
 
   if (id.slice(1).split('_')[0] === 'eyes') {
