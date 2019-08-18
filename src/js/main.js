@@ -345,7 +345,7 @@ function launch() {
       'Tie': ['', 'neck', 'bolo', 'bow'],
       'Vest': ['', 'vest', 'lined', 'yellow'],
       'Holster' : ['', 'revolver_chest', 'revolver_hip'],
-      'Shoulderpads' : ['', 'artillery', 'general', 'spikes'],
+      'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
       'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
     };
     var maleForm4 = {
@@ -421,7 +421,7 @@ function launch() {
       'cloak_default_2_of_4',
       'shoulderpads_general',
       'coat_trench_1_of_4',
-      'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2',
+      'shoulderpads_artillery', 'shoulderpads_plated_1_of_2', 'shoulderpads_plated_2_of_2', 'shoulderpads_spikes_1_of_2',
       'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
       'hair_down_2_of_3',
       'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
@@ -489,7 +489,7 @@ function launch() {
       'Necklace' : ['', 'perl', 'princess', 'squared-circle'],
       'Bra': ['', 'bow', 'grid', 'sports'],
       'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
-      'Shoulderpads' : ['', 'artillery', 'general', 'spikes'],
+      'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
       'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
     };
     var femaleForm4 = {
@@ -529,6 +529,7 @@ function launch() {
       'holster_revolver_thigh_2_of_2',
       'bracelet_band_right_2_of_2', 'bracelet_band_left_2_of_2', 'bracelet_ornamental_left_2_of_2', 'bracelet_ornamental_right_2_of_2', 'bracelet_perl_right_2_of_2', 'bracelet_perl_left_2_of_2',
       'body_arm_right_athletic', 'body_arm_right_default', 'body_arm_right_veiny',
+      'shoulderpads_plated_2_of_2', 
       'body_torso_athletic', 'body_torso_default','body_torso_veiny',
       'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny',
       'body_foot_right',
@@ -595,15 +596,15 @@ function launch() {
       'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
       'horns_devil',
       'coat_winter_furcollar_1_of_3',
-      'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2',
+      'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
       'belt_utility',
       'pipe_subgenius',
       'earpiece_microphone'
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_spikes', 2]];
+    var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
