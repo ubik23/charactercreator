@@ -16,6 +16,10 @@ var proxy = require('http-proxy-middleware');
 //var proxyOptions = url.parse('http://localhost:5984/api/session');
 //proxyOptions.route = '/api/session';
 
+var proxyTarget = 'http://localhost:' + (process.env.COUCHDB_PORT || 5984)
+
+console.log('proxy target', proxyTarget)
+
 gulp.task('default',function() {
     gulp.watch('src/sass/**/*.scss',['sass']);
     gulp.watch('src/js/**/*.js',['scripts']);
@@ -56,16 +60,17 @@ gulp.task('default',function() {
 //   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 // }
 
+
 gulp.task('browser-sync', function() {
     var proxyOptionsSession = {
-        target: 'http://localhost:5984',
+        target: proxyTarget,
         pathRewrite: {
             '^/api/session': '/_session'
         }
     }
 
     var proxyOptionsUsers = {
-        target: 'http://localhost:5984',
+        target: proxyTarget,
         pathRewrite: function (path, req) {
             return path === '/api/users' ? '/_users' : path.replace(/^\/api\/users\//, '/_users/org.couchdb.user:')
         }
