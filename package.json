@@ -15,6 +15,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.5",
     "http-proxy-middleware": "^0.19.0",
+    "natives": "^1.1.6",
     "node-sass": "^4.9.0",
     "react": "^0.14.9",
     "react-color": "^2.14.1",
