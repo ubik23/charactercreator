@@ -29,7 +29,7 @@ function onAllLoaded() {
     sideBarLeft.classList.add('visible');
 
     revealCharacter();
-    
+
     zoomContainer.classList.add('zoom-container--show');
 }
 
@@ -111,7 +111,7 @@ function choicesToLayers(c, multiLayer){
 
     for(var index in c.choices) {
       if (index.slice(-5) != 'Color'){
-        if (index + "_" + c.choices[index] === 'body_athletic' || index + "_" + c.choices[index] === 'body_default' || index + "_" + c.choices[index] === 'body_veiny') {
+        if (index + "_" + c.choices[index] === 'body_athletic' || index + "_" + c.choices[index] === 'body_default' || index + "_" + c.choices[index] === 'body_veiny' || index + "_" + c.choices[index] === 'body_android-00') {
           bodyType = c.choices[index];
           bodyTypeList = bodyTypesToLayers(bodyType);
           bodyTypeCounter = bodyTypeList.length;

@@ -1681,7 +1681,7 @@ function onAllLoaded() {
     sideBarLeft.classList.add('visible');
 
     revealCharacter();
-    
+
     zoomContainer.classList.add('zoom-container--show');
 }
 
@@ -1763,7 +1763,7 @@ function choicesToLayers(c, multiLayer){
 
     for(var index in c.choices) {
       if (index.slice(-5) != 'Color'){
-        if (index + "_" + c.choices[index] === 'body_athletic' || index + "_" + c.choices[index] === 'body_default' || index + "_" + c.choices[index] === 'body_veiny') {
+        if (index + "_" + c.choices[index] === 'body_athletic' || index + "_" + c.choices[index] === 'body_default' || index + "_" + c.choices[index] === 'body_veiny' || index + "_" + c.choices[index] === 'body_android-00') {
           bodyType = c.choices[index];
           bodyTypeList = bodyTypesToLayers(bodyType);
           bodyTypeCounter = bodyTypeList.length;
@@ -3035,7 +3035,7 @@ function launch() {
       'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
     };
     var maleForm4 = {
-      'Body': [ 'default', 'athletic', 'veiny'],
+      'Body': [ 'default', 'athletic', 'veiny', 'android-00'],
       'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
       'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
       'Suit': ['', 'wetsuit'],
@@ -3070,15 +3070,15 @@ function launch() {
       'coat_lab_2_of_2',
       'jacket_suit_2_of_2',
       'shoes_flip-flops_2_of_2',
-      'body_torso_default', 'body_torso_athletic', 'body_torso_veiny',
-      'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny',
+      'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
+      'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
       'body_foot_right', 'body_foot_left',
       'tatoo_aum_chest','tatoo_chaos_chest',
       'scar_vertical_heart', 'scar_horizontal_neck',
       'underwear_plain','underwear_boxers',
       'shirt_tanktop_2_of_2',
-      'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny',
-      'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny',
+      'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny', 'body_arm_right_android-00', 'body_arm_left_android-00',
+      'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
       'body_hand_right', 'body_hand_left',
       'tatoo_aum_left','tatoo_aum_right','tatoo_chaos_left','tatoo_chaos_right',
       'shirt_tanktop_1_of_2',
@@ -3972,6 +3972,8 @@ function populateThumbs(svgObject) {
       document.querySelector('#content_1 .' + 'body_athletic').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'veiny') {
       document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'id-00') {
+      document.querySelector('#content_1 .' + 'body_android-00').appendChild(thumbObject);
     }
   } else {
     if (layerID === "eyeball_right") {

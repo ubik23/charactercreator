@@ -103,6 +103,8 @@ function populateThumbs(svgObject) {
       document.querySelector('#content_1 .' + 'body_athletic').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'veiny') {
       document.querySelector('#content_1 .' + 'body_veiny').appendChild(thumbObject);
+    } else if (layerID.slice(-5) === 'id-00') {
+      document.querySelector('#content_1 .' + 'body_android-00').appendChild(thumbObject);
     }
   } else {
     if (layerID === "eyeball_right") {
