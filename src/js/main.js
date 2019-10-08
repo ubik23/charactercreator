@@ -614,11 +614,11 @@ function launch() {
     };
     skinLayers = [
       'eyes_neutral',
-      'body_torso_default', 'body_torso_athletic', 'body_torso_veiny',
-      'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny',
+      'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
+      'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
       'body_foot_right', 'body_foot_left',
-      'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny',
-      'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny',
+      'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny', 'body_arm_right_android-00', 'body_arm_left_android-00',
+      'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
       'body_hand_right', 'body_hand_left',
       'age_lines', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
       'ears_default', 'ears_elven', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
