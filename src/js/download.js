@@ -19,9 +19,6 @@ function getSVG() {
           // This removes only useless layers and allows us to o the next test.
           if (!item.style || !item.style.opacity || item.style.opacity != 0){
               svgString = item.innerHTML;
-              if (svgString.slice(-43) === "<desc>Created with Snap</desc><defs></defs>"){
-                  svgString = svgString.slice(0, -43);
-              };
               text += svgString;
           } else {
           };
@@ -53,4 +50,20 @@ function download() {
         pom.click();
     }
     caboose();
+}
+
+function upload() {
+  // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
+  var text = getSVG();
+
+  fetch('/upload/', {
+  method: 'put',
+  headers: { 'content-type': 'text/plain' },
+  body: text
+})
+.then(function (res)  { return res.json() })
+// ici tu voudras faire quelque chose avec la valeur de url
+.then(function ({size, url}) { console.log(size, url) })
+// ou afficher une erreur en cas de probleme
+.catch(function (error) { console.error('ERREUR!!!', error) })
 }
