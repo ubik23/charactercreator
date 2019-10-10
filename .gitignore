@@ -3,3 +3,4 @@ was-node_modules
 log
 bower_components
 .DS_Store
+shop.js

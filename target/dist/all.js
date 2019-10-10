@@ -1089,7 +1089,7 @@ function upload() {
   // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
   var text = getSVG();
 
-  fetch('/upload/', {
+  fetch('/upload', {
   method: 'put',
   headers: { 'content-type': 'text/plain' },
   body: text
@@ -3852,6 +3852,7 @@ function getOptions(section) {
        }
    }
 }
+
 
 
 function showSidebarLeft() {
