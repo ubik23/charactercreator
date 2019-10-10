@@ -1,5 +1,6 @@
   window.onload = function() {
     var aboutBtn = document.querySelector("#aboutButton");
+    var shopBtn = document.querySelector("#shopButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -19,6 +20,7 @@
     var loadCharBtn = document.querySelector('#load-char-btn');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
+    if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener("click", showShop, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }

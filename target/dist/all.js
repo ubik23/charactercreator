@@ -2705,6 +2705,7 @@ function triggerSaveBtn() {
 
   window.onload = function() {
     var aboutBtn = document.querySelector("#aboutButton");
+    var shopBtn = document.querySelector("#shopButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
     var loginBtn = document.querySelector("#loginButton");
@@ -2724,6 +2725,7 @@ function triggerSaveBtn() {
     var loadCharBtn = document.querySelector('#load-char-btn');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
+    if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener("click", showShop, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
     if (loginBtn && typeof loginMenu === 'function') { loginBtn.addEventListener("click", loginMenu, false) }
@@ -3523,6 +3525,17 @@ function showAbout(ev) {
   closeBtn.addEventListener('click', closeOverlay, false);
 }
 
+function showShop(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-shop');
+  console.log('url', upload());
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
+}
+
 function logoutUI(){
   var pageWrap = document.querySelector('.logged');
   if (pageWrap) {
@@ -3853,6 +3866,37 @@ function getOptions(section) {
    }
 }
 
+function shopLink(t_image1_iid) {
+  var baseURL = "https://www.zazzle.com/api/create/"
+  var at; // 18 digit member account id;
+  var rf; // 18 digit associate id, not required;
+  var ax = "linkover"; // Type of API request;
+  var pd; // 18 digit Template product ID (found in URL of template);
+  var ed;
+  var tc;
+  var ic;
+  var t_image1_iid;
+  var t_image2_iid;
+  var t_text1_txt;
+  var t_text2_txt;
+  var t_text1_txtclr;
+}
+
+function upload() {
+  // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
+  var text = getSVG();
+
+  fetch('/upload', {
+  method: 'put',
+  headers: { 'content-type': 'text/plain' },
+  body: text
+})
+.then(function (res)  { return res.json() })
+// ici tu voudras faire quelque chose avec la valeur de url
+.then(function ({size, url}) { console.log(size, url); return url })
+// ou afficher une erreur en cas de probleme
+.catch(function (error) { console.error('To Err is human, to forgive, divine.', error) })
+}
 
 
 function showSidebarLeft() {

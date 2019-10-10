@@ -17,6 +17,17 @@ function showAbout(ev) {
   closeBtn.addEventListener('click', closeOverlay, false);
 }
 
+function showShop(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-shop');
+  console.log('url', upload());
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
+}
+
 function logoutUI(){
   var pageWrap = document.querySelector('.logged');
   if (pageWrap) {
