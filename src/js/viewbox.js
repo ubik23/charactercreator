@@ -103,6 +103,8 @@ function getViewBox(t, d) {
             "bracelet_ornamental_left":"326 270 24 24",
             "bracelet_perl_right":"198 299 24 24",
             "bracelet_perl_left":"322 272 24 24",
+            "bracelet_rings_right":"192 271 43 43",
+            "bracelet_rings_left":"318 254 43 43",
             "coat_lab":"125 140 280 280",
             "coat_winter_tubecollar":"125 120 280 280",
             "dress_bobafett":"160 165 230 230",

@@ -504,7 +504,7 @@ function launch() {
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zip'],
       'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
       'Armband' : ['', 'egyptian_left', 'egyptian_right'],
-      'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings', 'wonder_left', 'wonder_right'],
+      'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
       'Vest': ['', 'yellow'],
       'Wings' : ['', 'angel', 'devil', 'skeleton']
@@ -566,7 +566,7 @@ function launch() {
       'collar_egyptian', 'collar_metal',
       'necklace_squared-circle',
       'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
-      'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings', 'bracelet_wonder_left', 'bracelet_wonder_right',
+      'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings_left', 'bracelet_rings_right', 'bracelet_wonder_left', 'bracelet_wonder_right',
       'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
       'coat_lab_1_of_3',
       'shoulderpads_general',
