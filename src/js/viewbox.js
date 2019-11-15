@@ -90,10 +90,15 @@ function getViewBox(t, d) {
         }
     } else if (sex==="f") {
         var idDict = {
+            "armband_egyptian_right":"221 205 38 38",
+            "armband_egyptian_left":"313 206 38 38",
             "body_athletic":"65 130 430 430",
-            "bracelet_wonder":"316 240 48 48",
+            "bracelet_wonder_right":"190 258 58 58",
+            "bracelet_wonder_left":"313 234 58 58",
             "bracelet_band_right":"198 299 24 24",
             "bracelet_band_left":"322 272 24 24",
+            "bracelet_egyptian_right":"190 258 58 58",
+            "bracelet_egyptian_left":"313 234 58 58",
             "bracelet_ornamental_right":"200 294 24 24",
             "bracelet_ornamental_left":"326 270 24 24",
             "bracelet_perl_right":"198 299 24 24",
@@ -153,6 +158,7 @@ function getViewBox(t, d) {
         }
         var sectionDict = {
             "age":"261 121 40 40",
+            "armband":"313 206 38 38",
             "belt":"175 185 190 190",
             "body":"65 130 430 430",
             "body_head":"249 107 64 64",

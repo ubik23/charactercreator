@@ -488,7 +488,7 @@ function launch() {
       'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
-      'Collar' : ['', 'metal'],
+      'Collar' : ['', 'egyptian', 'metal'],
       'Necklace' : ['', 'heart', 'perl', 'princess', 'squared-circle'],
       'Bra': ['', 'bow', 'grid', 'sports'],
       'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
@@ -503,7 +503,8 @@ function launch() {
       'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
       'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zip'],
       'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-      'Bracelet' : ['', 'band_right', 'band_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings', 'wonder'],
+      'Armband' : ['', 'egyptian_left', 'egyptian_right'],
+      'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings', 'wonder_left', 'wonder_right'],
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
       'Vest': ['', 'yellow'],
       'Wings' : ['', 'angel', 'devil', 'skeleton']
@@ -532,6 +533,7 @@ function launch() {
       'holster_revolver_thigh_2_of_2',
       'bracelet_band_right_2_of_2', 'bracelet_band_left_2_of_2', 'bracelet_ornamental_left_2_of_2', 'bracelet_ornamental_right_2_of_2', 'bracelet_perl_right_2_of_2', 'bracelet_perl_left_2_of_2',
       'body_arm_right_athletic', 'body_arm_right_default', 'body_arm_right_veiny', 'body_arm_right_android-00',
+      'armband_egyptian_right',
       'shoulderpads_plated_2_of_2',
       'body_torso_athletic', 'body_torso_default','body_torso_veiny','body_torso_android-00',
       'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny', 'body_leg_right_android-00',
@@ -544,6 +546,7 @@ function launch() {
       'body_hand_right',
       'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
       'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
+      'armband_egyptian_left',
       'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
       'leggings_regular', 'leggings_torn',
       'bra_bow', 'bra_grid', 'bra_sports',
@@ -560,10 +563,10 @@ function launch() {
       'vest_yellow',
       'holster_revolver_chest',
       'belt_satchel', 'belt_bullet',
-      'collar_metal',
+      'collar_egyptian', 'collar_metal',
       'necklace_squared-circle',
       'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
-      'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings', 'bracelet_wonder',
+      'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings', 'bracelet_wonder_left', 'bracelet_wonder_right',
       'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
       'coat_lab_1_of_3',
       'shoulderpads_general',
