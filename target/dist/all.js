@@ -3045,7 +3045,7 @@ function launch() {
       'Headband': ['', 'medium'],
       'Jewelry': ['', 'chain'],
       'Warpaint': ['', 'football'],
-      'Earpiece': ['', 'microphone']
+      'Earpiece': ['', 'microphone', 'scouter']
     };
     var maleForm3 = {
       'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
@@ -3159,7 +3159,7 @@ function launch() {
       'hair_afro', 'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_bangs', 'hair_crewcut', 'hair_down_1_of_3', 'hair_emo', 'hair_gelled', 'hair_manga_1_of_2', 'hair_mohawk', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_short', 'hair_spider', 'hair_wild', 'hair_wreckingball',
       'headband_medium_1_of_2',
       'mask_guy_fawkes',
-      'earpiece_microphone',
+      'earpiece_microphone', 'earpiece_scouter',
       'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
       'hat_baseball','hat_berret','hat_berret_badge','hat_cap', 'hat_fox-ears', 'hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_motorcycle',
       'jewelry_earings','jewelry_nosering','jewelry_watch',
@@ -3189,7 +3189,7 @@ function launch() {
       'Hat': ['', 'baseball', 'beach', 'berret_badge', 'fox-ears', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap'],
       'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
       'Horns': ['', 'devil'],
-      'Earpiece': ['', 'microphone'],
+      'Earpiece': ['', 'microphone', 'scouter'],
       'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
@@ -3310,7 +3310,7 @@ function launch() {
       'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
       'belt_utility',
       'pipe_subgenius',
-      'earpiece_microphone'
+      'earpiece_microphone', 'earpiece_scouter'
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
@@ -4084,12 +4084,13 @@ function showThumbOptions(_) {
 function getViewBox(t, d) {
     var id = t + '_' + d;
     var sex = window.sex;
-    if (sex==="m"){
+    if (sex === "m"){
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
             "coat_fall_long":"130 124 290 290",
             "coat_trench":"130 124 290 290",
+            "earpiece_scouter":"252 117 30 30",
             "ears_plugged":"254 122 20 20",
             "ears_unplugged":"254 121 20 20",
             "glasses_fpv":"250 97 64 64",
@@ -4170,7 +4171,7 @@ function getViewBox(t, d) {
             "warpaint":"261 109 40 40",
             "wings":"110 -30 350 350"
         }
-    } else if (sex==="f") {
+    } else if (sex === "f") {
         var idDict = {
             "armband_egyptian_right":"221 205 38 38",
             "armband_egyptian_left":"313 206 38 38",
@@ -4198,6 +4199,7 @@ function getViewBox(t, d) {
             "dress_suit":"175 140 200 200",
             "dress_waitress":"160 140 230 230",
             "earings_gold_ring_left":"289 141 20 20",
+            "earpiece_scouter":"253 126 30 30",
             "glasses_fpv":"252 109 64 64",
             "hat_helmet_vietnam":"243 98 80 80",
             "hat_motorcycle":"243 98 80 80",

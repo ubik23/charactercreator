@@ -2,12 +2,13 @@
 function getViewBox(t, d) {
     var id = t + '_' + d;
     var sex = window.sex;
-    if (sex==="m"){
+    if (sex === "m"){
         var idDict = {
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
             "coat_fall_long":"130 124 290 290",
             "coat_trench":"130 124 290 290",
+            "earpiece_scouter":"252 117 30 30",
             "ears_plugged":"254 122 20 20",
             "ears_unplugged":"254 121 20 20",
             "glasses_fpv":"250 97 64 64",
@@ -88,7 +89,7 @@ function getViewBox(t, d) {
             "warpaint":"261 109 40 40",
             "wings":"110 -30 350 350"
         }
-    } else if (sex==="f") {
+    } else if (sex === "f") {
         var idDict = {
             "armband_egyptian_right":"221 205 38 38",
             "armband_egyptian_left":"313 206 38 38",
@@ -116,6 +117,7 @@ function getViewBox(t, d) {
             "dress_suit":"175 140 200 200",
             "dress_waitress":"160 140 230 230",
             "earings_gold_ring_left":"289 141 20 20",
+            "earpiece_scouter":"253 126 30 30",
             "glasses_fpv":"252 109 64 64",
             "hat_helmet_vietnam":"243 98 80 80",
             "hat_motorcycle":"243 98 80 80",

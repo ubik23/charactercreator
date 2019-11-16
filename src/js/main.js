@@ -340,7 +340,7 @@ function launch() {
       'Headband': ['', 'medium'],
       'Jewelry': ['', 'chain'],
       'Warpaint': ['', 'football'],
-      'Earpiece': ['', 'microphone']
+      'Earpiece': ['', 'microphone', 'scouter']
     };
     var maleForm3 = {
       'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
@@ -454,7 +454,7 @@ function launch() {
       'hair_afro', 'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_bangs', 'hair_crewcut', 'hair_down_1_of_3', 'hair_emo', 'hair_gelled', 'hair_manga_1_of_2', 'hair_mohawk', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_short', 'hair_spider', 'hair_wild', 'hair_wreckingball',
       'headband_medium_1_of_2',
       'mask_guy_fawkes',
-      'earpiece_microphone',
+      'earpiece_microphone', 'earpiece_scouter',
       'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
       'hat_baseball','hat_berret','hat_berret_badge','hat_cap', 'hat_fox-ears', 'hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_motorcycle',
       'jewelry_earings','jewelry_nosering','jewelry_watch',
@@ -484,7 +484,7 @@ function launch() {
       'Hat': ['', 'baseball', 'beach', 'berret_badge', 'fox-ears', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap'],
       'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
       'Horns': ['', 'devil'],
-      'Earpiece': ['', 'microphone'],
+      'Earpiece': ['', 'microphone', 'scouter'],
       'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
     };
     var femaleForm3 = {
@@ -605,7 +605,7 @@ function launch() {
       'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
       'belt_utility',
       'pipe_subgenius',
-      'earpiece_microphone'
+      'earpiece_microphone', 'earpiece_scouter'
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
