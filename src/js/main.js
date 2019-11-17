@@ -326,7 +326,7 @@ function launch() {
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'odango', 'soulpatch', 'winnfield'],
       'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'short', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
       'Freckles': ['', 'medium'],
-      'Age' : ['', 'lines'],
+      // 'Age' : ['', 'lines'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
     };
     var maleForm2 = {
