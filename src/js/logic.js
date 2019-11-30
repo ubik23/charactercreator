@@ -85,7 +85,7 @@ function modCharacter(myKey, myValue){
     if (myKey in c.choices){
         delete c.choices[myKey];
     };
-    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets" || myKey === "mouth") {
+    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets") {
       return;
     }
     // If there, modify the value

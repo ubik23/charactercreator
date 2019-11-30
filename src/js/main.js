@@ -113,7 +113,6 @@ function fadeOutSVG() {
   var downloadBtn = document.querySelector('#downloadButton.enabled');
 
   if (characterShadow) {
-    // Remove shine class.
     characterShadow.classList.remove('shine');
   }
 
@@ -323,6 +322,7 @@ function launch() {
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
+      'Mouth' : [''],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'odango', 'soulpatch', 'winnfield'],
       'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'short', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
       'Freckles': ['', 'medium'],
@@ -470,6 +470,7 @@ function launch() {
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
+      'Mouth' : [''],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
       'Freckles': ['', 'medium'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']

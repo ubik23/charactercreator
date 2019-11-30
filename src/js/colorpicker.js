@@ -19,12 +19,15 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
+    console.log('id', id);
     try {
       ColorPicker(
           slide,
           picker,
           function(hex, hsv, rgb) {
-            colorize(id, hex);
+
+              colorize(id, hex);
+
           });
     } catch(error) {
       console.error(error);

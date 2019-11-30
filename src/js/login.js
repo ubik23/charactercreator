@@ -523,3 +523,7 @@ function triggerSaveBtn() {
         saveBtn.classList.add('save--enabled');
     }
 }
+
+function logOut() {
+  // TODO Return app to its initial state.
+}

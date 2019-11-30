@@ -661,21 +661,32 @@ function colorElement(el) {
   var item = id[1];
   var newColor;
   var colorPrefix = 'alpha';
+  var lipstickColor;
+
   section = processSection(section, item);
 
   if (section === 'eyeballs') {section = 'iris'}
-  if (section === 'skin') {colorPrefix = 'skin'}
 
   newColor = c.choices[section+'Color'];
 
-  if (newColor != undefined) {
-     el = colorElementLoop(el, colorPrefix, newColor);
+  if (section === 'skin') {colorPrefix = 'skin'}
+  if (section === 'mouth') {
+    colorPrefix = 'skin';
+    lipstickColor = newColor;
+    newColor = c.choices['skinColor'];
   }
-  console.log('section', section);
+
+  if (newColor != undefined) {
+     el = colorElementLoop(el, colorPrefix, newColor, false);
+     if (section === 'mouth') {
+       el = colorElementLoop(el, colorPrefix, lipstickColor, true);
+     }
+  }
   return el;
 }
 
-function colorElementLoop(el, colorPrefix, newColor) {
+function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
+  console.log('colorPrefix', colorPrefix);
   var colorContrasts = ['dark', 'light'];
   var contrastCounter = colorContrasts.length;
   var colorSuffixes = ['er', 'est'];
@@ -685,6 +696,12 @@ function colorElementLoop(el, colorPrefix, newColor) {
   var colorList = getColorList(newColor);
   var colorListIndex;
   var colorPair;
+  var classPrefix = '.';
+
+  if (lipstickFlag) {
+    classPrefix = '.lips.';
+  }
+
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
@@ -698,7 +715,7 @@ function colorElementLoop(el, colorPrefix, newColor) {
   }
 
   while (contrastCounter--) {
-    childrenList = el.querySelectorAll('.' + colorPrefix + '--' + colorContrasts[contrastCounter]);
+    childrenList = el.querySelectorAll(classPrefix + colorPrefix + '--' + colorContrasts[contrastCounter]);
     counter = childrenList.length;
 
     if (counter > 0) {
@@ -788,6 +805,7 @@ function colorize(formId, _color){
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
+    var seperator = " .";
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
@@ -800,7 +818,7 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets' || id.slice(0,4) === 'mouth') {
+                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                     classPrefix = "skin";
@@ -816,12 +834,15 @@ function colorize(formId, _color){
                 else {
                     affectedList = [];
                     var myKey = id + 'Color'
-                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashesColor'||myKey === 'socketsColor') {
+                    if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashesColor'||myKey === 'socketsColor'||myKey === 'mouthColor') {
                         for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
                             if (tmpId != ''){
                                 affectedList.push(id + '_' +tmpId);
                             }
+                        }
+                        if (myKey === 'mouthColor') {
+                          classPrefix = "skin";
                         }
                     } else {
                         for (i in forms[f][capitalId]) {
@@ -845,13 +866,16 @@ function colorize(formId, _color){
 
                 for (n in affectedList) {
                     fullId = '#' + affectedList[n];
-                    var alphaNodes = document.querySelectorAll(fullId + " ." + classPrefix);
-                    var alphaLightNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLight);
-                    var alphaLighterNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLighter);
-                    var alphaLightestNodes = document.querySelectorAll(fullId + " ." + classPrefix + classLightest);
-                    var alphaDarkNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDark);
-                    var alphaDarkerNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDarker);
-                    var alphaDarkestNodes = document.querySelectorAll(fullId + " ." + classPrefix + classDarkest);
+                    if (id === 'mouth') {
+                      seperator = ' .lips.';
+                    }
+                    var alphaNodes = document.querySelectorAll(fullId + seperator + classPrefix);
+                    var alphaLightNodes = document.querySelectorAll(fullId + seperator + classPrefix + classLight);
+                    var alphaLighterNodes = document.querySelectorAll(fullId + seperator + classPrefix + classLighter);
+                    var alphaLightestNodes = document.querySelectorAll(fullId + seperator + classPrefix + classLightest);
+                    var alphaDarkNodes = document.querySelectorAll(fullId + seperator + classPrefix + classDark);
+                    var alphaDarkerNodes = document.querySelectorAll(fullId + seperator + classPrefix + classDarker);
+                    var alphaDarkestNodes = document.querySelectorAll(fullId + seperator + classPrefix + classDarkest);
                     var alphaNodesCounter = alphaNodes.length;
                     var alphaLightNodesCounter = alphaLightNodes.length;
                     var alphaLighterNodesCounter = alphaLighterNodes.length;
@@ -922,7 +946,7 @@ function replacementStyle(json, newColor) {
     var replacement = '';
     for (n in Object.keys(newStyle)){
         var currentKey = Object.keys(newStyle)[n]
-        
+
         if (currentKey === 'fill'){
             if (newStyle[currentKey] != 'none'){
                 if (json.style["stroke-width"] === undefined){
@@ -976,12 +1000,15 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
+    console.log('id', id);
     try {
       ColorPicker(
           slide,
           picker,
           function(hex, hsv, rgb) {
-            colorize(id, hex);
+
+              colorize(id, hex);
+
           });
     } catch(error) {
       console.error(error);
@@ -1705,8 +1732,16 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='sockets'||section==='scar'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='freckles'||section==='sockets'||section==='scar'||section==='wings' && item === 'devil'){
       section = 'skin';
+  }
+  if (section==='mouth') {
+    console.log('mouthColor', hash.get('mouthColor'));
+    if (hash.get('mouthColor') != undefined) {
+      section = 'mouth';
+    } else {
+      section = 'skin';
+    }
   }
   if (section ==='facialhair' || section==='brows') {
       section = 'hair';
@@ -1925,7 +1960,7 @@ function modCharacter(myKey, myValue){
     if (myKey in c.choices){
         delete c.choices[myKey];
     };
-    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets" || myKey === "mouth") {
+    if (myKey === "brows" || myKey ==="eyes" || myKey ==="lashes" || myKey ==="sockets") {
       return;
     }
     // If there, modify the value
@@ -2703,6 +2738,10 @@ function triggerSaveBtn() {
     }
 }
 
+function logOut() {
+  // TODO Return app to its initial state.
+}
+
   window.onload = function() {
     var aboutBtn = document.querySelector("#aboutButton");
     var shopBtn = document.querySelector("#shopButton");
@@ -2818,7 +2857,6 @@ function fadeOutSVG() {
   var downloadBtn = document.querySelector('#downloadButton.enabled');
 
   if (characterShadow) {
-    // Remove shine class.
     characterShadow.classList.remove('shine');
   }
 
@@ -3028,6 +3066,7 @@ function launch() {
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
+      'Mouth' : [''],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'odango', 'soulpatch', 'winnfield'],
       'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'short', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
       'Freckles': ['', 'medium'],
@@ -3175,6 +3214,7 @@ function launch() {
       'Iris' : ['default'],
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
+      'Mouth' : [''],
       'Hair': ['','afro', 'down', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
       'Freckles': ['', 'medium'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
@@ -3648,9 +3688,12 @@ function parseHash(c, forms, skinLayers, hairLayers){
             if (id in skinLayers || section ==='body') {
                 section = 'skin';
             }
-            else if (id in hairLayers || section ==='hair'){ section = 'hair'};
+            else if (id in hairLayers || section ==='hair'){ section = 'hair'}
+
+            console.log('Parse Hash, section:', section);
             var hashColor = hash.get(section+'Color');
             if (hashColor != undefined && hashColor != '') {
+                console.log('hashColor', hashColor);
                 modCharacter(section+'Color', hashColor);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };

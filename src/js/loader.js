@@ -34,8 +34,16 @@ function onAllLoaded() {
 }
 
 function processSection(section, item) {
-  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='mouth'||section==='freckles'||section==='sockets'||section==='scar'||section==='wings' && item === 'devil'){
+  if (section ==='body' || section === 'ears'||section==='nose'||section==='eyes'||section==='age'||section==='freckles'||section==='sockets'||section==='scar'||section==='wings' && item === 'devil'){
       section = 'skin';
+  }
+  if (section==='mouth') {
+    console.log('mouthColor', hash.get('mouthColor'));
+    if (hash.get('mouthColor') != undefined) {
+      section = 'mouth';
+    } else {
+      section = 'skin';
+    }
   }
   if (section ==='facialhair' || section==='brows') {
       section = 'hair';
