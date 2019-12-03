@@ -27,6 +27,10 @@ function getPallette(sectionId) {
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('skin', el.style.fill);
     }
+    el = document.querySelector('#svg1 #' + layers[counter] + ' .lips');
+    if (el != null && el.style != null && el.style.fill != null) {
+      console.log('lips', el.style.fill);
+    }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .alpha');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('alpha', el.style.fill);
