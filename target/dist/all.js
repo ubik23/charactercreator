@@ -997,6 +997,7 @@ function getPallette(sectionId) {
   console.log('getPallette', sectionId);
   console.log('getOptions', getOptions(sectionId));
   // var options = getOptions(sectionId);
+  var pallette = [];
   var layers = getSectionLayersList(sectionId);
   layers = replaceMultilayer(layers, sectionId);
   var counter = layers.length;
