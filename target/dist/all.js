@@ -992,37 +992,48 @@ function hideColorPicker() {
 }
 
 function getPallette(sectionId) {
+  console.log('sectionId', sectionId);
   var pallette = {};
-  var layers = getSectionLayersList(sectionId);
-  layers = replaceMultilayer(layers, sectionId);
-  var counter = layers.length;
+  var files = [];
+  var counter;
   var el;
+
+  if (sectionId === 'body') {
+    files = getAllBodyLayers();
+  } else {
+    files = getSectionLayersList(sectionId);
+    files = replaceMultilayer(files, sectionId);
+  }
+  console.log('files', files);
+
+  counter = files.length;
+
   while(counter--) {
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .skin');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .skin');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.skin = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .lips');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .lips');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.lips = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .alpha');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .alpha');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.alpha = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .beta');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .beta');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.beta = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .gamma');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .gamma');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.gamma = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .delta');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .delta');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.delta = el.style.fill;
     }
-    el = document.querySelector('#svg1 #' + layers[counter] + ' .epsilon');
+    el = document.querySelector('#svg1 #' + files[counter] + ' .epsilon');
     if (el != null && el.style != null && el.style.fill != null) {
       pallette.epsilon = el.style.fill;
     }
@@ -1291,6 +1302,8 @@ function getSectionLayersList(section) {
 
   section = capitalizeFirstLetter(section);
 
+  console.log('getSectionLayersList', section);
+
   if (sex === "m") {
     formList = window.maleFormList;
   } else {
@@ -1303,6 +1316,7 @@ function getSectionLayersList(section) {
       itemList = formList[formCounter][section];
     }
   }
+  console.log('itemList', itemList);
   return itemList;
 }
 
@@ -2195,6 +2209,19 @@ function getBodyLayers(bodySuffix) {
   bodyLayers.push('body_leg_left_' + bodySuffix);
 
   return bodyLayers;
+}
+
+function getAllBodyLayers() {
+  var layers = getSectionLayersList('body');
+  var counter = layers.length;
+  var bodyParts;
+  var files = [];
+
+  while (counter--) {
+    bodyParts = getBodyLayers(layers[counter]);
+    files = files.concat(bodyParts);
+  }
+  return files;
 }
 
 function showPupils(pupilShape) {

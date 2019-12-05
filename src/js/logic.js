@@ -279,6 +279,19 @@ function getBodyLayers(bodySuffix) {
   return bodyLayers;
 }
 
+function getAllBodyLayers() {
+  var layers = getSectionLayersList('body');
+  var counter = layers.length;
+  var bodyParts;
+  var files = [];
+
+  while (counter--) {
+    bodyParts = getBodyLayers(layers[counter]);
+    files = files.concat(bodyParts);
+  }
+  return files;
+}
+
 function showPupils(pupilShape) {
   var svg = document.querySelector('#svg1');
   var pupils = svg.querySelectorAll('.pupil');
