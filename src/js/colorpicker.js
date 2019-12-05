@@ -18,8 +18,8 @@ function getPallette(sectionId) {
   var counter;
   var el;
   var emotions;
-  var categories = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon'];
-  var catCounter;
+  var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon'];
+  var classCounter;
 
   if (sectionId === 'body') {
     files = getAllBodyLayers();
@@ -39,16 +39,15 @@ function getPallette(sectionId) {
   counter = files.length;
 
   while(counter--) {
-    catCounter = categories.length;
+    classCounter = colorClasses.length;
 
-    while (catCounter--) {
-      el = document.querySelector('#svg1 #' + files[counter] + ' .' + categories[catCounter]);
+    while (classCounter--) {
+      el = document.querySelector('#svg1 #' + files[counter] + ' .' + colorClasses[classCounter]);
       if (el != null && el.style != null && el.style.fill != null) {
-        pallette[categories[catCounter]] = el.style.fill;
+        pallette[colorClasses[classCounter]] = el.style.fill;
       }
     }
   }
-
   return pallette;
 }
 
