@@ -13,61 +13,43 @@ function hideColorPicker() {
 }
 
 function getPallette(sectionId) {
-  console.log('sectionId', sectionId);
   var pallette = {};
   var files = [];
   var counter;
   var el;
+  var emotions;
+  var categories = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon'];
+  var catCounter;
 
   if (sectionId === 'body') {
     files = getAllBodyLayers();
+
+  } else if (sectionId === 'mouth') {
+    emotions = getSectionLayersList('emotion');
+    counter = emotions.length;
+    while (counter--) {
+      files.push(sectionId + '_' + emotions[counter]);
+    }
+
   } else {
     files = getSectionLayersList(sectionId);
     files = replaceMultilayer(files, sectionId);
   }
-  console.log('files', files);
 
   counter = files.length;
 
   while(counter--) {
-    el = document.querySelector('#svg1 #' + files[counter] + ' .skin');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.skin = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .lips');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.lips = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .alpha');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.alpha = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .beta');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.beta = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .gamma');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.gamma = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .delta');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.delta = el.style.fill;
-    }
-    el = document.querySelector('#svg1 #' + files[counter] + ' .epsilon');
-    if (el != null && el.style != null && el.style.fill != null) {
-      pallette.epsilon = el.style.fill;
+    catCounter = categories.length;
+
+    while (catCounter--) {
+      el = document.querySelector('#svg1 #' + files[counter] + ' .' + categories[catCounter]);
+      if (el != null && el.style != null && el.style.fill != null) {
+        pallette[categories[catCounter]] = el.style.fill;
+      }
     }
   }
-  console.log('pallette', pallette);
-  // Get all the options in the section.
-  // Go through them all,
-  // Noting all the color classes within them.
-  // Start with skin color, then do the lips, followed by the greek alphabet.
-  // Be sure to leave out the absentees, but double-check using the suffixes,
-  // and make calculations to deduce the base color.
-  // Order them and display them visually in painted rectangles.
-  // Clicking the rectangles resets the colorpicker if different from current color.
+
+  return pallette;
 }
 
 function getColor(sectionId) {

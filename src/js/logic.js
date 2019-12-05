@@ -132,14 +132,8 @@ function createCharacter() {
 };
 
 function GetEmotionGetLayers(option) {
-    var facialExpressionLayers = [];
-    var modElement = '';
-    faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets'];
-    for (e in faceElements) {
-        var eLayer = faceElements[e];
-        facialExpressionLayers.push(eLayer);
-    };
-    return facialExpressionLayers;
+    var faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets'];
+    return faceElements;
 };
 
 function getOptions (section) {

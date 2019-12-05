@@ -38,7 +38,6 @@ function processSection(section, item) {
       section = 'skin';
   }
   if (section==='mouth') {
-    console.log('mouthColor', hash.get('mouthColor'));
     if (hash.get('mouthColor') != undefined) {
       section = 'mouth';
     } else {
@@ -131,7 +130,6 @@ function choicesToLayers(c, multiLayer){
         }
       }
     }
-    console.log('choiceLayers', choiceLayers);
 
     for (var cl in choiceLayers) {
         if (choiceLayers[cl].slice(0, 7) === 'emotion') {
