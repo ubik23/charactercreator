@@ -16,7 +16,7 @@ function getPallette(sectionId) {
   console.log('getPallette', sectionId);
   console.log('getOptions', getOptions(sectionId));
   // var options = getOptions(sectionId);
-  var pallette = [];
+  var pallette = {};
   var layers = getSectionLayersList(sectionId);
   layers = replaceMultilayer(layers, sectionId);
   var counter = layers.length;
@@ -27,32 +27,40 @@ function getPallette(sectionId) {
     el = document.querySelector('#svg1 #' + layers[counter] + ' .skin');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('skin', el.style.fill);
+      pallette.skin = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .lips');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('lips', el.style.fill);
+      pallette.lips = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .alpha');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('alpha', el.style.fill);
+      pallette.alpha = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .beta');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('beta', el.style.fill);
+      pallette.beta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .gamma');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('gamma', el.style.fill);
+      pallette.gamma = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .delta');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('delta', el.style.fill);
+      pallette.delta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .epsilon');
     if (el != null && el.style != null && el.style.fill != null) {
       console.log('epsilon', el.style.fill);
+      pallette.epsilon = el.style.fill;
     }
   }
+  console.log('pallette', pallette);
   // Get all the options in the section.
   // Go through them all,
   // Noting all the color classes within them.
