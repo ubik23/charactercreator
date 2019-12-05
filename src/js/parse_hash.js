@@ -29,10 +29,8 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'}
 
-            console.log('Parse Hash, section:', section);
             var hashColor = hash.get(section+'Color');
             if (hashColor != undefined && hashColor != '') {
-                console.log('hashColor', hashColor);
                 modCharacter(section+'Color', hashColor);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };

@@ -13,50 +13,38 @@ function hideColorPicker() {
 }
 
 function getPallette(sectionId) {
-  console.log('getPallette', sectionId);
-  console.log('getOptions', getOptions(sectionId));
-  // var options = getOptions(sectionId);
   var pallette = {};
   var layers = getSectionLayersList(sectionId);
   layers = replaceMultilayer(layers, sectionId);
   var counter = layers.length;
   var el;
-  console.log('layers', layers);
   while(counter--) {
-    console.log('option', '#svg1 #' + layers[counter]);
     el = document.querySelector('#svg1 #' + layers[counter] + ' .skin');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('skin', el.style.fill);
       pallette.skin = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .lips');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('lips', el.style.fill);
       pallette.lips = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .alpha');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('alpha', el.style.fill);
       pallette.alpha = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .beta');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('beta', el.style.fill);
       pallette.beta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .gamma');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('gamma', el.style.fill);
       pallette.gamma = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .delta');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('delta', el.style.fill);
       pallette.delta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .epsilon');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('epsilon', el.style.fill);
       pallette.epsilon = el.style.fill;
     }
   }
@@ -68,11 +56,10 @@ function getPallette(sectionId) {
   // Be sure to leave out the absentees, but double-check using the suffixes,
   // and make calculations to deduce the base color.
   // Order them and display them visually in painted rectangles.
-  // Clicking the rectangles resets the colorpicker.
+  // Clicking the rectangles resets the colorpicker if different from current color.
 }
 
 function getColor(sectionId) {
-    console.log('getColor', sectionId);
     clearPicker();
     var id = sectionId;
     var slide = document.getElementById('slide');
@@ -80,7 +67,6 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    console.log('id', id);
     try {
       ColorPicker(
           slide,

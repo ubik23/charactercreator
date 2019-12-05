@@ -242,8 +242,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
 
     file = layerDirectory + layerID + '.svg';
 
-    console.log('file', file);
-
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {

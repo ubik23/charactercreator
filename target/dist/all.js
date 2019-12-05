@@ -655,7 +655,6 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
-  console.log('colorElement', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
@@ -686,7 +685,6 @@ function colorElement(el) {
 }
 
 function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
-  console.log('colorPrefix', colorPrefix);
   var colorContrasts = ['dark', 'light'];
   var contrastCounter = colorContrasts.length;
   var colorSuffixes = ['er', 'est'];
@@ -994,50 +992,38 @@ function hideColorPicker() {
 }
 
 function getPallette(sectionId) {
-  console.log('getPallette', sectionId);
-  console.log('getOptions', getOptions(sectionId));
-  // var options = getOptions(sectionId);
   var pallette = {};
   var layers = getSectionLayersList(sectionId);
   layers = replaceMultilayer(layers, sectionId);
   var counter = layers.length;
   var el;
-  console.log('layers', layers);
   while(counter--) {
-    console.log('option', '#svg1 #' + layers[counter]);
     el = document.querySelector('#svg1 #' + layers[counter] + ' .skin');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('skin', el.style.fill);
       pallette.skin = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .lips');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('lips', el.style.fill);
       pallette.lips = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .alpha');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('alpha', el.style.fill);
       pallette.alpha = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .beta');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('beta', el.style.fill);
       pallette.beta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .gamma');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('gamma', el.style.fill);
       pallette.gamma = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .delta');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('delta', el.style.fill);
       pallette.delta = el.style.fill;
     }
     el = document.querySelector('#svg1 #' + layers[counter] + ' .epsilon');
     if (el != null && el.style != null && el.style.fill != null) {
-      console.log('epsilon', el.style.fill);
       pallette.epsilon = el.style.fill;
     }
   }
@@ -1049,11 +1035,10 @@ function getPallette(sectionId) {
   // Be sure to leave out the absentees, but double-check using the suffixes,
   // and make calculations to deduce the base color.
   // Order them and display them visually in painted rectangles.
-  // Clicking the rectangles resets the colorpicker.
+  // Clicking the rectangles resets the colorpicker if different from current color.
 }
 
 function getColor(sectionId) {
-    console.log('getColor', sectionId);
     clearPicker();
     var id = sectionId;
     var slide = document.getElementById('slide');
@@ -1061,7 +1046,6 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
-    console.log('id', id);
     try {
       ColorPicker(
           slide,
@@ -1430,8 +1414,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
-
-    console.log('file', file);
 
     fetch(file).then(function(response) {
       return response.text();
@@ -2150,7 +2132,6 @@ function displaySections(sections, options, selectedOption, multiLayer) {
 }
 
 function sectionShow(multiLayer, id) {
-  console.log('multiLayer', multiLayer);
   var pupilShape;
   var svgContainer = document.querySelector('#svg1');
   var isMultiLayered = false;
@@ -2160,7 +2141,6 @@ function sectionShow(multiLayer, id) {
   for (lyr in multiLayer) {
     if (id.slice(1) === multiLayer[lyr][0]){
       isMultiLayered = true;
-      console.log('isMultiLayered', isMultiLayered);
       break;
     }
   }
@@ -2172,18 +2152,8 @@ function sectionShow(multiLayer, id) {
   } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head') {
       var idList = id.split('_');
       var bodySuffix = idList[idList.length-1];
-      var bodyLayers = [];
-      var bodyLayersCounter;
-
-      bodyLayers.push('body_torso_' + bodySuffix);
-      bodyLayers.push('body_arm_right_' + bodySuffix);
-      bodyLayers.push('body_arm_left_' + bodySuffix);
-      bodyLayers.push('body_forearm_right_' + bodySuffix);
-      bodyLayers.push('body_forearm_left_' + bodySuffix);
-      bodyLayers.push('body_leg_right_' + bodySuffix);
-      bodyLayers.push('body_leg_left_' + bodySuffix);
-
-      bodyLayersCounter = bodyLayers.length;
+      var bodyLayers = getBodyLayers(bodySuffix);
+      var bodyLayersCounter = bodyLayers.length;
 
       while (bodyLayersCounter--) {
         idOf = '#' + bodyLayers[bodyLayersCounter];
@@ -2192,7 +2162,6 @@ function sectionShow(multiLayer, id) {
       }
 
   } else {
-    console.log('id', id);
     if (isMultiLayered) {
       for (var i=1;i<=multiLayer[lyr][1];i++) {
           idOf = id + '_' + i + '_of_' + multiLayer[lyr][1];
@@ -2212,6 +2181,20 @@ function sectionShow(multiLayer, id) {
   if (id.slice(1).split('_')[0] === 'eyes') {
     changeClipPathOnEyes(id);
   }
+}
+
+function getBodyLayers(bodySuffix) {
+  var bodyLayers = [];
+
+  bodyLayers.push('body_torso_' + bodySuffix);
+  bodyLayers.push('body_arm_right_' + bodySuffix);
+  bodyLayers.push('body_arm_left_' + bodySuffix);
+  bodyLayers.push('body_forearm_right_' + bodySuffix);
+  bodyLayers.push('body_forearm_left_' + bodySuffix);
+  bodyLayers.push('body_leg_right_' + bodySuffix);
+  bodyLayers.push('body_leg_left_' + bodySuffix);
+
+  return bodyLayers;
 }
 
 function showPupils(pupilShape) {
@@ -2245,18 +2228,8 @@ function sectionHide(multiLayer, id) {
     } else if (id.slice(1,5) === "body" && id.slice(6,10) != 'head' ){
         var idList = id.split('_');
         var bodySuffix = idList[idList.length-1];
-        var bodyLayers = [];
-        var bodyLayersCounter;
-
-        bodyLayers.push('body_torso_' + bodySuffix);
-        bodyLayers.push('body_arm_right_' + bodySuffix);
-        bodyLayers.push('body_arm_left_' + bodySuffix);
-        bodyLayers.push('body_forearm_right_' + bodySuffix);
-        bodyLayers.push('body_forearm_left_' + bodySuffix);
-        bodyLayers.push('body_leg_right_' + bodySuffix);
-        bodyLayers.push('body_leg_left_' + bodySuffix);
-
-        bodyLayersCounter = bodyLayers.length;
+        var bodyLayers = getBodyLayers(bodySuffix);
+        var bodyLayersCounter = bodyLayers.length;
 
         while (bodyLayersCounter--) {
           idOf = '#' + bodyLayers[bodyLayersCounter];
@@ -3751,10 +3724,8 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'}
 
-            console.log('Parse Hash, section:', section);
             var hashColor = hash.get(section+'Color');
             if (hashColor != undefined && hashColor != '') {
-                console.log('hashColor', hashColor);
                 modCharacter(section+'Color', hashColor);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };

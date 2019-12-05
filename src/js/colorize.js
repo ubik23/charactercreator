@@ -35,7 +35,6 @@ function colorSkin(color) {
 }
 
 function colorElement(el) {
-  console.log('colorElement', el);
   var id = el.id.split('_');
   var section = id[0];
   var item = id[1];
@@ -66,7 +65,6 @@ function colorElement(el) {
 }
 
 function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
-  console.log('colorPrefix', colorPrefix);
   var colorContrasts = ['dark', 'light'];
   var contrastCounter = colorContrasts.length;
   var colorSuffixes = ['er', 'est'];
