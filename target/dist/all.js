@@ -1074,7 +1074,6 @@ function drawPallette(pallette) {
     node.setAttribute('checked', 'checked');
     node.classList = [keys[counter]];
     label.style.background = pallette[keys[counter]];
-    // node.addEventListener("click", changeColorClass, false)
     container.appendChild(node);
     container.appendChild(label);
   }
@@ -1082,10 +1081,6 @@ function drawPallette(pallette) {
   // TODO Add event listeners to each colored div, allowing user to choose which color they edit.
   // Make sure the color refreshes when changing the colorpicker
 
-}
-
-function changeColorClass(ev) {
-  console.log(ev.target.classList.value);
 }
 
 function getColor(sectionId) {
