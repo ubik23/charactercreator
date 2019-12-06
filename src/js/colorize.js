@@ -165,25 +165,52 @@ function getColorList(newColor) {
   return colorList;
 }
 
+function getColorClassPrefix(id) {
+  // If it's 'body', it's probably 'skin'.
+  // If it's 'mouth', then it's 'lips'.
+  // Everything else will start with 'alpha',
+  // But can be changed by the user using radio button color pallette.
+  var prefix;
+  var sectionPallette = document.querySelector('.section-pallette');
+  console.log('id', id);
+  if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
+
+      prefix = "skin";
+  } else if (sectionPallette.querySelector('input:checked')) {
+    console.log('>>>', sectionPallette.querySelector('input:checked').value );
+    prefix = sectionPallette.querySelector('input:checked').value;
+  } else {
+    prefix = 'alpha';
+  }
+  return prefix;
+}
+
 function colorize(formId, _color){
-    var colorMultiplyer = 10; // Color contrast.
+    var colorMultiplyer = 10; // Color contrast. TODO Move to user controls.
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
+
     var colorLight = shadeColor(_color, colorMultiplyer);
     var colorLighter = shadeColor(_color, (2 * colorMultiplyer));
     var colorLightest = shadeColor(_color, (3 * colorMultiplyer));
     var colorDark = shadeColor(_color, -1 * colorMultiplyer);
     var colorDarker = shadeColor(_color, -1 * (2 * colorMultiplyer));
     var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
-    var classPrefix = "alpha";
+
+    var classPrefix = getColorClassPrefix(formId);
+
     var classLightest = "--lightest";
     var classLighter = "--lighter";
     var classLight = "--light";
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
+
     var seperator = " .";
+
+    console.log('formId', formId);
+    console.log('_color', _color);
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
@@ -199,7 +226,7 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
-                    classPrefix = "skin";
+                    // classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
@@ -288,6 +315,7 @@ function colorize(formId, _color){
         }
     }
 }
+
 
 function colorPaths(node, _color, colorDarker){
     if (node.style.fill != "none" && node.style.fill != ""){

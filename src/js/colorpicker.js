@@ -1,7 +1,6 @@
 
 function addColorPicker() {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase();
-  getPallette(section);
   getColor(section);
 }
 
@@ -20,6 +19,7 @@ function getPallette(sectionId) {
   var emotions;
   var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon'];
   var classCounter;
+
 
   if (sectionId === 'body') {
     files = getAllBodyLayers();
@@ -48,7 +48,36 @@ function getPallette(sectionId) {
       }
     }
   }
-  return pallette;
+  drawPallette(pallette);
+}
+
+function drawPallette(pallette) {
+  var container = document.querySelector('.section-pallette');
+  var node;
+  var keys = Object.keys(pallette);
+  var counter = keys.length;
+
+  while (counter--) {
+    console.log(pallette[keys[counter]]);
+    node = document.createElement("INPUT");
+    node.type = 'radio';
+    node.id = 'btn-' + [keys[counter]];
+    node.name = 'btn-pallette';
+    node.value = [keys[counter]];
+    node.checked = 'checked';
+    node.classList = [keys[counter]];
+    node.style.background = pallette[keys[counter]];
+    node.addEventListener("click", changeColorClass, false)
+    container.appendChild(node);
+  }
+
+  // TODO Add event listeners to each colored div, allowing user to choose which color they edit.
+  // Make sure the color refreshes when changing the colorpicker
+
+}
+
+function changeColorClass(ev) {
+  console.log(ev.target.classList.value);
 }
 
 function getColor(sectionId) {
@@ -59,6 +88,8 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
+    getPallette(sectionId);
+
     try {
       ColorPicker(
           slide,
@@ -78,5 +109,5 @@ function emptyPicker() {
 
 function clearPicker() {
     var wrapper = document.querySelector(".colorpicker-wrapper");
-    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>';
+    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><div class="section-pallette"></div></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>';
 }

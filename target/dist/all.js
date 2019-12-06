@@ -785,25 +785,52 @@ function getColorList(newColor) {
   return colorList;
 }
 
+function getColorClassPrefix(id) {
+  // If it's 'body', it's probably 'skin'.
+  // If it's 'mouth', then it's 'lips'.
+  // Everything else will start with 'alpha',
+  // But can be changed by the user using radio button color pallette.
+  var prefix;
+  var sectionPallette = document.querySelector('.section-pallette');
+  console.log('id', id);
+  if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
+
+      prefix = "skin";
+  } else if (sectionPallette.querySelector('input:checked')) {
+    console.log('>>>', sectionPallette.querySelector('input:checked').value );
+    prefix = sectionPallette.querySelector('input:checked').value;
+  } else {
+    prefix = 'alpha';
+  }
+  return prefix;
+}
+
 function colorize(formId, _color){
-    var colorMultiplyer = 10; // Color contrast.
+    var colorMultiplyer = 10; // Color contrast. TODO Move to user controls.
     var forms = window.forms;
     var id = formId;
     var affectedList = [];
+
     var colorLight = shadeColor(_color, colorMultiplyer);
     var colorLighter = shadeColor(_color, (2 * colorMultiplyer));
     var colorLightest = shadeColor(_color, (3 * colorMultiplyer));
     var colorDark = shadeColor(_color, -1 * colorMultiplyer);
     var colorDarker = shadeColor(_color, -1 * (2 * colorMultiplyer));
     var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
-    var classPrefix = "alpha";
+
+    var classPrefix = getColorClassPrefix(formId);
+
     var classLightest = "--lightest";
     var classLighter = "--lighter";
     var classLight = "--light";
     var classDark = "--dark";
     var classDarker = "--darker";
     var classDarkest = "--darkest";
+
     var seperator = " .";
+
+    console.log('formId', formId);
+    console.log('_color', _color);
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
@@ -819,7 +846,7 @@ function colorize(formId, _color){
                 if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
-                    classPrefix = "skin";
+                    // classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
                     affectedList = window.hairLayers;
@@ -909,6 +936,7 @@ function colorize(formId, _color){
     }
 }
 
+
 function colorPaths(node, _color, colorDarker){
     if (node.style.fill != "none" && node.style.fill != ""){
         node.style.fill = _color;
@@ -980,7 +1008,6 @@ function replacementStyle(json, newColor) {
 
 function addColorPicker() {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase();
-  getPallette(section);
   getColor(section);
 }
 
@@ -999,6 +1026,7 @@ function getPallette(sectionId) {
   var emotions;
   var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon'];
   var classCounter;
+
 
   if (sectionId === 'body') {
     files = getAllBodyLayers();
@@ -1027,7 +1055,36 @@ function getPallette(sectionId) {
       }
     }
   }
-  return pallette;
+  drawPallette(pallette);
+}
+
+function drawPallette(pallette) {
+  var container = document.querySelector('.section-pallette');
+  var node;
+  var keys = Object.keys(pallette);
+  var counter = keys.length;
+
+  while (counter--) {
+    console.log(pallette[keys[counter]]);
+    node = document.createElement("INPUT");
+    node.type = 'radio';
+    node.id = 'btn-' + [keys[counter]];
+    node.name = 'btn-pallette';
+    node.value = [keys[counter]];
+    node.checked = 'checked';
+    node.classList = [keys[counter]];
+    node.style.background = pallette[keys[counter]];
+    node.addEventListener("click", changeColorClass, false)
+    container.appendChild(node);
+  }
+
+  // TODO Add event listeners to each colored div, allowing user to choose which color they edit.
+  // Make sure the color refreshes when changing the colorpicker
+
+}
+
+function changeColorClass(ev) {
+  console.log(ev.target.classList.value);
 }
 
 function getColor(sectionId) {
@@ -1038,6 +1095,8 @@ function getColor(sectionId) {
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
     section.innerHTML = id;
+    getPallette(sectionId);
+
     try {
       ColorPicker(
           slide,
@@ -1057,7 +1116,7 @@ function emptyPicker() {
 
 function clearPicker() {
     var wrapper = document.querySelector(".colorpicker-wrapper");
-    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>';
+    wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><div class="section-pallette"></div></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>';
 }
 
 
@@ -1095,6 +1154,7 @@ function closeCredits(evt) {
 
 
 function getSVG() {
+  var includeGroups = false; //TODO
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
@@ -1145,22 +1205,6 @@ function download() {
         pom.click();
     }
     caboose();
-}
-
-function upload() {
-  // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
-  var text = getSVG();
-
-  fetch('/upload', {
-  method: 'put',
-  headers: { 'content-type': 'text/plain' },
-  body: text
-})
-.then(function (res)  { return res.json() })
-// ici tu voudras faire quelque chose avec la valeur de url
-.then(function ({size, url}) { console.log(size, url) })
-// ou afficher une erreur en cas de probleme
-.catch(function (error) { console.error('ERREUR!!!', error) })
 }
 
 function createForm(sex, forms){
@@ -1283,8 +1327,6 @@ function getSectionLayersList(section) {
 
   section = capitalizeFirstLetter(section);
 
-  console.log('getSectionLayersList', section);
-
   if (sex === "m") {
     formList = window.maleFormList;
   } else {
@@ -1297,7 +1339,6 @@ function getSectionLayersList(section) {
       itemList = formList[formCounter][section];
     }
   }
-  console.log('itemList', itemList);
   return itemList;
 }
 

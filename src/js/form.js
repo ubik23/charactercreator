@@ -118,8 +118,6 @@ function getSectionLayersList(section) {
 
   section = capitalizeFirstLetter(section);
 
-  console.log('getSectionLayersList', section);
-
   if (sex === "m") {
     formList = window.maleFormList;
   } else {
@@ -132,7 +130,6 @@ function getSectionLayersList(section) {
       itemList = formList[formCounter][section];
     }
   }
-  console.log('itemList', itemList);
   return itemList;
 }
 

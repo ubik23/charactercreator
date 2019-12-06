@@ -1,5 +1,6 @@
 
 function getSVG() {
+  var includeGroups = false; //TODO
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
@@ -50,20 +51,4 @@ function download() {
         pom.click();
     }
     caboose();
-}
-
-function upload() {
-  // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
-  var text = getSVG();
-
-  fetch('/upload', {
-  method: 'put',
-  headers: { 'content-type': 'text/plain' },
-  body: text
-})
-.then(function (res)  { return res.json() })
-// ici tu voudras faire quelque chose avec la valeur de url
-.then(function ({size, url}) { console.log(size, url) })
-// ou afficher une erreur en cas de probleme
-.catch(function (error) { console.error('ERREUR!!!', error) })
 }
