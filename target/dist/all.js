@@ -1073,7 +1073,7 @@ function drawPallette(pallette) {
     node.value = [keys[counter]];
     node.checked = 'checked';
     node.classList = [keys[counter]];
-    node.style.background = pallette[keys[counter]];
+    node.style.color = pallette[keys[counter]];
     node.addEventListener("click", changeColorClass, false)
     container.appendChild(node);
   }
