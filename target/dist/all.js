@@ -788,13 +788,11 @@ function getColorList(newColor) {
 function getColorClassPrefix(id) {
   var prefix;
   var sectionPallette = document.querySelector('.section-pallette');
-  console.log('id', id);
-  if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
 
-      prefix = "skin";
-  } else if (sectionPallette.querySelector('input:checked')) {
-    console.log('>>>', sectionPallette.querySelector('input:checked').value );
+  if (sectionPallette.querySelector('input:checked')) {
     prefix = sectionPallette.querySelector('input:checked').value;
+  } else if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
+      prefix = "skin";
   } else {
     prefix = 'alpha';
   }
@@ -816,7 +814,6 @@ function colorize(formId, _color){
 
     var classPrefix = getColorClassPrefix(formId);
     var palletteButton = document.querySelector('.section-pallette input[type="radio"]:checked+label');
-    console.log('palletteButton', palletteButton);
 
     var classLightest = "--lightest";
     var classLighter = "--lighter";
@@ -826,9 +823,6 @@ function colorize(formId, _color){
     var classDarkest = "--darkest";
 
     var seperator = " .";
-
-    console.log('formId', formId);
-    console.log('_color', _color);
 
     if (palletteButton) {
       palletteButton.style.background = _color;
@@ -1176,7 +1170,7 @@ function getSVG() {
     if (item.innerHTML != undefined) {
           // This removes only useless layers and allows us to o the next test.
           if (!item.style || !item.style.opacity || item.style.opacity != 0){
-              svgString = item.innerHTML;
+              svgString = '<g id="' + item.id + '">' + item.innerHTML + '</g>';
               text += svgString;
           } else {
           };

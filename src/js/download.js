@@ -19,7 +19,7 @@ function getSVG() {
     if (item.innerHTML != undefined) {
           // This removes only useless layers and allows us to o the next test.
           if (!item.style || !item.style.opacity || item.style.opacity != 0){
-              svgString = item.innerHTML;
+              svgString = '<g id="' + item.id + '">' + item.innerHTML + '</g>';
               text += svgString;
           } else {
           };
