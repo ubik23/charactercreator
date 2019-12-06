@@ -786,10 +786,6 @@ function getColorList(newColor) {
 }
 
 function getColorClassPrefix(id) {
-  // If it's 'body', it's probably 'skin'.
-  // If it's 'mouth', then it's 'lips'.
-  // Everything else will start with 'alpha',
-  // But can be changed by the user using radio button color pallette.
   var prefix;
   var sectionPallette = document.querySelector('.section-pallette');
   console.log('id', id);
@@ -886,6 +882,7 @@ function colorize(formId, _color){
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
+                console.log('obj', obj);
                 hash.add(obj);
                 modCharacter(myKey, myValue);
 
@@ -1061,21 +1058,25 @@ function getPallette(sectionId) {
 function drawPallette(pallette) {
   var container = document.querySelector('.section-pallette');
   var node;
+  var label;
   var keys = Object.keys(pallette);
   var counter = keys.length;
 
   while (counter--) {
     console.log(pallette[keys[counter]]);
     node = document.createElement("INPUT");
+    label = document.createElement("LABEL");
+    label.setAttribute('for', 'btn-' + [keys[counter]]);
     node.type = 'radio';
     node.id = 'btn-' + [keys[counter]];
     node.name = 'btn-pallette';
     node.value = [keys[counter]];
-    node.checked = 'checked';
+    node.setAttribute('checked', 'checked');
     node.classList = [keys[counter]];
-    node.style.color = pallette[keys[counter]];
-    node.addEventListener("click", changeColorClass, false)
+    label.style.background = pallette[keys[counter]];
+    // node.addEventListener("click", changeColorClass, false)
     container.appendChild(node);
+    container.appendChild(label);
   }
 
   // TODO Add event listeners to each colored div, allowing user to choose which color they edit.

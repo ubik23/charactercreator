@@ -166,10 +166,6 @@ function getColorList(newColor) {
 }
 
 function getColorClassPrefix(id) {
-  // If it's 'body', it's probably 'skin'.
-  // If it's 'mouth', then it's 'lips'.
-  // Everything else will start with 'alpha',
-  // But can be changed by the user using radio button color pallette.
   var prefix;
   var sectionPallette = document.querySelector('.section-pallette');
   console.log('id', id);
@@ -266,6 +262,7 @@ function colorize(formId, _color){
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
+                console.log('obj', obj);
                 hash.add(obj);
                 modCharacter(myKey, myValue);
 

@@ -27,24 +27,23 @@
 .section-pallette {
     margin: 5px 0;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 100%;
     height: 1rem;
     background: transparent;
     cursor: pointer;
 
     & > input {
-      height: 100%;
-      width: 100%;
-
-      &:before {
-        content: '';
+      position: absolute;
+      top: 1%;
+      left: 1%;
+      opacity: 0;
+      }
+    & > label {
         display: flex;
         width: 100%;
         height: 100%;
-        background: currentColor;
       }
-    }
 }
 
 .colorpicker-align {
