@@ -815,6 +815,8 @@ function colorize(formId, _color){
     var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
 
     var classPrefix = getColorClassPrefix(formId);
+    var palletteButton = document.querySelector('.section-pallette input[type="radio"]:checked+label');
+    console.log('palletteButton', palletteButton);
 
     var classLightest = "--lightest";
     var classLighter = "--lighter";
@@ -827,6 +829,10 @@ function colorize(formId, _color){
 
     console.log('formId', formId);
     console.log('_color', _color);
+
+    if (palletteButton) {
+      palletteButton.style.background = _color;
+    }
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
@@ -1090,6 +1096,7 @@ function getColor(sectionId) {
     var picker = document.getElementById('picker');
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
+
     section.innerHTML = id;
     getPallette(sectionId);
 
@@ -3455,7 +3462,7 @@ function launch() {
     ];
     hairLayers = [
       'facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_beard_raw', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_goatee_raw', 'facialhair_moustache', 'facialhair_moustache_dali', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-      'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut',
+      'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'hair_wild',
       'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
     ];

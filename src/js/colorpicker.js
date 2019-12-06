@@ -86,6 +86,7 @@ function getColor(sectionId) {
     var picker = document.getElementById('picker');
     var section = document.querySelector('.section-id');
     var wrapper = document.querySelector(".colorpicker-wrapper");
+
     section.innerHTML = id;
     getPallette(sectionId);
 

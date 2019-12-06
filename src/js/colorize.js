@@ -195,6 +195,8 @@ function colorize(formId, _color){
     var colorDarkest = shadeColor(_color, -1 * (3 * colorMultiplyer));
 
     var classPrefix = getColorClassPrefix(formId);
+    var palletteButton = document.querySelector('.section-pallette input[type="radio"]:checked+label');
+    console.log('palletteButton', palletteButton);
 
     var classLightest = "--lightest";
     var classLighter = "--lighter";
@@ -207,6 +209,10 @@ function colorize(formId, _color){
 
     console.log('formId', formId);
     console.log('_color', _color);
+
+    if (palletteButton) {
+      palletteButton.style.background = _color;
+    }
 
     for (var f in forms){
         var form = Object.keys(forms[f]);
