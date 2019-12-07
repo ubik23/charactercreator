@@ -659,6 +659,10 @@ function colorElement(el) {
   var section = id[0];
   var item = id[1];
   var newColor;
+  var newColorBeta;
+  var newColorGamma;
+  var newColorDelta;
+  var newColorEpsilon;
   var colorPrefix = 'alpha';
   var lipstickColor;
 
@@ -667,6 +671,10 @@ function colorElement(el) {
   if (section === 'eyeballs') {section = 'iris'}
 
   newColor = c.choices[section+'Color'];
+  newColorBeta = c.choices[section+'Color-bet'];
+  newColorGamma = c.choices[section+'Color-gam'];
+  newColorDelta = c.choices[section+'Color-del'];
+  newColorEpsilon = c.choices[section+'Color-eps'];
 
   if (section === 'skin') {colorPrefix = 'skin'}
   if (section === 'mouth') {
@@ -680,6 +688,18 @@ function colorElement(el) {
      if (section === 'mouth') {
        el = colorElementLoop(el, colorPrefix, lipstickColor, true);
      }
+  }
+  if (newColorBeta != undefined) {
+    el = colorElementLoop(el, 'beta', newColorBeta, false);
+  }
+  if (newColorGamma != undefined) {
+    el = colorElementLoop(el, 'gamma', newColorGamma, false);
+  }
+  if (newColorDelta != undefined) {
+    el = colorElementLoop(el, 'delta', newColorDelta, false);
+  }
+  if (newColorEpsilon != undefined) {
+    el = colorElementLoop(el, 'epsilon', newColorEpsilon, false);
   }
   return el;
 }
@@ -854,7 +874,13 @@ function colorize(formId, _color){
                 }
                 else {
                     affectedList = [];
-                    var myKey = id + 'Color'
+                    var myKey = id + 'Color';
+
+                    // TODO Add color suffixes *********************************
+                    console.log('classPrefix', classPrefix);
+                    if (classPrefix != 'skin' && classPrefix != 'alpha') {
+                      myKey = myKey + '-' + classPrefix.slice(0,3);
+                    }
                     if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashesColor'||myKey === 'socketsColor'||myKey === 'mouthColor') {
                         for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
@@ -1824,10 +1850,15 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
-    var colorThis = false;
+    // var colorThis = false;
     var myLayer = fileName;
-    var newColor;
+    // var newColor;
+    // var newColorBeta;
+    // var newColorGamma;
+    // var newColorDelta;
+    // var newColorEpsilon;
     var seen;
+
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
         seen = 1;
     } else {seen = 0;};
@@ -1836,18 +1867,33 @@ function onEachLoaded(frag, fileName) {
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     section = processSection(section, item);
     // Make a list of all the color keys in c.choices
-    if (c.choices[section+'Color'] != undefined) {
-        newColor = c.choices[section+'Color'];
-        // We now have a new color
-        colorThis = true;
-    };
+    // if (c.choices[section+'Color'] != undefined) {
+    //     newColor = c.choices[section+'Color'];
+    //     // We now have a new color
+    //     colorThis = true;
+    // };
+    // if (c.choices[section+'Color-bet'] != undefined) {
+    //     newColorBeta = c.choices[section+'Color-bet'];
+    //     // We now have a new color
+    //     colorThis = true;
+    // };
+    // if (c.choices[section+'Color-gam'] != undefined) {
+    //     newColorGamma = c.choices[section+'Color-gam'];
+    //     // We now have a new color
+    //     colorThis = true;
+    // };
+    // if (c.choices[section+'Color-eps'] != undefined) {
+    //     newColorEpsilon = c.choices[section+'Color-eps'];
+    //     // We now have a new color
+    //     colorThis = true;
+    // };
     // Get a list
     //Check to see if the Color suffix is available for each toBeShown
     // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored.
 
-    if (colorThis === true){
-        applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
-    }
+    // if (colorThis === true){
+    //     applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
+    // }
 
     frag.select("*").attr({ opacity: seen });
 }
@@ -1869,7 +1915,7 @@ function choicesToList(c) {
   var layerChoice;
   while (counter--) {
     keyChoice = Object.keys(c.choices)[counter];
-    if (keyChoice.slice(-5) != 'Color') {
+    if (keyChoice.slice(-5) != 'Color' && keyChoice.slice(-9,-4) != 'Color') {
       valueChoice = c.choices[keyChoice];
       layerChoice = keyChoice + '_' + valueChoice;
     }
@@ -3738,6 +3784,12 @@ function parseHash(c, forms, skinLayers, hairLayers){
     newParseHash();
     var formsLength = forms.length;
     var formsCounter = formsLength;
+    var hashColor;
+    var hashColorBeta;
+    var hashColorGamma;
+    var hashColorDelta;
+    var hashColorEpsilon;
+
     while (formsCounter--) {
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
@@ -3765,9 +3817,30 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'}
 
-            var hashColor = hash.get(section+'Color');
+            hashColor = hash.get(section+'Color');
+            hashColorBeta = hash.get(section+'Color-bet');
+            hashColorGamma = hash.get(section+'Color-gam');
+            hashColorDelta = hash.get(section+'Color-del');
+            hashColorEpsilon = hash.get(section+'Color-eps');
+
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };  
+            if (hashColorBeta != undefined && hashColorBeta != '') {
+                modCharacter(section+'Color-bet', hashColorBeta);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorGamma != undefined && hashColorGamma != '') {
+                modCharacter(section+'Color-gam', hashColorGamma);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorDelta != undefined && hashColorDelta != '') {
+                modCharacter(section+'Color-del', hashColorDelta);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorEpsilon != undefined && hashColorEpsilon != '') {
+                modCharacter(section+'Color-eps', hashColorEpsilon);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };

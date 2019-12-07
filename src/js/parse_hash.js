@@ -2,6 +2,12 @@ function parseHash(c, forms, skinLayers, hairLayers){
     newParseHash();
     var formsLength = forms.length;
     var formsCounter = formsLength;
+    var hashColor;
+    var hashColorBeta;
+    var hashColorGamma;
+    var hashColorDelta;
+    var hashColorEpsilon;
+
     while (formsCounter--) {
         var f = formsLength - formsCounter - 1;
         for(var x in forms[f]) {
@@ -29,9 +35,30 @@ function parseHash(c, forms, skinLayers, hairLayers){
             }
             else if (id in hairLayers || section ==='hair'){ section = 'hair'}
 
-            var hashColor = hash.get(section+'Color');
+            hashColor = hash.get(section+'Color');
+            hashColorBeta = hash.get(section+'Color-bet');
+            hashColorGamma = hash.get(section+'Color-gam');
+            hashColorDelta = hash.get(section+'Color-del');
+            hashColorEpsilon = hash.get(section+'Color-eps');
+
             if (hashColor != undefined && hashColor != '') {
                 modCharacter(section+'Color', hashColor);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };  
+            if (hashColorBeta != undefined && hashColorBeta != '') {
+                modCharacter(section+'Color-bet', hashColorBeta);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorGamma != undefined && hashColorGamma != '') {
+                modCharacter(section+'Color-gam', hashColorGamma);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorDelta != undefined && hashColorDelta != '') {
+                modCharacter(section+'Color-del', hashColorDelta);
+                // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+            };
+            if (hashColorEpsilon != undefined && hashColorEpsilon != '') {
+                modCharacter(section+'Color-eps', hashColorEpsilon);
                 // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
             };
         };

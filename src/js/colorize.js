@@ -39,6 +39,10 @@ function colorElement(el) {
   var section = id[0];
   var item = id[1];
   var newColor;
+  var newColorBeta;
+  var newColorGamma;
+  var newColorDelta;
+  var newColorEpsilon;
   var colorPrefix = 'alpha';
   var lipstickColor;
 
@@ -47,6 +51,10 @@ function colorElement(el) {
   if (section === 'eyeballs') {section = 'iris'}
 
   newColor = c.choices[section+'Color'];
+  newColorBeta = c.choices[section+'Color-bet'];
+  newColorGamma = c.choices[section+'Color-gam'];
+  newColorDelta = c.choices[section+'Color-del'];
+  newColorEpsilon = c.choices[section+'Color-eps'];
 
   if (section === 'skin') {colorPrefix = 'skin'}
   if (section === 'mouth') {
@@ -60,6 +68,18 @@ function colorElement(el) {
      if (section === 'mouth') {
        el = colorElementLoop(el, colorPrefix, lipstickColor, true);
      }
+  }
+  if (newColorBeta != undefined) {
+    el = colorElementLoop(el, 'beta', newColorBeta, false);
+  }
+  if (newColorGamma != undefined) {
+    el = colorElementLoop(el, 'gamma', newColorGamma, false);
+  }
+  if (newColorDelta != undefined) {
+    el = colorElementLoop(el, 'delta', newColorDelta, false);
+  }
+  if (newColorEpsilon != undefined) {
+    el = colorElementLoop(el, 'epsilon', newColorEpsilon, false);
   }
   return el;
 }
@@ -234,7 +254,13 @@ function colorize(formId, _color){
                 }
                 else {
                     affectedList = [];
-                    var myKey = id + 'Color'
+                    var myKey = id + 'Color';
+
+                    // TODO Add color suffixes *********************************
+                    console.log('classPrefix', classPrefix);
+                    if (classPrefix != 'skin' && classPrefix != 'alpha') {
+                      myKey = myKey + '-' + classPrefix.slice(0,3);
+                    }
                     if (myKey === 'irisColor'||myKey === 'browsColor'||myKey === 'lashesColor'||myKey === 'socketsColor'||myKey === 'mouthColor') {
                         for (i in forms[0]['Emotion']) {
                             var tmpId =  forms[0]['Emotion'][i];
