@@ -256,8 +256,6 @@ function colorize(formId, _color){
                     affectedList = [];
                     var myKey = id + 'Color';
 
-                    // TODO Add color suffixes *********************************
-                    console.log('classPrefix', classPrefix);
                     if (classPrefix != 'skin' && classPrefix != 'alpha') {
                       myKey = myKey + '-' + classPrefix.slice(0,3);
                     }
@@ -288,7 +286,6 @@ function colorize(formId, _color){
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
-                console.log('obj', obj);
                 hash.add(obj);
                 modCharacter(myKey, myValue);
 

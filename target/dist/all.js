@@ -876,8 +876,6 @@ function colorize(formId, _color){
                     affectedList = [];
                     var myKey = id + 'Color';
 
-                    // TODO Add color suffixes *********************************
-                    console.log('classPrefix', classPrefix);
                     if (classPrefix != 'skin' && classPrefix != 'alpha') {
                       myKey = myKey + '-' + classPrefix.slice(0,3);
                     }
@@ -908,7 +906,6 @@ function colorize(formId, _color){
                 var myValue = _color.toString();
                 var obj = new Array();
                 obj[myKey] =  myValue;
-                console.log('obj', obj);
                 hash.add(obj);
                 modCharacter(myKey, myValue);
 
@@ -4101,7 +4098,7 @@ function smartRandomSingle() {
   }
   // Then choose the skin color at random (1/24)
   roll = Math.floor((Math.random() * 24));
-  newColor = obj['skinColor'] =  skinTones[roll-1].toLowerCase();
+  newColor = obj['skinColor'] =  skinTones[roll].toLowerCase();
   hash.add(obj);
   defaultEyeColor(newColor);
   defaultHairColor(newColor);
@@ -4156,14 +4153,10 @@ function smartRandomSingle() {
               obj[catKey] = newItem;
               hash.add(obj);
             }
-            console.log('newItem', newItem);
           }
         }
       }
     }, 300);
-
-
-
   // Cycle through each category in the first form
   // For Mouth pass on male, change color on female (50% chance to keep the skin color)
 

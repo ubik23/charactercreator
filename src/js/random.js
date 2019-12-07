@@ -190,7 +190,7 @@ function smartRandomSingle() {
   }
   // Then choose the skin color at random (1/24)
   roll = Math.floor((Math.random() * 24));
-  newColor = obj['skinColor'] =  skinTones[roll-1].toLowerCase();
+  newColor = obj['skinColor'] =  skinTones[roll].toLowerCase();
   hash.add(obj);
   defaultEyeColor(newColor);
   defaultHairColor(newColor);
@@ -245,14 +245,10 @@ function smartRandomSingle() {
               obj[catKey] = newItem;
               hash.add(obj);
             }
-            console.log('newItem', newItem);
           }
         }
       }
     }, 300);
-
-
-
   // Cycle through each category in the first form
   // For Mouth pass on male, change color on female (50% chance to keep the skin color)
 
