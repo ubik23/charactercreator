@@ -177,6 +177,31 @@ function smartRandomSingle() {
   var obj = new Array();
   var roll;
   var catKey;
+  var chance;
+  var chanceDict = {
+    'coat' : 15,
+    'collar' : 5,
+    'earings' : 90,
+    'earpiece' : 5,
+    'eyepatch' : 10,
+    'glasses' : 80,
+    'holster' : 5,
+    'horns' : 5,
+    'makeup' : 90,
+    'mask' : 5,
+    'pipe' : 10,
+    'pet' : 20,
+    'scarf' : 30,
+    'shirt' : 95,
+    'shoulderpads' : 5,
+    'suit' : 5,
+    'tie' : 15,
+    'veil' : 5,
+    'vest' : 15,
+    'warpaint' : 5,
+    'wings' : 10
+  }
+  var defaultChance = 50;
 
   hash.clear();
   // First, clear the board and start from the silhouettes
@@ -222,12 +247,19 @@ function smartRandomSingle() {
             catKey = keys[keyLen-1-keyCounter].toLowerCase();
 
             if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes') {
-              roll = Math.floor((Math.random() * 100));
-              if (roll <= 75) {
-                newItem = '';
+              console.log('chanceDict[catKey]', chanceDict[catKey]);
+              if (chanceDict[catKey] != undefined) {
+                chance = chanceDict[catKey];
               } else {
+                chance = defaultChance;
+              }
+              roll = Math.floor((Math.random() * 100));
+              console.log('roll', roll);
+              if (roll <= chance) {
                 roll = Math.floor((Math.random() * (itemsLen -1))) +1;
                 newItem = items[roll].toLowerCase();
+              } else {
+                newItem = '';
               }
             } else if (catKey === 'body') {
               roll = Math.floor((Math.random() * itemsLen));
@@ -241,6 +273,8 @@ function smartRandomSingle() {
             if (newItem === '') {
               hideCompetition(catKey);
             } else {
+              // TODO Make sure items don't ovelap and create visual confusion between layers.
+              // Don't have hair sticking out from a behind a hat.
               showRandom(catKey, newItem);
               obj[catKey] = newItem;
               hash.add(obj);

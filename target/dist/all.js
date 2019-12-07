@@ -3243,6 +3243,7 @@ function launch() {
       'coat_trench_3_of_4',
       'coat_lab_2_of_2',
       'jacket_suit_2_of_2',
+      'pants_snowboard_2_of_2',
       'shoes_flip-flops_2_of_2',
       'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
       'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
@@ -3260,10 +3261,10 @@ function launch() {
       'socks_socks',
       'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
       'watch_generic',
-      'shirt_colar_2_of_2','shirt_turtleneck',
-      'tie_bolo','tie_bow_2_of_2','tie_neck',
+      'shirt_colar_2_of_2', 'shirt_turtleneck',
+      'tie_bolo', 'tie_bow_2_of_2','tie_neck',
       'shirt_colar_1_of_2',
-      'pants_jeans_1_of_2','pants_leather','pants_suit_1_of_2','pants_snowboard',
+      'pants_jeans_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
       'belt_leather', 'belt_default',
       'pants_jeans_2_of_2', 'pants_suit_2_of_2',
       'shirt_tshirt',
@@ -3397,6 +3398,7 @@ function launch() {
       'body_torso_athletic', 'body_torso_default','body_torso_veiny','body_torso_android-00',
       'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny', 'body_leg_right_android-00',
       'body_foot_right',
+      'pants_yoga_torn_2_of_3',
       'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny', 'body_leg_left_android-00',
       'body_foot_left',
       'body_arm_left_athletic', 'body_arm_left_default', 'body_arm_left_veiny', 'body_arm_left_android-00',
@@ -3408,11 +3410,11 @@ function launch() {
       'armband_egyptian_left',
       'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings_left', 'bracelet_rings_right', 'bracelet_wonder_left', 'bracelet_wonder_right',
       'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
-      'leggings_regular', 'leggings_torn',
+      'leggings_regular', 'leggings_torn', 'pants_yoga_torn_3_of_3',
       'bra_bow', 'bra_grid', 'bra_sports',
       'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
       'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
-      'pants_yoga', 'pants_yoga_torn', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
+      'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
       'shorts_bikini', 'shorts_short',
       'holster_revolver_thigh_1_of_2',
       'skirt_school','skirt_school_short','skirt_school_long',
@@ -3468,8 +3470,8 @@ function launch() {
     ];
     var layerDirectoryFemale = 'layer/female/';
     var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
+    var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
+    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['headband_medium', 2], ['jacket_suit', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_suit', 2], ['pants_snowboard', 2],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
     var size = function(obj) {
         var size = 0, key;
         for (key in obj) {
@@ -4085,6 +4087,31 @@ function smartRandomSingle() {
   var obj = new Array();
   var roll;
   var catKey;
+  var chance;
+  var chanceDict = {
+    'coat' : 15,
+    'collar' : 5,
+    'earings' : 90,
+    'earpiece' : 5,
+    'eyepatch' : 10,
+    'glasses' : 80,
+    'holster' : 5,
+    'horns' : 5,
+    'makeup' : 90,
+    'mask' : 5,
+    'pipe' : 10,
+    'pet' : 20,
+    'scarf' : 30,
+    'shirt' : 95,
+    'shoulderpads' : 5,
+    'suit' : 5,
+    'tie' : 15,
+    'veil' : 5,
+    'vest' : 15,
+    'warpaint' : 5,
+    'wings' : 10
+  }
+  var defaultChance = 50;
 
   hash.clear();
   // First, clear the board and start from the silhouettes
@@ -4130,12 +4157,19 @@ function smartRandomSingle() {
             catKey = keys[keyLen-1-keyCounter].toLowerCase();
 
             if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes') {
-              roll = Math.floor((Math.random() * 100));
-              if (roll <= 75) {
-                newItem = '';
+              console.log('chanceDict[catKey]', chanceDict[catKey]);
+              if (chanceDict[catKey] != undefined) {
+                chance = chanceDict[catKey];
               } else {
+                chance = defaultChance;
+              }
+              roll = Math.floor((Math.random() * 100));
+              console.log('roll', roll);
+              if (roll <= chance) {
                 roll = Math.floor((Math.random() * (itemsLen -1))) +1;
                 newItem = items[roll].toLowerCase();
+              } else {
+                newItem = '';
               }
             } else if (catKey === 'body') {
               roll = Math.floor((Math.random() * itemsLen));
@@ -4149,6 +4183,8 @@ function smartRandomSingle() {
             if (newItem === '') {
               hideCompetition(catKey);
             } else {
+              // TODO Make sure items don't ovelap and create visual confusion between layers.
+              // Don't have hair sticking out from a behind a hat.
               showRandom(catKey, newItem);
               obj[catKey] = newItem;
               hash.add(obj);
