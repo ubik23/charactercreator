@@ -324,7 +324,7 @@ function launch() {
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Mouth' : [''],
       'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'odango', 'soulpatch', 'winnfield'],
-      'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'short', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
+      'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
       'Freckles': ['', 'medium'],
       // 'Age' : ['', 'lines'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
@@ -724,9 +724,10 @@ function colorOnHover() {
     malePath.style.fill = newTone;
 }
 
-function colorCutout(newColor){
+function colorCutout(newColor) {
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
+    console.log('newColor', newColor);
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -737,6 +738,7 @@ function colorCutout(newColor){
 
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
+    console.log('newColor', newColor);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
     defaultPupilShape();
@@ -770,11 +772,17 @@ function selectMale(event) {
     mainSVG.classList.add('select-male');
     shadow.classList.add('shine');
 
-    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
+    if (event) {
+      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
+    }
+    console.log('skincolor', hash.get('skinColor'));
+    if (event) {
+      setTimeout(function(){
+          displayPallette();
+      }, 350);
+    }
+    return
 
-    setTimeout(function(){
-        displayPallette();
-    }, 350);
 }
 
 function selectFemale(event) {
@@ -799,9 +807,14 @@ function selectFemale(event) {
     mainSVG.classList.add('select-female');
     shadow.classList.add('shine');
 
-    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
-
-    setTimeout(function(){
-        displayPallette();
-    }, 350);
+    if (event) {
+      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
+    }
+    console.log('skincolor', hash.get('skinColor'));
+    if (event) {
+      setTimeout(function(){
+          displayPallette();
+      }, 350);
+    }
+    return
 }

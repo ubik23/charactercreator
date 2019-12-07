@@ -18,6 +18,8 @@ function random(){
     var len = forms[formRand][myKey].length;
     var rand = Math.floor((Math.random() * len));
     var layer = forms[formRand][myKey][rand].toLowerCase();
+    console.log('key.toLowerCase()', key.toLowerCase());
+    console.log('layer', layer);
     showRandom(key.toLowerCase(), layer);
 }
 
@@ -78,6 +80,7 @@ function hideCompetition (section) {
 }
 
 function hideArray(competition) {
+  console.log('competition', competition);
     for (section in competition) {
         sectionOptions = getOptions(competition[section]);
         for (option in sectionOptions) {
@@ -94,6 +97,7 @@ function hideArray(competition) {
 }
 
 function showId(id) {
+  console.log('showId', id);
   var showList = [];
   var inMuliLayer = false;
   var svgContainer = document.querySelector('#svg1');
@@ -146,4 +150,116 @@ function getOptions(section) {
        } else {
        }
    }
+}
+
+function smartRandomStream() {
+  // TODO
+  // Count the amount of options in each category of all forms.
+  // Give each for that percentage of chance to its parent form.
+  // Do the same for each category in that form.
+  // Allow sex change option to have its share of chance to be picked.
+  // Do the same for changing the skin color.
+  // Cycle on a setInterval so not to overheat laptop.
+}
+
+function smartRandomSingle() {
+  var roll;
+  var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+  var obj = new Array();
+  var forms = window.forms;
+  var counter = formLen = forms.length;
+  var categories;
+  var newColor;
+  var keys;
+  var keyLen;
+  var keyCounter;
+  var items;
+  var itemsLen;
+  var newItem;
+  var formCount;
+  var obj = new Array();
+  var roll;
+  var catKey;
+
+  hash.clear();
+  // First, clear the board and start from the silhouettes
+  resetCharacter();
+  // Choose the sex at random (50/50)
+  var roll = Math.floor((Math.random() * 100));
+  if (roll <= 50) {
+    selectFemale();
+  } else {
+    selectMale();
+  }
+  // Then choose the skin color at random (1/24)
+  roll = Math.floor((Math.random() * 24));
+  newColor = obj['skinColor'] =  skinTones[roll-1].toLowerCase();
+  hash.add(obj);
+  console.log('newColor', newColor);
+  defaultEyeColor(newColor);
+  defaultHairColor(newColor);
+  defaultPupilShape();
+
+  launch();
+  setTimeout(function(){
+      while (counter--) {
+        formCount = formLen-1-counter
+        // console.log('formCount', formCount);
+        categories = forms[formCount];
+        keys = Object.keys(categories);
+        keyCounter = keyLen = keys.length;
+        // console.log('cat', categories);
+        // console.log('keys', keys);
+        // console.log('keys ammount', keyLen);
+        if (formCount === 0) {
+          while (keyCounter--) {
+            items = categories[keys[keyLen-1-keyCounter]];
+            itemsLen = items.length;
+            var roll = Math.floor((Math.random() * itemsLen));
+            showRandom(keys[keyLen-1-keyCounter].toLowerCase(), items[roll].toLowerCase());
+            obj[keys[keyLen-1-keyCounter].toLowerCase()] = items[roll].toLowerCase();
+            hash.add(obj);
+          }
+        }
+        if (formCount > 0) {
+          while (keyCounter--) {
+            items = categories[keys[keyLen-1-keyCounter]];
+            itemsLen = items.length;
+            catKey = keys[keyLen-1-keyCounter].toLowerCase();
+
+            if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes') {
+              roll = Math.floor((Math.random() * 100));
+              if (roll <= 50) {
+                newItem = 'none';
+              } else {
+                roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+                newItem = items[roll].toLowerCase();
+              }
+            } else if (catKey === 'body') {
+              roll = Math.floor((Math.random() * itemsLen));
+              newItem = items[roll].toLowerCase();
+            } else if (catKey === 'cloak') {
+              newItem = 'none';
+            } else {
+              roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+              newItem = items[roll].toLowerCase();
+            }
+            showRandom(catKey, newItem);
+            obj[catKey] = newItem;
+            hash.add(obj);
+          }
+        }
+      }
+    }, 300);
+
+
+
+  // Cycle through each category in the first form
+  // For Mouth pass on male, change color on female (50% chance to keep the skin color)
+
+  // In the second form, give the 'none' option a 50% chance so not to ovepopulate with items.
+  // in the third, give 50% to 'none' for Tie, Vest, Holster, Shoulderpads and Scarf
+  // In the Fourth, give 50% to 'none' for all
+  // In the fifth, choose pants (don't accept 'none' as an option)
+  // In the sixth, socks are optional but shoes are not
 }
