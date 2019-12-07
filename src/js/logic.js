@@ -81,8 +81,6 @@ function Character(choices){
 };
 
 function modCharacter(myKey, myValue){
-  console.log('myKey', myKey);
-  console.log('myValue', myValue);
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];

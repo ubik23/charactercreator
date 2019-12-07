@@ -1447,7 +1447,6 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
     }
 
     file = layerDirectory + layerID + '.svg';
-
     fetch(file).then(function(response) {
       return response.text();
       }).then(function (text) {
@@ -2030,8 +2029,6 @@ function Character(choices){
 };
 
 function modCharacter(myKey, myValue){
-  console.log('myKey', myKey);
-  console.log('myValue', myValue);
     // look in c.choices to see if the key is already there
     if (myKey in c.choices){
         delete c.choices[myKey];
@@ -3545,7 +3542,6 @@ function colorOnHover() {
 function colorCutout(newColor) {
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
-    console.log('newColor', newColor);
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -3556,7 +3552,6 @@ function colorCutout(newColor) {
 
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
-    console.log('newColor', newColor);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
     defaultPupilShape();
@@ -3593,14 +3588,10 @@ function selectMale(event) {
     if (event) {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
     }
-    console.log('skincolor', hash.get('skinColor'));
-    if (event) {
+
       setTimeout(function(){
           displayPallette();
       }, 350);
-    }
-    return
-
 }
 
 function selectFemale(event) {
@@ -3628,13 +3619,10 @@ function selectFemale(event) {
     if (event) {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
     }
-    console.log('skincolor', hash.get('skinColor'));
-    if (event) {
-      setTimeout(function(){
-          displayPallette();
-      }, 350);
-    }
-    return
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
 
 
@@ -3868,8 +3856,6 @@ function random(){
     var len = forms[formRand][myKey].length;
     var rand = Math.floor((Math.random() * len));
     var layer = forms[formRand][myKey][rand].toLowerCase();
-    console.log('key.toLowerCase()', key.toLowerCase());
-    console.log('layer', layer);
     showRandom(key.toLowerCase(), layer);
 }
 
@@ -3930,7 +3916,6 @@ function hideCompetition (section) {
 }
 
 function hideArray(competition) {
-  console.log('competition', competition);
     for (section in competition) {
         sectionOptions = getOptions(competition[section]);
         for (option in sectionOptions) {
@@ -3947,7 +3932,6 @@ function hideArray(competition) {
 }
 
 function showId(id) {
-  console.log('showId', id);
   var showList = [];
   var inMuliLayer = false;
   var svgContainer = document.querySelector('#svg1');
@@ -4016,8 +4000,9 @@ function smartRandomSingle() {
   var roll;
   var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
   var obj = new Array();
-  var forms = window.forms;
-  var counter = formLen = forms.length;
+  var forms;
+  var counter;
+  var formLen;
   var categories;
   var newColor;
   var keys;
@@ -4045,22 +4030,19 @@ function smartRandomSingle() {
   roll = Math.floor((Math.random() * 24));
   newColor = obj['skinColor'] =  skinTones[roll-1].toLowerCase();
   hash.add(obj);
-  console.log('newColor', newColor);
   defaultEyeColor(newColor);
   defaultHairColor(newColor);
   defaultPupilShape();
 
   launch();
   setTimeout(function(){
+      forms = window.forms;
+      counter = formLen = forms.length;
       while (counter--) {
         formCount = formLen-1-counter
-        // console.log('formCount', formCount);
         categories = forms[formCount];
         keys = Object.keys(categories);
         keyCounter = keyLen = keys.length;
-        // console.log('cat', categories);
-        // console.log('keys', keys);
-        // console.log('keys ammount', keyLen);
         if (formCount === 0) {
           while (keyCounter--) {
             items = categories[keys[keyLen-1-keyCounter]];
@@ -4079,8 +4061,8 @@ function smartRandomSingle() {
 
             if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes') {
               roll = Math.floor((Math.random() * 100));
-              if (roll <= 50) {
-                newItem = 'none';
+              if (roll <= 75) {
+                newItem = '';
               } else {
                 roll = Math.floor((Math.random() * (itemsLen -1))) +1;
                 newItem = items[roll].toLowerCase();
@@ -4089,14 +4071,19 @@ function smartRandomSingle() {
               roll = Math.floor((Math.random() * itemsLen));
               newItem = items[roll].toLowerCase();
             } else if (catKey === 'cloak') {
-              newItem = 'none';
+              newItem = '';
             } else {
               roll = Math.floor((Math.random() * (itemsLen -1))) +1;
               newItem = items[roll].toLowerCase();
             }
-            showRandom(catKey, newItem);
-            obj[catKey] = newItem;
-            hash.add(obj);
+            if (newItem === '') {
+              hideCompetition(catKey);
+            } else {
+              showRandom(catKey, newItem);
+              obj[catKey] = newItem;
+              hash.add(obj);
+            }
+            console.log('newItem', newItem);
           }
         }
       }

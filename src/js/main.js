@@ -727,7 +727,6 @@ function colorOnHover() {
 function colorCutout(newColor) {
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
-    console.log('newColor', newColor);
     var colorCards = document.getElementsByClassName(".skin-tone");
     var maleSilhouette = document.getElementById("male_silhouette");
     var femaleSilhouette = document.getElementById("female_silhouette");
@@ -738,7 +737,6 @@ function colorCutout(newColor) {
 
     gmenu.classList.remove('skin-color__container--show');
     hash.add(obj);
-    console.log('newColor', newColor);
     defaultEyeColor(newColor);
     defaultHairColor(newColor);
     defaultPupilShape();
@@ -775,14 +773,10 @@ function selectMale(event) {
     if (event) {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template'});
     }
-    console.log('skincolor', hash.get('skinColor'));
-    if (event) {
+
       setTimeout(function(){
           displayPallette();
       }, 350);
-    }
-    return
-
 }
 
 function selectFemale(event) {
@@ -810,11 +804,8 @@ function selectFemale(event) {
     if (event) {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template'});
     }
-    console.log('skincolor', hash.get('skinColor'));
-    if (event) {
-      setTimeout(function(){
-          displayPallette();
-      }, 350);
-    }
-    return
+
+    setTimeout(function(){
+        displayPallette();
+    }, 350);
 }
