@@ -3006,9 +3006,6 @@ function resetSilhouettes() {
 
   if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
   if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
-
-  silhouette.style.opacity = 1;
-  silhouetteRemaining.style.opacity = 1;
 }
 
 function gotoLoadChar(evt) {
@@ -3188,7 +3185,7 @@ function launch() {
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
     };
     var maleForm2 = {
-      'Pipe' : ['', 'subgenius'],
+      'Smoke' : ['', 'cigar', 'pipe_subgenius'],
       'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
       'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
       'Horns': ['', 'devil', 'large'],
@@ -3262,12 +3259,12 @@ function launch() {
       'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
       'watch_generic',
       'shirt_colar_2_of_2', 'shirt_turtleneck',
-      'tie_bolo', 'tie_bow_2_of_2','tie_neck',
-      'shirt_colar_1_of_2',
       'pants_jeans_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
       'belt_leather', 'belt_default',
       'pants_jeans_2_of_2', 'pants_suit_2_of_2',
       'shirt_tshirt',
+      'tie_bolo', 'tie_bow_2_of_2','tie_neck',
+      'shirt_colar_1_of_2',
       'vest_vest', 'vest_lined', 'vest_yellow',
       'tie_bow_1_of_2',
       'jewelry_chain',
@@ -3321,7 +3318,8 @@ function launch() {
       'horns_devil',
       'cloak_default_1_of_4',
       'horns_large',
-      'pipe_subgenius'
+      'smoke_pipe_subgenius',
+      'smoke_cigar'
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
@@ -3335,7 +3333,7 @@ function launch() {
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
     };
     var femaleForm2 = {
-      'Pipe' : ['', 'subgenius'],
+      'Smoke' : ['', 'cigar', 'pipe_subgenius'],
       'Makeup': ['', 'blush', 'gothic_eyeliner', 'warpaint'],
       'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
       'Eyepatch': ['', 'left', 'right'],
@@ -3465,7 +3463,7 @@ function launch() {
       'coat_winter_furcollar_1_of_3',
       'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
       'belt_utility',
-      'pipe_subgenius',
+      'smoke_cigar', 'smoke_pipe_subgenius',
       'earpiece_microphone', 'earpiece_scouter'
     ];
     var layerDirectoryFemale = 'layer/female/';
@@ -4099,7 +4097,7 @@ function smartRandomSingle() {
     'horns' : 5,
     'makeup' : 90,
     'mask' : 5,
-    'pipe' : 10,
+    'smoke' : 20,
     'pet' : 20,
     'scarf' : 30,
     'shirt' : 95,
@@ -4489,12 +4487,12 @@ function getViewBox(t, d) {
             "mask":"243 93 80 80",
             "nose":"265 115 32 32",
             "pants":"130 244 290 290",
-            "pipe":"252 132 32 32",
             "pupils":"271.72 125.05 4 4",
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
             "shoes":"210 442 120 120",
             "shoulderpads":"207 120 150 150",
+            "smoke":"252 132 32 32",
             "socks":"210 442 120 120",
             "suit":"65 130 430 430",
             "tie":"241 140 80 80",
@@ -4609,7 +4607,6 @@ function getViewBox(t, d) {
             "necklace":"255 160 48 48",
             "nose":"265 127 32 32",
             "pants":"130 244 290 290",
-            "pipe":"255 144 32 32",
             "pupils":"274.125 137.55 3.2 3.2",
             "scarf":"185 120 190 190",
             "shirt":"190 140 190 190",
@@ -4617,6 +4614,7 @@ function getViewBox(t, d) {
             "shorts":"215 245 120 120",
             "skirt":"190 220 180 180",
             "shoulderpads":"207 100 150 150",
+            "smoke":"255 144 32 32",
             "socks":"225 442 120 120",
             "suit":"80 130 400 400",
             "tie":"241 140 80 80",

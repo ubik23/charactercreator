@@ -189,7 +189,7 @@ function smartRandomSingle() {
     'horns' : 5,
     'makeup' : 90,
     'mask' : 5,
-    'pipe' : 10,
+    'smoke' : 20,
     'pet' : 20,
     'scarf' : 30,
     'shirt' : 95,

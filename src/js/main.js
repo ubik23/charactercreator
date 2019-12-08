@@ -148,9 +148,6 @@ function resetSilhouettes() {
 
   if (maleSilhouette && typeof selectMale === 'function') {maleSilhouette.addEventListener('click', selectMale, false)}
   if (femaleSilhouette && typeof selectFemale === 'function') {femaleSilhouette.addEventListener('click', selectFemale, false)}
-
-  silhouette.style.opacity = 1;
-  silhouetteRemaining.style.opacity = 1;
 }
 
 function gotoLoadChar(evt) {
@@ -330,7 +327,7 @@ function launch() {
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
     };
     var maleForm2 = {
-      'Pipe' : ['', 'subgenius'],
+      'Smoke' : ['', 'cigar', 'pipe_subgenius'],
       'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
       'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
       'Horns': ['', 'devil', 'large'],
@@ -404,12 +401,12 @@ function launch() {
       'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
       'watch_generic',
       'shirt_colar_2_of_2', 'shirt_turtleneck',
-      'tie_bolo', 'tie_bow_2_of_2','tie_neck',
-      'shirt_colar_1_of_2',
       'pants_jeans_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
       'belt_leather', 'belt_default',
       'pants_jeans_2_of_2', 'pants_suit_2_of_2',
       'shirt_tshirt',
+      'tie_bolo', 'tie_bow_2_of_2','tie_neck',
+      'shirt_colar_1_of_2',
       'vest_vest', 'vest_lined', 'vest_yellow',
       'tie_bow_1_of_2',
       'jewelry_chain',
@@ -463,7 +460,8 @@ function launch() {
       'horns_devil',
       'cloak_default_1_of_4',
       'horns_large',
-      'pipe_subgenius'
+      'smoke_pipe_subgenius',
+      'smoke_cigar'
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
@@ -477,7 +475,7 @@ function launch() {
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
     };
     var femaleForm2 = {
-      'Pipe' : ['', 'subgenius'],
+      'Smoke' : ['', 'cigar', 'pipe_subgenius'],
       'Makeup': ['', 'blush', 'gothic_eyeliner', 'warpaint'],
       'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
       'Eyepatch': ['', 'left', 'right'],
@@ -607,7 +605,7 @@ function launch() {
       'coat_winter_furcollar_1_of_3',
       'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
       'belt_utility',
-      'pipe_subgenius',
+      'smoke_cigar', 'smoke_pipe_subgenius',
       'earpiece_microphone', 'earpiece_scouter'
     ];
     var layerDirectoryFemale = 'layer/female/';
