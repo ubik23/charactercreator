@@ -59,7 +59,6 @@ function drawPallette(pallette) {
   var counter = keys.length;
 
   while (counter--) {
-    console.log(pallette[keys[counter]]);
     node = document.createElement("INPUT");
     label = document.createElement("LABEL");
     label.setAttribute('for', 'btn-' + [keys[counter]]);

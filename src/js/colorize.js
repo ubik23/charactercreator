@@ -200,7 +200,6 @@ function getColorClassPrefix(id) {
 }
 
 function colorize(formId, _color){
-    console.log('formId', formId);
     var colorMultiplyer = 10; // Color contrast. TODO Move to user controls.
     var forms = window.forms;
     var id = formId;
@@ -256,7 +255,6 @@ function colorize(formId, _color){
                 else {
                     affectedList = [];
                     var myKey = id + 'Color';
-                    console.log('classPrefix', classPrefix);
                     if (classPrefix != 'skin' && classPrefix != 'alpha' && classPrefix != 'lips') {
                       myKey = myKey + '-' + classPrefix.slice(0,3);
                     }
@@ -288,8 +286,6 @@ function colorize(formId, _color){
                 var obj = new Array();
                 obj[myKey] =  myValue;
                 hash.add(obj);
-                console.log('mod myKey', myKey);
-                console.log('mod myValue', myValue);
                 modCharacter(myKey, myValue);
 
                 for (n in affectedList) {

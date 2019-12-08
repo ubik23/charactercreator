@@ -247,14 +247,12 @@ function smartRandomSingle() {
             catKey = keys[keyLen-1-keyCounter].toLowerCase();
 
             if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes') {
-              console.log('chanceDict[catKey]', chanceDict[catKey]);
               if (chanceDict[catKey] != undefined) {
                 chance = chanceDict[catKey];
               } else {
                 chance = defaultChance;
               }
               roll = Math.floor((Math.random() * 100));
-              console.log('roll', roll);
               if (roll <= chance) {
                 roll = Math.floor((Math.random() * (itemsLen -1))) +1;
                 newItem = items[roll].toLowerCase();
