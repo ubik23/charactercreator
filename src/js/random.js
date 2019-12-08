@@ -199,7 +199,7 @@ function smartRandomSingle() {
     'veil' : 5,
     'vest' : 15,
     'warpaint' : 5,
-    'wings' : 10
+    'wings' : 3
   }
   var defaultChance = 50;
 
