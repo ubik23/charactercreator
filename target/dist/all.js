@@ -667,7 +667,10 @@ function colorElement(el) {
   var lipstickColor;
   // console.log('section before', section);
   // section = processSection(section, item);
-  console.log('section', section);
+  if (section === 'brows') {
+    console.log('section', section);
+  }
+
 
   if (section === 'eyeballs') {section = 'iris'}
 
@@ -689,12 +692,15 @@ function colorElement(el) {
   //     el = colorElementLoop(el, colorPrefix, c.choices[newColor, false);
   //   }
   }
-  console.log('processSection(section, item)', processSection(section, item));
-  console.log('c.choices', c.choices['skinColor']);
-
+  if (section === 'brows') {
+    console.log('processSection(section, item)', processSection(section, item));
+    console.log('c.choices', c.choices['hairColor']);
+  }
 
   if ((processSection(section, item) === 'skin' || processSection(section, item) === 'mouth' )  && c.choices['skinColor'] != undefined) {
     el = colorElementLoop(el, 'skin', c.choices['skinColor']);
+  } else if (processSection(section, item) === 'hair') {
+    el = colorElementLoop(el, 'alpha', c.choices['hairColor']);
   }
 
   if (newColor != undefined) {
@@ -734,12 +740,13 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   if (lipstickFlag) {
     classPrefix = '.lips.';
   }
-  console.log('el', el);
-  console.log('el loop prefix', colorPrefix);
+  // console.log('el', el);
+  // console.log('el loop prefix', colorPrefix);
 
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+
   if (colorPrefix === 'lips') {
     colorPrefix = 'skin';
   }
