@@ -45,8 +45,9 @@ function colorElement(el) {
   var newColorEpsilon;
   var colorPrefix = 'alpha';
   var lipstickColor;
-
-  section = processSection(section, item);
+  // console.log('section before', section);
+  // section = processSection(section, item);
+  console.log('section', section);
 
   if (section === 'eyeballs') {section = 'iris'}
 
@@ -56,19 +57,33 @@ function colorElement(el) {
   newColorDelta = c.choices[section+'Color-del'];
   newColorEpsilon = c.choices[section+'Color-eps'];
 
-  if (section === 'skin') {colorPrefix = 'skin'}
-  if (section === 'mouth') {
-    colorPrefix = 'skin';
-    lipstickColor = newColor;
-    newColor = c.choices['skinColor'];
+  // if (section === 'skin') {colorPrefix = 'skin'}
+  // if (section === 'mouth') {
+  //   colorPrefix = 'skin';
+  //   lipstickColor = newColor;
+  //   newColor = c.choices['skinColor'];
+  // }
+  if (section === 'skin') {
+  //   el = colorElementLoop(el, colorPrefix, c.choices['skinColor', false);
+  //   if (section === 'ears' && c.choices['section' + 'Color', false) != undefined) {
+  //     el = colorElementLoop(el, colorPrefix, c.choices[newColor, false);
+  //   }
+  }
+  console.log('processSection(section, item)', processSection(section, item));
+  console.log('c.choices', c.choices['skinColor']);
+
+
+  if (processSection(section, item) === 'skin' && c.choices['skinColor'] != undefined) {
+    el = colorElementLoop(el, 'skin', c.choices['skinColor']);
   }
 
   if (newColor != undefined) {
      el = colorElementLoop(el, colorPrefix, newColor, false);
      if (section === 'mouth') {
-       el = colorElementLoop(el, colorPrefix, lipstickColor, true);
+       el = colorElementLoop(el, 'lips', newColor, true);
      }
   }
+  
   if (newColorBeta != undefined) {
     el = colorElementLoop(el, 'beta', newColorBeta, false);
   }
@@ -99,6 +114,8 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   if (lipstickFlag) {
     classPrefix = '.lips.';
   }
+  console.log('el', el);
+  console.log('el loop prefix', colorPrefix);
 
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
@@ -239,7 +256,7 @@ function colorize(formId, _color){
                 // Cycle through each option
                 var capitalId = id.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                 // If the id is body, than the list will be of all 'skin' layers
-                if (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets') {
+                if ( classPrefix === 'skin' && (id === 'body' || id === 'body_head' || id === 'ears' || id === 'nose' || id === 'age' || id === 'eyes' || id === 'freckles' || id === 'sockets')) {
                     affectedList = skinLayers;
                     var myKey = 'skinColor';
                     // classPrefix = "skin";
