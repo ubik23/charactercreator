@@ -73,7 +73,7 @@ function colorElement(el) {
   console.log('c.choices', c.choices['skinColor']);
 
 
-  if (processSection(section, item) === 'skin' && c.choices['skinColor'] != undefined) {
+  if ((processSection(section, item) === 'skin' || processSection(section, item) === 'mouth' )  && c.choices['skinColor'] != undefined) {
     el = colorElementLoop(el, 'skin', c.choices['skinColor']);
   }
 
@@ -83,7 +83,7 @@ function colorElement(el) {
        el = colorElementLoop(el, 'lips', newColor, true);
      }
   }
-  
+
   if (newColorBeta != undefined) {
     el = colorElementLoop(el, 'beta', newColorBeta, false);
   }
@@ -120,6 +120,9 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+  if (colorPrefix === 'lips') {
+    colorPrefix = 'skin';
+  }
 
   if (counter > 0) {
     colorListIndex = 3;

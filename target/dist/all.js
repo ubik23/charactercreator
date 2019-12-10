@@ -693,7 +693,7 @@ function colorElement(el) {
   console.log('c.choices', c.choices['skinColor']);
 
 
-  if (processSection(section, item) === 'skin' && c.choices['skinColor'] != undefined) {
+  if ((processSection(section, item) === 'skin' || processSection(section, item) === 'mouth' )  && c.choices['skinColor'] != undefined) {
     el = colorElementLoop(el, 'skin', c.choices['skinColor']);
   }
 
@@ -703,7 +703,7 @@ function colorElement(el) {
        el = colorElementLoop(el, 'lips', newColor, true);
      }
   }
-  
+
   if (newColorBeta != undefined) {
     el = colorElementLoop(el, 'beta', newColorBeta, false);
   }
@@ -740,6 +740,9 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   // first run without prefix. Ex: just 'alpha' or 'skin'.
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
+  if (colorPrefix === 'lips') {
+    colorPrefix = 'skin';
+  }
 
   if (counter > 0) {
     colorListIndex = 3;
@@ -3193,8 +3196,8 @@ function launch() {
       'Pupils' : ['round', 'feline', 'star'],
       'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
       'Mouth' : [''],
-      'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'odango', 'soulpatch', 'winnfield'],
-      'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
+      'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
+      'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'odango', 'wild', 'wreckingball'],
       'Freckles': ['', 'medium'],
       // 'Age' : ['', 'lines'],
       'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
