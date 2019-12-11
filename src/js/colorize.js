@@ -120,10 +120,7 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   if (lipstickFlag) {
     classPrefix = '.lips.';
   }
-  // console.log('el', el);
-  // console.log('el loop prefix', colorPrefix);
-
-  // first run without prefix. Ex: just 'alpha' or 'skin'.
+  
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
 
