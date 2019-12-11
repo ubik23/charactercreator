@@ -4150,9 +4150,9 @@ function smartRandomSingle() {
   defaultHairColor(newColor);
   defaultPupilShape();
 
-  launch();
-  setTimeout(function(){
+  setTimeout(function() {
       forms = window.forms;
+      console.log('forms', forms);
       counter = formLen = forms.length;
       while (counter--) {
         formCount = formLen-1-counter
@@ -4164,7 +4164,7 @@ function smartRandomSingle() {
             items = categories[keys[keyLen-1-keyCounter]];
             itemsLen = items.length;
             var roll = Math.floor((Math.random() * itemsLen));
-            showRandom(keys[keyLen-1-keyCounter].toLowerCase(), items[roll].toLowerCase());
+            // showRandom(keys[keyLen-1-keyCounter].toLowerCase(), items[roll].toLowerCase());
             obj[keys[keyLen-1-keyCounter].toLowerCase()] = items[roll].toLowerCase();
             hash.add(obj);
           }
@@ -4202,13 +4202,16 @@ function smartRandomSingle() {
             } else {
               // TODO Make sure items don't ovelap and create visual confusion between layers.
               // Don't have hair sticking out from a behind a hat.
-              showRandom(catKey, newItem);
+              // showRandom(catKey, newItem);
               obj[catKey] = newItem;
               hash.add(obj);
             }
           }
         }
       }
+
+
+      launch();
     }, 300);
   // Cycle through each category in the first form
   // For Mouth pass on male, change color on female (50% chance to keep the skin color)
