@@ -3241,7 +3241,7 @@ function launch() {
       'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
     };
     var maleForm5 = {
-      'Underwear': ['plain', 'boxers'],
+      'Underwear': ['', 'plain', 'boxers'],
       'Pants': ['', 'suit', 'jeans', 'leather', 'snowboard'],
       'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
     };
