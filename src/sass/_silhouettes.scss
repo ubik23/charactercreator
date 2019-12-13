@@ -13,6 +13,12 @@
     cursor: pointer;
 }
 
+.night {
+  .path {
+    stroke: $color-night-title;
+  }
+}
+
 .male {
     color: $color-alpha;
     fill: currentColor;
@@ -31,6 +37,10 @@
     }
 }
 
+.night .male {
+  color: $color-night-title;
+}
+
 .female {
     color: $color-alpha;
     fill: currentColor;
@@ -47,6 +57,10 @@
         fill-opacity: 1;
         transition: fill-opacity 0.3s ease-in-out;
     }
+}
+
+.night .female {
+  color: $color-night-title;
 }
 
 @keyframes homme {

@@ -99,7 +99,6 @@ function sectionZoom(sectionLabel) {
 }
 
 function animateZoom(newViewBox) {
-  newViewBox = newViewBox.split(' ');
   var characterSVG = document.querySelector('#svg1');
   var currentViewBox = characterSVG.viewBox.baseVal;
   var globalID;
@@ -111,16 +110,29 @@ function animateZoom(newViewBox) {
   var yOld = currentViewBox.y;
   var widthOld = currentViewBox.width;
   var heightOld = currentViewBox.height;
-  var xDiff = newViewBox[0] - currentViewBox.x;
-  var yDiff = newViewBox[1] - currentViewBox.y;
-  var widthDiff = newViewBox[2] - currentViewBox.width;
-  var heightDiff = newViewBox[3] - currentViewBox.height;
+  var xDiff;
+  var yDiff;
+  var widthDiff;
+  var heightDiff;
   var multiplyer;
   var xNew;
   var yNew;
   var widthNew;
   var heightNew;
   var animateViewBox;
+
+  if (newViewBox != '10 50 540 540' && !characterSVG.classList.contains('zoomed')) {
+    characterSVG.classList.add('zoomed');
+  }  else if (newViewBox === '10 50 540 540' && characterSVG.classList.contains('zoomed')) {
+    characterSVG.classList.remove('zoomed');
+  }
+
+  newViewBox = newViewBox.split(' ');
+
+  xDiff = newViewBox[0] - currentViewBox.x;
+  yDiff = newViewBox[1] - currentViewBox.y;
+  widthDiff = newViewBox[2] - currentViewBox.width;
+  heightDiff = newViewBox[3] - currentViewBox.height;
 
   function repeatOften() {
     currentTime = Date.now();
@@ -133,7 +145,7 @@ function animateZoom(newViewBox) {
     widthNew = widthOld + (widthDiff * multiplyer);
     heightNew = heightOld + (heightDiff * multiplyer);
     animateViewBox = xNew + ' ' + yNew + ' ' + widthNew + ' ' + heightNew;
-    
+
     characterSVG.setAttribute("viewBox", animateViewBox);
 
     if (timeElapsed >= animationDuration) {

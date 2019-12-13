@@ -8,6 +8,7 @@
     opacity: 1;
     transition: opacity 0.5s ease, visibility 0s linear;
 
+
     @media screen and (min-width: 650px) {
         height: 100%;
     }
@@ -20,4 +21,6 @@
     g {
       cursor: pointer;
     }
+
+    &.zoomed {cursor: zoom-out;}
 }
