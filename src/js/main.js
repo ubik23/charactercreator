@@ -460,8 +460,7 @@ function launch() {
       'horns_devil',
       'cloak_default_1_of_4',
       'horns_large',
-      'smoke_pipe_subgenius',
-      'smoke_cigar'
+      'smoke_cigar', 'smoke_pipe_subgenius'
     ];
     var femaleForm1 = {
       'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
@@ -589,12 +588,12 @@ function launch() {
       'eyepatch_left','eyepatch_right',
       'mask_guy_fawkes',
       'tie_bow',
-      'glasses_alien','glasses_hipster','glasses_fpv','glasses_google','glasses_oakley','glasses_rayban','glasses_round','glasses_wayrafer','glasses_designer','glasses_goggles',
       'hair_short', 'hair_short_slick', 'hair_afro', 'hair_mohawk', 'hair_wreckingball',
-      'glasses_visor',
-      'hair_bangs', 'hair_down_1_of_3', 'hair_emo', 'hair_manga_1_of_2', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_spider',
-      'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
       'headband_medium_1_of_2',
+      'glasses_alien', 'glasses_hipster', 'glasses_google', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_wayrafer', 'glasses_designer', 'glasses_goggles', 'glasses_visor',
+      'hair_bangs', 'hair_down_1_of_3', 'hair_emo', 'hair_manga_1_of_2', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_spider',
+      'glasses_fpv',
+      'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
       'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_waitress','hat_police','hat_cowboy', 'hat_fox-ears', 'hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
       'body_hand_left',
       'bracelet_perl_left_1_of_2','bracelet_ornamental_left_1_of_2',
