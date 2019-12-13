@@ -14,10 +14,10 @@ body {
     max-height: 100vh;
     width: 100%;
     max-width: 100vw;
-    background-: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Safari 5.1 to 6.0 */
-    background-: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Opera 11.1 to 12.0 */
-    background-: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Firefox 3.6 to 15 */
-    background-: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* Standard syntax */
+    background: -webkit-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#eaebf0, #fafafa, #eaebf0, #c0c0c7); /* Standard syntax */
     overflow: hidden;
     position: relative;
 }
