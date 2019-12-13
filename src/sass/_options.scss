@@ -30,6 +30,7 @@
     margin: 0.5%;
     transform: scale(1);
     transition: transform 0.3s;
+    cursor: pointer;
 
     @media screen and (min-width: 650px) {
       width: 24%;

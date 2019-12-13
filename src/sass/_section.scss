@@ -45,6 +45,8 @@
 .section__link {
     color: $color-link;
     text-decoration: none;
+    cursor: pointer;
+    
     & .sbl__option {
       overflow: hidden;
       text-overflow:ellipsis;
