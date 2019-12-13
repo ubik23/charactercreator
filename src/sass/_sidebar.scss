@@ -39,6 +39,10 @@
     }
 }
 
+.night .sidebar {
+  border:1px solid $color-night-border;
+}
+
 .sidebar-left {
     // bottom: 0;
     left: 0;
@@ -75,7 +79,6 @@
 .sidebar__title {
     text-align: center;
     font-weight: 100;
-    background: url('../hex.png');
     background-color: $color-alpha;
     color: $color-white;
     font-size: 0.75rem;
@@ -87,6 +90,11 @@
     & .icon {
       display: none;
     }
+}
+
+.night .sidebar__title {
+  background: url('../hex.png');
+  background-color: $color-night-background;
 }
 
 .thumbnails__container {

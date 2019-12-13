@@ -2899,6 +2899,8 @@ function logOut() {
     var patreonBtn = document.querySelector('#patreon-btn');
     var newCharBtn = document.querySelector('#new-char-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
+    var nightModeBtn = document.querySelector('#nightModeButton');
+
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener("click", showShop, false) }
@@ -2918,8 +2920,28 @@ function logOut() {
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
+    if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
 
+    checkNightMode()
     startup();
+}
+
+function checkNightMode() {
+  console.log('checking night mode...');
+  var body = document.querySelector('BODY');
+  var checkBox = document.querySelector('#nightModeBox');
+  console.log('checkBox.checked', checkBox.checked);
+  console.log("!body.classList.contains('night')", !body.classList.contains('night'));
+  if (checkBox.checked && !body.classList.contains('night')) {
+    body.classList.toggle('night');
+  }
+}
+
+function switchNightMode(ev) {
+  ev.preventDefault();
+  console.log('><');
+  var body = document.querySelector('BODY');
+  body.classList.toggle('night');
 }
 
 function tattle() {

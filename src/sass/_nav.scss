@@ -119,7 +119,7 @@ sub {
 
 }
 
-#horizontal li a {
+#horizontal li a, #horizontal li label {
     color: $color-alpha;
     text-decoration: none;
     width: 100%;
@@ -127,7 +127,7 @@ sub {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-
+    cursor: pointer;
     display: flex;
     align-items: center;
 
@@ -136,14 +136,11 @@ sub {
     }
 }
 
-#horizontal li a:hover {
+#horizontal li a:hover, #horizontal li label:hover {
   color: $color-white;
   background-color: $color-alpha;
 }
 
-#horizontal li a:active {
-
-}
 .menu-text {
     font-family: "Helvetica";
     margin: 4px;
