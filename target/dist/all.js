@@ -2922,7 +2922,7 @@ function logOut() {
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
 
-    checkNightMode()
+    // checkNightMode()
     startup();
 }
 

@@ -7,7 +7,7 @@
     align-items: center;
     color: $color-alpha;
     background: transparent;
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid $color-border;
     transition: background 0.3s, color 0.3s;
     white-space: nowrap;
     display: flex;
@@ -37,6 +37,10 @@
         transition: stroke 0.3s;
     }
 
+}
+
+.night .accordeon__section-label {
+  border-bottom: 1px solid $color-night-border;
 }
 
 .accordeon__section-title {

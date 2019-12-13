@@ -95,6 +95,7 @@
 .night .sidebar__title {
   background: url('../hex.png');
   background-color: $color-night-background;
+  border-bottom: 1px solid $color-night-border;
 }
 
 .thumbnails__container {
