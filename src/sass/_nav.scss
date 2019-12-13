@@ -115,6 +115,7 @@ sub {
   }
 }
 
+
 #horizontal li {
     width: 100%;
     box-sizing: border-box;
@@ -138,9 +139,28 @@ sub {
     }
 }
 
+.dark-text {display:block;}
+.light-text {display:none;}
+.night .light-text {display:block;}
+.night .dark-text {display:none;}
+
+.night  {
+  #horizontal {
+    border: 1px solid $color-night-border;
+  }
+
+  #horizontal li a, #horizontal li label {
+    color: $color-night-text;
+  }
+}
+
 #horizontal li a:hover, #horizontal li label:hover {
   color: $color-white;
   background-color: $color-alpha;
+}
+
+.night #horizontal li a:hover, .night #horizontal li label:hover {
+  background-color: $color-night-background;
 }
 
 .menu-text {

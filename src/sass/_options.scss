@@ -10,6 +10,10 @@
     transition: background 0.3s;
 }
 
+.night .svg__option {
+    border: 1px solid $color-night-border;
+}
+
 .option__label {
     text-transform: uppercase;
     font-size: 8px;

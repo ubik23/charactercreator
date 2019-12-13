@@ -40,6 +40,8 @@
 }
 
 .night .accordeon__section-label {
+  color: $color-night-text;
+  font-weight: bold;
   border-bottom: 1px solid $color-night-border;
 }
 
@@ -48,7 +50,7 @@
     line-height: 2.25;
     font-weight: 300;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
 
     & .icon {
       display: none;
