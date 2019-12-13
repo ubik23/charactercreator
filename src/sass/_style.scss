@@ -22,6 +22,13 @@ body {
     position: relative;
 }
 
+body.night {
+  background: -webkit-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#343436, #5f5f63, #9c9cca); /* Standard syntax */
+}
+
 .modal {
     position: absolute;
     top: 16%;
@@ -33,19 +40,9 @@ body {
     visibility: hidden;
 }
 
-#pagewrap {
-
-    //height: 100%;
-    //margin: 0 auto;
-
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-}
-
 .header {
     padding: 0 1%;
-    background-color: transparent;
+    background: transparent;
     color: $color-alpha;
     height: 5.5vh;
     display: flex;

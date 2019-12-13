@@ -75,7 +75,8 @@
 .sidebar__title {
     text-align: center;
     font-weight: 100;
-    background: $color-alpha;
+    background: url('../hex.png');
+    background-color: $color-alpha;
     color: $color-white;
     font-size: 0.75rem;
     line-height: 2.25;

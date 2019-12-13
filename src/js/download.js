@@ -1,6 +1,5 @@
 
 function getSVG() {
-  var includeGroups = false; //TODO
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
@@ -36,6 +35,8 @@ function download() {
     var filename = "my_character.svg";
     var pom;
     var text = getSVG();
+
+    // TODO Copy the URL before it is erased by the download function.
 
     pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
