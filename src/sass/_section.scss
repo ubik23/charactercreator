@@ -40,13 +40,19 @@
 
 .night .section__list li {
     border-bottom: 1px solid $color-night-border;
+    &:hover {
+      background: url('../hex-light.png');
+      background-color: rgba(227, 90, 78,0.5);
+    }
 }
+
+
 
 .section__link {
     color: $color-link;
     text-decoration: none;
     cursor: pointer;
-    
+
     & .sbl__option {
       overflow: hidden;
       text-overflow:ellipsis;
