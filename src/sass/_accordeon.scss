@@ -70,6 +70,10 @@
     }
 }
 
+.night .accordeon__section-title {
+    font-weight: 700;
+}
+
 .accordeon__svg-container {
     &:hover polygon {
         fill: currentColor;
