@@ -142,7 +142,6 @@
         }
     }
     &__header, &__footer {
-        background: url('../hex.png');
         background-color: $color-alpha;
         box-sizing: border-box;
         width: 100%;
@@ -314,4 +313,11 @@
         background-color: $color-alpha--light;
       }
     }
+}
+
+.night .overlay {
+  &__header, &__footer {
+      background: url('../hex.png');
+      background-color: $color-night-background;
+  }
 }

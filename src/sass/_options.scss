@@ -21,6 +21,10 @@
     color: $color-alpha;
 }
 
+.night .option__label {
+    color: $color-night-text;
+}
+
 .option__container {
     width: 100%;
     display: inline-flex;
@@ -45,5 +49,15 @@
     &:hover > .svg__option {
         border: 1px solid $color-label;
         background: $color-white;
+    }
+}
+
+
+.night .option__container {
+    &:hover > .option__label {
+        color: $color-night-text;
+    }
+    &:hover > .svg__option  {
+        border: 1px solid $color-night-border;
     }
 }

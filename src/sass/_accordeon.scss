@@ -41,9 +41,17 @@
 }
 
 .night .accordeon__section-label {
+  background: url('../hex.png');
+  background-color: $color-night-background;
   color: $color-night-text;
   font-weight: bold;
   border-bottom: 1px solid $color-night-border;
+
+  &:hover, &:active {
+    color: #fff;
+    background: url('../hex-light.png');
+    background-color: $color-night-background;
+  }
 }
 
 .accordeon__section-title {

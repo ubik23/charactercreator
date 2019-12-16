@@ -87,6 +87,10 @@ body.night {
     }
 }
 
+.night .close-btn {
+    color: $color-night-background;
+}
+
 button {
   cursor: pointer;
 }

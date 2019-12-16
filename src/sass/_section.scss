@@ -30,7 +30,8 @@
     }
 
     & li.section--selected {
-        background: $color-white;
+        background: url('../hex.png');
+        background-color: $color-white;
         color: $color-black;
         font-weight: 300;
         transform: translate3d(0,0,0);

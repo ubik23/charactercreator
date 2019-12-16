@@ -160,6 +160,7 @@ sub {
 }
 
 .night #horizontal li a:hover, .night #horizontal li label:hover {
+  background: url('../hex-light.png');
   background-color: $color-night-background;
 }
 
