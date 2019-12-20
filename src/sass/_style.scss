@@ -146,6 +146,63 @@ input[type=range]::-webkit-slider-thumb {
     background: $color-alpha;
     margin-top: -4px;
     margin-left: -4px;
+    cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $color-alpha;
+  margin-top: -4px;
+  margin-left: -4px;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $color-alpha;
+  margin-top: -4px;
+  margin-left: -4px;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type=range]::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    background: $color-night-background;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    background: $color-night-background;
+  }
+}
+
+.night {
+  input[type=range]::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    background: $color-night-background;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    background: $color-night-background;
+  }
 }
 
 input[type=range]:focus {

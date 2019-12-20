@@ -29,6 +29,12 @@
     height: 16px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .zoom-icon {
+    color: $color-night-text;
+  }
+}
+
 .night .zoom-icon {
   color: $color-night-text;
 }
