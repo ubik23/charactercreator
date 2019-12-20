@@ -22,6 +22,15 @@ body {
     position: relative;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: -webkit-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#343436, #5f5f63, #9c9cca); /* Standard syntax */
+  }
+}
+
 body.night {
   background: -webkit-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#343436, #5f5f63, #9c9cca); /* For Opera 11.1 to 12.0 */
@@ -48,6 +57,12 @@ body.night {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    color: $color-night-title;
+  }
 }
 
 .night .header {
@@ -85,6 +100,12 @@ body.night {
     & use {
         pointer-events: none;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+  .close-btn {
+      color: $color-night-background;
+  }
 }
 
 .night .close-btn {

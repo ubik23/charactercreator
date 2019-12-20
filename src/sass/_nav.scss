@@ -159,6 +159,13 @@ sub {
   background-color: $color-alpha;
 }
 
+@media (prefers-color-scheme: dark) {
+  #horizontal li a:hover, #horizontal li label:hover {
+    background: url('../hex-light.png');
+    background-color: $color-night-background;
+  }
+}
+
 .night #horizontal li a:hover, .night #horizontal li label:hover {
   background: url('../hex-light.png');
   background-color: $color-night-background;

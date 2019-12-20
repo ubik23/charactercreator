@@ -39,6 +39,12 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    border:1px solid $color-night-border;
+  }
+}
+
 .night .sidebar {
   border:1px solid $color-night-border;
 }
@@ -91,6 +97,14 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  .sidebar__title {
+    background: url('../hex.png');
+    background-color: $color-night-background;
+    border-bottom: 1px solid $color-night-border;
+  }
+}
+
 .night .sidebar__title {
   background: url('../hex.png');
   background-color: $color-night-background;
@@ -99,8 +113,4 @@
 
 .thumbnails__container {
   color: $color-alpha;
-}
-
-.night .thumbnails__container {
-  color: $color-night-border;
 }

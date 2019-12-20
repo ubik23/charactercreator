@@ -13,6 +13,12 @@
     cursor: pointer;
 }
 
+@media (prefers-color-scheme: dark) {
+  .path {
+    stroke: $color-night-title;
+  }
+}
+
 .night {
   .path {
     stroke: $color-night-title;
@@ -37,6 +43,12 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  .male {
+    color: $color-night-title;
+  }
+}
+
 .night .male {
   color: $color-night-title;
 }
@@ -57,6 +69,12 @@
         fill-opacity: 1;
         transition: fill-opacity 0.3s ease-in-out;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+  .female {
+    color: $color-night-title;
+  }
 }
 
 .night .female {

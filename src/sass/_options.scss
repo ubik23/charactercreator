@@ -10,6 +10,12 @@
     transition: background 0.3s;
 }
 
+@media (prefers-color-scheme: dark) {
+  .svg__option {
+      border: 1px solid $color-night-border;
+  }
+}
+
 .night .svg__option {
     border: 1px solid $color-night-border;
 }
@@ -19,6 +25,12 @@
     font-size: 8px;
     font-weight: 700;
     color: $color-alpha;
+}
+
+@media (prefers-color-scheme: dark) {
+  .option__label {
+      color: $color-night-text;
+  }
 }
 
 .night .option__label {
@@ -52,6 +64,16 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  .option__container {
+      &:hover > .option__label {
+          color: $color-night-text;
+      }
+      &:hover > .svg__option  {
+          border: 1px solid $color-night-border;
+      }
+  }
+}
 
 .night .option__container {
     &:hover > .option__label {

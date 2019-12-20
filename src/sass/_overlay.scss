@@ -315,6 +315,15 @@
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  .overlay {
+    &__header, &__footer {
+        background: url('../hex.png');
+        background-color: $color-night-background;
+    }
+  }
+}
+
 .night .overlay {
   &__header, &__footer {
       background: url('../hex.png');

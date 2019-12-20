@@ -30,7 +30,6 @@
     }
 
     & li.section--selected {
-        background: url('../hex.png');
         background-color: $color-white;
         color: $color-black;
         font-weight: 300;
@@ -39,12 +38,44 @@
     }
 }
 
-.night .section__list li {
+@media (prefers-color-scheme: dark) {
+ .section__list li {
+   border-bottom: 1px solid $color-night-border;
+
+   &:hover {
+       background: url('../hex-light.png');
+       background-color: rgba(227, 90, 78,0.5);
+   }
+
+   & li.section--selected {
+       background: url('../hex.png');
+       background-color: $color-white;
+       color: $color-black;
+       font-weight: 300;
+       transform: translate3d(0,0,0);
+       transition: transform 0.2s, color 0.2s, background 0.2s;
+   }
+ }
+}
+
+.night {
+  .section__list li {
     border-bottom: 1px solid $color-night-border;
+
     &:hover {
-      background: url('../hex-light.png');
-      background-color: rgba(227, 90, 78,0.5);
+        background: url('../hex-light.png');
+        background-color: rgba(227, 90, 78,0.5);
     }
+
+    & li.section--selected {
+        background: url('../hex.png');
+        background-color: $color-white;
+        color: $color-black;
+        font-weight: 300;
+        transform: translate3d(0,0,0);
+        transition: transform 0.2s, color 0.2s, background 0.2s;
+    }
+  }
 }
 
 
