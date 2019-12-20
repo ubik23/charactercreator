@@ -34,6 +34,7 @@
     transform: translate3d(-79px, 0, 0);
     // transform: translate3d(-111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+
     @media only screen and (min-width: 768px) {
       transform: translate3d(-111px, 0, 0);
     }
@@ -62,9 +63,11 @@
     transform: translate3d(71px, 0, 0);
     // transform: translate3d(111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+
     @media only screen and (min-width: 768px) {
       transform: translate3d(111px, 0, 0);
     }
+    
     &:hover {
         fill-opacity: 1;
         transition: fill-opacity 0.3s ease-in-out;
@@ -73,7 +76,7 @@
 
 @media (prefers-color-scheme: dark) {
   .female {
-    color: $color-night-title;
+    color: $color-night-title ;
   }
 }
 

@@ -65,12 +65,21 @@ sub {
 
 }
 
+@media (prefers-color-scheme: dark) {
+  .hamburger-btn {
+    border: 1px solid $color-night-border;
+
+    & .icon-hamburger {
+        color:  $color-night-border;
+    }
+  }
+}
+
 .night .hamburger-btn {
   border: 1px solid $color-night-border;
   & .icon-hamburger {
       color:  $color-night-border;
   }
-
 }
 
 #horizontal {
@@ -141,8 +150,24 @@ sub {
 
 .dark-text {display:block;}
 .light-text {display:none;}
+
+@media (prefers-color-scheme: dark) {
+  .light-text {display:block;}
+  .dark-text {display:none;}
+}
+
 .night .light-text {display:block;}
 .night .dark-text {display:none;}
+
+@media (prefers-color-scheme: dark) {
+  #horizontal {
+    border: 1px solid $color-night-border;
+  }
+
+  #horizontal li a, #horizontal li label {
+    color: $color-night-background;
+  }
+}
 
 .night  {
   #horizontal {
