@@ -46,19 +46,17 @@
 }
 
 function checkNightMode() {
-  console.log('checking night mode...');
   var body = document.querySelector('BODY');
   var checkBox = document.querySelector('#nightModeBox');
-  console.log('checkBox.checked', checkBox.checked);
-  console.log("!body.classList.contains('night')", !body.classList.contains('night'));
+
   if (checkBox.checked && !body.classList.contains('night')) {
     body.classList.toggle('night');
   }
 }
 
 function switchNightMode(ev) {
+  ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
-  console.log('><');
   var body = document.querySelector('BODY');
   body.classList.toggle('night');
 }

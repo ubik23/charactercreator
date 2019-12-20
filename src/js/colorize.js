@@ -45,12 +45,6 @@ function colorElement(el) {
   var newColorEpsilon;
   var colorPrefix = 'alpha';
   var lipstickColor;
-  // console.log('section before', section);
-  // section = processSection(section, item);
-  if (section === 'brows') {
-    console.log('section', section);
-  }
-
 
   if (section === 'eyeballs') {section = 'iris'}
 
@@ -59,23 +53,6 @@ function colorElement(el) {
   newColorGamma = c.choices[section+'Color-gam'];
   newColorDelta = c.choices[section+'Color-del'];
   newColorEpsilon = c.choices[section+'Color-eps'];
-
-  // if (section === 'skin') {colorPrefix = 'skin'}
-  // if (section === 'mouth') {
-  //   colorPrefix = 'skin';
-  //   lipstickColor = newColor;
-  //   newColor = c.choices['skinColor'];
-  // }
-  if (section === 'skin') {
-  //   el = colorElementLoop(el, colorPrefix, c.choices['skinColor', false);
-  //   if (section === 'ears' && c.choices['section' + 'Color', false) != undefined) {
-  //     el = colorElementLoop(el, colorPrefix, c.choices[newColor, false);
-  //   }
-  }
-  if (section === 'brows') {
-    console.log('processSection(section, item)', processSection(section, item));
-    console.log('c.choices', c.choices['hairColor']);
-  }
 
   if ((processSection(section, item) === 'skin' || processSection(section, item) === 'mouth' )  && c.choices['skinColor'] != undefined) {
     el = colorElementLoop(el, 'skin', c.choices['skinColor']);
@@ -120,7 +97,7 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   if (lipstickFlag) {
     classPrefix = '.lips.';
   }
-  
+
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
 

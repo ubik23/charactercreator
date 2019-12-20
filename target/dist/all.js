@@ -665,12 +665,6 @@ function colorElement(el) {
   var newColorEpsilon;
   var colorPrefix = 'alpha';
   var lipstickColor;
-  // console.log('section before', section);
-  // section = processSection(section, item);
-  if (section === 'brows') {
-    console.log('section', section);
-  }
-
 
   if (section === 'eyeballs') {section = 'iris'}
 
@@ -679,23 +673,6 @@ function colorElement(el) {
   newColorGamma = c.choices[section+'Color-gam'];
   newColorDelta = c.choices[section+'Color-del'];
   newColorEpsilon = c.choices[section+'Color-eps'];
-
-  // if (section === 'skin') {colorPrefix = 'skin'}
-  // if (section === 'mouth') {
-  //   colorPrefix = 'skin';
-  //   lipstickColor = newColor;
-  //   newColor = c.choices['skinColor'];
-  // }
-  if (section === 'skin') {
-  //   el = colorElementLoop(el, colorPrefix, c.choices['skinColor', false);
-  //   if (section === 'ears' && c.choices['section' + 'Color', false) != undefined) {
-  //     el = colorElementLoop(el, colorPrefix, c.choices[newColor, false);
-  //   }
-  }
-  if (section === 'brows') {
-    console.log('processSection(section, item)', processSection(section, item));
-    console.log('c.choices', c.choices['hairColor']);
-  }
 
   if ((processSection(section, item) === 'skin' || processSection(section, item) === 'mouth' )  && c.choices['skinColor'] != undefined) {
     el = colorElementLoop(el, 'skin', c.choices['skinColor']);
@@ -740,7 +717,7 @@ function colorElementLoop(el, colorPrefix, newColor, lipstickFlag) {
   if (lipstickFlag) {
     classPrefix = '.lips.';
   }
-  
+
   childrenList = el.querySelectorAll('.' + colorPrefix);
   counter = childrenList.length;
 
@@ -2927,19 +2904,17 @@ function logOut() {
 }
 
 function checkNightMode() {
-  console.log('checking night mode...');
   var body = document.querySelector('BODY');
   var checkBox = document.querySelector('#nightModeBox');
-  console.log('checkBox.checked', checkBox.checked);
-  console.log("!body.classList.contains('night')", !body.classList.contains('night'));
+
   if (checkBox.checked && !body.classList.contains('night')) {
     body.classList.toggle('night');
   }
 }
 
 function switchNightMode(ev) {
+  ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
-  console.log('><');
   var body = document.querySelector('BODY');
   body.classList.toggle('night');
 }
