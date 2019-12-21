@@ -55,6 +55,7 @@ function checkNightMode() {
 }
 
 function switchNightMode(ev) {
+  // document.documentElement.setAttribute('data-theme', 'lighttheme');
   ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
   var body = document.querySelector('BODY');
@@ -349,7 +350,7 @@ function launch() {
     var maleForm2 = {
       'Smoke' : ['', 'cigar', 'pipe_subgenius'],
       'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-      'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte'],
+      'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'strainer', 'magritte', 'xmas'],
       'Horns': ['', 'devil', 'large'],
       'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'stormtrooper', 'jason', 'cat'],
       'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
@@ -474,7 +475,7 @@ function launch() {
       'mask_guy_fawkes',
       'earpiece_microphone', 'earpiece_scouter',
       'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
-      'hat_baseball','hat_berret','hat_berret_badge','hat_cap', 'hat_fox-ears', 'hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_motorcycle',
+      'hat_baseball','hat_berret','hat_berret_badge','hat_cap', 'hat_fox-ears', 'hat_tuque','hat_cowboy','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_motorcycle','hat_xmas',
       'jewelry_earings','jewelry_nosering','jewelry_watch',
       'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
       'horns_devil',
@@ -500,7 +501,7 @@ function launch() {
       'Eyepatch': ['', 'left', 'right'],
       'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
       'Headband': ['', 'medium'],
-      'Hat': ['', 'baseball', 'beach', 'berret_badge', 'fox-ears', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap'],
+      'Hat': ['', 'baseball', 'beach', 'berret_badge', 'fox-ears', 'top', 'waitress', 'cowboy', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
       'Mask': ['', 'guy_fawkes', 'horse', 'stormtrooper', 'jason', 'cat'],
       'Horns': ['', 'devil'],
       'Earpiece': ['', 'microphone', 'scouter'],
@@ -614,7 +615,7 @@ function launch() {
       'headband_medium_1_of_2',
       'glasses_alien', 'glasses_fpv',
       'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
-      'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_waitress','hat_police','hat_cowboy', 'hat_fox-ears', 'hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle',
+      'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_waitress','hat_police','hat_cowboy', 'hat_fox-ears', 'hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle','hat_xmas',
       'body_hand_left',
       'bracelet_perl_left_1_of_2','bracelet_ornamental_left_1_of_2',
       'nails_short_1_of_2','nails_long_1_of_2','nails_claws_1_of_2',
