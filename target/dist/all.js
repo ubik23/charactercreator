@@ -1301,6 +1301,7 @@ function createForm(sex, forms){
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
     }
+
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
     var sectionList = document.createElement('div');
@@ -1962,11 +1963,9 @@ function choicesToLayers(c, multiLayer){
           }
         }
     };
-    // Topical item to be displayed:
-    selectedLayers.push('hat_xmas');
     //Add layers to be shown when creating a new character.
     if (c.sex === 'f'){
-        selectedLayers.push('bra_bow', 'nails_short_1_of_2', 'nails_short_2_of_2');
+        selectedLayers.push( 'nails_short_1_of_2', 'nails_short_2_of_2');
     };
     //Make sure the eyeballs are included.
     if (selectedLayers.indexOf('eyeballs_default') < 0) {
@@ -3622,6 +3621,9 @@ function colorCutout(newColor) {
 
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
 
+    addDecency();
+    addTopicalItem();
+
     setTimeout(function(){
         launch();
     }, 300);
@@ -3656,6 +3658,20 @@ function selectMale(event) {
       setTimeout(function(){
           displayPallette();
       }, 350);
+}
+
+function addTopicalItem() {
+  hash.add({ hat: 'xmas' });
+}
+
+function addDecency() {
+  var sex = window.sex;
+  if (sex === 'm') {
+    // TODO add underwear here.
+  } else if (sex === 'f') {
+    // TODO add underwear here.
+    hash.add({ bra: 'bow' });
+  }
 }
 
 function selectFemale(event) {
@@ -4301,9 +4317,25 @@ function openThumbs() {
     openThumbsLogic(_);
 }
 
+function calcViewBox(svgObject) {
+  // TODO Calculate the view Box automatically to make creating new items easier
+  var viewBox;
+  var rect = svgObject.getBoundingClientRect();
+
+  // Figure out whether height or width is larger
+  // recalculate smallest of the two to be the same size as the largest
+  // take the difference between largest and smallest and divide by two
+  // Take away that amount from starting point of smallest side (x or y)
+  // Make the width/height the same.
+
+  console.log('svgObject', svgObject);
+  console.log('rect', rect);
+
+  return viewBox;
+}
+
 function openThumbsLogic(_) {
   var section = _.innerHTML;
-  console.log('*** SECTION ***', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
@@ -4362,6 +4394,7 @@ function populateThumbs(svgObject) {
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
+  // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1;
 
   if (layerID.slice(-5, -1) === '_of_') {

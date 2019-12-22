@@ -87,10 +87,10 @@
     background-color: $color-alpha;
     color: $color-white;
     font-size: 0.75rem;
-    line-height: 2.25;
+    line-height: 1.75;
     border-bottom: 1px solid $color-border;
     margin: 0;
-    padding: 0;
+    padding-top: 0.15em;
 
     & .icon {
       display: none;

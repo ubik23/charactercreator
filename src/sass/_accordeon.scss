@@ -70,10 +70,11 @@
 
 .accordeon__section-title {
     font-size: 0.75rem;
-    line-height: 2.25;
+    line-height: 1.75;
     font-weight: 300;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-top: 0.25em;
 
     & .icon {
       display: none;

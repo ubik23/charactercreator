@@ -762,6 +762,9 @@ function colorCutout(newColor) {
 
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' });
 
+    addDecency();
+    addTopicalItem();
+
     setTimeout(function(){
         launch();
     }, 300);
@@ -796,6 +799,20 @@ function selectMale(event) {
       setTimeout(function(){
           displayPallette();
       }, 350);
+}
+
+function addTopicalItem() {
+  hash.add({ hat: 'xmas' });
+}
+
+function addDecency() {
+  var sex = window.sex;
+  if (sex === 'm') {
+    // TODO add underwear here.
+  } else if (sex === 'f') {
+    // TODO add underwear here.
+    hash.add({ bra: 'bow' });
+  }
 }
 
 function selectFemale(event) {

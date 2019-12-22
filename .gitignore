@@ -4,4 +4,4 @@ log
 bower_components
 .DS_Store
 shop.js
-../target/layer/*
+target/layer

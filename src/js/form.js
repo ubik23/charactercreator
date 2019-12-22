@@ -72,6 +72,7 @@ function createForm(sex, forms){
         htmlObject.innerHTML = newHtml;
         formContainer.appendChild(htmlObject);
     }
+
     sectionHtml += '</ul>';
     var sectionContainer = document.querySelector('#sidebar-left');
     var sectionList = document.createElement('div');

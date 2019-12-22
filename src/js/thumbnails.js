@@ -7,9 +7,25 @@ function openThumbs() {
     openThumbsLogic(_);
 }
 
+function calcViewBox(svgObject) {
+  // TODO Calculate the view Box automatically to make creating new items easier
+  var viewBox;
+  var rect = svgObject.getBoundingClientRect();
+
+  // Figure out whether height or width is larger
+  // recalculate smallest of the two to be the same size as the largest
+  // take the difference between largest and smallest and divide by two
+  // Take away that amount from starting point of smallest side (x or y)
+  // Make the width/height the same.
+
+  console.log('svgObject', svgObject);
+  console.log('rect', rect);
+
+  return viewBox;
+}
+
 function openThumbsLogic(_) {
   var section = _.innerHTML;
-  console.log('*** SECTION ***', section);
   var layersList = getSectionLayersList(section);
   var sectionLowerCase = section.toLowerCase();
   var previousSelection = document.querySelector('.section--selected');
@@ -68,6 +84,7 @@ function populateThumbs(svgObject) {
   var pupilShape;
   var pupilShapeList = ['round', 'feline', 'star'];
   var counter = pupilShapeList.length;
+  // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1;
 
   if (layerID.slice(-5, -1) === '_of_') {

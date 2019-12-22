@@ -5,9 +5,9 @@
     margin: 0;
 
     & li {
-        padding: 0 0 0 5px;
+        padding: 0.25em 0 0 5px;
         font-size: 0.75rem;
-        line-height: 2.25;
+        line-height: 1.75;
         background-color: rgba(227, 90, 78, 0);
         transform-origin: 0 50%;
         transform: translate3d(0,0,0);
@@ -16,7 +16,7 @@
         transition: color 0.3s, transform 0.3s, background-color 0.3s, border 0.3s;
 
         @media screen and (min-width: 650px) {
-          padding: 0 0 0 15px;
+          padding: 0.25em 0 0 15px;
         }
     }
 
