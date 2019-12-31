@@ -14,6 +14,7 @@
     left: 0;
     transform: translate3d(0, 100%, 0);
     transition: transform 0.3s ease-in-out;
+    z-index: 24;
 
     li {
         flex-grow: 1;
