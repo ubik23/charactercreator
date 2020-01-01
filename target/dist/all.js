@@ -3661,7 +3661,7 @@ function selectMale(event) {
 }
 
 function addTopicalItem() {
-  hash.add({ hat: 'xmas' });
+  // hash.add({ hat: 'xmas' });
 }
 
 function addDecency() {
