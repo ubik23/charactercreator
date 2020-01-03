@@ -209,13 +209,25 @@ sub {
 #downloadButton {
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
+    cursor: not-allowed;
+
     & a {
-      cursor: default;
+      cursor: not-allowed;
+    }
+
+    & span {
+      cursor: not-allowed;
     }
 
     &.enabled {
         opacity: 1;
+        cursor: pointer;
+
         & a {
+          cursor: pointer;
+        }
+
+        & span {
           cursor: pointer;
         }
     }
