@@ -1,5 +1,17 @@
+
+#male_silhouette, #female_silhouette {
+  transform-origin: 50% 50%;
+  animation: silhouetteReady 250ms 1.55s ease-in-out;
+}
+
+@keyframes silhouetteReady {
+  0% {transform: scale(1);}
+  6% {transform: scale(1);}
+  50% {transform: scale(1.01);}
+  100% {transform: scale(1);}
+}
+
 .path {
-    fill: transparent;
     stroke: $color-alpha;
     stroke-width: 1;
     stroke-linecap: butt;
@@ -11,6 +23,12 @@
     enable-background: accumulate;
     transition: fill 0.5s ease;
     cursor: pointer;
+}
+
+@keyframes pathReady {
+  0% {fill-opacity: 0;}
+  50% {fill-opacity: 1;}
+  100% {fill-opacity: 0;}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +47,7 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1726;
-    animation: homme 1.5s linear;
+    animation: homme 1.75s linear;
     fill-opacity: 0;
     transform: translate3d(-79px, 0, 0);
     // transform: translate3d(-111px, 0, 0);
@@ -38,6 +56,7 @@
     @media only screen and (min-width: 768px) {
       transform: translate3d(-111px, 0, 0);
     }
+
     &:hover {
         fill-opacity: 1;
         transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
@@ -58,16 +77,15 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1201;
-    animation: femme 1.5s linear;
+    animation: femme 1.75s linear;
     fill-opacity: 0;
     transform: translate3d(71px, 0, 0);
-    // transform: translate3d(111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
 
     @media only screen and (min-width: 768px) {
       transform: translate3d(111px, 0, 0);
     }
-    
+
     &:hover {
         fill-opacity: 1;
         transition: fill-opacity 0.3s ease-in-out;
@@ -85,21 +103,27 @@
 }
 
 @keyframes homme {
-    from {
+    0% {
         stroke-dashoffset: 1726;
     }
-    to {
+    85% {
         stroke-dashoffset: 0;
     }
+    86% {fill-opacity: 0;}
+    93% {fill-opacity: 0.1;}
+    100% {fill-opacity: 0;}
 }
 
 @keyframes femme {
-    from {
+    0% {
         stroke-dashoffset: 1201;
     }
-    to {
+    85% {
         stroke-dashoffset: 0;
     }
+    86% {fill-opacity: 0;}
+    93% {fill-opacity: 0.1;}
+    100% {fill-opacity: 0;}
 }
 
 .select-male {
