@@ -87,6 +87,7 @@ function gotoNewChar(evt) {
 }
 
 function resetCharacter() {
+  console.log('reset character');
   var choices = [];
   // Hide menus.
   hideMenus();
@@ -104,7 +105,15 @@ function resetCharacter() {
   c = new Character(choices);
   setTimeout(function(){fadeInSVG();}, 300);
   // launch anew.
-  // launch();
+  relaunch();
+}
+
+function relaunch() {
+  male = document.querySelector('#male_silhouette');
+  female = document.querySelector('#female_silhouette');
+  male.style.opacity = '1';
+  female.style.opacity = '1';
+
 }
 
 function removeGroups() {
@@ -145,6 +154,7 @@ function fadeOutSVG() {
 }
 
 function fadeInSVG() {
+  console.log('fadeInSVG');
   var svgContainer = document.querySelector('#svg1');
   svgContainer.classList.remove('character--hide');
 }

@@ -29,3 +29,22 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
+
+function getPosition(el) {
+    var xPos = 0;
+    var yPos = 0;
+
+    while (el) {
+        if (el.tagName != "BODY") {
+            // for all other non-BODY elements
+            xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+            yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+        }
+
+        el = el.offsetParent;
+    }
+    return {
+        x: xPos,
+        y: yPos
+    };
+}
