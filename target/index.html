@@ -252,7 +252,8 @@
                   </button>
                   <ul id="horizontal" class="hide">
                       <li id="aboutButton"><a href="#" target="_blank" alt="About"><span class="menu-text">About</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-mail3"></use></svg></a></li>
-                      <li id="githubButton"><a href="https://github.com/ubik23/charactercreator" target="_blank" rel="noopener noreferrer" alt="Github"><span class="menu-text">Github</span><svg class="icon" width="1em" height="1em"><use xlink:href="#github-logo"></use></svg></a></li>
+                      <li id="faqButton"><a href="#" target="_blank" alt="F.A.Q."><span class="menu-text">F.A.Q.</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-mail3"></use></svg></a></li>
+                      <!-- <li id="githubButton"><a href="https://github.com/ubik23/charactercreator" target="_blank" rel="noopener noreferrer" alt="Github"><span class="menu-text">Github</span><svg class="icon" width="1em" height="1em"><use xlink:href="#github-logo"></use></svg></a></li> -->
                       <li id="facebookButton"><a href="https://www.facebook.com/thecharactercreator/" target="_blank" rel="noopener noreferrer" alt="Facebook"><span class="menu-text">Facebook</span><svg class="icon" width="1em" height="1em"><use xlink:href="#facebook-logo"></use></svg></a></li>
                       <li id="patreonButton"><a href="https://www.patreon.com/charactercreator" target="_blank" rel="noopener noreferrer" alt="Patreon"><span class="menu-text">Patreon</span><svg class="icon" width="1em" height="1em"><use xlink:href="#patreon-logo"></use></svg></a></li>
                       <li opacity="0" id="downloadButton"><a href="#" alt="Download SVG"><span class="menu-text">Download</span><svg class="icon icon-arrow-down" width="1em" height="1em"><use xlink:href="#icon-arrow-down"></use></svg></a>
@@ -492,6 +493,23 @@
                 </div>
             </div>
         </div>
+        <div class="overlay__modal js-faq">
+            <div class="overlay__wrapper">
+                <div class="overlay__header">
+                    <span class="overlay__title">Frequently Asked Questions</span>
+                    <svg class="icon close-btn"><use xlink:href="#x"></use></svg>
+                </div>
+                <div class="overlay__panel">
+                      <div class="overlay__char-card">
+                            <div class="overlay__char-new-form--create">
+                                <p>The Character Creator aims to provide a fun and easy way to help you find a look for <strong>your</strong> characters. Just like the japanese kisekae (electronic paper dolls), you pick and choose items from a list to ornate your character with. It is free to use and will always remain free to use. For storytellers looking for spritesheets of their characters,  we offer those services on demand.</p>
+                                <p>The website was launched on January 11th 2014 with only basic functionality. Since then, new features and content have been added with every update, see details on our <a href="http://facebook.com/thecharactercreator">facebook page</a>.</p>
+                                <p>If you have any questions or comments, or if you want to get involved, either as a programmer or an artist, <a href="mailto:charactercreatororg@gmail.com">email your request</a>.</p>
+                            </div>
+                      </div>
+                </div>
+            </div>
+        </div>
         <div class="overlay__modal js-caboose">
             <div class="overlay__wrapper">
                 <div class="overlay__header">
@@ -502,11 +520,13 @@
                       <div class="overlay__char-card">
                             <div class="overlay__char-new-form--create">
                               <p>You can view, edit and export to other formats with vector graphics programs such as <a href="https://inkscape.org/">Inkscape</a>. Get more positions when you join our Patreon.</p>
-                              <div class="ui-buttons">
-                                <button id="new-char-btn">Create New Character</button>
+                              <div class="ui-buttons phat">
+                                <button id="new-char-btn" >Create A New Character</button>
+                                <button id="save-char-to-cloud-btn" >Save Character to Cloud</button>
                                 <!-- <button id="load-char-btn">Load Character</button> -->
-                                <button id="patreon-btn">Become a Patron</button>
+                                <button id="patreon-btn" >Have a look at our Tiers on Patreon</button>
                               </div>
+                              <p>I love getting email from creatives, if you have a minute, please let me know what you use The Character Creator for, and what features or items you'd like to see.</p>
                             </div>
                       </div>
                 </div>
@@ -523,7 +543,7 @@
               <p>Frédéric Guimont</p>
               <p>The continuation of this project is made possible by the contributions of our distinguished patrons.</p>
               <h3>Patrons</h3>
-              <p>Pablo Saxton, Éric Spérano, Cappa Ribou, Véronique Hamel, Jared Pearson, April Kinghorn, Maxim St-Hillaire, Lain, JF Kbana, Holly Savage, Seth Alexandre II, Dermot, Vladislav Ryl, Paras Sanghvi, Dana Ford, Michael Pendley, Harold Kirby, Lisa Lacombe, Levon Groce, BarryTwice, JF Kbana, Darren Conroy, Tedrick Dotson, Danfe IMpex, Pakare Vaipo, Lesley Floyd, Whitney, Kyle, Paul Widlicka, Eric Simard, Ryan Houston, Gennaio</p>
+              <p>Pablo Saxton, Éric Spérano, Cappa Ribou, Véronique Hamel, Jared Pearson, April Kinghorn, Maxim St-Hillaire, Lain, JF Kbana, Holly Savage, Seth Alexandre II, Dermot, Vladislav Ryl, Paras Sanghvi, Dana Ford, Michael Pendley, Harold Kirby, Lisa Lacombe, Levon Groce, BarryTwice, JF Kbana, Darren Conroy, Tedrick Dotson, Danfe IMpex, Pakare Vaipo, Lesley Floyd, Whitney, Kyle, Paul Widlicka, Eric Simard, Ryan Houston, Gennaio, Priscilla Akpalu</p>
                 <h3>Contributors</h3>
               <div class="overlay__credits__row--text">
                 <span class="overlay__credits__role">SEO</span>

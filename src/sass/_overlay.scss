@@ -315,6 +315,14 @@
     }
 }
 
+.phat button {
+  padding-top: 1em;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
 @media (prefers-color-scheme: dark) {
   .overlay {
     &__header, &__footer {

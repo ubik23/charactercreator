@@ -1,5 +1,7 @@
   window.onload = function() {
+    var c; //Main variable to hold user choices and preferences
     var aboutBtn = document.querySelector("#aboutButton");
+    var faqBtn = document.querySelector("#faqButton");
     var shopBtn = document.querySelector("#shopButton");
     var whoBtn = document.querySelector("#whoButton");
     var logoutBtn = document.querySelector("#logoutButton");
@@ -17,11 +19,13 @@
     var patreonLink = document.querySelector('#patreonButton');
     var patreonBtn = document.querySelector('#patreon-btn');
     var newCharBtn = document.querySelector('#new-char-btn');
+    var saveCharToCloudBtn = document.querySelector('#save-char-to-cloud-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
 
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
+    if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
     if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener("click", showShop, false) }
     if (whoBtn && typeof whoami === 'function') { whoBtn.addEventListener("click", whoami, false) }
     if (logoutBtn && typeof logout === 'function') { logoutBtn.addEventListener("click", logout, false) }
@@ -38,11 +42,20 @@
     if (patreonLink && typeof tattle === 'function') {patreonLink.addEventListener('click', tattle, false)}
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
+    if (saveCharToCloudBtn && typeof saveCharToCloud === 'function') {saveCharToCloudBtn.addEventListener('click', saveCharToCloud, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
 
     // checkNightMode()
     startup();
+}
+
+function saveCharToCloud(ev) {
+  preventDefault(ev);
+  console.log('saveCharToCloud');
+  // Check if user is logged in
+  // Check if this character already exists in the cast
+  // If not, prompt to name the character in the cast modal
 }
 
 function checkNightMode() {
@@ -232,7 +245,7 @@ function clickSelect(ev) {
   var itemButtonList;
   var itemButton;
 
-  if (c.sex === undefined) {return}
+  if (c.choices.sex === undefined) {return}
 
   prefix = fromItemGetPrefix(el.id);
   formSection = fromPrefixGetFormSection(prefix);
@@ -269,7 +282,7 @@ function clickSelect(ev) {
 
 function getSectionButton(formSection, prefix) {
   var keyCounter = 0;
-  if (c.sex ==='m') {
+  if (c.choices.sex ==='m') {
     formList = window.maleFormList;
   } else {
     formList = window.femaleFormList;
@@ -284,9 +297,9 @@ function getSectionButton(formSection, prefix) {
 }
 
 function getGroupParent(el) {
-  if (c.sex === 'm') {
+  if (c.choices.sex === 'm') {
     layers = window.layersMale;
-  } else if (c.sex === 'f') {
+  } else if (c.choices.sex === 'f') {
     layers = window.layersFemale;
   } else {
     return document.querySelector('#svg1');
@@ -315,7 +328,7 @@ function fromPrefixGetFormSection(prefix) {
   var counterForm;
   var counterSection;
   var formList;
-  if (c.sex === 'm') {
+  if (c.choices.sex === 'm') {
     formList = window.maleFormList;
   } else {
     formList = window.femaleFormList;
@@ -588,14 +601,13 @@ function launch() {
       'holster_revolver_thigh_1_of_2',
       'skirt_school','skirt_school_short','skirt_school_long',
       'holster_revolver_hip',
-      'necklace_heart', 'necklace_perl','necklace_princess',
       'top_asymetric', 'top_loop', 'top_tank', 'top_tube_v',
       'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset','dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall', 'dress_zip',
       'vest_yellow',
       'holster_revolver_chest',
       'belt_satchel', 'belt_bullet',
       'collar_egyptian', 'collar_metal',
-      'necklace_squared-circle',
+      'necklace_squared-circle','necklace_heart', 'necklace_perl','necklace_princess',
       'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
       'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
       'coat_lab_1_of_3',
@@ -674,8 +686,8 @@ function launch() {
       'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
     ];
 
-    c.sex  = hash.get('sex');
-    var sex = c.sex;
+    c.choices.sex  = hash.get('sex');
+    var sex = c.choices.sex;
     window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
     window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
     window.layersFemale = layersFemale;
@@ -781,7 +793,7 @@ function colorCutout(newColor) {
 }
 
 function selectMale(event) {
-    window.sex = "m";
+    c.choices.sex = "m";
     var maleRadioBtn = document.querySelector('#mButton');
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");
@@ -816,7 +828,7 @@ function addTopicalItem() {
 }
 
 function addDecency() {
-  var sex = window.sex;
+  var sex = c.choices.sex;
   if (sex === 'm') {
     // TODO add underwear here.
   } else if (sex === 'f') {
@@ -826,7 +838,7 @@ function addDecency() {
 }
 
 function selectFemale(event) {
-    window.sex = "f";
+    c.choices.sex = "f";
     var femaleRadioBtn = document.querySelector('#fButton');
     var mainSVG = document.querySelector('#svg1');
     var maleSilhouette = document.querySelector("#male_silhouette");

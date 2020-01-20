@@ -1,7 +1,7 @@
 
 function getViewBox(t, d) {
     var id = t + '_' + d;
-    var sex = window.sex;
+    var sex = c.choices.sex;
     if (sex === "m"){
         var idDict = {
             "body_athletic":"65 130 430 430",

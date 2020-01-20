@@ -109,7 +109,7 @@ Object.size = function(obj) {
 
 function choicesToList(c) {
   var layersList = [];
-  var sex = c.sex;
+  var sex = c.choices.sex;
   var counter = Object.keys(c.choices).length;
   var keyChoice;
   var valueChoice;
@@ -167,7 +167,7 @@ function choicesToLayers(c, multiLayer){
         }
     };
     //Add layers to be shown when creating a new character.
-    if (c.sex === 'f'){
+    if (c.choices.sex === 'f'){
         selectedLayers.push( 'nails_short_1_of_2', 'nails_short_2_of_2');
     };
     //Make sure the eyeballs are included.

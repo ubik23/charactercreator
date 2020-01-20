@@ -17,6 +17,16 @@ function showAbout(ev) {
   closeBtn.addEventListener('click', closeOverlay, false);
 }
 
+function showFAQ(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-faq');
+  var closeBtn = overlay.querySelector('.close-btn');
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
+}
+
 function showShop(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-shop');

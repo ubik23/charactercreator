@@ -112,7 +112,7 @@ function getSectionsFromIdMultiLayer(multiLayer, tempId) {
 }
 
 function getSectionLayersList(section) {
-  var sex = c.sex;
+  var sex = c.choices.sex;
   var formList;
   var formCounter;
   var itemList;
@@ -135,6 +135,7 @@ function getSectionLayersList(section) {
 }
 
 function replaceMultilayer(layersList, section) {
+  var sex = c.choices.sex;
   var counter = layersList.length;
   var multilayer;
   var multiCounter;
@@ -213,7 +214,7 @@ function loadSectionLayers(section, layersList, callback, callbackLoopFlag) {
 
 function loadFilesFromList(layersList, callback, callbackLoopFlag){
   var layerDirectory;
-  var sex = c.sex;
+  var sex = c.choices.sex;
   var file;
   var layerID;
   var counter;
