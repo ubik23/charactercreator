@@ -4,7 +4,7 @@ function createForm(sex, forms){
 
   itemsThumbsContent.innerHTML = '';
 
-  var sex = sex || window.sex;
+  var sex = sex || c.choices.sex;
   var forms = forms || window.forms;
   var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
   var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';

@@ -51,13 +51,7 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
-    // var colorThis = false;
     var myLayer = fileName;
-    // var newColor;
-    // var newColorBeta;
-    // var newColorGamma;
-    // var newColorDelta;
-    // var newColorEpsilon;
     var seen;
 
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
@@ -67,34 +61,6 @@ function onEachLoaded(frag, fileName) {
     var section = myLayer.split("/")[2].split('_')[0];
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     section = processSection(section, item);
-    // Make a list of all the color keys in c.choices
-    // if (c.choices[section+'Color'] != undefined) {
-    //     newColor = c.choices[section+'Color'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-bet'] != undefined) {
-    //     newColorBeta = c.choices[section+'Color-bet'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-gam'] != undefined) {
-    //     newColorGamma = c.choices[section+'Color-gam'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-eps'] != undefined) {
-    //     newColorEpsilon = c.choices[section+'Color-eps'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // Get a list
-    //Check to see if the Color suffix is available for each toBeShown
-    // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored.
-
-    // if (colorThis === true){
-    //     applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
-    // }
 
     frag.select("*").attr({ opacity: seen });
 }

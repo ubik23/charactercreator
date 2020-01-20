@@ -60,7 +60,7 @@ function resetCharacterTemplate() {
 }
 
 function findNextLayerInDom(item) {
-  var sex = c.sex;
+  var sex = c.choices.sex;
   var svgContainer = document.querySelector('#svg1');
   var nextLayerSibling = null;
   var layers;

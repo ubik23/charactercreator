@@ -1362,7 +1362,7 @@ function createForm(sex, forms){
 
   itemsThumbsContent.innerHTML = '';
 
-  var sex = sex || window.sex;
+  var sex = sex || c.choices.sex;
   var forms = forms || window.forms;
   var sectionNames = ["Head","Accessories", "Torso", "Body", "Legs", "Feet"];
   var sectionHtml = '<h2 class="sidebar__title"><svg class="icon"><use xlink:href="#icon-coathanger"></use></svg>Categories</h2>';
@@ -1903,7 +1903,7 @@ function resetCharacterTemplate() {
 }
 
 function findNextLayerInDom(item) {
-  var sex = c.sex;
+  var sex = c.choices.sex;
   var svgContainer = document.querySelector('#svg1');
   var nextLayerSibling = null;
   var layers;
@@ -1997,13 +1997,7 @@ function processSection(section, item) {
 }
 
 function onEachLoaded(frag, fileName) {
-    // var colorThis = false;
     var myLayer = fileName;
-    // var newColor;
-    // var newColorBeta;
-    // var newColorGamma;
-    // var newColorDelta;
-    // var newColorEpsilon;
     var seen;
 
     if (toBeShown.indexOf(myLayer.split("/")[2].split(".")[0]) > -1){
@@ -2013,34 +2007,6 @@ function onEachLoaded(frag, fileName) {
     var section = myLayer.split("/")[2].split('_')[0];
     var item = myLayer.split("/")[2].split('_')[1].split('.')[0];
     section = processSection(section, item);
-    // Make a list of all the color keys in c.choices
-    // if (c.choices[section+'Color'] != undefined) {
-    //     newColor = c.choices[section+'Color'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-bet'] != undefined) {
-    //     newColorBeta = c.choices[section+'Color-bet'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-gam'] != undefined) {
-    //     newColorGamma = c.choices[section+'Color-gam'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // if (c.choices[section+'Color-eps'] != undefined) {
-    //     newColorEpsilon = c.choices[section+'Color-eps'];
-    //     // We now have a new color
-    //     colorThis = true;
-    // };
-    // Get a list
-    //Check to see if the Color suffix is available for each toBeShown
-    // Before we show (or hide) a layer, check to see if it's in the list of layers to be colored.
-
-    // if (colorThis === true){
-    //     applyColor(myLayer.split("/")[2].split(".")[0], newColor.slice(1), frag.select("*"));
-    // }
 
     frag.select("*").attr({ opacity: seen });
 }
@@ -3108,7 +3074,6 @@ function gotoNewChar(evt) {
 }
 
 function resetCharacter() {
-  console.log('reset character');
   var choices = [];
   // Hide menus.
   hideMenus();
@@ -3175,7 +3140,6 @@ function fadeOutSVG() {
 }
 
 function fadeInSVG() {
-  console.log('fadeInSVG');
   var svgContainer = document.querySelector('#svg1');
   svgContainer.classList.remove('character--hide');
 }
@@ -4580,6 +4544,7 @@ function populateThumbs(svgObject) {
 
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
+
     groupTotal = parseInt(layerID.slice(-1));
     layerID = layerID.slice(0, -7);
     parentEl = document.querySelector('#content_1 .' + layerID);
@@ -4606,6 +4571,7 @@ function populateThumbs(svgObject) {
         document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head' ){
+    console.log('layerID', layerID);
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'letic') {

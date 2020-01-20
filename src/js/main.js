@@ -100,7 +100,6 @@ function gotoNewChar(evt) {
 }
 
 function resetCharacter() {
-  console.log('reset character');
   var choices = [];
   // Hide menus.
   hideMenus();
@@ -167,7 +166,6 @@ function fadeOutSVG() {
 }
 
 function fadeInSVG() {
-  console.log('fadeInSVG');
   var svgContainer = document.querySelector('#svg1');
   svgContainer.classList.remove('character--hide');
 }

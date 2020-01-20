@@ -89,6 +89,7 @@ function populateThumbs(svgObject) {
 
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5));
+
     groupTotal = parseInt(layerID.slice(-1));
     layerID = layerID.slice(0, -7);
     parentEl = document.querySelector('#content_1 .' + layerID);
@@ -115,6 +116,7 @@ function populateThumbs(svgObject) {
         document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length-1]).appendChild(thumbObject);
     }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head' ){
+    console.log('layerID', layerID);
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject);
     } else if (layerID.slice(-5) === 'letic') {
