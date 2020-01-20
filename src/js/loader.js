@@ -27,6 +27,7 @@ function onAllLoaded() {
     createForm(characterSex, forms);
 
     sideBarLeft.classList.add('visible');
+    // sideBarRight.classList.add('visible');
 
     revealCharacter();
 

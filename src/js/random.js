@@ -275,6 +275,7 @@ function smartRandomSingle() {
             } else {
               // TODO Make sure items don't ovelap and create visual confusion between layers.
               // Don't have hair sticking out from a behind a hat.
+              // Make sure the resulting character has at least one item of clothing covering them.
               // showRandom(catKey, newItem);
               obj[catKey] = newItem;
               hash.add(obj);
@@ -282,8 +283,6 @@ function smartRandomSingle() {
           }
         }
       }
-
-
       launch();
     }, 300);
   // Cycle through each category in the first form

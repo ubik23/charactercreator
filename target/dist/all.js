@@ -1973,6 +1973,7 @@ function onAllLoaded() {
     createForm(characterSex, forms);
 
     sideBarLeft.classList.add('visible');
+    // sideBarRight.classList.add('visible');
 
     revealCharacter();
 
@@ -3027,6 +3028,7 @@ function logOut() {
 function saveCharToCloud(ev) {
   preventDefault(ev);
   console.log('saveCharToCloud');
+  // Close current modal
   // Check if user is logged in
   // Check if this character already exists in the cast
   // If not, prompt to name the character in the cast modal
@@ -3042,10 +3044,16 @@ function checkNightMode() {
 }
 
 function switchNightMode(ev) {
+
   // document.documentElement.setAttribute('data-theme', 'lighttheme');
   ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
   var body = document.querySelector('BODY');
+  if (body.classList === '') {
+    document.documentElement.setAttribute('data-theme', 'darktheme');
+  } else if (body.classList === 'night') {
+    document.documentElement.setAttribute('data-theme', 'lighttheme');
+  }
   body.classList.toggle('night');
 }
 
@@ -4365,6 +4373,7 @@ function smartRandomSingle() {
             } else {
               // TODO Make sure items don't ovelap and create visual confusion between layers.
               // Don't have hair sticking out from a behind a hat.
+              // Make sure the resulting character has at least one item of clothing covering them.
               // showRandom(catKey, newItem);
               obj[catKey] = newItem;
               hash.add(obj);
@@ -4372,8 +4381,6 @@ function smartRandomSingle() {
           }
         }
       }
-
-
       launch();
     }, 300);
   // Cycle through each category in the first form

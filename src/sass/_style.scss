@@ -351,9 +351,10 @@ input[type=range][orient=vertical] {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+
     & svg {
         fill: currentColor;
-        color: $color-alpha;
+        padding-left: 0.15rem;
     }
 }
 
@@ -362,14 +363,39 @@ input[type=range][orient=vertical] {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 2px 5px 2px 5px;
-    @media screen and (min-width: 650px) {
-        padding: 2px 10px 2px 10px;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: $color-alpha;
+
+    & label {
+      padding-left: 0.25rem;
+      padding-top: 0.15rem;
+      cursor: pointer;
     }
+
+    &:hover {
+      background-color: $color-alpha;
+      color: #fff;
+    }
+
+    @media screen and (min-width: 650px) {
+        padding: 2px 10px;
+    }
+}
+
+.night .hud__list-item {
+  color: $color-night-background;
+
+  &:hover {
+    color: #fff;
+    background: url('../hex-light.png');
+    background-color: rgba(227, 90, 78,0.5);
+  }
 }
 
 .hud__list-item input {
   padding: 0 0.25em 0 0;
+  cursor: pointer;
 }
 
 .hud__list-item div {
@@ -381,6 +407,7 @@ input[type=range][orient=vertical] {
 
 .abbreviation {
   display: none;
+
   @media screen and (min-width: 650px) {
       display: inline-block;
   }

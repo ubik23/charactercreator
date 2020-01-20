@@ -53,6 +53,7 @@
 function saveCharToCloud(ev) {
   preventDefault(ev);
   console.log('saveCharToCloud');
+  // Close current modal
   // Check if user is logged in
   // Check if this character already exists in the cast
   // If not, prompt to name the character in the cast modal
@@ -68,10 +69,16 @@ function checkNightMode() {
 }
 
 function switchNightMode(ev) {
+
   // document.documentElement.setAttribute('data-theme', 'lighttheme');
   ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
   var body = document.querySelector('BODY');
+  if (body.classList === '') {
+    document.documentElement.setAttribute('data-theme', 'darktheme');
+  } else if (body.classList === 'night') {
+    document.documentElement.setAttribute('data-theme', 'lighttheme');
+  }
   body.classList.toggle('night');
 }
 
