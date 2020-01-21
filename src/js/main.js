@@ -23,7 +23,6 @@
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
 
-
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
     if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener("click", showShop, false) }
@@ -69,11 +68,12 @@ function checkNightMode() {
 }
 
 function switchNightMode(ev) {
-
   // document.documentElement.setAttribute('data-theme', 'lighttheme');
   ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode'});
   ev.preventDefault();
   var body = document.querySelector('BODY');
+  hamburger();
+
   if (body.classList === '') {
     document.documentElement.setAttribute('data-theme', 'darktheme');
   } else if (body.classList === 'night') {

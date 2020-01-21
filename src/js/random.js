@@ -203,6 +203,8 @@ function smartRandomSingle() {
     'wings' : 3
   }
   var defaultChance = 50;
+  var bottomCovered = false;
+  var topCovered = false;
 
   hash.clear();
   // First, clear the board and start from the silhouettes
@@ -256,8 +258,28 @@ function smartRandomSingle() {
               }
               roll = Math.floor((Math.random() * 100));
               if (roll <= chance) {
-                roll = Math.floor((Math.random() * (itemsLen -1))) +1;
-                newItem = items[roll].toLowerCase();
+
+                if (topCovered && catKey === 'suit' || catKey === 'dress' || catKey === 'coat' || catKey === 'top') {
+                  newItem = '';
+                } else if (bottomCovered && catKey === 'shorts' || catKey === 'dress' || catKey === 'skirt' || catKey === 'pants') {
+                  newItem = '';
+                } else {
+                  roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+                  newItem = items[roll].toLowerCase();
+                }
+                if (catKey === 'suit' || catKey === 'dress' || catKey === 'coat') {
+                  bottomCovered = true;
+                  topCovered = true;
+                  console.log('both', catKey);
+                }
+                if (catKey === 'bra' || catKey === 'top' || catKey === 'shirt' || catKey === 'vest' || catKey === 'shirt' || catKey === 'jacket') {
+                  topCovered = true;
+                  console.log('top', catKey);
+                }
+                if (catKey === 'shorts' || catKey === 'skirt' || catKey === 'pants') {
+                  bottomCovered = true;
+                  console.log('bottom', catKey);
+                }
               } else {
                 newItem = '';
               }
@@ -282,6 +304,17 @@ function smartRandomSingle() {
             }
           }
         }
+      }
+      if (!bottomCovered && !topCovered) {
+        console.log('suit');
+        bottomCovered = true;
+        topCovered = true;
+      } else if (!bottomCovered) {
+        console.log('shorts, skirt, pants');
+        bottomCovered = true;
+      } else if (c.choices.sex === 'f' && !topCovered) {
+        console.log('top');
+        topCovered = true;
       }
       launch();
     }, 300);

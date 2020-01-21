@@ -2,6 +2,8 @@
 function closeAllOverlays() {
     var overlays = document.querySelectorAll(".overlay--show");
     var counter = overlays.length;
+    hamburger();
+    
     while (counter--){
         overlays[counter].classList.remove('overlay--show');
     }

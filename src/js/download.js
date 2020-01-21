@@ -35,7 +35,6 @@ function download() {
     var filename = "my_character.svg";
     var pom;
     var text = getSVG();
-
     // TODO Copy the URL before it is erased by the download function.
 
     pom = document.createElement('a');
