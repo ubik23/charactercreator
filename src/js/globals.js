@@ -47,7 +47,7 @@ var maleForm4 = {
 };
 var maleForm5 = {
   'Underwear': ['', 'plain', 'boxers'],
-  'Pants': ['', 'suit', 'jeans', 'leather', 'snowboard'],
+  'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
   'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
 };
 var maleForm6 = {
@@ -86,9 +86,9 @@ var layersMale = [
   'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
   'watch_generic',
   'shirt_colar_2_of_2', 'shirt_turtleneck',
-  'pants_jeans_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
+  'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
   'belt_leather', 'belt_default',
-  'pants_jeans_2_of_2', 'pants_suit_2_of_2',
+  'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2',
   'shirt_tshirt',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
   'shirt_colar_1_of_2',
@@ -147,6 +147,9 @@ var layersMale = [
   'horns_large',
   'smoke_cigar', 'smoke_pipe_subgenius'
 ];
+
+
+
 var femaleForm1 = {
   'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
   'Ears' : ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
@@ -198,7 +201,7 @@ var femaleForm5 = {
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
   'Leggings': ['', 'regular', 'torn'],
-  'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_torn', 'jeans_bellbottoms'],
+  'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
@@ -237,7 +240,7 @@ var layersFemale = [
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
   'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
-  'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_torn','pants_jeans_bellbottoms',
+  'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'holster_revolver_thigh_1_of_2',
   'skirt_school','skirt_school_short','skirt_school_long',
@@ -247,8 +250,8 @@ var layersFemale = [
   'vest_yellow',
   'holster_revolver_chest',
   'belt_satchel', 'belt_bullet',
-  'collar_egyptian', 'collar_metal',
   'necklace_squared-circle','necklace_heart', 'necklace_perl','necklace_princess',
+  'collar_egyptian', 'collar_metal',
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
   'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
   'coat_lab_1_of_3',

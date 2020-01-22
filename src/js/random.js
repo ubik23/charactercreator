@@ -185,10 +185,10 @@ function smartRandomSingle() {
     'earings' : 90,
     'earpiece' : 5,
     'eyepatch' : 10,
-    'glasses' : 80,
+    'glasses' : 60,
     'holster' : 5,
-    'horns' : 5,
-    'makeup' : 90,
+    'horns' : 3,
+    'makeup' : 80,
     'mask' : 5,
     'necklace' : 75,
     'pet' : 20,
@@ -292,7 +292,7 @@ function smartRandomSingle() {
                 roll = Math.floor((Math.random() * (itemsLen -1))) +1;
                 newItem = items[roll].toLowerCase();
                 if (headCovered) {
-                  if (catKey === 'hat') {
+                  if (catKey === 'hat' || catKey === 'veil') {
                     newItem = '';
                   }
                 }
