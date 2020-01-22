@@ -327,9 +327,9 @@ function smartRandomSingle() {
               }
             } else if (catKey === 'body') {
               roll = Math.floor((Math.random() * 100));
-              if (roll < 70) {
+              if (roll < 40) {
                 roll = 0;
-              } else if (roll < 85) {
+              } else if (roll < 80) {
                 roll = 1;
               } else if (roll < 95) {
                 roll = 2;
