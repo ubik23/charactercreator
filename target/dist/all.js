@@ -4315,6 +4315,7 @@ function smartRandomSingle(ev) {
   var headCovered = false;
   var forms;
 
+
   hash.clear();
   // First, clear the board and start from the silhouettes
   resetCharacter();

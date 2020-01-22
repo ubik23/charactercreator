@@ -16,9 +16,32 @@
     border-radius: 1.5em;
     padding: 1em 1.5em;
     cursor: pointer;
+    transition: color 250ms;
+    transform-origin: bottom center;
+    transform: scale(0.75);
+    transition: transform 250ms ease-in-out;
+
     &:active {
-      opacity: 0.5;
-      transform: translate(0, 2px);
+      transform: translate(0, 1px);
+    }
+
+    &.hide{
+      color: transparent;
+      transition: color 150ms;
     }
   }
+
+  &:hover {
+    & #bigRedButton {
+      transition: transform 250ms ease-in-out;
+      transform: scale(1);
+    }
+  }
+}
+
+.night #bigRedButton {
+  background: url('../hex.png');
+  background-color: $color-night-background;
+  color: $color-night-text;
+  border: 1px solid $color-night-border;
 }
