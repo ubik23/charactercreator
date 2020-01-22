@@ -159,7 +159,6 @@ function smartRandomStream() {
 }
 
 function smartRandomSingle() {
-  console.log('=================================');
   ga('send', 'event', { eventCategory: 'Secret function', eventAction: 'smartRandomSingle()', eventLabel: 'Secret Patreon reveal for new random function.'});
   var roll;
   var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
@@ -235,7 +234,6 @@ function smartRandomSingle() {
     var form6 = maleForm6;
   }
   forms = [form1, form2, form3, form4, form5,form6];
-  console.log(c.choices.sex);
   // Then choose the skin color at random (1/24)
   roll = Math.floor((Math.random() * 24));
   newColor = obj['skinColor'] =  skinTones[roll].toLowerCase();
@@ -280,7 +278,8 @@ function smartRandomSingle() {
             // console.log('catKey', catKey);
 
             // only treat the categories that have a percentage chance to be added
-            if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes' && catKey != 'bra') {
+            // should be rewritten to test if catKey is in chanceDict
+            if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes' && catKey != 'bra' && catKey != 'mask') {
               if (chanceDict[catKey] != undefined) {
                 chance = chanceDict[catKey];
               } else {
@@ -314,29 +313,21 @@ function smartRandomSingle() {
               }
               //
               if (newItem != '') {
-                console.log('catKey', catKey);
-                // console.log('items', items);
                 if (catKey === 'suit' || catKey === 'dress') {
                   if (newItem != 'suit') {
                     bottomCovered = true;
-                    console.log('1All covered', newItem);
-                  } else {
-                    console.log('1Top covered', newItem);
                   }
                   topCovered = true;
-                  console.log('1All covered', newItem);
                 } else if (catKey === 'top' || catKey === 'shirt' || catKey === 'shirt' || catKey === 'jacket') {
                   topCovered = true;
-                  console.log('1Top covered', newItem);
                 } else if (catKey === 'shorts' || catKey === 'skirt' || catKey === 'pants') {
                   bottomCovered = true;
-                  console.log('1Bottom covered', newItem);
                 }
               }
             } else if (catKey === 'body') {
               roll = Math.floor((Math.random() * itemsLen));
               newItem = items[roll].toLowerCase();
-            } else if (catKey === 'cloak' || catKey === 'bra') {
+            } else if (catKey === 'cloak' || catKey === 'bra' || catKey === 'underwear' || catKey === 'mask') {
               newItem = '';
             } else {
 
@@ -360,18 +351,13 @@ function smartRandomSingle() {
               }
 
               if (newItem != '') {
-                console.log('catKey', catKey);
-                // console.log('items', items);
                 if (catKey === 'suit' || catKey === 'dress') {
                   bottomCovered = true;
                   topCovered = true;
-                  console.log('2All covered', newItem);
                 } else if (catKey === 'top' || catKey === 'shirt' || catKey === 'vest' || catKey === 'shirt' || catKey === 'jacket') {
                   topCovered = true;
-                  console.log('2Top covered', newItem);
                 } else if (catKey === 'shorts' || catKey === 'skirt' || catKey === 'pants') {
                   bottomCovered = true;
-                  console.log('2Bottom covered', newItem);
                 }
               }
             } // if category requires a roll
@@ -381,24 +367,15 @@ function smartRandomSingle() {
         } // if formcount > 0
       } //while counter--
       if (!bottomCovered && !topCovered) {
-        console.log('Nude');
         if (c.choices.sex === 'f') {
           coverAll(forms);
         } else {
           coverBottom(forms);
         }
-        // bottomCovered = true;
-        // topCovered = true;
       } else if (!bottomCovered) {
-        console.log('Bottomless');
         coverBottom(forms);
-        // bottomCovered = true;
       } else if (c.choices.sex === 'f' && !topCovered) {
-        console.log('Topless');
         coverTop(forms);
-        // topCovered = true;
-      } else {
-        console.log('Covered');
       }
     launch();
   }, 300);
@@ -413,13 +390,13 @@ function smartRandomSingle() {
 }
 
 function coverAll(forms) {
-  console.log('coverAll');
   var catKeyList = ['suit', 'dress'];
   var counter = formLen = forms.length;
   var formCount;
   var categories;
   var keys;
   var keyCounter;
+  var obj = new Array();
 
   // Randomly choose new catKey
   var catKey = 'dress';
@@ -429,23 +406,20 @@ function coverAll(forms) {
     categories = forms[formCount];
     keys = Object.keys(categories);
     keyCounter = keyLen = keys.length;
+    // console.log('keys', keys);
 
-    if (isInArray(catKey, keys)) {
-      console.log('found', catKey);
+    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+      items = categories[capitalizeFirstLetter(catKey)];
+      itemsLen = items.length;
+      roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+      newItem = items[roll].toLowerCase();
+      obj[catKey] = newItem;
+      hash.add(obj);
     }
-
-    // while (keyCounter--) {
-    //   newItem = '';
-    //   items = categories[keys[keyLen-1-keyCounter]];
-    //   itemsLen = items.length;
-    //   catKey = keys[keyLen-1-keyCounter].toLowerCase();
-    //
-    // }
   }
 }
 
 function coverTop(forms) {
-  console.log('coverTop');
   var catKeyList = ['top'];
   var counter = formLen = forms.length;
   var formCount;
@@ -453,6 +427,7 @@ function coverTop(forms) {
   var keys;
   var keyCounter;
   var catKey = 'top';
+  var obj = new Array();
 
   while (counter--) {
     formCount = formLen-1-counter;
@@ -460,22 +435,18 @@ function coverTop(forms) {
     keys = Object.keys(categories);
     keyCounter = keyLen = keys.length;
 
-    if (isInArray(catKey, keys)) {
-      console.log('found', catKey);
+    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+      items = categories[capitalizeFirstLetter(catKey)];
+      itemsLen = items.length;
+      roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+      newItem = items[roll].toLowerCase();
+      obj[catKey] = newItem;
+      hash.add(obj);
     }
-
-    // while (keyCounter--) {
-    //   newItem = '';
-    //   items = categories[keys[keyLen-1-keyCounter]];
-    //   itemsLen = items.length;
-    //   catKey = keys[keyLen-1-keyCounter].toLowerCase();
-    //
-    // }
   }
 }
 
 function coverBottom(forms) {
-  console.log('coverBottom');
   var sex = c.choices.sex;
   var catKeyList;
   var counter = formLen = forms.length;
@@ -483,6 +454,8 @@ function coverBottom(forms) {
   var categories;
   var keys;
   var keyCounter;
+  var obj = new Array();
+  // console.log('keys', keys);
 
   if (sex === 'm') {
     catKeyList = ['pants'];
@@ -498,16 +471,13 @@ function coverBottom(forms) {
     keys = Object.keys(categories);
     keyCounter = keyLen = keys.length;
 
-    if (isInArray(catKey, keys)) {
-      console.log('found', catKey);
+    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+      items = categories[capitalizeFirstLetter(catKey)];
+      itemsLen = items.length;
+      roll = Math.floor((Math.random() * (itemsLen -1))) +1;
+      newItem = items[roll].toLowerCase();
+      obj[catKey] = newItem;
+      hash.add(obj);
     }
-
-    // while (keyCounter--) {
-    //   newItem = '';
-    //   items = categories[keys[keyLen-1-keyCounter]];
-    //   itemsLen = items.length;
-    //   catKey = keys[keyLen-1-keyCounter].toLowerCase();
-    //
-    // }
   }
 }
