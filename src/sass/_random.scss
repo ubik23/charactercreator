@@ -1,5 +1,6 @@
 
 .bigRedBtn {
+  pointer-events: none;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -9,10 +10,15 @@
   align-items: center;
 
   & #bigRedButton {
+    pointer-events: all;
     background-color: $color-alpha;
     color: #fff;
     border-radius: 1.5em;
     padding: 1em 1.5em;
     cursor: pointer;
+    &:active {
+      opacity: 0.5;
+      transform: translate(0, 2px);
+    }
   }
 }

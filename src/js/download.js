@@ -29,7 +29,8 @@ function getSVG() {
   return text;
 }
 
-function download() {
+function download(ev) {
+    preventDefault(ev);
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = "my_character.svg";
