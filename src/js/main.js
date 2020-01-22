@@ -22,6 +22,7 @@
     var saveCharToCloudBtn = document.querySelector('#save-char-to-cloud-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
+    var bigRedBtn = document.querySelector('#bigRedButton');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
@@ -44,6 +45,7 @@
     if (saveCharToCloudBtn && typeof saveCharToCloud === 'function') {saveCharToCloudBtn.addEventListener('click', saveCharToCloud, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
+    if (bigRedBtn && typeof smartRandomSingle === 'function') {bigRedBtn.addEventListener('click', smartRandomSingle, false)}
 
     // checkNightMode()
     startup();

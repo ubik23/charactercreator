@@ -3292,6 +3292,7 @@ function logOut() {
     var saveCharToCloudBtn = document.querySelector('#save-char-to-cloud-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
+    var bigRedBtn = document.querySelector('#bigRedButton');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
@@ -3314,6 +3315,7 @@ function logOut() {
     if (saveCharToCloudBtn && typeof saveCharToCloud === 'function') {saveCharToCloudBtn.addEventListener('click', saveCharToCloud, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
+    if (bigRedBtn && typeof smartRandomSingle === 'function') {bigRedBtn.addEventListener('click', smartRandomSingle, false)}
 
     // checkNightMode()
     startup();
@@ -4261,7 +4263,7 @@ function smartRandomStream() {
   // Cycle on a setInterval so not to overheat laptop.
 }
 
-function smartRandomSingle() {
+function smartRandomSingle(ev) {
   ga('send', 'event', { eventCategory: 'Secret function', eventAction: 'smartRandomSingle()', eventLabel: 'Secret Patreon reveal for new random function.'});
   var roll;
   var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']

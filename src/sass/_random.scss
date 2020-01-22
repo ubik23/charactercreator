@@ -1,0 +1,18 @@
+
+.bigRedBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & #bigRedButton {
+    background-color: $color-alpha;
+    color: #fff;
+    border-radius: 1.5em;
+    padding: 1em 1.5em;
+    cursor: pointer;
+  }
+}
