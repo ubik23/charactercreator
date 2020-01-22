@@ -190,11 +190,12 @@ function smartRandomSingle() {
     'horns' : 5,
     'makeup' : 90,
     'mask' : 5,
-    'smoke' : 20,
+    'necklace' : 75,
     'pet' : 20,
-    'scarf' : 30,
+    'scarf' : 10,
     'shirt' : 95,
     'shoulderpads' : 5,
+    'smoke' : 20,
     'suit' : 5,
     'tie' : 15,
     'veil' : 5,
@@ -325,7 +326,16 @@ function smartRandomSingle() {
                 }
               }
             } else if (catKey === 'body') {
-              roll = Math.floor((Math.random() * itemsLen));
+              roll = Math.floor((Math.random() * 100));
+              if (roll < 70) {
+                roll = 0;
+              } else if (roll < 85) {
+                roll = 1;
+              } else if (roll < 95) {
+                roll = 2;
+              } else {
+                roll = 3;
+              }
               newItem = items[roll].toLowerCase();
             } else if (catKey === 'cloak' || catKey === 'bra' || catKey === 'underwear' || catKey === 'mask') {
               newItem = '';
