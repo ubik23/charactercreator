@@ -38,6 +38,11 @@ body.night {
   background: linear-gradient(#343436, #5f5f63, #9c9cca); /* Standard syntax */
 }
 
+.center-text {
+  text-align: center;
+  display: block;
+}
+
 .modal {
     position: absolute;
     top: 16%;

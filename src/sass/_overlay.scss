@@ -323,6 +323,13 @@
   font-size: 1rem;
 }
 
+.night .phat button {
+  background: url('../hex.png');
+  background-color: $color-night-background;
+  color: $color-night-text;
+  border: 1px solid $color-night-border;
+}
+
 @media (prefers-color-scheme: dark) {
   .overlay {
     &__header, &__footer {
