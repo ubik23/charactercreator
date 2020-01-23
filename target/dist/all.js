@@ -1203,10 +1203,11 @@ function getSVG() {
 }
 
 function download(ev) {
-    ev.preventDefault();
+  console.log('download');
+  ev.preventDefault();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
-    var filename = "my_character.svg";
+    var filename = c.choices.name || "my_character.svg";
     var pom;
     var text = getSVG();
     // TODO Copy the URL before it is erased by the download function.
@@ -1219,9 +1220,7 @@ function download(ev) {
         event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
         pom.dispatchEvent(event);
-    }
-
-    else {
+    } else {
         pom.click();
     }
     caboose();
@@ -2261,8 +2260,11 @@ function onAllLoaded() {
 
     }
 
-    downloadBtn.addEventListener("click", download, false);
-    downloadBtn.classList.add('enabled');
+    if (!downloadBtn.classList.contains('.enabled')){
+      downloadBtn.addEventListener("click", download, false);
+      downloadBtn.classList.add('enabled');
+    }
+
     femaleSilhouette.style.opacity = "0";
     maleSilhouette.style.opacity = "0";
 
@@ -2405,7 +2407,7 @@ function fromEmotionGetLayers(emotion) {
 
 // Change sex of character from male to female or vice versa.
 function trans(sex){
-    if (c.sex === sex) {return}
+    if (c.choices.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
     hash.add({ sex: sex });

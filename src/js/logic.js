@@ -1,7 +1,7 @@
 
 // Change sex of character from male to female or vice versa.
 function trans(sex){
-    if (c.sex === sex) {return}
+    if (c.choices.sex === sex) {return}
     var characterSVG = document.querySelector('#svg1');
     characterSVG.classList.add('character--hide');
     hash.add({ sex: sex });

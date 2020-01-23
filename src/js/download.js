@@ -30,10 +30,11 @@ function getSVG() {
 }
 
 function download(ev) {
-    ev.preventDefault();
+  console.log('download');
+  ev.preventDefault();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
-    var filename = "my_character.svg";
+    var filename = c.choices.name || "my_character.svg";
     var pom;
     var text = getSVG();
     // TODO Copy the URL before it is erased by the download function.
@@ -46,9 +47,7 @@ function download(ev) {
         event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
         pom.dispatchEvent(event);
-    }
-
-    else {
+    } else {
         pom.click();
     }
     caboose();

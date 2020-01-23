@@ -19,8 +19,11 @@ function onAllLoaded() {
 
     }
 
-    downloadBtn.addEventListener("click", download, false);
-    downloadBtn.classList.add('enabled');
+    if (!downloadBtn.classList.contains('.enabled')){
+      downloadBtn.addEventListener("click", download, false);
+      downloadBtn.classList.add('enabled');
+    }
+
     femaleSilhouette.style.opacity = "0";
     maleSilhouette.style.opacity = "0";
 
