@@ -1831,7 +1831,7 @@ var maleForm4 = {
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 };
 var maleForm5 = {
-  'Underwear': ['', 'plain', 'boxers'],
+  // 'Underwear': ['', 'plain', 'boxers'],
   'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
   'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
 };
@@ -1982,7 +1982,7 @@ var femaleForm4 = {
   'Wings' : ['', 'angel', 'devil', 'skeleton']
 };
 var femaleForm5 = {
-  'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
+  // 'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
   'Leggings': ['', 'regular', 'torn'],
@@ -2035,8 +2035,9 @@ var layersFemale = [
   'vest_yellow',
   'holster_revolver_chest',
   'belt_satchel', 'belt_bullet',
-  'necklace_squared-circle','necklace_heart', 'necklace_perl','necklace_princess',
+  'necklace_heart', 'necklace_perl','necklace_princess',
   'collar_egyptian', 'collar_metal',
+  'necklace_squared-circle',
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
   'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
   'coat_lab_1_of_3',
