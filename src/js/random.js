@@ -208,6 +208,8 @@ function smartRandomSingle(ev) {
   var topCovered = false;
   var headCovered = false;
   var forms;
+  var fabColor;
+  var fabColorCounter = fabricPallette.length;
 
 
   hash.clear();
@@ -243,6 +245,8 @@ function smartRandomSingle(ev) {
   defaultEyeColor(newColor);
   defaultHairColor(newColor);
   defaultPupilShape();
+  fabRoll = Math.floor((Math.random() * fabColorCounter));
+  fabColor = fabricPallette[fabRoll];
 
   setTimeout(function() {
     // console.log('forms', forms);
@@ -373,6 +377,9 @@ function smartRandomSingle(ev) {
               }
             } // if category requires a roll
             obj[catKey] = newItem;
+            if (catKey === 'jacket' || (catKey === 'pants' && newItem === 'suit') || catKey === 'shorts' || catKey === 'skirt') {
+              obj[catKey + 'Color'] = fabColor;
+            }
             hash.add(obj);
           } //while keycounter--
         } // if formcount > 0
