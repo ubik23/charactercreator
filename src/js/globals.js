@@ -294,3 +294,7 @@ var layersFemale = [
   'smoke_cigar', 'smoke_pipe_subgenius',
   'earpiece_microphone', 'earpiece_scouter'
 ];
+
+// Color Pallettes
+
+var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888'];
