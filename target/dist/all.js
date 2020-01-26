@@ -1173,6 +1173,7 @@ function closeCredits(evt) {
 
 
 function getSVG() {
+  console.log('getSVG');
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
@@ -1202,9 +1203,9 @@ function getSVG() {
   return text;
 }
 
-function download(ev) {
-  console.log('download');
-  ev.preventDefault();
+  function download() {
+    // console.log('download');
+    // ev.preventDefault();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = c.choices.name || "my_character.svg";
@@ -1833,7 +1834,7 @@ var maleForm4 = {
 var maleForm5 = {
   // 'Underwear': ['', 'plain', 'boxers'],
   'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
-  'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
+  'Belt': ['', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
 };
 var maleForm6 = {
   'Socks': ['','socks'],
@@ -1872,7 +1873,7 @@ var layersMale = [
   'watch_generic',
   'shirt_colar_2_of_2', 'shirt_turtleneck',
   'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
-  'belt_leather', 'belt_default',
+  'belt_leather', 'belt_default', 'belt_ring',
   'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2',
   'shirt_tshirt',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
@@ -2085,7 +2086,8 @@ var layersFemale = [
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888'];
 
 
-function hamburger() {
+function hamburger(ev) {
+  console.log('hamburger', ev);
     var menu = document.querySelector("#horizontal");
     menu.classList.toggle('hide');
 }
@@ -2266,6 +2268,7 @@ function onAllLoaded() {
     }
 
     if (!downloadBtn.classList.contains('.enabled')){
+      console.log('Add event listener');
       downloadBtn.addEventListener("click", download, false);
       downloadBtn.classList.add('enabled');
     }
@@ -3301,6 +3304,7 @@ function logOut() {
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
     var bigRedBtn = document.querySelector('#bigRedButton');
+    // var downloadBtn = document.querySelector('#downloadButton');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
@@ -3324,6 +3328,7 @@ function logOut() {
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
     if (bigRedBtn && typeof smartRandomSingle === 'function') {bigRedBtn.addEventListener('click', smartRandomSingle, false)}
+    // if (downloadBtn && typeof download === 'function') {downloadBtn.addEventListener('click', download, false)}
 
     // checkNightMode()
     startup();
@@ -3448,6 +3453,7 @@ function fadeOutSVG() {
   if (downloadBtn) {
     downloadBtn.classList.remove('enabled');
     downloadBtn.removeEventListener('click', download);
+    console.log('Remove event listener');
   }
   svgContainer.classList.add('character--hide');
 }
@@ -4490,7 +4496,7 @@ function smartRandomSingle(ev) {
               }
             } // if category requires a roll
             obj[catKey] = newItem;
-            if (catKey === 'jacket' || (catKey === 'pants' && newItem === 'suit') || catKey === 'shorts' || catKey === 'skirt') {
+            if (catKey === 'jacket' || (catKey === 'vest' && newItem != 'yellow') || (catKey === 'pants' && (newItem === 'suit' || newItem === 'snowboard' )) || catKey === 'shorts' || catKey === 'skirt' || catKey === 'top' || catKey === 'suit' || catKey === 'dress') {
               obj[catKey + 'Color'] = fabColor;
             }
             hash.add(obj);

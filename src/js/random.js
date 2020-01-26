@@ -377,7 +377,7 @@ function smartRandomSingle(ev) {
               }
             } // if category requires a roll
             obj[catKey] = newItem;
-            if (catKey === 'jacket' || (catKey === 'pants' && newItem === 'suit') || catKey === 'shorts' || catKey === 'skirt') {
+            if (catKey === 'jacket' || (catKey === 'vest' && newItem != 'yellow') || (catKey === 'pants' && (newItem === 'suit' || newItem === 'snowboard' )) || catKey === 'shorts' || catKey === 'skirt' || catKey === 'top' || catKey === 'suit' || catKey === 'dress') {
               obj[catKey + 'Color'] = fabColor;
             }
             hash.add(obj);

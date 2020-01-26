@@ -1,5 +1,6 @@
 
 function getSVG() {
+  console.log('getSVG');
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
@@ -29,9 +30,9 @@ function getSVG() {
   return text;
 }
 
-function download(ev) {
-  console.log('download');
-  ev.preventDefault();
+  function download() {
+    // console.log('download');
+    // ev.preventDefault();
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = c.choices.name || "my_character.svg";

@@ -23,6 +23,7 @@
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
     var bigRedBtn = document.querySelector('#bigRedButton');
+    // var downloadBtn = document.querySelector('#downloadButton');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
@@ -46,6 +47,7 @@
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
     if (bigRedBtn && typeof smartRandomSingle === 'function') {bigRedBtn.addEventListener('click', smartRandomSingle, false)}
+    // if (downloadBtn && typeof download === 'function') {downloadBtn.addEventListener('click', download, false)}
 
     // checkNightMode()
     startup();
@@ -170,6 +172,7 @@ function fadeOutSVG() {
   if (downloadBtn) {
     downloadBtn.classList.remove('enabled');
     downloadBtn.removeEventListener('click', download);
+    console.log('Remove event listener');
   }
   svgContainer.classList.add('character--hide');
 }

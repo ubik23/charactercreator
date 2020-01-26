@@ -20,6 +20,7 @@ function onAllLoaded() {
     }
 
     if (!downloadBtn.classList.contains('.enabled')){
+      console.log('Add event listener');
       downloadBtn.addEventListener("click", download, false);
       downloadBtn.classList.add('enabled');
     }

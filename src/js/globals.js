@@ -48,7 +48,7 @@ var maleForm4 = {
 var maleForm5 = {
   // 'Underwear': ['', 'plain', 'boxers'],
   'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
-  'Belt': ['', 'default', 'bullet', 'straps', 'utility', 'leather']
+  'Belt': ['', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
 };
 var maleForm6 = {
   'Socks': ['','socks'],
@@ -87,7 +87,7 @@ var layersMale = [
   'watch_generic',
   'shirt_colar_2_of_2', 'shirt_turtleneck',
   'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
-  'belt_leather', 'belt_default',
+  'belt_leather', 'belt_default', 'belt_ring',
   'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2',
   'shirt_tshirt',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
