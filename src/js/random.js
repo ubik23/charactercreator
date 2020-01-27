@@ -220,7 +220,6 @@ function smartRandomSingle(ev) {
 
   if (roll <= 50) {
     selectFemale();
-    // console.log('f');
     var form1 = femaleForm1;
     var form2 = femaleForm2;
     var form3 = femaleForm3;
@@ -229,7 +228,6 @@ function smartRandomSingle(ev) {
     var form6 = femaleForm6;
   } else {
     selectMale();
-    // console.log('m');
     var form1 = maleForm1;
     var form2 = maleForm2;
     var form3 = maleForm3;
@@ -249,7 +247,6 @@ function smartRandomSingle(ev) {
   fabColor = fabricPallette[fabRoll];
 
   setTimeout(function() {
-    // console.log('forms', forms);
 
     counter = formLen = forms.length;
 
@@ -281,7 +278,6 @@ function smartRandomSingle(ev) {
             items = categories[keys[keyLen-1-keyCounter]];
             itemsLen = items.length;
             catKey = keys[keyLen-1-keyCounter].toLowerCase();
-            // console.log('catKey', catKey);
 
             // only treat the categories that have a percentage chance to be added
             // should be rewritten to test if catKey is in chanceDict
@@ -424,7 +420,6 @@ function coverAll(forms) {
     categories = forms[formCount];
     keys = Object.keys(categories);
     keyCounter = keyLen = keys.length;
-    // console.log('keys', keys);
 
     if (isInArray(capitalizeFirstLetter(catKey), keys)) {
       items = categories[capitalizeFirstLetter(catKey)];
@@ -473,7 +468,6 @@ function coverBottom(forms) {
   var keys;
   var keyCounter;
   var obj = new Array();
-  // console.log('keys', keys);
 
   if (sex === 'm') {
     catKeyList = ['pants'];
