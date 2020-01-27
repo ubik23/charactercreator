@@ -37,6 +37,7 @@ function showPupilObject(object, shape) {
 
 function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
+    // Clear only what's in .current-character
     var toBeRemovedList = document.querySelectorAll('#svg1 > g');
     var counter = toBeRemovedList.length;
     while (counter--) {
@@ -48,6 +49,7 @@ function clearCharacter() {
 
 function resetCharacterTemplate() {
     var characterSVG = document.querySelector('#svg1');
+    // Reset only what's in .current-character
     var elements = characterSVG.querySelectorAll('*');
     var elementsLength = elements.length;
     var elementsCounter = elementsLength;
@@ -62,6 +64,7 @@ function resetCharacterTemplate() {
 function findNextLayerInDom(item) {
   var sex = c.choices.sex;
   var svgContainer = document.querySelector('#svg1');
+  // TODO search within .current-character
   var nextLayerSibling = null;
   var layers;
   var amountLayers;

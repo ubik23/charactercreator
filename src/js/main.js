@@ -441,11 +441,12 @@ function launch() {
     Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();}).then(function(){applyClipPath();});
 }
 
-function displayPallette () {
+function displayPallette() {
     var hashSkinColor = hash.get("skinColor");
 
     if (hashSkinColor != undefined){
-         launch();
+         // launch();
+         presentFaceStyles();
     } else {
       chooseSkinColor();
     }
@@ -504,9 +505,10 @@ function colorCutout(newColor) {
     addDecency();
     addTopicalItem();
 
-    setTimeout(function(){
-        launch();
-    }, 300);
+    // setTimeout(function(){
+    //     launch();
+    // }, 300);
+    presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -583,4 +585,46 @@ function selectFemale(event) {
     setTimeout(function(){
         displayPallette();
     }, 350);
+}
+
+function presentFaceStyles() {
+  var sex = c.choices.sex;
+  console.log('presentFaceStyles');
+  var faceWestern;
+  var faceAnime;
+
+  if (sex === 'm') {
+    faceWestern = document.querySelector('#face-western-male');
+    faceAnime = document.querySelector('#face-anime-male');
+  } else {
+    faceWestern = document.querySelector('#face-western-female');
+    faceAnime = document.querySelector('#face-anime-female');
+  }
+
+  // TODO Color the eyes and eyebrows to fit with the skin tone.
+
+  // TODO Transform Translate horizontaly to make both styles visible.
+
+  // faceWestern.style.opacity = 1;
+  // faceAnime.style.opacity = 1;
+
+  // TODO: Add event listener to both face styles;
+
+  launch();
+}
+
+function selectStyleWestern() {
+  console.log('selectStyleWestern');
+
+  // TODO Transform Translate horizontaly to match face on head;
+
+  // launch();
+}
+
+function selectStyleAnime() {
+  console.log('selectStyleAnime');
+
+  // TODO Transform Translate horizontaly to match face on head;
+
+  // launch();
 }

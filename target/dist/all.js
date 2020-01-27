@@ -1871,12 +1871,11 @@ var layersMale = [
   'socks_socks',
   'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
   'watch_generic',
-  'shirt_colar_2_of_2', 'shirt_turtleneck',
+  'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
   'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
   'belt_leather', 'belt_default', 'belt_ring',
   'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2',
   'belt_straps',
-  'shirt_tshirt',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined', 'vest_yellow',
@@ -1925,7 +1924,7 @@ var layersMale = [
   'mask_guy_fawkes',
   'earpiece_microphone', 'earpiece_scouter',
   'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
-  'hair_emo', 
+  'hair_emo',
   'hat_baseball','hat_berret','hat_berret_badge','hat_cap','hat_country_1_of_2','hat_cowboy','hat_fox-ears', 'hat_tuque','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_motorcycle','hat_xmas',
   'jewelry_earings','jewelry_nosering','jewelry_watch',
   'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
@@ -2182,6 +2181,7 @@ function showPupilObject(object, shape) {
 
 function clearCharacter() {
     var svgContainer = document.querySelector('#svg1');
+    // Clear only what's in .current-character
     var toBeRemovedList = document.querySelectorAll('#svg1 > g');
     var counter = toBeRemovedList.length;
     while (counter--) {
@@ -2193,6 +2193,7 @@ function clearCharacter() {
 
 function resetCharacterTemplate() {
     var characterSVG = document.querySelector('#svg1');
+    // Reset only what's in .current-character
     var elements = characterSVG.querySelectorAll('*');
     var elementsLength = elements.length;
     var elementsCounter = elementsLength;
@@ -2207,6 +2208,7 @@ function resetCharacterTemplate() {
 function findNextLayerInDom(item) {
   var sex = c.choices.sex;
   var svgContainer = document.querySelector('#svg1');
+  // TODO search within .current-character
   var nextLayerSibling = null;
   var layers;
   var amountLayers;
@@ -3721,11 +3723,12 @@ function launch() {
     Promise.resolve().then(function(){loadFilesFromList(toBeShown);}).then(function(){onAllLoaded();}).then(function(){applyClipPath();});
 }
 
-function displayPallette () {
+function displayPallette() {
     var hashSkinColor = hash.get("skinColor");
 
     if (hashSkinColor != undefined){
-         launch();
+         // launch();
+         presentFaceStyles();
     } else {
       chooseSkinColor();
     }
@@ -3784,9 +3787,10 @@ function colorCutout(newColor) {
     addDecency();
     addTopicalItem();
 
-    setTimeout(function(){
-        launch();
-    }, 300);
+    // setTimeout(function(){
+    //     launch();
+    // }, 300);
+    presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -3863,6 +3867,48 @@ function selectFemale(event) {
     setTimeout(function(){
         displayPallette();
     }, 350);
+}
+
+function presentFaceStyles() {
+  var sex = c.choices.sex;
+  console.log('presentFaceStyles');
+  var faceWestern;
+  var faceAnime;
+
+  if (sex === 'm') {
+    faceWestern = document.querySelector('#face-western-male');
+    faceAnime = document.querySelector('#face-anime-male');
+  } else {
+    faceWestern = document.querySelector('#face-western-female');
+    faceAnime = document.querySelector('#face-anime-female');
+  }
+
+  // TODO Color the eyes and eyebrows to fit with the skin tone.
+
+  // TODO Transform Translate horizontaly to make both styles visible.
+
+  // faceWestern.style.opacity = 1;
+  // faceAnime.style.opacity = 1;
+
+  // TODO: Add event listener to both face styles;
+
+  launch();
+}
+
+function selectStyleWestern() {
+  console.log('selectStyleWestern');
+
+  // TODO Transform Translate horizontaly to match face on head;
+
+  // launch();
+}
+
+function selectStyleAnime() {
+  console.log('selectStyleAnime');
+
+  // TODO Transform Translate horizontaly to match face on head;
+
+  // launch();
 }
 
 
