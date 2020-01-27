@@ -2088,7 +2088,6 @@ var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#e
 
 
 function hamburger(ev) {
-  console.log('hamburger', ev);
     var menu = document.querySelector("#horizontal");
     menu.classList.toggle('hide');
 }
