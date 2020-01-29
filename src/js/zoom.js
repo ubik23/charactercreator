@@ -102,7 +102,7 @@ function animateZoom(newViewBox) {
   var characterSVG = document.querySelector('#svg1');
   var currentViewBox = characterSVG.viewBox.baseVal;
   var globalID;
-  var animationDuration = 200; // Duration of animation in milliseconds;
+  var animationDuration = 350; // Duration of animation in milliseconds;
   var startTime = Date.now();
   var currentTime;
   var timeElapsed;

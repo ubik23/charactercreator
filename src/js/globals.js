@@ -197,7 +197,7 @@ var femaleForm4 = {
   'Wings' : ['', 'angel', 'devil', 'skeleton']
 };
 var femaleForm5 = {
-  // 'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
+  'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
   'Leggings': ['', 'regular', 'torn'],

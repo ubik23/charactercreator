@@ -1983,7 +1983,7 @@ var femaleForm4 = {
   'Wings' : ['', 'angel', 'devil', 'skeleton']
 };
 var femaleForm5 = {
-  // 'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
+  'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
   'Leggings': ['', 'regular', 'torn'],
@@ -3875,14 +3875,21 @@ function presentFaceStyles() {
   var faceWestern;
   var faceAnime;
 
-  if (sex === 'm') {
-    faceWestern = document.querySelector('#face-western-male');
-    faceAnime = document.querySelector('#face-anime-male');
-  } else {
-    faceWestern = document.querySelector('#face-western-female');
-    faceAnime = document.querySelector('#face-anime-female');
-  }
-
+//   if (c.choices.faceStyle) {
+//     launch();
+//     return;
+//   }
+//
+//   zoomFace();
+//
+//   if (sex === 'm') {
+//     faceWestern = document.querySelector('#male-face-western-style');
+//     faceAnime = document.querySelector('#male-face-anime-style');
+//   } else {
+//     faceWestern = document.querySelector('#female-face-western-style');
+//     faceAnime = document.querySelector('#female-face-anime-style');
+//   }
+// female-face-anime-style
   // TODO Color the eyes and eyebrows to fit with the skin tone.
 
   // TODO Transform Translate horizontaly to make both styles visible.
@@ -5213,7 +5220,7 @@ function animateZoom(newViewBox) {
   var characterSVG = document.querySelector('#svg1');
   var currentViewBox = characterSVG.viewBox.baseVal;
   var globalID;
-  var animationDuration = 200; // Duration of animation in milliseconds;
+  var animationDuration = 350; // Duration of animation in milliseconds;
   var startTime = Date.now();
   var currentTime;
   var timeElapsed;
