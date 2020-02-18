@@ -12,7 +12,7 @@
     @media screen and (min-width: 650px) {
         height: 100%;
     }
-    
+
     &.character--hide {
         opacity: 0;
         visibility: hidden;
@@ -20,7 +20,7 @@
     }
 
     g {
-      cursor: pointer;
+      cursor: initial;
     }
 
     &.zoomed {cursor: zoom-out;}

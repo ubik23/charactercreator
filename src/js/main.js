@@ -332,16 +332,20 @@ function fromItemGetPrefix(id) {
 }
 
 function fromPrefixGetFormSection(prefix) {
+  console.log('prefix', prefix);
   var item;
   var formSection;
   var counterForm;
   var counterSection;
   var formList;
+
   if (c.choices.sex === 'm') {
     formList = window.maleFormList;
   } else {
     formList = window.femaleFormList;
   }
+  console.log('formList', formList);
+
   while (formSection === undefined) {
     counterForm = formList.length;
 
@@ -366,51 +370,11 @@ function startup() {
 }
 
 function launch() {
-    var layerDirectoryFemale = 'layer/female/';
-    var layerDirectoryMale = 'layer/male/';
-    var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_country', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
-    var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['hat_country', 2], ['headband_medium', 2], ['jacket_suit', 2], ['jacket_suit_open', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_jeans_rolled', 2], ['pants_suit', 2], ['pants_snowboard', 2],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
-    var size = function(obj) {
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-    };
-    skinLayers = [
-      'eyes_neutral',
-      'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
-      'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
-      'body_foot_right', 'body_foot_left',
-      'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny', 'body_arm_right_android-00', 'body_arm_left_android-00',
-      'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
-      'body_hand_right', 'body_hand_left',
-      'age_lines', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-      'ears_default', 'ears_elven', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
-      'nose_default',
-      'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_strong_1_of_2', 'nose_syrid_1_of_2',
-      'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_strong_2_of_2', 'nose_syrid_2_of_2',
-      'mouth_shadow', 'freckles_medium',
-      'scar_horizontal_neck', 'scar_horizontal_nose', 'scar_vertical_heart', 'scar_vertical_left', 'scar_vertical_right',
-      'age_lines', 'wings_devil',
-      'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
-      'sockets_neutral', 'sockets_amusement', 'sockets_anger', 'sockets_alertness', 'sockets_anxiety', 'sockets_aversion', 'sockets_betrayal', 'sockets_caged', 'sockets_concern', 'sockets_cruel', 'sockets_dejection', 'sockets_desperation', 'sockets_disdain', 'sockets_disgust', 'sockets_eeww', 'sockets_fear', 'sockets_grief', 'sockets_horror', 'sockets_indignation', 'sockets_joy', 'sockets_laughing', 'sockets_melancholy', 'sockets_omg', 'sockets_outrage', 'sockets_pain', 'sockets_rage', 'sockets_revulsion', 'sockets_sadness', 'sockets_satisfaction', 'sockets_shock', 'sockets_sterness', 'sockets_surprise', 'sockets_terror', 'mouth_wonder', 'mouth_wtf'
-    ];
-    hairLayers = [
-      'facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_beard_raw', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_goatee_raw', 'facialhair_moustache', 'facialhair_moustache_dali', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-      'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'hair_wild',
-      'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
-      'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
-    ];
+
 
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
-    window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
-    window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
-    window.layersFemale = layersFemale;
-    window.layersMale = layersMale;
-    window.multiLayerMale = multiLayerMale;
-    window.multiLayerFemale = multiLayerFemale;
+
 
     if (sex ==='m') {
         var form1 = maleForm1;
@@ -446,7 +410,9 @@ function displayPallette() {
 
     if (hashSkinColor != undefined){
          // launch();
-         presentFaceStyles();
+         console.log('hashSkinColor', hashSkinColor);
+         colorCutout(hashSkinColor);
+         // presentFaceStyles();
     } else {
       chooseSkinColor();
     }
@@ -598,26 +564,26 @@ function presentFaceStyles() {
 //     return;
 //   }
 //
-//   zoomFace();
+  zoomFace();
 //
-//   if (sex === 'm') {
-//     faceWestern = document.querySelector('#male-face-western-style');
-//     faceAnime = document.querySelector('#male-face-anime-style');
-//   } else {
-//     faceWestern = document.querySelector('#female-face-western-style');
-//     faceAnime = document.querySelector('#female-face-anime-style');
-//   }
+  if (sex === 'm') {
+    faceWestern = document.querySelector('.male-face-western-style');
+    faceAnime = document.querySelector('.male-face-anime-style');
+  } else {
+    faceWestern = document.querySelector('.female-face-western-style');
+    faceAnime = document.querySelector('.female-face-anime-style');
+  }
 // female-face-anime-style
   // TODO Color the eyes and eyebrows to fit with the skin tone.
 
   // TODO Transform Translate horizontaly to make both styles visible.
 
-  // faceWestern.style.opacity = 1;
-  // faceAnime.style.opacity = 1;
+  faceWestern.style.opacity = 1;
+  faceAnime.style.opacity = 1;
 
   // TODO: Add event listener to both face styles;
 
-  launch();
+  // launch();
 }
 
 function selectStyleWestern() {
