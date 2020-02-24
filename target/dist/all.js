@@ -3697,11 +3697,8 @@ function startup() {
 }
 
 function launch() {
-
-
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
-
 
     if (sex ==='m') {
         var form1 = maleForm1;

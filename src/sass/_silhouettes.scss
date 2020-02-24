@@ -1,9 +1,16 @@
 
-#male_silhouette, #female_silhouette {
+#male_silhouette {
   transform-origin: 50% 50%;
   transform: scale(1);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
   animation: silhouetteReady 250ms 1.55s ease-in-out;
+}
+
+#female_silhouette {
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
+  animation: silhouetteReady 250ms 1.8s ease-in-out;
 }
 
 #male_silhouette:hover, #female_silhouette:hover {
