@@ -2,8 +2,7 @@
 function closeAllOverlays() {
     var overlays = document.querySelectorAll(".overlay--show");
     var counter = overlays.length;
-    hamburger();
-    
+
     while (counter--){
         overlays[counter].classList.remove('overlay--show');
     }
@@ -13,6 +12,7 @@ function showAbout(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-about');
   var closeBtn = overlay.querySelector('.close-btn');
+  hamburger();
   closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
@@ -23,6 +23,7 @@ function showFAQ(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-faq');
   var closeBtn = overlay.querySelector('.close-btn');
+  hamburger();
   closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
@@ -34,6 +35,7 @@ function showShop(ev) {
   var overlay = document.querySelector('.js-shop');
   console.log('url', upload());
   var closeBtn = overlay.querySelector('.close-btn');
+  hamburger()
   closeAllOverlays();
   overlay.classList.add('overlay--show');
   overlay.addEventListener('click', closeOverlay, true);
