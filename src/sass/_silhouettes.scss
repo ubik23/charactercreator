@@ -177,3 +177,13 @@
   50% {transform: scale(1.0125);}
   100% {transform: scale(1);}
 }
+
+#svg1 g.active-vector g {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#svg1 g.inactive-vector g {
+  pointer-events: none;
+  cursor: initial;
+}

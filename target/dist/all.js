@@ -3569,6 +3569,8 @@ function layerHighlight(ev) {
 function clickSelect(ev) {
   var el = ev.target;
   var el = getGroupParent(el);
+  console.log('el',el);
+  // TODO check if style selection screen, return
   var formSection;
   var sidebarLeft = document.querySelector('#sidebar-left');
   var sectionList = document.querySelectorAll('section.accordeon__section-label');
@@ -3578,6 +3580,11 @@ function clickSelect(ev) {
   var prefixIndex;
   var itemButtonList;
   var itemButton;
+  var faceContainer = document.querySelector('.face-styles');
+
+  if (faceContainer.style.opacity === '1') {
+    return;
+  }
 
   if (c.choices.sex === undefined) {return}
 
@@ -3777,6 +3784,8 @@ function colorSilhouette() {
     var newTone = hash.get('skinColor');
     femalePath.style.fill = newTone;
     malePath.style.fill = newTone;
+    femalePath.style.pointerEvents = 'none';
+    malePath.style.pointerEvents = 'none';
 }
 
 function colorCutout(newColor) {
