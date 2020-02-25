@@ -1,5 +1,6 @@
 
 .bigRedBtn {
+  opacity: 0;
   pointer-events: none;
   position: fixed;
   bottom: 0;
@@ -8,9 +9,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: randomReady 150ms 2s ease-in-out forwards;
 
   & #bigRedButton {
-    opacity: 0;
     pointer-events: all;
     background-color: $color-alpha;
     color: #fff;
@@ -21,7 +22,7 @@
     transform-origin: bottom center;
     transform: scale(0.75);
     transition: transform 250ms ease-in-out;
-    animation: randomReady 250ms 2s ease-in-out forwards;
+
 
     &:active {
       transform: translate(0, 1px);
@@ -42,8 +43,8 @@
 }
 
 @keyframes randomReady {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {opacity: 0;transform: translateY(5vh) scale(0.1);}
+  100% {opacity: 1;transform: translateY(0) scale(1);}
 }
 
 .night #bigRedButton {

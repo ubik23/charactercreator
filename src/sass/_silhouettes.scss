@@ -1,30 +1,4 @@
 
-#male_silhouette {
-  transform-origin: 50% 50%;
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
-  animation: silhouetteReady 250ms 1.55s ease-in-out;
-}
-
-#female_silhouette {
-  transform-origin: 50% 50%;
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
-  animation: silhouetteReady 250ms 1.8s ease-in-out;
-}
-
-#male_silhouette:hover, #female_silhouette:hover {
-  // transform: scale(1.0075);
-  // transition: transform 0.3s ease-in-out;
-}
-
-@keyframes silhouetteReady {
-  0% {transform: scale(1);}
-  6% {transform: scale(1);}
-  50% {transform: scale(1.0125);}
-  100% {transform: scale(1);}
-}
-
 .path {
     stroke: $color-alpha;
     stroke-width: 1;
@@ -176,4 +150,30 @@
          opacity: 0.2;
          transition: opacity 200ms ease 350ms;
      }
+}
+
+#male_silhouette {
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
+  animation: silhouetteReady 250ms 1.55s ease-in-out;
+}
+
+#female_silhouette {
+  transform-origin: 50% 50%;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
+  animation: silhouetteReady 250ms 1.8s ease-in-out;
+}
+
+#male_silhouette:hover, #female_silhouette:hover {
+  // transform: scale(1.0075);
+  // transition: transform 0.3s ease-in-out;
+}
+
+@keyframes silhouetteReady {
+  0% {transform: scale(1);}
+  6% {transform: scale(1);}
+  50% {transform: scale(1.0125);}
+  100% {transform: scale(1);}
 }
