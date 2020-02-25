@@ -46,7 +46,7 @@ var maleForm4 = {
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 };
 var maleForm5 = {
-  // 'Underwear': ['', 'plain', 'boxers'],
+  'Underwear': ['', 'plain', 'boxers'],
   'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
   'Belt': ['', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
 };
@@ -148,8 +148,6 @@ var layersMale = [
   'horns_large',
   'smoke_cigar', 'smoke_pipe_subgenius'
 ];
-
-
 
 var femaleForm1 = {
   'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
