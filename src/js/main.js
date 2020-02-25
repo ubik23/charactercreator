@@ -468,10 +468,10 @@ function colorCutout(newColor) {
     addDecency();
     addTopicalItem();
 
-    // setTimeout(function(){
-    //     launch();
-    // }, 300);
-    presentFaceStyles();
+    setTimeout(function(){
+        launch();
+    }, 300);
+    // presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -552,16 +552,18 @@ function selectFemale(event) {
 
 function presentFaceStyles() {
   var sex = c.choices.sex;
+  console.log('sex', sex);
   console.log('presentFaceStyles');
   var faceWestern;
   var faceAnime;
+  var faceContainer = document.querySelector('.face-styles');
 
 //   if (c.choices.faceStyle) {
 //     launch();
 //     return;
 //   }
 //
-  zoomFace();
+  zoomTwoFaces();
 //
   if (sex === 'm') {
     faceWestern = document.querySelector('.male-face-western-style');
@@ -577,6 +579,9 @@ function presentFaceStyles() {
 
   faceWestern.style.opacity = 1;
   faceAnime.style.opacity = 1;
+  faceWestern.style.transform = 'translateX(-23px)';
+  faceAnime.style.transform = 'translateX(23px)';
+  faceContainer.style.opacity = 1;
 
   // TODO: Add event listener to both face styles;
 

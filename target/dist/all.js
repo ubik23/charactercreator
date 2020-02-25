@@ -3795,10 +3795,10 @@ function colorCutout(newColor) {
     addDecency();
     addTopicalItem();
 
-    // setTimeout(function(){
-    //     launch();
-    // }, 300);
-    presentFaceStyles();
+    setTimeout(function(){
+        launch();
+    }, 300);
+    // presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -3879,16 +3879,18 @@ function selectFemale(event) {
 
 function presentFaceStyles() {
   var sex = c.choices.sex;
+  console.log('sex', sex);
   console.log('presentFaceStyles');
   var faceWestern;
   var faceAnime;
+  var faceContainer = document.querySelector('.face-styles');
 
 //   if (c.choices.faceStyle) {
 //     launch();
 //     return;
 //   }
 //
-  zoomFace();
+  zoomTwoFaces();
 //
   if (sex === 'm') {
     faceWestern = document.querySelector('.male-face-western-style');
@@ -3904,6 +3906,9 @@ function presentFaceStyles() {
 
   faceWestern.style.opacity = 1;
   faceAnime.style.opacity = 1;
+  faceWestern.style.transform = 'translateX(-23px)';
+  faceAnime.style.transform = 'translateX(23px)';
+  faceContainer.style.opacity = 1;
 
   // TODO: Add event listener to both face styles;
 
@@ -5139,7 +5144,7 @@ function isLandscape() {
 }
 
 function zoomIn() {
-    var sex = c.sex;
+    var sex = c.choices.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
@@ -5152,14 +5157,14 @@ function zoomIn() {
 }
 
 function zoomOut() {
-    var sex = c.sex;
+    var sex = c.choices.sex;
     shape = document.getElementById(("svg1"));
     animateZoom(newViewBox);
 }
 
 function zoomFace() {
     var landscape = isLandscape(); // TODO change newViewBox is in landscape mode.
-    var sex = c.sex;
+    var sex = c.choices.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
     // TODO Consider size of window where rezooming.
@@ -5171,8 +5176,23 @@ function zoomFace() {
     animateZoom(newViewBox);
 }
 
+function zoomTwoFaces() {
+    var landscape = isLandscape(); // TODO change newViewBox is in landscape mode.
+    var sex = c.choices.sex;
+    var newViewBox;
+    shape = document.getElementById(("svg1"));
+    // TODO Consider size of window where rezooming.
+    if (sex == 'm'){
+      newViewBox = "242.6 99 80 80";
+    } else {
+      newViewBox = "243 109 80 80";
+    }
+    console.log('sex', sex);
+    animateZoom(newViewBox);
+}
+
 function zoomTorso() {
-    var sex = c.sex;
+    var sex = c.choices.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));// var =  "svg1" or "lg_face", etc.
     if (sex == 'm'){
@@ -5184,7 +5204,7 @@ function zoomTorso() {
 }
 
 function zoomBody() {
-    var sex = c.sex;
+    var sex = c.choices.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
     if (sex == 'm'){
@@ -5196,7 +5216,7 @@ function zoomBody() {
 }
 
 function zoomFull() {
-    var sex = c.sex;
+    var sex = c.choices.sex;
     var newViewBox;
     shape = document.getElementById(("svg1"));
     newViewBox = "10 50 540 540";
