@@ -3771,6 +3771,14 @@ function colorOnHover() {
     malePath.style.fill = newTone;
 }
 
+function colorSilhouette() {
+    var malePath = document.getElementById("path_male");
+    var femalePath = document.getElementById("path_female");
+    var newTone = hash.get('skinColor');
+    femalePath.style.fill = newTone;
+    malePath.style.fill = newTone;
+}
+
 function colorCutout(newColor) {
     var rgb = this.style.backgroundColor;
     var newColor = rgb2hex(rgb);
@@ -3794,11 +3802,11 @@ function colorCutout(newColor) {
     addTopicalItem();
 
     // Uncomment the following for prod
-    setTimeout(function(){
-        launch();
-    }, 300);
+    // setTimeout(function(){
+    //     launch();
+    // }, 300);
     // Uncomment the following to work on anime style
-    // presentFaceStyles();
+    presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -3890,6 +3898,7 @@ function presentFaceStyles() {
 //     return;
 //   }
 //
+  colorSilhouette();
   zoomTwoFaces();
 //
   if (sex === 'm') {
@@ -5183,9 +5192,9 @@ function zoomTwoFaces() {
     shape = document.getElementById(("svg1"));
     // TODO Consider size of window where rezooming.
     if (sex == 'm'){
-      newViewBox = "242.6 99 80 80";
+      newViewBox = "242.6 90 80 80";
     } else {
-      newViewBox = "243 109 80 80";
+      newViewBox = "243 100 80 80";
     }
     console.log('sex', sex);
     animateZoom(newViewBox);

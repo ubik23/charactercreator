@@ -50,9 +50,9 @@ function zoomTwoFaces() {
     shape = document.getElementById(("svg1"));
     // TODO Consider size of window where rezooming.
     if (sex == 'm'){
-      newViewBox = "242.6 99 80 80";
+      newViewBox = "242.6 90 80 80";
     } else {
-      newViewBox = "243 109 80 80";
+      newViewBox = "243 100 80 80";
     }
     console.log('sex', sex);
     animateZoom(newViewBox);
