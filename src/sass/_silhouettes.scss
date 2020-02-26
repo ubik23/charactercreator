@@ -178,12 +178,15 @@
   100% {transform: scale(1);}
 }
 
-#svg1 g.active-vector g {
+#svg1 .active-vector g {
   pointer-events: auto;
   cursor: pointer;
 }
 
-#svg1 g.inactive-vector g {
+#svg1 .inactive-vector g {
   pointer-events: none;
-  cursor: initial;
+}
+
+.female-face-western-style, .male-face-western-style, .female-face-anime-style, .male-face-anime-style {
+  transition: transform 500ms ease-in-out;
 }

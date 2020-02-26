@@ -257,9 +257,8 @@ function clickSelect(ev) {
   var itemButton;
   var faceContainer = document.querySelector('.face-styles');
 
-  if (faceContainer.style.opacity === '1') {
-    return;
-  }
+  // Don't take the click while in the style selection screen.
+  if (faceContainer.style.opacity === '1') {return}
 
   if (c.choices.sex === undefined) {return}
 
@@ -588,15 +587,23 @@ function presentFaceStyles() {
   if (sex === 'm') {
     faceWestern = document.querySelector('.male-face-western-style');
     faceAnime = document.querySelector('.male-face-anime-style');
+    hideWestern = document.querySelector('.female-face-anime-style');
+    hideAnime = document.querySelector('.female-face-anime-style');
   } else {
     faceWestern = document.querySelector('.female-face-western-style');
     faceAnime = document.querySelector('.female-face-anime-style');
+    hideWestern = document.querySelector('.male-face-western-style');
+    hideAnime = document.querySelector('.male-face-anime-style');
   }
 // female-face-anime-style
   // TODO Color the eyes and eyebrows to fit with the skin tone.
 
   // TODO Transform Translate horizontaly to make both styles visible.
 
+  hideWestern.classList.add('inactive-vector');
+  hideAnime.classList.add('inactive-vector');
+  faceWestern.classList.add('active-vector');
+  faceAnime.classList.add('active-vector');
   faceWestern.style.opacity = 1;
   faceAnime.style.opacity = 1;
   faceWestern.style.transform = 'translateX(-23px)';
