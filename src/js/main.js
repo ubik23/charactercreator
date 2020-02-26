@@ -412,9 +412,9 @@ function displayPallette() {
     var hashSkinColor = hash.get("skinColor");
 
     if (hashSkinColor != undefined){
-         // launch();
-         console.log('hashSkinColor', hashSkinColor);
-         colorCutout(hashSkinColor);
+         launch();
+         // console.log('hashSkinColor', hashSkinColor);
+         // colorCutout(hashSkinColor);
          // presentFaceStyles();
     } else {
       chooseSkinColor();
@@ -485,11 +485,11 @@ function colorCutout(newColor) {
     addTopicalItem();
 
     // Uncomment the following for prod
-    // setTimeout(function(){
-    //     launch();
-    // }, 300);
+    setTimeout(function(){
+        launch();
+    }, 300);
     // Uncomment the following to work on anime style
-    presentFaceStyles();
+    // presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -575,6 +575,8 @@ function presentFaceStyles() {
   var faceWestern;
   var faceAnime;
   var faceContainer = document.querySelector('.face-styles');
+  var faceStyle = faceContainer.querySelector('STYLE');
+  console.log('faceContainer', faceStyle    );
 
 //   if (c.choices.faceStyle) {
 //     launch();
