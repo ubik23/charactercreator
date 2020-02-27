@@ -1814,6 +1814,7 @@ var maleForm3 = {
   'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
   'Tie': ['', 'neck', 'bolo', 'bow'],
   'Vest': ['', 'vest', 'lined', 'yellow'],
+  'Button': ['', 'heart', 'peace', 'smile'],
   'Holster' : ['', 'revolver_chest', 'revolver_hip'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
@@ -1893,6 +1894,7 @@ var layersMale = [
   'cloak_default_2_of_4',
   'shoulderpads_general',
   'coat_trench_1_of_4',
+  'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_artillery', 'shoulderpads_plated_1_of_2', 'shoulderpads_plated_2_of_2', 'shoulderpads_spikes_1_of_2',
   'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
   'age_lines',
@@ -1964,6 +1966,7 @@ var femaleForm3 = {
   'Necklace' : ['', 'heart', 'perl', 'princess', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
+  'Button': ['', 'heart', 'peace', 'smile'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
 };
@@ -2042,6 +2045,7 @@ var layersFemale = [
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
   'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
   'coat_lab_1_of_3',
+  'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_general',
   'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
   'hair_down_2_of_3', 'hair_flowing_2_of_2',
@@ -4991,6 +4995,7 @@ function getViewBox(t, d) {
             "belt":"185 135 190 190",
             "body":"65 130 430 430",
             "body_head":"249 95 64 64",
+            "button":"295 187 23 23",
             "cloak":"0 0 560 560",
             "coat":"95 134 360 360",
             "earpiece":"280 125 25 25",
@@ -5107,6 +5112,7 @@ function getViewBox(t, d) {
             "body_head":"249 107 64 64",
             "bra":"220 160 100 100",
             "bracelet":"316 252 48 48",
+            "button":"281 198 23 23",
             "coat":"125 79 280 280",
             "collar":"255 160 48 48",
             "dress":"160 150 230 230",
