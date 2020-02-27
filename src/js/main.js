@@ -255,10 +255,10 @@ function clickSelect(ev) {
   var prefixIndex;
   var itemButtonList;
   var itemButton;
-  var faceContainer = document.querySelector('.face-styles');
+  // var faceContainer = document.querySelector('.face-styles');
 
   // Don't take the click while in the style selection screen.
-  if (faceContainer.style.opacity === '1') {return}
+  // if (faceContainer.style.opacity === '1') {return}
 
   if (c.choices.sex === undefined) {return}
 

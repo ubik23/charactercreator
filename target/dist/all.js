@@ -1985,12 +1985,12 @@ var femaleForm5 = {
   'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
-  'Leggings': ['', 'regular', 'torn'],
   'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
-  'Shoes': ['','hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
+  'Leggings': ['', 'regular', 'torn'],
+  'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
 };
 var layersFemale = [
   'wings_devil', 'wings_angel', 'wings_skeleton',
@@ -2000,7 +2000,7 @@ var layersFemale = [
   'hat_beach_2_of_2','hat_country_2_of_2','hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
   'headband_medium_2_of_2',
   'veil_shayla_2_of_2',
-  'hair_down_3_of_3', 'hair_flowing_2_of_2', 'hair_manga_2_of_2', 'hair_pigtails_2_of_2',
+  'hair_down_3_of_3', 'hair_manga_2_of_2', 'hair_pigtails_2_of_2',
   'shoes_flip-flops_2_of_2',
   'holster_revolver_thigh_2_of_2',
   'bracelet_band_right_2_of_2', 'bracelet_band_left_2_of_2', 'bracelet_ornamental_left_2_of_2', 'bracelet_ornamental_right_2_of_2', 'bracelet_perl_right_2_of_2', 'bracelet_perl_left_2_of_2',
@@ -2010,6 +2010,7 @@ var layersFemale = [
   'body_torso_athletic', 'body_torso_default','body_torso_veiny','body_torso_android-00',
   'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny', 'body_leg_right_android-00',
   'body_foot_right',
+  'shoes_cowboy_2_of_2',
   'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny', 'body_leg_left_android-00',
   'body_foot_left',
   'body_arm_left_athletic', 'body_arm_left_default', 'body_arm_left_veiny', 'body_arm_left_android-00',
@@ -2024,7 +2025,7 @@ var layersFemale = [
   'leggings_regular', 'leggings_torn', 'pants_yoga_torn_3_of_3',
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
-  'shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
+  'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
   'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'holster_revolver_thigh_1_of_2',
@@ -2043,7 +2044,7 @@ var layersFemale = [
   'coat_lab_1_of_3',
   'shoulderpads_general',
   'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
-  'hair_down_2_of_3',
+  'hair_down_2_of_3', 'hair_flowing_2_of_2',
   'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
   'ears_default', 'ears_elven', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
   'tatoo_tribal_face',
@@ -2086,7 +2087,7 @@ var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#e
 
 var layerDirectoryFemale = 'layer/female/';
 var layerDirectoryMale = 'layer/male/';
-var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_flowing', 2], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_country', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_flip-flops', 2]];
+var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['coat_lab', 3], ['hair_flowing', 2], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_beach', 2], ['hat_country', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_cowboy', 2], ['shoes_flip-flops', 2]];
 var multiLayerMale = [['cloak_default', 4], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['hat_country', 2], ['headband_medium', 2], ['jacket_suit', 2], ['jacket_suit_open', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_jeans_rolled', 2], ['pants_suit', 2], ['pants_snowboard', 2],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
 var size = function(obj) {
     var size = 0, key;
@@ -3580,10 +3581,10 @@ function clickSelect(ev) {
   var prefixIndex;
   var itemButtonList;
   var itemButton;
-  var faceContainer = document.querySelector('.face-styles');
+  // var faceContainer = document.querySelector('.face-styles');
 
   // Don't take the click while in the style selection screen.
-  if (faceContainer.style.opacity === '1') {return}
+  // if (faceContainer.style.opacity === '1') {return}
 
   if (c.choices.sex === undefined) {return}
 
