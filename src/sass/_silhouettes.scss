@@ -190,3 +190,7 @@
 .female-face-western-style, .male-face-western-style, .female-face-anime-style, .male-face-anime-style {
   transition: transform 500ms ease-in-out;
 }
+
+.face-styles {
+  transition: opacity 500ms ease-in-out;
+}

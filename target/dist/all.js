@@ -1827,6 +1827,7 @@ var maleForm4 = {
   'Jacket': ['', 'suit', 'suit_open'],
   'Coat': ['', 'fall_long', 'lab', 'trench', 'snowboard'],
   'Cloak': ['', 'default'],
+  'Armband' : ['', 'bandage_left', 'bandage_right'],
   'Watch': ['', 'generic'],
   'Gloves': ['', 'lab', 'motorcycle'],
   'Wings' : ['', 'angel', 'devil', 'skeleton'],
@@ -1867,6 +1868,7 @@ var layersMale = [
   'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
   'body_hand_right', 'body_hand_left',
   'tatoo_aum_left','tatoo_aum_right','tatoo_chaos_left','tatoo_chaos_right',
+  'armband_bandage_left', 'armband_bandage_right',
   'shirt_tanktop_1_of_2',
   'suit_borat', 'suit_wetsuit',
   'socks_socks',
@@ -1979,7 +1981,7 @@ var femaleForm4 = {
   'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
   'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zip'],
   'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-  'Armband' : ['', 'egyptian_left', 'egyptian_right'],
+  'Armband' : ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   'Vest': ['', 'yellow'],
@@ -2022,7 +2024,7 @@ var layersFemale = [
   'body_hand_right',
   'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
   'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
-  'armband_egyptian_left',
+  'armband_bandage_right', 'armband_bandage_left', 'armband_egyptian_left',
   'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings_left', 'bracelet_rings_right', 'bracelet_wonder_left', 'bracelet_wonder_right',
   'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
   'leggings_regular', 'leggings_torn', 'pants_yoga_torn_3_of_3',
@@ -3816,11 +3818,11 @@ function colorCutout(newColor) {
     addTopicalItem();
 
     // Uncomment the following for prod
-    setTimeout(function(){
-        launch();
-    }, 300);
+    // setTimeout(function(){
+    //     launch();
+    // }, 300);
     // Uncomment the following to work on anime style
-    // presentFaceStyles();
+    presentFaceStyles();
 }
 
 function selectMale(event) {
@@ -4948,6 +4950,8 @@ function getViewBox(t, d) {
     var sex = c.choices.sex;
     if (sex === "m"){
         var idDict = {
+            "armband_bandage_right":"181 235 81 81",
+            "armband_bandage_left":"296 239 81 81",
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
             "coat_fall_long":"130 124 290 290",
@@ -5037,6 +5041,8 @@ function getViewBox(t, d) {
         }
     } else if (sex === "f") {
         var idDict = {
+            "armband_bandage_right":"186 238 81 81",
+            "armband_bandage_left":"301 229 81 81",
             "armband_egyptian_right":"221 205 38 38",
             "armband_egyptian_left":"313 206 38 38",
             "body_athletic":"65 130 430 430",

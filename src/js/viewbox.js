@@ -4,6 +4,8 @@ function getViewBox(t, d) {
     var sex = c.choices.sex;
     if (sex === "m"){
         var idDict = {
+            "armband_bandage_right":"181 235 81 81",
+            "armband_bandage_left":"296 239 81 81",
             "body_athletic":"65 130 430 430",
             "coat_snowboard":"160 124 230 230",
             "coat_fall_long":"130 124 290 290",
@@ -93,6 +95,8 @@ function getViewBox(t, d) {
         }
     } else if (sex === "f") {
         var idDict = {
+            "armband_bandage_right":"186 238 81 81",
+            "armband_bandage_left":"301 229 81 81",
             "armband_egyptian_right":"221 205 38 38",
             "armband_egyptian_left":"313 206 38 38",
             "body_athletic":"65 130 430 430",
