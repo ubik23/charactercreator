@@ -1800,10 +1800,10 @@ var maleForm1 = {
 var maleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
   'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
+  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   'Horns': ['', 'devil', 'large'],
-  'Mask': ['', 'arrow', 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
   'Jewelry': ['', 'chain'],
@@ -1839,7 +1839,7 @@ var maleForm5 = {
 };
 var maleForm6 = {
   'Socks': ['','socks'],
-  'Shoes': ['','hightops', 'leather', 'flip-flops']
+  'Shoes': ['','cowboy', 'hightops', 'leather', 'flip-flops']
 };
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_skeleton',
@@ -1870,7 +1870,7 @@ var layersMale = [
   'shirt_tanktop_1_of_2',
   'suit_borat', 'suit_wetsuit',
   'socks_socks',
-  'shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
+  'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
   'watch_generic',
   'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
   'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_1_of_2',
@@ -1927,7 +1927,7 @@ var layersMale = [
   'headband_medium_1_of_2',
   'mask_guy_fawkes', 'mask_arrow',
   'earpiece_microphone', 'earpiece_scouter',
-  'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
+  'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_kurt', 'glasses_neon', 'glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
   'hair_emo',
   'hat_baseball','hat_berret','hat_berret_badge','hat_cap','hat_chinese_farmer','hat_country_1_of_2','hat_cowboy','hat_football','hat_fox-ears', 'hat_tuque','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2', 'hat_turban_1_of_2', 'hat_helmet_vietnam_1_of_2','hat_motorcycle','hat_xmas',
   'jewelry_earings','jewelry_nosering','jewelry_watch',
@@ -1954,10 +1954,10 @@ var femaleForm2 = {
   'Makeup': ['', 'blush', 'gothic_eyeliner', 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Headband': ['', 'medium'],
-  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
-  'Mask': ['', 'arrow', 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
+  'Mask': ['', 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Horns': ['', 'devil'],
   'Earpiece': ['', 'microphone', 'scouter'],
   'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
@@ -2014,7 +2014,6 @@ var layersFemale = [
   'body_torso_athletic', 'body_torso_default','body_torso_veiny','body_torso_android-00',
   'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny', 'body_leg_right_android-00',
   'body_foot_right',
-  'shoes_cowboy_2_of_2',
   'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny', 'body_leg_left_android-00',
   'body_foot_left',
   'body_arm_left_athletic', 'body_arm_left_default', 'body_arm_left_veiny', 'body_arm_left_android-00',
@@ -2029,6 +2028,7 @@ var layersFemale = [
   'leggings_regular', 'leggings_torn', 'pants_yoga_torn_3_of_3',
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
+  'shoes_cowboy_2_of_2',
   'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
   'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
@@ -2068,7 +2068,7 @@ var layersFemale = [
   'mask_guy_fawkes', 'mask_hospital', 'mask_arrow',
   'tie_bow',
   'hair_short', 'hair_short_slick', 'hair_afro', 'hair_mohawk', 'hair_wreckingball',
-  'glasses_hipster', 'glasses_google', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_wayrafer', 'glasses_designer', 'glasses_goggles', 'glasses_visor',
+  'glasses_hipster', 'glasses_google', 'glasses_kurt', 'glasses_neon', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_wayrafer', 'glasses_designer', 'glasses_goggles', 'glasses_visor',
   'hair_bangs', 'hair_down_1_of_3', 'hair_emo', 'hair_flowing_1_of_2', 'hair_manga_1_of_2', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_spider',
   'headband_medium_1_of_2',
   'glasses_alien', 'glasses_fpv',
