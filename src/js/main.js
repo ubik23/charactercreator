@@ -485,11 +485,11 @@ function colorCutout(newColor) {
     addTopicalItem();
 
     // Uncomment the following for prod
-    // setTimeout(function(){
-    //     launch();
-    // }, 300);
+    setTimeout(function(){
+        launch();
+    }, 300);
     // Uncomment the following to work on anime style
-    presentFaceStyles();
+    // presentFaceStyles();
 }
 
 function selectMale(event) {
