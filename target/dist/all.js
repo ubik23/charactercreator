@@ -1800,21 +1800,21 @@ var maleForm1 = {
 var maleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
   'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
+  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', /*'football',*/ 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', /*'turban',*/ 'strainer', 'magritte', 'xmas'],
   'Horns': ['', 'devil', 'large'],
-  'Mask': ['', 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', /*'kurt',*/ 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
   'Jewelry': ['', 'chain'],
-  'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
+  'Warpaint': ['', /*'clawmarks',*/ 'football', /*'stripe'*/],
   'Earpiece': ['', 'microphone', 'scouter']
 };
 var maleForm3 = {
   'Shirt': ['', 'tanktop', 'colar', 'tshirt', 'turtleneck'],
   'Tie': ['', 'neck', 'bolo', 'bow'],
   'Vest': ['', 'vest', 'lined', 'yellow'],
-  'Button': ['', 'heart', 'peace', 'smile'],
+  // 'Button': ['', 'heart', 'peace', 'smile'],
   'Holster' : ['', 'revolver_chest', 'revolver_hip'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
@@ -1827,8 +1827,8 @@ var maleForm4 = {
   'Jacket': ['', 'suit', 'suit_open'],
   'Coat': ['', 'fall_long', 'lab', 'trench', 'snowboard'],
   'Cloak': ['', 'default'],
-  'Armband' : ['', 'bandage_left', 'bandage_right'],
-  'Watch': ['', 'generic', 'sinn'],
+  // 'Armband' : ['', 'bandage_left', 'bandage_right'],
+  'Watch': ['', 'generic' /*, 'sinn'*/],
   'Gloves': ['', 'lab', 'motorcycle'],
   'Wings' : ['', 'angel', 'devil', 'skeleton'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
@@ -1953,13 +1953,13 @@ var femaleForm1 = {
 };
 var femaleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
-  'Makeup': ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
+  'Makeup': ['', 'blush', /*'clawmarks',*/ 'gothic_eyeliner', /*'stripe',*/ 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', /*'kurt',*/ 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Headband': ['', 'medium'],
-  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
-  'Mask': ['', 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', /*'football',*/ 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
+  'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Horns': ['', 'devil'],
   'Earpiece': ['', 'microphone', 'scouter'],
   'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
@@ -1969,7 +1969,7 @@ var femaleForm3 = {
   'Necklace' : ['', 'heart', 'perl', 'princess', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
-  'Button': ['', 'heart', 'peace', 'smile'],
+  // 'Button': ['', 'heart', 'peace', 'smile'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
 };
@@ -1981,7 +1981,7 @@ var femaleForm4 = {
   'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
   'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zip'],
   'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-  'Armband' : ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
+  'Armband' : ['', /*'bandage_left', 'bandage_right',*/ 'egyptian_left', 'egyptian_right'],
   'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   'Vest': ['', 'yellow'],
@@ -1995,7 +1995,7 @@ var femaleForm5 = {
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
-  'Leggings': ['', 'regular', 'striped', 'torn'],
+  'Leggings': ['', 'regular', /*'striped',*/ 'torn'],
   'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
 };
 var layersFemale = [
@@ -4400,7 +4400,7 @@ function smartRandomSingle(ev) {
   var catKey;
   var chance;
   var chanceDict = {
-    'button' : 2,
+    // 'button' : 2,
     'coat' : 15,
     'collar' : 5,
     'earings' : 90,
@@ -4420,7 +4420,7 @@ function smartRandomSingle(ev) {
     'suit' : 5,
     'tie' : 15,
     'veil' : 5,
-    'vest' : 15,
+    'vest' : 5,
     'warpaint' : 5,
     'wings' : 3
   }
