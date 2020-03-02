@@ -180,6 +180,7 @@ function smartRandomSingle(ev) {
   var catKey;
   var chance;
   var chanceDict = {
+    'button' : 2,
     'coat' : 15,
     'collar' : 5,
     'earings' : 90,
