@@ -1807,7 +1807,7 @@ var maleForm2 = {
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
   'Jewelry': ['', 'chain'],
-  'Warpaint': ['', /*'clawmarks',*/ 'football', /*'stripe'*/],
+  'Warpaint': ['', /*'clawmarks',*/ 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
 };
 var maleForm3 = {
@@ -1830,7 +1830,7 @@ var maleForm4 = {
   // 'Armband' : ['', 'bandage_left', 'bandage_right'],
   'Watch': ['', 'generic' /*, 'sinn'*/],
   'Gloves': ['', 'lab', 'motorcycle'],
-  'Wings' : ['', 'angel', 'devil', 'skeleton'],
+  'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 };
 var maleForm5 = {
@@ -1843,7 +1843,7 @@ var maleForm6 = {
   'Shoes': ['','cowboy', 'hightops', 'leather', 'flip-flops']
 };
 var layersMale = [
-  'wings_angel', 'wings_devil', 'wings_skeleton',
+  'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
   'cloak_default_4_of_4',
   'coat_trench_4_of_4',
@@ -1953,7 +1953,7 @@ var femaleForm1 = {
 };
 var femaleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
-  'Makeup': ['', 'blush', /*'clawmarks',*/ 'gothic_eyeliner', /*'stripe',*/ 'warpaint'],
+  'Makeup': ['', 'blush', /*'clawmarks',*/ 'gothic_eyeliner', 'stripe', 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', /*'kurt',*/ 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
@@ -1985,7 +1985,7 @@ var femaleForm4 = {
   'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   'Vest': ['', 'yellow'],
-  'Wings' : ['', 'angel', 'devil', 'skeleton']
+  'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton']
 };
 var femaleForm5 = {
   'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
@@ -1999,7 +1999,7 @@ var femaleForm6 = {
   'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
 };
 var layersFemale = [
-  'wings_devil', 'wings_angel', 'wings_skeleton',
+  'wings_devil', 'wings_angel', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
   'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
   'coat_lab_3_of_3', 'coat_winter_furcollar_3_of_3', 'coat_winter_tubecollar_3_of_3',
@@ -3818,9 +3818,9 @@ function colorCutout(newColor) {
     addTopicalItem();
 
     // Uncomment the following for prod
-    setTimeout(function(){
-        launch();
-    }, 300);
+      setTimeout(function(){
+          launch();
+      }, 300);
     // Uncomment the following to work on anime style
     // presentFaceStyles();
 }
