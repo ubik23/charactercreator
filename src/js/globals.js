@@ -14,14 +14,14 @@ var maleForm1 = {
 var maleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
   'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', /*'football',*/ 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', /*'turban',*/ 'strainer', 'magritte', 'xmas'],
+  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   'Horns': ['', 'devil', 'large'],
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', /*'kurt',*/ 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
   'Jewelry': ['', 'chain'],
-  'Warpaint': ['', /*'clawmarks',*/ 'football', 'stripe'],
+  'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
 };
 var maleForm3 = {
@@ -41,7 +41,7 @@ var maleForm4 = {
   'Jacket': ['', 'suit', 'suit_open'],
   'Coat': ['', 'fall_long', 'lab', 'trench', 'snowboard'],
   'Cloak': ['', 'default'],
-  // 'Armband' : ['', 'bandage_left', 'bandage_right'],
+  'Armband' : ['', 'bandage_left', 'bandage_right'],
   'Watch': ['', 'generic' /*, 'sinn'*/],
   'Gloves': ['', 'lab', 'motorcycle'],
   'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton'],
@@ -167,12 +167,12 @@ var femaleForm1 = {
 };
 var femaleForm2 = {
   'Smoke' : ['', 'cigar', 'pipe_subgenius'],
-  'Makeup': ['', 'blush', /*'clawmarks',*/ 'gothic_eyeliner', 'stripe', 'warpaint'],
+  'Makeup': ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', /*'kurt',*/ 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Headband': ['', 'medium'],
-  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', /*'football',*/ 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
+  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Horns': ['', 'devil'],
   'Earpiece': ['', 'microphone', 'scouter'],
@@ -195,7 +195,7 @@ var femaleForm4 = {
   'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
   'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zip'],
   'Coat' : ['', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-  'Armband' : ['', /*'bandage_left', 'bandage_right',*/ 'egyptian_left', 'egyptian_right'],
+  'Armband' : ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   'Vest': ['', 'yellow'],
@@ -209,7 +209,7 @@ var femaleForm5 = {
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
-  'Leggings': ['', 'regular', /*'striped',*/ 'torn'],
+  'Leggings': ['', 'regular', 'striped', 'torn'],
   'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
 };
 var layersFemale = [
