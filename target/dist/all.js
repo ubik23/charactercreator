@@ -1828,7 +1828,7 @@ var maleForm4 = {
   'Coat': ['', 'fall_long', 'lab', 'trench', 'snowboard'],
   'Cloak': ['', 'default'],
   'Armband' : ['', 'bandage_left', 'bandage_right'],
-  'Watch': ['', 'generic' /*, 'sinn'*/],
+  'Watch': ['', 'generic', 'sinn'],
   'Gloves': ['', 'lab', 'motorcycle'],
   'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
@@ -1995,7 +1995,7 @@ var femaleForm5 = {
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
-  'Leggings': ['', 'regular', 'striped', 'torn'],
+  'Leggings': ['', 'fishnet', 'regular', 'striped', 'torn'],
   'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
 };
 var layersFemale = [
@@ -2027,7 +2027,7 @@ var layersFemale = [
   'armband_bandage_right', 'armband_bandage_left', 'armband_egyptian_left',
   'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings_left', 'bracelet_rings_right', 'bracelet_wonder_left', 'bracelet_wonder_right',
   'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
-  'leggings_regular', 'leggings_striped', 'leggings_torn', 'pants_yoga_torn_3_of_3',
+  'leggings_fishnet', 'leggings_regular', 'leggings_striped', 'leggings_torn', 'pants_yoga_torn_3_of_3',
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
   'shoes_cowboy_2_of_2',
