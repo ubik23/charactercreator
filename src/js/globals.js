@@ -161,7 +161,7 @@ var femaleForm1 = {
   'Pupils' : ['round', 'feline', 'star'],
   'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
   'Mouth' : [''],
-  'Hair': ['','afro', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'bangs', 'odango', 'emo', 'spider', 'wreckingball'],
+  'Hair': ['','afro', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'bangs', 'odango', 'emo', 'punky', 'spider', 'wreckingball'],
   'Freckles': ['', 'medium'],
   'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 };
@@ -285,7 +285,7 @@ var layersFemale = [
   'tie_bow',
   'hair_short', 'hair_short_slick', 'hair_afro', 'hair_mohawk', 'hair_wreckingball',
   'glasses_hipster', 'glasses_google', 'glasses_kurt', 'glasses_neon', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_wayrafer', 'glasses_designer', 'glasses_goggles', 'glasses_visor',
-  'hair_bangs', 'hair_down_1_of_3', 'hair_emo', 'hair_flowing_1_of_2', 'hair_manga_1_of_2', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_spider',
+  'hair_bangs', 'hair_down_1_of_3', 'hair_emo', 'hair_flowing_1_of_2', 'hair_manga_1_of_2', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_punky', 'hair_spider',
   'headband_medium_1_of_2',
   'glasses_alien', 'glasses_fpv',
   'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
@@ -338,7 +338,7 @@ skinLayers = [
 ];
 hairLayers = [
   'facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_beard_raw', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_goatee_raw', 'facialhair_moustache', 'facialhair_moustache_dali', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-  'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_flowing_1_of_2', 'hair_flowing_2_of_2', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'hair_wild',
+  'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_flowing_1_of_2', 'hair_flowing_2_of_2', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_punky', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_wreckingball', 'hair_crewcut', 'hair_wild',
   'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
   'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
 ];
