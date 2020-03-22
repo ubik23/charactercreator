@@ -51,12 +51,12 @@
             }
           );
       }();
-      window.onload = function () {
+      document.addEventListener("DOMContentLoaded", function() {
         var loader = document.querySelector('.animation-loader');
         var logo = document.querySelector('.animation-logo');
         var offset = loader.style.strokeDashoffset;
         var opacity = 0;
-        var dur = 2300; // Duration of the loading animation in milliseconds
+        var dur = 900; // Duration of the loading animation in milliseconds
         var start = null;
 
         function step(timestamp) {
@@ -75,6 +75,6 @@
           }
         }
         window.requestAnimationFrame(step);
-      }
+      });
     </script>
 </html>

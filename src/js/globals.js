@@ -20,7 +20,7 @@ var maleForm2 = {
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
-  'Jewelry': ['', 'chain'],
+  'Necklace': ['', 'chain', 'dogtags'],
   'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
 };
@@ -97,7 +97,7 @@ var layersMale = [
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
-  'jewelry_chain',
+  'necklace_dogtags', 'necklace_chain',
   'holster_revolver_chest', 'holster_revolver_hip',
   'gloves_lab','gloves_motorcycle',
   'jacket_suit_1_of_2','jacket_suit_open_1_of_2',
@@ -181,7 +181,7 @@ var femaleForm2 = {
 };
 var femaleForm3 = {
   'Collar' : ['', 'egyptian', 'metal'],
-  'Necklace' : ['', 'heart', 'perl', 'princess', 'squared-circle'],
+  'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
   // 'Button': ['', 'heart', 'peace', 'smile'],
@@ -259,7 +259,7 @@ var layersFemale = [
   'vest_yellow',
   'holster_revolver_chest',
   'belt_satchel', 'belt_bullet',
-  'necklace_heart', 'necklace_perl','necklace_princess',
+  'necklace_dogtags', 'necklace_heart', 'necklace_perl','necklace_princess',
   'collar_egyptian', 'collar_metal',
   'necklace_squared-circle',
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
