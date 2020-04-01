@@ -11,6 +11,7 @@ spotxchange.com,74999,RESELLER,7842df1d2fe2db34
 spotx.tv,74999,RESELLER,7842df1d2fe2db34
 indexexchange.com, 191306, RESELLER
 rhythmone.com, 2221906906,DIRECT,a670c89d4a324e47
+video.unrulymedia.com, 2221906906, DIRECT
 sovrn.com, 268479, DIRECT, fafdf38b16bf6b2b
 lijit.com, 268479, DIRECT, fafdf38b16bf6b2b
 lijit.com, 268479-eb, DIRECT, fafdf38b16bf6b2b

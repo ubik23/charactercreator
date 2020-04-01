@@ -524,7 +524,7 @@ function selectMale(event) {
 }
 
 function addTopicalItem() {
-  // hash.add({ hat: 'xmas' });
+  hash.add({ mask: 'hospital' });
 }
 
 function addDecency() {
