@@ -32,7 +32,8 @@ function getSVG() {
 
   function download() {
     // console.log('download');
-    // ev.preventDefault();
+    ev.preventDefault();
+    
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = c.choices.name || "my_character.svg";

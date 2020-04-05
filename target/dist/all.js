@@ -1205,7 +1205,8 @@ function getSVG() {
 
   function download() {
     // console.log('download');
-    // ev.preventDefault();
+    ev.preventDefault();
+    
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = c.choices.name || "my_character.svg";
@@ -2325,7 +2326,7 @@ function onAllLoaded() {
     }
 
     if (!downloadBtn.classList.contains('.enabled')){
-      downloadBtn.addEventListener("click", download, false);
+      downloadBtn.addEventListener("click", showDownloadOptions, false);
       downloadBtn.classList.add('enabled');
     }
 
@@ -3361,7 +3362,7 @@ function logOut() {
     var loadCharBtn = document.querySelector('#load-char-btn');
     var nightModeBtn = document.querySelector('#nightModeButton');
     var bigRedBtn = document.querySelector('#bigRedButton');
-    // var downloadBtn = document.querySelector('#downloadButton');
+    var downloadBtn = document.querySelector('#proceed-download');
 
     if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener("click", showAbout, false) }
     if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener("click", showFAQ, false) }
@@ -3386,7 +3387,7 @@ function logOut() {
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
     if (nightModeBtn && typeof switchNightMode === 'function') {nightModeBtn.addEventListener('click', switchNightMode, false)}
     if (bigRedBtn && typeof smartRandomSingle === 'function') {bigRedBtn.addEventListener('click', smartRandomSingle, false)}
-    // if (downloadBtn && typeof download === 'function') {downloadBtn.addEventListener('click', download, false)}
+    if (downloadBtn && typeof download === 'function') {downloadBtn.addEventListener('click', download, false)}
 
     // checkNightMode()
     startup();
@@ -4018,6 +4019,17 @@ function showShop(ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-shop');
   console.log('url', upload());
+  var closeBtn = overlay.querySelector('.close-btn');
+  hamburger()
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
+}
+
+function showDownloadOptions(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-download-options');
   var closeBtn = overlay.querySelector('.close-btn');
   hamburger()
   closeAllOverlays();

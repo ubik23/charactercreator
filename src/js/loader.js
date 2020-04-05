@@ -20,7 +20,7 @@ function onAllLoaded() {
     }
 
     if (!downloadBtn.classList.contains('.enabled')){
-      downloadBtn.addEventListener("click", download, false);
+      downloadBtn.addEventListener("click", showDownloadOptions, false);
       downloadBtn.classList.add('enabled');
     }
 

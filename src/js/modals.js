@@ -42,6 +42,17 @@ function showShop(ev) {
   closeBtn.addEventListener('click', closeOverlay, false);
 }
 
+function showDownloadOptions(ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-download-options');
+  var closeBtn = overlay.querySelector('.close-btn');
+  hamburger()
+  closeAllOverlays();
+  overlay.classList.add('overlay--show');
+  overlay.addEventListener('click', closeOverlay, true);
+  closeBtn.addEventListener('click', closeOverlay, false);
+}
+
 function logoutUI(){
   var pageWrap = document.querySelector('.logged');
   if (pageWrap) {

@@ -278,6 +278,15 @@
         }
     }
 
+    &__char-camera {
+      display: flex;
+      & .camera-view {
+        width: 32%;
+        margin: 2px;
+        overflow: hidden;
+      }
+    }
+
 }
 
 .overlay--show {
