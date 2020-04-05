@@ -2,7 +2,7 @@
 // Change sex of character from male to female or vice versa.
 function trans(sex){
     if (c.choices.sex === sex) {return}
-    var characterSVG = document.querySelector('#svg1');
+    var characterSVG = document.querySelector('#svg1 .character-container');
     characterSVG.classList.add('character--hide');
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
@@ -287,7 +287,7 @@ function getAllBodyLayers() {
 }
 
 function showPupils(pupilShape) {
-  var svg = document.querySelector('#svg1');
+  var svg = document.querySelector('#svg1 .character-container');
   var pupils = svg.querySelectorAll('.pupil');
   var counter = pupils.length;
 

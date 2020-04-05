@@ -252,7 +252,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var layerID;
         var layerIDArray;
         var nextLayerSibling;
-        var svgContainer = document.querySelector('#svg1');
+        var svgContainer = document.querySelector('#svg1 .character-container');
         var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
@@ -277,7 +277,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
             if (outline) {
               outline.parentNode.insertBefore(svgObject, outline);
             } else {
-              document.querySelector('#svg1').appendChild(svgObject);
+              document.querySelector('#svg1 .character-container').appendChild(svgObject);
             }
           }
         }

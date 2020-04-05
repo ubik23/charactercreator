@@ -538,7 +538,7 @@ function saveChar() {
 
 function changeClipPathOnEyes(id) {
   var emotion = id.slice(1).split('_')[1];
-  var svgContainer = document.querySelector('#svg1');
+  var svgContainer = document.querySelector('#svg1 .character-container');
   var eyeRight = svgContainer.querySelector('#eye_right');
   var eyeLeft = svgContainer.querySelector('#eye_left');
   if (eyeRight && eyeLeft) {
@@ -1069,7 +1069,7 @@ function getPallette(sectionId) {
     classCounter = colorClasses.length;
 
     while (classCounter--) {
-      el = document.querySelector('#svg1 #' + files[counter] + ' .' + colorClasses[classCounter]);
+      el = document.querySelector('#svg1 .character-container #' + files[counter] + ' .' + colorClasses[classCounter]);
       if (el != null && el.style != null && el.style.fill != null) {
         pallette[colorClasses[classCounter]] = el.style.fill;
       }
@@ -1611,7 +1611,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
         var layerID;
         var layerIDArray;
         var nextLayerSibling;
-        var svgContainer = document.querySelector('#svg1');
+        var svgContainer = document.querySelector('#svg1 .character-container');
         var outline = svgContainer.querySelector('#outline');
         htmlObject.innerHTML = text;
         svgObject = htmlObject.querySelector('g');
@@ -1636,7 +1636,7 @@ function loadFilesFromList(layersList, callback, callbackLoopFlag){
             if (outline) {
               outline.parentNode.insertBefore(svgObject, outline);
             } else {
-              document.querySelector('#svg1').appendChild(svgObject);
+              document.querySelector('#svg1 .character-container').appendChild(svgObject);
             }
           }
         }
@@ -2473,7 +2473,7 @@ function fromEmotionGetLayers(emotion) {
 // Change sex of character from male to female or vice versa.
 function trans(sex){
     if (c.choices.sex === sex) {return}
-    var characterSVG = document.querySelector('#svg1');
+    var characterSVG = document.querySelector('#svg1 .character-container');
     characterSVG.classList.add('character--hide');
     hash.add({ sex: sex });
     hash.add({ emotion: 'neutral' }); // Female and Male templates have different set of emotions at this time.
@@ -2758,7 +2758,7 @@ function getAllBodyLayers() {
 }
 
 function showPupils(pupilShape) {
-  var svg = document.querySelector('#svg1');
+  var svg = document.querySelector('#svg1 .character-container');
   var pupils = svg.querySelectorAll('.pupil');
   var counter = pupils.length;
 

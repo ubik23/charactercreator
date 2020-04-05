@@ -42,7 +42,7 @@ function getPallette(sectionId) {
     classCounter = colorClasses.length;
 
     while (classCounter--) {
-      el = document.querySelector('#svg1 #' + files[counter] + ' .' + colorClasses[classCounter]);
+      el = document.querySelector('#svg1 .character-container #' + files[counter] + ' .' + colorClasses[classCounter]);
       if (el != null && el.style != null && el.style.fill != null) {
         pallette[colorClasses[classCounter]] = el.style.fill;
       }
