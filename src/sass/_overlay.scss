@@ -281,7 +281,9 @@
     &__char-camera {
       display: flex;
       & .camera-view {
-        width: 32%;
+        width: 10em;
+        height: 10em;
+
         margin: 2px;
         overflow: hidden;
       }
