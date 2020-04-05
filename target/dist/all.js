@@ -1966,7 +1966,7 @@ var femaleForm2 = {
   'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
 };
 var femaleForm3 = {
-  'Collar' : ['', 'egyptian', /*'leather',*/ 'metal'],
+  'Collar' : ['', 'egyptian', 'leather', 'metal'],
   'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
@@ -3355,6 +3355,7 @@ function logOut() {
     var svgContainer = document.querySelector('#svg1');
     var patreonLink = document.querySelector('#patreonButton');
     var patreonBtn = document.querySelector('#patreon-btn');
+    var braveAffiliateBtn = document.querySelector('#brave-affiliate-btn');
     var newCharBtn = document.querySelector('#new-char-btn');
     var saveCharToCloudBtn = document.querySelector('#save-char-to-cloud-btn');
     var loadCharBtn = document.querySelector('#load-char-btn');
@@ -3379,6 +3380,7 @@ function logOut() {
     if (svgContainer && typeof layerHighlight === 'function') {svgContainer.addEventListener('mouseover', layerHighlight, false)}
     if (patreonLink && typeof tattle === 'function') {patreonLink.addEventListener('click', tattle, false)}
     if (patreonBtn && typeof gotoPatreon === 'function') {patreonBtn.addEventListener('click', gotoPatreon, false)}
+    if (braveAffiliateBtn && typeof gotoBrave === 'function') {braveAffiliateBtn.addEventListener('click', gotoBrave, false)}
     if (newCharBtn && typeof gotoNewChar === 'function') {newCharBtn.addEventListener('click', gotoNewChar, false)}
     if (saveCharToCloudBtn && typeof saveCharToCloud === 'function') {saveCharToCloudBtn.addEventListener('click', saveCharToCloud, false)}
     if (loadCharBtn && typeof gotoLoadChar === 'function') {loadCharBtn.addEventListener('click', gotoLoadChar, false)}
@@ -3434,6 +3436,16 @@ function gotoPatreon(evt) {
  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Patreon', eventLabel: 'Open Patreon page from Caboose modal.'});
  closeAllOverlays();
  setTimeout(function(){ window.open("https://www.patreon.com/charactercreator");}, 500);
+}
+
+function gotoBrave(evt) {
+  if (evt) {
+      evt.preventDefault()
+  }
+ ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.'});
+ closeAllOverlays();
+ console.log('brave');
+ setTimeout(function(){ window.open("https://brave.com/cha553");}, 500);
 }
 
 function gotoNewChar(evt) {
@@ -3861,7 +3873,7 @@ function selectMale(event) {
 }
 
 function addTopicalItem() {
-  hash.add({ mask: 'hospital' });
+  // hash.add({ mask: 'hospital' });
 }
 
 function addDecency() {

@@ -180,7 +180,7 @@ var femaleForm2 = {
   'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
 };
 var femaleForm3 = {
-  'Collar' : ['', 'egyptian', /*'leather',*/ 'metal'],
+  'Collar' : ['', 'egyptian', 'leather', 'metal'],
   'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
