@@ -280,13 +280,61 @@
 
     &__char-camera {
       display: flex;
-      & .camera-view {
-        width: 10em;
-        height: 10em;
+      margin: 0 0 2em 0;
 
+      & .camera-view {
+        position: relative;
+        width: 10em;
+        background-color: #fff;
         margin: 2px;
-        overflow: hidden;
+        box-sizing: border-box;
+
+        & input{
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+        }
+
+        & svg {
+          box-sizing: border-box;
+          max-width: 100%;
+          height: auto;
+          overflow: hidden;
+          border: 2px solid #f2f2f2;
+        }
+
+        & input:checked + label svg {
+          border: 2px solid $color-alpha;
+        }
+
+        & span {
+          box-sizing: border-box;
+          padding: 0.25em;
+          margin: 0 0 0 0;
+          color: $color-alpha;
+          background-color: #fff;
+          width: 100%;
+          display: block;
+        }
+
+        & label {
+          display: block;
+          height: 100%;
+          cursor: pointer;
+        }
+
+        & input:checked + label span {
+          color: #fff;
+          background-color: $color-alpha;
+        }
+
+
       }
+    }
+
+    &__proceed-download-btn {
+
     }
 
 }

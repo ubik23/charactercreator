@@ -1,7 +1,19 @@
 
+function getDownloadViewBox() {
+  var viewBoxValue;
+  var cameraViewContainer = document.querySelector('.camera-view input:checked + label svg');
+  if (cameraViewContainer) {
+    viewBoxValue = cameraViewContainer.getAttribute('viewBox');
+  } else {
+    viewBoxValue = "10 10 540 540";
+  }
+  return viewBoxValue;
+}
+
 function getSVG() {
-  console.log('getSVG');
-  var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560">\n'
+  // TODO Get viewBox from radio input and add it bellow
+  var viewBoxValue = getDownloadViewBox();
+  var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560" viewBox="' + viewBoxValue + '">\n'
   var svgRaw = document.getElementById('svg1').childNodes;
   var svgNodes;
   var svgString;
@@ -30,10 +42,9 @@ function getSVG() {
   return text;
 }
 
-  function download() {
-    // console.log('download');
+  function download(ev) {
     ev.preventDefault();
-    
+
     ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character'});
     // TODO make the filename the character's name if possible.
     var filename = c.choices.name || "my_character.svg";
