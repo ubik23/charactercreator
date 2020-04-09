@@ -2247,9 +2247,9 @@ function showPupilObject(object, shape) {
 }
 
 function clearCharacter() {
-    var svgContainer = document.querySelector('#svg1');
+    var svgContainer = document.querySelector('#svg1 .character-container');
     // Clear only what's in .current-character
-    var toBeRemovedList = document.querySelectorAll('#svg1 > g');
+    var toBeRemovedList = document.querySelectorAll('#svg1 .character-container > g');
     var counter = toBeRemovedList.length;
     while (counter--) {
       if (toBeRemovedList[counter].id != 'male_silhouette' && toBeRemovedList[counter].id != 'female_silhouette') {
@@ -2259,7 +2259,7 @@ function clearCharacter() {
 }
 
 function resetCharacterTemplate() {
-    var characterSVG = document.querySelector('#svg1');
+    var characterSVG = document.querySelector('#svg1 .character-container');
     // Reset only what's in .current-character
     var elements = characterSVG.querySelectorAll('*');
     var elementsLength = elements.length;
@@ -2274,7 +2274,7 @@ function resetCharacterTemplate() {
 
 function findNextLayerInDom(item) {
   var sex = c.choices.sex;
-  var svgContainer = document.querySelector('#svg1');
+  var svgContainer = document.querySelector('#svg1 .character-container');
   // TODO search within .current-character
   var nextLayerSibling = null;
   var layers;
