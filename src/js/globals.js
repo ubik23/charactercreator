@@ -49,8 +49,8 @@ var maleForm4 = {
 };
 var maleForm5 = {
   'Underwear': ['', 'plain', 'boxers'],
-  'Pants': ['', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
-  'Belt': ['', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
+  'Pants': ['', 'cargo', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
+  'Belt': ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
 };
 var maleForm6 = {
   'Socks': ['','socks'],
@@ -89,9 +89,9 @@ var layersMale = [
   'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
   'watch_generic', 'watch_sinn',
   'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
-  'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
-  'belt_leather', 'belt_default', 'belt_ring',
-  'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2', 'pants_snowboard_1_of_3',
+  'pants_cargo_2_of_2', 'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
+  'belt_cargo', 'belt_leather', 'belt_default', 'belt_ring',
+  'pants_cargo_1_of_2', 'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2', 'pants_snowboard_1_of_3',
   'belt_straps',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
   'shirt_colar_1_of_2',
@@ -207,7 +207,7 @@ var femaleForm5 = {
   'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
   'Skirt' : ['', 'school_short', 'school', 'school_long'],
-  'Pants' : ['','yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
+  'Pants' : ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
 var femaleForm6 = {
@@ -249,7 +249,7 @@ var layersFemale = [
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
   'shoes_cowboy_2_of_2',
   'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
-  'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
+  'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'holster_revolver_thigh_1_of_2',
   'skirt_school','skirt_school_short','skirt_school_long',
@@ -313,7 +313,7 @@ var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#e
 var layerDirectoryFemale = 'layer/female/';
 var layerDirectoryMale = 'layer/male/';
 var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['cloak_dracula', 2], ['coat_lab', 3], ['hair_flowing', 2], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hair_starlet', 2], ['hat_beach', 2], ['hat_country', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_cowboy', 2], ['shoes_flip-flops', 2]];
-var multiLayerMale = [['cloak_default', 4], ['cloak_dracula', 2], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['hat_country', 2], ['hat_turban', 2], ['headband_medium', 2], ['jacket_suit', 2], ['jacket_suit_open', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_jeans', 2], ['pants_jeans_rolled', 2], ['pants_suit', 2], ['pants_snowboard', 3],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
+var multiLayerMale = [['cloak_default', 4], ['cloak_dracula', 2], ['coat_lab', 2], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['hat_country', 2], ['hat_turban', 2], ['headband_medium', 2], ['jacket_suit', 2], ['jacket_suit_open', 2], ['shirt_colar', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_cargo', 2], ['pants_jeans', 2], ['pants_jeans_rolled', 2], ['pants_suit', 2], ['pants_snowboard', 3],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
 var size = function(obj) {
     var size = 0, key;
     for (key in obj) {
