@@ -152,7 +152,7 @@ function relaunch() {
 }
 
 function removeGroups() {
-  var svgContainer = document.querySelector('#svg1');
+  var svgContainer = document.querySelector('#svg1 #character-container');
   var groups = svgContainer.querySelectorAll('#svg1 #character-container > g');
   var counter = groups.length;
 
