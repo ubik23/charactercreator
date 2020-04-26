@@ -3502,7 +3502,7 @@ function relaunch() {
 
 function removeGroups() {
   var svgContainer = document.querySelector('#svg1');
-  var groups = svgContainer.querySelectorAll('#svg1 > g');
+  var groups = svgContainer.querySelectorAll('#svg1 #character-container > g');
   var counter = groups.length;
 
   while (counter--) {
