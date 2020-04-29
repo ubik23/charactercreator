@@ -2112,8 +2112,6 @@ var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#e
 
 var layerDirectoryFemale = 'layer/female/';
 var layerDirectoryMale = 'layer/male/';
-var multiLayerFemale = [['bracelet_band_right', 2], ['bracelet_band_left', 2], ['bracelet_ornamental_left', 2], ['bracelet_ornamental_right', 2], ['bracelet_perl_left', 2], ['bracelet_perl_right', 2], ['cloak_dracula', 2], ['coat_lab', 3], ['hair_flowing', 2], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hair_starlet', 2], ['hat_beach', 2], ['hat_country', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['headband_medium', 2], ['coat_winter_furcollar', 3], ['coat_winter_tubecollar', 3], ['holster_revolver_thigh', 2], ['nails_short', 2], ['nails_long', 2], ['nails_claws', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_yoga_torn', 3], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2], ['veil_al-amira', 2], ['veil_khimar', 2], ['veil_shayla', 2], ['shoes_cowboy', 2], ['shoes_flip-flops', 2]];
-var multiLayerMale = [['cloak_default', 4], ['cloak_dracula', 2], ['coat_scientist', 2], ['coat_lab', 3], ['coat_fall_long', 3], ['coat_trench', 4], ['hair_pigtails', 2], ['hair_manga', 2], ['hair_down', 3], ['hat_fedora', 2], ['hat_country', 2], ['hat_turban', 2], ['headband_medium', 2], ['jacket_suit', 2], ['jacket_suit_open', 2], ['shirt_colar', 2], ['shirt_kurta', 2], ['shirt_tanktop', 2], ['hat_strainer', 2], ['hat_helmet_vietnam', 2], ['nose_default', 2], ['nose_pointed', 2], ['nose_roman', 2], ['nose_strong', 2], ['nose_syrid', 2], ['pants_cargo', 2], ['pants_jeans', 2], ['pants_jeans_rolled', 2], ['pants_suit', 2], ['pants_snowboard', 3],  ['tie_bow', 2], ['shoes_flip-flops', 2], ['shoulderpads_plated', 2], ['shoulderpads_spikes', 2]];
 var size = function(obj) {
     var size = 0, key;
     for (key in obj) {
@@ -2146,13 +2144,6 @@ hairLayers = [
   'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
   'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
 ];
-
-window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
-window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
-window.layersFemale = layersFemale;
-window.layersMale = layersMale;
-window.multiLayerMale = multiLayerMale;
-window.multiLayerFemale = multiLayerFemale;
 
 
 function hamburger(ev) {
@@ -3674,18 +3665,43 @@ function getSectionButton(formSection, prefix) {
   return -1;
 }
 
-function getGroupParent(el) {
+function getLayers() {
+  var layers;
+
   if (c.choices.sex === 'm') {
     layers = window.layersMale;
   } else if (c.choices.sex === 'f') {
     layers = window.layersFemale;
   } else {
-    return document.querySelector('#svg1');
+    return document.querySelector('#svg1 #character-container');
   }
+
+  return layers;
+}
+
+function getGroupParent(el) {
+  var layers = getLayers();
   while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
     el = el.parentNode;
   }
   return el;
+}
+
+function getMultiLayer() {
+  var multiLayer = [];
+  var layers = getLayers();
+  var counter = layers.length;
+  var singleArray;
+
+  while (counter--) {
+    if (layers[counter].slice(-6, -1) === '1_of_') {
+      singleArray = [];
+      singleArray.push(layers[counter].slice(0 , -7));
+      singleArray.push(Number(layers[counter].slice(-1)));
+      multiLayer.push(singleArray);
+    }
+  }
+  return multiLayer;
 }
 
 function fromItemGetPrefix(id) {
@@ -3741,6 +3757,7 @@ function startup() {
 function launch() {
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
+    var multiLayer = getMultiLayer();
 
     if (sex ==='m') {
         var form1 = maleForm1;
@@ -3750,7 +3767,6 @@ function launch() {
         var form5 = maleForm5;
         var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
-        multiLayer = multiLayerMale;
 
     } else {
         var form1 = femaleForm1;
@@ -3760,7 +3776,6 @@ function launch() {
         var form5 = femaleForm5;
         var form6 = femaleForm6;
         var layerDirectory = layerDirectoryFemale;
-        multiLayer = multiLayerFemale;
     }
     window.forms = [form1, form2, form3, form4, form5,form6];
     // Get all the hash key/value pairs and include them in the c.choices object

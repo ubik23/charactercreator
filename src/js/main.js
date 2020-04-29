@@ -323,18 +323,43 @@ function getSectionButton(formSection, prefix) {
   return -1;
 }
 
-function getGroupParent(el) {
+function getLayers() {
+  var layers;
+
   if (c.choices.sex === 'm') {
     layers = window.layersMale;
   } else if (c.choices.sex === 'f') {
     layers = window.layersFemale;
   } else {
-    return document.querySelector('#svg1');
+    return document.querySelector('#svg1 #character-container');
   }
+
+  return layers;
+}
+
+function getGroupParent(el) {
+  var layers = getLayers();
   while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
     el = el.parentNode;
   }
   return el;
+}
+
+function getMultiLayer() {
+  var multiLayer = [];
+  var layers = getLayers();
+  var counter = layers.length;
+  var singleArray;
+
+  while (counter--) {
+    if (layers[counter].slice(-6, -1) === '1_of_') {
+      singleArray = [];
+      singleArray.push(layers[counter].slice(0 , -7));
+      singleArray.push(Number(layers[counter].slice(-1)));
+      multiLayer.push(singleArray);
+    }
+  }
+  return multiLayer;
 }
 
 function fromItemGetPrefix(id) {
@@ -390,6 +415,7 @@ function startup() {
 function launch() {
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
+    var multiLayer = getMultiLayer();
 
     if (sex ==='m') {
         var form1 = maleForm1;
@@ -399,7 +425,6 @@ function launch() {
         var form5 = maleForm5;
         var form6 = maleForm6;
         var layerDirectory = layerDirectoryMale;
-        multiLayer = multiLayerMale;
 
     } else {
         var form1 = femaleForm1;
@@ -409,7 +434,6 @@ function launch() {
         var form5 = femaleForm5;
         var form6 = femaleForm6;
         var layerDirectory = layerDirectoryFemale;
-        multiLayer = multiLayerFemale;
     }
     window.forms = [form1, form2, form3, form4, form5,form6];
     // Get all the hash key/value pairs and include them in the c.choices object
