@@ -1192,6 +1192,8 @@ function getSVG() {
   var svgString;
   var event;
 
+  purgeHiddenLayers();
+
   //This previous version of the text contains all svg files shown and hidden
   //It will need to be filtered to keep only the layers needed for our purpose
   if (currentUser && currentUser.cc.personnageActuel !== ''){
@@ -2213,7 +2215,7 @@ function getPosition(el) {
 function purgeHiddenLayers() {
   var section = document.querySelector('#content_1 .selected--option').classList[2].slice(9);
   var thumbsSVG = document.querySelectorAll('#content_1 .selected--option svg');
-  var svg = document.querySelector('#svg1 .character-container');
+  var svg = document.querySelector('#svg1 #character-container');
   var counter = thumbsSVG.length;
   var currentSVG;
   var layersList = [];

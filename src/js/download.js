@@ -19,6 +19,8 @@ function getSVG() {
   var svgString;
   var event;
 
+  purgeHiddenLayers();
+
   //This previous version of the text contains all svg files shown and hidden
   //It will need to be filtered to keep only the layers needed for our purpose
   if (currentUser && currentUser.cc.personnageActuel !== ''){
