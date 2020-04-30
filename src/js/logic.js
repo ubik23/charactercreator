@@ -148,6 +148,7 @@ function getOptions (section) {
 }
 
 function show(userChoice, category) {
+    var multiLayer = getMultiLayer();
     if (typeof(category) === "string") {
         var sections = [category];
     } else {
