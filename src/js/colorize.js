@@ -201,6 +201,8 @@ function getColorClassPrefix(id) {
 }
 
 function colorize(formId, _color){
+    var multiLayer = getMultiLayer();
+    var skinLayers = getSkinLayers();
     var colorMultiplyer = 10; // Color contrast. TODO Move to user controls.
     var forms = window.forms;
     var id = formId;
@@ -246,7 +248,7 @@ function colorize(formId, _color){
                     // classPrefix = "skin";
                 }
                 else if (id ==='facialhair' || id === 'hair') {
-                    affectedList = window.hairLayers;
+                    affectedList = getHairLayers();
                     var myKey = 'hairColor';
                 }
                 else if (id ==='iris') {

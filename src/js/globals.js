@@ -88,7 +88,7 @@ var layersMale = [
   'socks_socks',
   'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
   'watch_generic', 'watch_sinn',
-  'shirt_colar_2_of_2','shirt_kurta_1_of_2',  'shirt_tshirt', 'shirt_turtleneck',
+  'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
   'pants_cargo_2_of_2', 'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
   'belt_cargo', 'belt_leather', 'belt_default', 'belt_ring',
   'pants_cargo_1_of_2', 'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2', 'pants_snowboard_1_of_3',
@@ -97,6 +97,7 @@ var layersMale = [
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
+  'shirt_kurta_1_of_2',
   'necklace_dogtags', 'necklace_chain', 'necklace_stethoscope',
   'holster_revolver_chest', 'holster_revolver_hip',
   'gloves_lab','gloves_motorcycle',
@@ -319,25 +320,6 @@ var size = function(obj) {
     }
     return size;
 };
-skinLayers = [
-  'eyes_neutral',
-  'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
-  'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
-  'body_foot_right', 'body_foot_left',
-  'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny', 'body_arm_right_android-00', 'body_arm_left_android-00',
-  'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
-  'body_hand_right', 'body_hand_left',
-  'age_lines', 'body_head_default', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_square', 'body_head_triangle', 'body_hand',
-  'ears_default', 'ears_elven', 'ears_pointed', 'ears_plugged', 'ears_unplugged', 'ears_outstretched',
-  'nose_default',
-  'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_strong_1_of_2', 'nose_syrid_1_of_2',
-  'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_strong_2_of_2', 'nose_syrid_2_of_2',
-  'mouth_shadow', 'freckles_medium',
-  'scar_horizontal_neck', 'scar_horizontal_nose', 'scar_vertical_heart', 'scar_vertical_left', 'scar_vertical_right',
-  'age_lines', 'wings_devil',
-  'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
-  'sockets_neutral', 'sockets_amusement', 'sockets_anger', 'sockets_alertness', 'sockets_anxiety', 'sockets_aversion', 'sockets_betrayal', 'sockets_caged', 'sockets_concern', 'sockets_cruel', 'sockets_dejection', 'sockets_desperation', 'sockets_disdain', 'sockets_disgust', 'sockets_eeww', 'sockets_fear', 'sockets_grief', 'sockets_horror', 'sockets_indignation', 'sockets_joy', 'sockets_laughing', 'sockets_melancholy', 'sockets_omg', 'sockets_outrage', 'sockets_pain', 'sockets_rage', 'sockets_revulsion', 'sockets_sadness', 'sockets_satisfaction', 'sockets_shock', 'sockets_sterness', 'sockets_surprise', 'sockets_terror', 'mouth_wonder', 'mouth_wtf'
-];
 
 window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
 window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];

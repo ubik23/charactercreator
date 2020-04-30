@@ -368,11 +368,25 @@ function getHairLayers() {
   var counter = layers.length;
 
   while (counter--) {
-    if (layers[counter].slice(0, 4) === 'hair' || layers[counter].slice(0, 10) === 'facialhair' || layers[counter].slice(0, 5) === 'brows' || layers[counter].slice(0, 6) === 'lashes') {
+    if (layers[counter].slice(0, 5) === 'hair_' || layers[counter].slice(0, 11) === 'facialhair_' || layers[counter].slice(0, 6) === 'brows_' || layers[counter].slice(0, 7) === 'lashes_') {
       hairLayers.push(layers[counter]);
     }
   }
   return hairLayers;
+}
+
+function getSkinLayers() {
+  var skinLayers = [];
+  var layers = getLayers();
+  var counter = layers.length;
+
+  while (counter--) {
+    if (layers[counter].slice(0, 5) === 'body_' || layers[counter].slice(0, 5) === 'ears_' || layers[counter].slice(0, 5) === 'nose_' || layers[counter].slice(0, 9) === 'freckles_' || layers[counter].slice(0, 5) === 'scar_' || layers[counter].slice(0, 11) === 'wings_devil' || layers[counter].slice(0, 6) === 'mouth_' || layers[counter].slice(0, 8) === 'sockets_') {
+      skinLayers.push(layers[counter]);
+    }
+  }
+
+  return skinLayers;
 }
 
 function fromItemGetPrefix(id) {
@@ -431,6 +445,7 @@ function launch() {
     var sex = c.choices.sex;
     var multiLayer = getMultiLayer();
     var hairLayers = getHairLayers();
+    var skinLayers = getSkinLayers();
 
     if (sex ==='m') {
         var form1 = maleForm1;
