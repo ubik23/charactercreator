@@ -1509,6 +1509,7 @@ function getSectionLayersList(section) {
 }
 
 function replaceMultilayer(layersList, section) {
+  var multiLayer = getMultiLayer();
   var sex = c.choices.sex;
   var counter = layersList.length;
   var multiLayer = getMultiLayer();
@@ -1540,7 +1541,7 @@ function replaceMultilayer(layersList, section) {
     if (isInArray(currentItem, fullList)) {
       currentIndex = fullList.indexOf(currentItem);
       fullList.splice(currentIndex, 1);
-      currentQty = multilayer[multiCounter][1];
+      currentQty = multiLayer[multiCounter][1];
       qtyCounter = currentQty;
       while (qtyCounter--) {
         fullList.push(currentItem + '_' + (qtyCounter + 1) + '_of_' + currentQty);
