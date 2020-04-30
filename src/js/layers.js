@@ -1,6 +1,8 @@
 
 function purgeHiddenLayers() {
-  var section = document.querySelector('#content_1 .selected--option').classList[2].slice(9);
+  var option = document.querySelector('#content_1 .selected--option')
+  if (!option) {return}
+  var section = option.classList[2].slice(9);
   var thumbsSVG = document.querySelectorAll('#content_1 .selected--option svg');
   var svg = document.querySelector('#svg1 #character-container');
   var counter = thumbsSVG.length;
