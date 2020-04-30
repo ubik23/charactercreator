@@ -1509,7 +1509,7 @@ function getSectionLayersList(section) {
 function replaceMultilayer(layersList, section) {
   var sex = c.choices.sex;
   var counter = layersList.length;
-  var multilayer;
+  var multiLayer = getMultiLayer();
   var multiCounter;
   var fullList = [];
   var currentItem;
@@ -1517,11 +1517,6 @@ function replaceMultilayer(layersList, section) {
   var currentIndex;
   var qtyCounter;
 
-  if (sex === 'm') {
-    multilayer = window.multiLayerMale;
-  } else {
-    multilayer = window.multiLayerFemale;
-  }
   if (section != undefined) {
     while (counter--) {
       if (layersList[counter] != '') {
@@ -1539,7 +1534,7 @@ function replaceMultilayer(layersList, section) {
   multiCounter = multiLayer.length;
 
   while (multiCounter--) {
-    currentItem = multilayer[multiCounter][0];
+    currentItem = multiLayer[multiCounter][0];
     if (isInArray(currentItem, fullList)) {
       currentIndex = fullList.indexOf(currentItem);
       fullList.splice(currentIndex, 1);
@@ -2138,12 +2133,9 @@ skinLayers = [
   'mouth_neutral', 'mouth_amusement', 'mouth_anger', 'mouth_alertness', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
   'sockets_neutral', 'sockets_amusement', 'sockets_anger', 'sockets_alertness', 'sockets_anxiety', 'sockets_aversion', 'sockets_betrayal', 'sockets_caged', 'sockets_concern', 'sockets_cruel', 'sockets_dejection', 'sockets_desperation', 'sockets_disdain', 'sockets_disgust', 'sockets_eeww', 'sockets_fear', 'sockets_grief', 'sockets_horror', 'sockets_indignation', 'sockets_joy', 'sockets_laughing', 'sockets_melancholy', 'sockets_omg', 'sockets_outrage', 'sockets_pain', 'sockets_rage', 'sockets_revulsion', 'sockets_sadness', 'sockets_satisfaction', 'sockets_shock', 'sockets_sterness', 'sockets_surprise', 'sockets_terror', 'mouth_wonder', 'mouth_wtf'
 ];
-hairLayers = [
-  'facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_beard_raw', 'facialhair_chinpuff', 'facialhair_goatee', 'facialhair_goatee_raw', 'facialhair_moustache', 'facialhair_moustache_dali', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
-  'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_flowing_1_of_2', 'hair_flowing_2_of_2', 'hair_short', 'hair_short_slick', 'hair_gelled', 'hair_wavy', 'hair_manga_1_of_2', 'hair_manga_2_of_2', 'hair_mohawk', 'hair_pigtails_1_of_2', 'hair_pigtails_2_of_2', 'hair_down_1_of_3', 'hair_down_2_of_3', 'hair_down_3_of_3', 'hair_afro', 'hair_ponytail', 'hair_punky', 'hair_bangs', 'hair_odango', 'hair_emo', 'hair_spider', 'hair_starlet_1_of_2', 'hair_starlet_2_of_2', 'hair_wreckingball', 'hair_crewcut', 'hair_wild',
-  'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
-  'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf'
-];
+
+window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
+window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
 
 
 function hamburger(ev) {
@@ -3704,7 +3696,21 @@ function getMultiLayer() {
   return multiLayer;
 }
 
+function getHairLayers() {
+  var hairLayers = [];
+  var layers = getLayers();
+  var counter = layers.length;
+
+  while (counter--) {
+    if (layers[counter].slice(0, 4) === 'hair' || layers[counter].slice(0, 10) === 'facialhair' || layers[counter].slice(0, 5) === 'brows' || layers[counter].slice(0, 6) === 'lashes') {
+      hairLayers.push(layers[counter]);
+    }
+  }
+  return hairLayers;
+}
+
 function fromItemGetPrefix(id) {
+  console.log('fromItemGetPrefix', id);
   var idList = id.split('_');
   var prefix;
 
@@ -3758,6 +3764,7 @@ function launch() {
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
     var multiLayer = getMultiLayer();
+    var hairLayers = getHairLayers();
 
     if (sex ==='m') {
         var form1 = maleForm1;

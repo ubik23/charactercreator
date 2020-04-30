@@ -137,7 +137,7 @@ function getSectionLayersList(section) {
 function replaceMultilayer(layersList, section) {
   var sex = c.choices.sex;
   var counter = layersList.length;
-  var multilayer;
+  var multiLayer = getMultiLayer();
   var multiCounter;
   var fullList = [];
   var currentItem;
@@ -145,11 +145,6 @@ function replaceMultilayer(layersList, section) {
   var currentIndex;
   var qtyCounter;
 
-  if (sex === 'm') {
-    multilayer = window.multiLayerMale;
-  } else {
-    multilayer = window.multiLayerFemale;
-  }
   if (section != undefined) {
     while (counter--) {
       if (layersList[counter] != '') {
@@ -167,7 +162,7 @@ function replaceMultilayer(layersList, section) {
   multiCounter = multiLayer.length;
 
   while (multiCounter--) {
-    currentItem = multilayer[multiCounter][0];
+    currentItem = multiLayer[multiCounter][0];
     if (isInArray(currentItem, fullList)) {
       currentIndex = fullList.indexOf(currentItem);
       fullList.splice(currentIndex, 1);

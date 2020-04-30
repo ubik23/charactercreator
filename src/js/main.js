@@ -362,7 +362,21 @@ function getMultiLayer() {
   return multiLayer;
 }
 
+function getHairLayers() {
+  var hairLayers = [];
+  var layers = getLayers();
+  var counter = layers.length;
+
+  while (counter--) {
+    if (layers[counter].slice(0, 4) === 'hair' || layers[counter].slice(0, 10) === 'facialhair' || layers[counter].slice(0, 5) === 'brows' || layers[counter].slice(0, 6) === 'lashes') {
+      hairLayers.push(layers[counter]);
+    }
+  }
+  return hairLayers;
+}
+
 function fromItemGetPrefix(id) {
+  console.log('fromItemGetPrefix', id);
   var idList = id.split('_');
   var prefix;
 
@@ -416,6 +430,7 @@ function launch() {
     c.choices.sex  = hash.get('sex');
     var sex = c.choices.sex;
     var multiLayer = getMultiLayer();
+    var hairLayers = getHairLayers();
 
     if (sex ==='m') {
         var form1 = maleForm1;
