@@ -183,7 +183,7 @@ var femaleForm2 = {
 };
 var femaleForm3 = {
   'Collar' : ['', 'egyptian', 'leather', 'metal'],
-  'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'squared-circle'],
+  'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
   // 'Button': ['', 'heart', 'peace', 'smile'],
@@ -267,6 +267,7 @@ var layersFemale = [
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
   'coat_lab_2_of_3', 'coat_winter_furcollar_2_of_3', 'coat_winter_tubecollar_2_of_3', 'coat_winter_tubecollar_1_of_3',
   'coat_lab_1_of_3',
+  'necklace_stethoscope',
   'cloak_dracula_1_of_2',
   'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_general',
