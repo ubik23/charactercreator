@@ -253,10 +253,21 @@ function layerHighlight(ev) {
   }
 }
 
+function getViewBoxOnClick(el) {
+  var viewBox = "10 50 540 540";
+  var svgContainer = document.querySelector('#svg1');
+  console.log('SVG1', svgContainer.viewBox);
+  console.log('SVG1', svgContainer.viewBox.baseVal);
+  console.log(el.getBoundingClientRect());
+  return viewBox
+}
+
 function clickSelect(ev) {
   var el = ev.target;
+  var viewBox = getViewBoxOnClick(el);
   var el = getGroupParent(el);
-  console.log('el',el);
+  // console.log('el',el);
+  // console.log('viewBox',viewBox);
   // TODO check if style selection screen, return
   var formSection;
   var sidebarLeft = document.querySelector('#sidebar-left');

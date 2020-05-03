@@ -1818,7 +1818,7 @@ var maleForm2 = {
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
   'Headband': ['', 'medium'],
-  'Necklace': ['', 'chain', 'dogtags'/*, 'stethoscope' */],
+  'Necklace': ['', 'chain', 'dogtags', 'stethoscope' ],
   'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
 };
@@ -1837,7 +1837,7 @@ var maleForm4 = {
   'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
   'Suit': ['', 'borat', 'wetsuit'],
   'Jacket': ['', 'suit', 'suit_open'],
-  'Coat': ['', 'fall_long', /*'lab',*/ 'trench', 'scientist', 'snowboard'],
+  'Coat': ['', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard'],
   'Cloak': ['', 'default', 'dracula'],
   'Armband' : ['', 'bandage_left', 'bandage_right'],
   'Watch': ['', 'generic', 'sinn'],
@@ -1896,7 +1896,7 @@ var layersMale = [
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
   'shirt_kurta_1_of_2',
-  'necklace_dogtags', 'necklace_chain', 'necklace_stethoscope',
+  'necklace_dogtags', 'necklace_chain',
   'holster_revolver_chest', 'holster_revolver_hip',
   'gloves_lab','gloves_motorcycle',
   'jacket_suit_1_of_2','jacket_suit_open_1_of_2',
@@ -1909,6 +1909,7 @@ var layersMale = [
   'cloak_default_2_of_4',
   'shoulderpads_general',
   'coat_lab_1_of_3', 'coat_trench_1_of_4',
+  'necklace_stethoscope',
   'cloak_dracula_1_of_2',
   'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_artillery', 'shoulderpads_plated_1_of_2', 'shoulderpads_plated_2_of_2', 'shoulderpads_spikes_1_of_2',
@@ -3575,10 +3576,21 @@ function layerHighlight(ev) {
   }
 }
 
+function getViewBoxOnClick(el) {
+  var viewBox = "10 50 540 540";
+  var svgContainer = document.querySelector('#svg1');
+  console.log('SVG1', svgContainer.viewBox);
+  console.log('SVG1', svgContainer.viewBox.baseVal);
+  console.log(el.getBoundingClientRect());
+  return viewBox
+}
+
 function clickSelect(ev) {
   var el = ev.target;
+  var viewBox = getViewBoxOnClick(el);
   var el = getGroupParent(el);
-  console.log('el',el);
+  // console.log('el',el);
+  // console.log('viewBox',viewBox);
   // TODO check if style selection screen, return
   var formSection;
   var sidebarLeft = document.querySelector('#sidebar-left');
