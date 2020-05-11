@@ -1852,7 +1852,7 @@ var maleForm5 = {
 };
 var maleForm6 = {
   'Socks': ['','socks'],
-  'Shoes': ['','cowboy', 'hightops', 'leather', 'flip-flops']
+  'Shoes': ['','cowboy', 'hightops', 'leather', /*'loafers',*/ 'flip-flops']
 };
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
@@ -1884,7 +1884,7 @@ var layersMale = [
   'shirt_tanktop_1_of_2',
   'suit_borat', 'suit_wetsuit',
   'socks_socks',
-  'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_flip-flops_1_of_2',
+  'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_loafers', 'shoes_flip-flops_1_of_2',
   'watch_generic', 'watch_sinn',
   'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
   'pants_cargo_2_of_2', 'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
