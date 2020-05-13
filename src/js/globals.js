@@ -54,7 +54,7 @@ var maleForm5 = {
 };
 var maleForm6 = {
   'Socks': ['','socks'],
-  'Shoes': ['','cowboy', 'hightops', 'leather', /*'loafers',*/ 'flip-flops']
+  'Shoes': ['','cowboy', 'hightops', 'leather', 'loafers', 'flip-flops']
 };
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
