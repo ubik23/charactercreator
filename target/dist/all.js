@@ -1417,6 +1417,9 @@ function createForm(sex, forms){
 
             var viewBox = getViewBox(t, d);
 
+            console.log('t',t);
+            console.log('d',d);
+
             if (d === '') {svgContent = '<use xlink:href="#icon-none"></use>';} else {svgContent = '';}
             newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>';}).join('\n');
 
@@ -1440,6 +1443,7 @@ function createForm(sex, forms){
             newHtml += '    </div>';
             newHtml += '</div>';
             selcount ++;
+            console.log('newHtml', newHtml);
         }
         sectionHtml += '</div>';
         var htmlObject = document.createElement('div');
@@ -1895,10 +1899,10 @@ var layersMale = [
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
+  'gloves_lab','gloves_motorcycle',
   'shirt_kurta_1_of_2',
   'necklace_dogtags', 'necklace_chain',
   'holster_revolver_chest', 'holster_revolver_hip',
-  'gloves_lab','gloves_motorcycle',
   'jacket_suit_1_of_2','jacket_suit_open_1_of_2',
   'vest_yellow',
   'coat_fall_long_2_of_3',
