@@ -2010,7 +2010,7 @@ var femaleForm4 = {
 var femaleForm5 = {
   'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   'Shorts' : ['', 'bikini', 'short'],
-  'Skirt' : ['', 'a-line', 'school_short', 'school', 'school_long', 'tube'],
+  'Skirt' : ['', 'a-line', 'draped', 'school_short', 'school', 'school_long', 'tube'],
   'Pants' : ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
   'Belt' : ['', 'bullet', 'utility', 'satchel']
 };
@@ -2056,7 +2056,7 @@ var layersFemale = [
   'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'holster_revolver_thigh_1_of_2',
-  'skirt_a-line', 'skirt_school','skirt_school_short','skirt_school_long', 'skirt_tube',
+  'skirt_a-line', 'skirt_draped', 'skirt_school','skirt_school_short','skirt_school_long', 'skirt_tube',
   'holster_revolver_hip',
   'top_asymetric', 'top_loop', 'top_tank', 'top_tube_v',
   'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset', 'dress_chinatown', 'dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall', 'dress_zip',
