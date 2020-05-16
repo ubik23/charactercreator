@@ -1814,7 +1814,7 @@ var maleForm1 = {
   'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
 };
 var maleForm2 = {
-  'Smoke' : ['', 'cigar', 'pipe_subgenius'],
+  'Smoke' : ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
   'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   'Horns': ['', 'devil', 'large'],
@@ -1956,7 +1956,7 @@ var layersMale = [
   'horns_devil',
   'cloak_default_1_of_4',
   'horns_large',
-  'smoke_cigar', 'smoke_pipe_subgenius'
+  'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius'
 ];
 
 var femaleForm1 = {
@@ -1971,7 +1971,7 @@ var femaleForm1 = {
   'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 };
 var femaleForm2 = {
-  'Smoke' : ['', 'cigar', 'pipe_subgenius'],
+  'Smoke' : ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   'Makeup': ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
@@ -2016,7 +2016,7 @@ var femaleForm5 = {
 };
 var femaleForm6 = {
   'Leggings': ['', 'fishnet', 'regular', 'striped', 'torn'],
-  'Shoes': ['','cowboy', 'hightops', 'highheels', 'sandals_roman', 'plateforms', 'flip-flops']
+  'Shoes': ['','cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
 };
 var layersFemale = [
   'wings_devil', 'wings_angel', 'wings_fairy', 'wings_skeleton',
@@ -2052,7 +2052,7 @@ var layersFemale = [
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
   'shoes_cowboy_2_of_2',
-  'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
+  'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_moon','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
   'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'holster_revolver_thigh_1_of_2',
@@ -2107,7 +2107,7 @@ var layersFemale = [
   'coat_winter_furcollar_1_of_3',
   'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
   'belt_utility',
-  'smoke_cigar', 'smoke_pipe_subgenius',
+  'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius',
   'earpiece_microphone', 'earpiece_scouter'
 ];
 
