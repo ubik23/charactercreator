@@ -19,7 +19,7 @@ var maleForm2 = {
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
-  'Headband': ['', 'medium'],
+  'Headband': ['', 'medium', 'tied'],
   'Necklace': ['', 'chain', 'dogtags', 'stethoscope' ],
   'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
@@ -143,7 +143,7 @@ var layersMale = [
   'mask_robin', 'mask_hospital',
   'eyepatch_left','eyepatch_right',
   'hair_afro', 'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_bangs', 'hair_crewcut', 'hair_down_1_of_3', 'hair_gelled', 'hair_manga_1_of_2', 'hair_mohawk', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_short', 'hair_spider', 'hair_wild', 'hair_wreckingball',
-  'headband_medium_1_of_2',
+  'headband_medium_1_of_2', 'headband_tied',
   'mask_guy_fawkes', 'mask_arrow',
   'earpiece_microphone', 'earpiece_scouter',
   'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_kurt', 'glasses_neon', 'glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
