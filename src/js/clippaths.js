@@ -13,5 +13,5 @@ function changeClipPathOnEyes(id) {
 function applyClipPath() {
   setTimeout(function(){
     changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },50);
+  },150);
 }

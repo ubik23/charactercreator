@@ -550,7 +550,7 @@ function changeClipPathOnEyes(id) {
 function applyClipPath() {
   setTimeout(function(){
     changeClipPathOnEyes('#eyes_' + c.choices.emotion);
-  },50);
+  },150);
 }
 
 
@@ -1814,14 +1814,14 @@ var maleForm1 = {
   'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
 };
 var maleForm2 = {
-  'Smoke' : ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
+  'Smoke' : ['', /*'blunt',*/ 'cigar', /*'cigarette', 'filter',*/ 'pipe_subgenius'],
   'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
   'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   'Horns': ['', 'devil', 'large'],
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
-  'Headband': ['', 'medium', 'tied'],
+  'Headband': ['', 'medium'/*, 'tied'*/],
   'Necklace': ['', 'chain', 'dogtags', 'stethoscope' ],
   'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
@@ -1830,7 +1830,7 @@ var maleForm3 = {
   'Shirt': ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
   'Tie': ['', 'neck', 'bolo', 'bow'],
   'Vest': ['', 'vest', 'lined', 'yellow'],
-  // 'Button': ['', 'heart', 'peace', 'smile'],
+  'Button': ['', 'heart', 'peace', 'smile'],
   'Holster' : ['', 'revolver_chest', 'revolver_hip'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
@@ -1852,7 +1852,8 @@ var maleForm4 = {
 var maleForm5 = {
   'Underwear': ['', 'plain', 'boxers'],
   'Pants': ['', 'cargo', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
-  'Belt': ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather']
+  'Belt': ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather'],
+  'Kneepads': ['', 'skate']
 };
 var maleForm6 = {
   'Socks': ['','socks'],
@@ -1894,6 +1895,7 @@ var layersMale = [
   'pants_cargo_2_of_2', 'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
   'belt_cargo', 'belt_leather', 'belt_default', 'belt_ring',
   'pants_cargo_1_of_2', 'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2', 'pants_snowboard_1_of_3',
+  'kneepads_skate',
   'belt_straps',
   'tie_bolo', 'tie_bow_2_of_2','tie_neck',
   'shirt_colar_1_of_2',
@@ -1971,12 +1973,12 @@ var femaleForm1 = {
   'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 };
 var femaleForm2 = {
-  'Smoke' : ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
+  'Smoke' : ['', /*'blunt',*/ 'cigar', /*'cigarette', 'filter',*/ 'pipe_subgenius'],
   'Makeup': ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
   'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
   'Eyepatch': ['', 'left', 'right'],
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
-  'Headband': ['', 'medium', 'tied'],
+  'Headband': ['', 'medium'/*, 'tied'*/],
   'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Horns': ['', 'devil'],
@@ -1988,7 +1990,7 @@ var femaleForm3 = {
   'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle'],
   'Bra': ['', 'bow', 'grid', 'sports'],
   'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
-  // 'Button': ['', 'heart', 'peace', 'smile'],
+  'Button': ['', 'heart', 'peace', 'smile'],
   'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
   'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
 };
@@ -2009,10 +2011,11 @@ var femaleForm4 = {
 };
 var femaleForm5 = {
   'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
-  'Shorts' : ['', 'bikini', 'short'],
-  'Skirt' : ['', 'a-line', 'draped', 'school_short', 'school', 'school_long', 'tube'],
-  'Pants' : ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
-  'Belt' : ['', 'bullet', 'utility', 'satchel']
+  'Shorts': ['', 'bikini', 'short'],
+  'Skirt': ['', 'a-line', 'draped', 'school_short', 'school', 'school_long'/*, 'tube'*/],
+  'Pants': ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
+  'Belt': ['', 'bullet', 'utility', 'satchel'],
+  'Kneepads': ['', 'skate']
 };
 var femaleForm6 = {
   'Leggings': ['', 'fishnet', 'regular', 'striped', 'torn'],
@@ -2055,6 +2058,7 @@ var layersFemale = [
   'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_moon','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
   'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
+  'kneepads_skate',
   'holster_revolver_thigh_1_of_2',
   'skirt_a-line', 'skirt_draped', 'skirt_school','skirt_school_short','skirt_school_long', 'skirt_tube',
   'holster_revolver_hip',
@@ -2114,7 +2118,6 @@ var layersFemale = [
 // Color Pallettes
 
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888'];
-
 var layerDirectoryFemale = 'layer/female/';
 var layerDirectoryMale = 'layer/male/';
 var size = function(obj) {
