@@ -203,7 +203,7 @@ var femaleForm4 = {
   'Coat' : ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
   'Armband' : ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
-  'Gloves' : ['', 'silk_fingerless_stripped'],
+  'Gloves' : ['', 'silk_fingerless_striped'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   'Vest': ['', 'yellow'],
   'Cloak': ['', 'dracula'],
