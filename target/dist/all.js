@@ -1845,7 +1845,7 @@ var maleForm4 = {
   'Cloak': ['', 'default', 'dracula'],
   'Armband' : ['', 'bandage_left', 'bandage_right'],
   'Watch': ['', 'generic', 'sinn'],
-  'Gloves': ['', 'lab', 'motorcycle'],
+  'Gloves': ['', 'boxing', 'lab', 'motorcycle'],
   'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton'],
   'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 };
@@ -1901,7 +1901,7 @@ var layersMale = [
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
-  'gloves_lab','gloves_motorcycle',
+  'gloves_lab','gloves_motorcycle', 'gloves_boxing',
   'shirt_kurta_1_of_2',
   'necklace_dogtags', 'necklace_chain',
   'holster_revolver_chest', 'holster_revolver_hip',
