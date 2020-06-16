@@ -19,7 +19,7 @@ var maleForm2 = {
   'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   'Eyepatch': ['', 'left', 'right'],
-  'Headband': ['', 'medium'/*, 'tied'*/],
+  'Headband': ['', 'medium', 'tied'],
   'Necklace': ['', 'chain', 'dogtags', 'stethoscope' ],
   'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
   'Earpiece': ['', 'microphone', 'scouter']
