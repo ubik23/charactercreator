@@ -301,9 +301,7 @@
                       <li id="shopButton" style="display:none;"><a href="#"><span class="menu-text">Shop</span></a></li>
                   </ul>
               </nav>
-              <button class="save-btn" type="button">
-                  <svg class="icon icon-cloud-upload"><use xlink:href="#icon-cloud-upload"></use></svg>
-              </button>
+              
             </header>
               <main id="content">
                 <svg id="svg1" class="" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
@@ -407,11 +405,11 @@
                     <form id="login-form"action="#">
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Username</label>
-                        <input class="first-input overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
+                        <input class="first-input overlay__input overlay__input__username" type="text" autocomplete="username" placeholder="Enter Username" name="uname" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Password</label>
-                        <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
+                        <input class="overlay__input overlay__input__password" type="password" autocomplete="current-password" placeholder="Enter Password" name="psw" required>
                       </div>
                       <div class="overlay__container overlay__container--buttons">
                         <button type="submit" class="btn">Login</button>
@@ -439,15 +437,15 @@
                     <form id="register-form"action="#">
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Email address</label>
-                        <input class="first-input overlay__input overlay__input__email" type="email" placeholder="Enter Email" name="email" required>
+                        <input class="first-input overlay__input overlay__input__email" type="email" autocomplete="username" placeholder="Enter Email" name="email" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Username</label>
-                        <input class="overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
+                        <input class="overlay__input overlay__input__username" type="text" autocomplete="username" placeholder="Enter Username" name="uname" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Password</label>
-                        <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
+                        <input class="overlay__input overlay__input__password" type="password" autocomplete="new-password" placeholder="Enter Password" name="psw" required>
                       </div>
                       <div class="overlay__container overlay__container--buttons">
                         <button type="submit" class="btn">Register</button>
@@ -528,7 +526,8 @@
                                 <p>The Character Creator aims to provide a fun and easy way to help you find a look for <strong>your</strong> characters. Just like the japanese kisekae (electronic paper dolls), you pick and choose items from a list to ornate your character with. It is free to use and will always remain free to use. For storytellers looking for spritesheets of their characters,  we offer those services on demand.</p>
                                 <p>The website was launched on January 11th 2014 with only basic functionality. Since then, new features and content have been added with every update, see details on our <a href="http://facebook.com/thecharactercreator">facebook page</a>.</p>
                                 <p>If you have any questions or comments, or if you want to get involved, either as a programmer or an artist, <a href="mailto:frederic@charactercreator.org">email your request</a>.</p>
-                            </div>
+                                <p class="center-text">copyright © 2014-2020 Frederic Guimont</p>
+                            </div> 
                       </div>
                 </div>
             </div>
@@ -618,7 +617,7 @@
                 <img src="credits/atom-4.svg" alt="Atom"/>
               </div>
               <div class="overlay__credits__row">
-                <img src="credits/nginx.svg" alt="NGINX"/>
+                <img src="credits/caddy.svg" alt="Caddy"/>
                 <img src="credits/couchdb.svg" alt="CouchDB"/>
               </div>
               <div class="overlay__credits__row">
@@ -633,7 +632,7 @@
                 <img src="credits/github.svg" alt="Github"/>
                 <img src="credits/Gnulinux.svg" alt="GNU-Linux"/>
               </div>
-              <p>&copy; copyright 2018 Frédéric Guimont.</p>
+              <p>&copy; copyright  2014-2020 Frederic Guimont.</p>
           </div>
         </div>
       </div>

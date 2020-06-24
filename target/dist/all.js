@@ -4807,40 +4807,6 @@ function coverBottom(forms) {
   }
 }
 
-function shopLink(imageURL) {
-  var baseURL = "https://www.zazzle.com/api/create/"
-  var at = '238374563507309960'; // 18 digit member account id;
-  var rf = '238374563507309960'; // 18 digit associate id, not required;
-  var ax = 'linkover'; // Type of API request;
-  var sr;
-  var cg = '196187077307471583'; // Test category id.
-  var pd = '235941813349728811'; // 18 digit Template product ID (found in URL of template), men's short sleeve t-shirt;
-  var ed = 'true';
-  var tc = '';
-  var ic = '';
-  var t_image1_iid; // Image URL
-  var t_image2_iid;
-  var t_text1_txt;
-  var t_text2_txt;
-  var t_text1_txtclr;
-}
-
-function upload() {
-  // ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Upload', eventLabel: 'Upload SVG file of character'});
-  var text = getSVG();
-
-  fetch('/upload', {
-  method: 'put',
-  headers: { 'content-type': 'text/plain' },
-  body: text
-})
-.then(function (res)  { return res.json() })
-// ici tu voudras faire quelque chose avec la valeur de url
-.then(function ({size, url}) { console.log(size, url); return url })
-// ou afficher une erreur en cas de probleme
-.catch(function (error) { console.error('To Err is human, to forgive, divine.', error) })
-}
-
 
 function showSidebarLeft() {
     var sidebarLeft = document.querySelector('#sidebar-left');
