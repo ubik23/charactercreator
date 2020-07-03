@@ -1,11 +1,4 @@
-node_modules
-was-node_modules
-log
-bower_components
+node_modules/
 .DS_Store
-shop.js
 cc-v2.code-workspace
-css/
-target-ungit/
-target/
-
+src/css/

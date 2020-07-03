@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Character Creator",
   "scripts": {
+    "sass": "sass src/sass/main.scss src/css/styles.css",
     "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
