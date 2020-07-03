@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "Character Creator",
   "scripts": {
-    "build": "cat src/lib/*.js src/js/*.js > dist/all.js",
-    "sass": "sass src/sass/main.scss dist/styles.css",
+    "build:js": "cat src/lib/*.js src/js/*.js > dist/all.js",
+    "build:css": "sass src/sass/main.scss dist/styles.css",
+    "build": "npm run build:css && npm run build:js",
     "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
