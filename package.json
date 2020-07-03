@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
+    "sass": "^1.26.9",
     "standard": "^14.3.4"
   }
 }
