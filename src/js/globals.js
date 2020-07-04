@@ -187,6 +187,7 @@ var femaleForm3 = {
   Necklace: ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle'],
   Bra: ['', 'bow', 'grid', 'sports'],
   Top: ['', 'asymetric', 'loop', 'tank', 'tube_v'],
+  Shirt: ['', 'sweat'],
   Button: ['', 'heart', 'peace', 'smile'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
   Scarf: ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'overhand', 'once_around', 'drape']
@@ -268,6 +269,7 @@ var layersFemale = [
   'dress_accolade', 'dress_bobafett', 'dress_casual', 'dress_corset', 'dress_chinatown', 'dress_suit', 'dress_short', 'dress_waitress', 'dress_cheerleader', 'dress_japanese_pleat', 'dress_german_expression', 'dress_parisian_fall', 'dress_zig_zag', 'dress_zip',
   'vest_yellow',
   'holster_revolver_chest',
+  'shirt_sweat',
   'belt_satchel', 'belt_bullet',
   'necklace_dogtags', 'necklace_heart', 'necklace_perl', 'necklace_princess',
   'collar_egyptian', 'collar_leather', 'collar_metal',
