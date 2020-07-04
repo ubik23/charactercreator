@@ -1,7 +1,3 @@
-if (typeof ga === undefined) {
-  function ga() {}
-}
-
 window.onload = function () {
   var c // Main variable to hold user choices and preferences
   var aboutBtn = document.querySelector('#aboutButton')
