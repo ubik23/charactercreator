@@ -1,4 +1,4 @@
 node_modules/
 .DS_Store
 cc-v2.code-workspace
-dist/
+src/dist/
