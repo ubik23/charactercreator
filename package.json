@@ -4,7 +4,7 @@
   "description": "Character Creator",
   "scripts": {
     "start": "serve src",
-    "clean": "rm src/dist/all.js src/dist/styles.css*",
+    "clean": "rm -fr prod/* src/dist/*",
     "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js",
