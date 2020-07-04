@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "description": "Character Creator",
   "scripts": {
+    "start": "php -S localhost:1212 -t src",
+    "clean": "rm src/dist/all.js src/dist/styles.css*",
     "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
-    "build:css": "sass src/sass/main.scss src/dist/styles.css",
+    "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js",
     "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
