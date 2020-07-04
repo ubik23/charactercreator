@@ -8,7 +8,7 @@
     "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js",
-    "lint": "standard",
+    "lint": "standard src/js/*.js",
     "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/layer src/credits src/index.html prod/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
