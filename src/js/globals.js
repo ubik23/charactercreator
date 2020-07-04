@@ -1,93 +1,93 @@
 var maleForm1 = {
-  'Body_head' : ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
-  'Ears' : ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
-  'Iris' : ['default'],
-  'Pupils' : ['round', 'feline', 'star'],
-  'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
-  'Mouth' : [''],
-  'Facialhair': ['','beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
-  'Hair': ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'flowing', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
-  'Freckles': ['', 'medium'],
+  Body_head: ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
+  Ears: ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
+  Iris: ['default'],
+  Pupils: ['round', 'feline', 'star'],
+  Nose: ['default', 'pointed', 'roman', 'strong', 'syrid'],
+  Mouth: [''],
+  Facialhair: ['', 'beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
+  Hair: ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'flowing', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
+  Freckles: ['', 'medium'],
   // 'Age' : ['', 'lines'],
-  'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
-};
+  Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
+}
 var maleForm2 = {
-  'Smoke' : ['', /*'blunt',*/ 'cigar', /*'cigarette', 'filter',*/ 'pipe_subgenius'],
-  'Earings': ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-  'Hat': ['','baseball','berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top','motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
-  'Horns': ['', 'devil', 'large'],
-  'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
-  'Eyepatch': ['', 'left', 'right'],
-  'Headband': ['', 'medium', 'tied'],
-  'Necklace': ['', 'chain', 'dogtags', 'stethoscope' ],
-  'Warpaint': ['', 'clawmarks', 'football', 'stripe'],
-  'Earpiece': ['', 'microphone', 'scouter']
-};
+  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Earings: ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
+  Hat: ['', 'baseball', 'berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
+  Horns: ['', 'devil', 'large'],
+  Mask: ['', /* 'arrow', */ 'guy_fawkes', 'robin', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  Eyepatch: ['', 'left', 'right'],
+  Headband: ['', 'medium', 'tied'],
+  Necklace: ['', 'chain', 'dogtags', 'stethoscope'],
+  Warpaint: ['', 'clawmarks', 'football', 'stripe'],
+  Earpiece: ['', 'microphone', 'scouter']
+}
 var maleForm3 = {
-  'Shirt': ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
-  'Tie': ['', 'neck', 'bolo', 'bow'],
-  'Vest': ['', 'vest', 'lined', 'yellow'],
-  'Button': ['', 'heart', 'peace', 'smile'],
-  'Holster' : ['', 'revolver_chest', 'revolver_hip'],
-  'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
-  'Scarf' : ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
-};
+  Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
+  Tie: ['', 'neck', 'bolo', 'bow'],
+  Vest: ['', 'vest', 'lined', 'yellow'],
+  Button: ['', 'heart', 'peace', 'smile'],
+  Holster: ['', 'revolver_chest', 'revolver_hip'],
+  Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
+  Scarf: ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
+}
 var maleForm4 = {
-  'Body': [ 'default', 'athletic', 'veiny', 'android-00'],
-  'Scar': ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart' , 'vertical_left', 'vertical_right'],
-  'Tatoo': ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
-  'Suit': ['', 'borat', 'wetsuit'],
-  'Jacket': ['', 'suit', 'suit_open'],
-  'Coat': ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard'],
-  'Cloak': ['', 'default', 'dracula'],
-  'Armband' : ['', 'bandage_left', 'bandage_right'],
-  'Watch': ['', 'generic', 'sinn'],
-  'Gloves': ['', 'boxing', 'lab', 'motorcycle'],
-  'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton'],
-  'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
-};
+  Body: ['default', 'athletic', 'veiny', 'android-00'],
+  Scar: ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart', 'vertical_left', 'vertical_right'],
+  Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
+  Suit: ['', 'borat', 'wetsuit'],
+  Jacket: ['', 'suit', 'suit_open'],
+  Coat: ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard'],
+  Cloak: ['', 'default', 'dracula'],
+  Armband: ['', 'bandage_left', 'bandage_right'],
+  Watch: ['', 'generic', 'sinn'],
+  Gloves: ['', 'boxing', 'lab', 'motorcycle'],
+  Wings: ['', 'angel', 'devil', 'fairy', 'skeleton'],
+  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
+}
 var maleForm5 = {
-  'Underwear': ['', 'plain', 'boxers'],
-  'Pants': ['', 'cargo', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
-  'Belt': ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather'],
-  'Kneepads': ['', 'skate']
-};
+  Underwear: ['', 'plain', 'boxers'],
+  Pants: ['', 'cargo', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
+  Belt: ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather'],
+  Kneepads: ['', 'skate']
+}
 var maleForm6 = {
-  'Socks': ['','socks'],
-  'Shoes': ['','cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon']
-};
+  Socks: ['', 'socks'],
+  Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon']
+}
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
   'cloak_default_4_of_4', 'cloak_dracula_2_of_2',
   'coat_biker_3_of_3', 'coat_trench_4_of_4',
-  'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
-  'hat_country_2_of_2','hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2','hat_fedora_2_of_2',
+  'pet_doge', 'pet_vulture', 'pet_parrot', 'pet_feline', 'pet_raven', 'pet_rat', 'pet_canine', 'pet_siamese_cat', 'pet_gerbil', 'pet_chicken', 'pet_fox',
+  'hat_country_2_of_2', 'hat_helmet_vietnam_2_of_2', 'hat_strainer_2_of_2', 'hat_fedora_2_of_2',
   'headband_medium_2_of_2',
   'hair_down_3_of_3', 'hair_manga_2_of_2', 'hair_pigtails_2_of_2',
   'coat_fall_long_3_of_3',
   'coat_trench_3_of_4',
-  'coat_scientist_2_of_2','coat_lab_3_of_3',
-  'jacket_suit_2_of_2','jacket_suit_open_2_of_2',
+  'coat_scientist_2_of_2', 'coat_lab_3_of_3',
+  'jacket_suit_2_of_2', 'jacket_suit_open_2_of_2',
   'pants_snowboard_3_of_3',
   'shoes_flip-flops_2_of_2',
   'body_torso_default', 'body_torso_athletic', 'body_torso_veiny', 'body_torso_android-00',
   'body_leg_right_default', 'body_leg_left_default', 'body_leg_right_athletic', 'body_leg_left_athletic', 'body_leg_right_veiny', 'body_leg_left_veiny', 'body_leg_right_android-00', 'body_leg_left_android-00',
   'body_foot_right', 'body_foot_left',
-  'tatoo_aum_chest','tatoo_chaos_chest',
+  'tatoo_aum_chest', 'tatoo_chaos_chest',
   'scar_vertical_heart', 'scar_horizontal_neck',
-  'underwear_plain','underwear_boxers',
+  'underwear_plain', 'underwear_boxers',
   'shirt_kurta_2_of_2', 'shirt_tanktop_2_of_2',
   'body_arm_right_default', 'body_arm_left_default', 'body_arm_right_athletic', 'body_arm_left_athletic', 'body_arm_right_veiny', 'body_arm_left_veiny', 'body_arm_right_android-00', 'body_arm_left_android-00',
   'body_forearm_right_default', 'body_forearm_left_default', 'body_forearm_right_athletic', 'body_forearm_left_athletic', 'body_forearm_right_veiny', 'body_forearm_left_veiny', 'body_forearm_right_android-00', 'body_forearm_left_android-00',
   'body_hand_right', 'body_hand_left',
-  'tatoo_aum_left','tatoo_aum_right','tatoo_chaos_left','tatoo_chaos_right',
+  'tatoo_aum_left', 'tatoo_aum_right', 'tatoo_chaos_left', 'tatoo_chaos_right',
   'armband_bandage_left', 'armband_bandage_right',
   'shirt_tanktop_1_of_2',
   'suit_borat', 'suit_wetsuit',
   'socks_socks',
-  'shoes_cowboy','shoes_hightops','shoes_leather', 'shoes_loafers', 'shoes_flip-flops_1_of_2', 'shoes_moon',
+  'shoes_cowboy', 'shoes_hightops', 'shoes_leather', 'shoes_loafers', 'shoes_flip-flops_1_of_2', 'shoes_moon',
   'watch_generic', 'watch_sinn',
   'shirt_colar_2_of_2', 'shirt_tshirt', 'shirt_turtleneck',
   'pants_cargo_2_of_2', 'pants_jeans_1_of_2', 'pants_jeans_rolled_1_of_2', 'pants_leather', 'pants_suit_1_of_2', 'pants_snowboard_2_of_3',
@@ -95,15 +95,15 @@ var layersMale = [
   'pants_cargo_1_of_2', 'pants_jeans_2_of_2', 'pants_jeans_rolled_2_of_2', 'pants_suit_2_of_2', 'pants_snowboard_1_of_3',
   'kneepads_skate',
   'belt_straps',
-  'tie_bolo', 'tie_bow_2_of_2','tie_neck',
+  'tie_bolo', 'tie_bow_2_of_2', 'tie_neck',
   'shirt_colar_1_of_2',
   'vest_vest', 'vest_lined',
   'tie_bow_1_of_2',
-  'gloves_lab','gloves_motorcycle', 'gloves_boxing',
+  'gloves_lab', 'gloves_motorcycle', 'gloves_boxing',
   'shirt_kurta_1_of_2',
   'necklace_dogtags', 'necklace_chain',
   'holster_revolver_chest', 'holster_revolver_hip',
-  'jacket_suit_1_of_2','jacket_suit_open_1_of_2',
+  'jacket_suit_1_of_2', 'jacket_suit_open_1_of_2',
   'vest_yellow',
   'coat_fall_long_2_of_3',
   'coat_fall_long_1_of_3', 'coat_scientist_1_of_2', 'coat_lab_2_of_3', 'coat_snowboard',
@@ -117,117 +117,117 @@ var layersMale = [
   'cloak_dracula_1_of_2',
   'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_artillery', 'shoulderpads_plated_1_of_2', 'shoulderpads_plated_2_of_2', 'shoulderpads_spikes_1_of_2',
-  'scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_chest_warmer','scarf_overhand','scarf_once_around','scarf_drape',
+  'scarf_parisian_knot', 'scarf_twice_around', 'scarf_four_in_hand', 'scarf_reverse_drape_cross', 'scarf_reverse_drape_tuck', 'scarf_fake_knot', 'scarf_reverse_drape', 'scarf_chest_warmer', 'scarf_overhand', 'scarf_once_around', 'scarf_drape',
   'age_lines',
   'hair_down_2_of_3',
   'hat_turban_2_of_2',
-  'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
+  'body_head_default', 'body_head_square', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_triangle',
   'hair_wavy',
   'ears_default', 'ears_elven', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
-  'earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right',
+  'earings_gold_rings', 'earings_gold_ring_left', 'earings_gold_ring_right',
   'sockets_neutral', 'sockets_alertness', 'sockets_amusement', 'sockets_anger', 'sockets_anxiety', 'sockets_aversion', 'sockets_betrayal', 'sockets_caged', 'sockets_concern', 'sockets_cruel', 'sockets_dejection', 'sockets_desperation', 'sockets_disdain', 'sockets_disgust', 'sockets_eeww', 'sockets_fear', 'sockets_grief', 'sockets_horror', 'sockets_indignation', 'sockets_joy', 'sockets_laughing', 'sockets_melancholy', 'sockets_omg', 'sockets_outrage', 'sockets_pain', 'sockets_rage', 'sockets_revulsion', 'sockets_sadness', 'sockets_satisfaction', 'sockets_shock', 'sockets_sterness', 'sockets_surprise', 'sockets_terror', 'sockets_wonder', 'sockets_wtf',
   'freckles_medium',
-  'scar_vertical_left','scar_vertical_right',
+  'scar_vertical_left', 'scar_vertical_right',
   'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_syrid_2_of_2', 'nose_strong_2_of_2',
   'mouth_neutral', 'mouth_alertness', 'mouth_amusement', 'mouth_anger', 'mouth_anxiety', 'mouth_aversion', 'mouth_betrayal', 'mouth_caged', 'mouth_concern', 'mouth_cruel', 'mouth_dejection', 'mouth_desperation', 'mouth_disdain', 'mouth_disgust', 'mouth_eeww', 'mouth_fear', 'mouth_grief', 'mouth_horror', 'mouth_indignation', 'mouth_joy', 'mouth_laughing', 'mouth_melancholy', 'mouth_omg', 'mouth_outrage', 'mouth_pain', 'mouth_rage', 'mouth_revulsion', 'mouth_sadness', 'mouth_satisfaction', 'mouth_shock', 'mouth_sterness', 'mouth_surprise', 'mouth_terror', 'mouth_wonder', 'mouth_wtf',
   'nose_default_1_of_2', 'nose_strong_1_of_2',
   'warpaint_stripe', 'warpaint_football', 'warpaint_clawmarks',
-  'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock',  'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
+  'eyes_neutral', 'eyes_alertness', 'eyes_amusement', 'eyes_anger', 'eyes_anxiety', 'eyes_aversion', 'eyes_betrayal', 'eyes_caged', 'eyes_concern', 'eyes_cruel', 'eyes_dejection', 'eyes_desperation', 'eyes_disdain', 'eyes_disgust', 'eyes_eeww', 'eyes_fear', 'eyes_grief', 'eyes_horror', 'eyes_indignation', 'eyes_joy', 'eyes_laughing', 'eyes_melancholy', 'eyes_omg', 'eyes_outrage', 'eyes_pain', 'eyes_rage', 'eyes_revulsion', 'eyes_sadness', 'eyes_satisfaction', 'eyes_shock', 'eyes_sterness', 'eyes_surprise', 'eyes_terror', 'eyes_wonder', 'eyes_wtf',
   'eyeballs_default',
   'lashes_neutral', 'lashes_alertness', 'lashes_amusement', 'lashes_anger', 'lashes_anxiety', 'lashes_aversion', 'lashes_betrayal', 'lashes_caged', 'lashes_concern', 'lashes_cruel', 'lashes_dejection', 'lashes_desperation', 'lashes_disdain', 'lashes_disgust', 'lashes_eeww', 'lashes_fear', 'lashes_grief', 'lashes_horror', 'lashes_indignation', 'lashes_joy', 'lashes_laughing', 'lashes_melancholy', 'lashes_omg', 'lashes_outrage', 'lashes_pain', 'lashes_rage', 'lashes_revulsion', 'lashes_sadness', 'lashes_satisfaction', 'lashes_shock', 'lashes_sterness', 'lashes_surprise', 'lashes_terror', 'lashes_wonder', 'lashes_wtf',
   'brows_neutral', 'brows_alertness', 'brows_amusement', 'brows_anger', 'brows_anxiety', 'brows_aversion', 'brows_betrayal', 'brows_caged', 'brows_concern', 'brows_cruel', 'brows_dejection', 'brows_desperation', 'brows_disdain', 'brows_disgust', 'brows_eeww', 'brows_fear', 'brows_grief', 'brows_horror', 'brows_indignation', 'brows_joy', 'brows_laughing', 'brows_melancholy', 'brows_omg', 'brows_outrage', 'brows_pain', 'brows_rage', 'brows_revulsion', 'brows_sadness', 'brows_satisfaction', 'brows_shock', 'brows_sterness', 'brows_surprise', 'brows_terror', 'brows_wonder', 'brows_wtf',
-  'facialhair_beard_boxed','facialhair_beard_ducktail','facialhair_beard_guru','facialhair_beard_intelectual','facialhair_beard_rap', 'facialhair_beard_raw',
+  'facialhair_beard_boxed', 'facialhair_beard_ducktail', 'facialhair_beard_guru', 'facialhair_beard_intelectual', 'facialhair_beard_rap', 'facialhair_beard_raw',
   'facialhair_chinpuff',
   'facialhair_goatee', 'facialhair_goatee_raw',
-  'facialhair_moustache','facialhair_moustache_dali','facialhair_moustache_thick','facialhair_muttonchops','facialhair_muttonchops_friendly','facialhair_soulpatch','facialhair_winnfield',
+  'facialhair_moustache', 'facialhair_moustache_dali', 'facialhair_moustache_thick', 'facialhair_muttonchops', 'facialhair_muttonchops_friendly', 'facialhair_soulpatch', 'facialhair_winnfield',
   'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_syrid_1_of_2',
   'scar_horizontal_nose',
   'mask_robin', 'mask_hospital',
-  'eyepatch_left','eyepatch_right',
+  'eyepatch_left', 'eyepatch_right',
   'hair_afro', 'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_bangs', 'hair_crewcut', 'hair_down_1_of_3', 'hair_gelled', 'hair_manga_1_of_2', 'hair_mohawk', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_short', 'hair_spider', 'hair_wild', 'hair_wreckingball',
   'headband_medium_1_of_2', 'headband_tied',
   'mask_guy_fawkes', 'mask_arrow',
   'earpiece_microphone', 'earpiece_scouter',
-  'glasses_alien','glasses_designer','glasses_fpv','glasses_goggles','glasses_google','glasses_hipster','glasses_kurt', 'glasses_neon', 'glasses_oakley','glasses_rayban','glasses_round','glasses_visor','glasses_wayrafer',
+  'glasses_alien', 'glasses_designer', 'glasses_fpv', 'glasses_goggles', 'glasses_google', 'glasses_hipster', 'glasses_kurt', 'glasses_neon', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_visor', 'glasses_wayrafer',
   'hair_emo',
-  'hat_baseball','hat_berret','hat_berret_badge','hat_cap','hat_chinese_farmer','hat_country_1_of_2','hat_cowboy','hat_football','hat_fox-ears', 'hat_tuque','hat_fedora_1_of_2','hat_jester','hat_top','hat_magritte','hat_police','hat_scumbag','hat_strainer_1_of_2', 'hat_turban_1_of_2', 'hat_helmet_vietnam_1_of_2','hat_motorcycle','hat_xmas',
-  'jewelry_earings','jewelry_nosering','jewelry_watch',
-  'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
+  'hat_baseball', 'hat_berret', 'hat_berret_badge', 'hat_cap', 'hat_chinese_farmer', 'hat_country_1_of_2', 'hat_cowboy', 'hat_football', 'hat_fox-ears', 'hat_tuque', 'hat_fedora_1_of_2', 'hat_jester', 'hat_top', 'hat_magritte', 'hat_police', 'hat_scumbag', 'hat_strainer_1_of_2', 'hat_turban_1_of_2', 'hat_helmet_vietnam_1_of_2', 'hat_motorcycle', 'hat_xmas',
+  'jewelry_earings', 'jewelry_nosering', 'jewelry_watch',
+  'mask_horse', 'mask_stormtrooper', 'mask_jason', 'mask_cat',
   'horns_devil',
   'cloak_default_1_of_4',
   'horns_large',
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius'
-];
+]
 
 var femaleForm1 = {
-  'Body_head' : ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
-  'Ears' : ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
-  'Iris' : ['default'],
-  'Pupils' : ['round', 'feline', 'star'],
-  'Nose' : ['default', 'pointed', 'roman', 'strong', 'syrid'],
-  'Mouth' : [''],
-  'Hair': ['','afro', 'bangs', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'starlet', 'odango', 'emo', 'punky', 'spider', 'wreckingball'],
-  'Freckles': ['', 'medium'],
-  'Emotion': ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
-};
+  Body_head: ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
+  Ears: ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
+  Iris: ['default'],
+  Pupils: ['round', 'feline', 'star'],
+  Nose: ['default', 'pointed', 'roman', 'strong', 'syrid'],
+  Mouth: [''],
+  Hair: ['', 'afro', 'bangs', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'starlet', 'odango', 'emo', 'punky', 'spider', 'wreckingball'],
+  Freckles: ['', 'medium'],
+  Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
+}
 var femaleForm2 = {
-  'Smoke' : ['', /*'blunt',*/ 'cigar', /*'cigarette', 'filter',*/ 'pipe_subgenius'],
-  'Makeup': ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
-  'Earings': ['', 'bells','death_drop','double-drop','gold_rings', 'gold_ring_right', 'gold_ring_left','lightning','triangle_mobile'],
-  'Eyepatch': ['', 'left', 'right'],
-  'Glasses': ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
-  'Headband': ['', 'medium'/*, 'tied'*/],
-  'Hat': ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
-  'Mask': ['', /*'arrow',*/ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
-  'Horns': ['', 'devil'],
-  'Earpiece': ['', 'microphone', 'scouter'],
-  'Veil': ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
-};
+  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Makeup: ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
+  Earings: ['', 'bells', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
+  Eyepatch: ['', 'left', 'right'],
+  Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
+  Headband: ['', 'medium'/*, 'tied' */],
+  Hat: ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
+  Mask: ['', /* 'arrow', */ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
+  Horns: ['', 'devil'],
+  Earpiece: ['', 'microphone', 'scouter'],
+  Veil: ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
+}
 var femaleForm3 = {
-  'Collar' : ['', 'egyptian', 'leather', 'metal'],
-  'Necklace' : ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle'],
-  'Bra': ['', 'bow', 'grid', 'sports'],
-  'Top': ['', 'asymetric', 'loop', 'tank', 'tube_v'],
-  'Button': ['', 'heart', 'peace', 'smile'],
-  'Shoulderpads' : ['', 'artillery', 'general', 'plated', 'spikes'],
-  'Scarf' : ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape','overhand', 'once_around', 'drape']
-};
+  Collar: ['', 'egyptian', 'leather', 'metal'],
+  Necklace: ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle'],
+  Bra: ['', 'bow', 'grid', 'sports'],
+  Top: ['', 'asymetric', 'loop', 'tank', 'tube_v'],
+  Button: ['', 'heart', 'peace', 'smile'],
+  Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
+  Scarf: ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'overhand', 'once_around', 'drape']
+}
 var femaleForm4 = {
-  'Body': [ 'default', 'athletic', 'veiny', 'android-00'],
-  'Tatoo': ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
-  'Nails': ['short', 'long', 'claws'],
-  'Holster': ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
-  'Suit': ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
-  'Blouse': ['', 'cherry'],
-  'Dress': ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
-  'Coat' : ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
-  'Armband' : ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
-  'Bracelet' : ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
-  'Gloves' : ['', 'silk_fingerless_striped'],
-  'Pet': ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
-  'Vest': ['', 'yellow'],
-  'Cloak': ['', 'dracula'],
-  'Wings' : ['', 'angel', 'devil', 'fairy', 'skeleton']
-};
+  Body: ['default', 'athletic', 'veiny', 'android-00'],
+  Tatoo: ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
+  Nails: ['short', 'long', 'claws'],
+  Holster: ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
+  Suit: ['', 'asymetric', 'bands', 'onepiece', 'wetsuit'],
+  Blouse: ['', 'cherry'],
+  Dress: ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', 'suit', 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
+  Coat: ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
+  Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
+  Bracelet: ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
+  Gloves: ['', 'silk_fingerless_striped'],
+  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
+  Vest: ['', 'yellow'],
+  Cloak: ['', 'dracula'],
+  Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
+}
 var femaleForm5 = {
-  'Underwear': ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
-  'Shorts': ['', 'bikini', 'short'],
-  'Skirt': ['', 'a-line', 'draped', 'school_short', 'school', 'school_long'/*, 'tube'*/],
-  'Pants': ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
-  'Belt': ['', 'bullet', 'utility', 'satchel'],
-  'Kneepads': ['', 'skate']
-};
+  Underwear: ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
+  Shorts: ['', 'bikini', 'short'],
+  Skirt: ['', 'a-line', 'draped', 'school_short', 'school', 'school_long'/*, 'tube' */],
+  Pants: ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
+  Belt: ['', 'bullet', 'utility', 'satchel'],
+  Kneepads: ['', 'skate']
+}
 var femaleForm6 = {
-  'Leggings': ['', 'fishnet', 'regular', 'striped', 'torn'],
-  'Shoes': ['','cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
-};
+  Leggings: ['', 'fishnet', 'regular', 'striped', 'torn'],
+  Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
+}
 var layersFemale = [
   'wings_devil', 'wings_angel', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
-  'pet_doge','pet_vulture','pet_parrot','pet_feline','pet_raven','pet_rat','pet_canine','pet_siamese_cat','pet_gerbil','pet_chicken','pet_fox',
+  'pet_doge', 'pet_vulture', 'pet_parrot', 'pet_feline', 'pet_raven', 'pet_rat', 'pet_canine', 'pet_siamese_cat', 'pet_gerbil', 'pet_chicken', 'pet_fox',
   'cloak_dracula_2_of_2',
   'coat_biker_2_of_2', 'coat_lab_3_of_3', 'coat_winter_furcollar_3_of_3', 'coat_winter_tubecollar_3_of_3',
-  'hat_beach_2_of_2','hat_country_2_of_2','hat_helmet_vietnam_2_of_2','hat_strainer_2_of_2',
+  'hat_beach_2_of_2', 'hat_country_2_of_2', 'hat_helmet_vietnam_2_of_2', 'hat_strainer_2_of_2',
   'blouse_cherry_2_of_2',
   'headband_medium_2_of_2',
   'veil_shayla_2_of_2',
@@ -238,7 +238,7 @@ var layersFemale = [
   'body_arm_right_athletic', 'body_arm_right_default', 'body_arm_right_veiny', 'body_arm_right_android-00',
   'armband_egyptian_right',
   'shoulderpads_plated_2_of_2',
-  'body_torso_athletic', 'body_torso_default','body_torso_veiny','body_torso_android-00',
+  'body_torso_athletic', 'body_torso_default', 'body_torso_veiny', 'body_torso_android-00',
   'body_leg_right_athletic', 'body_leg_right_default', 'body_leg_right_veiny', 'body_leg_right_android-00',
   'body_foot_right',
   'body_leg_left_athletic', 'body_leg_left_default', 'body_leg_left_veiny', 'body_leg_left_android-00',
@@ -247,30 +247,30 @@ var layersFemale = [
   'body_forearm_left_athletic', 'body_forearm_left_default', 'body_forearm_left_veiny', 'body_forearm_left_android-00',
   'body_forearm_right_athletic', 'body_forearm_right_default', 'body_forearm_right_veiny', 'body_forearm_right_android-00',
   'body_hand_right',
-  'nails_short_2_of_2','nails_long_2_of_2','nails_claws_2_of_2',
-  'tatoo_chaos_chest','tatoo_chaos_left','tatoo_chaos_right','tatoo_archeopteryx_left',
+  'nails_short_2_of_2', 'nails_long_2_of_2', 'nails_claws_2_of_2',
+  'tatoo_chaos_chest', 'tatoo_chaos_left', 'tatoo_chaos_right', 'tatoo_archeopteryx_left',
   'gloves_silk_fingerless_striped_2_of_2',
   'armband_bandage_right', 'armband_bandage_left', 'armband_egyptian_left',
   'bracelet_egyptian_left', 'bracelet_egyptian_right', 'bracelet_band_right_1_of_2', 'bracelet_band_left_1_of_2', 'bracelet_ornamental_right_1_of_2', 'bracelet_perl_right_1_of_2', 'bracelet_rings_left', 'bracelet_rings_right', 'bracelet_wonder_left', 'bracelet_wonder_right',
-  'underwear_boyshorts','underwear_plain','underwear_string','underwear_tanga','underwear_thong',
+  'underwear_boyshorts', 'underwear_plain', 'underwear_string', 'underwear_tanga', 'underwear_thong',
   'leggings_fishnet', 'leggings_regular', 'leggings_striped', 'leggings_torn', 'pants_yoga_torn_3_of_3',
   'bra_bow', 'bra_grid', 'bra_sports',
   'suit_asymetric', 'suit_bands', 'suit_onepiece', 'suit_wetsuit',
   'shoes_cowboy_2_of_2',
-  'shoes_cowboy_1_of_2','shoes_hightops','shoes_highheels','shoes_moon','shoes_plateforms','shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
-  'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn','pants_jeans_bellbottoms',
+  'shoes_cowboy_1_of_2', 'shoes_hightops', 'shoes_highheels', 'shoes_moon', 'shoes_plateforms', 'shoes_sandals_roman', 'shoes_flip-flops_1_of_2',
+  'pants_cargo', 'pants_yoga_torn_2_of_3', 'pants_yoga', 'pants_yoga_torn_1_of_3', 'pants_jeans', 'pants_jeans_rolled', 'pants_jeans_torn', 'pants_jeans_bellbottoms',
   'shorts_bikini', 'shorts_short',
   'kneepads_skate',
   'holster_revolver_thigh_1_of_2',
-  'skirt_a-line', 'skirt_draped', 'skirt_school','skirt_school_short','skirt_school_long', 'skirt_tube',
+  'skirt_a-line', 'skirt_draped', 'skirt_school', 'skirt_school_short', 'skirt_school_long', 'skirt_tube',
   'top_asymetric', 'top_loop', 'top_tank', 'top_tube_v',
   'blouse_cherry_1_of_2',
   'holster_revolver_hip',
-  'dress_accolade', 'dress_bobafett', 'dress_casual','dress_corset', 'dress_chinatown', 'dress_suit','dress_short','dress_waitress','dress_cheerleader','dress_japanese_pleat','dress_german_expression','dress_parisian_fall', 'dress_zig_zag', 'dress_zip',
+  'dress_accolade', 'dress_bobafett', 'dress_casual', 'dress_corset', 'dress_chinatown', 'dress_suit', 'dress_short', 'dress_waitress', 'dress_cheerleader', 'dress_japanese_pleat', 'dress_german_expression', 'dress_parisian_fall', 'dress_zig_zag', 'dress_zip',
   'vest_yellow',
   'holster_revolver_chest',
   'belt_satchel', 'belt_bullet',
-  'necklace_dogtags', 'necklace_heart', 'necklace_perl','necklace_princess',
+  'necklace_dogtags', 'necklace_heart', 'necklace_perl', 'necklace_princess',
   'collar_egyptian', 'collar_leather', 'collar_metal',
   'necklace_squared-circle',
   'veil_al-amira_2_of_2', 'veil_khimar_2_of_2',
@@ -280,23 +280,23 @@ var layersFemale = [
   'cloak_dracula_1_of_2',
   'button_heart', 'button_peace', 'button_smile',
   'shoulderpads_general',
-  'scarf_chest_warmer','scarf_parisian_knot','scarf_twice_around','scarf_four_in_hand','scarf_reverse_drape_cross','scarf_reverse_drape_tuck','scarf_fake_knot','scarf_reverse_drape','scarf_overhand','scarf_once_around','scarf_drape',
+  'scarf_chest_warmer', 'scarf_parisian_knot', 'scarf_twice_around', 'scarf_four_in_hand', 'scarf_reverse_drape_cross', 'scarf_reverse_drape_tuck', 'scarf_fake_knot', 'scarf_reverse_drape', 'scarf_overhand', 'scarf_once_around', 'scarf_drape',
   'hair_down_2_of_3', 'hair_flowing_2_of_2',
-  'body_head_default','body_head_square','body_head_diamond','body_head_heart','body_head_oblong','body_head_oval','body_head_round','body_head_triangle',
+  'body_head_default', 'body_head_square', 'body_head_diamond', 'body_head_heart', 'body_head_oblong', 'body_head_oval', 'body_head_round', 'body_head_triangle',
   'ears_default', 'ears_elven', 'ears_outstretched', 'ears_pointed', 'ears_plugged', 'ears_unplugged',
   'tatoo_tribal_face',
-  'earings_bells','earings_death_drop','earings_double-drop','earings_gold_rings','earings_gold_ring_left','earings_gold_ring_right','earings_lightning','earings_perl','earings_triangle_mobile',
+  'earings_bells', 'earings_death_drop', 'earings_double-drop', 'earings_gold_rings', 'earings_gold_ring_left', 'earings_gold_ring_right', 'earings_lightning', 'earings_perl', 'earings_triangle_mobile',
   'sockets_neutral', 'sockets_sterness', 'sockets_indignation', 'sockets_anger', 'sockets_rage', 'sockets_disdain', 'sockets_aversion', 'sockets_disgust', 'sockets_amusement', 'sockets_joy', 'sockets_laughter', 'sockets_dejection', 'sockets_melancholy', 'sockets_sadness', 'sockets_grief', 'sockets_alertness', 'sockets_wonder', 'sockets_surprise', 'sockets_shock',
   'nose_default_2_of_2', 'nose_pointed_2_of_2', 'nose_roman_2_of_2', 'nose_syrid_2_of_2', 'nose_strong_2_of_2',
   'mouth_neutral', 'mouth_sterness', 'mouth_indignation', 'mouth_anger', 'mouth_rage', 'mouth_disdain', 'mouth_aversion', 'mouth_disgust', 'mouth_amusement', 'mouth_joy', 'mouth_laughter', 'mouth_dejection', 'mouth_melancholy', 'mouth_sadness', 'mouth_grief', 'mouth_alertness', 'mouth_wonder', 'mouth_surprise', 'mouth_shock',
   'nose_default_1_of_2', 'nose_pointed_1_of_2', 'nose_roman_1_of_2', 'nose_syrid_1_of_2', 'nose_strong_1_of_2',
   'freckles_medium',
-  'makeup_blush', 'makeup_clawmarks', 'makeup_stripe', 'makeup_warpaint','makeup_gothic_eyeliner',
+  'makeup_blush', 'makeup_clawmarks', 'makeup_stripe', 'makeup_warpaint', 'makeup_gothic_eyeliner',
   'eyes_neutral', 'eyes_sterness', 'eyes_indignation', 'eyes_anger', 'eyes_rage', 'eyes_disdain', 'eyes_aversion', 'eyes_disgust', 'eyes_amusement', 'eyes_joy', 'eyes_laughter', 'eyes_dejection', 'eyes_melancholy', 'eyes_sadness', 'eyes_grief', 'eyes_alertness', 'eyes_wonder', 'eyes_surprise', 'eyes_shock',
   'eyeballs_default',
   'lashes_neutral', 'lashes_sterness', 'lashes_indignation', 'lashes_anger', 'lashes_rage', 'lashes_disdain', 'lashes_aversion', 'lashes_disgust', 'lashes_amusement', 'lashes_joy', 'lashes_laughter', 'lashes_dejection', 'lashes_melancholy', 'lashes_sadness', 'lashes_grief', 'lashes_alertness', 'lashes_wonder', 'lashes_surprise', 'lashes_shock',
   'brows_neutral', 'brows_sterness', 'brows_indignation', 'brows_anger', 'brows_rage', 'brows_disdain', 'brows_aversion', 'brows_disgust', 'brows_amusement', 'brows_joy', 'brows_laughter', 'brows_dejection', 'brows_melancholy', 'brows_sadness', 'brows_grief', 'brows_alertness', 'brows_wonder', 'brows_surprise', 'brows_shock',
-  'eyepatch_left','eyepatch_right',
+  'eyepatch_left', 'eyepatch_right',
   'mask_guy_fawkes', 'mask_hospital', 'mask_arrow',
   'tie_bow',
   'hair_short', 'hair_short_slick', 'hair_afro', 'hair_mohawk', 'hair_starlet_1_of_2', 'hair_wreckingball',
@@ -305,32 +305,32 @@ var layersFemale = [
   'headband_medium_1_of_2', 'headband_tied',
   'glasses_alien', 'glasses_fpv',
   'veil_al-amira_1_of_2', 'veil_hijab', 'veil_khimar_1_of_2', 'veil_niqab', 'veil_shayla_1_of_2',
-  'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_chinese_farmer', 'hat_football', 'hat_waitress','hat_police','hat_country_1_of_2','hat_cowboy', 'hat_fox-ears', 'hat_top','hat_scumbag','hat_tiara','hat_magritte','hat_strainer_1_of_2','hat_helmet_vietnam_1_of_2','hat_tuque','hat_cap','hat_motorcycle','hat_xmas',
+  'hat_baseball', 'hat_beach_1_of_2', 'hat_berret_badge', 'hat_chinese_farmer', 'hat_football', 'hat_waitress', 'hat_police', 'hat_country_1_of_2', 'hat_cowboy', 'hat_fox-ears', 'hat_top', 'hat_scumbag', 'hat_tiara', 'hat_magritte', 'hat_strainer_1_of_2', 'hat_helmet_vietnam_1_of_2', 'hat_tuque', 'hat_cap', 'hat_motorcycle', 'hat_xmas',
   'body_hand_left',
   'gloves_silk_fingerless_striped_1_of_2',
-  'bracelet_perl_left_1_of_2','bracelet_ornamental_left_1_of_2',
-  'nails_short_1_of_2','nails_long_1_of_2','nails_claws_1_of_2',
-  'mask_horse','mask_stormtrooper','mask_jason','mask_cat',
+  'bracelet_perl_left_1_of_2', 'bracelet_ornamental_left_1_of_2',
+  'nails_short_1_of_2', 'nails_long_1_of_2', 'nails_claws_1_of_2',
+  'mask_horse', 'mask_stormtrooper', 'mask_jason', 'mask_cat',
   'horns_devil',
   'coat_winter_furcollar_1_of_3',
   'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
   'belt_utility',
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius',
   'earpiece_microphone', 'earpiece_scouter'
-];
+]
 
 // Color Pallettes
 
-var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888'];
-var layerDirectoryFemale = 'layer/female/';
-var layerDirectoryMale = 'layer/male/';
-var size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
+var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']
+var layerDirectoryFemale = 'layer/female/'
+var layerDirectoryMale = 'layer/male/'
+var size = function (obj) {
+  var size = 0; var key
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) size++
+  }
+  return size
+}
 
-window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6];
-window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6];
+window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6]
+window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6]

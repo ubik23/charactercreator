@@ -1,27 +1,15 @@
 {
   "name": "charactercreator",
-  "version": "1.0.0",
-  "description": "recreated after recovery.",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "autoprefixer": "^6.0.3",
-    "gulp-clean-css": "^2.0.3",
-    "gulp-concat": "^2.6.0",
-    "gulp-concat-css": "^2.2.0",
-    "gulp-minify": "^2.1.0",
-    "gulp-postcss": "^6.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.5",
-    "http-proxy-middleware": "^0.19.0",
-    "node-sass": "^4.9.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.24.7",
-    "gulp": "^3.9.1"
-  },
+  "version": "0.0.0",
+  "description": "Character Creator",
   "scripts": {
+    "start": "serve src",
+    "clean": "rm -fr prod/* src/dist/*",
+    "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
+    "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
+    "build": "npm run build:css && npm run build:js",
+    "lint": "standard src/js/*.js",
+    "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/layer src/credits src/index.html prod/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/ubik23/charactercreator/issues"
   },
-  "homepage": "https://github.com/ubik23/charactercreator#readme"
+  "homepage": "https://github.com/ubik23/charactercreator#readme",
+  "devDependencies": {
+    "sass": "^1.26.9",
+    "serve": "^11.3.2",
+    "standard": "^14.3.4"
+  }
 }

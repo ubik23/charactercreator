@@ -25,7 +25,15 @@ Install CouchDB
 
 Get the site up and running on your local machine:
 
-gulp
+```sh
+npm run prod # outputs production site into prod/
+npm run build # build js and css (mostly for dev)
+npm start # launch static web server; Ctrl-C to quit
+# edit js/html/css/svg files
+# run 'npm run build' as needed (not automatic)
+npm run clean # delete built files in prod/ and src/dist/
+```
+
 
 # Site Architecture
 
