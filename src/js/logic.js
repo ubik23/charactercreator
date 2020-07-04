@@ -135,7 +135,7 @@ function GetEmotionGetLayers (option) {
   return faceElements
 };
 
-function getOptions (section) {
+function getOptionsLogic (section) {
   var forms = window.forms
   var section = capitalizeFirstLetter(section)
   for (i in forms) {
@@ -154,7 +154,7 @@ function show (userChoice, category) {
     var sections = [category.split(' ')[1]]
   };
   var selectedOption = userChoice
-  var options = getOptions(sections[0])
+  var options = getOptionsLogic(sections[0])
   var obj = new Array()
   var id = '#' + sections[0] + '_' + selectedOption
   obj[category] = userChoice
