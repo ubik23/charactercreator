@@ -21,7 +21,7 @@ var maleForm2 = {
   Headband: ['', 'medium', 'tied'],
   Necklace: ['', 'chain', 'dogtags', 'stethoscope'],
   Warpaint: ['', 'clawmarks', 'football', 'stripe'],
-  Earpiece: ['', 'microphone', 'scouter']
+  Earpiece: ['', 'microphone', 'neurolink', 'scouter']
 }
 var maleForm3 = {
   Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
@@ -146,7 +146,7 @@ var layersMale = [
   'hair_afro', 'hair_balding', 'hair_balding_crazy', 'hair_balding_crown', 'hair_bangs', 'hair_crewcut', 'hair_down_1_of_3', 'hair_gelled', 'hair_manga_1_of_2', 'hair_mohawk', 'hair_odango', 'hair_pigtails_1_of_2', 'hair_ponytail', 'hair_short', 'hair_spider', 'hair_wild', 'hair_wreckingball',
   'headband_medium_1_of_2', 'headband_tied',
   'mask_guy_fawkes', 'mask_arrow',
-  'earpiece_microphone', 'earpiece_scouter',
+  'earpiece_microphone', 'earpiece_neurolink', 'earpiece_scouter',
   'glasses_alien', 'glasses_designer', 'glasses_fpv', 'glasses_goggles', 'glasses_google', 'glasses_hipster', 'glasses_kurt', 'glasses_neon', 'glasses_oakley', 'glasses_rayban', 'glasses_round', 'glasses_visor', 'glasses_wayrafer',
   'hair_emo',
   'hat_baseball', 'hat_berret', 'hat_berret_badge', 'hat_cap', 'hat_chinese_farmer', 'hat_country_1_of_2', 'hat_cowboy', 'hat_football', 'hat_fox-ears', 'hat_tuque', 'hat_fedora_1_of_2', 'hat_jester', 'hat_top', 'hat_magritte', 'hat_police', 'hat_scumbag', 'hat_strainer_1_of_2', 'hat_turban_1_of_2', 'hat_helmet_vietnam_1_of_2', 'hat_motorcycle', 'hat_xmas',
@@ -179,7 +179,7 @@ var femaleForm2 = {
   Hat: ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
   Mask: ['', /* 'arrow', */ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   Horns: ['', 'devil'],
-  Earpiece: ['', 'microphone', 'scouter'],
+  Earpiece: ['', 'microphone', 'neurolink', 'scouter'],
   Veil: ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
 }
 var femaleForm3 = {
@@ -315,7 +315,7 @@ var layersFemale = [
   'shoulderpads_artillery', 'shoulderpads_spikes_1_of_2', 'shoulderpads_plated_1_of_2',
   'belt_utility',
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius',
-  'earpiece_microphone', 'earpiece_scouter'
+  'earpiece_microphone', 'earpiece_neurolink', 'earpiece_scouter'
 ]
 
 // Color Pallettes
