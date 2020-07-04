@@ -10,7 +10,10 @@ Advertising.com, 17744, reseller
 spotxchange.com,74999,RESELLER,7842df1d2fe2db34
 spotx.tv,74999,RESELLER,7842df1d2fe2db34
 indexexchange.com, 191306, RESELLER
+conversantmedia.com, 100079, RESELLER, 03113cd04947736d
+openx.com, 540031703, RESELLER, 6a698e2ec38604c6
 rhythmone.com, 2221906906,DIRECT,a670c89d4a324e47
+video.unrulymedia.com, 2221906906, DIRECT
 sovrn.com, 268479, DIRECT, fafdf38b16bf6b2b
 lijit.com, 268479, DIRECT, fafdf38b16bf6b2b
 lijit.com, 268479-eb, DIRECT, fafdf38b16bf6b2b
@@ -43,3 +46,7 @@ advangelists.com, b1d10e7bafa4421218a51b1e1f1b0ba2, RESELLER, 60d26397ec060f98
 advertising.com, 28246, RESELLER
 rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
 onetag.com, 598ce3ddaee8c90, RESELLER
+bizzclick.com,321,RESELLER,7e936b1feafdaa61
+google.com,pub-7858377917172490,RESELLER,f08c47fec0942fa0
+
+
