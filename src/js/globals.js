@@ -175,7 +175,7 @@ var femaleForm2 = {
   Earings: ['', 'bells', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
-  Headband: ['', 'medium'/*, 'tied' */],
+  Headband: ['', 'medium', 'tied'],
   Hat: ['', 'baseball', 'beach', 'berret_badge', 'chinese_farmer', 'country', 'cowboy', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
   Mask: ['', /* 'arrow', */ 'guy_fawkes', 'horse', 'hospital', 'stormtrooper', 'jason', 'cat'],
   Horns: ['', 'devil'],
