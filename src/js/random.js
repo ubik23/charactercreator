@@ -42,7 +42,7 @@ function showRandom (section, layer) { // Draw the SVG on screen
   };
 
   for (section in sections) {
-    sectionOptions = getOptions(sections[section])
+    sectionOptions = getOptionsRandom(sections[section])
     var id = '#' + sections[section] + '_' + layer
     for (option in sectionOptions) {
       optionId = '#' + sections[section] + '_' + sectionOptions[option]
@@ -79,7 +79,7 @@ function hideCompetition (section) {
 
 function hideArray (competition) {
   for (section in competition) {
-    sectionOptions = getOptions(competition[section])
+    sectionOptions = getOptionsRandom(competition[section])
     for (option in sectionOptions) {
       if (sectionOptions[option] != '') {
         optionId = '#' + competition[section] + '_' + sectionOptions[option]
@@ -137,7 +137,7 @@ function hideId (id) {
   };
 }
 
-function getOptions (section) {
+function getOptionsRandom (section) {
   var sectionOptions = []
   for (form in window.forms) {
     if (capitalizeFirstLetter(section) in window.forms[form]) {
