@@ -1,7 +1,3 @@
-/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "(whoami|login|logout|register)" }] */
-
-'use strict'
-
 var myUsername = false
 var currentUser = false
 var personnages = {}
