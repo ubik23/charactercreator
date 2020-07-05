@@ -9,7 +9,7 @@
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js",
     "lint": "standard src/js/*.js",
-    "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/layer src/credits src/index.html prod/",
+    "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/layer src/credits src/index.html prod/ && uglify --compress --mangle --output prod/dist/all.js prod/dist/all.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "devDependencies": {
     "sass": "^1.26.9",
     "serve": "^11.3.2",
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "uglify-js": "^3.10.0"
   }
 }
