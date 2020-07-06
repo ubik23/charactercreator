@@ -50,6 +50,7 @@ function getViewBox (t, d) {
       scar_vertical_right: '264 110 32 32',
       scarf_drape: '185 140 190 190',
       shirt_kurta: '120 134 310 310',
+      suit_borat: '189 150 181 181',
       tatoo_aum_chest: '248 165 64 64',
       tatoo_aum_left: '298 157 64 64',
       tatoo_aum_right: '198 154 64 64',
