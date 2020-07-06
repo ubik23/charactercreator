@@ -21,6 +21,8 @@ function getViewBox (t, d) {
       ears_plugged: '254 122 20 20',
       ears_unplugged: '254 121 20 20',
       glasses_fpv: '250 97 64 64',
+      gloves_boxing: '191 283 73 73',
+      gloves_lab: '191 283 73 73',
       hat_football: '243 86 80 80',
       hat_helmet_vietnam: '243 86 80 80',
       hat_jester: '208 54 140 140',
