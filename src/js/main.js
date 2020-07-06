@@ -57,7 +57,7 @@ window.onload = function () {
 
 function saveCharToCloud (ev) {
   preventDefault(ev)
-  console.log('saveCharToCloud')
+  consolelog('saveCharToCloud')
   // Close current modal
   // Check if user is logged in
   // Check if this character already exists in the cast
@@ -107,7 +107,7 @@ function gotoBrave (evt) {
   }
   ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
   closeAllOverlays()
-  console.log('brave')
+  consolelog('brave')
   setTimeout(function () { window.open('https://brave.com/cha553') }, 500)
 }
 
@@ -255,9 +255,9 @@ function layerHighlight (ev) {
 function getViewBoxOnClick (el) {
   var viewBox = '10 50 540 540'
   var svgContainer = document.querySelector('#svg1')
-  console.log('SVG1', svgContainer.viewBox)
-  console.log('SVG1', svgContainer.viewBox.baseVal)
-  console.log(el.getBoundingClientRect())
+  consolelog('SVG1', svgContainer.viewBox)
+  consolelog('SVG1', svgContainer.viewBox.baseVal)
+  consolelog(el.getBoundingClientRect())
   return viewBox
 }
 
@@ -265,8 +265,8 @@ function clickSelect (ev) {
   var el = ev.target
   var viewBox = getViewBoxOnClick(el)
   var el = getGroupParent(el)
-  // console.log('el',el);
-  // console.log('viewBox',viewBox);
+  // consolelog('el',el);
+  // consolelog('viewBox',viewBox);
   // TODO check if style selection screen, return
   var formSection
   var sidebarLeft = document.querySelector('#sidebar-left')
@@ -400,7 +400,7 @@ function getSkinLayers () {
 }
 
 function fromItemGetPrefix (id) {
-  console.log('fromItemGetPrefix', id)
+  consolelog('fromItemGetPrefix', id)
   var idList = id.split('_')
   var prefix
 
@@ -413,7 +413,7 @@ function fromItemGetPrefix (id) {
 }
 
 function fromPrefixGetFormSection (prefix) {
-  console.log('prefix', prefix)
+  consolelog('prefix', prefix)
   var item
   var formSection
   var counterForm
@@ -425,7 +425,7 @@ function fromPrefixGetFormSection (prefix) {
   } else {
     formList = window.femaleFormList
   }
-  console.log('formList', formList)
+  consolelog('formList', formList)
 
   while (formSection === undefined) {
     counterForm = formList.length
@@ -488,7 +488,7 @@ function displayPallette () {
 
   if (hashSkinColor != undefined) {
     launch()
-    // console.log('hashSkinColor', hashSkinColor);
+    // consolelog('hashSkinColor', hashSkinColor);
     // colorCutout(hashSkinColor);
     // presentFaceStyles();
   } else {
@@ -645,13 +645,13 @@ function selectFemale (event) {
 
 function presentFaceStyles () {
   var sex = c.choices.sex
-  console.log('sex', sex)
-  console.log('presentFaceStyles')
+  consolelog('sex', sex)
+  consolelog('presentFaceStyles')
   var faceWestern
   var faceAnime
   var faceContainer = document.querySelector('.face-styles')
   var faceStyle = faceContainer.querySelector('STYLE')
-  console.log('faceContainer', faceStyle)
+  consolelog('faceContainer', faceStyle)
 
   //   if (c.choices.faceStyle) {
   //     launch();
@@ -693,7 +693,7 @@ function presentFaceStyles () {
 }
 
 function selectStyleWestern () {
-  console.log('selectStyleWestern')
+  consolelog('selectStyleWestern')
 
   // TODO Transform Translate horizontaly to match face on head;
 
@@ -701,7 +701,7 @@ function selectStyleWestern () {
 }
 
 function selectStyleAnime () {
-  console.log('selectStyleAnime')
+  consolelog('selectStyleAnime')
 
   // TODO Transform Translate horizontaly to match face on head;
 

@@ -43,8 +43,8 @@ function createForm (sex, forms) {
 
         var viewBox = getViewBox(t, d)
 
-        console.log('t', t)
-        console.log('d', d)
+        consolelog('t', t)
+        consolelog('d', d)
 
         if (d === '') { svgContent = '<use xlink:href="#icon-none"></use>' } else { svgContent = '' }
         newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>'
@@ -69,7 +69,7 @@ function createForm (sex, forms) {
       newHtml += '    </div>'
       newHtml += '</div>'
       selcount++
-      console.log('newHtml', newHtml)
+      consolelog('newHtml', newHtml)
     }
     sectionHtml += '</div>'
     var htmlObject = document.createElement('div')

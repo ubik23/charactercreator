@@ -18,8 +18,8 @@ function calcViewBox (svgObject) {
   // Take away that amount from starting point of smallest side (x or y)
   // Make the width/height the same.
 
-  console.log('svgObject', svgObject)
-  console.log('rect', rect)
+  consolelog('svgObject', svgObject)
+  consolelog('rect', rect)
 
   return viewBox
 }
@@ -116,7 +116,7 @@ function populateThumbs (svgObject) {
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length - 1]).appendChild(thumbObject)
     }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head') {
-    console.log('layerID', layerID)
+    consolelog('layerID', layerID)
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject)
     } else if (layerID.slice(-5) === 'letic') {

@@ -33,7 +33,7 @@ function showFAQ (ev) {
 function showShop (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-shop')
-  console.log('url', upload())
+  consolelog('url', upload())
   var closeBtn = overlay.querySelector('.close-btn')
   hamburger()
   closeAllOverlays()

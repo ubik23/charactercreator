@@ -31,7 +31,7 @@ function createChar (evt) {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character' })
     })
     .catch(function (err) {
-      console.log('err', err)
+      consolelog('err', err)
     })
   manageCharacters()
 }
@@ -48,7 +48,7 @@ function deleteChar () {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character' })
     })
     .catch(function (err) {
-      console.log('err', err)
+      consolelog('err', err)
     })
   manageCharacters()
 }
@@ -76,6 +76,6 @@ function saveChar () {
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character' })
     })
     .catch(function (err) {
-      console.log('err', err)
+      consolelog('err', err)
     })
 }
