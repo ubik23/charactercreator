@@ -16,7 +16,7 @@ function getViewBox (t, d) {
       earings_gold_rings: '258 113 46 46',
       earings_gold_ring_right: '258 130 11 11',
       earings_gold_ring_left: '292 130 11 11',
-      earpiece_neurolink: '252 117 30 30',
+      earpiece_neurolink: '257 107 40 40',
       earpiece_scouter: '252 117 30 30',
       ears_plugged: '254 122 20 20',
       ears_unplugged: '254 121 20 20',
