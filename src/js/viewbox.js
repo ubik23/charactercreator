@@ -31,6 +31,7 @@ function getViewBox (t, d) {
       hair_mohawk: '243 45 80 80',
       holster_revolver_hip: '220 240 130 130',
       horns_large: '235 58 90 90',
+      kneepads_skate: '222 345 116 116',
       mask_horse: '233 80 100 100',
       mask_robin: '261 108 40 40',
       necklace_chain: '241 140 80 80',
