@@ -142,6 +142,7 @@ function getViewBox (t, d) {
       earpiece_neurolink: '257 118 41 41',
       earpiece_scouter: '253 126 30 30',
       glasses_fpv: '252 109 64 64',
+      gloves_silk_fingerless_striped: '180 268 68 68',
       hat_football: '243 98 80 80',
       hat_helmet_vietnam: '243 98 80 80',
       hat_motorcycle: '243 98 80 80',
