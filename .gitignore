@@ -1,6 +1,5 @@
-node_modules
-was-node_modules
-log
-bower_components
+node_modules/
 .DS_Store
-shop.js
+cc-v2.code-workspace
+src/dist/
+prod/

@@ -6,7 +6,7 @@
         <meta name="author" content="Frederic Guimont"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>The Character Creator - Build visually stunning avatars</title>
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="dist/styles.css" />
         <link rel="canonical" href="https://charactercreator.org"/>
         <meta prefix="og: http://ogp.me/ns#" property="og:title" content="The Character Creator"/>
         <meta property="og:description" content="Create realistic characters for fun or for use in creative projects. Choose from a series of options to build your full body avatar in vector graphics."/>
@@ -23,23 +23,6 @@
             ga('require', 'displayfeatures');
             ga('send', 'pageview');
         </script>
-        <!-- Facebook Pixel Code -->
-        <script>
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '268167213848798');
-          fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=268167213848798&ev=PageView&noscript=1"
-        /></noscript>
-        <!-- End Facebook Pixel Code -->
         <style id="criticalCSS"></style><!-- Add above the fold styles for faster load time. -->
     </head>
     <body id="pagewrap">
@@ -301,9 +284,7 @@
                       <li id="shopButton" style="display:none;"><a href="#"><span class="menu-text">Shop</span></a></li>
                   </ul>
               </nav>
-              <button class="save-btn" type="button">
-                  <svg class="icon icon-cloud-upload"><use xlink:href="#icon-cloud-upload"></use></svg>
-              </button>
+
             </header>
               <main id="content">
                 <svg id="svg1" class="" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
@@ -378,7 +359,7 @@
                   <style>
                     .blob {filter: url(#goo);}
                   </style>
-                    <script type="text/javascript" src="dist/all-min.js" defer></script>
+                    <script type="text/javascript" src="dist/all.js" defer></script>
                     <!-- <script type="text/javascript">
                       if (window.dojoRequire && typeof window.dojoRequire === 'function') {
                           window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"ecf5dd5779b0ea1993c6bfccc","lid":"4adb17f2f1","uniqueMethods":true}) })
@@ -407,11 +388,11 @@
                     <form id="login-form"action="#">
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Username</label>
-                        <input class="first-input overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
+                        <input class="first-input overlay__input overlay__input__username" type="text" autocomplete="username" placeholder="Enter Username" name="uname" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Password</label>
-                        <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
+                        <input class="overlay__input overlay__input__password" type="password" autocomplete="current-password" placeholder="Enter Password" name="psw" required>
                       </div>
                       <div class="overlay__container overlay__container--buttons">
                         <button type="submit" class="btn">Login</button>
@@ -439,15 +420,15 @@
                     <form id="register-form"action="#">
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Email address</label>
-                        <input class="first-input overlay__input overlay__input__email" type="email" placeholder="Enter Email" name="email" required>
+                        <input class="first-input overlay__input overlay__input__email" type="email" autocomplete="email" placeholder="Enter Email" name="email" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Username</label>
-                        <input class="overlay__input overlay__input__username" type="text" placeholder="Enter Username" name="uname" required>
+                        <input class="overlay__input overlay__input__username" type="text" autocomplete="username" placeholder="Enter Username" name="uname" required>
                       </div>
                       <div class="overlay__container overlay__container__form">
                         <label class="overlay__label">Password</label>
-                        <input class="overlay__input overlay__input__password" type="password" placeholder="Enter Password" name="psw" required>
+                        <input class="overlay__input overlay__input__password" type="password" autocomplete="new-password" placeholder="Enter Password" name="psw" required>
                       </div>
                       <div class="overlay__container overlay__container--buttons">
                         <button type="submit" class="btn">Register</button>
@@ -528,6 +509,7 @@
                                 <p>The Character Creator aims to provide a fun and easy way to help you find a look for <strong>your</strong> characters. Just like the japanese kisekae (electronic paper dolls), you pick and choose items from a list to ornate your character with. It is free to use and will always remain free to use. For storytellers looking for spritesheets of their characters,  we offer those services on demand.</p>
                                 <p>The website was launched on January 11th 2014 with only basic functionality. Since then, new features and content have been added with every update, see details on our <a href="http://facebook.com/thecharactercreator">facebook page</a>.</p>
                                 <p>If you have any questions or comments, or if you want to get involved, either as a programmer or an artist, <a href="mailto:frederic@charactercreator.org">email your request</a>.</p>
+                                <p class="center-text">copyright © 2014-2020 Frederic Guimont</p>
                             </div>
                       </div>
                 </div>
@@ -618,7 +600,7 @@
                 <img src="credits/atom-4.svg" alt="Atom"/>
               </div>
               <div class="overlay__credits__row">
-                <img src="credits/nginx.svg" alt="NGINX"/>
+                <img src="credits/caddy.svg" alt="Caddy"/>
                 <img src="credits/couchdb.svg" alt="CouchDB"/>
               </div>
               <div class="overlay__credits__row">
@@ -633,7 +615,7 @@
                 <img src="credits/github.svg" alt="Github"/>
                 <img src="credits/Gnulinux.svg" alt="GNU-Linux"/>
               </div>
-              <p>&copy; copyright 2018 Frédéric Guimont.</p>
+              <p>&copy; copyright  2014-2020 Frederic Guimont.</p>
           </div>
         </div>
       </div>
