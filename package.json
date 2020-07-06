@@ -28,6 +28,7 @@
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
+    "cypress": "^4.9.0",
     "sass": "^1.26.9",
     "serve": "^11.3.2",
     "standard": "^14.3.4",
