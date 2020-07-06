@@ -136,7 +136,7 @@ function getViewBox (t, d) {
       dress_suit: '175 140 200 200',
       dress_waitress: '160 140 230 230',
       earings_gold_ring_left: '289 141 20 20',
-      earpiece_neurolink: '253 126 30 30',
+      earpiece_neurolink: '257 118 41 41',
       earpiece_scouter: '253 126 30 30',
       glasses_fpv: '252 109 64 64',
       hat_football: '243 98 80 80',
