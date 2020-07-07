@@ -53,7 +53,7 @@ function zoomTwoFaces () {
   } else {
     newViewBox = '243 100 80 80'
   }
-  consolelog('sex', sex)
+  // consolelog('sex', sex)
   animateZoom(newViewBox)
 }
 
