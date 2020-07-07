@@ -128,12 +128,12 @@ function showErrorUsernamePasswordMismatch () {
   clearInputFields()
   errorText.innerHTML = errorMsg
   errorBox.classList.add('overlay__error--show')
-  consolelog('Sorry, username/password mismatch')
+  // consolelog('Sorry, username/password mismatch')
   // clearInputUsername();
 }
 
 function createDbUser (username, password, email) {
-  consolelog('Create DB User')
+  // consolelog('Create DB User')
   return fetchDb.post('users', {
     _id: 'org.couchdb.user:' + username,
     roles: [],
@@ -148,7 +148,7 @@ function createDbUser (username, password, email) {
     }
   })
     .then(function (resp) {
-      consolelog('resp.status')
+      // consolelog('resp.status')
       if (resp.status === 201) { return resp.json() }
       if (resp.status === 409) {
         showErrorUsernameTaken(username)
@@ -187,11 +187,13 @@ function logout (ev) {
       personnages = {}
       personnageActuel = false
       myUsername = false
-      return json
+      // return json
     })
+    /*
     .catch(function (err) {
       console.error('err4', err)
     })
+    */
   logoutUI()
 }
 
@@ -201,10 +203,10 @@ function login (evt) {
   var username = event.target.children[0].lastElementChild.value
   var password = event.target.children[1].lastElementChild.value
   var login = document.querySelector('.overlay--show')
-  var currentCharacter
+  // var currentCharacter
 
   if (!username || !password) {
-    consolelog('missing username or password.')
+    // consolelog('missing username or password.')
     return
   }
 
@@ -226,9 +228,11 @@ function login (evt) {
       manageCharacters(user)
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login' })
     })
+    /*
     .catch(function (err) {
       console.error('err3', err)
     })
+    */
 }
 
 function inheritNewCharacter () {
@@ -338,9 +342,11 @@ function switchCharacter (evt) {
       }, 500)
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character' })
     })
+    /*
     .catch(function (err) {
       consolelog('err', err)
     })
+    */
 }
 
 function revealCharacter () {
@@ -448,25 +454,25 @@ function register (evt) {
   var register = document.querySelector('.overlay--show')
 
   if (!username) {
-    consolelog('missing username.')
+    // consolelog('missing username.')
     return
   }
   if (!password) {
-    consolelog('missing password.')
+    // consolelog('missing password.')
     return
   }
   if (!email) {
-    consolelog('missing email.')
+    // consolelog('missing email.')
     return
   }
 
-  consolelog('Calling createDbUSer')
+  // consolelog('Calling createDbUSer')
   createDbUser(username, password, email)
     .then(function () {
       return loginDbUser(username, password)
     })
     .then(function (json) {
-      consolelog('fetched2', json)
+      // consolelog('fetched2', json)
       return username
     })
     .then(getDbUser)
@@ -476,9 +482,11 @@ function register (evt) {
       register.classList.remove('overlay--show')
       ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account' })
     })
+    /*
     .catch(function (err) {
       console.error('register err', err)
     })
+    */
 }
 
 getDbSession()
@@ -504,9 +512,11 @@ getDbSession()
     }
     manageCharacters(currentUser)
   })
+  /*
   .catch(function (err) {
     consolelog('getDbUser error', err)
   })
+  */
 
 function setHashTrigger () {
   window.addEventListener('hashchange', triggerSaveBtn, false)
