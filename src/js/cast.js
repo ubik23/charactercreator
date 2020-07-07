@@ -1,4 +1,3 @@
-
 function newChar () {
   var newCard = document.querySelector('.js-new-card')
   var firstInput = newCard.querySelector('.first-input')
@@ -27,12 +26,14 @@ function createChar (evt) {
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
-      return json
+      // return json
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character' })
     })
+    /*
     .catch(function (err) {
       consolelog('err', err)
     })
+    */
   manageCharacters()
 }
 
@@ -44,12 +45,14 @@ function deleteChar () {
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
-      return json
+      // return json
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character' })
     })
+    /*
     .catch(function (err) {
       consolelog('err', err)
     })
+    */
   manageCharacters()
 }
 
@@ -72,10 +75,12 @@ function saveChar () {
   updateDbUser(currentUser)
     .then(function (json) {
       currentUser._rev = json.rev
-      return json
+      // return json
       ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character' })
     })
+    /*
     .catch(function (err) {
       consolelog('err', err)
     })
+    */
 }
