@@ -367,7 +367,7 @@ function getMultiLayer () {
     if (layerCount > 0) {
       singleArray = []
       singleArray.push(layers[counter].slice(0, -7))
-      singleArray.push(Number(layerCount))
+      singleArray.push(layerCount)
       multiLayer.push(singleArray)
     }
   }
@@ -376,7 +376,7 @@ function getMultiLayer () {
 
 function isMultiLayer (layer) {
   if (layer.slice(-6, -1) === '1_of_') {
-    return Number(layer.slice(-1))
+    return parseInt(layer.slice(-1), 10)
   } else {
     return 0
   }
