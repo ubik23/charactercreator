@@ -672,10 +672,10 @@ function presentFaceStyles () {
   //     launch();
   //     return;
   //   }
-  //
+
   colorSilhouette()
   zoomTwoFaces()
-  //
+
   var hideWestern
   var hideAnime
 
