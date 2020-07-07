@@ -360,16 +360,26 @@ function getMultiLayer () {
   var layers = getLayers()
   var counter = layers.length
   var singleArray
+  var layerCount
 
   while (counter--) {
-    if (layers[counter].slice(-6, -1) === '1_of_') {
+    layerCount = isMultiLayer(layers[counter])
+    if (layerCount > 0) {
       singleArray = []
       singleArray.push(layers[counter].slice(0, -7))
-      singleArray.push(Number(layers[counter].slice(-1)))
+      singleArray.push(Number(layerCount))
       multiLayer.push(singleArray)
     }
   }
   return multiLayer
+}
+
+function isMultiLayer (layer) {
+  if (layer.slice(-6, -1) === '1_of_') {
+    return Number(layer.slice(-1))
+  } else {
+    return 0
+  }
 }
 
 function getHairLayers () {
