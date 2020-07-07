@@ -1,5 +1,4 @@
 ;function consolelog() {
-  if (typeof DEBUGGING_CONSOLE === "undefined") return
-  console.log(arguments)
+  if (window.location.protocol === "http:") console.log(arguments)
 };
 
