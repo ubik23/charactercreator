@@ -1,4 +1,3 @@
-
 function addColorPicker () {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase()
   getColor(section)
@@ -80,7 +79,7 @@ function getColor (sectionId) {
   var slide = document.getElementById('slide')
   var picker = document.getElementById('picker')
   var section = document.querySelector('.section-id')
-  var wrapper = document.querySelector('.colorpicker-wrapper')
+  // var wrapper = document.querySelector('.colorpicker-wrapper')
 
   section.innerHTML = id
   getPallette(sectionId)
