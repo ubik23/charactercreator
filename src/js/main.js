@@ -25,7 +25,9 @@ window.onload = function () {
   var nightModeBtn = document.querySelector('#nightModeButton')
   var bigRedBtn = document.querySelector('#bigRedButton')
   var downloadBtn = document.querySelector('#proceed-download')
+  var homeBtn = document.querySelector('.site-title')
 
+  if (homeBtn && typeof gotoNewChar === 'function') { homeBtn.addEventListener('click', gotoNewChar, false) }
   if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener('click', showAbout, false) }
   if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener('click', showFAQ, false) }
   if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener('click', showShop, false) }
