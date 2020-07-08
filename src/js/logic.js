@@ -296,9 +296,10 @@ function showPupils (pupilShape) {
 function sectionHide (multiLayer, id) {
   var svgContainer = document.querySelector('#svg1')
   var sectionToHide
-  if (id.slice(1) == multiLayer[lyr][0]) {
-    for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-      idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
+  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+  if (layerCount > 0) {
+    for (var i = 1; i <= layerCount; i++) {
+      idOf = id + '_' + i + '_of_' + layerCount
       sectionToHide = svgContainer.querySelector(idOf)
       if (sectionToHide != null) {
         sectionToHide.style.opacity = 0
