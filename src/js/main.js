@@ -387,6 +387,15 @@ function isMultiLayer (layer) {
   }
 }
 
+function isInMultiLayerArray (id, multiLayer) {
+  for (entry in multiLayer) {
+      if (id === multiLayer[entry][0]) {
+        return multiLayer[entry][1]
+      }
+  }
+  return 0
+}
+
 function getHairLayers () {
   var hairLayers = []
   var layers = getLayers()

@@ -100,17 +100,14 @@ function createForm (sex, forms) {
 
 function getSectionsFromIdMultiLayer (multiLayer, tempId) {
   var sections = []
-
-  for (lyr in multiLayer) {
-    if (tempId.slice(1) === multiLayer[lyr][0]) {
-      for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-        newLayer = tempId + '_' + i + '_of_' + multiLayer[lyr][1]
-        sections.push(newLayer)
-      }
+  var layerCount = isInMultiLayerArray(tempId.slice(1), multiLayer)
+  if (layerCount > 0) {
+    for (var i = 1; i <= layerCount; i++) {
+      newLayer = tempId + '_' + i + '_of_' + layerCount
+      sections.push(newLayer)
     }
-    if (sections.length === 0) {
-      sections = [tempId]
-    }
+  } else {
+    sections = [tempId]
   }
   return sections
 }

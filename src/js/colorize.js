@@ -350,7 +350,8 @@ function getAffectedListFromOrig (origList, multiLayer) {
   for (a in origList) {
     match = false
     for (lyr in multiLayer) {
-      if (origList[a] == multiLayer[lyr][0]) {
+      console.log('origList[a]', origList[a])
+      if (origList[a] === multiLayer[lyr][0]) {
         for (var i = 1; i <= multiLayer[lyr][1]; i++) {
           idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1]
           affectedList.push(idOf)
