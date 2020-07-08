@@ -3,3 +3,5 @@ node_modules/
 cc-v2.code-workspace
 src/dist/
 prod/
+all-functions.txt
+hop.dot
