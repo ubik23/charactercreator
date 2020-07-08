@@ -104,6 +104,7 @@ function createCharacter () {
   // Draw the essential stuff
   // Draw stuff from the hash
   var forms = [form1, form2, form3]
+  var layerCount
   for (var lot in forms) {
     for (var x in forms[lot]) {
       var sectionTitle = x
@@ -111,24 +112,23 @@ function createCharacter () {
       var xsel = hash.get(t)
       if (xsel !== undefined) {
         var id = '#' + t + '_' + xsel
-        for (lyr in multiLayer) {
-          if (id.slice(1) == multiLayer[lyr][0]) {
-            for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
+        layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+        if (layerCount > 0) {
+            for (var i = 1; i <= layerCount; i++) {
+              idOf = id + '_' + i + '_of_' + layerCount
               viewport.selectAll(idOf).attr({
                 opacity: 1
               })
             }
-          } else {
-            viewport.selectAll(id).attr({
-              opacity: 1
-            })
-          }
-        };
+        } else {
+          viewport.selectAll(id).attr({
+            opacity: 1
+          })
+        }
       }
     }
-  };
-};
+  }
+}
 
 function GetEmotionGetLayers (option) {
   var faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets']
