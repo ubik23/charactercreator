@@ -11,7 +11,7 @@ var maleForm1 = {
   Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
 }
 var maleForm2 = {
-  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Earings: ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
   Hat: ['', 'baseball', 'berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   Horns: ['', 'devil', 'large'],
@@ -171,7 +171,7 @@ var femaleForm1 = {
   Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 }
 var femaleForm2 = {
-  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Makeup: ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
   Earings: ['', 'bells', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
