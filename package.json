@@ -30,7 +30,7 @@
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
     "cypress": "^4.9.0",
-    "sass": "^1.26.9",
+    "sass": "^1.26.10",
     "serve": "^11.3.2",
     "standard": "^14.3.4",
     "uglify-js": "^3.10.0"
