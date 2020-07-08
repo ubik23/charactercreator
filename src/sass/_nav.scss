@@ -17,6 +17,10 @@ sub {
     z-index: 2;
 }
 
+.site-title:hover{
+  cursor: grab;
+}
+
 .links {
     height: auto;
     z-index: 1;
