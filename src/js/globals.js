@@ -222,6 +222,8 @@ var femaleForm6 = {
   Leggings: ['', 'fishnet', 'regular', 'striped', 'torn'],
   Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
 }
+
+/*
 var layersFemale = [
   'wings_devil', 'wings_angel', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
@@ -320,7 +322,7 @@ var layersFemale = [
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius',
   'earpiece_microphone', 'earpiece_neurolink', 'earpiece_scouter'
 ]
-
+*/
 // Color Pallettes
 
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']
