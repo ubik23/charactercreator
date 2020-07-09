@@ -248,8 +248,8 @@ function caboose () {
 }
 
 function layerHighlight (ev) {
-  var el = ev.target
-  var el = getGroupParent(el)
+  var el = getGroupParent(ev.target)
+  if (!el) return
   var masks = document.querySelectorAll('#contour use')
   var masksLen = masks.length
 
@@ -279,14 +279,9 @@ function getViewBoxOnClick () {
 */
 
 function clickSelect (ev) {
-  var el = ev.target
-  // var viewBox = getViewBoxOnClick(el)
-  var el = getGroupParent(el)
-  // consolelog('el',el);
-  // consolelog('viewBox',viewBox);
+  var el = getGroupParent(ev.target)
   // TODO check if style selection screen, return
   var formSection
-  // var sidebarLeft = document.querySelector('#sidebar-left')
   var sectionList = document.querySelectorAll('section.accordeon__section-label')
   var isClosed
   var sectionLabel
@@ -366,6 +361,7 @@ function getLayers () {
 
 function getGroupParent (el) {
   var layers = getLayers()
+  if (!layers.indexOf) return
   while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
     el = el.parentNode
   }
