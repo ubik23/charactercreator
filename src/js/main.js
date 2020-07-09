@@ -1,11 +1,19 @@
 fetch("/layer/female/layers.json")
-.then((res) => res.json())
-.then((json) => window.layersFemale = json)
+.then(function (res) {
+  return res.json()
+})
+.then(function (json) {
+  window.layersFemale = json
+})
 .catch(console.error)
 
 fetch("/layer/male/layers.json")
-.then((res) => res.json())
-.then((json) => window.layersMale = json)
+.then(function (res) {
+  return res.json()
+})
+.then(function (json) {
+  window.layersMale = json
+})
 .catch(console.error)
 
 window.onload = function () {
