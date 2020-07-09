@@ -2,8 +2,7 @@
 
 function openThumbs () {
   hideColorPicker()
-  var _ = this
-  openThumbsLogic(_)
+  openThumbsLogic(this)
 }
 
 /*
