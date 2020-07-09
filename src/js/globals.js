@@ -56,6 +56,8 @@ var maleForm6 = {
   Socks: ['', 'socks'],
   Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon']
 }
+
+/*
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
@@ -158,6 +160,7 @@ var layersMale = [
   'horns_large',
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius'
 ]
+*/
 
 var femaleForm1 = {
   Body_head: ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],

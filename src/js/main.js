@@ -1,3 +1,13 @@
+fetch("/layer/female/layers.json")
+.then((res) => res.json())
+.then((json) => window.layersFemale = json)
+.catch(console.error)
+
+fetch("/layer/male/layers.json")
+.then((res) => res.json())
+.then((json) => window.layersMale = json)
+.catch(console.error)
+
 window.onload = function () {
   var c // Main variable to hold user choices and preferences
   var aboutBtn = document.querySelector('#aboutButton')
