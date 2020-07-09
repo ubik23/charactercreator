@@ -1,31 +1,30 @@
-
 .skin-tone {
-    list-style:none;
-    cursor: pointer;
+  list-style: none;
+  cursor: pointer;
 }
 
 .skin-color__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 12vh;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    transform: translate3d(0, 100%, 0);
-    transition: transform 0.3s ease-in-out;
-    z-index: 24;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 12vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 24;
 
-    li {
-        flex-grow: 1;
-        min-width: 8vw;
-    }
+  li {
+    flex-grow: 1;
+    min-width: 8vw;
+  }
 }
 
 .skin-color__container--show {
-    &.skin-color__container {
-        transition: transform 0.2s ease-in-out 0.1s;
-        transform: translate3d(0, 0, 0);
-    }
+  &.skin-color__container {
+    transition: transform 0.2s ease-in-out 0.1s;
+    transform: translate3d(0, 0, 0);
+  }
 }

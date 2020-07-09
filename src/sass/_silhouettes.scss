@@ -1,22 +1,27 @@
-
 .path {
-    stroke: $color-alpha;
-    stroke-width: 1;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 10;
-    stroke-dashoffset: 0;
-    stroke-opacity: 1;
-    marker: none;
-    enable-background: accumulate;
-    transition: fill 0.5s ease;
-    cursor: pointer;
+  stroke: $color-alpha;
+  stroke-width: 1;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 10;
+  stroke-dashoffset: 0;
+  stroke-opacity: 1;
+  marker: none;
+  enable-background: accumulate;
+  transition: fill 0.5s ease;
+  cursor: pointer;
 }
 
 @keyframes pathReady {
-  0% {fill-opacity: 0;}
-  50% {fill-opacity: 1;}
-  100% {fill-opacity: 0;}
+  0% {
+    fill-opacity: 0;
+  }
+  50% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,23 +37,24 @@
 }
 
 .male {
-    color: $color-alpha;
-    fill: currentColor;
-    stroke-dasharray: 1726;
-    animation: homme 1.75s linear;
-    fill-opacity: 0;
-    transform: translate3d(-79px, 0, 0);
-    // transform: translate3d(-111px, 0, 0);
-    transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+  color: $color-alpha;
+  fill: currentColor;
+  stroke-dasharray: 1726;
+  animation: homme 1.75s linear;
+  fill-opacity: 0;
+  transform: translate3d(-79px, 0, 0);
+  // transform: translate3d(-111px, 0, 0);
+  transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3,
+    fill 0.3s ease;
 
-    @media only screen and (min-width: 768px) {
-      transform: translate3d(-111px, 0, 0);
-    }
+  @media only screen and (min-width: 768px) {
+    transform: translate3d(-111px, 0, 0);
+  }
 
-    &:hover {
-        fill-opacity: 1;
-        transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
-    }
+  &:hover {
+    fill-opacity: 1;
+    transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,27 +68,28 @@
 }
 
 .female {
-    color: $color-alpha;
-    fill: currentColor;
-    stroke-dasharray: 1201;
-    animation: femme 1.75s linear;
-    fill-opacity: 0;
-    transform: translate3d(71px, 0, 0);
-    transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
+  color: $color-alpha;
+  fill: currentColor;
+  stroke-dasharray: 1201;
+  animation: femme 1.75s linear;
+  fill-opacity: 0;
+  transform: translate3d(71px, 0, 0);
+  transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3,
+    fill 0.3s ease;
 
-    @media only screen and (min-width: 768px) {
-      transform: translate3d(111px, 0, 0);
-    }
+  @media only screen and (min-width: 768px) {
+    transform: translate3d(111px, 0, 0);
+  }
 
-    &:hover {
-        fill-opacity: 1;
-        transition: fill-opacity 0.3s ease-in-out;
-    }
+  &:hover {
+    fill-opacity: 1;
+    transition: fill-opacity 0.3s ease-in-out;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .female {
-    color: $color-night-title ;
+    color: $color-night-title;
   }
 }
 
@@ -91,65 +98,78 @@
 }
 
 @keyframes homme {
-    0% {
-        stroke-dashoffset: 1726;
-    }
-    85% {
-        stroke-dashoffset: 0;
-    }
-    86% {fill-opacity: 0;}
-    93% {fill-opacity: 0.1;}
-    100% {fill-opacity: 0;}
+  0% {
+    stroke-dashoffset: 1726;
+  }
+  85% {
+    stroke-dashoffset: 0;
+  }
+  86% {
+    fill-opacity: 0;
+  }
+  93% {
+    fill-opacity: 0.1;
+  }
+  100% {
+    fill-opacity: 0;
+  }
 }
 
 @keyframes femme {
-    0% {
-        stroke-dashoffset: 1201;
-    }
-    85% {
-        stroke-dashoffset: 0;
-    }
-    86% {fill-opacity: 0;}
-    93% {fill-opacity: 0.1;}
-    100% {fill-opacity: 0;}
+  0% {
+    stroke-dashoffset: 1201;
+  }
+  85% {
+    stroke-dashoffset: 0;
+  }
+  86% {
+    fill-opacity: 0;
+  }
+  93% {
+    fill-opacity: 0.1;
+  }
+  100% {
+    fill-opacity: 0;
+  }
 }
 
 .select-male {
-    & .female {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-
-    }
-    & .male {
-        transform: translate3d(0, 0, 0);
-        transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
-        fill-opacity: 1;
-        stroke-opacity: 0;
-    }
+  & .female {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  & .male {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease,
+      stroke-opacity 0.3s, fill 0.3s ease;
+    fill-opacity: 1;
+    stroke-opacity: 0;
+  }
 }
 
 .select-female {
-    & .female {
-        transform: translate3d(0, 0, 0);
-        transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease, stroke-opacity 0.3s, fill 0.3s ease;
-        fill-opacity: 1;
-        stroke-opacity: 0;
-    }
-    & .male {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
+  & .female {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-in-out, fill-opacity 0.3s ease,
+      stroke-opacity 0.3s, fill 0.3s ease;
+    fill-opacity: 1;
+    stroke-opacity: 0;
+  }
+  & .male {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
 }
 
 .character-shadow {
-     opacity: 0;
-     transition: opacity 200ms ease 300ms;
-     &.shine {
-         opacity: 0.2;
-         transition: opacity 200ms ease 350ms;
-     }
+  opacity: 0;
+  transition: opacity 200ms ease 300ms;
+  &.shine {
+    opacity: 0.2;
+    transition: opacity 200ms ease 350ms;
+  }
 }
 
 #male_silhouette {
@@ -166,16 +186,25 @@
   animation: silhouetteReady 250ms 1.8s ease-in-out;
 }
 
-#male_silhouette:hover, #female_silhouette:hover {
+#male_silhouette:hover,
+#female_silhouette:hover {
   // transform: scale(1.0075);
   // transition: transform 0.3s ease-in-out;
 }
 
 @keyframes silhouetteReady {
-  0% {transform: scale(1);}
-  6% {transform: scale(1);}
-  50% {transform: scale(1.0125);}
-  100% {transform: scale(1);}
+  0% {
+    transform: scale(1);
+  }
+  6% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.0125);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #svg1 .active-vector g {
@@ -187,7 +216,10 @@
   pointer-events: none;
 }
 
-.female-face-western-style, .male-face-western-style, .female-face-anime-style, .male-face-anime-style {
+.female-face-western-style,
+.male-face-western-style,
+.female-face-anime-style,
+.male-face-anime-style {
   transition: transform 500ms ease-in-out;
 }
 
