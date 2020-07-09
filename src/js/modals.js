@@ -1,4 +1,3 @@
-
 function closeAllOverlays () {
   var overlays = document.querySelectorAll('.overlay--show')
   var counter = overlays.length
@@ -30,10 +29,11 @@ function showFAQ (ev) {
   closeBtn.addEventListener('click', closeOverlay, false)
 }
 
+/*
 function showShop (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-shop')
-  consolelog('url', upload())
+  // consolelog('url', upload())
   var closeBtn = overlay.querySelector('.close-btn')
   hamburger()
   closeAllOverlays()
@@ -41,6 +41,7 @@ function showShop (ev) {
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
+*/
 
 function showDownloadOptions (ev) {
   ev.preventDefault()

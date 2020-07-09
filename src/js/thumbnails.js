@@ -1,16 +1,15 @@
-
 // Functions for the thumbnails in the right sidebar.
 
 function openThumbs () {
   hideColorPicker()
-  var _ = this
-  openThumbsLogic(_)
+  openThumbsLogic(this)
 }
 
+/*
 function calcViewBox (svgObject) {
   // TODO Calculate the view Box automatically to make creating new items easier
   var viewBox
-  var rect = svgObject.getBoundingClientRect()
+  // var rect = svgObject.getBoundingClientRect()
 
   // Figure out whether height or width is larger
   // recalculate smallest of the two to be the same size as the largest
@@ -18,11 +17,12 @@ function calcViewBox (svgObject) {
   // Take away that amount from starting point of smallest side (x or y)
   // Make the width/height the same.
 
-  consolelog('svgObject', svgObject)
-  consolelog('rect', rect)
+  // consolelog('svgObject', svgObject)
+  // consolelog('rect', rect)
 
   return viewBox
 }
+*/
 
 function openThumbsLogic (_) {
   var section = _.innerHTML
@@ -116,7 +116,7 @@ function populateThumbs (svgObject) {
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length - 1]).appendChild(thumbObject)
     }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head') {
-    consolelog('layerID', layerID)
+    // consolelog('layerID', layerID)
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject)
     } else if (layerID.slice(-5) === 'letic') {

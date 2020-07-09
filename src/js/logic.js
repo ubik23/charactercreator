@@ -104,6 +104,7 @@ function createCharacter () {
   // Draw the essential stuff
   // Draw stuff from the hash
   var forms = [form1, form2, form3]
+  var layerCount
   for (var lot in forms) {
     for (var x in forms[lot]) {
       var sectionTitle = x
@@ -111,24 +112,23 @@ function createCharacter () {
       var xsel = hash.get(t)
       if (xsel !== undefined) {
         var id = '#' + t + '_' + xsel
-        for (lyr in multiLayer) {
-          if (id.slice(1) == multiLayer[lyr][0]) {
-            for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-              idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
+        layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+        if (layerCount > 0) {
+            for (var i = 1; i <= layerCount; i++) {
+              idOf = id + '_' + i + '_of_' + layerCount
               viewport.selectAll(idOf).attr({
                 opacity: 1
               })
             }
-          } else {
-            viewport.selectAll(id).attr({
-              opacity: 1
-            })
-          }
-        };
+        } else {
+          viewport.selectAll(id).attr({
+            opacity: 1
+          })
+        }
       }
     }
-  };
-};
+  }
+}
 
 function GetEmotionGetLayers (option) {
   var faceElements = ['brows', 'eyes', 'mouth', 'lashes', 'sockets']
@@ -200,25 +200,20 @@ function displaySections (sections, options, selectedOption, multiLayer) {
       } else {
         for (lyr in multiLayer) {
           sectionHide(multiLayer, id)
-        };
-      };
+        }
+      }
     })
-  };
+  }
 }
 
 function sectionShow (multiLayer, id) {
   var pupilShape
   var svgContainer = document.querySelector('#svg1')
-  var isMultiLayered = false
+  var layerCount
 
   if (id === '#iris_default') { return };
 
-  for (lyr in multiLayer) {
-    if (id.slice(1) === multiLayer[lyr][0]) {
-      isMultiLayered = true
-      break
-    }
-  }
+  layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
 
   if (id.slice(1, 7) === 'pupils') {
     pupilShape = id.slice(1).split('_')[1]
@@ -235,9 +230,9 @@ function sectionShow (multiLayer, id) {
       svgContainer.querySelector(idOf).style.pointerEvents = 'auto'
     }
   } else {
-    if (isMultiLayered) {
-      for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
+    if (layerCount > 0) {
+      for (var i = 1; i <= layerCount; i++) {
+        idOf = id + '_' + i + '_of_' + layerCount
         sectionToHide = svgContainer.querySelector(idOf)
         if (sectionToHide != null) {
           sectionToHide.style.opacity = 1
@@ -301,9 +296,10 @@ function showPupils (pupilShape) {
 function sectionHide (multiLayer, id) {
   var svgContainer = document.querySelector('#svg1')
   var sectionToHide
-  if (id.slice(1) == multiLayer[lyr][0]) {
-    for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-      idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
+  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+  if (layerCount > 0) {
+    for (var i = 1; i <= layerCount; i++) {
+      idOf = id + '_' + i + '_of_' + layerCount
       sectionToHide = svgContainer.querySelector(idOf)
       if (sectionToHide != null) {
         sectionToHide.style.opacity = 0

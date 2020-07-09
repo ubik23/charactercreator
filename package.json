@@ -10,6 +10,8 @@
     "build": "npm run build:css && npm run build:js",
     "lint": "standard src/js/*.js",
     "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/ads.txt src/layer src/credits src/index.html prod/ && uglifyjs --compress --mangle --output prod/dist/all.js prod/dist/all.js && cleancss -o prod/dist/styles.css prod/dist/styles.css",
+    "deploy:rsync": "npm run prod && rsync -vaPSz --delete --dry-run prod/* charactercreator.org:/var/www/html/charactercreator.org/",
+    "deploy": "npm run prod && scp -Crvp prod/* charactercreator.org:/var/www/html/charactercreator.org/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,8 +30,8 @@
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
-    "cypress": "^4.9.0",
-    "sass": "^1.26.9",
+    "cypress": "^4.10.0",
+    "sass": "^1.26.10",
     "serve": "^11.3.2",
     "standard": "^14.3.4",
     "uglify-js": "^3.10.0"

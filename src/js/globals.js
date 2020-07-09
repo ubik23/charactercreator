@@ -6,12 +6,12 @@ var maleForm1 = {
   Nose: ['default', 'pointed', 'roman', 'strong', 'syrid'],
   Mouth: [''],
   Facialhair: ['', 'beard_boxed', 'beard_ducktail', 'beard_guru', 'beard_intelectual', 'beard_rap', 'beard_raw', 'chinpuff', 'goatee', 'goatee_raw', 'moustache', 'moustache_dali', 'moustache_thick', 'muttonchops', 'muttonchops_friendly', 'soulpatch', 'winnfield'],
-  Hair: ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'flowing', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
+  Hair: ['', 'afro', 'balding', 'balding_crazy', 'balding_crown', 'crewcut', 'down', 'emo', 'spider', 'gelled', 'wavy', 'manga', 'mohawk', 'wild', 'wreckingball'],
   Freckles: ['', 'medium'],
   Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'anxiety', 'aversion', 'betrayal', 'caged', 'concern', 'cruel', 'dejection', 'desperation', 'disdain', 'disgust', 'eeww', 'fear', 'grief', 'horror', 'indignation', 'joy', 'laughing', 'melancholy', 'omg', 'outrage', 'pain', 'rage', 'revulsion', 'sadness', 'satisfaction', 'shock', 'sterness', 'surprise', 'terror', 'wonder', 'wtf']
 }
 var maleForm2 = {
-  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Earings: ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
   Hat: ['', 'baseball', 'berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   Horns: ['', 'devil', 'large'],
@@ -38,7 +38,7 @@ var maleForm4 = {
   Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
   Suit: ['', 'borat', 'wetsuit'],
   Jacket: ['', 'suit', 'suit_open'],
-  Coat: ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard'],
+  Coat: ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard', 'varsity'],
   Cloak: ['', 'default', 'dracula'],
   Armband: ['', 'bandage_left', 'bandage_right'],
   Watch: ['', 'generic', 'sinn'],
@@ -56,6 +56,8 @@ var maleForm6 = {
   Socks: ['', 'socks'],
   Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon']
 }
+
+/*
 var layersMale = [
   'wings_angel', 'wings_devil', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
@@ -106,7 +108,7 @@ var layersMale = [
   'jacket_suit_1_of_2', 'jacket_suit_open_1_of_2',
   'vest_yellow', 'vest_insulated_1_of_2',
   'coat_fall_long_2_of_3',
-  'coat_fall_long_1_of_3', 'coat_scientist_1_of_2', 'coat_lab_2_of_3', 'coat_snowboard',
+  'coat_fall_long_1_of_3', 'coat_scientist_1_of_2', 'coat_lab_2_of_3', 'coat_snowboard', 'coat_varsity',
   'belt_utility', 'belt_bullet',
   'coat_biker_2_of_3', 'coat_trench_2_of_4',
   'cloak_default_3_of_4',
@@ -158,6 +160,7 @@ var layersMale = [
   'horns_large',
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius'
 ]
+*/
 
 var femaleForm1 = {
   Body_head: ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
@@ -171,7 +174,7 @@ var femaleForm1 = {
   Emotion: ['neutral', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 }
 var femaleForm2 = {
-  Smoke: ['', /* 'blunt', */ 'cigar', /* 'cigarette', 'filter', */ 'pipe_subgenius'],
+  Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Makeup: ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
   Earings: ['', 'bells', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
@@ -222,6 +225,8 @@ var femaleForm6 = {
   Leggings: ['', 'fishnet', 'regular', 'striped', 'torn'],
   Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
 }
+
+/*
 var layersFemale = [
   'wings_devil', 'wings_angel', 'wings_fairy', 'wings_skeleton',
   'shoulderpads_spikes_2_of_2',
@@ -320,7 +325,7 @@ var layersFemale = [
   'smoke_blunt', 'smoke_cigar', 'smoke_cigarette', 'smoke_filter', 'smoke_pipe_subgenius',
   'earpiece_microphone', 'earpiece_neurolink', 'earpiece_scouter'
 ]
-
+*/
 // Color Pallettes
 
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']

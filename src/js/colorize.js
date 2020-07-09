@@ -345,23 +345,19 @@ function colorPaths (node, _color, colorDarker) {
 }
 
 function getAffectedListFromOrig (origList, multiLayer) {
-  affectedList = []
-  var match
+  var affectedList = []
+  var layerCount
   for (a in origList) {
-    match = false
-    for (lyr in multiLayer) {
-      if (origList[a] == multiLayer[lyr][0]) {
-        for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-          idOf = origList[a] + '_' + i + '_of_' + multiLayer[lyr][1]
+    layerCount = isInMultiLayerArray(origList[a], multiLayer)
+    if (layerCount > 0) {
+        for (var i = 1; i <= layerCount; i++) {
+          idOf = origList[a] + '_' + i + '_of_' + layerCount
           affectedList.push(idOf)
-          match = true
         }
-      };
-    };
-    if (!match) {
-      affectedList.push(origList[a])
+    } else {
+    affectedList.push(origList[a])
     }
-  };
+  }
   return affectedList
 }
 

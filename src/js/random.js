@@ -95,21 +95,17 @@ function hideArray (competition) {
 
 function showId (id) {
   var showList = []
-  var inMuliLayer = false
+  //var inMuliLayer = false
   var svgContainer = document.querySelector('#svg1')
+  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
   ga('send', 'event', 'menu', 'select', id)
 
-  for (lyr in multiLayer) {
-    if (id.slice(1) == multiLayer[lyr][0]) {
-      inMuliLayer = true
-      for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
-        showList.push(idOf.slice(1))
-      }
+  if (layerCount > 0) {
+    for (var i = 1; i <= layerCount; i++) {
+      idOf = id + '_' + i + '_of_' + layerCount
+      showList.push(idOf.slice(1))
     }
-  };
-
-  if (inMuliLayer === false) {
+  } else {
     showList.push(id.slice(1))
   }
   loadFilesFromList(showList)
@@ -118,23 +114,22 @@ function showId (id) {
 function hideId (id) {
   var svgContainer = document.querySelector('#svg1')
   var layerToHide
+  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
 
-  for (lyr in multiLayer) {
-    if (id.slice(1) == multiLayer[lyr][0]) {
-      for (var i = 1; i <= multiLayer[lyr][1]; i++) {
-        idOf = id + '_' + i + '_of_' + multiLayer[lyr][1]
-        layerToHide = svgContainer.querySelector(idOf)
-        if (layerToHide != null) {
-          svgContainer.removeChild(layerToHide)
-        }
-      }
-    } else {
-      layerToHide = svgContainer.querySelector(id)
+  if (layerCount > 0) {
+    for (var i = 1; i <= layerCount; i++) {
+      idOf = id + '_' + i + '_of_' + layerCount
+      layerToHide = svgContainer.querySelector(idOf)
       if (layerToHide != null) {
         svgContainer.removeChild(layerToHide)
       }
     }
-  };
+  } else {
+    layerToHide = svgContainer.querySelector(id)
+    if (layerToHide != null) {
+      svgContainer.removeChild(layerToHide)
+    }
+  }
 }
 
 function getOptionsRandom (section) {

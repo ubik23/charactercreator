@@ -1,5 +1,5 @@
 function initEyes () {
-  consolelog('initEyes')
+  // consolelog('initEyes')
 
   var svgContainer = document.querySelector('#svg1')
   var characterHead = document.querySelector('#body_head_default')
@@ -13,13 +13,13 @@ function initEyes () {
   var eyeLeftCenter = {}
   var scaleMod, focus
 
-  consolelog('svgContainer', svgContainer)
+  // consolelog('svgContainer', svgContainer)
 
   init()
 
   function init () {
-    consolelog('svgContainer', svgContainer)
-    consolelog('characterHead', characterHead)
+    // consolelog('svgContainer', svgContainer)
+    // consolelog('characterHead', characterHead)
     var propotionalPlacement = 0.4243902439
     var svgContainerPos = getPosition(svgContainer)
     var characterHeadPos = characterHead.getBoundingClientRect()
@@ -36,7 +36,7 @@ function initEyes () {
   document.onmousemove = handleMouseMove
 
   function centerGaze () {
-    consolelog('centerGaze')
+    // consolelog('centerGaze')
     eyeRight.style.transform = 'scale(1, 1)'
     eyeLeft.style.transform = 'scale(1, 1)'
     eyeSockets.style.transform = 'translateY(0)'
