@@ -1,285 +1,283 @@
 sup {
-  vertical-align: super;
-  font-size: 0.35em;
+    vertical-align: super;
+    font-size: .35em;
 }
 
 sub {
-  font-size: 0.5em;
-  text-align: left;
+    font-size: .5em;
+    text-align: left;
 }
 
 .site-title {
-  font-family: "Helvetica";
-  text-align: left;
-  font-size: 3.5vh;
-  font-weight: 500;
-  padding-top: 0.45vh;
-  z-index: 2;
+    font-family: "Helvetica";
+    text-align: left;
+    font-size: 3.5vh;
+    font-weight: 500;
+    padding-top: 0.45vh;
+    z-index: 2;
 }
 
 .site-title:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .links {
-  height: auto;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  @media only screen and (min-width: 992px) {
+    height: auto;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-  }
+    @media only screen and (min-width: 992px) {
+        margin: 0;
+    }
 }
 
 .wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .hamburger-btn {
-  display: block;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
-  background: $color-canvas;
-  border: 1px solid $color-alpha;
-  padding: 0;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  z-index: 1;
-  @media only screen and (min-width: 992px) {
-    display: none;
-  }
-  & .icon-hamburger {
-    padding-top: 0.25em;
-    width: 1.25em;
-    height: 1.25em;
-    color: $color-alpha;
-  }
+    display: block;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
+    background: $color-canvas;
+    border: 1px solid $color-alpha;
+    padding: 0;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    z-index: 1;
+    @media only screen and (min-width: 992px) {
+        display: none;
+    }
+    & .icon-hamburger {
+        padding-top: 0.25em;
+        width: 1.25em;
+        height: 1.25em;
+        color: $color-alpha;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  .hamburger-btn {
-    border: 1px solid $color-night-border;
-    & .icon-hamburger {
-      color: $color-night-border;
+    .hamburger-btn {
+        border: 1px solid $color-night-border;
+        & .icon-hamburger {
+            color: $color-night-border;
+        }
     }
-  }
 }
 
 .night .hamburger-btn {
-  border: 1px solid $color-night-border;
-  & .icon-hamburger {
-    color: $color-night-border;
-  }
+    border: 1px solid $color-night-border;
+    & .icon-hamburger {
+        color: $color-night-border;
+    }
 }
 
 #horizontal {
-  position: absolute;
-  top: 5.5vh;
-  right: 0.5em;
-  display: inline-flex;
-  flex-direction: column;
-  list-style: none;
-  font-size: 16px;
-  align-items: center;
-  transform: translateX(0);
-  padding: 0;
-  transition: transform 200ms ease-out;
-  background-color: $color-white;
-  border-radius: 0.2em;
-  margin: 0;
-  border: 1px solid $color-alpha;
-  box-sizing: border-box;
-  @media only screen and (min-width: 768px) {
-  }
-  @media only screen and (min-width: 992px) {
-    position: inherit;
-    flex-direction: row;
-    top: inherit;
+    position: absolute;
+    top: 5.5vh;
+    right: 0.5em;
+    display: inline-flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 16px;
+    align-items: center;
+    transform: translateX(0);
     padding: 0;
-  }
-  &.hide {
-    transform: translateX(110%);
+    transition: transform 200ms ease-out;
+    background-color: $color-white;
+    border-radius: 0.2em;
+    margin: 0;
+    border: 1px solid $color-alpha;
+    box-sizing: border-box;
+    @media only screen and (min-width: 768px) {}
     @media only screen and (min-width: 992px) {
-      transform: translateY(0);
+        position: inherit;
+        flex-direction: row;
+        top: inherit;
+        padding: 0;
     }
-  }
-  & .icon {
-    padding-bottom: 0.5em;
-  }
+    &.hide {
+        transform: translateX(110%);
+        @media only screen and (min-width: 992px) {
+            transform: translateY(0);
+        }
+    }
+    & .icon {
+        padding-bottom: 0.5em;
+    }
 }
 
 #horizontal li {
-  width: 100%;
-  box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #horizontal li a,
 #horizontal li label {
-  color: $color-alpha;
-  text-decoration: none;
-  width: 100%;
-  padding: 0.05em;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  @media only screen and (min-width: 768px) {
-  }
+    color: $color-alpha;
+    text-decoration: none;
+    width: 100%;
+    padding: 0.05em;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    @media only screen and (min-width: 768px) {}
 }
 
 .dark-text {
-  display: block;
+    display: block;
 }
 
 .light-text {
-  display: none;
+    display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  .light-text {
-    display: block;
-  }
-  .dark-text {
-    display: none;
-  }
+    .light-text {
+        display: block;
+    }
+    .dark-text {
+        display: none;
+    }
 }
 
 .night .light-text {
-  display: block;
+    display: block;
 }
 
 .night .dark-text {
-  display: none;
+    display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  #horizontal {
-    border: 1px solid $color-night-border;
-  }
-  #horizontal li a,
-  #horizontal li label {
-    color: $color-night-background;
-  }
+    #horizontal {
+        border: 1px solid $color-night-border;
+    }
+    #horizontal li a,
+    #horizontal li label {
+        color: $color-night-background;
+    }
 }
 
 .night {
-  #horizontal {
-    border: 1px solid $color-night-border;
-  }
-  #horizontal li a,
-  #horizontal li label {
-    color: $color-night-background;
-  }
+    #horizontal {
+        border: 1px solid $color-night-border;
+    }
+    #horizontal li a,
+    #horizontal li label {
+        color: $color-night-background;
+    }
 }
 
 #horizontal li a:hover,
 #horizontal li label:hover {
-  color: $color-white;
-  background-color: $color-alpha;
+    color: $color-white;
+    background-color: $color-alpha;
 }
 
 @media (prefers-color-scheme: dark) {
-  #horizontal li a:hover,
-  #horizontal li label:hover {
-    background: url("../hex-light.png");
-    background-color: $color-night-background;
-  }
+    #horizontal li a:hover,
+    #horizontal li label:hover {
+        background: url('../hex-light.png');
+        background-color: $color-night-background;
+    }
 }
 
 .night #horizontal li a:hover,
 .night #horizontal li label:hover {
-  background: url("../hex-light.png");
-  background-color: $color-night-background;
+    background: url('../hex-light.png');
+    background-color: $color-night-background;
 }
 
 .menu-text {
-  font-family: "Helvetica";
-  margin: 4px;
-  box-sizing: border-box;
+    font-family: "Helvetica";
+    margin: 4px;
+    box-sizing: border-box;
 }
 
 #logoutButton,
 #usernameButton,
 #whoButton {
-  display: none;
+    display: none;
 }
 
 #downloadButton {
-  opacity: 0.2;
-  transition: opacity 0.2s ease-in-out;
-  cursor: not-allowed;
-  & a {
+    opacity: 0.2;
+    transition: opacity 0.2s ease-in-out;
     cursor: not-allowed;
-  }
-  & span {
-    cursor: not-allowed;
-  }
-  &.enabled {
-    opacity: 1;
-    cursor: pointer;
     & a {
-      cursor: pointer;
+        cursor: not-allowed;
     }
     & span {
-      cursor: pointer;
+        cursor: not-allowed;
     }
-  }
+    &.enabled {
+        opacity: 1;
+        cursor: pointer;
+        & a {
+            cursor: pointer;
+        }
+        & span {
+            cursor: pointer;
+        }
+    }
 }
 
 .save-btn {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 0 33vw 1vh 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
-  background: transparent;
-  border: none;
-  & .icon-cloud-upload {
-    width: 6em;
-    height: 6em;
-  }
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0 33vw 1vh 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.7s ease, visibility 0s linear 0.7s, color 0.7s ease;
+    background: transparent;
+    border: none;
+    & .icon-cloud-upload {
+        width: 6em;
+        height: 6em;
+    }
 }
 
 .logged {
-  & #usernameButton {
-    display: block;
-  }
-  & #loginButton {
-    display: none;
-  }
-  & #registerButton {
-    display: none;
-    opacity: 0;
-  }
-  #logoutButton {
-    display: inline-block;
-  }
-  #whoButton {
-    display: inline-block;
-  }
-  .save-btn {
-    visibility: visible;
-    opacity: 0.2;
-    transition: opacity 0.7s ease, visibility linear 0, color 0.7s ease;
-    color: $color-grey;
-    z-index: 23;
-    &.save--enabled {
-      opacity: 1;
-      color: $color-alpha;
-      transition: opacity 0.7s ease, color 0.7s ease;
+    & #usernameButton {
+        display: block;
     }
-  }
+    & #loginButton {
+        display: none;
+    }
+    & #registerButton {
+        display: none;
+        opacity: 0;
+    }
+    #logoutButton {
+        display: inline-block;
+    }
+    #whoButton {
+        display: inline-block;
+    }
+    .save-btn {
+        visibility: visible;
+        opacity: 0.2;
+        transition: opacity 0.7s ease, visibility linear 0, color 0.7s ease;
+        color: $color-grey;
+        z-index: 23;
+        &.save--enabled {
+            opacity: 1;
+            color: $color-alpha;
+            transition: opacity 0.7s ease, color 0.7s ease;
+        }
+    }
 }

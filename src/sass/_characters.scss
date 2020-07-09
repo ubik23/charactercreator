@@ -1,27 +1,27 @@
+
 #svg1 {
-  height: 100vh;
-  width: auto;
-  margin-left: calc(((100vh - 100vw) / 2) * -1);
-  overflow: visible;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.5s ease, visibility 0s linear;
+    height: 100vh;
+    width: auto;
+    margin-left: calc(((100vh - 100vw) / 2) * -1);
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0s linear;
 
-  @media screen and (min-width: 650px) {
-    height: 100%;
-  }
 
-  &.character--hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0s linear 0.5s;
-  }
+    @media screen and (min-width: 650px) {
+        height: 100%;
+    }
 
-  g {
-    cursor: pointer;
-  }
+    &.character--hide {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0s linear 0.5s;
+    }
 
-  &.zoomed {
-    cursor: zoom-out;
-  }
+    g {
+      cursor: pointer;
+    }
+
+    &.zoomed {cursor: zoom-out;}
 }

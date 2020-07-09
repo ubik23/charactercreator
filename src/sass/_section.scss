@@ -1,60 +1,61 @@
+
 .section__list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
-  & li {
-    padding: 0.25em 0 0 5px;
-    font-size: 0.75rem;
-    line-height: 1.75;
-    background-color: rgba(227, 90, 78, 0);
-    transform-origin: 0 50%;
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    border-bottom: 1px solid $color-border;
-    transition: color 0.3s, transform 0.3s, background-color 0.3s, border 0.3s;
+    & li {
+        padding: 0.25em 0 0 5px;
+        font-size: 0.75rem;
+        line-height: 1.75;
+        background-color: rgba(227, 90, 78, 0);
+        transform-origin: 0 50%;
+        transform: translate3d(0,0,0);
+        opacity: 1;
+        border-bottom: 1px solid $color-border;
+        transition: color 0.3s, transform 0.3s, background-color 0.3s, border 0.3s;
 
-    @media screen and (min-width: 650px) {
-      padding: 0.25em 0 0 15px;
+        @media screen and (min-width: 650px) {
+          padding: 0.25em 0 0 15px;
+        }
     }
-  }
 
-  & li:hover {
-    color: $color-white;
-    background-color: rgba(227, 90, 78, 0.5);
-    border-bottom: 1px solid $color-alpha;
-    transform-origin: 0 50%;
-    transform: translate3d(30px, 0, 0);
-    font-weight: 300;
-  }
-
-  & li.section--selected {
-    background-color: $color-white;
-    color: $color-black;
-    font-weight: 300;
-    transform: translate3d(0, 0, 0);
-    transition: transform 0.2s, color 0.2s, background 0.2s;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .section__list li {
-    border-bottom: 1px solid $color-night-border;
-
-    &:hover {
-      background: url("../hex-light.png");
-      background-color: rgba(227, 90, 78, 0.5);
+    & li:hover {
+        color: $color-white;
+        background-color: rgba(227, 90, 78,0.5);
+        border-bottom: 1px solid $color-alpha;
+        transform-origin: 0 50%;
+        transform: translate3d(30px,0,0);
+        font-weight: 300;
     }
 
     & li.section--selected {
-      background: url("../hex.png");
-      background-color: $color-white;
-      color: $color-black;
-      font-weight: 300;
-      transform: translate3d(0, 0, 0);
-      transition: transform 0.2s, color 0.2s, background 0.2s;
+        background-color: $color-white;
+        color: $color-black;
+        font-weight: 300;
+        transform: translate3d(0,0,0);
+        transition: transform 0.2s, color 0.2s, background 0.2s;
     }
-  }
+}
+
+@media (prefers-color-scheme: dark) {
+ .section__list li {
+   border-bottom: 1px solid $color-night-border;
+
+   &:hover {
+       background: url('../hex-light.png');
+       background-color: rgba(227, 90, 78,0.5);
+   }
+
+   & li.section--selected {
+       background: url('../hex.png');
+       background-color: $color-white;
+       color: $color-black;
+       font-weight: 300;
+       transform: translate3d(0,0,0);
+       transition: transform 0.2s, color 0.2s, background 0.2s;
+   }
+ }
 }
 
 .night {
@@ -62,41 +63,43 @@
     border-bottom: 1px solid $color-night-border;
 
     &:hover {
-      background: url("../hex-light.png");
-      background-color: rgba(227, 90, 78, 0.5);
+        background: url('../hex-light.png');
+        background-color: rgba(227, 90, 78,0.5);
     }
 
     & li.section--selected {
-      background: url("../hex.png");
-      background-color: $color-white;
-      color: $color-black;
-      font-weight: 300;
-      transform: translate3d(0, 0, 0);
-      transition: transform 0.2s, color 0.2s, background 0.2s;
+        background: url('../hex.png');
+        background-color: $color-white;
+        color: $color-black;
+        font-weight: 300;
+        transform: translate3d(0,0,0);
+        transition: transform 0.2s, color 0.2s, background 0.2s;
     }
   }
 }
 
-.section__link {
-  color: $color-link;
-  text-decoration: none;
-  cursor: pointer;
 
-  & .sbl__option {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+
+.section__link {
+    color: $color-link;
+    text-decoration: none;
+    cursor: pointer;
+
+    & .sbl__option {
+      overflow: hidden;
+      text-overflow:ellipsis;
+    }
 }
 
 .section__link:active {
-  color: $color-link;
-  & li {
-    background-color: rgba(227, 90, 78, 1);
-  }
+    color: $color-link;
+    & li {
+        background-color: rgba(227, 90, 78,1);
+    }
 }
 
 .section__link:visited {
-  & li {
-    background-color: rgba(227, 90, 78, 0);
-  }
+    & li {
+        background-color: rgba(227, 90, 78,0);
+    }
 }

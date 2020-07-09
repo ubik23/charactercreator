@@ -1,110 +1,110 @@
 .sidebar__container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .sidebar {
-  position: absolute;
-  top: 5.5vh;
-  display: block;
-  height: auto;
-  font-family: helvetica, sans-serif;
-  font-size: 12px;
-  overflow: visible;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.75);
-  color: $color-link;
-  padding: 0;
-  border: 1px solid $color-border;
-  width: 20vw;
-  // max-height: 90%;
+    position: absolute;
+    top: 5.5vh;
+    display: block;
+    height: auto;
+    font-family: helvetica, sans-serif;
+    font-size: 12px;
+    overflow: visible;
+    box-sizing: border-box;
+    background-color:rgba(255,255,255,0.75);
+    color: $color-link;
+    padding: 0;
+    border:1px solid $color-border;
+    width: 20vw;
+    // max-height: 90%;
 
-  @media screen and (min-width: 650px) {
-    position: absolute;
-    bottom: auto;
-    width: 27%;
-  }
-  @media screen and (min-width: 1024px) {
-    position: absolute;
-    bottom: auto;
-    width: 23vw;
-  }
+    @media screen and (min-width: 650px) {
+        position: absolute;
+        bottom: auto;
+        width: 27%;
+    }
+    @media screen and (min-width: 1024px) {
+        position: absolute;
+        bottom: auto;
+        width: 23vw;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
   .sidebar {
-    border: 1px solid $color-night-border;
+    border:1px solid $color-night-border;
   }
 }
 
 .night .sidebar {
-  border: 1px solid $color-night-border;
+  border:1px solid $color-night-border;
 }
 
 .sidebar-left {
-  // bottom: 0;
-  left: 0;
-  margin-left: 0;
-  transform: translateX(-200%);
+    // bottom: 0;
+    left: 0;
+    margin-left: 0;
+    transform: translateX(-200%);
 
-  @media screen and (min-width: 650px) {
-    margin-left: 3em;
-    bottom: auto;
-    width: 22%;
-  }
+    @media screen and (min-width: 650px) {
+      margin-left: 3em;
+      bottom: auto;
+      width: 22%;
+    }
 }
 
 .sidebar-right {
-  // top: 0;
-  right: 0;
-  margin-right: 0;
-  transform: translateX(150%);
-  overflow: hidden;
-  max-height: 100%;
-  overflow-y: scroll;
+    // top: 0;
+    right: 0;
+    margin-right: 0;
+    transform: translateX(150%);
+    overflow: hidden;
+    max-height: 100%;
+    overflow-y: scroll;
 
-  @media screen and (min-width: 650px) {
-    margin-right: 1em;
-  }
+    @media screen and (min-width: 650px) {
+        margin-right: 1em;
+    }
 }
 
 .visible {
-  transform: translateX(0);
-  transition: transform 0.3s ease-in;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in;
 }
 
 .sidebar__title {
-  text-align: center;
-  font-weight: 100;
-  background-color: $color-alpha;
-  color: $color-white;
-  font-size: 0.75rem;
-  line-height: 1.75;
-  border-bottom: 1px solid $color-border;
-  margin: 0;
-  padding-top: 0.15em;
+    text-align: center;
+    font-weight: 100;
+    background-color: $color-alpha;
+    color: $color-white;
+    font-size: 0.75rem;
+    line-height: 1.75;
+    border-bottom: 1px solid $color-border;
+    margin: 0;
+    padding-top: 0.15em;
 
-  & .icon {
-    display: none;
-  }
+    & .icon {
+      display: none;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
   .sidebar__title {
-    background: url("../hex.png");
+    background: url('../hex.png');
     background-color: $color-night-background;
     border-bottom: 1px solid $color-night-border;
   }
 }
 
 .night .sidebar__title {
-  background: url("../hex.png");
+  background: url('../hex.png');
   background-color: $color-night-background;
   border-bottom: 1px solid $color-night-border;
 }

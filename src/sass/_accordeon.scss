@@ -1,143 +1,142 @@
 .accordeon__section-label {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: $color-alpha;
-  background: transparent;
-  border-bottom: 1px solid $color-border;
-  transition: background 0.3s, color 0.3s;
-  white-space: nowrap;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0  5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-alpha;
+    background: transparent;
+    border-bottom: 1px solid $color-border;
+    transition: background 0.3s, color 0.3s;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 
-  &:hover {
-    background: $color-alpha;
-    color: $color-white;
-    transition: background 0.2s, color 0.2s;
+    &:hover {
+        background: $color-alpha;
+        color: $color-white;
+        transition: background 0.2s, color 0.2s;
+        & circle {
+            stroke: $color-white;
+            transition: stroke 0.2s;
+        }
+        & polygon {
+            fill: $color-white;
+            transition: fill 0.2s;
+        }
+    }
+
     & circle {
-      stroke: $color-white;
-      transition: stroke 0.2s;
+        stroke: $color-border;
+        transition: stroke 0.3s;
     }
+
     & polygon {
-      fill: $color-white;
-      transition: fill 0.2s;
+        fill: transparent;
+        transition: stroke 0.3s;
     }
-  }
 
-  & circle {
-    stroke: $color-border;
-    transition: stroke 0.3s;
-  }
-
-  & polygon {
-    fill: transparent;
-    transition: stroke 0.3s;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
   .accordeon__section-label {
-    background: url("../hex.png");
+    background: url('../hex.png');
     background-color: $color-night-background;
     color: $color-night-text;
     border-bottom: 1px solid $color-night-border;
 
-    &:hover,
-    &:active {
+    &:hover, &:active {
       color: #fff;
-      background: url("../hex-light.png");
+      background: url('../hex-light.png');
       background-color: $color-night-background;
     }
   }
 }
 
 .night .accordeon__section-label {
-  background: url("../hex.png");
+  background: url('../hex.png');
   background-color: $color-night-background;
   color: $color-night-text;
   border-bottom: 1px solid $color-night-border;
 
-  &:hover,
-  &:active {
+  &:hover, &:active {
     color: #fff;
-    background: url("../hex-light.png");
+    background: url('../hex-light.png');
     background-color: $color-night-background;
   }
 }
 
 .accordeon__section-title {
-  font-size: 0.75rem;
-  line-height: 1.75;
-  font-weight: 300;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-top: 0.25em;
+    font-size: 0.75rem;
+    line-height: 1.75;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 0.25em;
 
-  & .icon {
-    display: none;
+    & .icon {
+      display: none;
 
-    @media screen and (min-width: 1024px) {
-      display: inline-block;
+      @media screen and (min-width: 1024px) {
+        display: inline-block;
+      }
     }
-  }
 }
 
 .accordeon__svg-container {
-  &:hover polygon {
-    fill: currentColor;
-    color: $color-alpha;
-  }
+    &:hover polygon {
+        fill: currentColor;
+        color: $color-alpha;
+    }
 }
 
 .accordeon__content {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  box-sizing: border-box;
-  border-bottom: 1px solid $color-border;
-  opacity: 1;
-  transition: max-height 0.2s, opacity 0.2s;
-  overflow: visible;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-border;
+    opacity: 1;
+    transition: max-height 0.2s, opacity 0.2s;
+    overflow: visible;
 }
 
 .accordeon__svg-container {
-  width: 1em;
-  height: 1em;
-  transform: rotate(-90deg);
-  transform-origin: 0.5em 0.5em;
-  transition: transform 0.2s ease-in 0.1s;
+    width: 1em;
+    height: 1em;
+    transform: rotate(-90deg);
+    transform-origin: 0.5em 0.5em;
+    transition: transform 0.2s ease-in 0.1s;
 }
 
 .section--hide {
-  max-height: 0px;
-  opacity: 0;
-  transition: max-height 0.2s, opacity 0.2s;
-  overflow: hidden;
-  padding: 0;
-  box-sizing: border-box;
+    max-height: 0px;
+    opacity: 0;
+    transition: max-height 0.2s, opacity 0.2s;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .section-btn--hide {
-  transform: rotate(90deg);
-  transform-origin: 0.5em 0.5em;
-  transition: transform 0.2s ease-in 0.1s;
+    transform: rotate(90deg);
+    transform-origin: 0.5em 0.5em;
+    transition: transform 0.2s ease-in 0.1s;
 }
 
 .alert {
-  & polygon {
-    animation: blink-alert 0.666s linear 0.2s infinite alternate;
-  }
+    & polygon {
+        animation: blink-alert 0.666s linear 0.2s infinite alternate;
+    }
 }
 
 @keyframes blink-alert {
-  from {
-    fill: $color-white;
-  }
-  to {
-    fill: $color-alpha;
-  }
+    from {
+        fill: $color-white;
+    }
+    to {
+        fill: $color-alpha;
+    }
 }
