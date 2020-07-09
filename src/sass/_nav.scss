@@ -5,7 +5,7 @@ sup {
 
 sub {
     font-size: .5em;
-    text-align:left;
+    text-align: left;
 }
 
 .site-title {
@@ -16,6 +16,7 @@ sub {
     padding-top: 0.45vh;
     z-index: 2;
 }
+
 
 .site-title:hover{
   cursor: pointer;
@@ -28,17 +29,16 @@ sub {
     justify-content: center;
     align-items: center;
     margin: 0;
-
     @media only screen and (min-width: 992px) {
-      margin: 0;
+        margin: 0;
     }
 }
 
 .wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .hamburger-btn {
@@ -55,87 +55,75 @@ sub {
     height: 2.5em;
     border-radius: 50%;
     z-index: 1;
-
     @media only screen and (min-width: 992px) {
-      display: none;
+        display: none;
     }
-
     & .icon-hamburger {
         padding-top: 0.25em;
         width: 1.25em;
         height: 1.25em;
         color: $color-alpha;
     }
-
 }
 
 @media (prefers-color-scheme: dark) {
-  .hamburger-btn {
-    border: 1px solid $color-night-border;
-
-    & .icon-hamburger {
-        color:  $color-night-border;
+    .hamburger-btn {
+        border: 1px solid $color-night-border;
+        & .icon-hamburger {
+            color: $color-night-border;
+        }
     }
-  }
 }
 
 .night .hamburger-btn {
-  border: 1px solid $color-night-border;
-  & .icon-hamburger {
-      color:  $color-night-border;
-  }
+    border: 1px solid $color-night-border;
+    & .icon-hamburger {
+        color: $color-night-border;
+    }
 }
 
 #horizontal {
-  position: absolute;
-  top: 5.5vh;
-  right: 0.5em;
-  display: inline-flex;
-  flex-direction: column;
-  list-style: none;
-  font-size: 16px;
-  align-items: center;
-  transform: translateX(0);
-  padding: 0;
-  transition: transform 200ms ease-out;
-  background-color: $color-white;
-  border-radius: 0.2em;
-  margin: 0;
-  border: 1px solid $color-alpha;
-  box-sizing: border-box;
-
-  @media only screen and (min-width: 768px) {
-
-  }
-
-  @media only screen and (min-width : 992px) {
-    position: inherit;
-    flex-direction: row;
-    top: inherit;
+    position: absolute;
+    top: 5.5vh;
+    right: 0.5em;
+    display: inline-flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 16px;
+    align-items: center;
+    transform: translateX(0);
     padding: 0;
-  }
-
-  &.hide {
-       transform: translateX(110%);
-
-       @media only screen and (min-width: 992px) {
-         transform: translateY(0);
-       }
-  }
-
-  & .icon {
-    padding-bottom: 0.5em;
-  }
+    transition: transform 200ms ease-out;
+    background-color: $color-white;
+    border-radius: 0.2em;
+    margin: 0;
+    border: 1px solid $color-alpha;
+    box-sizing: border-box;
+    @media only screen and (min-width: 768px) {}
+    @media only screen and (min-width: 992px) {
+        position: inherit;
+        flex-direction: row;
+        top: inherit;
+        padding: 0;
+    }
+    &.hide {
+        transform: translateX(110%);
+        @media only screen and (min-width: 992px) {
+            transform: translateY(0);
+        }
+    }
+    & .icon {
+        padding-bottom: 0.5em;
+    }
 }
-
 
 #horizontal li {
     width: 100%;
     box-sizing: border-box;
-
 }
 
-#horizontal li a, #horizontal li label {
+#horizontal li a,
+#horizontal li label {
     color: $color-alpha;
     text-decoration: none;
     width: 100%;
@@ -146,58 +134,72 @@ sub {
     cursor: pointer;
     display: flex;
     align-items: center;
+    @media only screen and (min-width: 768px) {}
+}
 
-    @media only screen and (min-width: 768px) {
+.dark-text {
+    display: block;
+}
 
+.light-text {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .light-text {
+        display: block;
+    }
+    .dark-text {
+        display: none;
     }
 }
 
-.dark-text {display:block;}
-.light-text {display:none;}
-
-@media (prefers-color-scheme: dark) {
-  .light-text {display:block;}
-  .dark-text {display:none;}
+.night .light-text {
+    display: block;
 }
 
-.night .light-text {display:block;}
-.night .dark-text {display:none;}
-
-@media (prefers-color-scheme: dark) {
-  #horizontal {
-    border: 1px solid $color-night-border;
-  }
-
-  #horizontal li a, #horizontal li label {
-    color: $color-night-background;
-  }
-}
-
-.night  {
-  #horizontal {
-    border: 1px solid $color-night-border;
-  }
-
-  #horizontal li a, #horizontal li label {
-    color: $color-night-background;
-  }
-}
-
-#horizontal li a:hover, #horizontal li label:hover {
-  color: $color-white;
-  background-color: $color-alpha;
+.night .dark-text {
+    display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  #horizontal li a:hover, #horizontal li label:hover {
+    #horizontal {
+        border: 1px solid $color-night-border;
+    }
+    #horizontal li a,
+    #horizontal li label {
+        color: $color-night-background;
+    }
+}
+
+.night {
+    #horizontal {
+        border: 1px solid $color-night-border;
+    }
+    #horizontal li a,
+    #horizontal li label {
+        color: $color-night-background;
+    }
+}
+
+#horizontal li a:hover,
+#horizontal li label:hover {
+    color: $color-white;
+    background-color: $color-alpha;
+}
+
+@media (prefers-color-scheme: dark) {
+    #horizontal li a:hover,
+    #horizontal li label:hover {
+        background: url('../hex-light.png');
+        background-color: $color-night-background;
+    }
+}
+
+.night #horizontal li a:hover,
+.night #horizontal li label:hover {
     background: url('../hex-light.png');
     background-color: $color-night-background;
-  }
-}
-
-.night #horizontal li a:hover, .night #horizontal li label:hover {
-  background: url('../hex-light.png');
-  background-color: $color-night-background;
 }
 
 .menu-text {
@@ -206,7 +208,9 @@ sub {
     box-sizing: border-box;
 }
 
-#logoutButton, #usernameButton, #whoButton {
+#logoutButton,
+#usernameButton,
+#whoButton {
     display: none;
 }
 
@@ -214,25 +218,20 @@ sub {
     opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
     cursor: not-allowed;
-
     & a {
-      cursor: not-allowed;
+        cursor: not-allowed;
     }
-
     & span {
-      cursor: not-allowed;
+        cursor: not-allowed;
     }
-
     &.enabled {
         opacity: 1;
         cursor: pointer;
-
         & a {
-          cursor: pointer;
+            cursor: pointer;
         }
-
         & span {
-          cursor: pointer;
+            cursor: pointer;
         }
     }
 }
@@ -271,15 +270,15 @@ sub {
         display: inline-block;
     }
     .save-btn {
-         visibility: visible;
-         opacity: 0.2;
-         transition: opacity 0.7s ease, visibility linear 0, color 0.7s ease;
-         color: $color-grey;
-         z-index:23;
-         &.save--enabled {
+        visibility: visible;
+        opacity: 0.2;
+        transition: opacity 0.7s ease, visibility linear 0, color 0.7s ease;
+        color: $color-grey;
+        z-index: 23;
+        &.save--enabled {
             opacity: 1;
-             color: $color-alpha;
-             transition: opacity 0.7s ease, color 0.7s ease;
+            color: $color-alpha;
+            transition: opacity 0.7s ease, color 0.7s ease;
         }
     }
 }
