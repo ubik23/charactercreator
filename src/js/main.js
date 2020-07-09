@@ -237,9 +237,26 @@ function caboose () {
   closeBtn.addEventListener('click', closeOverlay, false)
 }
 
+function layerHighlight666 (ev) {
+  var el = getGroupParent(ev.target)
+  var masks = document.querySelectorAll('#contour use')
+  var masksLen = masks.length
+
+  if (masks[0].getAttribute('xlink:href') === el.id) {
+
+  } else if (el.id === 'svg1') {
+    while (masksLen--) {
+      masks[masksLen].setAttribute('xlink:href', '')
+    }
+  } else {
+    while (masksLen--) {
+      masks[masksLen].setAttribute('xlink:href', '#' + el.id)
+    }
+  }
+}
+
 function layerHighlight (ev) {
-  var el = ev.target
-  var el = getGroupParent(el)
+  var el = getGroupParent(ev.target)
   var masks = document.querySelectorAll('#contour use')
   var masksLen = masks.length
 
@@ -268,15 +285,11 @@ function getViewBoxOnClick () {
 }
 */
 
-function clickSelect (ev) {
-  var el = ev.target
-  // var viewBox = getViewBoxOnClick(el)
-  var el = getGroupParent(el)
-  // consolelog('el',el);
-  // consolelog('viewBox',viewBox);
+
+function clickSelect666 (ev) {
+  var el = getGroupParent(ev.target)
   // TODO check if style selection screen, return
   var formSection
-  // var sidebarLeft = document.querySelector('#sidebar-left')
   var sectionList = document.querySelectorAll('section.accordeon__section-label')
   var isClosed
   var sectionLabel
@@ -289,7 +302,58 @@ function clickSelect (ev) {
   // Don't take the click while in the style selection screen.
   // if (faceContainer.style.opacity === '1') {return}
 
-  if (c.choices.sex === undefined) { return }
+  if (!c.choices.sex) { return }
+
+  prefix = fromItemGetPrefix(el.id)
+  formSection = fromPrefixGetFormSection(prefix)
+
+  if (prefix === 'svg1') {
+    zoomFull()
+    return
+  }
+
+  // toggleSection
+  // Check to see if the section is already open in sidebarRight
+  // If not open, close all sections and open it.
+  // Same thing for item thumbnails, if not open, open them.
+  if (formSection > -1) {
+    sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML
+    sectionZoom(sectionLabel)
+    isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide')
+    closeSections(sectionList[formSection])
+
+    if (isClosed) {
+      showSection(sectionList[formSection])
+    }
+    // Get Prefix Index;
+    prefixIndex = getSectionButton(formSection, prefix)
+
+    if (prefixIndex > -1) {
+      itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option')
+      itemButton = itemButtonList[prefixIndex]
+      hideColorPicker()
+      openThumbsLogic(itemButton)
+    }
+  }
+}
+
+function clickSelect (ev) {
+  var el = getGroupParent(ev.target)
+  // TODO check if style selection screen, return
+  var formSection
+  var sectionList = document.querySelectorAll('section.accordeon__section-label')
+  var isClosed
+  var sectionLabel
+  var prefix
+  var prefixIndex
+  var itemButtonList
+  var itemButton
+  // var faceContainer = document.querySelector('.face-styles');
+
+  // Don't take the click while in the style selection screen.
+  // if (faceContainer.style.opacity === '1') {return}
+
+  if (!c.choices.sex) { return }
 
   prefix = fromItemGetPrefix(el.id)
   formSection = fromPrefixGetFormSection(prefix)
@@ -340,7 +404,7 @@ function getSectionButton (formSection, prefix) {
   return -1
 }
 
-function getLayers () {
+function getLayers666 () {
   var layers
 
   if (c.choices.sex === 'm') {
@@ -354,7 +418,24 @@ function getLayers () {
   return layers
 }
 
-function getGroupParent (el) {
+function getLayers () {
+  return new Promise((resolve, reject) => {
+    if (c.choices.sex === 'm') {
+      return resolve(window.layersMale)
+    }
+    if (c.choices.sex === 'f') {
+      // layers = window.layersFemale
+      return fetch("/layer/female/layers.json")
+        .then((res) => res.json)
+    }
+
+    return document.querySelector('#svg1 #character-container')
+
+
+  })
+}
+
+function getGroupParent666 (el) {
   var layers = getLayers()
   while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
     el = el.parentNode
@@ -362,7 +443,20 @@ function getGroupParent (el) {
   return el
 }
 
-function getMultiLayer () {
+function getGroupParent (el) {
+  return new Promise((resolve, reject) => {
+    // var layers = getLayers()
+    getLayers()
+      .then((layers) => {
+        while (layers.indexOf(el.id) === -1 && el.tagName != 'svg') {
+          el = el.parentNode
+        }
+        resolve(el)
+      })
+  })
+}
+
+function getMultiLayer666 () {
   var multiLayer = []
   var layers = getLayers()
   var counter = layers.length
@@ -379,6 +473,27 @@ function getMultiLayer () {
     }
   }
   return multiLayer
+}
+
+function getMultiLayer () {
+  return new Promise((resolve, reject) => {
+    var multiLayer = []
+    var layers = getLayers()
+    var counter = layers.length
+    var singleArray
+    var layerCount
+
+    while (counter--) {
+      layerCount = isMultiLayer(layers[counter])
+      if (layerCount > 0) {
+        singleArray = []
+        singleArray.push(layers[counter].slice(0, -7))
+        singleArray.push(layerCount)
+        multiLayer.push(singleArray)
+      }
+    }
+    return multiLayer
+  })
 }
 
 function isMultiLayer (layer) {
@@ -476,7 +591,7 @@ function startup () {
   interpretHash()
 }
 
-function launch () {
+function launch666 () {
   c.choices.sex = hash.get('sex')
   var sex = c.choices.sex
   var multiLayer = getMultiLayer()
@@ -507,6 +622,55 @@ function launch () {
   choicesToList(c)
   toBeShown = choicesToLayers(c, multiLayer)
   Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath() })
+}
+
+function launch () {
+  return new Promise((resolve, reject) => {
+    c.choices.sex = hash.get('sex')
+    var sex = c.choices.sex
+    // var multiLayer = getMultiLayer()
+
+    getMultiLayer()
+      .then((multiLayer) => {
+        var hairLayers = getHairLayers()
+        var skinLayers = getSkinLayers()
+
+        if (sex === 'm') {
+          var form1 = maleForm1
+          var form2 = maleForm2
+          var form3 = maleForm3
+          var form4 = maleForm4
+          var form5 = maleForm5
+          var form6 = maleForm6
+          var layerDirectory = layerDirectoryMale
+        } else {
+          var form1 = femaleForm1
+          var form2 = femaleForm2
+          var form3 = femaleForm3
+          var form4 = femaleForm4
+          var form5 = femaleForm5
+          var form6 = femaleForm6
+          var layerDirectory = layerDirectoryFemale
+        }
+        window.forms = [form1, form2, form3, form4, form5, form6]
+        // Get all the hash key/value pairs and include them in the c.choices object
+        // Go through all the forms
+        parseHash(c, forms, skinLayers, hairLayers) // Hashed elements are added in the character object
+        choicesToList(c)
+        toBeShown = choicesToLayers(c, multiLayer)
+
+        resolve(Promise.all([
+          loadFilesFromList(toBeShown),
+          onAllLoaded,
+          applyClipPath
+        ]))
+
+        // Promise.resolve()
+        // .then(function () { loadFilesFromList(toBeShown) })
+        // .then(function () { onAllLoaded() })
+        // .then(function () { applyClipPath() })
+      })
+  })
 }
 
 function displayPallette () {
