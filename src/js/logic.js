@@ -1,4 +1,3 @@
-
 // Change sex of character from male to female or vice versa.
 function trans (sex) {
   if (c.choices.sex === sex) { return }
@@ -170,7 +169,7 @@ function show (userChoice, category) {
   }
   if (sections[0] === 'emotion') {
     modCharacter(sections[0], selectedOption)
-    ga('send', 'event', 'menu', 'select', id)
+    gaga('send', 'event', 'menu', 'select', id)
     sections = [] // Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
     var emotions = GetEmotionGetLayers(selectedOption)
     for (emo in emotions) {
@@ -195,7 +194,7 @@ function displaySections (sections, options, selectedOption, multiLayer) {
           obj[sections[section]] = selectedOption
           hash.add(obj)
           modCharacter(sections[section], selectedOption)
-          ga('send', 'event', 'menu', 'select', id)
+          gaga('send', 'event', 'menu', 'select', id)
         }
       } else {
         for (lyr in multiLayer) {

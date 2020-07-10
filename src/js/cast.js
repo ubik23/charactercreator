@@ -27,7 +27,7 @@ function createChar (evt) {
     .then(function (json) {
       currentUser._rev = json.rev
       // return json
-      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character' })
+      gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character' })
     })
     /*
     .catch(function (err) {
@@ -46,7 +46,7 @@ function deleteChar () {
     .then(function (json) {
       currentUser._rev = json.rev
       // return json
-      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character' })
+      gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character' })
     })
     /*
     .catch(function (err) {
@@ -76,7 +76,7 @@ function saveChar () {
     .then(function (json) {
       currentUser._rev = json.rev
       // return json
-      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character' })
+      gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Save', eventLabel: 'Save character' })
     })
     /*
     .catch(function (err) {

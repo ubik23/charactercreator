@@ -1,4 +1,3 @@
-
 function getDownloadViewBox () {
   var viewBoxValue
   var cameraViewContainer = document.querySelector('.camera-view input:checked + label svg')
@@ -47,7 +46,7 @@ function getSVG () {
 function download (ev) {
   ev.preventDefault()
 
-  ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
+  gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
   // TODO make the filename the character's name if possible.
   var filename = c.choices.name || 'my_character.svg'
   var pom
