@@ -328,10 +328,28 @@
           color: #fff;
           background-color: $color-alpha;
         }
-
-
       }
     }
+
+    &__filetype {
+      margin-bottom: 1em;
+
+      & .download-filetype {
+        display:flex;
+        align-items: center;
+
+        & span {
+          padding: 0 1em;
+          color: $color-alpha;
+        }
+
+        & input:checked + label span {
+          color: #fff;
+          background-color: $color-alpha;
+        }
+      }
+    }
+
 
     &__proceed-download-btn {
 
