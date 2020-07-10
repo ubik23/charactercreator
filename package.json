@@ -35,5 +35,9 @@
     "serve": "^11.3.2",
     "standard": "^14.3.4",
     "uglify-js": "^3.10.0"
+  },
+  "dependencies": {
+    "fastify": "^3.0.0",
+    "sharp": "^0.25.4"
   }
 }
