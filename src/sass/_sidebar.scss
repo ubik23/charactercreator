@@ -1,7 +1,7 @@
 .sidebar__container {
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -18,13 +18,12 @@
     font-size: 12px;
     overflow: visible;
     box-sizing: border-box;
-    background-color:rgba(255,255,255,0.75);
+    background-color: rgba(255, 255, 255, 0.75);
     color: $color-link;
     padding: 0;
-    border:1px solid $color-border;
+    border: 1px solid $color-border;
     width: 20vw;
     // max-height: 90%;
-
     @media screen and (min-width: 650px) {
         position: absolute;
         bottom: auto;
@@ -38,13 +37,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .sidebar {
-    border:1px solid $color-night-border;
-  }
+    .sidebar {
+        border: 1px solid $color-night-border;
+    }
 }
 
 .night .sidebar {
-  border:1px solid $color-night-border;
+    border: 1px solid $color-night-border;
 }
 
 .sidebar-left {
@@ -52,11 +51,10 @@
     left: 0;
     margin-left: 0;
     transform: translateX(-200%);
-
     @media screen and (min-width: 650px) {
-      margin-left: 3em;
-      bottom: auto;
-      width: 22%;
+        margin-left: 3em;
+        bottom: auto;
+        width: 22%;
     }
 }
 
@@ -68,7 +66,6 @@
     overflow: hidden;
     max-height: 100%;
     overflow-y: scroll;
-
     @media screen and (min-width: 650px) {
         margin-right: 1em;
     }
@@ -89,26 +86,25 @@
     border-bottom: 1px solid $color-border;
     margin: 0;
     padding-top: 0.15em;
-
     & .icon {
-      display: none;
+        display: none;
     }
 }
 
 @media (prefers-color-scheme: dark) {
-  .sidebar__title {
-    background: url('../hex.png');
-    background-color: $color-night-background;
-    border-bottom: 1px solid $color-night-border;
-  }
+    .sidebar__title {
+        background: url('../hex.png');
+        background-color: $color-night-background;
+        border-bottom: 1px solid $color-night-border;
+    }
 }
 
 .night .sidebar__title {
-  background: url('../hex.png');
-  background-color: $color-night-background;
-  border-bottom: 1px solid $color-night-border;
+    background: url('../hex.png');
+    background-color: $color-night-background;
+    border-bottom: 1px solid $color-night-border;
 }
 
 .thumbnails__container {
-  color: $color-alpha;
+    color: $color-alpha;
 }
