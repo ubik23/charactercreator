@@ -3,7 +3,6 @@
 const sharp = require('sharp')
 const fastify = require('fastify')({ logger: true })
 
-
 const wowo = Buffer.from(`
 <svg id="svg1" class="select-male" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
                   <desc>Character</desc>
