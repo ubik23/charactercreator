@@ -10,6 +10,8 @@ function getDownloadViewBox () {
 }
 
 function getSVG () {
+  consolelog("getSVG!!!")
+
   // TODO Get viewBox from radio input and add it bellow
   var viewBoxValue = getDownloadViewBox()
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560" viewBox="' + viewBoxValue + '">\n'
@@ -46,12 +48,21 @@ function getSVG () {
 function download (ev) {
   ev.preventDefault()
 
+  consolelog("DOWNLOADING!!!")
+
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
   // TODO make the filename the character's name if possible.
   var filename = c.choices.name || 'my_character.svg'
   var pom
   var text = getSVG()
   // TODO Copy the URL before it is erased by the download function.
+
+  const format = document.querySelector("input[name=download-format]:checked").value
+
+  if (format === "png") {
+    console.log("PNG of", text)
+    return
+  }
 
   pom = document.createElement('a')
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
