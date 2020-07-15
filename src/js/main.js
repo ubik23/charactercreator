@@ -139,6 +139,7 @@ function gotoNewChar (evt) {
   }
   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | New character', eventLabel: 'Reset to new character from Caboose.' })
   closeAllOverlays()
+  window.location.hash ='';
   setTimeout(function () {
     resetCharacter()
   }, 500)
