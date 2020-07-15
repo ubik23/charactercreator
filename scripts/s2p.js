@@ -413,8 +413,60 @@ const wowo = Buffer.from(`
 
 fastify.get('/', async (request, reply) => {
   reply.type("image/png")
-  return sharp("my_character-o.svg").png().toBuffer()
-  // return sharp(wowo).png().toBuffer()
+  // return sharp("my_character-o.svg").png().toBuffer()
+  return sharp(wowo).png().toBuffer()
+})
+
+fastify.get('/form', async (request, reply) => {
+  reply.type("text/html")
+  return `<html><meta charset="utf-8"><body>
+  <h2>Hello</h2>
+  <button type="button">Hop!</button>
+  <script>
+  const b = document.querySelector("button")
+  function poster () {
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        px: 666,
+        svg: "fi fe fo"
+      })
+    })
+    .then(function (res) { return res.json() })
+    .then(function (json) {
+      console.log(json)
+      const a = document.createElement("a")
+      a.innerText = "rah rah"
+      // a.href = "bib"
+      a.href = "data:text/plain,hola"
+
+      a.download = "bib.png"
+      // document.body.appendChild(a)
+      a.click()
+    })
+    .catch(console.error)
+  }
+  b.addEventListener("click", poster)
+
+  </script>
+
+  `
+})
+
+// a.href = `data:text/plain,hola`
+
+
+fastify.post('/', async (request, reply) => {
+  reply.type("application/json")
+  return request.body
+  /*
+  reply.type("image/png")
+  // return sharp("my_character-o.svg").png().toBuffer()
+  return sharp(wowo).png().toBuffer()
+  */
 })
 
 fastify.listen(3000, (err, address) => {
