@@ -5,6 +5,12 @@ fastify.register(require('fastify-static'), {
   root: join(__dirname, "../src")
 })
 
+fastify.register(require('fastify-http-proxy'), {
+  upstream: 'http://localhost:3000',
+  prefix: '/get-svg',
+})
+
+
 fastify.listen(5000, (err, address) => {
   if (err) {
     fastify.log.error(err)
