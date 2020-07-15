@@ -97,7 +97,7 @@ function checkNightMode () {
 
 function switchNightMode (ev) {
   // document.documentElement.setAttribute('data-theme', 'lighttheme');
-  ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode' })
+  gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Dark/Light', eventLabel: 'Switch between Dark mode and Light mode' })
   ev.preventDefault()
   var body = document.querySelector('BODY')
   hamburger()
@@ -111,14 +111,14 @@ function switchNightMode (ev) {
 }
 
 function tattle () {
-  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Navbar | Patreon', eventLabel: 'Open Patreon page from the Navbar/Hamburger menu.' })
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Navbar | Patreon', eventLabel: 'Open Patreon page from the Navbar/Hamburger menu.' })
 }
 
 function gotoPatreon (evt) {
   if (evt) {
     evt.preventDefault()
   }
-  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Patreon', eventLabel: 'Open Patreon page from Caboose modal.' })
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Patreon', eventLabel: 'Open Patreon page from Caboose modal.' })
   closeAllOverlays()
   setTimeout(function () { window.open('https://www.patreon.com/charactercreator') }, 500)
 }
@@ -127,7 +127,7 @@ function gotoBrave (evt) {
   if (evt) {
     evt.preventDefault()
   }
-  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
   closeAllOverlays()
   // consolelog('brave')
   setTimeout(function () { window.open('https://brave.com/cha553') }, 500)
@@ -137,7 +137,7 @@ function gotoNewChar (evt) {
   if (evt) {
     evt.preventDefault()
   }
-  ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | New character', eventLabel: 'Reset to new character from Caboose.' })
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | New character', eventLabel: 'Reset to new character from Caboose.' })
   closeAllOverlays()
   window.location.hash ='';
   setTimeout(function () {
@@ -595,7 +595,7 @@ function colorCutout (newColor) {
   defaultHairColor(newColor)
   defaultPupilShape()
 
-  ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' })
+  gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' })
 
   addDecency()
   addTopicalItem()
@@ -631,7 +631,7 @@ function selectMale (event) {
   shadow.classList.add('shine')
 
   if (event) {
-    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template' })
+    gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Male', eventLabel: 'Select male template' })
   }
 
   setTimeout(function () {
@@ -676,7 +676,7 @@ function selectFemale (event) {
   shadow.classList.add('shine')
 
   if (event) {
-    ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template' })
+    gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Female', eventLabel: 'Select female template' })
   }
 
   setTimeout(function () {

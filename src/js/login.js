@@ -226,7 +226,7 @@ function login (evt) {
       clearInputFields()
       login.classList.remove('overlay--show')
       manageCharacters(user)
-      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login' })
+      gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login' })
     })
     /*
     .catch(function (err) {
@@ -340,7 +340,7 @@ function switchCharacter (evt) {
         hashCharacter()
         setHashTrigger()
       }, 500)
-      ga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character' })
+      gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character' })
     })
     /*
     .catch(function (err) {
@@ -480,7 +480,7 @@ function register (evt) {
       currentUser = user
       manageCharacters(currentUser)
       register.classList.remove('overlay--show')
-      ga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account' })
+      gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account' })
     })
     /*
     .catch(function (err) {

@@ -26,7 +26,7 @@ function parseHash (c, forms, skinLayers, hairLayers) {
       var id = section + '_' + hashData
       if (hashData != undefined) {
         modCharacter(section, hashData)
-        // ga('send', 'event', 'hash', 'select', id);
+        // gaga('send', 'event', 'hash', 'select', id);
       } else if (section === 'brows' || section === 'eyes' || section === 'mouth' || section === 'lashes' || section === 'sockets') {
         modCharacter(section, 'neutral')
       };
@@ -42,23 +42,23 @@ function parseHash (c, forms, skinLayers, hairLayers) {
 
       if (hashColor != undefined && hashColor != '') {
         modCharacter(section + 'Color', hashColor)
-        // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+        // gaga('send', 'event', 'hash', 'color', section+'_'+hashColor );
       };
       if (hashColorBeta != undefined && hashColorBeta != '') {
         modCharacter(section + 'Color-bet', hashColorBeta)
-        // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+        // gaga('send', 'event', 'hash', 'color', section+'_'+hashColor );
       };
       if (hashColorGamma != undefined && hashColorGamma != '') {
         modCharacter(section + 'Color-gam', hashColorGamma)
-        // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+        // gaga('send', 'event', 'hash', 'color', section+'_'+hashColor );
       };
       if (hashColorDelta != undefined && hashColorDelta != '') {
         modCharacter(section + 'Color-del', hashColorDelta)
-        // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+        // gaga('send', 'event', 'hash', 'color', section+'_'+hashColor );
       };
       if (hashColorEpsilon != undefined && hashColorEpsilon != '') {
         modCharacter(section + 'Color-eps', hashColorEpsilon)
-        // ga('send', 'event', 'hash', 'color', section+'_'+hashColor );
+        // gaga('send', 'event', 'hash', 'color', section+'_'+hashColor );
       };
     };
   };
