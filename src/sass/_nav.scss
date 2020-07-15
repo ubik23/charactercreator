@@ -131,13 +131,14 @@ sub {
     justify-content: space-between;
     box-sizing: border-box;
     cursor: pointer;
-    display: flex;
     align-items: center;
     @media only screen and (min-width: 768px) {}
 }
 
 .dark-text {
-    display: contents;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .light-text {
@@ -146,15 +147,19 @@ sub {
 
 @media (prefers-color-scheme: dark) {
     .light-text {
-        display: contents;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
     .dark-text {
-        display: none;
+      display: none;
     }
 }
 
 .night .light-text {
-    display: contents;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .night .dark-text {
