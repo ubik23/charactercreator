@@ -14,7 +14,7 @@ function svgToPng (svg, filename) {
     const a = document.createElement("a")
     const objectUrl = URL.createObjectURL(blob)
     a.href = objectUrl
-    a.download = "bib.png"
+    a.download = filename
     a.click()
     return objectUrl
   })
