@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "fastify": "^3.0.3",
+    "forever": "^3.0.0",
     "sharp": "^0.25.4"
   }
 }
