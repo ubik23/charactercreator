@@ -20,6 +20,7 @@ function svgToPng (svg, filename) {
   })
   .then(function (ou) {
     URL.revokeObjectURL(ou)
+    caboose()
   })
   .catch(console.error)
 }
