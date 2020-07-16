@@ -435,17 +435,21 @@ fastify.get('/form', async (request, reply) => {
         svg: "fi fe fo"
       })
     })
-    .then(function (res) { return res.json() })
-    .then(function (json) {
-      console.log(json)
+    .then(function (res) { return res.blob() })
+    .then(function (blob) {
+      // console.log(json)
       const a = document.createElement("a")
       a.innerText = "rah rah"
-      // a.href = "bib"
-      a.href = "data:text/plain,hola"
+      const objectUrl = URL.createObjectURL(blob)
+      a.href = objectUrl
 
       a.download = "bib.png"
       // document.body.appendChild(a)
       a.click()
+      return objectUrl
+    })
+    .then(function (ou) {
+      URL.revokeObjectURL(ou)
     })
     .catch(console.error)
   }
@@ -456,17 +460,16 @@ fastify.get('/form', async (request, reply) => {
   `
 })
 
-// a.href = `data:text/plain,hola`
-
-
 fastify.post('/', async (request, reply) => {
-  reply.type("application/json")
-  return request.body
-  /*
+  // reply.type("application/json")
+  // return request.body
+
+  console.log("BODY.svg", request.body.svg)
+
   reply.type("image/png")
   // return sharp("my_character-o.svg").png().toBuffer()
   return sharp(wowo).png().toBuffer()
-  */
+
 })
 
 fastify.listen(3000, (err, address) => {
