@@ -1,3 +1,29 @@
+function svgToPng (svg, filename) {
+  return fetch("/get-svg", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      // px: 666,
+      svg: svg,
+    })
+  })
+  .then(function (res) { return res.blob() })
+  .then(function (blob) {
+    const a = document.createElement("a")
+    const objectUrl = URL.createObjectURL(blob)
+    a.href = objectUrl
+    a.download = filename
+    a.click()
+    return objectUrl
+  })
+  .then(function (ou) {
+    URL.revokeObjectURL(ou)
+  })
+  .catch(console.error)
+}
+
 function getDownloadViewBox () {
   var viewBoxValue
   var cameraViewContainer = document.querySelector('.camera-view input:checked + label svg')
@@ -31,13 +57,10 @@ function getSVG () {
   svgNodes = Array.prototype.slice.call(svgRaw)
 
   svgNodes.forEach(function (item) {
-    if (item.innerHTML != undefined) {
-      // This removes only useless layers and allows us to o the next test.
-      if (!item.style || !item.style.opacity || item.style.opacity != 0) {
-        svgString = '<g id="' + item.id + '">' + item.innerHTML + '</g>'
-        text += svgString
-      } else {
-      };
+    // This removes only useless layers and allows us to o the next test.
+    if (item.innerHTML && (!item.style || !item.style.opacity || item.style.opacity != 0)) {
+      svgString = '<g id="' + item.id + '">' + item.innerHTML + '</g>'
+      text += svgString
     }
   })
 
@@ -60,7 +83,8 @@ function download (ev) {
   const format = document.querySelector("input[name=download-format]:checked").value
 
   if (format === "png") {
-    console.log("PNG of", text)
+    filename = c.choices.name || 'my_character.png'
+    svgToPng(text, filename)
     return
   }
 
