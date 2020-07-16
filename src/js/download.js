@@ -84,8 +84,10 @@ function download (ev) {
 
   if (format === "png") {
     filename = c.choices.name || 'my_character.png'
-    svgToPng(text, filename)
-    return
+    return svgToPng(text, filename)
+      .then(function () {
+        caboose()
+      })
   }
 
   pom = document.createElement('a')
