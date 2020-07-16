@@ -38,7 +38,6 @@ function getDownloadViewBox () {
 function getSVG () {
   consolelog("getSVG!!!")
 
-  // TODO Get viewBox from radio input and add it bellow
   var viewBoxValue = getDownloadViewBox()
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560" viewBox="' + viewBoxValue + '">\n'
   var svgRaw = document.getElementById('svg1').childNodes
