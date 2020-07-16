@@ -5,8 +5,7 @@ const fastify = require('fastify')({ logger: true })
 
 fastify.post('/', async (request, reply) => {
   reply.type("image/png")
-  return sharp(Buffer.from(request.body.svg.slice(62))).png().toBuffer()
-
+  return sharp(Buffer.from(request.body.svg)).png().toBuffer()
 })
 
 fastify.listen(3000, (err, address) => {
