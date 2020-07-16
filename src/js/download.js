@@ -1,4 +1,4 @@
-function svgToPng (svg) {
+function svgToPng (svg, filename) {
   return fetch("/get-svg", {
     method: "POST",
     headers: {
@@ -83,8 +83,8 @@ function download (ev) {
   const format = document.querySelector("input[name=download-format]:checked").value
 
   if (format === "png") {
-    console.log("PNG of", text)
-    svgToPng(text)
+    filename = c.choices.name || 'my_character.png'
+    svgToPng(text, filename)
     return
   }
 
