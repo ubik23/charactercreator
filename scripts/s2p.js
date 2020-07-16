@@ -3,6 +3,7 @@
 const sharp = require('sharp')
 const fastify = require('fastify')({ logger: true })
 
+/*
 const wowo = Buffer.from(`
 <svg id="svg1" class="select-male" viewBox="10 50 540 540" preserveAspectRatio="xMidYMin">
                   <desc>Character</desc>
@@ -410,7 +411,9 @@ const wowo = Buffer.from(`
                     <rect id="outline" width="1000" height="1000" fill="#e35a4e" mask="url(#contour)" pointer-events="none" fill-opacity="1"></rect>
                 </svg>
 `)
+*/
 
+/*
 fastify.get('/', async (request, reply) => {
   reply.type("image/png")
   // return sharp("my_character-o.svg").png().toBuffer()
@@ -423,9 +426,9 @@ fastify.get('/form', async (request, reply) => {
   <h2>Hello</h2>
   <button type="button">Hop!</button>
   <script>
-  const b = document.querySelector("button")
-  function poster () {
-    fetch("/", {
+
+  function poster (svg) {
+    return fetch("/", {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -437,14 +440,10 @@ fastify.get('/form', async (request, reply) => {
     })
     .then(function (res) { return res.blob() })
     .then(function (blob) {
-      // console.log(json)
       const a = document.createElement("a")
-      a.innerText = "rah rah"
       const objectUrl = URL.createObjectURL(blob)
       a.href = objectUrl
-
       a.download = "bib.png"
-      // document.body.appendChild(a)
       a.click()
       return objectUrl
     })
@@ -453,21 +452,24 @@ fastify.get('/form', async (request, reply) => {
     })
     .catch(console.error)
   }
-  b.addEventListener("click", poster)
+
+  document.querySelector("button").addEventListener("click", poster)
 
   </script>
 
   `
 })
+*/
 
 fastify.post('/', async (request, reply) => {
   // reply.type("application/json")
   // return request.body
 
-  console.log("BODY.svg", request.body.svg)
+  // console.log("BODY.svg", request.body.svg)
 
   reply.type("image/png")
   // return sharp("my_character-o.svg").png().toBuffer()
+  const wowo = Buffer.from(request.body.svg.slice(62))
   return sharp(wowo).png().toBuffer()
 
 })

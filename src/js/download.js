@@ -1,3 +1,29 @@
+function svgToPng (svg) {
+  return fetch("/get-svg", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      // px: 666,
+      svg: svg,
+    })
+  })
+  .then(function (res) { return res.blob() })
+  .then(function (blob) {
+    const a = document.createElement("a")
+    const objectUrl = URL.createObjectURL(blob)
+    a.href = objectUrl
+    a.download = "bib.png"
+    a.click()
+    return objectUrl
+  })
+  .then(function (ou) {
+    URL.revokeObjectURL(ou)
+  })
+  .catch(console.error)
+}
+
 function getDownloadViewBox () {
   var viewBoxValue
   var cameraViewContainer = document.querySelector('.camera-view input:checked + label svg')
@@ -58,6 +84,7 @@ function download (ev) {
 
   if (format === "png") {
     console.log("PNG of", text)
+    svgToPng(text)
     return
   }
 
