@@ -20,7 +20,6 @@ function svgToPng (svg, filename) {
   })
   .then(function (ou) {
     URL.revokeObjectURL(ou)
-    caboose()
   })
   .catch(console.error)
 }
@@ -37,8 +36,6 @@ function getDownloadViewBox () {
 }
 
 function getSVG () {
-  consolelog("getSVG!!!")
-
   var viewBoxValue = getDownloadViewBox()
   var text = '<!-- ?xml version="1.0" encoding="UTF-8" standalone="no"? -->\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560" viewBox="' + viewBoxValue + '">\n'
   var svgRaw = document.getElementById('svg1').childNodes
@@ -70,8 +67,6 @@ function getSVG () {
 
 function download (ev) {
   ev.preventDefault()
-
-  consolelog("DOWNLOADING!!!")
 
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
   // TODO make the filename the character's name if possible.
