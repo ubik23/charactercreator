@@ -281,3 +281,16 @@ sub {
         }
     }
 }
+
+@media screen and (max-width: 1190px) {
+    li#facebookButton{display: none;}
+}
+@media screen and (max-width: 1120px) {
+    li#twitterButton{display: none;}
+}
+@media screen and (max-width: 1110px) {
+    li#faqButton{display: none;}
+}
+@media screen and (max-width: 991px) {
+    li#faqButton, li#twitterButton, li#facebookButton{display: list-item;}
+}
