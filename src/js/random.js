@@ -183,6 +183,7 @@ function smartRandomSingle (ev) {
     glasses: 60,
     holster: 5,
     horns: 3,
+    kneepads: 5,
     makeup: 80,
     mask: 5,
     necklace: 75,

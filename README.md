@@ -37,6 +37,8 @@ npm run clean # delete built files in prod/ and src/dist/
 
 # Site Architecture
 
+![function-calls](https://raw.githubusercontent.com/ubik23/charactercreator/master/scripts/function-calls.jpg)
+
 The project is still in its alpha stage, so you might find some legacy code from when the project was created in 2014. I try to keep it up to date but some parts get neglected in favor of new shiny features.
 
 The items are separated into layers, some items require multiple layers while others only need one. Most SVG paths have classes that tell the App what color the path should be. The order of the SVGs are important to preserve the illusion of 3d in this 2d environment.

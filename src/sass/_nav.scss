@@ -286,3 +286,13 @@ sub {
         }
     }
 }
+@media screen and (max-width: 1190px) {
+    nav .icon{
+        display: none;
+    }
+}
+@media screen and (max-width: 991px) {
+    nav .icon{
+        display: block;
+    }
+}
