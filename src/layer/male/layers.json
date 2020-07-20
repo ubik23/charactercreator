@@ -1,4 +1,5 @@
-[
+{
+"bodyBack": [
   "wings_angel",
   "wings_devil",
   "wings_fairy",
@@ -18,7 +19,9 @@
   "pet_siamese_cat",
   "pet_gerbil",
   "pet_chicken",
-  "pet_fox",
+  "pet_fox"
+],
+"headBack": [
   "hat_country_2_of_2",
   "hat_helmet_vietnam_2_of_2",
   "hat_strainer_2_of_2",
@@ -26,7 +29,9 @@
   "headband_medium_2_of_2",
   "hair_down_3_of_3",
   "hair_manga_2_of_2",
-  "hair_pigtails_2_of_2",
+  "hair_pigtails_2_of_2"
+],
+"bodyFront": [
   "coat_fall_long_3_of_3",
   "coat_trench_3_of_4",
   "coat_scientist_2_of_2",
@@ -168,7 +173,9 @@
   "scarf_chest_warmer",
   "scarf_overhand",
   "scarf_once_around",
-  "scarf_drape",
+  "scarf_drape"
+],
+"headFront": [
   "age_lines",
   "hair_down_2_of_3",
   "hat_turban_2_of_2",
@@ -478,3 +485,4 @@
   "smoke_filter",
   "smoke_pipe_subgenius"
 ]
+}

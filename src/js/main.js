@@ -3,7 +3,7 @@ fetch("/layer/female/layers.json")
   return res.json()
 })
 .then(function (json) {
-  window.layersFemale = json
+  window.layersFemale =  json.bodyBack.concat(json.headBack, json.bodyMiddle, json.headMiddle, json.bodyFront, json.headFront, json.bodyOver, json.headOver)
 })
 .catch(console.error)
 
@@ -12,7 +12,7 @@ fetch("/layer/male/layers.json")
   return res.json()
 })
 .then(function (json) {
-  window.layersMale = json
+  window.layersMale = json.bodyBack.concat(json.headBack, json.bodyFront, json.headFront)
 })
 .catch(console.error)
 
