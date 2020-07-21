@@ -25,16 +25,19 @@ const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
 Promise.all([maleHead, maleBody])
   .then(function([maleHead, maleBody]) {
     window.layersMale = assembleLayers(maleBody, maleHead, 'body_front_swaying', 'head_front_default')
+    window.maleHead = maleHead
+    window.maleBody = maleBody
   })
 
 Promise.all([femaleHead, femaleBody])
   .then(function([femaleHead, femaleBody]) {
-    window.layersFemale = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
+    window.layersFemale  = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
     // femaleBody.bodyBack.concat(femaleHead.headBack, femaleBody.bodyMiddle, femaleHead.headMiddle, femaleBody.bodyFront, femaleHead.headFront, femaleBody.bodyOver, femaleHead.headOver)
   })
 
 function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   var layers = []
+  var sourceLayers =[]
   var counter
   if (bodyObject.bodyBack) {
     counter = bodyObject.bodyBack.length

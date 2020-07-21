@@ -201,6 +201,19 @@ function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
   loadFilesFromList(layersList, callback, callbackLoopFlag)
 }
 
+function getPositionDir (layer) {
+  // temporary function to apply the right subfolder when loading files
+  var positionDir
+  // console.log('maleBody', window.maleBody.bodyBack)
+
+  if (window.maleBody.bodyBack.indexOf(layer) > -1  || window.maleBody.bodyFront.indexOf(layer) > -1 ) {
+    positionDir = 'body_front_swaying /'
+  } else if (window.maleHead.headBack.indexOf(layer) > -1  || window.maleHead.headFront.indexOf(layer) > -1 ) {
+    positionDir = 'head_front_default/'
+  }
+  return positionDir
+}
+
 function loadFilesFromList (layersList, callback, callbackLoopFlag) {
   var layerDirectory
   var sex = c.choices.sex
@@ -208,6 +221,7 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag) {
   var layerID
   var counter
   var layers
+  var positionDir
 
   if (sex === 'm') {
     layerDirectory = 'layer/male/'
@@ -226,7 +240,12 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag) {
       continue
     }
 
+    positionDir = getPositionDir(layerID)
+    console.log('positionDir', positionDir)
     file = layerDirectory + layerID + '.svg'
+    // file = layerID + '.svg'
+
+
     fetch(file).then(function (response) {
       return response.text()
     }).then(function (text) {
