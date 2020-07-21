@@ -32,7 +32,8 @@ Promise.all([maleHead, maleBody])
 Promise.all([femaleHead, femaleBody])
   .then(function([femaleHead, femaleBody]) {
     window.layersFemale  = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
-    // femaleBody.bodyBack.concat(femaleHead.headBack, femaleBody.bodyMiddle, femaleHead.headMiddle, femaleBody.bodyFront, femaleHead.headFront, femaleBody.bodyOver, femaleHead.headOver)
+    window.femaleHead = femaleHead
+    window.femaleBody = femaleBody
   })
 
 function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
