@@ -1,20 +1,39 @@
-fetch("/layer/female/layers.json")
+const femaleHead = fetch("/layer/female/head_front_default/layers.json")
 .then(function (res) {
   return res.json()
-})
-.then(function (json) {
-  window.layersFemale =  json.bodyBack.concat(json.headBack, json.bodyMiddle, json.headMiddle, json.bodyFront, json.headFront, json.bodyOver, json.headOver)
 })
 .catch(console.error)
 
-fetch("/layer/male/layers.json")
+const femaleBody = fetch("/layer/female/body_front_hand-on-hip/layers.json")
 .then(function (res) {
   return res.json()
 })
-.then(function (json) {
-  window.layersMale = json.bodyBack.concat(json.headBack, json.bodyFront, json.headFront)
+.catch(console.error)
+
+const maleHead = fetch("/layer/male/head_front_default/layers.json")
+.then(function (res) {
+  return res.json()
 })
 .catch(console.error)
+
+const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
+.then(function (res) {
+  return res.json()
+})
+.catch(console.error)
+
+Promise.all([maleHead, maleBody])
+  .then(function([maleHead, maleBody]) {
+    window.layersMale = maleBody.bodyBack.concat(maleHead.headBack, maleBody.bodyFront, maleHead.headFront)
+  })
+
+Promise.all([femaleHead, femaleBody])
+  .then(function([femaleHead, femaleBody]) {
+    window.layersFemale = femaleBody.bodyBack.concat(femaleHead.headBack, femaleBody.bodyMiddle, femaleHead.headMiddle, femaleBody.bodyFront, femaleHead.headFront, femaleBody.bodyOver, femaleHead.headOver)
+  })
+
+// window.layersFemale =  json.bodyBack.concat(json.headBack, json.bodyMiddle, json.headMiddle, json.bodyFront, json.headFront, json.bodyOver, json.headOver)
+// window.layersMale = json.bodyBack.concat(json.headBack, json.bodyFront, json.headFront)
 
 window.onload = function () {
   var c // Main variable to hold user choices and preferences
