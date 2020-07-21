@@ -3,16 +3,16 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="description" content="<%= config.description %>" />
+    <meta name="description" content="<%= localsdescription %>" />
     <meta name="author" content="Frederic Guimont" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= config.title %> - <%= config.subtitle %></title>
+    <title><%= localstitle %> - <%= localssubtitle %></title>
     <link rel="stylesheet" href="dist/styles.css" />
-    <link rel="canonical" href="<%= config.ogUrl %>" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="<%= config.title %>" />
-    <meta property="og:description" content="<%= config.description %>" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="<%= config.ogImage %>">
-    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="<%= config.ogUrl %>">
+    <link rel="canonical" href="<%= localsogUrl %>" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="<%= localstitle %>" />
+    <meta property="og:description" content="<%= localsdescription %>" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="<%= localsogImage %>">
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="<%= localsogUrl %>">
     <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image">
     <script>
@@ -309,7 +309,7 @@
         </svg>
     <div class="wrapper">
         <header class="header">
-            <%- config.pageTitle %>
+            <%- localspageTitle %>
             <nav class="links">
                 <button class="hamburger-btn" type="button">
                       <svg class="icon-hamburger"  width="1.25em" height="1.25em" style="padding-top:0.25em;"><use xlink:href="#icon-hamburger"></use></svg>
