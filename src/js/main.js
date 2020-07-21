@@ -24,16 +24,76 @@ const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
 
 Promise.all([maleHead, maleBody])
   .then(function([maleHead, maleBody]) {
-    window.layersMale = maleBody.bodyBack.concat(maleHead.headBack, maleBody.bodyFront, maleHead.headFront)
+    window.layersMale = assembleLayers(maleBody, maleHead, 'body_front_swaying', 'head_front_default')
   })
 
 Promise.all([femaleHead, femaleBody])
   .then(function([femaleHead, femaleBody]) {
-    window.layersFemale = femaleBody.bodyBack.concat(femaleHead.headBack, femaleBody.bodyMiddle, femaleHead.headMiddle, femaleBody.bodyFront, femaleHead.headFront, femaleBody.bodyOver, femaleHead.headOver)
+    window.layersFemale = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
+    // femaleBody.bodyBack.concat(femaleHead.headBack, femaleBody.bodyMiddle, femaleHead.headMiddle, femaleBody.bodyFront, femaleHead.headFront, femaleBody.bodyOver, femaleHead.headOver)
   })
 
-// window.layersFemale =  json.bodyBack.concat(json.headBack, json.bodyMiddle, json.headMiddle, json.bodyFront, json.headFront, json.bodyOver, json.headOver)
-// window.layersMale = json.bodyBack.concat(json.headBack, json.bodyFront, json.headFront)
+function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
+  var layers = []
+  var counter
+  if (bodyObject.bodyBack) {
+    counter = bodyObject.bodyBack.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyBack[total - (counter + 1)])
+    }
+  }
+  if (headObject.headBack) {
+    counter = headObject.headBack.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headBack[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyMiddle) {
+    counter = bodyObject.bodyMiddle.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyMiddle[total - (counter + 1)])
+    }
+  }
+  if (headObject.headMiddle) {
+    counter = headObject.headMiddle.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headMiddle[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyFront) {
+    counter = bodyObject.bodyFront.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyFront[total - (counter + 1)])
+    }
+  }
+  if (headObject.headFront) {
+    counter = headObject.headFront.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headFront[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyOver) {
+    counter = bodyObject.bodyOver.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyOver[total - (counter + 1)])
+    }
+  }
+  if (headObject.headOver) {
+    counter = headObject.headOver.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headOver[total - (counter + 1)])
+    }
+  }
+  return layers
+}
 
 window.onload = function () {
   var c // Main variable to hold user choices and preferences
