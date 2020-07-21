@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node scripts/dev-server",
     "clean": "rm -fr prod/* src/dist/*",
-    "config": "ejs src/templates/index.html --output-file src/index.html --no-with --data-file config.json",
+    "config": "ejs src/templates/index.html --output-file src/index.html --locals-name config --no-with --data-file config.json",
     "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js",
