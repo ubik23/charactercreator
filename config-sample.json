@@ -5,11 +5,10 @@
 	"ogImage": "https://charactercreator.org/character-creator-og-image.png",
 	"ogUrl": "https://charactercreator.org/",
 	"pageTitle": "<h1 class='site-title'><sup>The </sup>Character Creator</h1>",
-	"": "",
-	"": "",
-	"": "",
-	"": "",
-	"": "",
-	"": "",
-	"": ""
+	"gaId": "UA-47040938-1",
+	"gaUrl": "charactercreator.org",
+	"github": "https://github.com/ubik23/charactercreator",
+	"facebook": "https://www.facebook.com/thecharactercreator/",
+	"patreon": "https://www.patreon.com/charactercreator",
+	"twitter": "https://twitter.com/CharactrCreatr"
 }

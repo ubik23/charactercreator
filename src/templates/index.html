@@ -27,7 +27,7 @@
             a.src = g;
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-47040938-1', 'charactercreator.org');
+        ga('create', '<%= locals.gaId %>', '<%= locals.gaUrl %>');
         ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
@@ -317,10 +317,10 @@
                 <ul id="horizontal" class="hide">
                     <li id="aboutButton"><a href="#" target="_blank" alt="About"><span class="menu-text">About</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-about"></use></svg></a></li>
                     <li id="faqButton"><a href="#" target="_blank" alt="F.A.Q."><span class="menu-text">F.A.Q.</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-faq"></use></svg></a></li>
-                    <li id="githubButton"><a href="https://github.com/ubik23/charactercreator" target="_blank" rel="noopener noreferrer" alt="Github"><span class="menu-text">Github</span><svg class="icon" width="1em" height="1em"><use xlink:href="#github-logo"></use></svg></a></li>
-                    <li id="facebookButton"><a href="https://www.facebook.com/thecharactercreator/" target="_blank" rel="noopener noreferrer" alt="Facebook"><span class="menu-text">Facebook</span><svg class="icon" width="1em" height="1em"><use xlink:href="#facebook-logo"></use></svg></a></li>
-                    <li id="patreonButton"><a href="https://www.patreon.com/charactercreator" target="_blank" rel="noopener noreferrer" alt="Patreon"><span class="menu-text">Patreon</span><svg class="icon" width="1em" height="1em"><use xlink:href="#patreon-logo"></use></svg></a></li>
-                    <li id="twitterButton"><a href="https://twitter.com/CharactrCreatr" target="_blank" rel="noopener noreferrer" alt="Twitter"><span class="menu-text">Twitter</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-twitter"></use></svg></a></li>
+                    <li id="githubButton"><a href="<%= locals.github %>" target="_blank" rel="noopener noreferrer" alt="Github"><span class="menu-text">Github</span><svg class="icon" width="1em" height="1em"><use xlink:href="#github-logo"></use></svg></a></li>
+                    <li id="facebookButton"><a href="<%= locals.facebook %>" target="_blank" rel="noopener noreferrer" alt="Facebook"><span class="menu-text">Facebook</span><svg class="icon" width="1em" height="1em"><use xlink:href="#facebook-logo"></use></svg></a></li>
+                    <li id="patreonButton"><a href="<%= locals.patreon %>" target="_blank" rel="noopener noreferrer" alt="Patreon"><span class="menu-text">Patreon</span><svg class="icon" width="1em" height="1em"><use xlink:href="#patreon-logo"></use></svg></a></li>
+                    <li id="twitterButton"><a href="<%= locals.twitter %>" target="_blank" rel="noopener noreferrer" alt="Twitter"><span class="menu-text">Twitter</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-twitter"></use></svg></a></li>
                     <li><a href="#" alt="Download SVG" opacity="0" id="downloadButton"><span class="menu-text">Download</span><svg class="icon icon-arrow-down" width="1em" height="1em"><use xlink:href="#icon-arrow-down"></use></svg></a>
                     <li id="whoButton"><a href="#"><span class="menu-text">Characters</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-who"></use></svg></a></li>
                     <li id="usernameButton"><a href="#"><span class="menu-text">User</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-username"></use></svg></a></li>
