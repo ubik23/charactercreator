@@ -11,5 +11,6 @@
 	"facebook": "https://www.facebook.com/thecharactercreator/",
 	"patreon": "https://www.patreon.com/charactercreator",
 	"twitter": "https://twitter.com/CharactrCreatr",
-	"infolinks": "<script type='text/javascript'>\nvar infolinks_pid = 3243090;\nvar infolinks_wsid = 0;\n</script>\n<script type='text/javascript' src='//resources.infolinks.com/js/infolinks_main.js'></script>"
+	"infolinks_pid": 3243090,
+	"infolinks_wsid": 0
 }

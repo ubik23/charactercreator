@@ -408,7 +408,13 @@
             <div class="skin-color__container"></div>
             <footer>
                 <script type="text/javascript" src="dist/all.js" defer></script>
-                <%- locals.infolinks %>
+                <% if (locals.infolinks_pid) { %>
+                <script type='text/javascript'>
+                  var infolinks_pid = <%= locals.infolinks_pid %>;
+                  var infolinks_wsid = <%= locals.infolinks_wsid %>;
+                </script>
+                <script type='text/javascript' src='//resources.infolinks.com/js/infolinks_main.js'></script>
+                <% } %>
             </footer>
         </main>
         <div class="overlay__modal js-login">
