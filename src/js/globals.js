@@ -341,10 +341,15 @@ var size = function (obj) {
 
 function counItems (list) {
   var count = 1
-  Object.entries(femaleForm1).forEach(function (value, index, array) {
-    if (value[1][0] !== '') {
-      count *= value[1].length
+  Object.entries(list).forEach(function (value, index, array) {
+    let trueArraySize = 0
+    for (let i=0 ; i<value[1].length ; i++){
+      if (value[1][i] !== '') {
+        trueArraySize +=1;
+      }
     }
+    if (trueArraySize === 0){trueArraySize =1}
+    count *= trueArraySize;
   })
   return count
 }
