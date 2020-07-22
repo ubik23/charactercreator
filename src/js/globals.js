@@ -327,7 +327,7 @@ var layersFemale = [
 ]
 */
 // Color Pallettes
-
+var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']
 var layerDirectoryFemale = 'layer/female/'
 var layerDirectoryMale = 'layer/male/'
@@ -338,6 +338,24 @@ var size = function (obj) {
   }
   return size
 }
+
+function counItems (list) {
+  var count = 1
+  Object.entries(list).forEach(function (value, index, array) {
+    let trueArraySize = 0
+    for (let i=0 ; i<value[1].length ; i++){
+      if (value[1][i] !== '') {
+        trueArraySize +=1;
+      }
+    }
+    if (trueArraySize === 0){trueArraySize =1}
+    count *= trueArraySize;
+  })
+  return count
+}
+var maleTotal = counItems(maleForm1) * counItems(maleForm2) * counItems(maleForm3) * counItems(maleForm4) * counItems(maleForm5) * counItems(maleForm6) * skinTones.length;
+var femaleTotal = counItems(femaleForm1) * counItems(femaleForm2) * counItems(femaleForm3) * counItems(femaleForm4) * counItems(femaleForm5) * counItems(femaleForm6) * skinTones.length;
+console.log('Hey ! welcome, you have  ' + (maleTotal + femaleTotal) + ' possibilities')
 
 window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6]
 window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6]
