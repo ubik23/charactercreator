@@ -331,31 +331,31 @@ var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2
 var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']
 var layerDirectoryFemale = 'layer/female/'
 var layerDirectoryMale = 'layer/male/'
-var size = function (obj) {
-  var size = 0; var key
+
+/*
+// FIXME: Is this actually used...???
+function size (obj) {
+  var sum = 0;
+  var key
   for (key in obj) {
-    if (obj.hasOwnProperty(key)) size++
+    if (obj.hasOwnProperty(key)) sum++
   }
-  return size
+  return sum
 }
+*/
 
 function countItems (list) {
-  var count = 1
-  Object.entries(list).forEach(function (value, index, array) {
-    let trueArraySize = 0
-    for (let i=0 ; i<value[1].length ; i++){
-      if (value[1][i] !== '') {
-        trueArraySize +=1;
-      }
-    }
-    if (trueArraySize === 0){trueArraySize =1}
-    count *= trueArraySize;
-  })
-  return count
+  let sum = 1
+  for (const r in list) {
+    // filter(Boolean) filters out "" cases
+    sum *= list[r].filter(Boolean).length || 1
+  }
+  return sum
 }
+
 var maleTotal = countItems(maleForm1) * countItems(maleForm2) * countItems(maleForm3) * countItems(maleForm4) * countItems(maleForm5) * countItems(maleForm6) * skinTones.length;
 var femaleTotal = countItems(femaleForm1) * countItems(femaleForm2) * countItems(femaleForm3) * countItems(femaleForm4) * countItems(femaleForm5) * countItems(femaleForm6) * skinTones.length;
-console.log('Hey ! welcome, you have  ' + (maleTotal + femaleTotal) + ' possibilities')
+consolelog('Hey ! welcome, you have  ' + (maleTotal + femaleTotal) + ' possibilities')
 
 window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6]
 window.femaleFormList = [femaleForm1, femaleForm2, femaleForm3, femaleForm4, femaleForm5, femaleForm6]
