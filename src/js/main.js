@@ -1,20 +1,103 @@
-fetch("/layer/female/layers.json")
+const femaleHead = fetch("/layer/female/head_front_default/layers.json")
 .then(function (res) {
   return res.json()
-})
-.then(function (json) {
-  window.layersFemale = json
 })
 .catch(console.error)
 
-fetch("/layer/male/layers.json")
+const femaleBody = fetch("/layer/female/body_front_hand-on-hip/layers.json")
 .then(function (res) {
   return res.json()
 })
-.then(function (json) {
-  window.layersMale = json
+.catch(console.error)
+
+const maleHead = fetch("/layer/male/head_front_default/layers.json")
+.then(function (res) {
+  return res.json()
 })
 .catch(console.error)
+
+const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
+.then(function (res) {
+  return res.json()
+})
+.catch(console.error)
+
+Promise.all([maleHead, maleBody])
+  .then(function([maleHead, maleBody]) {
+    window.layersMale = assembleLayers(maleBody, maleHead, 'body_front_swaying', 'head_front_default')
+    window.maleHead = maleHead
+    window.maleBody = maleBody
+  })
+
+Promise.all([femaleHead, femaleBody])
+  .then(function([femaleHead, femaleBody]) {
+    window.layersFemale  = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
+    window.femaleHead = femaleHead
+    window.femaleBody = femaleBody
+  })
+
+function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
+  var layers = []
+  var sourceLayers =[]
+  var counter
+  if (bodyObject.bodyBack) {
+    counter = bodyObject.bodyBack.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyBack[total - (counter + 1)])
+    }
+  }
+  if (headObject.headBack) {
+    counter = headObject.headBack.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headBack[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyMiddle) {
+    counter = bodyObject.bodyMiddle.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyMiddle[total - (counter + 1)])
+    }
+  }
+  if (headObject.headMiddle) {
+    counter = headObject.headMiddle.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headMiddle[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyFront) {
+    counter = bodyObject.bodyFront.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyFront[total - (counter + 1)])
+    }
+  }
+  if (headObject.headFront) {
+    counter = headObject.headFront.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headFront[total - (counter + 1)])
+    }
+  }
+  if (bodyObject.bodyOver) {
+    counter = bodyObject.bodyOver.length
+    total = counter
+    while (counter--) {
+      layers.push(bodyObject.bodyOver[total - (counter + 1)])
+    }
+  }
+  if (headObject.headOver) {
+    counter = headObject.headOver.length
+    total = counter
+    while (counter--) {
+      layers.push(headObject.headOver[total - (counter + 1)])
+    }
+  }
+  return layers
+}
 
 window.onload = function () {
   var c // Main variable to hold user choices and preferences
@@ -538,7 +621,7 @@ function displayPallette () {
 }
 
 function chooseSkinColor () {
-  var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
+  // find 'skinTones' in global.js
   var gmenu = document.querySelector('.skin-color__container')
 
   if (!gmenu.firstChild) {
