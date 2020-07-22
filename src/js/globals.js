@@ -339,7 +339,7 @@ var size = function (obj) {
   return size
 }
 
-function counItems (list) {
+function countItems (list) {
   var count = 1
   Object.entries(list).forEach(function (value, index, array) {
     let trueArraySize = 0
@@ -353,8 +353,8 @@ function counItems (list) {
   })
   return count
 }
-var maleTotal = counItems(maleForm1) * counItems(maleForm2) * counItems(maleForm3) * counItems(maleForm4) * counItems(maleForm5) * counItems(maleForm6) * skinTones.length;
-var femaleTotal = counItems(femaleForm1) * counItems(femaleForm2) * counItems(femaleForm3) * counItems(femaleForm4) * counItems(femaleForm5) * counItems(femaleForm6) * skinTones.length;
+var maleTotal = countItems(maleForm1) * countItems(maleForm2) * countItems(maleForm3) * countItems(maleForm4) * countItems(maleForm5) * countItems(maleForm6) * skinTones.length;
+var femaleTotal = countItems(femaleForm1) * countItems(femaleForm2) * countItems(femaleForm3) * countItems(femaleForm4) * countItems(femaleForm5) * countItems(femaleForm6) * skinTones.length;
 console.log('Hey ! welcome, you have  ' + (maleTotal + femaleTotal) + ' possibilities')
 
 window.maleFormList = [maleForm1, maleForm2, maleForm3, maleForm4, maleForm5, maleForm6]
