@@ -5,9 +5,10 @@
   "scripts": {
     "start": "node scripts/dev-server",
     "clean": "rm -fr prod/* src/dist/*",
+    "build:html": "ejs src/templates/index.html --output-file src/index.html --no-with --data-file config.json",
     "build:js": "cat src/lib/*.js src/js/*.js > src/dist/all.js",
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
-    "build": "npm run build:css && npm run build:js",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
     "lint": "standard src/js/*.js",
     "prod": "npm run build && cp -a src/dist src/*.png src/favicon.ico src/robots.txt src/ads.txt src/layer src/credits src/index.html prod/ && esbuild --minify src/dist/all.js > prod/dist/all.js && cleancss -o prod/dist/styles.css prod/dist/styles.css",
     "deploy:rsync": "npm run prod && rsync -vaPSz --delete --dry-run prod/* charactercreator.org:/var/www/html/charactercreator.org/",
@@ -30,15 +31,16 @@
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
-    "cypress": "^4.10.0",
-    "esbuild": "^0.6.3",
+    "ejs": "^3.1.3",
+    "cypress": "^4.11.0",
+    "esbuild": "^0.6.5",
     "fastify-http-proxy": "^4.0.2",
-    "fastify-static": "^3.1.0",
+    "fastify-static": "^3.2.0",
     "sass": "^1.26.10",
     "standard": "^14.3.4"
   },
   "dependencies": {
-    "fastify": "^3.0.3",
+    "fastify": "^3.1.1",
     "pm2": "^4.4.0",
     "sharp": "^0.25.4"
   }
