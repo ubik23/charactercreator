@@ -299,7 +299,7 @@ function fadeInSVG () {
 }
 
 function resetSilhouettes () {
-  var defaultColor = '#e35a4e'
+  var defaultColor = 'currentColor'
   var svgContainer = document.querySelector('#svg1')
   var maleSilhouette = svgContainer.querySelector('#path_male')
   var femaleSilhouette = svgContainer.querySelector('#path_female')
