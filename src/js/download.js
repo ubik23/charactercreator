@@ -1,5 +1,5 @@
-function svgToPng (svg, filename) {
-  return fetch("/get-svg", {
+function svgTo (type, svg, filename) {
+  return fetch(`/convert/${type}`, {
     method: "POST",
     headers: {
       "content-type": "application/json"
@@ -22,6 +22,14 @@ function svgToPng (svg, filename) {
     URL.revokeObjectURL(ou)
   })
   .catch(console.error)
+}
+
+function svgToPng (svg, filename) {
+  return svgTo("png", svg, filename)
+}
+
+function svgToPdf (svg, filename) {
+  return svgTo("pdf", svg, filename)
 }
 
 function getDownloadViewBox () {
@@ -80,6 +88,14 @@ function download (ev) {
   if (format === "png") {
     filename = c.choices.name || 'my_character.png'
     return svgToPng(text, filename)
+      .then(function () {
+        caboose()
+      })
+  }
+
+  if (format === "pdf") {
+    filename = c.choices.name || 'my_character.pdf'
+    return svgToPdf(text, filename)
       .then(function () {
         caboose()
       })
