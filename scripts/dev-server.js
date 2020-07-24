@@ -1,7 +1,10 @@
 'use strict'
 
-const fastify = require('fastify')({ logger: true })
+// core
 const { join } = require('path')
+
+// npm
+const fastify = require('fastify')({ logger: true })
 
 fastify.register(require('fastify-static'), {
   root: join(__dirname, "../src")
@@ -9,9 +12,8 @@ fastify.register(require('fastify-static'), {
 
 fastify.register(require('fastify-http-proxy'), {
   upstream: 'http://localhost:3000',
-  prefix: '/get-svg',
+  prefix: '/convert/',
 })
-
 
 fastify.listen(5000, (err, address) => {
   if (err) {
