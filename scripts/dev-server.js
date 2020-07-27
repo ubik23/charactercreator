@@ -15,6 +15,8 @@ fastify.register(require('fastify-http-proxy'), {
   prefix: '/convert/',
 })
 
+// fastify.get(async (request, reply) => {})
+
 fastify.listen(5000, (err, address) => {
   if (err) {
     fastify.log.error(err)
