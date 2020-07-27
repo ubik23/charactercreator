@@ -43,6 +43,7 @@
   "dependencies": {
     "fastify": "^3.1.1",
     "fastify-cookie": "^4.0.2",
+    "fastify-formbody": "^4.0.3",
     "pdfkit": "^0.11.0",
     "pm2": "^4.4.0",
     "sharp": "^0.25.4",
