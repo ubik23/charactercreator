@@ -6,6 +6,20 @@ const s2pdf = require("svg-to-pdfkit")
 const sharp = require('sharp')
 const fastify = require('fastify')({ logger: true })
 
+/*
+fastify.get('/', async (request, reply) => {
+  return {
+    redir: "https://www.sonatype.com/card-creator-test-page"
+  }
+})
+
+fastify.post('/', async (request, reply) => {
+  return {
+    fromForm: "accept date",
+  }
+})
+*/
+
 fastify.post('/png', async (request, reply) => {
   reply.type("image/png")
   return sharp(Buffer.from(request.body.svg)).png().toBuffer()
