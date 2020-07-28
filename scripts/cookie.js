@@ -1,11 +1,18 @@
-const maxAge = 7 * 24 * 60 * 60
+'use strict'
 
-module.exports = function (fastify) {
-  return fastify.register(require('fastify-cookie'), {
-    secret: "my-secret", // for cookies signature
+const { formUrl, secret } = require("../config.json")
+
+function setup (fastify) {
+  if (!secret || !formUrl) return fastify
+  fastify.register(require('fastify-cookie'), {
+    secret,
     secure: true,
     httpOnly: false,
-    expires: new Date(Date.now() + maxAge * 1000),
-    maxAge,
+    sameSite: true,
   })
+
+  return fastify
 }
+
+setup.formUrl = formUrl
+module.exports = setup
