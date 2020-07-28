@@ -1,5 +1,4 @@
 .idea/
-.DS_Store/
 node_modules/
 src/dist/
 prod/
@@ -16,4 +15,5 @@ src/index.html
 config.json
 cc3.code-workspace
 notes.md
+.DS_Store
 
