@@ -207,11 +207,11 @@ function getPositionDir (layer) {
   var sex = c.choices.sex
 
   if (sex === 'm' && ((window.maleBody.bodyBack && window.maleBody.bodyBack.indexOf(layer) > -1 )  || (window.maleBody.bodyMiddle && window.maleBody.bodyMiddle.indexOf(layer) > -1 )  || (window.maleBody.bodyFront && window.maleBody.bodyFront.indexOf(layer) > -1 )  || (window.maleBody.bodyOver && window.maleBody.bodyOver.indexOf(layer) > -1 ))) {
-    positionDir = 'body_front_swaying/'
+    positionDir = window.maleBodyPositionFolder + '/'
   } else if (sex === 'm' && ((window.maleHead.headBack && window.maleHead.headBack.indexOf(layer) > -1 )  || (window.maleHead.headMiddle && window.maleHead.headMiddle.indexOf(layer) > -1 ) || (window.maleHead.headFront && window.maleHead.headFront.indexOf(layer) > -1 ) || (window.maleHead.headOver && window.maleHead.headOver.indexOf(layer) > -1 ))) {
     positionDir = 'head_front_default/'
   } else if (sex === 'f' && ((window.femaleBody.bodyBack && window.femaleBody.bodyBack.indexOf(layer) > -1 ) || (window.femaleBody.bodyMiddle && window.femaleBody.bodyMiddle.indexOf(layer) > -1 ) || (window.femaleBody.bodyFront && window.femaleBody.bodyFront.indexOf(layer) > -1 ) || (window.femaleBody.bodyOver && window.femaleBody.bodyOver.indexOf(layer) > -1 ))) {
-    positionDir = 'body_front_hand-on-hip/'
+    positionDir = window.femaleBodyPositionFolder + '/'
   } else if (sex === 'f' && ((window.femaleHead.headBack && window.femaleHead.headBack.indexOf(layer) > -1 ) || (window.femaleHead.headMiddle && window.femaleHead.headMiddle.indexOf(layer) > -1 ) || (window.femaleHead.headFront && window.femaleHead.headFront.indexOf(layer) > -1 ) || (window.femaleHead.headOver && window.femaleHead.headOver.indexOf(layer) > -1 ))) {
     positionDir = 'head_front_default/'
   }
@@ -245,6 +245,7 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag) {
     }
 
     positionDir = getPositionDir(layerID)
+    console.log('positionDir', positionDir)
     file = layerDirectory + positionDir + layerID + '.svg'
 
     fetch(file).then(function (response) {

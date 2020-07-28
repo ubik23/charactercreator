@@ -1,0 +1,21 @@
+{
+"bodyMiddle": [
+  "body_arm_right_default",
+  "body_torso_default",
+  "body_leg_right_default",
+  "body_foot_right",
+  "body_leg_left_default",
+  "body_foot_left",
+  "body_arm_left_default",
+  "body_forearm_left_default",
+  "body_forearm_right_default",
+  "body_hand_left",
+  "underwear_plain",
+  "shoes_hightops",
+  "pants_jeans",
+  "shirt_tshirt"
+],
+"bodyFront": [
+  "body_hand_right"
+]
+}

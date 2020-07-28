@@ -1,22 +1,26 @@
-const femaleHead = fetch("/layer/female/head_front_default/layers.json")
+
+window.maleBodyPositionFolder = 'body_front_swaying'
+window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
+
+const femaleHead = fetch('/layer/female/head_front_default/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const femaleBody = fetch("/layer/female/body_front_hand-on-hip/layers.json")
+const femaleBody = fetch('/layer/female/' + window.femaleBodyPositionFolder + '/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const maleHead = fetch("/layer/male/head_front_default/layers.json")
+const maleHead = fetch('/layer/male/head_front_default/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
+const maleBody = fetch('/layer/male/' + window.maleBodyPositionFolder + '/layers.json')
 .then(function (res) {
   return res.json()
 })
@@ -24,14 +28,14 @@ const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
 
 Promise.all([maleHead, maleBody])
   .then(function([maleHead, maleBody]) {
-    window.layersMale = assembleLayers(maleBody, maleHead, 'body_front_swaying', 'head_front_default')
+    window.layersMale = assembleLayers(maleBody, maleHead, window.maleBodyPositionFolder, 'head_front_default')
     window.maleHead = maleHead
     window.maleBody = maleBody
   })
 
 Promise.all([femaleHead, femaleBody])
   .then(function([femaleHead, femaleBody]) {
-    window.layersFemale  = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
+    window.layersFemale  = assembleLayers(femaleBody, femaleHead, window.femaleBodyPositionFolder, 'head_front_default')
     window.femaleHead = femaleHead
     window.femaleBody = femaleBody
   })
