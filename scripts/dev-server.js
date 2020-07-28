@@ -13,14 +13,16 @@ setup(fastify)
 
 fastify.register(require('fastify-static'), { root: join(__dirname, "../src") })
 
+const upstream = `http://localhost:${setup.extraPort}`
+
 fastify.register(require('fastify-http-proxy'), {
-  upstream: 'http://localhost:3000',
+  upstream,
   prefix: '/convert/',
 })
 
 if (setup.formUrl) {
   fastify.register(require('fastify-http-proxy'), {
-    upstream: 'http://localhost:3000',
+    upstream,
     prefix: '/receiver',
   })
 

@@ -7,7 +7,9 @@ const sharp = require('sharp')
 const fastify = require('fastify')({ logger: true })
 
 // self
-require("./cookie")(fastify)
+const setup = require("./cookie")
+
+setup(fastify)
 
 const maxAge = 7 * 24 * 60 * 60
 
@@ -45,7 +47,7 @@ fastify.post('/pdf', (request, reply) => {
   doc.end()
 })
 
-fastify.listen(3000, (err, address) => {
+fastify.listen(setup.extraPort, (err, address) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
