@@ -1,8 +1,5 @@
 'use strict'
 
-// const secret = "my-secret" // FIXME: get secret from somewhere...
-// const { formUrl, secret } = require("../config.json")
-
 // core
 const { join } = require('path')
 
@@ -10,11 +7,9 @@ const { join } = require('path')
 const fastify = require('fastify')({ logger: true })
 
 // self
-// require("./cookie")(fastify, secret)
 const setup = require("./cookie")
 
 setup(fastify)
-
 
 fastify.register(require('fastify-static'), { root: join(__dirname, "../src") })
 
