@@ -1,5 +1,8 @@
 'use strict'
 
+// const secret = "my-secret" // FIXME: get secret from somewhere...
+// const { formUrl, secret } = require("../config.json")
+
 // core
 const { join } = require('path')
 
@@ -7,8 +10,11 @@ const { join } = require('path')
 const fastify = require('fastify')({ logger: true })
 
 // self
-require("./cookie")(fastify)
-const { formUrl } = require("../config.json")
+// require("./cookie")(fastify, secret)
+const setup = require("./cookie")
+
+setup(fastify)
+
 
 fastify.register(require('fastify-static'), { root: join(__dirname, "../src") })
 
@@ -17,7 +23,7 @@ fastify.register(require('fastify-http-proxy'), {
   prefix: '/convert/',
 })
 
-if (formUrl) {
+if (setup.formUrl) {
   fastify.register(require('fastify-http-proxy'), {
     upstream: 'http://localhost:3000',
     prefix: '/receiver',
@@ -25,29 +31,15 @@ if (formUrl) {
 
   fastify.get("/", (request, reply) => {
     const formCookie = request.cookies.form
-    if (!formCookie) return reply.redirect(formUrl)
+    if (!formCookie) return reply.redirect(setup.formUrl)
     try {
       const form = JSON.parse(reply.unsignCookie(request.cookies.form))
-      if (!form.el) return reply.redirect(formUrl)
+      if (!form.el) return reply.redirect(setup.formUrl)
       reply.sendFile("index.html")
     } catch (e) {
       reply.send(e)
     }
   })
-
-  /*
-  fastify.get("/", (request, reply) => {
-    const formCookie = request.cookies.form
-    if (!formCookie) return reply.redirect(formUrl)
-    try {
-      const form = JSON.parse(reply.unsignCookie(request.cookies.form))
-      if (!form.el) return reply.redirect(formUrl)
-      reply.sendFile("index.html")
-    } catch (e) {
-      reply.send(e)
-    }
-  })
-  */
 
   fastify.get("/fake-form", async (request, reply) => {
     reply.type("text/html")

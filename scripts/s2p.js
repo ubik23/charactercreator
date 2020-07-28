@@ -9,14 +9,25 @@ const fastify = require('fastify')({ logger: true })
 // self
 require("./cookie")(fastify)
 
+const maxAge = 7 * 24 * 60 * 60
+
 fastify.register(require('fastify-formbody'))
 
 // /receiver
 fastify.post("/", (request, reply) => {
   if (request.body.el)
-    return reply.setCookie("form", JSON.stringify(request.body), { path: "/", signed: true }).redirect(303, "../../")
+    return reply.setCookie(
+      "form",
+      JSON.stringify(request.body), {
+        path: "/",
+        signed: true,
+        expires: new Date(Date.now() + maxAge * 1000),
+        maxAge,
+      }
+    ).redirect(303, "../../")
   reply.send("Form content is somehow invalid")
 })
+
 
 // /convert/png
 fastify.post('/png', async (request, reply) => {
@@ -25,14 +36,13 @@ fastify.post('/png', async (request, reply) => {
 })
 
 // /convert/pdf
-fastify.post('/pdf', async (request, reply) => {
+fastify.post('/pdf', (request, reply) => {
   const doc = new PDFDocument()
   s2pdf(doc, request.body.svg, 0, 0)
   doc.on('pageAdded', () => doc.text("More content, page 2??"))
   doc.addPage()
-  reply.type("application/pdf")
+  reply.type("application/pdf").send(doc)
   doc.end()
-  return doc
 })
 
 fastify.listen(3000, (err, address) => {
