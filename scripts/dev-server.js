@@ -31,7 +31,7 @@ if (setup.formUrl) {
     if (!formCookie) return reply.redirect(setup.formUrl)
     try {
       const form = JSON.parse(reply.unsignCookie(request.cookies.form))
-      if (!form.el) return reply.redirect(setup.formUrl)
+      if (!form["Email Address"]) return reply.redirect(setup.formUrl)
       reply.sendFile("index.html")
     } catch (e) {
       reply.send(e)
@@ -41,9 +41,9 @@ if (setup.formUrl) {
   fastify.get("/fake-form", async (request, reply) => {
     reply.type("text/html")
     return `<form method="post" action="/receiver">
-    <label>Name: <input type="text" name="name" /></label>
+    <label>Name: <input type="text" name="First Name" /></label>
     <label>Stuff: <input type="text" name="stuff" /></label>
-    <label>El: <input type="text" name="el" value="one el to go" /></label>
+    <label>El: <input type="text" name="Email Address" value="one el to go" /></label>
     <button type="submit">Send form</button>
     </form>`
   })

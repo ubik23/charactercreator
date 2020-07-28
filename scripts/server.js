@@ -17,7 +17,7 @@ fastify.register(require('fastify-formbody'))
 
 // /receiver
 fastify.post("/", (request, reply) => {
-  if (request.body.el)
+  if (request.body["Email Address"])
     return reply.setCookie(
       "form",
       JSON.stringify(request.body), {
