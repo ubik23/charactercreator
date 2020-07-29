@@ -1,7 +1,7 @@
 {
 "bodyMiddle": [
-  "body_arm_right_default",
   "body_torso_default",
+  "body_arm_right_default",
   "body_leg_right_default",
   "body_foot_right",
   "body_leg_left_default",
