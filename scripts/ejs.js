@@ -14,7 +14,13 @@ const { build } = require('esbuild')
 const data = require("../config.json")
 
 const re = /[^a-z0-9]+/g
-const renderFile = promisify(ejs.renderFile.bind(ejs))
+const renderFile = promisify(ejs.renderFile)
+const miniCss = new CleanCSS({ returnPromise: true })
+
+const files = {
+  js: "src/dist/all.js",
+  css: "src/dist/styles.css",
+}
 
 const sig = (fn) => readFile(fn, "utf-8")
   .then((fc) => createHash('sha256').update(fc)
@@ -23,13 +29,6 @@ const sig = (fn) => readFile(fn, "utf-8")
       .replace(re, '')
       .slice(0, 6)
   )
-
-const files = {
-  js: "src/dist/all.js",
-  css: "src/dist/styles.css",
-}
-
-const miniCss = new CleanCSS({ returnPromise: true })
 
 Promise.all([
   sig(files.js),
@@ -49,33 +48,25 @@ Promise.all([
     rename("src/dist/styles.css", filenameCss),
   ])
 })
-.then(async ([html, filenameJs, filenameCss]) => {
-  const outfile = filenameJs.replace(/^src\//, "prod/")
-  const outCss = filenameCss.replace(/^src\//, "prod/")
-  const [css] = await Promise.all([
+.then(async ([html, filenameJs, filenameCss]) =>
+  Promise.all([
     readFile(filenameCss, "utf-8"),
+    filenameCss,
     build({
       entryPoints: [filenameJs],
-      outfile,
+      outfile: filenameJs.replace(/^src\//, "prod/"),
       minify: true,
     }),
-  ])
-
-  return Promise.all([
-    miniCss.minify(css)
-      .then((stuff) => Promise.all([
-        stuff.stats,
-        writeFile(outCss, stuff.styles)
-      ])),
     writeFile("src/index.html", html),
   ])
-})
-.then(([[stats]]) => console.log("css-stats", stats))
-.catch((e) => console.error("AYE", e))
-
-/*
-"prod": "npm run build && cp -a src/*.png src/favicon.ico src/robots.txt src/ads.txt src/layer src/credits src/index.html prod/ && esbuild --minify src/dist/all.js > prod/dist/all.js && cleancss -o prod/dist/styles.css prod/dist/styles.css",
-
-esbuild --minify src/dist/all.js > prod/dist/all.js
-cleancss -o prod/dist/styles.css prod/dist/styles.css
-*/
+)
+.then(([css, filenameCss]) => Promise.all([
+  miniCss.minify(css),
+  filenameCss,
+]))
+.then(([{ stats, styles }, filenameCss]) => Promise.all([
+  stats,
+  writeFile(filenameCss.replace(/^src\//, "prod/"), styles)
+]))
+.then(([stats]) => console.log("css-stats", stats))
+.catch(console.error)
