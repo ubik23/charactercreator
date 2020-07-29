@@ -9,11 +9,11 @@
 
 function parseFormCookie() {
   const pairs = document.cookie.split(/; */)
-  for (var i = 0; i < pairs.length; i++) {
+  for (lt i = 0; i < pairs.length; i++) {
     const pair = pairs[i]
-    const eq_idx = pair.indexOf('=')
+    let eq_idx = pair.indexOf('=')
     if ((eq_idx < 0) || (pair.substr(0, eq_idx).trim() !== "form")) continue
-    var val = pair.substr(++eq_idx, pair.length).trim()
+    let val = pair.substr(++eq_idx, pair.length).trim()
     if ('"' == val[0]) val = val.slice(1, -1)
     return JSON.parse(decodeURIComponent(val).split(".").slice(0, -1).join("."))
   }
