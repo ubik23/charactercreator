@@ -9,7 +9,7 @@
 
 function parseFormCookie() {
   const pairs = document.cookie.split(/; */)
-  for (lt i = 0; i < pairs.length; i++) {
+  for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i]
     let eq_idx = pair.indexOf('=')
     if ((eq_idx < 0) || (pair.substr(0, eq_idx).trim() !== "form")) continue
