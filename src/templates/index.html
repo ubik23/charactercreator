@@ -7,7 +7,7 @@
     <meta name="author" content="Frederic Guimont" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= locals.title %> - <%= locals.subtitle %></title>
-    <link rel="stylesheet" href="dist/styles.css" />
+    <link rel="stylesheet" href="dist/styles.<%= locals.sigCss %>.css" />
     <link rel="canonical" href="<%= locals.ogUrl %>" />
     <meta prefix="og: http://ogp.me/ns#" property="og:title" content="<%= locals.title %>" />
     <meta property="og:description" content="<%= locals.description %>" />
@@ -415,7 +415,7 @@
             </aside>
             <div class="skin-color__container"></div>
             <footer>
-                <script type="text/javascript" src="dist/all.js" defer></script>
+                <script type="text/javascript" src="dist/all.<%= locals.sigJs %>.js" defer></script>
                 <% if (locals.infolinks_pid) { %>
                 <script type='text/javascript'>
                   var infolinks_pid = <%= locals.infolinks_pid %>;
