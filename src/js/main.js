@@ -1,3 +1,4 @@
+"use strict"
 
 window.maleBodyPositionFolder = 'body_front_swaying'
 window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
@@ -607,8 +608,9 @@ function launch () {
   // Go through all the forms
   parseHash(c, forms, skinLayers, hairLayers) // Hashed elements are added in the character object
   choicesToList(c)
-  toBeShown = choicesToLayers(c, multiLayer)
-  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath() })
+
+  const toBeShown = choicesToLayers(c, multiLayer)
+  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath(c) })
 }
 
 function displayPallette () {
@@ -678,8 +680,8 @@ function colorCutout (newColor) {
 
   gmenu.classList.remove('skin-color__container--show')
   hash.add(obj)
-  defaultEyeColor(newColor)
-  defaultHairColor(newColor)
+  defaultEyeColor(c, newColor)
+  defaultHairColor(c, newColor)
   defaultPupilShape()
 
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' })

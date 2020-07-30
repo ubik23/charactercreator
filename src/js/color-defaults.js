@@ -1,5 +1,9 @@
+"use strict"
 
-function defaultEyeColor (skinColor) {
+// ONLY USES hash() FROM GLOBALS
+// USES DOM
+
+function defaultEyeColor (cc, skinColor) {
   var eyeColorDict = {
     '#ffdfc4': '#6F918A', // Grey
     '#f0d5be': '#FF6600', // Amber
@@ -26,12 +30,12 @@ function defaultEyeColor (skinColor) {
     '#704139': '#552200', // Brown
     '#a3866a': '#552200' // Brown
   }
-  var eyeColor = eyeColorDict[skinColor]
-  c.choices.irisColor = eyeColor
-  hash.add({ irisColor: eyeColor })
+  const irisColor = eyeColorDict[skinColor]
+  cc.choices.irisColor = irisColor
+  hash.add({ irisColor })
 }
 
-function defaultHairColor (skinColor) {
+function defaultHairColor (cc, skinColor) {
   var hairColorDict = {
     '#ffdfc4': '#803300', // Light brown
     '#f0d5be': '#803300', // Light brown
@@ -58,7 +62,7 @@ function defaultHairColor (skinColor) {
     '#704139': '#1a1a1a', // Black
     '#a3866a': '#1a1a1a' // Black
   }
-  var newHairColor = hairColorDict[skinColor]
-  c.choices.hairColor = newHairColor
-  hash.add({ hairColor: newHairColor })
+  const hairColor = hairColorDict[skinColor]
+  cc.choices.hairColor = hairColor
+  hash.add({ hairColor })
 }

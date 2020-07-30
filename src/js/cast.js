@@ -1,3 +1,5 @@
+"use strict"
+
 function newChar () {
   var newCard = document.querySelector('.js-new-card')
   var firstInput = newCard.querySelector('.first-input')
