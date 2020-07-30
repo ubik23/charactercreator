@@ -1,6 +1,9 @@
+"use strict"
+
+// NO GLOBALS
+// USES DOM
 
 function changeClipPathOnEyes (id) {
-  var emotion = id.slice(1).split('_')[1]
   var svgContainer = document.querySelector('#svg1 .character-container')
   var eyeRight = svgContainer.querySelector('#eye_right')
   var eyeLeft = svgContainer.querySelector('#eye_left')
@@ -10,8 +13,8 @@ function changeClipPathOnEyes (id) {
   }
 }
 
-function applyClipPath () {
+function applyClipPath (cc) {
   setTimeout(function () {
-    changeClipPathOnEyes('#eyes_' + c.choices.emotion)
+    changeClipPathOnEyes('#eyes_' + cc.choices.emotion)
   }, 150)
 }
