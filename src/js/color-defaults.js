@@ -35,7 +35,7 @@ function defaultEyeColor (cc, skinColor) {
   hash.add({ irisColor })
 }
 
-function defaultHairColor (cc. skinColor) {
+function defaultHairColor (cc, skinColor) {
   var hairColorDict = {
     '#ffdfc4': '#803300', // Light brown
     '#f0d5be': '#803300', // Light brown
