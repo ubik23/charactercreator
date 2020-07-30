@@ -165,7 +165,7 @@ function replaceMultilayer (layersList, section) {
 
   while (multiCounter--) {
     currentItem = multiLayer[multiCounter][0]
-    if (isInArray(currentItem, fullList)) {
+    if (fullList.includes(currentItem)) {
       currentIndex = fullList.indexOf(currentItem)
       fullList.splice(currentIndex, 1)
       currentQty = multiLayer[multiCounter][1]
