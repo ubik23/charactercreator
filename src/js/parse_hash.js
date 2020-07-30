@@ -1,4 +1,6 @@
-function parseHash (c, forms, skinLayers, hairLayers) {
+"use strict"
+
+function parseHash (forms, skinLayers, hairLayers) {
   newParseHash()
   var formsLength = forms.length
   var formsCounter = formsLength
@@ -92,7 +94,6 @@ function personnageActuelToHash (currentUser) {
   var personnageActuel = currentUser.cc.personnageActuel
   var personnageActuelData
   var itemsList
-  var itemsCounter
   var currentCount
   var myKey
   var myValue
@@ -112,8 +113,6 @@ function personnageActuelToHash (currentUser) {
     }
     clearCharacter()
     interpretHash()
-  } else {
-
   }
 }
 
