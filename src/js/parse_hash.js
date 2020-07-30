@@ -113,8 +113,6 @@ function personnageActuelToHash (currentUser) {
     }
     clearCharacter()
     interpretHash()
-  } else {
-
   }
 }
 
