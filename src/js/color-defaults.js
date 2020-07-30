@@ -1,3 +1,4 @@
+"use strict"
 
 function defaultEyeColor (skinColor) {
   var eyeColorDict = {

@@ -1,5 +1,6 @@
+"use strict"
 
-function hamburger (ev) {
-  var menu = document.querySelector('#horizontal')
-  menu.classList.toggle('hide')
-}
+// NO GLOBALS
+// USES DOM
+
+const hamburger = () => document.querySelector('#horizontal').classList.toggle('hide')
