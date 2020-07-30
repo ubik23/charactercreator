@@ -1,32 +1,19 @@
+"use strict"
 
-function showSidebarLeft () {
-  var sidebarLeft = document.querySelector('#sidebar-left')
-  sidebarLeft.classList.add('visible')
-}
+// NO GLOBALS
+// USES DOM
 
-function hideSidebarLeft () {
-  var sidebarLeft = document.querySelector('#sidebar-left')
-  sidebarLeft.classList.remove('visible')
-}
+const showSidebarLeft = () => document.querySelector('#sidebar-left').classList.add('visible')
 
-function clearSidebarLeft () {
-  var sidebarLeft = document.querySelector('#sidebar-left')
-  sidebarLeft.innerHTML = ''
-}
+const hideSidebarLeft = () => document.querySelector('#sidebar-left').classList.remove('visible')
 
-function showSidebarRight () {
-  var sidebarLeft = document.querySelector('#sidebar')
-  sidebarLeft.classList.add('visible')
-}
+const clearSidebarLeft = () => document.querySelector('#sidebar-left').innerHTML = ''
 
-function hideSidebarRight () {
-  var sidebarLeft = document.querySelector('#sidebar')
-  sidebarLeft.classList.remove('visible')
-}
+const showSidebarRight = () => document.querySelector('#sidebar').classList.add('visible')
+
+const hideSidebarRight = () => document.querySelector('#sidebar').classList.remove('visible')
 
 function clearSidebarRight () {
-  var sidebarContent = document.querySelector('#content_1')
-  var sidebarRight = document.querySelector('#sidebar')
-  sidebarRight.classList.remove('visible')
-  sidebarContent.innerHTML = ''
+  document.querySelector('#content_1').innerHTML = ''
+  document.querySelector('#sidebar').classList.remove('visible')
 }

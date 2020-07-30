@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Character Creator",
   "scripts": {
+    "fix-verdaccio": "sed -i 's/http:\\/\\/localhost:4873\\//https:\\/\\/registry.npmjs.org\\//g' package-lock.json",
     "start": "node scripts/dev-server",
     "clean": "rm -fr prod/* src/dist/*",
     "build:html": "ejs src/templates/index.html --output-file src/index.html --no-with --data-file config.json",
@@ -31,9 +32,9 @@
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
-    "ejs": "^3.1.3",
     "cypress": "^4.11.0",
-    "esbuild": "^0.6.5",
+    "ejs": "^3.1.3",
+    "esbuild": "^0.6.10",
     "fastify-http-proxy": "^4.0.2",
     "fastify-static": "^3.2.0",
     "sass": "^1.26.10",

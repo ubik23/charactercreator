@@ -1,3 +1,5 @@
+"use strict"
+
 function closeAllOverlays () {
   var overlays = document.querySelectorAll('.overlay--show')
   var counter = overlays.length

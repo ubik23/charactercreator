@@ -235,8 +235,8 @@ function smartRandomSingle (ev) {
   roll = Math.floor((Math.random() * 24))
   newColor = obj.skinColor = skinTones[roll].toLowerCase()
   hash.add(obj)
-  defaultEyeColor(newColor)
-  defaultHairColor(newColor)
+  defaultEyeColor(c, newColor)
+  defaultHairColor(c, newColor)
   defaultPupilShape()
   fabRoll = Math.floor((Math.random() * fabColorCounter))
   fabColor = fabricPallette[fabRoll]
@@ -414,7 +414,7 @@ function coverAll (forms) {
     keys = Object.keys(categories)
     keyCounter = keyLen = keys.length
 
-    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+    if (keys.includes(capitalizeFirstLetter(catKey))) {
       items = categories[capitalizeFirstLetter(catKey)]
       itemsLen = items.length
       roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
@@ -441,7 +441,7 @@ function coverTop (forms) {
     keys = Object.keys(categories)
     keyCounter = keyLen = keys.length
 
-    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+    if (keys.includes(capitalizeFirstLetter(catKey))) {
       items = categories[capitalizeFirstLetter(catKey)]
       itemsLen = items.length
       roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
@@ -476,7 +476,7 @@ function coverBottom (forms) {
     keys = Object.keys(categories)
     keyCounter = keyLen = keys.length
 
-    if (isInArray(capitalizeFirstLetter(catKey), keys)) {
+    if (keys.includes(capitalizeFirstLetter(catKey))) {
       items = categories[capitalizeFirstLetter(catKey)]
       itemsLen = items.length
       roll = Math.floor((Math.random() * (itemsLen - 1))) + 1

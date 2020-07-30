@@ -1,22 +1,27 @@
-const femaleHead = fetch("/layer/female/head_front_default/layers.json")
+"use strict"
+
+window.maleBodyPositionFolder = 'body_front_swaying'
+window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
+
+const femaleHead = fetch('/layer/female/head_front_default/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const femaleBody = fetch("/layer/female/body_front_hand-on-hip/layers.json")
+const femaleBody = fetch('/layer/female/' + window.femaleBodyPositionFolder + '/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const maleHead = fetch("/layer/male/head_front_default/layers.json")
+const maleHead = fetch('/layer/male/head_front_default/layers.json')
 .then(function (res) {
   return res.json()
 })
 .catch(console.error)
 
-const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
+const maleBody = fetch('/layer/male/' + window.maleBodyPositionFolder + '/layers.json')
 .then(function (res) {
   return res.json()
 })
@@ -24,14 +29,14 @@ const maleBody = fetch("/layer/male/body_front_swaying/layers.json")
 
 Promise.all([maleHead, maleBody])
   .then(function([maleHead, maleBody]) {
-    window.layersMale = assembleLayers(maleBody, maleHead, 'body_front_swaying', 'head_front_default')
+    window.layersMale = assembleLayers(maleBody, maleHead, window.maleBodyPositionFolder, 'head_front_default')
     window.maleHead = maleHead
     window.maleBody = maleBody
   })
 
 Promise.all([femaleHead, femaleBody])
   .then(function([femaleHead, femaleBody]) {
-    window.layersFemale  = assembleLayers(femaleBody, femaleHead, 'body_front_hand-on-hip', 'head_front_default')
+    window.layersFemale  = assembleLayers(femaleBody, femaleHead, window.femaleBodyPositionFolder, 'head_front_default')
     window.femaleHead = femaleHead
     window.femaleBody = femaleBody
   })
@@ -299,7 +304,7 @@ function fadeInSVG () {
 }
 
 function resetSilhouettes () {
-  var defaultColor = '#e35a4e'
+  var defaultColor = 'currentColor'
   var svgContainer = document.querySelector('#svg1')
   var maleSilhouette = svgContainer.querySelector('#path_male')
   var femaleSilhouette = svgContainer.querySelector('#path_female')
@@ -601,10 +606,11 @@ function launch () {
   window.forms = [form1, form2, form3, form4, form5, form6]
   // Get all the hash key/value pairs and include them in the c.choices object
   // Go through all the forms
-  parseHash(c, forms, skinLayers, hairLayers) // Hashed elements are added in the character object
+  parseHash(forms, skinLayers, hairLayers) // Hashed elements are added in the character object
   choicesToList(c)
-  toBeShown = choicesToLayers(c, multiLayer)
-  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath() })
+
+  const toBeShown = choicesToLayers(c, multiLayer)
+  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath(c) })
 }
 
 function displayPallette () {
@@ -674,8 +680,8 @@ function colorCutout (newColor) {
 
   gmenu.classList.remove('skin-color__container--show')
   hash.add(obj)
-  defaultEyeColor(newColor)
-  defaultHairColor(newColor)
+  defaultEyeColor(c, newColor)
+  defaultHairColor(c, newColor)
   defaultPupilShape()
 
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Color', eventLabel: 'Select color' })

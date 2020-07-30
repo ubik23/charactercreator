@@ -1,3 +1,8 @@
+"use strict"
+
+// NO GLOBALS
+// USES DOM
+
 function getParent (el, sel) {
   if ((el.matches || el.matchesSelector).call(el, sel)) {
     return el
@@ -6,17 +11,7 @@ function getParent (el, sel) {
   return el
 }
 
-function hasClass (element, className) {
-  return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1
-}
-
-function capitalizeFirstLetter (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
-function isInArray (value, array) {
-  return array.indexOf(value) > -1
-}
+const capitalizeFirstLetter = (string) => string[0].toUpperCase() + string.slice(1)
 
 function rgb2hex (rgb) {
   rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i)
@@ -27,20 +22,17 @@ function rgb2hex (rgb) {
 }
 
 function getPosition (el) {
-  var xPos = 0
-  var yPos = 0
+  var x = 0
+  var y = 0
 
   while (el) {
     if (el.tagName != 'BODY') {
       // for all other non-BODY elements
-      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft)
-      yPos += (el.offsetTop - el.scrollTop + el.clientTop)
+      x += (el.offsetLeft - el.scrollLeft + el.clientLeft)
+      y += (el.offsetTop - el.scrollTop + el.clientTop)
     }
 
     el = el.offsetParent
   }
-  return {
-    x: xPos,
-    y: yPos
-  }
+  return { x, y }
 }
