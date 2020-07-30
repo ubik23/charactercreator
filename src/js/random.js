@@ -235,8 +235,8 @@ function smartRandomSingle (ev) {
   roll = Math.floor((Math.random() * 24))
   newColor = obj.skinColor = skinTones[roll].toLowerCase()
   hash.add(obj)
-  defaultEyeColor(newColor)
-  defaultHairColor(newColor)
+  defaultEyeColor(c, newColor)
+  defaultHairColor(c, newColor)
   defaultPupilShape()
   fabRoll = Math.floor((Math.random() * fabColorCounter))
   fabColor = fabricPallette[fabRoll]
