@@ -27,8 +27,8 @@ The keys "extraPort", "secret" and "formUrl" are all optional. "formUrl" is the 
 
 - npm run build # dev build in src/
 - npm run prod # production build in prod/
-- npm 
-
+- npm run dev # launch dev web server; caddy is used in prod
+- npm start # launch backend to handle form post and image conversions
 
 ## Install CouchDB
 

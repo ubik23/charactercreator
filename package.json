@@ -4,7 +4,8 @@
   "description": "Character Creator",
   "scripts": {
     "fix-verdaccio": "sed -i 's/http:\\/\\/localhost:4873\\//https:\\/\\/registry.npmjs.org\\//g' package-lock.json",
-    "start": "node scripts/dev-server",
+    "dev": "node scripts/dev-server",
+    "start": "node scripts/server",
     "clean": "rm -fr prod/* src/dist/*",
     "build:html666": "ejs src/templates/index.html --output-file src/index.html --no-with --data-file config.json",
     "build:html": "node scripts/ejs.js",
