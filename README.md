@@ -29,8 +29,8 @@ In dev mode, set "secret" (random) and "formUrl" to "http://localhost:5000/fake-
 
 - npm run build # dev build in src/
 - npm run prod # production build in prod/
-- npm run dev # launch dev web server; caddy is used in prod
-- npm start # launch backend to handle form post and image conversions
+- npm run dev # (was npm start) launch dev web server; caddy is used in prod
+- npm start # (was scripts/s2p.js) launch backend to handle form post and image conversions
 
 ## Install CouchDB
 
