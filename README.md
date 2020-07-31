@@ -25,6 +25,8 @@ cp config-sample.json config.json # or edit existing config.json
 
 The keys "extraPort", "secret" and "formUrl" are all optional. "formUrl" is the URL of the form at the client's site. "secret" is used to sign the cookie, make it a long randomstring. "extraPort" defaults to 3000.
 
+In dev mode, set "secret" (random) and "formUrl" to "http://localhost:5000/fake-form" to test form.
+
 - npm run build # dev build in src/
 - npm run prod # production build in prod/
 - npm run dev # launch dev web server; caddy is used in prod
