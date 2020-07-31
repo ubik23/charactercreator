@@ -17,11 +17,20 @@ The aim of this project is to create a fast, intuitive user interface for produc
 
 # Getting Started
 
-Install the dependencies:
+## Install the dependencies:
 
 npm install
 
-Install CouchDB
+cp config-sample.json config.json # or edit existing config.json
+
+The keys "extraPort", "secret" and "formUrl" are all optional. "formUrl" is the URL of the form at the client's site. "secret" is used to sign the cookie, make it a long randomstring. "extraPort" defaults to 3000.
+
+- npm run build # dev build in src/
+- npm run prod # production build in prod/
+- npm 
+
+
+## Install CouchDB
 
 Get the site up and running on your local machine:
 
