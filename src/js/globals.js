@@ -123,7 +123,7 @@ var femaleForm6 = {
 
 // Color Pallettes
 var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888']
+var fabricPallette = ['#25282f', '#494a52', '#323346', '#6f7581', '#c3c3c5', '#ece9ec', '#f3e3d4', '#434d71', '#f4e2c1', '#ba855e', '#b19f92', '#9e9888','#AFE5F2','#56B2C4','#19345B','#D14519','#990629','#139DB3','#90A6D1','#B88FC9','#BAE0A8','#EDD2F3','#928074','#F9CFA4','#F0EEA3','#856CAE','#92A3D7','#5F6B6B','#BEE9C5','#EDDBB5','#8E592D','#A59387','#97907D','#B5B6B8','#ECEAED','#F1E1CA','#2D3858','#525460','#242635','#29272A','#242829','#5D5752','#756452','#947A5A','#BB9563','#C6AE8F','#C5BBAF','#E0DCD6','#FCFCFC','#223241','#382911','#9E815B','#7D7C78','#9D9D9D','#1F303F','#303929','#09131D','#A47F50','#80020B','#8387A0','#FBE9EB','#C0DAEC']
 var layerDirectoryFemale = 'layer/female/'
 var layerDirectoryMale = 'layer/male/'
 

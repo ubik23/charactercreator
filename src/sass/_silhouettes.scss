@@ -35,8 +35,7 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1726;
-    animation: homme 1.75s linear;
-    fill-opacity: 0;
+    animation: homme 1.75s linear forwards;
     transform: translate3d(-79px, 0, 0);
     // transform: translate3d(-111px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
@@ -45,8 +44,8 @@
       transform: translate3d(-111px, 0, 0);
     }
 
-    &:hover {
-        fill-opacity: 1;
+    &:hover { 
+        color: $color-alpha--light;
         transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
     }
 }
@@ -65,8 +64,7 @@
     color: $color-alpha;
     fill: currentColor;
     stroke-dasharray: 1201;
-    animation: femme 1.75s linear;
-    fill-opacity: 0;
+    animation: femme 1.75s linear forwards;
     transform: translate3d(71px, 0, 0);
     transition: transform 3s ease-out, fill-opacity 0.3s ease, stroke-opacity 0.3, fill 0.3s ease;
 
@@ -74,8 +72,8 @@
       transform: translate3d(111px, 0, 0);
     }
 
-    &:hover {
-        fill-opacity: 1;
+    &:hover { 
+        color: $color-alpha--light;
         transition: fill-opacity 0.3s ease-in-out;
     }
 }
@@ -99,7 +97,7 @@
     }
     86% {fill-opacity: 0;}
     93% {fill-opacity: 0.1;}
-    100% {fill-opacity: 0;}
+    100% {fill-opacity: 1;}
 }
 
 @keyframes femme {
@@ -111,7 +109,7 @@
     }
     86% {fill-opacity: 0;}
     93% {fill-opacity: 0.1;}
-    100% {fill-opacity: 0;}
+    100% {fill-opacity: 1;}
 }
 
 .select-male {
