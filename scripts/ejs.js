@@ -8,7 +8,9 @@ const { createHash } = require('crypto')
 // npm
 const ejs = require("ejs")
 const CleanCSS = require("clean-css")
-const { build } = require('esbuild')
+
+const xxx = false
+const { build } = xxx && require('esbuild')
 
 // self
 const data = require("../config.json")
@@ -48,18 +50,23 @@ Promise.all([
     rename("src/dist/styles.css", filenameCss),
   ])
 })
-.then(async ([html, filenameJs, filenameCss]) =>
-  Promise.all([
+.then(async ([html, filenameJs, filenameCss]) => {
+  const p = [
     readFile(filenameCss, "utf-8"),
     filenameCss,
+  ]
+
+  if (xxx) p.push(
     build({
       entryPoints: [filenameJs],
       outfile: filenameJs.replace(/^src\//, "prod/"),
       minify: true,
-    }),
-    writeFile("src/index.html", html),
-  ])
-)
+    })
+  )
+  p.push(writeFile("src/index.html", html))
+
+  return Promise.all(p)
+})
 .then(([css, filenameCss]) => Promise.all([
   miniCss.minify(css),
   filenameCss,
