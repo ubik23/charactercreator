@@ -8,9 +8,7 @@ const { createHash } = require('crypto')
 // npm
 const ejs = require("ejs")
 const CleanCSS = require("clean-css")
-
-const xxx = false
-const { build } = xxx && require('esbuild')
+const { build } = require('esbuild')
 
 // self
 const data = require("../config.json")
@@ -56,7 +54,8 @@ Promise.all([
     filenameCss,
   ]
 
-  if (xxx) p.push(
+  // FIXME: don't minify on Mac due to esbuild bug
+  if (process.platform !== "darwin") p.push(
     build({
       entryPoints: [filenameJs],
       outfile: filenameJs.replace(/^src\//, "prod/"),
