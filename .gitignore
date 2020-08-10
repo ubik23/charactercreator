@@ -16,4 +16,5 @@ config.json
 cc3.code-workspace
 notes.md
 .DS_Store
+package-lock.json
 
