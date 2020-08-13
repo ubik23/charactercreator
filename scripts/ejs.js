@@ -48,25 +48,37 @@ Promise.all([
     rename("src/dist/styles.css", filenameCss),
   ])
 })
-.then(async ([html, filenameJs, filenameCss]) =>
-  Promise.all([
+.then(async ([html, filenameJs, filenameCss]) => {
+  const p = [
     readFile(filenameCss, "utf-8"),
     filenameCss,
+  ]
+
+  // FIXME: don't minify on Mac due to esbuild bug
+  if (process.platform !== "darwin") p.push(
     build({
       entryPoints: [filenameJs],
       outfile: filenameJs.replace(/^src\//, "prod/"),
       minify: true,
-    }),
-    writeFile("src/index.html", html),
-  ])
-)
+    })
+  )
+  p.push(writeFile("src/index.html", html))
+
+  return Promise.all(p)
+})
 .then(([css, filenameCss]) => Promise.all([
   miniCss.minify(css),
   filenameCss,
 ]))
-.then(([{ stats, styles }, filenameCss]) => Promise.all([
-  stats,
-  writeFile(filenameCss.replace(/^src\//, "prod/"), styles)
-]))
+.then(([{ stats, styles }, filenameCss]) => {
+  const p = [
+    stats,
+  ]
+  if (process.platform !== "darwin") p.push(
+    writeFile(filenameCss.replace(/^src\//, "prod/"), styles)
+  )
+
+  return Promise.all(p)
+})
 .then(([stats]) => console.log("css-stats", stats))
 .catch(console.error)
