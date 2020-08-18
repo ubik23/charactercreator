@@ -35,7 +35,7 @@
     "clean-css": "^4.2.3",
     "cypress": "^4.12.1",
     "ejs": "^3.1.5",
-    "esbuild": "^0.6.25",
+    "esbuild": "^0.6.26",
     "fastify-http-proxy": "^4.0.4",
     "fastify-static": "^3.2.0",
     "sass": "^1.26.10",
