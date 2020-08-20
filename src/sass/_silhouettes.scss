@@ -44,7 +44,7 @@
       transform: translate3d(-111px, 0, 0);
     }
 
-    &:hover { 
+    &:hover {
         color: $color-alpha--light;
         transition: fill-opacity 0.3s ease-in-out, fill 0.3s ease;
     }
@@ -72,7 +72,7 @@
       transform: translate3d(111px, 0, 0);
     }
 
-    &:hover { 
+    &:hover {
         color: $color-alpha--light;
         transition: fill-opacity 0.3s ease-in-out;
     }
