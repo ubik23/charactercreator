@@ -15,7 +15,7 @@ var maleForm2 = {
   Earings: ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
   Hat: ['', 'baseball', 'berret', 'berret_badge', 'cap', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
   Horns: ['', 'devil', 'large'],
-  Mask: ['', /* 'arrow', */ 'guy_fawkes', 'robin', 'horse', 'hospital', /*'phantom',*/ 'stormtrooper', 'jason', 'cat'],
+  Mask: ['', /* 'arrow', */ 'guy_fawkes', 'robin', 'horse', 'hospital', 'phantom', 'stormtrooper', 'jason', 'cat'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   Eyepatch: ['', 'left', 'right'],
   Headband: ['', 'medium', 'tied'],
