@@ -225,7 +225,7 @@ function login (evt) {
       }
       clearInputFields()
       login.classList.remove('overlay--show')
-      manageCharacters(user)
+      manageCharacters()
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login' })
     })
     /*
@@ -478,7 +478,7 @@ function register (evt) {
     .then(getDbUser)
     .then(function (user) {
       currentUser = user
-      manageCharacters(currentUser)
+      manageCharacters()
       register.classList.remove('overlay--show')
       gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account' })
     })
@@ -510,13 +510,11 @@ getDbSession()
         )
       }
     }
-    manageCharacters(currentUser)
+    manageCharacters()
   })
-  /*
   .catch(function (err) {
     consolelog('getDbUser error', err)
   })
-  */
 
 function setHashTrigger () {
   window.addEventListener('hashchange', triggerSaveBtn, false)
