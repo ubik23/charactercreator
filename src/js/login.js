@@ -189,11 +189,9 @@ function logout (ev) {
       myUsername = false
       // return json
     })
-    /*
     .catch(function (err) {
-      console.error('err4', err)
+      consolelog('err4', err)
     })
-    */
   logoutUI()
 }
 
@@ -228,11 +226,9 @@ function login (evt) {
       manageCharacters()
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'login', eventLabel: 'Successful login' })
     })
-    /*
     .catch(function (err) {
-      console.error('err3', err)
+      consolelog('err3', err)
     })
-    */
 }
 
 function inheritNewCharacter () {
@@ -342,11 +338,9 @@ function switchCharacter (evt) {
       }, 500)
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character' })
     })
-    /*
     .catch(function (err) {
       consolelog('err', err)
     })
-    */
 }
 
 function revealCharacter () {
@@ -482,11 +476,9 @@ function register (evt) {
       register.classList.remove('overlay--show')
       gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Register', eventLabel: 'Successfuly Registered account' })
     })
-    /*
     .catch(function (err) {
-      console.error('register err', err)
+      consolelog('register err', err)
     })
-    */
 }
 
 getDbSession()

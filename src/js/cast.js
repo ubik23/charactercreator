@@ -31,11 +31,9 @@ function createChar (evt) {
       // return json
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'New', eventLabel: 'Save new character' })
     })
-    /*
     .catch(function (err) {
       consolelog('err', err)
     })
-    */
   manageCharacters()
 }
 
@@ -50,11 +48,9 @@ function deleteChar () {
       // return json
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Delete', eventLabel: 'Delete character' })
     })
-    /*
     .catch(function (err) {
       consolelog('err', err)
     })
-    */
   manageCharacters()
 }
 
