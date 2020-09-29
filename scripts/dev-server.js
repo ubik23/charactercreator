@@ -3,8 +3,17 @@
 // core
 const { join } = require('path')
 
+const rewriteUrl = (request) => {
+  console.log("URL", request.url)
+  if (request.url === "/api/session") return "/api/_session"
+  return request.url
+}
+
 // npm
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')({
+  logger: true,
+  rewriteUrl
+})
 
 // self
 const setup = require("./cookie")
@@ -14,6 +23,11 @@ setup(fastify)
 fastify.register(require('fastify-static'), { root: join(__dirname, "../src") })
 
 const upstream = `http://localhost:${setup.extraPort}`
+
+fastify.register(require('fastify-http-proxy'), {
+  upstream: "http://localhost:5984",
+  prefix: '/api',
+})
 
 fastify.register(require('fastify-http-proxy'), {
   upstream,
