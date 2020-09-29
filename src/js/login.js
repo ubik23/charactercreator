@@ -56,6 +56,7 @@ function deleteDbSession () {
 function getDbSession () {
   return fetchDb('session')
     .then(function (resp) {
+      consolelog("session ok?", resp.ok)
       if (resp.ok) { return resp.json() }
       return fetchDb.reject(resp)
     })
@@ -505,7 +506,7 @@ getDbSession()
     manageCharacters()
   })
   .catch(function (err) {
-    consolelog('getDbUser error', err)
+    consolelog('getDbSession error', err)
   })
 
 function setHashTrigger () {
