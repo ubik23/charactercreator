@@ -6,6 +6,10 @@ const { join } = require('path')
 const rewriteUrl = (request) => {
   console.log("URL", request.url)
   if (request.url === "/api/session") return "/api/_session"
+  if (request.url === "/api/users") return "/api/_users"
+  if (request.url.startsWith("/api/users/")) {
+    return request.url.replace("/api/users/", "/api/_users/org.couchdb.user:")
+  }
   return request.url
 }
 
