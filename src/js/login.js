@@ -21,7 +21,6 @@ var fetchDb = (function () {
       method = body
       body = false
     }
-    // consolelog('fetchDb', path, method || 'get')
     if (body) {
       opts.body = JSON.stringify(body)
       opts.method = 'post'
@@ -56,7 +55,6 @@ function deleteDbSession () {
 function getDbSession () {
   return fetchDb('session')
     .then(function (resp) {
-      consolelog("session ok?", resp.ok)
       if (resp.ok) { return resp.json() }
       return fetchDb.reject(resp)
     })
@@ -64,7 +62,7 @@ function getDbSession () {
       if (json.userCtx.name) {
         return json.userCtx.name
       }
-      return fetchDb.reject('Not connected')
+      return fetchDb.reject({}, 'Not connected')
     })
 }
 
@@ -78,7 +76,6 @@ function getDbUser (username) {
 function updateDbUser (user) {
   return fetchDb.post('users', user)
     .then(function (resp) {
-      // consolelog('resp.status', resp.status);
       if (resp.ok) {
         return resp.json()
       }
@@ -121,20 +118,15 @@ function determineErrorMessage (username) {
 
 function showErrorUsernamePasswordMismatch () {
   var currentOverlay = document.querySelector('.overlay--show')
-  // consolelog('currentOverlay', currentOverlay);
   var errorBox = currentOverlay.querySelector('.overlay__error')
-  // consolelog('errorBox');
   var errorText = errorBox.querySelector('.overlay__error__text')
   var errorMsg = 'Sorry, username/password mismatch. Please try again.'
   clearInputFields()
   errorText.innerHTML = errorMsg
   errorBox.classList.add('overlay__error--show')
-  // consolelog('Sorry, username/password mismatch')
-  // clearInputUsername();
 }
 
 function createDbUser (username, password, email) {
-  // consolelog('Create DB User')
   return fetchDb.post('users', {
     _id: 'org.couchdb.user:' + username,
     roles: [],
@@ -149,7 +141,6 @@ function createDbUser (username, password, email) {
     }
   })
     .then(function (resp) {
-      // consolelog('resp.status')
       if (resp.status === 201) { return resp.json() }
       if (resp.status === 409) {
         showErrorUsernameTaken(username)
@@ -166,7 +157,6 @@ function showErrorUsernameTaken (username) {
   var errorMsg = 'Username "' + username + '" is already taken. Try another.'
   errorText.innerHTML = errorMsg
   errorBox.classList.add('overlay__error--show')
-  // consolelog("C'est pris!");
   clearInputUsername()
 }
 
@@ -188,7 +178,6 @@ function logout (ev) {
       personnages = {}
       personnageActuel = false
       myUsername = false
-      // return json
     })
     .catch(function (err) {
       consolelog('err4', err)
@@ -202,12 +191,8 @@ function login (evt) {
   var username = event.target.children[0].lastElementChild.value
   var password = event.target.children[1].lastElementChild.value
   var login = document.querySelector('.overlay--show')
-  // var currentCharacter
 
-  if (!username || !password) {
-    // consolelog('missing username or password.')
-    return
-  }
+  if (!username || !password) return
 
   loginDbUser(username, password)
     .then(function () {
@@ -448,26 +433,13 @@ function register (evt) {
   var password = event.target.children[2].lastElementChild.value
   var register = document.querySelector('.overlay--show')
 
-  if (!username) {
-    // consolelog('missing username.')
-    return
-  }
-  if (!password) {
-    // consolelog('missing password.')
-    return
-  }
-  if (!email) {
-    // consolelog('missing email.')
-    return
-  }
+  if (!username || !password || !email) return
 
-  // consolelog('Calling createDbUSer')
   createDbUser(username, password, email)
     .then(function () {
       return loginDbUser(username, password)
     })
     .then(function (json) {
-      // consolelog('fetched2', json)
       return username
     })
     .then(getDbUser)
