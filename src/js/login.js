@@ -170,6 +170,7 @@ function whoami (ev) {
   closeBtn.addEventListener('click', closeOverlay, false)
 }
 
+// TODO Return app to its initial state
 function logout (ev) {
   ev.preventDefault()
   deleteDbSession()
@@ -492,6 +493,8 @@ function triggerSaveBtn () {
   }
 }
 
+/*
 function logOut () {
   // TODO Return app to its initial state.
 }
+*/
