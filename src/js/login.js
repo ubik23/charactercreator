@@ -260,7 +260,7 @@ function loadCharacter (evt) {
   clearCharacter()
   hashCharacter()
   startup()
-  setHashTrigger()
+  // setHashTrigger()
   setTimeout(function () {
     characterSVG.classList.remove('character--hide')
     if (newCharModal) {
@@ -321,7 +321,7 @@ function switchCharacter (evt) {
       setTimeout(function () {
         clearCharacter()
         hashCharacter()
-        setHashTrigger()
+        // setHashTrigger()
       }, 500)
       gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Edit', eventLabel: 'Edit existing character' })
     })
@@ -482,6 +482,7 @@ getDbSession()
     consolelog('getDbSession error', err)
   })
 
+/*
 function setHashTrigger () {
   window.addEventListener('hashchange', triggerSaveBtn, false)
 }
@@ -492,6 +493,7 @@ function triggerSaveBtn () {
     saveBtn.classList.add('save--enabled')
   }
 }
+*/
 
 /*
 function logOut () {
