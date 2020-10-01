@@ -350,7 +350,7 @@ function manageCharacters () {
   var editBtnsNum
   var delBtns
   var delBtnsNum
-  var saveBtn = document.querySelector('.save-btn')
+  // var saveBtn = document.querySelector('.save-btn')
   var newBtn = charUI.querySelector('.overlay__char-new-btn')
   var createBtn = charUI.querySelector('.overlay__char-create-btn')
   var charName
@@ -380,7 +380,7 @@ function manageCharacters () {
   userTitle.innerHTML = currentUser.name
   usernameText.innerHTML = currentUser.name
   pageWrap.classList.add('logged')
-  saveBtn.addEventListener('click', saveChar, true)
+  // saveBtn.addEventListener('click', saveChar, true)
   newBtn.addEventListener('click', newChar, true)
   createBtn.addEventListener('click', createChar, true)
 }

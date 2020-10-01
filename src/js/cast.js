@@ -55,8 +55,8 @@ function deleteChar () {
 }
 
 function saveChar () {
-  var saveBtn = document.querySelector('.save-btn')
-  saveBtn.classList.remove('save--enabled')
+  // var saveBtn = document.querySelector('.save-btn')
+  // saveBtn.classList.remove('save--enabled')
   var personnageActuel = currentUser.cc.personnageActuel
 
   if (!myUsername || !currentUser) { return }
