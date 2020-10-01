@@ -164,9 +164,9 @@ function show (userChoice, category) {
     modCharacter(category, userChoice)
     hash.add(obj)
   }
-  if (currentUser) {
-    triggerSaveBtn()
-  }
+
+  // if (currentUser) triggerSaveBtn()
+
   if (sections[0] === 'emotion') {
     modCharacter(sections[0], selectedOption)
     gaga('send', 'event', 'menu', 'select', id)
