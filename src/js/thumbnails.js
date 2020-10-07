@@ -30,6 +30,10 @@ function openThumbsLogic (_) {
   var sectionLowerCase = section.toLowerCase()
   var previousSelection = document.querySelector('.section--selected')
 
+  setTimeout(function(){
+    showTutorial('items')
+  }, 500)
+
   if (sectionLowerCase === 'iris' || sectionLowerCase === 'pupils') {
     sectionLowerCase = 'eyeballs'
     layersList = ['default']

@@ -1,6 +1,7 @@
 function addColorPicker () {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase()
   getColor(section)
+  showTutorial('random')
 }
 
 function hideColorPicker () {

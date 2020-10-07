@@ -577,6 +577,7 @@ function startup () {
   }
   window.c = new Character(choices)
   interpretHash()
+  showTutorial('sex')
 }
 
 function launch () {
@@ -642,6 +643,9 @@ function chooseSkinColor () {
     };
   }
   gmenu.classList.add('skin-color__container--show')
+  setTimeout(function(){
+    showTutorial('skin')
+  }, 500);
 }
 
 function defaultPupilShape () {

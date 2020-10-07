@@ -26,7 +26,9 @@ function onAllLoaded () {
   createForm(characterSex, forms)
 
   sideBarLeft.classList.add('visible')
-  // sideBarRight.classList.add('visible');
+  setTimeout(function(){
+    showTutorial('category')
+  }, 500)
 
   revealCharacter()
 

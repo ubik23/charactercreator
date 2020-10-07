@@ -147,6 +147,7 @@ function getOptionsLogic (section) {
 
 function show (userChoice, category) {
   var multiLayer = getMultiLayer()
+  showTutorial('colors')
   if (typeof (category) === 'string') {
     var sections = [category]
   } else {

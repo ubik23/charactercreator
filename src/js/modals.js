@@ -52,8 +52,8 @@ function showDownloadOptions (ev) {
   hamburger()
   closeAllOverlays()
   overlay.classList.add('overlay--show')
-  overlay.addEventListener('click', closeOverlay, true)
-  closeBtn.addEventListener('click', closeOverlay, false)
+  overlay.addEventListener('click', closeOverlayWithTutorial, true)
+  closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
 }
 
 function logoutUI () {
@@ -105,6 +105,21 @@ function closeOverlay (evt) {
       overlay.classList.remove('overlay--show')
     }
   }
+}
+
+function closeOverlayWithTutorial (evt) {
+  var overlay = document.querySelector('.overlay--show')
+  if (overlay === null) { return };
+  var cancelBtn = overlay.querySelector('.cancel-btn')
+  var closeBtn = overlay.querySelector('.close-btn')
+  var target = evt.target
+  if (target === overlay || target === cancelBtn || target === closeBtn) {
+    if (overlay) {
+      hideNewCharacterInputField()
+      overlay.classList.remove('overlay--show')
+    }
+  }
+  showTutorial('register')
 }
 
 function hideNewCharacterInputField () {
