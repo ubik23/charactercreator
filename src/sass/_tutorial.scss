@@ -1,0 +1,120 @@
+
+#tutorial-checkbox {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tutorial {
+  &__container {
+
+  }
+  &__box {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    background-color: $color-alpha;
+    color: #fff;
+    border-radius: 1em;
+    padding: 0 1em;
+    border: 1px solid white;
+    max-width: 60vw;
+
+    & label {
+      display: block;
+      font-size: 0.75em;
+      text-align: right;
+      padding-bottom: 0.5em;
+      cursor: pointer;
+    }
+  }
+  &__show {
+    display: block;
+    position: fixed;
+    opacity: 0.8;
+    transition: opacity 1500ms ease;
+    pointer-events: auto;
+  }
+  #tutorial-checkbox:checked ~ &__box {
+    display: none;
+  }
+  &__top {
+    margin: 0 5px 5px 5px;
+  }
+  &__right {
+    margin: 5px 0 5px 5px;
+  }
+  &__bottom {
+    margin: 5px 5px 0 5px;
+  }
+  &__left {
+    margin: 5px 5px 5px 0;
+  }
+  &__top:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 99%;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid $color-alpha;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  &__right:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 31%;
+    left: 99%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid $color-alpha;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+  }
+  &__bottom:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 99%;
+    width: 0;
+    height: 0;
+    border-top: 10px solid $color-alpha;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  &__left:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 31%;
+    right: 99%;
+    width: 0;
+    height: 0;
+    border-right: 10px solid $color-alpha;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+  }
+  &__register:after {
+    left: 75%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+    .tutorial {
+      &__box {
+        max-width: 40vw;
+      }
+      &__register:after {
+        left: 50%;
+      }
+
+    }
+
+}

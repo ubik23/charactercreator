@@ -47,7 +47,7 @@ function tutorialPosition (step) {
   }
   if (step === 'colors') {
     sideBarRightBBox = sideBarRight.getBoundingClientRect()
-    el.style.top = sideBarRightBBox.top + 'px'
+    el.style.top = (sideBarRightBBox.top + 20) + 'px'
     el.style.left = (sideBarRightBBox.x - bbox.width - 20) + 'px'
   }
   if (step === 'random') {
