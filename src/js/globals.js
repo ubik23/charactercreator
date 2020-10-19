@@ -26,7 +26,7 @@ var maleForm2 = {
 var maleForm3 = {
   Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
   Tie: ['', 'neck', 'bolo', 'bow'],
-  Vest: ['', 'vest', 'lined', 'insulated', 'u-neck', 'yellow'],
+  Vest: ['', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow'],
   Button: ['', 'heart', 'peace', 'smile'],
   Holster: ['', 'revolver_chest', 'revolver_hip'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
