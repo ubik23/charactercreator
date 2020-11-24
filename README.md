@@ -57,7 +57,7 @@ The items are separated into layers, some items require multiple layers while ot
 All SVGs are optimized to remove as much excess styles and attributes as possible. Each layer is a group with an id that is used to show/hide the layer according to the user's choices.
 
 if you want to open an SVG to edit it, make sure you add the following in the file:
-```
+```svg
 <svg viewBox="10 50 540 540">
 [...]
 </svg>
