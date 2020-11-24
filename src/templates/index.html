@@ -327,6 +327,9 @@
                     <% if (locals.facebook) { %>
                     <li id="facebookButton"><a href="<%= locals.facebook %>" target="_blank" rel="noopener noreferrer" alt="Facebook"><span class="menu-text">Facebook</span><svg class="icon" width="1em" height="1em"><use xlink:href="#facebook-logo"></use></svg></a></li>
                     <% } %>
+                    <% if (locals.patreon) { %>
+                    <li id="patreonButton"><a href="<%= locals.patreon %>" target="_blank" rel="noopener noreferrer" alt="Patreon"><span class="menu-text">Patreon</span><svg class="icon" width="1em" height="1em"><use xlink:href="#patreon-logo"></use></svg></a></li>
+                    <% } %>
                     <% if (locals.twitter) { %>
                     <li id="twitterButton"><a href="<%= locals.twitter %>" target="_blank" rel="noopener noreferrer" alt="Twitter"><span class="menu-text">Twitter</span><svg class="icon" width="1em" height="1em"><use xlink:href="#icon-twitter"></use></svg></a></li>
                     <% } %>
@@ -606,20 +609,12 @@
                         <div class="overlay__char-new-form--create">
                             <p>You can view, edit and export to other formats with vector graphics programs such as <a href="https://inkscape.org/">Inkscape</a>. Characters are free to use under the <a href="https://creativecommons.org/licenses/by-nc/2.0/"
                             target="_blank">cc-by-nc</a> license. Get a commercial license, more angles and positions, supplemental art when you join our <a href="<%= locals.patreon %>" target="_blank">Patreon</a>.</p>
-                            <% if (locals.patreon) { %>
-                            <p>Another way to support us is to visit our affiliate link to try out the <a href="<%= locals.brave %>">Brave Browser</a>.</p>
-                            <% } %>
+
                             <div class="ui-buttons phat">
                                 <!-- <button id="save-char-to-cloud-btn" >Save Character to Cloud</button> -->
                                 <button id="new-char-btn">Create A New Character</button>
                                 <% if (locals.patreon) { %>
                                 <button id="patreon-btn">Visit Patreon</button>
-                                <% } %>
-                                <% if (locals.brave) { %>
-                                <button id="brave-affiliate-btn">
-                                  <span>Try out Brave Browser</span>
-                                  <svg width="1em" height="1em"><use xlink:href="#brave-logo" style="transform-origin: 0 50%;transform: scale(2.5);"></use></svg>
-                                </button>
                                 <% } %>
                             </div>
                             <p><%= locals.emailMessage %></p>
