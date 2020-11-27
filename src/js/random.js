@@ -1,219 +1,66 @@
-function random () {
-  var forms = window.forms
-  var formLen = forms.length
-  var formRand = Math.floor((Math.random() * formLen))
-  var count = 0
-  var randForm = forms[formRand]
-  for (k in randForm) if (randForm.hasOwnProperty(k)) count++
-  var keys = []
-  for (var key in forms[formRand]) {
-    if (forms[formRand].hasOwnProperty(key)) {
-      keys.push(key)
+function createDecentRandomCharacter () {
+    var sex
+    var skinTone
+
+    hideTutorial()
+    gaga('send', 'event', { eventCategory: 'Secret function', eventAction: 'smartRandomSingle()', eventLabel: 'Secret Patreon reveal for new random function.' })
+    hash.clear()
+    resetCharacter()
+
+    sex = getRandomSex()
+    skinTone = getRandomSkinTone()
+
+    defaultEyeColor(c, skinTone)
+    defaultHairColor(c, skinTone)
+    defaultPupilShape()
+
+    if (sex === 'f') {
+      dressFemaleRandom()
+    } else {
+      dressMaleRandom()
     }
-  }
-  var lenKey = keys.length
-  var randKey = Math.floor((Math.random() * lenKey))
-  var key = keys[randKey]
-  var myKey = key
-  var len = forms[formRand][myKey].length
-  var rand = Math.floor((Math.random() * len))
-  var layer = forms[formRand][myKey][rand].toLowerCase()
-  showRandom(key.toLowerCase(), layer)
 }
 
-function showRandom (section, layer) { // Draw the SVG on screen
-  hideCompetition(section)
-  var selectedOption = layer
-  var sections = []
-  sections[0] = section
+function getRandomSex () {
+  // Choose the sex at random (50/50)
+    var roll
+    var sex
+
+    roll = Math.floor((Math.random() * 100))
+
+    if (roll <= 50) { sex = 'f' } else { sex = 'm' }
+
+    return sex
+}
+
+function getRandomSkinTone () {
+  var roll
+  var skinTone
+  var skinToneList = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
   var obj = new Array()
-  var id = '#' + sections[0] + '_' + selectedOption
-  obj[sections[0]] = selectedOption
+
+  roll = Math.floor((Math.random() * skinToneList.length))
+  skinTone = obj.skinColor = skinToneList[roll].toLowerCase()
   hash.add(obj)
 
-  if (sections[0] === 'emotion') {
-    modCharacter(sections[0], selectedOption)
-    sections = []// Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-    var emotions = GetEmotionGetLayers(selectedOption)
-    for (emo in emotions) {
-      var newEmo = emotions[emo] + '_' + layer
-      sections.push(newEmo)
-    }
-  };
-
-  for (section in sections) {
-    sectionOptions = getOptionsRandom(sections[section])
-    var id = '#' + sections[section] + '_' + layer
-    for (option in sectionOptions) {
-      optionId = '#' + sections[section] + '_' + sectionOptions[option]
-      hideId(optionId)
-    }
-
-    if (id.slice(-1) != '_') {
-      showId(id)
-    }
-    if (sections[section] === 'brows' || sections[section] === 'eyes' || sections[section] === 'mouth' || sections[section] === 'lashes' || sections[section] === 'sockets') {
-      modCharacter(sections[section], selectedOption)
-    } else {
-      var obj = new Array()
-      obj[sections[section]] = selectedOption
-      hash.add(obj)
-      modCharacter(sections[section], selectedOption)
-    }
-  };
+  return skinTone
 }
 
-function hideCompetition (section) {
-  var headPiece = ['hair', 'mask', 'veil']
-  var topPiece = ['shorts', 'pants']
-  var overPiece = ['jacket', 'coat']
-
-  if (headPiece.indexOf(section) != -1) {
-    hideArray(headPiece)
-  } else if (topPiece.indexOf(section) != -1) {
-    hideArray(topPiece)
-  } else if (overPiece.indexOf(section) != -1) {
-    hideArray(overPiece)
-  };
-}
-
-function hideArray (competition) {
-  for (section in competition) {
-    sectionOptions = getOptionsRandom(competition[section])
-    for (option in sectionOptions) {
-      if (sectionOptions[option] != '') {
-        optionId = '#' + competition[section] + '_' + sectionOptions[option]
-        hideId(optionId)
-        var obj = new Array()
-        obj[competition[section]] = ''
-        hash.add(obj)
-        modCharacter(competition[section], '')
-      }
-    }
-  }
-}
-
-function showId (id) {
-  var showList = []
-  //var inMuliLayer = false
-  var svgContainer = document.querySelector('#svg1')
-  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
-  gaga('send', 'event', 'menu', 'select', id)
-
-  if (layerCount > 0) {
-    for (var i = 1; i <= layerCount; i++) {
-      idOf = id + '_' + i + '_of_' + layerCount
-      showList.push(idOf.slice(1))
-    }
-  } else {
-    showList.push(id.slice(1))
-  }
-  loadFilesFromList(showList)
-}
-
-function hideId (id) {
-  var svgContainer = document.querySelector('#svg1')
-  var layerToHide
-  var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
-
-  if (layerCount > 0) {
-    for (var i = 1; i <= layerCount; i++) {
-      idOf = id + '_' + i + '_of_' + layerCount
-      layerToHide = svgContainer.querySelector(idOf)
-      if (layerToHide != null) {
-        svgContainer.removeChild(layerToHide)
-      }
-    }
-  } else {
-    layerToHide = svgContainer.querySelector(id)
-    if (layerToHide != null) {
-      svgContainer.removeChild(layerToHide)
-    }
-  }
-}
-
-function getOptionsRandom (section) {
-  var sectionOptions = []
-  for (form in window.forms) {
-    if (capitalizeFirstLetter(section) in window.forms[form]) {
-      return window.forms[form][capitalizeFirstLetter(section)]
-    } else {
-    }
-  }
-}
-
-function smartRandomStream () {
-  // TODO
-  // Count the amount of options in each category of all forms.
-  // Give each for that percentage of chance to its parent form.
-  // Do the same for each category in that form.
-  // Allow sex change option to have its share of chance to be picked.
-  // Do the same for changing the skin color.
-  // Cycle on a setInterval so not to overheat laptop.
-}
-
-function smartRandomSingle (ev) {
-  gaga('send', 'event', { eventCategory: 'Secret function', eventAction: 'smartRandomSingle()', eventLabel: 'Secret Patreon reveal for new random function.' })
+function getRandomFabricColor () {
   var roll
-  var skinTones = ['#FFDFC4', '#F0D5BE', '#EECEB3', '#E1B899', '#E5C298', '#FFDCB2', '#E5B887', '#E5A073', '#E79E6D', '#DB9065', '#CE967C', '#C67856', '#BA6C49', '#A57257', '#F0C8C9', '#DDA8A0', '#B97C6D', '#A8756C', '#AD6452', '#5C3836', '#CB8442', '#BD723C', '#704139', '#A3866A']
-  var obj = new Array()
-  var forms
-  var counter
-  var formLen
-  var categories
-  var newColor
-  var keys
-  var keyLen
-  var keyCounter
-  var items
-  var itemsLen
-  var newItem
-  var formCount
-  var obj = new Array()
-  var roll
-  var catKey
-  var chance
-  var chanceDict = {
-    // 'button' : 2,
-    coat: 15,
-    collar: 5,
-    earings: 90,
-    earpiece: 5,
-    eyepatch: 10,
-    glasses: 60,
-    holster: 5,
-    horns: 3,
-    kneepads: 5,
-    makeup: 80,
-    mask: 5,
-    necklace: 75,
-    pet: 20,
-    scarf: 10,
-    shirt: 95,
-    shoulderpads: 5,
-    smoke: 20,
-    suit: 5,
-    tie: 15,
-    veil: 5,
-    vest: 5,
-    warpaint: 5,
-    wings: 3
-  }
-  var defaultChance = 50
-  var bottomCovered = false
-  var topCovered = false
-  var headCovered = false
-  var forms
   var fabColor
-  var fabColorCounter = fabricPallette.length
+  // var fabColorList
 
-  hash.clear()
-  // First, clear the board and start from the silhouettes
-  resetCharacter()
-  // Choose the sex at random (50/50)
-  var roll = Math.floor((Math.random() * 100))
+  roll = Math.floor((Math.random() * fabColorList.length))
+  fabColor = fabricPallette[roll]
 
-  if (roll <= 50) {
+  return fabColor
+}
+
+function getForms (sex) {
+  var forms
+
+  if (sex === 'f') {
     selectFemale()
     var form1 = femaleForm1
     var form2 = femaleForm2
@@ -231,258 +78,734 @@ function smartRandomSingle (ev) {
     var form6 = maleForm6
   }
   forms = [form1, form2, form3, form4, form5, form6]
-  // Then choose the skin color at random (1/24)
-  roll = Math.floor((Math.random() * 24))
-  newColor = obj.skinColor = skinTones[roll].toLowerCase()
-  hash.add(obj)
-  defaultEyeColor(c, newColor)
-  defaultHairColor(c, newColor)
-  defaultPupilShape()
-  fabRoll = Math.floor((Math.random() * fabColorCounter))
-  fabColor = fabricPallette[fabRoll]
 
-  setTimeout(function () {
-    counter = formLen = forms.length
-
-    while (counter--) {
-      formCount = formLen - 1 - counter
-      categories = forms[formCount]
-      keys = Object.keys(categories)
-      keyCounter = keyLen = keys.length
-
-      if (formCount === 0) {
-        while (keyCounter--) {
-          items = categories[keys[keyLen - 1 - keyCounter]]
-          itemsLen = items.length
-          var roll = Math.floor((Math.random() * itemsLen))
-          var catKey = keys[keyLen - 1 - keyCounter].toLowerCase()
-          var item = items[roll].toLowerCase()
-
-          if (catKey === 'hair' && item != '') {
-            headCovered = true
-          }
-
-          obj[catKey] = item
-          hash.add(obj)
-        }
-      }
-      if (formCount > 0) {
-        while (keyCounter--) {
-          newItem = ''
-          items = categories[keys[keyLen - 1 - keyCounter]]
-          itemsLen = items.length
-          catKey = keys[keyLen - 1 - keyCounter].toLowerCase()
-
-          // only treat the categories that have a percentage chance to be added
-          // should be rewritten to test if catKey is in chanceDict
-          if (catKey != 'pants' && catKey != 'underwear' && catKey != 'body' && catKey != 'cloak' && catKey != 'shoes' && catKey != 'bra' && catKey != 'mask') {
-            if (chanceDict[catKey] != undefined) {
-              chance = chanceDict[catKey]
-            } else {
-              chance = defaultChance
-            }
-            // // Check to see if there's a chance we choose an item from this category
-            roll = Math.floor((Math.random() * 100))
-            if (roll <= chance) {
-              roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
-              newItem = items[roll].toLowerCase()
-              if (headCovered) {
-                if (catKey === 'hat' || catKey === 'veil') {
-                  newItem = ''
-                }
-              }
-              if (bottomCovered || topCovered) {
-                if (catKey === 'suit' || catKey === 'dress' || catKey === 'coat' || catKey === 'top') {
-                  newItem = ''
-                }
-              }
-              if (bottomCovered) {
-                if (catKey === 'shorts' || catKey === 'dress' || catKey === 'skirt' || catKey === 'pants') {
-                  newItem = ''
-                }
-              }
-              if (topCovered) {
-                if (catKey === 'shirt' || catKey === 'top' || catKey === 'suit') {
-                  newItem = ''
-                }
-              }
-            }
-            //
-            if (newItem != '') {
-              if (catKey === 'suit' || catKey === 'dress') {
-                if (newItem != 'suit') {
-                  bottomCovered = true
-                }
-                topCovered = true
-              } else if (catKey === 'top' || catKey === 'shirt' || catKey === 'shirt' || catKey === 'jacket') {
-                topCovered = true
-              } else if (catKey === 'shorts' || catKey === 'skirt' || catKey === 'pants') {
-                bottomCovered = true
-              }
-            }
-          } else if (catKey === 'body') {
-            roll = Math.floor((Math.random() * 100))
-            if (roll < 40) {
-              roll = 0
-            } else if (roll < 80) {
-              roll = 1
-            } else if (roll < 95) {
-              roll = 2
-            } else {
-              roll = 3
-            }
-            newItem = items[roll].toLowerCase()
-          } else if (catKey === 'cloak' || catKey === 'bra' || catKey === 'underwear' || catKey === 'mask') {
-            newItem = ''
-          } else {
-            roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
-            newItem = items[roll].toLowerCase()
-
-            if (bottomCovered || topCovered) {
-              if (catKey === 'suit' || catKey === 'dress' || catKey === 'top') {
-                newItem = ''
-              }
-            }
-            if (bottomCovered) {
-              if (catKey === 'shorts' || catKey === 'dress' || catKey === 'skirt' || catKey === 'pants') {
-                newItem = ''
-              }
-            }
-            if (topCovered) {
-              if (catKey === 'shirt' || catKey === 'top' || catKey === 'suit') {
-                newItem = ''
-              }
-            }
-
-            if (newItem != '') {
-              if (catKey === 'suit' || catKey === 'dress') {
-                bottomCovered = true
-                topCovered = true
-              } else if (catKey === 'top' || catKey === 'shirt' || catKey === 'vest' || catKey === 'shirt' || catKey === 'jacket') {
-                topCovered = true
-              } else if (catKey === 'shorts' || catKey === 'skirt' || catKey === 'pants') {
-                bottomCovered = true
-              }
-            }
-          } // if category requires a roll
-          obj[catKey] = newItem
-          if (catKey === 'jacket' || (catKey === 'vest' && newItem != 'yellow') || (catKey === 'pants' && (newItem === 'suit' || newItem === 'snowboard')) || catKey === 'shorts' || catKey === 'skirt' || catKey === 'top' || catKey === 'suit' || catKey === 'dress') {
-            obj[catKey + 'Color'] = fabColor
-          }
-          hash.add(obj)
-        } // while keycounter--
-      } // if formcount > 0
-    } // while counter--
-    if (!bottomCovered && !topCovered) {
-      if (c.choices.sex === 'f') {
-        coverAll(forms)
-      } else {
-        coverBottom(forms)
-      }
-    } else if (!bottomCovered) {
-      coverBottom(forms)
-    } else if (c.choices.sex === 'f' && !topCovered) {
-      coverTop(forms)
-    }
-    launch()
-  }, 300)
-  // Cycle through each category in the first form
-  // For Mouth pass on male, change color on female (50% chance to keep the skin color)
-
-  // In the second form, give the 'none' option a 50% chance so not to ovepopulate with items.
-  // in the third, give 50% to 'none' for Tie, Vest, Holster, Shoulderpads and Scarf
-  // In the Fourth, give 50% to 'none' for all
-  // In the fifth, choose pants (don't accept 'none' as an option)
-  // In the sixth, socks are optional but shoes are not
+  return forms
 }
 
-function coverAll (forms) {
-  var catKeyList = ['suit', 'dress']
-  var counter = formLen = forms.length
-  var formCount
-  var categories
-  var keys
-  var keyCounter
-  var obj = new Array()
+function dressFemaleRandom () {
+  hideTutorial()
+  var forms = getForms('f')
+  var chanceDict = {
+    // 'button' : 2,
+      belt: 25,
+      bracelet: 50,
+      coat: 15,
+      collar: 5,
+      dress: 33,
+      earings: 50,
+      earpiece: 5,
+      eyepatch: 10,
+      glasses: 60,
+      hat: 10,
+      holster: 5,
+      horns: 3,
+      kneepads: 5,
+      leggings: 25,
+      makeup: 80,
+      mask: 5,
+      necklace: 25,
+      pet: 20,
+      scarf: 10,
+      shirt: 15,
+      shoulderpads: 5,
+      smoke: 25,
+      suit: 5,
+      veil: 5,
+      vest: 3,
+      warpaint: 5,
+      wings: 5
+  }
+  var options
+  var randomItem
+  var obj
+  var topList = ['shirt', 'top', 'blouse']
+  var bottomList = ['pants', 'skirt']
+  var topChoice
+  var fabColorCounter = fabricPallette.length
+  var fabRoll = Math.floor((Math.random() * fabColorCounter))
+  var fabColor = fabricPallette[fabRoll]
 
-  // Randomly choose new catKey
-  var catKey = 'dress'
+  // Determine if wearing a dress or a top/bottom combination
 
-  while (counter--) {
-    formCount = formLen - 1 - counter
-    categories = forms[formCount]
-    keys = Object.keys(categories)
-    keyCounter = keyLen = keys.length
-
-    if (keys.includes(capitalizeFirstLetter(catKey))) {
-      items = categories[capitalizeFirstLetter(catKey)]
-      itemsLen = items.length
-      roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
-      newItem = items[roll].toLowerCase()
-      obj[catKey] = newItem
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.dress) {
+    // If wearing a dress
+    obj = new Array()
+    options = forms[3].Dress.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['dress'] = randomItem
+    hash.add(obj)
+    // change color
+    obj = new Array()
+    obj['dressColor'] = fabColor
+    hash.add(obj)
+    // Add necklace
+    if ( Math.floor((Math.random() * 100)) <= chanceDict.necklace) {
+      obj = new Array()
+      options = forms[2].Necklace.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['necklace'] = randomItem
       hash.add(obj)
     }
-  }
-}
-
-function coverTop (forms) {
-  var catKeyList = ['top']
-  var counter = formLen = forms.length
-  var formCount
-  var categories
-  var keys
-  var keyCounter
-  var catKey = 'top'
-  var obj = new Array()
-
-  while (counter--) {
-    formCount = formLen - 1 - counter
-    categories = forms[formCount]
-    keys = Object.keys(categories)
-    keyCounter = keyLen = keys.length
-
-    if (keys.includes(capitalizeFirstLetter(catKey))) {
-      items = categories[capitalizeFirstLetter(catKey)]
-      itemsLen = items.length
-      roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
-      newItem = items[roll].toLowerCase()
-      obj[catKey] = newItem
-      hash.add(obj)
-    }
-  }
-}
-
-function coverBottom (forms) {
-  var sex = c.choices.sex
-  var catKeyList
-  var counter = formLen = forms.length
-  var formCount
-  var categories
-  var keys
-  var keyCounter
-  var obj = new Array()
-
-  if (sex === 'm') {
-    catKeyList = ['pants']
-    var catKey = 'pants'
   } else {
-    catKeyList = ['shorts', 'skirt', 'pants']
-    var catKey = 'skirt'
-  }
+    // If wearing a top/bottom combo
 
-  while (counter--) {
-    formCount = formLen - 1 - counter
-    categories = forms[formCount]
-    keys = Object.keys(categories)
-    keyCounter = keyLen = keys.length
+    // Choose from shirts, tops and blouses
+    topChoice = topList[Math.floor((Math.random() * topList.length))]
 
-    if (keys.includes(capitalizeFirstLetter(catKey))) {
-      items = categories[capitalizeFirstLetter(catKey)]
-      itemsLen = items.length
-      roll = Math.floor((Math.random() * (itemsLen - 1))) + 1
-      newItem = items[roll].toLowerCase()
-      obj[catKey] = newItem
+    if (topChoice === 'shirt') {
+      obj = new Array()
+      options = forms[2].Shirt.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['shirt'] = randomItem
+      hash.add(obj)
+      // change color
+      obj = new Array()
+      obj['shirtColor'] = fabColor
+      hash.add(obj)
+    } else if (topChoice === 'top') {
+      obj = new Array()
+      options = forms[2].Top.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['top'] = randomItem
+      hash.add(obj)
+      obj = new Array()
+      obj['topColor'] = fabColor
+      hash.add(obj)
+    } else {
+      obj = new Array()
+      options = forms[3].Blouse.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['blouse'] = randomItem
+      hash.add(obj)
+      obj = new Array()
+      obj['blouseColor'] = fabColor
+      hash.add(obj)
+    }
+    // Choose from skirts, pants or shorts
+    bottomChoice = bottomList[Math.floor((Math.random() * bottomList.length))]
+
+    if (bottomChoice === 'pants') {
+      obj = new Array()
+      options = forms[4].Pants.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['pants'] = randomItem
+      hash.add(obj)
+      obj = new Array()
+      obj['pantsColor'] = fabColor
+      hash.add(obj)
+    } else if (bottomChoice === 'skirt') {
+      obj = new Array()
+      options = forms[4].Skirt.slice(1)
+      randomItem = options[Math.floor((Math.random() * options.length))]
+      obj['skirt'] = randomItem
+      hash.add(obj)
+      obj = new Array()
+      obj['skirtColor'] = fabColor
       hash.add(obj)
     }
   }
+
+  // Choose if wearing a hat
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.hat) {
+    obj = new Array()
+    options = forms[1].Hat.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['hat'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['hatColor'] = fabColor
+    hash.add(obj)
+  } else {
+    // Choose hair style depending on hat
+    obj = new Array()
+    options = forms[0].Hair.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['hair'] = randomItem
+    hash.add(obj)
+  }
+  // Choose Glasses
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.glasses) {
+    obj = new Array()
+    options = forms[1].Glasses.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['glasses'] = randomItem
+    hash.add(obj)
+  }
+  // Add earrings
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.earings) {
+    obj = new Array()
+    options = forms[1].Earings.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['earings'] = randomItem
+    hash.add(obj)
+  }
+
+  // Add bracelets, bandages and other accessories
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.bracelet) {
+    obj = new Array()
+    options = forms[3].Bracelet.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['bracelet'] = randomItem
+    hash.add(obj)
+  }
+
+  // Add smoke accessories
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.smoke) {
+    obj = new Array()
+    options = forms[1].Smoke.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['smoke'] = randomItem
+    hash.add(obj)
+  }
+
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.bracelet) {
+    obj = new Array()
+    options = forms[3].Bracelet.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['bracelet'] = randomItem
+    hash.add(obj)
+  }
+  // Shoulderpads
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.shoulderpads) {
+    obj = new Array()
+    options = forms[2].Shoulderpads.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['shoulderpads'] = randomItem
+    hash.add(obj)
+    // obj = new Array()
+    // obj['shoulderpadsColor'] = fabColor
+    // hash.add(obj)
+  }
+
+  // Add leggings
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.leggings) {
+    obj = new Array()
+    options = forms[5].Leggings.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['leggings'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['leggingsColor'] = fabColor
+    hash.add(obj)
+  }
+
+  // Choose shoes
+  obj = new Array()
+  options = forms[5].Shoes.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['shoes'] = randomItem
+  hash.add(obj)
+  obj = new Array()
+  obj['shoesColor'] = fabColor
+  hash.add(obj)
+
+  // coat
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.coat) {
+    obj = new Array()
+    options = forms[3].Coat.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['coat'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['coatColor'] = fabColor
+    hash.add(obj)
+  }
+  // collar
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.collar) {
+    obj = new Array()
+    options = forms[2].Collar.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['collar'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['collarColor'] = fabColor
+    hash.add(obj)
+  }
+  // earpiece
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.earpiece) {
+    obj = new Array()
+    options = forms[1].Earpiece.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['earpiece'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['earpieceColor'] = fabColor
+    hash.add(obj)
+  }
+  // eyepatch
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.eyepatch) {
+    obj = new Array()
+    options = forms[1].Eyepatch.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['eyepatch'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['eyepatchColor'] = fabColor
+    hash.add(obj)
+  }
+  // holster
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.holster) {
+    obj = new Array()
+    options = forms[3].Holster.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['holster'] = randomItem
+    hash.add(obj)
+    // obj = new Array()
+    // obj['holsterColor'] = fabColor
+    // hash.add(obj)
+  }
+  // horns
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.horns) {
+    obj = new Array()
+    options = forms[1].Horns.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['horns'] = randomItem
+    hash.add(obj)
+    // obj = new Array()
+    // obj['hornsColor'] = fabColor
+    // hash.add(obj)
+  }
+  // kneepads
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.kneepads) {
+    obj = new Array()
+    options = forms[4].Kneepads.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['kneepads'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['kneepadsColor'] = fabColor
+    hash.add(obj)
+  }
+  // makeup
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.makeup) {
+    obj = new Array()
+    options = forms[1].Makeup.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['makeup'] = randomItem
+    hash.add(obj)
+    // obj = new Array()
+    // obj['makeupColor'] = fabColor
+    // hash.add(obj)
+  }
+  // mask
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.mask) {
+  //   obj = new Array()
+  //   options = forms[1].Mask.slice(1)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['mask'] = randomItem
+  //   hash.add(obj)
+  //   // obj = new Array()
+  //   // obj['maskColor'] = fabColor
+  //   // hash.add(obj)
+  // }
+  // pet
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.pet) {
+  //   obj = new Array()
+  //   options = forms[3].Pet.slice(1)
+  //   console.log('pet', options)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['pet'] = randomItem
+  //   hash.add(obj)
+  //   console.log('randomItem', randomItem)
+  //   obj = new Array()
+  //   obj['petColor'] = fabColor
+  //   hash.add(obj)
+  // }
+  // scarf
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.scarf) {
+    obj = new Array()
+    options = forms[2].Scarf.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['scarf'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['scarfColor'] = fabColor
+    hash.add(obj)
+  }
+  // suit
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.suit) {
+  //   obj = new Array()
+  //   options = forms[3].Suit.slice(1)
+  //   console.log('suit', options)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['suit'] = randomItem
+  //   hash.add(obj)
+  //   console.log('randomItem', randomItem)
+  //   obj = new Array()
+  //   obj['suitColor'] = fabColor
+  //   hash.add(obj)
+  // }
+  // tie
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.tie) {
+  //   obj = new Array()
+  //   options = forms[2].Tie.slice(1)
+  //   console.log('tie', options)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['tie'] = randomItem
+  //   hash.add(obj)
+  //   console.log('randomItem', randomItem)
+  //   obj = new Array()
+  //   obj['tieColor'] = fabColor
+  //   hash.add(obj)
+  // }
+  // veil
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.veil) {
+    obj = new Array()
+    options = forms[1].Veil.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['veil'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['veilColor'] = fabColor
+    hash.add(obj)
+  }
+  // warpaint
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
+    obj = new Array()
+    options = forms[1].warpaint.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['warpaint'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['warpaintColor'] = fabColor
+    hash.add(obj)
+  }
+  // wings
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.wings) {
+    obj = new Array()
+    options = forms[3].Wings.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['wings'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['wingsColor'] = fabColor
+    hash.add(obj)
+  }
+  // ==============================================================================
+
+  launch()
+}
+
+function dressMaleRandom () {
+  hideTutorial()
+
+  var forms = getForms('m')
+  var chanceDict = {
+    // 'button' : 2,
+    belt: 33,
+    coat: 15,
+    collar: 5,
+    earings: 10,
+    earpiece: 5,
+    eyepatch: 10,
+    facialhair: 50,
+    glasses: 60,
+    hat: 25,
+    holster: 5,
+    horns: 3,
+    jacket: 33,
+    kneepads: 5,
+    mask: 5,
+    necklace: 50,
+    pet: 20,
+    scarf: 10,
+    shirt: 95,
+    shoulderpads: 5,
+    smoke: 25,
+    socks: 50,
+    suit: 5,
+    tie: 15,
+    vest: 33,
+    warpaint: 5,
+    watch: 75,
+    wings: 5
+  }
+  var options
+  var randomItem
+  var obj
+  var fabColorCounter = fabricPallette.length
+  var fabRoll = Math.floor((Math.random() * fabColorCounter))
+  var fabColor = fabricPallette[fabRoll]
+
+  // Choose from shirts
+  obj = new Array()
+  options = forms[2].Shirt.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['shirt'] = randomItem
+  hash.add(obj)
+  obj = new Array()
+  obj['shirtColor'] = fabColor
+  hash.add(obj)
+  // Choose from pants
+  obj = new Array()
+  options = forms[4].Pants.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['pants'] = randomItem
+  hash.add(obj)
+  obj = new Array()
+  obj['pantsColor'] = fabColor
+  hash.add(obj)
+  // Add belt
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.belt) {
+    obj = new Array()
+    options = forms[4].Belt.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['belt'] = randomItem
+    hash.add(obj)
+  }
+  // Vest
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.vest) {
+    obj = new Array()
+    options = forms[2].Vest.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['vest'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['vestColor'] = fabColor
+    hash.add(obj)
+  }
+  // Jacket
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.jacket) {
+    obj = new Array()
+    options = forms[3].Jacket.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['jacket'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['jacketColor'] = fabColor
+    hash.add(obj)
+  }
+  // Choose if wearing a hat
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.hat) {
+    obj = new Array()
+    options = forms[1].Hat.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['hat'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['hatColor'] = fabColor
+    hash.add(obj)
+  } else {
+    // Choose hair style depending on hat
+    obj = new Array()
+    options = forms[0].Hair.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['hair'] = randomItem
+    hash.add(obj)
+  }
+
+  // Choose Facialhair
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.facialhair) {
+    obj = new Array()
+    options = forms[0].Facialhair.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['facialhair'] = randomItem
+    hash.add(obj)
+  }
+
+  // Choose Glasses
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.glasses) {
+    obj = new Array()
+    options = forms[1].Glasses.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['glasses'] = randomItem
+    hash.add(obj)
+  }
+  // Add earrings if that's the case
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.earings) {
+    obj = new Array()
+    options = forms[1].Earings.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['earings'] = randomItem
+    hash.add(obj)
+  }
+  // Add watch, bracelet, bandages and other accessories
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.watch) {
+    obj = new Array()
+    options = forms[3].Watch.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['watch'] = randomItem
+    hash.add(obj)
+  }
+  // Add smoke accessories
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.smoke) {
+    obj = new Array()
+    options = forms[1].Smoke.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['smoke'] = randomItem
+    hash.add(obj)
+  }
+  // Shoulderpads
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.shoulderpads) {
+    obj = new Array()
+    options = forms[2].Shoulderpads.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['shoulderpads'] = randomItem
+    hash.add(obj)
+    // obj = new Array()
+    // obj['shoulderpadsColor'] = fabColor
+    // hash.add(obj)
+  }
+
+  // Add socks
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.socks) {
+    obj = new Array()
+    options = forms[5].Socks.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['socks'] = randomItem
+    hash.add(obj)
+  }
+  // Choose shoes
+  obj = new Array()
+  options = forms[5].Shoes.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['shoes'] = randomItem
+  hash.add(obj)
+  // obj = new Array()
+  // obj['shoesColor'] = fabColor
+  // hash.add(obj)
+
+  // coat
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.coat) {
+    obj = new Array()
+    options = forms[3].Coat.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['coat'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['coatColor'] = fabColor
+    hash.add(obj)
+  }
+  // earpiece
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.earpiece) {
+    obj = new Array()
+    options = forms[1].Earpiece.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['earpiece'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['earpieceColor'] = fabColor
+    hash.add(obj)
+  }
+  // eyepatch
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.eyepatch) {
+    obj = new Array()
+    options = forms[1].Eyepatch.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['eyepatch'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['eyepatchColor'] = fabColor
+    hash.add(obj)
+  }
+  // holster
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.holster) {
+    obj = new Array()
+    options = forms[3].Holster.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['holster'] = randomItem
+    hash.add(obj)
+  }
+  // horns
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.horns) {
+    obj = new Array()
+    options = forms[1].Horns.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['horns'] = randomItem
+    hash.add(obj)
+  }
+  // kneepads
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.kneepads) {
+    obj = new Array()
+    options = forms[4].Kneepads.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['kneepads'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['kneepadsColor'] = fabColor
+    hash.add(obj)
+  }
+  // mask
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.mask) {
+  //   obj = new Array()
+  //   options = forms[1].Mask.slice(1)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['mask'] = randomItem
+  //   hash.add(obj)
+  //   // obj = new Array()
+  //   // obj['maskColor'] = fabColor
+  //   // hash.add(obj)
+  // }
+  // pet
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.pet) {
+  //   obj = new Array()
+  //   options = forms[3].Pet.slice(1)
+  //   console.log('pet', options)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['pet'] = randomItem
+  //   hash.add(obj)
+  //   console.log('randomItem', randomItem)
+  //   obj = new Array()
+  //   obj['petColor'] = fabColor
+  //   hash.add(obj)
+  // }
+  // scarf
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.scarf) {
+    obj = new Array()
+    options = forms[2].Scarf.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['scarf'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['scarfColor'] = fabColor
+    hash.add(obj)
+  }
+  // suit
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.suit) {
+  //   obj = new Array()
+  //   options = forms[3].Suit.slice(1)
+  //   console.log('suit', options)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['suit'] = randomItem
+  //   hash.add(obj)
+  //   console.log('randomItem', randomItem)
+  //   obj = new Array()
+  //   obj['suitColor'] = fabColor
+  //   hash.add(obj)
+  // }
+  // tie
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.tie) {
+    obj = new Array()
+    options = forms[2].Tie.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['tie'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['tieColor'] = fabColor
+    hash.add(obj)
+  }
+  // warpaint
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
+    obj = new Array()
+    options = forms[1].warpaint.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['warpaint'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['warpaintColor'] = fabColor
+    hash.add(obj)
+  }
+  // wings
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.wings) {
+    obj = new Array()
+    options = forms[3].Wings.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['wings'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['wingsColor'] = fabColor
+    hash.add(obj)
+  }
+
+  launch()
 }
