@@ -7,10 +7,10 @@ function showTutorial (step) {
 }
 
 function hideTutorial () {
-  console.log('hiding')
   var el = document.querySelector('.tutorial__show')
   if (el) {
     el.classList.remove('tutorial__show')
+    el.classList.add('tutorial__step--seen')
   }
 }
 
