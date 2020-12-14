@@ -19,6 +19,8 @@ function createDecentRandomCharacter () {
     } else {
       dressMaleRandom()
     }
+
+    // TODO display download tutorial step after hitting random for the first time.
 }
 
 function getRandomSex () {
