@@ -26,7 +26,7 @@ var maleForm2 = {
 var maleForm3 = {
   Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
   Tie: ['', 'neck', 'bolo', 'bow'],
-  Vest: ['', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched', 'no-collar'],
+  Vest: ['', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
   Button: ['', 'heart', 'peace', 'smile'],
   Holster: ['', 'revolver_chest', 'revolver_hip'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
@@ -71,7 +71,7 @@ var femaleForm1 = {
 var femaleForm2 = {
   Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Makeup: ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
-  Earings: ['', 'bells', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
+  Earings: ['', 'bells', 'crystal', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   Headband: ['', 'medium', 'tied'],
