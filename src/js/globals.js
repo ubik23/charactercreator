@@ -64,7 +64,7 @@ var femaleForm1 = {
   Pupils: ['round', 'feline', 'star'],
   Nose: ['default', 'pointed', 'roman', 'strong', 'syrid'],
   Mouth: [''],
-  Hair: ['', 'afro', 'bangs', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'starlet', 'odango', 'emo', 'punky', 'spider', 'wreckingball'],
+  Hair: ['', 'afro', 'bangs', 'bell', 'down', 'flowing', 'manga', 'mohawk', 'pigtails', 'ponytail', 'short', 'short_slick', 'starlet', 'odango', 'emo', 'punky', 'spider', 'wreckingball'],
   Freckles: ['', 'medium'],
   Emotion: ['neutral', 'default', 'alertness', 'amusement', 'anger', 'aversion', 'dejection', 'disdain', 'disgust', 'grief', 'indignation', 'joy', 'laughter', 'melancholy', 'rage', 'sadness', 'sterness', 'surprise', 'shock', 'wonder']
 }
