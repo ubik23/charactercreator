@@ -12,6 +12,7 @@ function hideColorPicker () {
 }
 
 function getPallette (sectionId) {
+  // TODO Replace sectionId variable to selectedItem so we know which color we're changing
   var pallette = {}
   var files = []
   var counter
@@ -29,6 +30,8 @@ function getPallette (sectionId) {
       files.push(sectionId + '_' + emotions[counter])
     }
   } else {
+    // TODO Get files from only selectedItem, not from the whole section
+    // files = getSelectedItemLayersList(sectionId)
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer(files, sectionId)
   }
@@ -45,6 +48,7 @@ function getPallette (sectionId) {
       }
     }
   }
+  console.log('pallette:', pallette)
   drawPallette(pallette)
 }
 
@@ -82,6 +86,7 @@ function getColor (sectionId) {
   var section = document.querySelector('.section-id')
   // var wrapper = document.querySelector('.colorpicker-wrapper')
 
+  // TODO Change from sectionId to selectedItem so we don't we focus on that one item.
   section.innerHTML = id
   getPallette(sectionId)
 
