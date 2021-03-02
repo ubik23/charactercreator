@@ -112,6 +112,15 @@ function getSectionsFromIdMultiLayer (multiLayer, tempId) {
   return sections
 }
 
+function getSelectedItem () {
+  var selectedItem
+  // TODO Write function
+  console.log(selectedItem)
+  return selectedItem
+}
+
+// TODO Find or Create a function to get the files from just the selectedItem
+// First we need to add a className to the item's button to make it visually obvious
 function getSectionLayersList (section) {
   var sex = c.choices.sex
   var formList
@@ -400,6 +409,24 @@ function changeOption () {
   }
   show(userChoice, category)
   colors.classList.add('alert')
+  // TODO Manage 'selected--item' class when new item is selected.
+  manageSelectedItem(userChoice, category)
+}
+
+function manageSelectedItem (userChoice, category) {
+  console.log('manageSelectedItem', category + '_' + userChoice)
+  var previousSelectedItem = document.querySelectorAll('.selected--item')
+  var counter = previousSelectedItem.length
+  var target = '.option__' + category + '_' + userChoice
+  var newItem
+  // Remove previous className
+  while(counter--) {
+    previousSelectedItem[counter].classList.remove('selected--item')
+  }
+  console.log('target', target)
+  newItem = document.querySelector(target)
+  newItem.classList.add('selected--item')
+  // Add className to current selection
 }
 
 function getIconId (sectionName, sex) {

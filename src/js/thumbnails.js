@@ -25,6 +25,7 @@ function calcViewBox (svgObject) {
 */
 
 function openThumbsLogic (_) {
+  // TODO Add 'selected-item' class to default or selected item(s)
   var section = _.innerHTML
   var layersList = getSectionLayersList(section)
   var sectionLowerCase = section.toLowerCase()
@@ -90,7 +91,10 @@ function populateThumbs (svgObject) {
   var counter = pupilShapeList.length
   // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1
+  // thumbObject.classList.add('selected-item')
+  console.log('thumbObject', thumbObject)
 
+  // TODO Add 'selected-item' className to default and selected objects.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5))
 
@@ -153,7 +157,11 @@ function populateThumbs (svgObject) {
 
 function showThumbOptions (_) {
   var _ = _.target || _
-  var showOptionThumbs = document.querySelector('.options__' + _.innerHTML.toLowerCase())
+  var sectionName = _.innerHTML.toLowerCase()
+  var selectedItem = hash.get(_.innerHTML.toLowerCase())
+  var selectedItemName = '.option__' + sectionName + '_' + selectedItem
+  var selectedItemObject
+  var showOptionThumbs = document.querySelector('.options__' + sectionName)
   var allOptions = document.querySelectorAll('.options__container')
   var i = allOptions.length
   var sectionSelected = document.querySelector('.section--selected')
@@ -163,4 +171,14 @@ function showThumbOptions (_) {
     }
     showOptionThumbs.classList.add('selected--option')
   };
+  // TODO Figure out if there's a selected item among the options__
+  // console.log('<<< section >>>', _.innerHTML.toLowerCase())
+  // console.log('<<< hash >>>', selectedItem)
+  // document.querySelector('option__' + bra_bow)
+  selectedItemObject = document.querySelector(selectedItemName)
+  if (selectedItemObject) {
+    selectedItemObject.classList.add('selected--item')
+  }
+
+  // Add a class name to the appropriate thumbnail
 }

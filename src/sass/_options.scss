@@ -61,7 +61,6 @@
     }
     &:hover > .svg__option {
         border: 1px solid $color-label;
-        background: $color-white;
     }
 }
 
@@ -83,4 +82,12 @@
     &:hover > .svg__option  {
         border: 1px solid $color-night-border;
     }
+}
+
+.selected--item svg {
+  background-color: $color-alpha;
+}
+
+.selected--item svg:hover {
+  background-color: $color-alpha;
 }
