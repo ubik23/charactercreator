@@ -1,5 +1,7 @@
 function addColorPicker () {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase()
+
+  // console.log('selected--item', section + '_' + selectedItem)
   getColor(section)
   showTutorial('random')
 }
@@ -20,6 +22,7 @@ function getPallette (sectionId) {
   var emotions
   var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon']
   var classCounter
+  var selectedItem
 
   if (sectionId === 'body') {
     files = getAllBodyLayers()
@@ -32,8 +35,11 @@ function getPallette (sectionId) {
   } else {
     // TODO Get files from only selectedItem, not from the whole section
     // files = getSelectedItemLayersList(sectionId)
+    selectedItem = hash.get(sectionId)
     files = getSectionLayersList(sectionId)
-    files = replaceMultilayer(files, sectionId)
+    files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
+    // files = replaceMultilayer(files, sectionId)
+    console.log('files', files)
   }
 
   counter = files.length
@@ -48,7 +54,6 @@ function getPallette (sectionId) {
       }
     }
   }
-  console.log('pallette:', pallette)
   drawPallette(pallette)
 }
 
@@ -80,14 +85,17 @@ function drawPallette (pallette) {
 
 function getColor (sectionId) {
   clearPicker()
+  // TODO Change section to selectedItem
   var id = sectionId
   var slide = document.getElementById('slide')
   var picker = document.getElementById('picker')
   var section = document.querySelector('.section-id')
+  console.log('sectionId', sectionId)
+  var selectedItem = hash.get(sectionId)
   // var wrapper = document.querySelector('.colorpicker-wrapper')
 
   // TODO Change from sectionId to selectedItem so we don't we focus on that one item.
-  section.innerHTML = id
+  section.innerHTML = id + '_' + selectedItem
   getPallette(sectionId)
 
   try {
