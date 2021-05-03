@@ -87,6 +87,7 @@ function getForms (sex) {
 function dressFemaleRandom () {
   hideTutorial()
   var forms = getForms('f')
+  // The following determines the percentage chance of each item to be selected
   var chanceDict = {
     // 'button' : 2,
       belt: 25,
@@ -99,6 +100,7 @@ function dressFemaleRandom () {
       eyepatch: 10,
       glasses: 60,
       hat: 10,
+      headband: 5,
       holster: 5,
       horns: 3,
       kneepads: 5,
@@ -125,7 +127,9 @@ function dressFemaleRandom () {
   var topChoice
   var fabColorCounter = fabricPallette.length
   var fabRoll = Math.floor((Math.random() * fabColorCounter))
+  var fabRoll2 = Math.floor((Math.random() * fabColorCounter))
   var fabColor = fabricPallette[fabRoll]
+  var fabColor2 = fabricPallette[fabRoll2]
 
   // Determine if wearing a dress or a top/bottom combination
 
@@ -162,7 +166,7 @@ function dressFemaleRandom () {
       hash.add(obj)
       // change color
       obj = new Array()
-      obj['shirtColor'] = fabColor
+      obj['shirtColor'] = fabColor2
       hash.add(obj)
     } else if (topChoice === 'top') {
       obj = new Array()
@@ -171,7 +175,7 @@ function dressFemaleRandom () {
       obj['top'] = randomItem
       hash.add(obj)
       obj = new Array()
-      obj['topColor'] = fabColor
+      obj['topColor'] = fabColor2
       hash.add(obj)
     } else {
       obj = new Array()
@@ -180,7 +184,7 @@ function dressFemaleRandom () {
       obj['blouse'] = randomItem
       hash.add(obj)
       obj = new Array()
-      obj['blouseColor'] = fabColor
+      obj['blouseColor'] = fabColor2
       hash.add(obj)
     }
     // Choose from skirts, pants or shorts
@@ -287,7 +291,7 @@ function dressFemaleRandom () {
     obj['leggings'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['leggingsColor'] = fabColor
+    obj['leggingsColor'] = fabColor2
     hash.add(obj)
   }
 
@@ -375,7 +379,7 @@ function dressFemaleRandom () {
     obj['kneepads'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['kneepadsColor'] = fabColor
+    obj['kneepadsColor'] = fabColor2
     hash.add(obj)
   }
   // makeup
@@ -421,7 +425,7 @@ function dressFemaleRandom () {
     obj['scarf'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['scarfColor'] = fabColor
+    obj['scarfColor'] = fabColor2
     hash.add(obj)
   }
   // suit
@@ -458,7 +462,7 @@ function dressFemaleRandom () {
     obj['veil'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['veilColor'] = fabColor
+    obj['veilColor'] = fabColor2
     hash.add(obj)
   }
   // warpaint
@@ -503,6 +507,7 @@ function dressMaleRandom () {
     facialhair: 50,
     glasses: 60,
     hat: 25,
+    headband: 5,
     holster: 5,
     horns: 3,
     jacket: 33,
@@ -528,6 +533,8 @@ function dressMaleRandom () {
   var fabColorCounter = fabricPallette.length
   var fabRoll = Math.floor((Math.random() * fabColorCounter))
   var fabColor = fabricPallette[fabRoll]
+  var fabRoll2 = Math.floor((Math.random() * fabColorCounter))
+  var fabColor2 = fabricPallette[fabRoll2]
 
   // Choose from shirts
   obj = new Array()
@@ -536,7 +543,7 @@ function dressMaleRandom () {
   obj['shirt'] = randomItem
   hash.add(obj)
   obj = new Array()
-  obj['shirtColor'] = fabColor
+  obj['shirtColor'] = fabColor2
   hash.add(obj)
   // Choose from pants
   obj = new Array()
@@ -724,7 +731,7 @@ function dressMaleRandom () {
     obj['kneepads'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['kneepadsColor'] = fabColor
+    obj['kneepadsColor'] = fabColor2
     hash.add(obj)
   }
   // mask
@@ -759,7 +766,7 @@ function dressMaleRandom () {
     obj['scarf'] = randomItem
     hash.add(obj)
     obj = new Array()
-    obj['scarfColor'] = fabColor
+    obj['scarfColor'] = fabColor2
     hash.add(obj)
   }
   // suit
