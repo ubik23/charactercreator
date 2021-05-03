@@ -18,7 +18,7 @@ var maleForm2 = {
   Mask: ['', 'arrow', 'guy_fawkes', 'robin', 'horse', 'hospital', 'phantom', 'stormtrooper', 'jason', 'cat'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'monolens', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   Eyepatch: ['', 'left', 'right'],
-  Headband: ['', 'medium', 'tied'],
+  Headband: ['', 'jogging', 'medium', 'tied'],
   Necklace: ['', 'chain', 'dogtags', 'stethoscope'],
   Warpaint: ['', 'clawmarks', 'football', 'stripe'],
   Earpiece: ['', 'microphone', 'neurolink', 'scouter']
@@ -74,7 +74,7 @@ var femaleForm2 = {
   Earings: ['', 'bells', 'crystal', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'monolens', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
-  Headband: ['', 'medium', 'tied'],
+  Headband: ['', 'jogging', 'medium', 'tied'],
   Hat: ['', 'baseball', 'beach', 'berret_badge', 'bucket', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
   Mask: ['', 'arrow', 'guy_fawkes', 'horse', 'hospital', 'phantom', 'stormtrooper', 'jason', 'cat'],
   Horns: ['', 'devil'],
