@@ -131,6 +131,7 @@ window.onload = function () {
   var nightModeBtn = document.querySelector('#nightModeButton')
   var bigRedBtn = document.querySelector('#bigRedButton')
   var downloadBtn = document.querySelector('#proceed-download')
+  var nftBtn = document.querySelector('#purchase-nft')
   var homeBtn = document.querySelector('.site-title')
 
   if (homeBtn && typeof gotoNewChar === 'function') { homeBtn.addEventListener('click', gotoNewChar, false) }
@@ -158,7 +159,8 @@ window.onload = function () {
   if (nightModeBtn && typeof switchNightMode === 'function') { nightModeBtn.addEventListener('click', switchNightMode, false) }
   if (bigRedBtn && typeof createDecentRandomCharacter === 'function') { bigRedBtn.addEventListener('click', createDecentRandomCharacter, false) }
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
-
+  if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
+  console.log('nftBtn',nftBtn)
   // checkNightMode()
   startup()
 }
@@ -173,6 +175,21 @@ function saveCharToCloud (ev) {
   // If not, prompt to name the character in the cast modal
 }
 */
+
+function nftModal (evt) {
+  if (evt) {
+    evt.preventDefault()
+  }
+  var overlay = document.querySelector('.js-nft')
+  var closeBtn = overlay.querySelector('.close-btn')
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'NFT BTN', eventLabel: 'Clicked on Purchase NFT button.' })
+  console.log('nft')
+  closeAllOverlays()
+
+  overlay.classList.add('overlay--show')
+  overlay.addEventListener('click', closeOverlay, true)
+  closeBtn.addEventListener('click', closeOverlay, false)
+}
 
 function checkNightMode () {
   var body = document.querySelector('BODY')
@@ -316,7 +333,8 @@ function resetSilhouettes () {
   } else if (svgContainer.classList.contains('select-male')) {
     silhouette = svgContainer.querySelector('#male_silhouette')
     silhouetteRemaining = svgContainer.querySelector('#female_silhouette')
-  }
+  }var overlay = document.querySelector('.js-caboose')
+  var closeBtn = overlay.querySelector('.close-btn')
   svgContainer.classList = ''
   maleSilhouette.style.fill = defaultColor
   femaleSilhouette.style.fill = defaultColor

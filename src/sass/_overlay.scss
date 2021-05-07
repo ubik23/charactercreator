@@ -350,11 +350,6 @@
       }
     }
 
-
-    &__proceed-download-btn {
-
-    }
-
 }
 
 .overlay--show {
@@ -388,9 +383,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      &.overlay__purchase-nft-btn {
+        background-color: $color-blue;
+      }
 
       &:hover {
         background-color: $color-alpha--light;
+
+        &.overlay__purchase-nft-btn {
+          background-color: $color-blue--light;
+        }
       }
     }
 }
@@ -410,7 +412,7 @@
   font-weight: 700;
   font-size: 1rem;
   border: none;
-  text-decoration:none; 
+  text-decoration:none;
 }
 
 .night .phat button {
