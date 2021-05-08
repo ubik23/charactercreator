@@ -616,6 +616,7 @@
                                 <% if (locals.patreon) { %>
                                 <button id="patreon-btn">Visit Patreon</button>
                                 <% } %>
+                                <button id="purchase-nft" class="overlay__purchase-nft-btn js-purchase-nft">Purchase NFT</button>
                             </div>
                             <p><%= locals.emailMessage %></p>
                             <a class="center-text" href="mailto:<%= locals.emailAddress %>"><%= locals.emailAddress %></a>
@@ -692,7 +693,8 @@
                     <svg class="icon close-btn"><use xlink:href="#x"></use></svg>
                 </div>
                 <div class="overlay__panel">
-                    <div>
+                    <div class="overlay__nft">
+                      <svg class="overlay__nft-preview"  preserveAspectRatio="xMidYMin" width="10em" height="10em" ><use href=""></use></svg>
                       <p><strong>Immortalize your Character</strong> as a Non-Fungible Token on the Ethereum Blockchain today. Simply copy the URL (The address bar contains all the information needed to recreate your character) and paste it in an email with the subject line "NFT" and address it to:</p> <a class="center-text" href="mailto:<%= locals.emailAddress %>"><%= locals.emailAddress %></a>
                       <p>Price: 0.1 ETH per character</p>
                       <!-- <p>View NFT store.</p> -->
@@ -709,9 +711,9 @@
                 <div class="overlay__panel">
                     <p>Select which <strong>zoom</strong> to crop image:</p>
                     <div class="overlay__char-camera">
-                        <div class="camera-view"><input type="radio" id="camera-full" name="camera-zoom" value="full" checked="checked"><label for="camera-full"><svg class="" viewBox="10 10 540 540" preserveAspectRatio="xMidYMin" width="10em" height="10em" ><use xlink:href="#character-container" viewBox="10 50 540 540"></use></svg><span>Full</span></label></div>
-                        <div class="camera-view"><input type="radio" id="camera-torso" name="camera-zoom" value="torso"><label for="camera-torso"><svg class="" viewBox="136 73 290 290" preserveAspectRatio="xMidYMin" width="10em" height="10em" ><use xlink:href="#character-container" viewBox="204 85 150 150"></use></svg><span>Upper body</span></label></div>
-                        <div class="camera-view"><input type="radio" id="camera-closeup" name="camera-zoom" value="closeup"><label for="camera-closeup"><svg  class="" viewBox="242.6 97 80 80" preserveAspectRatio="xMidYMin" width="10em" height="10em"><use xlink:href="#character-container" viewBox="242.6 99 80 80"></use></svg><span>Close-up</span></label></div>
+                        <div class="camera-view"><input type="radio" id="camera-full" name="camera-zoom" value="full" checked="checked"><label for="camera-full"><svg id="preview-full" viewBox="10 10 540 540" preserveAspectRatio="xMidYMin" width="10em" height="10em" ><use xlink:href="#character-container" viewBox="10 50 540 540"></use></svg><span>Full</span></label></div>
+                        <div class="camera-view"><input type="radio" id="camera-torso" name="camera-zoom" value="torso"><label for="camera-torso"><svg id="preview-torso" viewBox="136 73 290 290" preserveAspectRatio="xMidYMin" width="10em" height="10em" ><use xlink:href="#character-container" viewBox="204 85 150 150"></use></svg><span>Upper body</span></label></div>
+                        <div class="camera-view"><input type="radio" id="camera-closeup" name="camera-zoom" value="closeup"><label for="camera-closeup"><svg  id="preview-closeup" viewBox="242.6 97 80 80" preserveAspectRatio="xMidYMin" width="10em" height="10em"><use xlink:href="#character-container" viewBox="242.6 99 80 80"></use></svg><span>Close-up</span></label></div>
                     </div>
                     <p>Choose the <strong>file format</strong> of your download:</p>
                     <div class="overlay__filetype">
@@ -721,7 +723,6 @@
                     </div>
                     <div class="overlay__char-new-form--create ui-buttons phat">
                         <button id="proceed-download" class="overlay__proceed-download-btn js-proceed-download">Proceed with Download</button>
-                        <button id="purchase-nft" class="overlay__purchase-nft-btn js-purchase-nft">Purchase NFT</button>
                     </div>
                 </div>
             </div>

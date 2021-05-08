@@ -182,6 +182,12 @@ function nftModal (evt) {
   }
   var overlay = document.querySelector('.js-nft')
   var closeBtn = overlay.querySelector('.close-btn')
+  var nftViewBox = document.querySelector('.js-download-options .camera-view input:checked + label svg')
+  var nftPreview = document.querySelector('.overlay__nft-preview use')
+
+  // nftPreview.setAttribute("viewBox", nftViewBox.viewBox);
+  nftPreview.setAttribute("href", '#' + nftViewBox.id);
+  console.log('nftviewbox', nftViewBox.id)
   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'NFT BTN', eventLabel: 'Clicked on Purchase NFT button.' })
   console.log('nft')
   closeAllOverlays()

@@ -350,6 +350,16 @@
       }
     }
 
+    &__nft {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-preview {
+        overflow: hidden;
+      }
+    }
+
 }
 
 .overlay--show {
