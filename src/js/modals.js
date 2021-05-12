@@ -56,6 +56,17 @@ function showDownloadOptions (ev) {
   closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
 }
 
+function showDoneOptions (ev) {
+  ev.preventDefault()
+  var overlay = document.querySelector('.js-download-options')
+  var closeBtn = overlay.querySelector('.close-btn')
+  // hamburger()
+  closeAllOverlays()
+  overlay.classList.add('overlay--show')
+  overlay.addEventListener('click', closeOverlayWithTutorial, true)
+  closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
+}
+
 function logoutUI () {
   var pageWrap = document.querySelector('.logged')
   if (pageWrap) {
