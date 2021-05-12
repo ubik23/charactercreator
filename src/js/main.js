@@ -162,7 +162,7 @@ window.onload = function () {
   if (nightModeBtn && typeof switchNightMode === 'function') { nightModeBtn.addEventListener('click', switchNightMode, false) }
   if (bigRedBtn && typeof createDecentRandomCharacter === 'function') { bigRedBtn.addEventListener('click', createDecentRandomCharacter, false) }
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
-  if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
+  // if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
   console.log('nftBtn',nftBtn)
   // checkNightMode()
