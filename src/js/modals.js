@@ -60,6 +60,8 @@ function showDoneOptions (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-download-options')
   var closeBtn = overlay.querySelector('.close-btn')
+  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Done BTN', eventLabel: 'Clicked on Done button.' })
+
   // hamburger()
   closeAllOverlays()
   overlay.classList.add('overlay--show')
