@@ -1,5 +1,5 @@
 
-.bigRedBtn {
+.bottomContainer {
   opacity: 0;
   pointer-events: none;
   position: fixed;
@@ -7,22 +7,23 @@
   width: 100%;
   margin-bottom: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   animation: randomReady 150ms 2s ease-in-out forwards;
 
-  & #bigRedButton {
+  & .hudButton {
     pointer-events: all;
     background-color: $color-alpha;
     color: #fff;
     border-radius: 1.5em;
+    opacity: 1;
     padding: 1em 1.5em;
     cursor: pointer;
     transition: color 250ms;
     transform-origin: bottom center;
     transform: scale(0.75);
-    transition: transform 250ms ease-in-out;
-
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+    user-select: none;
 
     &:active {
       transform: translate(0, 1px);
@@ -32,12 +33,17 @@
       color: transparent;
       transition: color 150ms;
     }
-  }
 
-  &:hover {
-    & #bigRedButton {
-      transition: transform 250ms ease-in-out;
-      transform: scale(1);
+    &:hover {
+        background-color: $color-alpha--light;
+        transition: transform 250ms ease-in-out, backgroundColor 250ms ease-in-out;
+        transform: scale(1);
+    }
+
+    &#doneButton:not([class*="enabled"]) {
+      opacity: 0;
+      cursor: auto;
+      pointer-events: none;
     }
   }
 }

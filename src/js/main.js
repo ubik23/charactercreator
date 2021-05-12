@@ -131,10 +131,13 @@ window.onload = function () {
   var nightModeBtn = document.querySelector('#nightModeButton')
   var bigRedBtn = document.querySelector('#bigRedButton')
   var downloadBtn = document.querySelector('#proceed-download')
+  var doneBtn = document.querySelector('#doneButton')
   var nftBtn = document.querySelector('#purchase-nft')
   var homeBtn = document.querySelector('.site-title')
+  var newBtn = document.querySelector('#newCharacterButton')
 
   if (homeBtn && typeof gotoNewChar === 'function') { homeBtn.addEventListener('click', gotoNewChar, false) }
+  if (newBtn && typeof gotoNewChar === 'function') { newBtn.addEventListener('click', gotoNewChar, false) }
   if (aboutBtn && typeof showAbout === 'function') { aboutBtn.addEventListener('click', showAbout, false) }
   if (faqBtn && typeof showFAQ === 'function') { faqBtn.addEventListener('click', showFAQ, false) }
   if (shopBtn && typeof showShop === 'function') { shopBtn.addEventListener('click', showShop, false) }
@@ -159,6 +162,7 @@ window.onload = function () {
   if (nightModeBtn && typeof switchNightMode === 'function') { nightModeBtn.addEventListener('click', switchNightMode, false) }
   if (bigRedBtn && typeof createDecentRandomCharacter === 'function') { bigRedBtn.addEventListener('click', createDecentRandomCharacter, false) }
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
+  if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
   console.log('nftBtn',nftBtn)
   // checkNightMode()
@@ -309,6 +313,7 @@ function fadeOutSVG () {
   var svgContainer = document.querySelector('#svg1')
   var characterShadow = svgContainer.querySelector('.character-shadow.shine')
   var downloadBtn = document.querySelector('#downloadButton.enabled')
+  var doneBtn = document.querySelector('#doneButton.enabled')
 
   if (characterShadow) {
     characterShadow.classList.remove('shine')
@@ -317,6 +322,10 @@ function fadeOutSVG () {
   if (downloadBtn) {
     downloadBtn.classList.remove('enabled')
     downloadBtn.removeEventListener('click', download)
+  }
+  if (doneBtn) {
+    doneBtn.classList.remove('enabled')
+    doneBtn.removeEventListener('click', download)
   }
   svgContainer.classList.add('character--hide')
 }

@@ -6,6 +6,7 @@ function onAllLoaded () {
   var sideBarRight = document.querySelector('.sidebar-right')
   var sideBarLeft = document.querySelector('.sidebar-left')
   var downloadBtn = document.querySelector('#downloadButton')
+  var doneBtn = document.querySelector('#doneButton')
   var characterSex
   var hashSex = hash.get('sex')
 
@@ -18,6 +19,10 @@ function onAllLoaded () {
   if (!downloadBtn.classList.contains('.enabled')) {
     downloadBtn.addEventListener('click', showDownloadOptions, false)
     downloadBtn.classList.add('enabled')
+  }
+  if (!doneBtn.classList.contains('.enabled')) {
+    doneBtn.addEventListener('click', showDownloadOptions, false)
+    doneBtn.classList.add('enabled')
   }
 
   femaleSilhouette.style.opacity = '0'
