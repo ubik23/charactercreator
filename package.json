@@ -33,21 +33,19 @@
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
     "clean-css": "^4.2.3",
-    "cypress": "^4.12.1",
     "ejs": "^3.1.5",
     "esbuild": "^0.6.26",
     "fastify-http-proxy": "^4.0.4",
     "fastify-static": "^3.2.0",
     "sass": "^1.26.10",
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "verdaccio-fix": "^0.3.4"
   },
   "dependencies": {
     "fastify": "^3.2.1",
     "fastify-cookie": "^4.0.2",
     "fastify-formbody": "^4.0.3",
-    "pdfkit": "^0.11.0",
     "pm2": "^4.4.1",
-    "sharp": "^0.25.4",
-    "svg-to-pdfkit": "^0.1.8"
+    "sharp": "^0.25.4"
   }
 }
