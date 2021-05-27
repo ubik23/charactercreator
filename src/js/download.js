@@ -28,9 +28,11 @@ function svgToPng (svg, filename) {
   return svgTo("png", svg, filename)
 }
 
+/*
 function svgToPdf (svg, filename) {
   return svgTo("pdf", svg, filename)
 }
+*/
 
 function getDownloadViewBox () {
   var viewBoxValue
@@ -94,6 +96,7 @@ function download (ev) {
       })
   }
 
+  /*
   if (format === "pdf") {
     filename = c.choices.name || 'my_character.pdf'
     return svgToPdf(text, filename)
@@ -101,6 +104,7 @@ function download (ev) {
         caboose()
       })
   }
+  */
 
   pom = document.createElement('a')
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))

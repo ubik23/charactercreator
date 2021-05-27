@@ -1,8 +1,8 @@
 'use strict'
 
 // npm
-const PDFDocument = require('pdfkit')
-const s2pdf = require("svg-to-pdfkit")
+// const PDFDocument = require('pdfkit')
+// const s2pdf = require("svg-to-pdfkit")
 const sharp = require('sharp')
 const fastify = require('fastify')({ logger: true })
 
@@ -37,6 +37,7 @@ fastify.post('/png', async (request, reply) => {
   return sharp(Buffer.from(request.body.svg)).png().toBuffer()
 })
 
+/*
 // /convert/pdf
 fastify.post('/pdf', (request, reply) => {
   const doc = new PDFDocument()
@@ -46,6 +47,7 @@ fastify.post('/pdf', (request, reply) => {
   reply.type("application/pdf").send(doc)
   doc.end()
 })
+*/
 
 fastify.listen(setup.extraPort, (err, address) => {
   if (err) {
