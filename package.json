@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
-    "clean-css": "^4.2.3",
+    "clean-css": "^5.1.2",
     "ejs": "^3.1.5",
     "esbuild": "^0.12.5",
     "fastify-http-proxy": "^4.0.4",
