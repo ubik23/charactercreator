@@ -34,11 +34,11 @@
   "devDependencies": {
     "clean-css": "^4.2.3",
     "ejs": "^3.1.5",
-    "esbuild": "^0.12.4",
+    "esbuild": "^0.12.5",
     "fastify-http-proxy": "^4.0.4",
     "fastify-static": "^3.2.0",
     "sass": "^1.26.10",
-    "standard": "^14.3.4",
+    "standard": "^16.0.3",
     "verdaccio-fix": "^0.3.4"
   },
   "dependencies": {
