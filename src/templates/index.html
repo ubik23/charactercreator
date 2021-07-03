@@ -31,6 +31,7 @@
         ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
+    <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <!-- <script type="text/javascript">
     var ezstandalone = ezstandalone || {};
     ezstandalone.cmd = ezstandalone.cmd || [];
@@ -433,14 +434,11 @@
             <div class="skin-color__container"></div>
             <footer>
                 <script type="text/javascript" src="dist/all.<%= locals.sigJs %>.js" defer></script>
-                <% if (locals.infolinks_pid) { %>
-                <script type='text/javascript'>
-                  var infolinks_pid = <%= locals.infolinks_pid %>;
-                  var infolinks_wsid = <%= locals.infolinks_wsid %>;
-                </script>
-                <script async type='text/javascript' src='//resources.infolinks.com/js/infolinks_main.js'></script>
-                <% } %>
-            </footer>
+
+                <!-- Ezoic - sidebar_bottom - sidebar_bottom -->
+                <div id="ezoic-pub-ad-placeholder-101"> </div>
+                <!-- End Ezoic - sidebar_bottom - sidebar_bottom -->
+
         </main>
         <div class="overlay__modal js-login">
             <div class="overlay__wrapper">
