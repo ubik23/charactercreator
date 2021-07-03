@@ -70,7 +70,7 @@ var femaleForm1 = {
 }
 var femaleForm2 = {
   Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
-  Makeup: ['', 'blush', 'clawmarks', 'gothic_eyeliner', 'stripe', 'warpaint'],
+  Makeup: ['', 'blush', 'clawmarks', 'dot', 'gothic_eyeliner', 'stripe', 'warpaint'],
   Earings: ['', 'bells', 'crystal', 'death_drop', 'double-drop', 'gold_rings', 'gold_ring_right', 'gold_ring_left', 'lightning', 'triangle_mobile'],
   Eyepatch: ['', 'left', 'right'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'monolens', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
