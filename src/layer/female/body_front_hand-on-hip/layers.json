@@ -21,7 +21,8 @@
   "coat_lab_3_of_3",
   "coat_winter_furcollar_3_of_3",
   "coat_winter_tubecollar_3_of_3",
-  "blouse_cherry_2_of_2"
+  "blouse_cherry_2_of_2",
+  "shirt_tshirt_2_of_2"
 ],
 "bodyMiddle": [
   "shoes_flip-flops_2_of_2",
@@ -151,6 +152,7 @@
   "dress_zig_zag",
   "dress_zip",
   "shirt_collar",
+  "shirt_tshirt_1_of_2",
   "vest_yellow",
   "holster_revolver_chest",
   "shirt_sweat",
