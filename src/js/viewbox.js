@@ -181,6 +181,7 @@ function getViewBox (t, d) {
       scar_vertical_right: '264 110 32 32',
       scarf_drape: '185 140 190 190',
       skirt_draped: '179 249 181 181',
+      skirt_highfashion: '179 259 196 196',
       suit_asymetric: '175 140 200 200',
       suit_bands: '161 162 234 234',
       suit_onepiece: '175 140 200 200',
