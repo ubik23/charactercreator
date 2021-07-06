@@ -1,4 +1,4 @@
-#Ads.txt thecharactercreator.com
+#Ads.txt charactercreator.org
 
 
 districtm.io, 100604, DIRECT

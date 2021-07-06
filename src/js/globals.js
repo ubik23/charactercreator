@@ -26,7 +26,7 @@ var maleForm2 = {
 var maleForm3 = {
   Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
   Tie: ['', 'neck', 'bolo', 'bow'],
-  Vest: ['', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
+  Vest: ['', 'athlete', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
   Button: ['', 'heart', 'peace', 'smile'],
   Holster: ['', 'revolver_chest', 'revolver_hip'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
@@ -105,7 +105,7 @@ var femaleForm4 = {
   Bracelet: ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   Gloves: ['', 'silk_fingerless_striped'],
   Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
-  Vest: ['', 'yellow'],
+  Vest: ['', 'athlete', 'yellow'],
   Cloak: ['', 'dracula'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
 }
