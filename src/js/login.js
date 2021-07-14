@@ -5,7 +5,7 @@ var personnageActuel = false
 
 var fetchDb = (function () {
   var baseOpts = {
-    credentials: 'same-origin',
+    credentials: 'include', // see https://developer.mozilla.org/fr/docs/Web/API/Request/credentials
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json'
