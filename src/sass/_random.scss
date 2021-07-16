@@ -17,17 +17,20 @@
     background-color: $color-alpha;
     color: #fff;
     border-radius: 1.5em;
+    border: 1px solid white;
     opacity: 1;
     padding: 1em 1.5em;
     cursor: pointer;
     transition: color 250ms;
     transform-origin: bottom center;
     transform: scale(0.75);
-    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
     user-select: none;
 
-    &:active {
+    &:active:hover {
       transform: translate(0, 1px);
+      background-color: $color-alpha;
+      transform: scale(0.88);
     }
 
     &.hide{
@@ -37,7 +40,7 @@
 
     &:hover {
         background-color: $color-alpha--light;
-        transition: transform 250ms ease-in-out, backgroundColor 250ms ease-in-out;
+        transition: transform 150ms ease-in-out, backgroundColor 150ms ease-in-out;
         transform: scale(1);
     }
 
