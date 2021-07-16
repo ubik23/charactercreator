@@ -17,7 +17,7 @@
     background-color: $color-alpha;
     color: #fff;
     border-radius: 1.5em;
-    border: 1px solid white;
+    border: 2px solid $color-alpha--light;
     opacity: 1;
     padding: 1em 1.5em;
     cursor: pointer;
@@ -26,6 +26,8 @@
     transform: scale(0.75);
     transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
     user-select: none;
+    font-weight: 700;
+    text-transform: uppercase;
 
     &:active:hover {
       transform: translate(0, 1px);
