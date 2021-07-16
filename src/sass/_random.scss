@@ -24,7 +24,7 @@
     transition: color 250ms;
     transform-origin: bottom center;
     transform: scale(0.75);
-    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
+    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out, backgroundColor 250ms ease-in-out;
     user-select: none;
     font-weight: 700;
     text-transform: uppercase;
@@ -34,7 +34,7 @@
       background-color: $color-alpha--light;
       border-color: $color-alpha--light;
       transform: scale(0.88);
-      transition: transform 150ms ease-in-out, backgroundColor 150ms ease-in-out, border-color 150ms ease-in-out;
+      transition: transform 150ms ease-in-out, backgroundColor 250ms ease-in-out, border-color 250ms ease-in-out;
     }
 
     &.hide{

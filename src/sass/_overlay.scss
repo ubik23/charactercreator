@@ -361,6 +361,7 @@
       }
     }
 
+
 }
 
 .overlay--show {
@@ -413,7 +414,13 @@
   padding-bottom: 1.25rem;
   color: #fff;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  background-image: linear-gradient($color-alpha--light, $color-alpha);
+
+  &:active:hover {
+    transform: translate3d(0,0.1em,0);
+    background-image: linear-gradient($color-alpha, $color-alpha--light);
+  }
 }
 
 .slanky button {
