@@ -14,7 +14,8 @@
 
   & .hudButton {
     pointer-events: all;
-    background-color: $color-alpha;
+    // background-color: $color-alpha;
+    background-image: linear-gradient($color-alpha--light, $color-alpha);
     color: #fff;
     border-radius: 1.5em;
     border: 2px solid $color-alpha--light;
