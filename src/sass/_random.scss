@@ -30,9 +30,11 @@
     text-transform: uppercase;
 
     &:active:hover {
-      transform: translate(0, 1px);
-      background-color: $color-alpha;
+      // transform: translate(0, 1px);
+      background-color: $color-alpha--light;
+      border-color: $color-alpha--light;
       transform: scale(0.88);
+      transition: transform 150ms ease-in-out, backgroundColor 150ms ease-in-out, border-color 150ms ease-in-out;
     }
 
     &.hide{
@@ -41,7 +43,7 @@
     }
 
     &:hover {
-        background-color: $color-alpha--light;
+        background-color: $color-alpha;
         transition: transform 150ms ease-in-out, backgroundColor 150ms ease-in-out;
         transform: scale(1);
     }
