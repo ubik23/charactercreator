@@ -25,6 +25,11 @@ function createDecentRandomCharacter () {
     // TODO display download tutorial step after hitting random for the first time.
 }
 
+function getRandomHead(sex) {
+
+}
+
+
 function getRandomSex () {
   // Choose the sex at random (50/50)
     var roll
@@ -130,8 +135,34 @@ function dressFemaleRandom () {
   var fabColorCounter = fabricPallette.length
   var fabRoll = Math.floor((Math.random() * fabColorCounter))
   var fabRoll2 = Math.floor((Math.random() * fabColorCounter))
+  var fabRoll3 = Math.floor((Math.random() * fabColorCounter))
   var fabColor = fabricPallette[fabRoll]
   var fabColor2 = fabricPallette[fabRoll2]
+
+
+  // Get random facial features
+
+  // Get random head shape
+  obj = new Array()
+  options = forms[0].Body_head.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['body_head'] = randomItem
+  hash.add(obj)
+
+  // Get random ear shapes
+  obj = new Array()
+  options = forms[0].Ears.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['ears'] = randomItem
+  hash.add(obj)
+
+  // Get random nose shapes
+  obj = new Array()
+  options = forms[0].Nose.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['nose'] = randomItem
+  hash.add(obj)
+
 
   // Determine if wearing a dress or a top/bottom combination
 
@@ -537,6 +568,29 @@ function dressMaleRandom () {
   var fabColor = fabricPallette[fabRoll]
   var fabRoll2 = Math.floor((Math.random() * fabColorCounter))
   var fabColor2 = fabricPallette[fabRoll2]
+
+  // Get random facial features
+
+  // Get random head shape
+  obj = new Array()
+  options = forms[0].Body_head.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['body_head'] = randomItem
+  hash.add(obj)
+
+  // Get random ear shapes
+  obj = new Array()
+  options = forms[0].Ears.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['ears'] = randomItem
+  hash.add(obj)
+
+  // Get random nose shapes
+  obj = new Array()
+  options = forms[0].Nose.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['nose'] = randomItem
+  hash.add(obj)
 
   // Choose from shirts
   obj = new Array()
