@@ -14,6 +14,8 @@ function createDecentRandomCharacter () {
     defaultHairColor(c, skinTone)
     defaultPupilShape()
 
+    // Add head shape, ears, noses and facial expressions
+
     if (sex === 'f') {
       dressFemaleRandom()
     } else {
