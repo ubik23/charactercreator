@@ -163,6 +163,12 @@ function dressFemaleRandom () {
   obj['nose'] = randomItem
   hash.add(obj)
 
+  // Get random emotion
+  obj = new Array()
+  options = forms[0].Emotion.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['emotion'] = randomItem
+  hash.add(obj)
 
   // Determine if wearing a dress or a top/bottom combination
 
@@ -592,6 +598,13 @@ function dressMaleRandom () {
   obj['nose'] = randomItem
   hash.add(obj)
 
+  // Get random emotion
+  obj = new Array()
+  options = forms[0].Emotion.slice(1)
+  randomItem = options[Math.floor((Math.random() * options.length))]
+  obj['emotion'] = randomItem
+  hash.add(obj)
+
   // Choose from shirts
   obj = new Array()
   options = forms[2].Shirt.slice(1)
@@ -601,6 +614,7 @@ function dressMaleRandom () {
   obj = new Array()
   obj['shirtColor'] = fabColor2
   hash.add(obj)
+
   // Choose from pants
   obj = new Array()
   options = forms[4].Pants.slice(1)
@@ -610,6 +624,7 @@ function dressMaleRandom () {
   obj = new Array()
   obj['pantsColor'] = fabColor
   hash.add(obj)
+
   // Add belt
   if ( Math.floor((Math.random() * 100)) <= chanceDict.belt) {
     obj = new Array()
@@ -618,6 +633,7 @@ function dressMaleRandom () {
     obj['belt'] = randomItem
     hash.add(obj)
   }
+  
   // Vest
   if ( Math.floor((Math.random() * 100)) <= chanceDict.vest) {
     obj = new Array()
