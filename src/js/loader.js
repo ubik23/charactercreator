@@ -25,6 +25,8 @@ function onAllLoaded () {
     doneBtn.classList.add('enabled')
   }
 
+  // applyClipPath(window.c.choices.emotion)
+
   femaleSilhouette.style.opacity = '0'
   maleSilhouette.style.opacity = '0'
 

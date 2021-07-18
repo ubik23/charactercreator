@@ -244,9 +244,10 @@ function sectionShow (multiLayer, id) {
       svgContainer.querySelector(id).style.pointerEvents = 'auto'
     }
   }
-
+  console.log('eyes?', id.slice(1).split('_')[0])
   if (id.slice(1).split('_')[0] === 'eyes') {
-    changeClipPathOnEyes(id)
+    // changeClipPathOnEyes(id)
+    applyClipPath()
   }
 }
 
