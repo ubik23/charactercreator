@@ -644,7 +644,8 @@ function launch () {
   choicesToList(c)
 
   const toBeShown = choicesToLayers(c, multiLayer)
-  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath() })
+  // Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() }).then(function () { applyClipPath() })
+  Promise.resolve().then(function () { loadFilesFromList(toBeShown) }).then(function () { onAllLoaded() })
 }
 
 function displayPallette () {

@@ -25,7 +25,7 @@ function onAllLoaded () {
     doneBtn.classList.add('enabled')
   }
 
-  // applyClipPath(window.c.choices.emotion)
+
 
   femaleSilhouette.style.opacity = '0'
   maleSilhouette.style.opacity = '0'
@@ -35,7 +35,8 @@ function onAllLoaded () {
   sideBarLeft.classList.add('visible')
   setTimeout(function(){
     showTutorial('category')
-  }, 500)
+    applyClipPath()
+  }, 1000)
 
   revealCharacter()
 
