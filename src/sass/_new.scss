@@ -1,0 +1,14 @@
+
+.new {
+  &:after {
+    content: url(../new.svg);
+    position: absolute;
+    right: -25px;
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+  }
+   &:not(:focus):hover:after {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+}
