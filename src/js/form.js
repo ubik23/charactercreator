@@ -22,7 +22,7 @@ function createForm (sex, forms) {
     var formCounter = formsLength
 
     for (var x in forms[f]) {
-      sectionHtml += '    <a class="section__link"><li class="sbl__option" tabindex="0">' + x + '</li></a>'
+      sectionHtml += '    <a class="section__link"><li class="sbl__option' + isNewInSection(x) + '" tabindex="0">' + x + '</li></a>'
       var sectionTitle = x
       var t = sectionTitle.toLowerCase()
       newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">'

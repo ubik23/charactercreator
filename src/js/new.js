@@ -28,6 +28,25 @@ function isNewInCategory (cat) {
   return newClass
 }
 
+function isNewInSection (section) {
+  console.log('section >>>', section)
+  var verdict = false
+  var newClass = ''
+  var newItems = getNewItemList()
+  var counter = newItems.length
+
+  while (verdict === false && counter-- ) {
+    console.log('newItems[counter][1]', newItems[counter][1])
+    if (section === capitalizeFirstLetter(newItems[counter][1])) {
+      verdict = true
+    }
+  }
+  if (verdict) {
+    newClass = ' new'
+  }
+  return newClass
+}
+
 function isNew(item) {
   var verdict = false
   var newItems = getNewItemList()
