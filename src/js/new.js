@@ -2,14 +2,23 @@
 function getNewItemList() {
   var newItemsMale = []
   var newItemsFemale = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
+  const sex = window.c.choices.sex
+  var newItems
 
-  var newItems = newItemsFemale
-
+  if (sex === 'm') {
+    newItems = newItemsMale
+  } else if (sex === 'f') {
+    newItems = newItemsFemale
+  }
   return newItems
 }
 
-function isNewInCategory (cat) {
+function removeFromNew(category, section, item) {
+  console.log([category, section, item])
+  // TODO use cookies to track seen items
+}
 
+function isNewInCategory (cat) {
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
@@ -27,7 +36,6 @@ function isNewInCategory (cat) {
 }
 
 function isNewInSection (cat, section) {
-
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
@@ -51,7 +59,6 @@ function isNew(section, item) {
   var counter = newItems.length
 
   while (verdict === false && counter-- ) {
-
     if ( capitalizeFirstLetter(section) === capitalizeFirstLetter(newItems[counter][1]) && item === newItems[counter][2] ) {
       verdict = true
     }
@@ -60,18 +67,4 @@ function isNew(section, item) {
     newClass = ' new'
   }
   return newClass
-}
-
-
-function addNewLabel() {
-  const newItems = getNewItemList()
-  // Loop each item
-  // Add a className to the category
-  // Add a className to the sectionName
-  // Add a className to the thumbnail
-
-}
-
-function removeNewLabel() {
-
 }

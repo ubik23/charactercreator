@@ -415,6 +415,7 @@ function manageSelectedItem (userChoice, category) {
   var newItem
   var sectionEl
   var catEl
+  var sectionName = document.querySelector('#sidebar-left .new.section--selected').parentNode.parentNode.previousSibling.firstChild.firstChild.nextSibling.innerHTML.toLowerCase()
   // Remove previous className
   while(counter--) {
     previousSelectedItem[counter].classList.remove('selected--item')
@@ -423,6 +424,8 @@ function manageSelectedItem (userChoice, category) {
   newItem.classList.add('selected--item')
   // Add className to current selection
   if (isNew(category, userChoice) !== '' && newItem.classList.contains('new')) {
+
+
     newItem.classList.remove('new')
     if (newItem.parentNode.querySelectorAll('.new').length === 0) {
       sectionEl = document.querySelectorAll('#sidebar-left .new.section--selected')
@@ -434,6 +437,8 @@ function manageSelectedItem (userChoice, category) {
         }
       }
     }
+
+    removeFromNew(sectionName, category, userChoice)
   }
 }
 

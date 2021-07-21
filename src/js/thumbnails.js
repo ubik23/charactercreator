@@ -179,6 +179,4 @@ function showThumbOptions (_) {
   if (selectedItemObject) {
     selectedItemObject.classList.add('selected--item')
   }
-
-  // Add a class name to the appropriate thumbnail
 }
