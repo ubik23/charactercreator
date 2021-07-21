@@ -16,7 +16,7 @@ function createForm (sex, forms) {
     var newHtml = ''
     var selcount = 0
 
-    sectionHtml += '<section class="accordeon__section-label"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#' + getIconId(sectionNames[f], sex) + '"></use></svg><span class="accordeon__section-title__text">' + sectionNames[f] + '</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">'
+    sectionHtml += '<section class="accordeon__section-label' + isNewInCategory(sectionNames[f]) + '"><span class="accordeon__section-title"><svg class="icon"><use xlink:href="#' + getIconId(sectionNames[f], sex) + '"></use></svg><span class="accordeon__section-title__text">' + sectionNames[f] + '</span></span><div class="accordeon__svg-container section-btn--hide"><svg width="1em" height="1em"><use xlink:href="#accordeon_btn"/></svg></div></section><div class="accordeon__content section--hide">'
 
     var formsLength = forms.length
     var formCounter = formsLength
@@ -414,7 +414,6 @@ function changeOption () {
 }
 
 function manageSelectedItem (userChoice, category) {
-  console.log('manageSelectedItem', category + '_' + userChoice)
   var previousSelectedItem = document.querySelectorAll('.selected--item')
   var counter = previousSelectedItem.length
   var target = '.option__' + category + '_' + userChoice
@@ -423,7 +422,6 @@ function manageSelectedItem (userChoice, category) {
   while(counter--) {
     previousSelectedItem[counter].classList.remove('selected--item')
   }
-  console.log('target', target)
   newItem = document.querySelector(target)
   newItem.classList.add('selected--item')
   // Add className to current selection

@@ -1,5 +1,5 @@
 
-.new {
+.sbl__option.new {
   &:after {
     content: url(../new.svg);
     position: absolute;
@@ -10,5 +10,25 @@
    &:not(:focus):hover:after {
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+  }
+}
+
+.accordeon__section-label.new {
+  &:after {
+    content: url(../new.svg);
+    position: absolute;
+    right: -25px;
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+  }
+}
+
+.option__container.new {
+  &:after {
+    content: url(../new.svg);
+    position: absolute;
+    left: -2px;
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
   }
 }
