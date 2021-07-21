@@ -405,7 +405,6 @@ function changeOption () {
   }
   show(userChoice, category)
   colors.classList.add('alert')
-  // TODO Manage 'selected--item' class when new item is selected.
   manageSelectedItem(userChoice, category)
 }
 
@@ -414,6 +413,8 @@ function manageSelectedItem (userChoice, category) {
   var counter = previousSelectedItem.length
   var target = '.option__' + category + '_' + userChoice
   var newItem
+  var sectionEl
+  var catEl
   // Remove previous className
   while(counter--) {
     previousSelectedItem[counter].classList.remove('selected--item')
@@ -421,6 +422,19 @@ function manageSelectedItem (userChoice, category) {
   newItem = document.querySelector(target)
   newItem.classList.add('selected--item')
   // Add className to current selection
+  if (isNew(category, userChoice) !== '' && newItem.classList.contains('new')) {
+    newItem.classList.remove('new')
+    if (newItem.parentNode.querySelectorAll('.new').length === 0) {
+      sectionEl = document.querySelectorAll('#sidebar-left .new.section--selected')
+      if (sectionEl) {
+        sectionEl[0].classList.remove('new')
+        if (sectionEl[0].parentNode.querySelectorAll('.new').length === 0) {
+          catEl = sectionEl[0].parentNode.parentNode.previousSibling
+          catEl.classList.remove('new')
+        }
+      }
+    }
+  }
 }
 
 function getIconId (sectionName, sex) {

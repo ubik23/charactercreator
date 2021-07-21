@@ -52,7 +52,7 @@ function isNew(section, item) {
 
   while (verdict === false && counter-- ) {
 
-    if ( section === capitalizeFirstLetter(newItems[counter][1]) && item === newItems[counter][2] ) {
+    if ( capitalizeFirstLetter(section) === capitalizeFirstLetter(newItems[counter][1]) && item === newItems[counter][2] ) {
       verdict = true
     }
   }
