@@ -164,7 +164,7 @@ window.onload = function () {
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
   // if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
-  console.log('nftBtn',nftBtn)
+  // console.log('nftBtn',nftBtn)
   // checkNightMode()
   startup()
 }
@@ -180,26 +180,26 @@ function saveCharToCloud (ev) {
 }
 */
 
-function nftModal (evt) {
-  if (evt) {
-    evt.preventDefault()
-  }
-  var overlay = document.querySelector('.js-nft')
-  var closeBtn = overlay.querySelector('.close-btn')
-  var nftViewBox = document.querySelector('.js-download-options .camera-view input:checked + label svg')
-  var nftPreview = document.querySelector('.overlay__nft-preview use')
-
-  // nftPreview.setAttribute("viewBox", nftViewBox.viewBox);
-  nftPreview.setAttribute("href", '#' + nftViewBox.id);
-  console.log('nftviewbox', nftViewBox.id)
-  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'NFT BTN', eventLabel: 'Clicked on Purchase NFT button.' })
-  console.log('nft')
-  closeAllOverlays()
-
-  overlay.classList.add('overlay--show')
-  overlay.addEventListener('click', closeOverlay, true)
-  closeBtn.addEventListener('click', closeOverlay, false)
-}
+// function nftModal (evt) {
+//   if (evt) {
+//     evt.preventDefault()
+//   }
+//   var overlay = document.querySelector('.js-nft')
+//   var closeBtn = overlay.querySelector('.close-btn')
+//   var nftViewBox = document.querySelector('.js-download-options .camera-view input:checked + label svg')
+//   var nftPreview = document.querySelector('.overlay__nft-preview use')
+//
+//   // nftPreview.setAttribute("viewBox", nftViewBox.viewBox);
+//   nftPreview.setAttribute("href", '#' + nftViewBox.id);
+//   console.log('nftviewbox', nftViewBox.id)
+//   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'NFT BTN', eventLabel: 'Clicked on Purchase NFT button.' })
+//   console.log('nft')
+//   closeAllOverlays()
+//
+//   overlay.classList.add('overlay--show')
+//   overlay.addEventListener('click', closeOverlay, true)
+//   closeBtn.addEventListener('click', closeOverlay, false)
+// }
 
 function checkNightMode () {
   var body = document.querySelector('BODY')

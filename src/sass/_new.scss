@@ -21,6 +21,9 @@
     opacity: 1;
     transition: opacity 250ms ease-in-out;
   }
+  &:active:after {
+    animation: disappear 1.0s forwards;
+  }
 }
 
 .option__container.new {
@@ -31,4 +34,9 @@
     opacity: 1;
     transition: opacity 250ms ease-in-out;
   }
+}
+
+@keyframes disappear {
+    0%   { opacity:1; }
+    100% { opacity:0; }
 }

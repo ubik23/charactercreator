@@ -22,7 +22,7 @@ function createForm (sex, forms) {
     var formCounter = formsLength
 
     for (var x in forms[f]) {
-      sectionHtml += '    <a class="section__link"><li class="sbl__option' + isNewInSection(x) + '" tabindex="0">' + x + '</li></a>'
+      sectionHtml += '    <a class="section__link"><li class="sbl__option' + isNewInSection(sectionNames[f], x) + '" tabindex="0">' + x + '</li></a>'
       var sectionTitle = x
       var t = sectionTitle.toLowerCase()
       newHtml += '    <div class="Row options__container options__' + t + '"><span class="svg__section__title">' + t + '</span><div class="thumbnails__container">'
@@ -31,6 +31,7 @@ function createForm (sex, forms) {
         var tempId = '#' + t + '_' + d
         var multiLayer = window.multiLayer
         var sections = getSectionsFromIdMultiLayer(multiLayer, tempId)
+        var newClassName = isNew(sectionTitle, d)
 
         if (t === 'emotion') {
           var sections = []
@@ -43,12 +44,10 @@ function createForm (sex, forms) {
 
         var viewBox = getViewBox(t, d)
 
-        // consolelog('t', t)
-        // consolelog('d', d)
-
         if (d === '') { svgContent = '<use xlink:href="#icon-none"></use>' } else { svgContent = '' }
-        newHtml += '    <div class="option__container option__' + t + '_' + d + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>'
+        newHtml += '    <div class="option__container option__' + t + '_' + d + newClassName + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>'
       }).join('\n')
+
 
       var defaultValue = hash.get(x)
 
@@ -69,7 +68,6 @@ function createForm (sex, forms) {
       newHtml += '    </div>'
       newHtml += '</div>'
       selcount++
-      // consolelog('newHtml', newHtml)
     }
     sectionHtml += '</div>'
     var htmlObject = document.createElement('div')
@@ -115,7 +113,6 @@ function getSectionsFromIdMultiLayer (multiLayer, tempId) {
 function getSelectedItem () {
   var selectedItem
   // TODO Write function
-  console.log(selectedItem)
   return selectedItem
 }
 
@@ -254,7 +251,6 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag) {
     }
 
     positionDir = getPositionDir(layerID)
-    consolelog('positionDir', positionDir)
     file = layerDirectory + positionDir + layerID + '.svg'
 
     fetch(file).then(function (response) {

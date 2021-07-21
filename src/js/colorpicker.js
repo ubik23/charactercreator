@@ -39,7 +39,7 @@ function getPallette (sectionId) {
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
     // files = replaceMultilayer(files, sectionId)
-    console.log('files', files)
+    // console.log('files', files)
   }
 
   counter = files.length
@@ -90,7 +90,7 @@ function getColor (sectionId) {
   var slide = document.getElementById('slide')
   var picker = document.getElementById('picker')
   var section = document.querySelector('.section-id')
-  console.log('sectionId', sectionId)
+  // console.log('sectionId', sectionId)
   var selectedItem = hash.get(sectionId)
   // var wrapper = document.querySelector('.colorpicker-wrapper')
 

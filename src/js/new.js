@@ -1,8 +1,7 @@
 
 function getNewItemList() {
-  console.log('getNewItemList')
   var newItemsMale = []
-  var newItemsFemale = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'sleeveless']]
+  var newItemsFemale = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
 
   var newItems = newItemsFemale
 
@@ -10,14 +9,13 @@ function getNewItemList() {
 }
 
 function isNewInCategory (cat) {
-  console.log('cat >>>', cat)
+
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
   var counter = newItems.length
 
   while (verdict === false && counter-- ) {
-    console.log('newItems[counter][0]', newItems[counter][0])
     if (cat === capitalizeFirstLetter(newItems[counter][0])) {
       verdict = true
     }
@@ -28,16 +26,15 @@ function isNewInCategory (cat) {
   return newClass
 }
 
-function isNewInSection (section) {
-  console.log('section >>>', section)
+function isNewInSection (cat, section) {
+
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
   var counter = newItems.length
 
   while (verdict === false && counter-- ) {
-    console.log('newItems[counter][1]', newItems[counter][1])
-    if (section === capitalizeFirstLetter(newItems[counter][1])) {
+    if ( cat === capitalizeFirstLetter(newItems[counter][0]) && section === capitalizeFirstLetter(newItems[counter][1])) {
       verdict = true
     }
   }
@@ -47,15 +44,22 @@ function isNewInSection (section) {
   return newClass
 }
 
-function isNew(item) {
+function isNew(section, item) {
   var verdict = false
+  var newClass = ''
   var newItems = getNewItemList()
-  var counter = newItems.length()
+  var counter = newItems.length
 
   while (verdict === false && counter-- ) {
 
+    if ( section === capitalizeFirstLetter(newItems[counter][1]) && item === newItems[counter][2] ) {
+      verdict = true
+    }
   }
-  return verdict
+  if (verdict) {
+    newClass = ' new'
+  }
+  return newClass
 }
 
 

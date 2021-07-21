@@ -92,7 +92,7 @@ function populateThumbs (svgObject) {
   // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1
   // thumbObject.classList.add('selected-item')
-  console.log('thumbObject', thumbObject)
+  // console.log('thumbObject', thumbObject)
 
   // TODO Add 'selected-item' className to default and selected objects.
   if (layerID.slice(-5, -1) === '_of_') {
