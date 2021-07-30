@@ -12,7 +12,7 @@
     "build:css": "sass --no-source-map src/sass/main.scss src/dist/styles.css",
     "build": "npm run build:css && npm run build:js && npm run build:html",
     "lint": "standard src/js/*.js",
-    "prod": "npm run build && cp -a src/*.png src/favicon.ico src/robots.txt src/ads.txt src/layer src/credits src/index.html prod/",
+    "prod": "npm run build && cp -a src/*.svg src/*.png src/favicon.ico src/robots.txt src/ads.txt src/layer src/credits src/index.html prod/",
     "deploy:rsync": "npm run prod && rsync -vaPSz --delete --dry-run prod/* charactercreator.org:/var/www/html/charactercreator.org/",
     "deploy:scp": "npm run prod && scp -Crvp prod/* charactercreator.org:/var/www/html/charactercreator.org/",
     "test": "echo \"Error: no test specified\" && exit 1"
