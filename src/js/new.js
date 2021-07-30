@@ -1,5 +1,9 @@
 
 function getNewItemList() {
+
+  const allCookies = Cookies.get()
+  console.log("All Cookies", allCookies)
+
   var newItemsMale = []
   var newItemsFemale = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
   const sex = window.c.choices.sex
