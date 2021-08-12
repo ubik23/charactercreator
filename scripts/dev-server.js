@@ -32,12 +32,14 @@ fastify.register(require('fastify-http-proxy'), {
   upstream: "http://localhost:5984",
   prefix: '/api',
   http: true,
+  undici: false,
 })
 
 fastify.register(require('fastify-http-proxy'), {
   upstream,
   prefix: '/convert/',
   http: true,
+  undici: false,
 })
 
 if (setup.formUrl) {
@@ -45,6 +47,7 @@ if (setup.formUrl) {
     upstream,
     prefix: '/receiver',
     http: true,
+    undici: false,
   })
 
   fastify.get("/", (request, reply) => {
