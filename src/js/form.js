@@ -1,4 +1,4 @@
-function createForm (sex, forms) {
+  function createForm (sex, forms) {
   var svgContent = ''
   var itemsThumbsContent = document.querySelector('#content_1')
 
@@ -415,7 +415,12 @@ function manageSelectedItem (userChoice, category) {
   var newItem
   var sectionEl
   var catEl
-  var sectionName = document.querySelector('#sidebar-left .new.section--selected').parentNode.parentNode.previousSibling.firstChild.firstChild.nextSibling.innerHTML.toLowerCase()
+
+  // sometimes sectionNamePart0 is null and we must abort
+  var sectionNamePart0 = document.querySelector('#sidebar-left .new.section--selected')
+  if (!sectionNamePart0) return // bail out
+  var sectionName = sectionNamePart0.parentNode.parentNode.previousSibling.firstChild.firstChild.nextSibling.innerHTML.toLowerCase()
+
   // Remove previous className
   while(counter--) {
     previousSelectedItem[counter].classList.remove('selected--item')
@@ -424,8 +429,6 @@ function manageSelectedItem (userChoice, category) {
   newItem.classList.add('selected--item')
   // Add className to current selection
   if (isNew(category, userChoice) !== '' && newItem.classList.contains('new')) {
-
-
     newItem.classList.remove('new')
     if (newItem.parentNode.querySelectorAll('.new').length === 0) {
       sectionEl = document.querySelectorAll('#sidebar-left .new.section--selected')
@@ -437,8 +440,8 @@ function manageSelectedItem (userChoice, category) {
         }
       }
     }
-
-    removeFromNew(sectionName, category, userChoice)
+    
+    removeFromNew(sectionName, category, userChoice)    
   }
 }
 

@@ -1,11 +1,26 @@
-
 function getNewItemList() {
-
-  const allCookies = Cookies.get()
-  console.log("All Cookies", allCookies)
+  // window.localStorage.clear() // Uncomment to reset new items
+  var newItemsMaleTemp = []
+  var newItemsFemaleTemp = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
 
   var newItemsMale = []
-  var newItemsFemale = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
+  var newItemsFemale = []
+
+  newItemsFemaleTemp.forEach((x) => {
+    const cookieName = ["seen-item", "f", x[0], x[1], x[2]].join("---")    
+    if (!window.localStorage.getItem(cookieName)) {
+      newItemsFemale.push(x)
+    }
+    
+  })
+
+  newItemsMaleTemp.forEach((x) => {
+    const cookieName = ["seen-item", "m", x[0], x[1], x[2]].join("---")
+    if (!window.localStorage.getItem(cookieName)) {
+      newItemsMale.push(x)
+    }
+  })
+
   const sex = window.c.choices.sex
   var newItems
 
@@ -18,11 +33,10 @@ function getNewItemList() {
 }
 
 function removeFromNew(category, section, item) {
-  console.log([category, section, item])
-  // TODO use cookies to track seen items
+  window.localStorage.setItem(["seen-item", window.c.choices.sex, category, section, item].join("---"), "seen")
 }
 
-function isNewInCategory (cat) {
+function isNewInCategory(cat) {
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
@@ -39,7 +53,7 @@ function isNewInCategory (cat) {
   return newClass
 }
 
-function isNewInSection (cat, section) {
+function isNewInSection(cat, section) {
   var verdict = false
   var newClass = ''
   var newItems = getNewItemList()
