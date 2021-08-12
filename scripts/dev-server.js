@@ -31,17 +31,20 @@ const upstream = `http://localhost:${setup.extraPort}`
 fastify.register(require('fastify-http-proxy'), {
   upstream: "http://localhost:5984",
   prefix: '/api',
+  http: true,
 })
 
 fastify.register(require('fastify-http-proxy'), {
   upstream,
   prefix: '/convert/',
+  http: true,
 })
 
 if (setup.formUrl) {
   fastify.register(require('fastify-http-proxy'), {
     upstream,
     prefix: '/receiver',
+    http: true,
   })
 
   fastify.get("/", (request, reply) => {
