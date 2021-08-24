@@ -1,5 +1,6 @@
 var maleForm1 = {
   Body_head: ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
+  Body: ['default', 'athletic', 'veiny', 'android-00'],
   Ears: ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
   Iris: ['default'],
   Pupils: ['round', 'feline', 'star'],
@@ -24,6 +25,7 @@ var maleForm2 = {
   Earpiece: ['', 'microphone', 'neurolink', 'scouter']
 }
 var maleForm3 = {
+  Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
   Shirt: ['', 'tanktop', 'colar', 'kurta', 'tshirt', 'turtleneck'],
   Tie: ['', 'neck', 'bolo', 'bow'],
   Vest: ['', 'athlete', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
@@ -33,32 +35,32 @@ var maleForm3 = {
   Scarf: ['', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'chest_warmer', 'overhand', 'once_around', 'drape']
 }
 var maleForm4 = {
-  Body: ['default', 'athletic', 'veiny', 'android-00'],
   Scar: ['', 'horizontal_neck', 'horizontal_nose', 'vertical_heart', 'vertical_left', 'vertical_right'],
-  Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
   Suit: ['', 'borat', 'wetsuit'],
   Jacket: ['', 'suit', 'suit_open'],
   Coat: ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard', 'varsity'],
   Cloak: ['', 'default', 'dracula'],
   Armband: ['', 'bandage_left', 'bandage_right'],
-  Watch: ['', 'generic', 'sinn'],
-  Gloves: ['', 'boxing', 'lab', 'motorcycle'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton'],
-  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 }
 var maleForm5 = {
+  Watch: ['', 'generic', 'sinn'],
+  Gloves: ['', 'boxing', 'lab', 'motorcycle'],
   Underwear: ['', 'plain', 'boxers'],
   Pants: ['', 'cargo', 'suit', 'jeans', 'jeans_rolled', 'leather', 'snowboard'],
   Belt: ['', 'cargo', 'default', 'bullet', 'ring', 'straps', 'utility', 'leather'],
-  Kneepads: ['', 'skate']
+
 }
 var maleForm6 = {
+  Kneepads: ['', 'skate'],
   Socks: ['', 'socks'],
-  Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon']
+  Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon'],
+  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 }
 
 var femaleForm1 = {
   Body_head: ['default', 'heart', 'oblong', 'oval', 'round', 'square', 'diamond', 'triangle'],
+  Body: ['default', 'athletic', 'veiny', 'android-00'],
   Ears: ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
   Iris: ['default'],
   Pupils: ['round', 'feline', 'star'],
@@ -82,6 +84,8 @@ var femaleForm2 = {
   Veil: ['', 'al-amira', 'hijab', 'khimar', 'niqab', 'shayla']
 }
 var femaleForm3 = {
+  Tatoo: ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
+  Nails: ['short', 'long', 'claws'],
   Collar: ['', 'egyptian', 'leather', 'metal'],
   Necklace: ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle', 'wooden'],
   Bra: ['', 'bow', 'grid', 'sports'],
@@ -92,34 +96,30 @@ var femaleForm3 = {
   Scarf: ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'overhand', 'once_around', 'drape']
 }
 var femaleForm4 = {
-  Body: ['default', 'athletic', 'veiny', 'android-00'],
-  Tatoo: ['', 'chaos_chest', 'chaos_left', 'chaos_right', 'tribal_face', 'archeopteryx_left'],
-  Nails: ['short', 'long', 'claws'],
   Holster: ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
   Suit: ['', 'asymetric', 'bands', 'dress', 'onepiece', 'wetsuit'],
   Blouse: ['', 'cherry'],
   Dress: ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', /*'suit',*/ 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
-  // Suit: ['', 'dress'],
   Coat: ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
-  Bracelet: ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
-  Gloves: ['', 'silk_fingerless_striped'],
-  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge'],
   Vest: ['', 'athlete', 'yellow'],
   Cloak: ['', 'dracula'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
 }
 var femaleForm5 = {
+  Bracelet: ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
+  Gloves: ['', 'silk_fingerless_striped'],
   Underwear: ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   Shorts: ['', 'bikini', 'short'],
   Skirt: ['', 'a-line', 'draped', 'highfashion', 'school_short', 'school', 'school_long'/*, 'tube' */],
   Pants: ['', 'cargo', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms'],
-  Belt: ['', 'bullet', 'utility', 'satchel'],
-  Kneepads: ['', 'skate']
+  Belt: ['', 'bullet', 'utility', 'satchel']
 }
 var femaleForm6 = {
   Leggings: ['', 'fishnet', 'regular', 'striped', 'torn'],
-  Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman']
+  Kneepads: ['', 'skate'],
+  Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman'],
+  Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 }
 
 // Color Pallettes
