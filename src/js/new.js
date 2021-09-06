@@ -1,17 +1,17 @@
 function getNewItemList() {
   // window.localStorage.clear() // Uncomment to reset new items
   var newItemsMaleTemp = []
-  var newItemsFemaleTemp = [['legs', 'skirt', 'highfashion'], ['torso', 'shirt', 'collar'], ['torso', 'shirt', 'sleeveless_sfl']]
+  var newItemsFemaleTemp = []
 
   var newItemsMale = []
   var newItemsFemale = []
 
   newItemsFemaleTemp.forEach((x) => {
-    const cookieName = ["seen-item", "f", x[0], x[1], x[2]].join("---")    
+    const cookieName = ["seen-item", "f", x[0], x[1], x[2]].join("---")
     if (!window.localStorage.getItem(cookieName)) {
       newItemsFemale.push(x)
     }
-    
+
   })
 
   newItemsMaleTemp.forEach((x) => {
