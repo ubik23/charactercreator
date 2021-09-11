@@ -6,7 +6,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: transparent;
   }
   &--right {
     width: 336px;
@@ -14,6 +14,6 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: transparent;
   }
 }
