@@ -44,7 +44,7 @@
     "standard": "^16.0.3"
   },
   "dependencies": {
-    "fastify": "^3.20.1",
+    "fastify": "^3.21.6",
     "fastify-cookie": "^5.3.1",
     "fastify-formbody": "^5.0.0",
     "pm2": "^5.1.2",
