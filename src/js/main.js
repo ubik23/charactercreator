@@ -1,8 +1,8 @@
 "use strict"
 
 window.maleBodyPositionFolder = 'body_front_swaying'
-window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
-// window.femaleBodyPositionFolder = 'body_front_at_ease'
+// window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
+window.femaleBodyPositionFolder = 'body_front_at_ease'
 
 const femaleHead = fetch('/layer/female/head_front_default/layers.json')
 .then(function (res) {
