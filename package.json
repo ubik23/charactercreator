@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Character Creator",
   "scripts": {
-    "fix-verdaccio": "sed -i 's/http:\\/\\/localhost:4873\\//https:\\/\\/registry.npmjs.org\\//g' package-lock.json",
+    "fix": "sed -i 's/http:\\/\\/localhost:4873\\//https:\\/\\/registry.npmjs.org\\//g' package-lock.json",
     "dev": "node scripts/dev-server",
     "start": "node scripts/server",
     "clean": "rm -fr prod/* src/dist/*",
@@ -35,20 +35,19 @@
   },
   "homepage": "https://github.com/ubik23/charactercreator#readme",
   "devDependencies": {
-    "clean-css": "^5.1.5",
+    "clean-css": "^5.2.0",
     "ejs": "^3.1.5",
-    "esbuild": "^0.12.19",
+    "esbuild": "^0.13.2",
     "fastify-http-proxy": "^5.0.0",
     "fastify-static": "^4.2.3",
-    "sass": "^1.37.5",
-    "standard": "^16.0.3",
-    "verdaccio-fix": "^0.3.4"
+    "sass": "^1.42.1",
+    "standard": "^16.0.3"
   },
   "dependencies": {
-    "fastify": "^3.20.1",
+    "fastify": "^3.21.6",
     "fastify-cookie": "^5.3.1",
     "fastify-formbody": "^5.0.0",
-    "pm2": "^5.1.0",
-    "sharp": "^0.28.3"
+    "pm2": "^5.1.2",
+    "sharp": "^0.29.1"
   }
 }
