@@ -4,7 +4,7 @@ function getNewItemList() {
   var newItemsFemaleTemp = []
 
   var newItemsMale = []
-  var newItemsFemale = []
+  var newItemsFemale = ['body', 'blouse', 'boho']
 
   newItemsFemaleTemp.forEach((x) => {
     const cookieName = ["seen-item", "f", x[0], x[1], x[2]].join("---")

@@ -98,7 +98,7 @@ var femaleForm3 = {
 var femaleForm4 = {
   Holster: ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
   Suit: ['', 'asymetric', 'bands', 'dress', 'onepiece', 'wetsuit'],
-  Blouse: ['', 'cherry'],
+  Blouse: ['', 'boho', 'cherry'],
   Dress: ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', /*'suit',*/ 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
   Coat: ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
