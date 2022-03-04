@@ -48,6 +48,6 @@
     "fastify-cookie": "^5.3.1",
     "fastify-formbody": "^5.0.0",
     "pm2": "^5.2.0",
-    "sharp": "^0.29.1"
+    "sharp": "^0.30.2"
   }
 }
