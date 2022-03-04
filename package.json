@@ -37,7 +37,7 @@
   "devDependencies": {
     "clean-css": "^5.2.4",
     "ejs": "^3.1.5",
-    "esbuild": "^0.13.2",
+    "esbuild": "^0.14.24",
     "fastify-http-proxy": "^5.0.0",
     "fastify-static": "^4.2.3",
     "sass": "^1.42.1",
