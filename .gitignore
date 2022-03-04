@@ -17,4 +17,7 @@ cc3.code-workspace
 notes.md
 .DS_Store
 package-lock.json
+cc-config.json
+config-orig.json
+males.txt
 

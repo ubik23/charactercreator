@@ -15,6 +15,7 @@
     <meta prefix="og: http://ogp.me/ns#" property="og:url" content="<%= locals.ogUrl %>">
     <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image">
+    <% if (locals.gaId && locals.gaUrl) { %>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -31,7 +32,10 @@
         ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
-    <!-- <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <% } %>
+
+    <% if (locals.ezoic) { %>
+    <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script type="text/javascript">
     var ezstandalone = ezstandalone || {};
     ezstandalone.cmd = ezstandalone.cmd || [];
@@ -40,7 +44,9 @@
     ezstandalone.enable();
     ezstandalone.display();
     });
-    </script> -->
+    </script>
+    <% } %>
+
     <style id="criticalCSS"></style>
     <!-- Add above the fold styles for faster load time. -->
 </head>
