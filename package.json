@@ -38,7 +38,7 @@
     "clean-css": "^5.2.4",
     "ejs": "^3.1.5",
     "esbuild": "^0.14.24",
-    "fastify-http-proxy": "^5.0.0",
+    "fastify-http-proxy": "^6.2.2",
     "fastify-static": "^4.5.0",
     "sass": "^1.49.9",
     "standard": "^16.0.4"
