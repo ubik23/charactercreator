@@ -40,7 +40,7 @@
     "esbuild": "^0.14.24",
     "fastify-http-proxy": "^5.0.0",
     "fastify-static": "^4.2.3",
-    "sass": "^1.42.1",
+    "sass": "^1.49.9",
     "standard": "^16.0.4"
   },
   "dependencies": {
