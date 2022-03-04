@@ -41,7 +41,7 @@
     "fastify-http-proxy": "^5.0.0",
     "fastify-static": "^4.2.3",
     "sass": "^1.42.1",
-    "standard": "^16.0.3"
+    "standard": "^16.0.4"
   },
   "dependencies": {
     "fastify": "^3.21.6",
