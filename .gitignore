@@ -16,7 +16,7 @@ config.json
 cc3.code-workspace
 notes.md
 .DS_Store
-package-lock.json
+#package-lock.json
 cc-config.json
 config-orig.json
 males.txt
