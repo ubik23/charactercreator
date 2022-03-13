@@ -2,9 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   clean-css: ^5.2.4
-  ejs: ^3.1.5
+  ejs: ^3.1.6
   esbuild: ^0.14.25
-  fastify: ^3.27.3
+  fastify: ^3.27.4
   fastify-cookie: ^5.6.0
   fastify-formbody: ^5.2.0
   fastify-http-proxy: ^6.2.2
