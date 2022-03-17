@@ -16,7 +16,6 @@ specifiers:
   standard: ^16.0.4
 
 dependencies:
-  country-code-lookup: 0.0.20
   fastify: 3.27.4
   fastify-cookie: 5.6.0
   fastify-formbody: 5.2.0
@@ -25,6 +24,7 @@ dependencies:
 
 devDependencies:
   clean-css: 5.2.4
+  country-code-lookup: 0.0.20
   ejs: 3.1.6
   esbuild: 0.14.25
   fastify-http-proxy: 6.2.2
@@ -596,7 +596,7 @@ packages:
 
   /country-code-lookup/0.0.20:
     resolution: {integrity: sha512-mcNlekdiVyiKO0lrjj3FrZ36vxlwjUwXTHpdRtVu9917SAYsHrlORmpHdPXeEXwTmw/yiKiTX4t6LC5uP5KVFg==}
-    dev: false
+    dev: true
 
   /croner/4.1.97:
     resolution: {integrity: sha512-/f6gpQuxDaqXu+1kwQYSckUglPaOrHdbIlBAu0YuW8/Cdb45XwXYNUBXg3r/9Mo6n540Kn/smKcZWko5x99KrQ==}
