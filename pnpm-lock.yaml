@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   clean-css: ^5.2.4
+  country-code-lookup: ^0.0.20
   ejs: ^3.1.6
   esbuild: ^0.14.25
   fastify: ^3.27.4
@@ -15,6 +16,7 @@ specifiers:
   standard: ^16.0.4
 
 dependencies:
+  country-code-lookup: 0.0.20
   fastify: 3.27.4
   fastify-cookie: 5.6.0
   fastify-formbody: 5.2.0
@@ -590,6 +592,10 @@ packages:
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+    dev: false
+
+  /country-code-lookup/0.0.20:
+    resolution: {integrity: sha512-mcNlekdiVyiKO0lrjj3FrZ36vxlwjUwXTHpdRtVu9917SAYsHrlORmpHdPXeEXwTmw/yiKiTX4t6LC5uP5KVFg==}
     dev: false
 
   /croner/4.1.97:
