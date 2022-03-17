@@ -1,3 +1,15 @@
+ol.patronslist > li {
+  display: inline;
+}
+
+ol.patronslist > li:not(:last-child)::after {
+  content: ","
+}
+
+ol.patronslist > li:nth-last-child(2)::after {
+  content: "&"
+}
+
 .overlay {
     &__modal {
       z-index: 2;
@@ -368,8 +380,6 @@
       text-align: justify;
       text-justify: inter-word;
     }
-
-
 }
 
 .overlay--show {

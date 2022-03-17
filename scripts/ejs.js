@@ -9,9 +9,18 @@ const { createHash } = require('crypto')
 const ejs = require("ejs")
 const CleanCSS = require("clean-css")
 const { build } = require('esbuild')
+const { byIso: country } = require("country-code-lookup")
 
 // self
 const data = require("../config.json")
+const patrons = require("../members.json")
+
+for (let r in patrons) {
+  patrons[r] = patrons[r].map((x) => ({
+    ...x,
+    country: x.country && country(x.country).country
+  }))
+}
 
 const re = /[^a-z0-9]+/g
 const renderFile = promisify(ejs.renderFile)
@@ -40,7 +49,7 @@ Promise.all([
   return Promise.all([
     renderFile(
       "src/templates/index.html",
-      { ...data, sigJs, sigCss }
+      { ...data, patrons, tiers: ["Creator", "Participant", "Contributor"], sigJs, sigCss }
     ),
     filenameJs,
     filenameCss,
