@@ -1,25 +1,45 @@
 "use strict"
 
 // core
-const { promisify } = require("util")
-const { rename, readFile, writeFile } = require('fs').promises
-const { createHash } = require('crypto')
+// const { promisify } = require("util")
+// const { rename, readFile, writeFile } = require('fs').promises
+// const { createHash } = require('crypto')
+import { promisify } from "node:util"
+import { rename, readFile, writeFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 
 // npm
-const ejs = require("ejs")
-const CleanCSS = require("clean-css")
-const { build } = require('esbuild')
-const { byIso: country } = require("country-code-lookup")
+// const ejs = require("ejs")
+// const CleanCSS = require("clean-css")
+//const { build } = require('esbuild')
+// const { byIso: country } = require("country-code-lookup")
+import ejs from "ejs"
+import CleanCSS from "clean-css"
+import { build } from 'esbuild'
+import { byIso as country } from "country-code-lookup"
+import { loadJsonFileSync } from 'load-json-file'
 
 // self
-const data = require("../config.json")
-const patrons = require("../members.json")
+// const data = require("../config.json")
+// const patrons = require("../members.json")
+const data = loadJsonFileSync("config.json")
 
-for (let r in patrons) {
-  patrons[r] = patrons[r].map((x) => ({
-    ...x,
-    country: x.country && country(x.country).country
-  }))
+let patrons
+try {
+  patrons = loadJsonFileSync("members.json")
+  for (let r in patrons) {
+    patrons[r] = patrons[r].map((x) => ({
+      ...x,
+      country: x.country && country(x.country).country
+    }))
+  }
+} catch (e) {
+  if (e.code === "ENOENT") {
+    console.error("Add 'members.json' file to project root to handle patrons automatically.")
+  } else {
+    console.error("EEE", e)
+    process.exit(22)  
+  }
 }
 
 const re = /[^a-z0-9]+/g
@@ -46,10 +66,11 @@ Promise.all([
 .then(([sigJs, sigCss]) => {
   const filenameJs = `src/dist/all.${sigJs}.js`
   const filenameCss = `src/dist/styles.${sigCss}.css`
+  const tiers = ["Creator", "Participant", "Contributor"]
   return Promise.all([
     renderFile(
       "src/templates/index.html",
-      { ...data, patrons, tiers: ["Creator", "Participant", "Contributor"], sigJs, sigCss }
+      { ...data, patrons, tiers, sigJs, sigCss }
     ),
     filenameJs,
     filenameCss,
