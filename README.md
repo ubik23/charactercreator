@@ -19,30 +19,35 @@ The aim of this project is to create a fast, intuitive user interface for produc
 
 ## Install the dependencies:
 
-npm install
+Requires node 16 or above.
 
+```sh
+pnpm install
 cp config-sample.json config.json # or edit existing config.json
+```
 
 The config.json keys "extraPort", "secret" and "formUrl" are all optional. "formUrl" is the URL of the form at the client's site. "secret" is used to sign the cookie, make it a long randomstring. "extraPort" defaults to 3000.
 
 In dev mode, set "secret" (random) and "formUrl" to "http://localhost:5000/fake-form" to test form.
 
-- npm run build # dev build in src/
-- npm run prod # production build in prod/
-- npm run dev # (was npm start) launch dev web server; caddy is used in prod
-- npm start # (was scripts/s2p.js) launch backend to handle form post and image conversions
+Also copy `members.json` to project root (with `config.json`) to list patrons automatically.
+
+- pnpm build # dev build in src/
+- pnpm prod # production build in prod/
+- pnpm dev # launch dev web server; caddy is used in prod
+- pnpm start # launch backend to handle form post and image conversions
 
 ## Install CouchDB
 
 Get the site up and running on your local machine:
 
 ```sh
-npm run prod # outputs production site into prod/
-npm run build # build js and css (mostly for dev)
-npm start # launch static web server; Ctrl-C to quit
+pnpm prod # outputs production site into prod/
+pnpm build # build js and css (mostly for dev)
+pnpm start # launch static web server; Ctrl-C to quit
 # edit js/html/css/svg files
-# run 'npm run build' as needed (not automatic)
-npm run clean # delete built files in prod/ and src/dist/
+# run 'pnpm build' as needed (not automatic)
+pnpm clean # delete built files in prod/ and src/dist/
 ```
 
 
@@ -66,7 +71,7 @@ You can then edit the layer in Inkscape and export it again. Be sure to use a to
 
 # License
 
-The project is licensed AGPL, clone, modify and share your improvements!
+The code is licensed AGPL, clone, modify and share your improvements! The assets in `src/layer/` are licenses CC-BY-NC unless you received another licenses as an elligible  patron.
 
 Suggestions are welcomed. Post an issue on the project's Github page to let us know what new features you want implemented and any bugs you may find along the way. Just make sure it isn't already on the list.
 
