@@ -19,7 +19,13 @@ The aim of this project is to create a fast, intuitive user interface for produc
 
 ## Install the dependencies:
 
-Requires node 16 or above.
+Requires node 16 or above. We strongly suggest you install pnpm too (instead of using npm) since it's faster, takes less space and is more versatile:
+
+```sh
+npm i -g pnpm
+```
+
+After which you can:
 
 ```sh
 pnpm install
