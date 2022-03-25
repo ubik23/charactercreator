@@ -90,7 +90,7 @@ var femaleForm3 = {
   Necklace: ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle', 'wooden'],
   Bra: ['', 'bow', 'grid', 'sports'],
   Top: ['', 'asymetric', 'loop', 'tank', 'tube_v'],
-  Shirt: ['', 'collar', 'sleeveless_sfl', 'sweat', 'tshirt'],
+  Shirt: ['', 'collar', 'sleeveless_sfl', 'sweat', 'tshirt', 'structured_smart'],
   Button: ['', 'heart', 'peace', 'smile'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
   Scarf: ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'overhand', 'once_around', 'drape']
