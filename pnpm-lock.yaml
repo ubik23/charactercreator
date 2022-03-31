@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  clean-css: ^5.2.4
+  clean-css: ^5.3.0
   country-code-lookup: ^0.0.20
   ejs: ^3.1.6
   esbuild: ^0.14.29
@@ -22,7 +22,7 @@ dependencies:
   sharp: 0.30.3
 
 devDependencies:
-  clean-css: 5.2.4
+  clean-css: 5.3.0
   country-code-lookup: 0.0.20
   ejs: 3.1.6
   esbuild: 0.14.29
@@ -319,8 +319,8 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: false
 
-  /clean-css/5.2.4:
-    resolution: {integrity: sha512-nKseG8wCzEuji/4yrgM/5cthL9oTDc5UOQyFMvW/Q53oP6gLH690o1NbuTh6Y18nujr7BxlsFuS7gXLnLzKJGg==}
+  /clean-css/5.3.0:
+    resolution: {integrity: sha512-YYuuxv4H/iNb1Z/5IbMRoxgrzjWGhOEFfd+groZ5dMCVkpENiMZmwspdrzBo9286JjM1gZJPAyL7ZIdzuvu2AQ==}
     engines: {node: '>= 10.0'}
     dependencies:
       source-map: 0.6.1
