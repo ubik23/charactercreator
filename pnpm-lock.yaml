@@ -11,7 +11,7 @@ specifiers:
   fastify-http-proxy: ^6.2.2
   fastify-static: ^4.6.1
   load-json-file: ^7.0.1
-  sass: ^1.49.9
+  sass: ^1.49.10
   sharp: ^0.30.3
   standard: ^16.0.4
 
@@ -29,7 +29,7 @@ devDependencies:
   fastify-http-proxy: 6.2.2
   fastify-static: 4.6.1
   load-json-file: 7.0.1
-  sass: 1.49.9
+  sass: 1.49.10
   standard: 16.0.4
 
 packages:
@@ -2198,8 +2198,8 @@ packages:
       ret: 0.2.2
     dev: false
 
-  /sass/1.49.9:
-    resolution: {integrity: sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==}
+  /sass/1.49.10:
+    resolution: {integrity: sha512-w37zfWJwKu4I78U4z63u1mmgoncq+v3iOB4yzQMPyAPVHHawaQSnu9C9ysGQnZEhW609jkcLioJcMCqm75JMdg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:

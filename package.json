@@ -42,7 +42,7 @@
     "fastify-http-proxy": "^6.2.2",
     "fastify-static": "^4.6.1",
     "load-json-file": "^7.0.1",
-    "sass": "^1.49.9",
+    "sass": "^1.49.10",
     "standard": "^16.0.4"
   },
   "dependencies": {
