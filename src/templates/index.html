@@ -34,9 +34,6 @@
     </script>
     <% } %>
 
-    <% if (locals.publift) { %>
-    <% } %>
-
     <% if (locals.ezoic) { %>
     <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script type="text/javascript">
@@ -443,7 +440,7 @@
             <footer>
                 <script type="text/javascript" src="dist/all.<%= locals.sigJs %>.js" defer></script>
                 <% if (locals.publift) { %>
-                    <div data-fuse="22704889371"></div>
+		<div data-fuse="<%= locals.publift %>"></div>
                 <% } %>
                 <!-- Ezoic - sidebar_bottom - sidebar_bottom -->
                 <!-- <div id="ezoic-pub-ad-placeholder-101"> </div> -->
