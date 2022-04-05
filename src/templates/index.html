@@ -34,6 +34,9 @@
     </script>
     <% } %>
 
+    <% if (locals.publift) { %>
+    <% } %>
+
     <% if (locals.ezoic) { %>
     <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script type="text/javascript">
@@ -439,8 +442,11 @@
             <div class="skin-color__container"></div>
             <footer>
                 <script type="text/javascript" src="dist/all.<%= locals.sigJs %>.js" defer></script>
+                <% if (locals.publift) { %>
+                    <div data-fuse="22704889371"></div>
+                <% } %>
                 <!-- Ezoic - sidebar_bottom - sidebar_bottom -->
-                <div id="ezoic-pub-ad-placeholder-101"> </div>
+                <!-- <div id="ezoic-pub-ad-placeholder-101"> </div> -->
                 <!-- End Ezoic - sidebar_bottom - sidebar_bottom -->
         </main>
         <div class="overlay__modal js-login">
@@ -803,12 +809,12 @@
     </div>
     <div class="corner-advert--left">
       <!-- Ezoic - mid_content - mid_content -->
-      <div id="ezoic-pub-ad-placeholder-101"> </div>
+      <!-- <div id="ezoic-pub-ad-placeholder-101"> </div> -->
       <!-- End Ezoic - mid_content - mid_content -->
     </div>
     <div class="corner-advert--right">
       <!-- Ezoic - long_content - long_content -->
-      <div id="ezoic-pub-ad-placeholder-102"> </div>
+      <!-- <div id="ezoic-pub-ad-placeholder-102"> </div> -->
       <!-- End Ezoic - long_content - long_content -->
     </div>
 </body>
