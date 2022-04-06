@@ -442,11 +442,14 @@
             <footer>
                 <script type="text/javascript" src="dist/all.<%= locals.sigJs %>.js" defer></script>
                 <% if (locals.publift) { %>
-		<div data-fuse="<%= locals.publift %>"></div>
+                <div class="publiftMrec"></div>
+		            <div data-fuse="<%= locals.publift %>"></div>
+                </div>
                 <% } %>
                 <!-- Ezoic - sidebar_bottom - sidebar_bottom -->
                 <!-- <div id="ezoic-pub-ad-placeholder-101"> </div> -->
                 <!-- End Ezoic - sidebar_bottom - sidebar_bottom -->
+            </footer>
         </main>
         <div class="overlay__modal js-login">
             <div class="overlay__wrapper">
