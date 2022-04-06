@@ -663,7 +663,7 @@
                     <% locals.tiers.forEach((tier => { %>
                       <h4><%- `${tier}${(tier.slice(-1)[0] === 's') ? '' : 's'}` %></h4>
                       <ol class="patronslist">
-                        <% locals.patrons[tier].forEach((pat => { %>
+                        <% locals.patrons[tier] && locals.patrons[tier].forEach((pat => { %>
                         <li>
                             <%- pat.name %>
                         </li>
