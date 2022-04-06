@@ -33,7 +33,9 @@
         ga('send', 'pageview');
     </script>
     <% } %>
-
+    <% if (locals.publift) { %>
+    <script async src="https://cdn.fuseplatform.net/publift/tags/2/2619/fuse.js"></script>
+    <% } %>
     <% if (locals.ezoic) { %>
     <script src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script type="text/javascript">
