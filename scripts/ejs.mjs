@@ -66,7 +66,7 @@ Promise.all([
 .then(([sigJs, sigCss]) => {
   const filenameJs = `src/dist/all.${sigJs}.js`
   const filenameCss = `src/dist/styles.${sigCss}.css`
-  const tiers = ["Creator", "Participant", "Contributor"]
+  const tiers = ["Star", "Creator", "Supporting Actor", "Participant", "Extras", "Contributor"]
   return Promise.all([
     renderFile(
       "src/templates/index.html",
