@@ -661,6 +661,7 @@
 
                     <% if (locals.patrons) { %>
                     <% locals.tiers.forEach((tier => { %>
+                      <% if (locals.patrons[tier]) { %>
                       <h4><%- `${tier}${(tier.slice(-1)[0] === 's') ? '' : 's'}` %></h4>
                       <ol class="patronslist">
                         <% locals.patrons[tier] && locals.patrons[tier].forEach((pat => { %>
@@ -669,6 +670,7 @@
                         </li>
                         <% })) %>
                       </ol>
+                      <% } %>                      
                     <% })) %>
                     <% } else { %>
                         <h3>Creators</h3>
