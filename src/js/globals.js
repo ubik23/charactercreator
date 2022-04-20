@@ -118,7 +118,7 @@ var femaleForm5 = {
 var femaleForm6 = {
   Leggings: ['', 'fishnet', 'regular', 'striped', 'torn'],
   Kneepads: ['', 'skate'],
-  Shoes: ['', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman'],
+  Shoes: ['', 'boots_heeled', 'cowboy', 'flip-flops', 'hightops', 'highheels', 'moon', 'plateforms', 'sandals_roman'],
   Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 }
 
