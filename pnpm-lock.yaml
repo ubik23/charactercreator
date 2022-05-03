@@ -12,14 +12,14 @@ specifiers:
   fastify-static: ^4.7.0
   load-json-file: ^7.0.1
   sass: ^1.51.0
-  sharp: ^0.30.3
+  sharp: ^0.30.4
   standard: ^17.0.0
 
 dependencies:
   fastify: 3.27.4
   fastify-cookie: 5.6.0
   fastify-formbody: 5.2.0
-  sharp: 0.30.3
+  sharp: 0.30.4
 
 devDependencies:
   clean-css: 5.3.0
@@ -319,8 +319,8 @@ packages:
       simple-swizzle: 0.2.2
     dev: false
 
-  /color/4.2.1:
-    resolution: {integrity: sha512-MFJr0uY4RvTQUKvPq7dh9grVOTYSFeXja2mBXioCGjnjJoXrAp9jJ1NQTDR73c9nwBSAQiNKloKl5zq9WB9UPw==}
+  /color/4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
     engines: {node: '>=12.5.0'}
     dependencies:
       color-convert: 2.0.1
@@ -1687,7 +1687,7 @@ packages:
     resolution: {integrity: sha512-tzua9qWWi7iW4I42vUPKM+SfaF0vQSLAm4yO5J83mSwB7GeoWrDKC/K+8YCnYNwqP5duwazbw2X9l4m8SC2cUw==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.3.5
+      semver: 7.3.7
     dev: false
 
   /node-addon-api/4.3.0:
@@ -2123,6 +2123,14 @@ packages:
     dependencies:
       lru-cache: 6.0.0
 
+  /semver/7.3.7:
+    resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+    dev: false
+
   /send/0.17.2:
     resolution: {integrity: sha512-UJYB6wFSJE3G00nEivR5rgWp8c2xXvJ3OPWPhmuteU0IKj8nKbG3DrjiOmLwpnHGYWAVwA69zmTm++YG0Hmwww==}
     engines: {node: '>= 0.8.0'}
@@ -2154,16 +2162,16 @@ packages:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
     dev: true
 
-  /sharp/0.30.3:
-    resolution: {integrity: sha512-rjpfJFK58ZOFSG8sxYSo3/JQb4ej095HjXp9X7gVu7gEn1aqSG8TCW29h/Rr31+PXrFADo1H/vKfw0uhMQWFtg==}
+  /sharp/0.30.4:
+    resolution: {integrity: sha512-3Onig53Y6lji4NIZo69s14mERXXY/GV++6CzOYx/Rd8bnTwbhFbL09WZd7Ag/CCnA0WxFID8tkY0QReyfL6v0Q==}
     engines: {node: '>=12.13.0'}
     requiresBuild: true
     dependencies:
-      color: 4.2.1
+      color: 4.2.3
       detect-libc: 2.0.1
       node-addon-api: 4.3.0
       prebuild-install: 7.0.1
-      semver: 7.3.5
+      semver: 7.3.7
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
