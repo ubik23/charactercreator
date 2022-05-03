@@ -5,9 +5,9 @@ specifiers:
   country-code-lookup: ^0.0.20
   ejs: ^3.1.7
   esbuild: ^0.14.38
-  fastify: ^3.27.4
-  fastify-cookie: ^5.6.0
-  fastify-formbody: ^5.2.0
+  fastify: ^3.29.0
+  fastify-cookie: ^5.7.0
+  fastify-formbody: ^5.3.0
   fastify-http-proxy: ^6.3.0
   fastify-static: ^4.7.0
   load-json-file: ^7.0.1
@@ -16,9 +16,9 @@ specifiers:
   standard: ^17.0.0
 
 dependencies:
-  fastify: 3.27.4
-  fastify-cookie: 5.6.0
-  fastify-formbody: 5.2.0
+  fastify: 3.29.0
+  fastify-cookie: 5.7.0
+  fastify-formbody: 5.3.0
   sharp: 0.30.4
 
 devDependencies:
@@ -55,6 +55,10 @@ packages:
     resolution: {integrity: sha512-gvCOUNpXsWrIQ3A4aXCLIdblL0tDq42BG/2Xw7oxbil9h11uow10ztS2GuFazNBfjbrsZ5nl+nPl5jDSjj5TSg==}
     dependencies:
       ajv: 6.12.6
+    dev: false
+
+  /@fastify/error/2.0.0:
+    resolution: {integrity: sha512-wI3fpfDT0t7p8E6dA2eTECzzOd+bZsZCJ2Hcv+Onn2b7ZwK3RwD27uW2QDaMtQhAfWQQP+WNK7nKf0twLsBf9w==}
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
@@ -1023,21 +1027,31 @@ packages:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
     dev: false
 
-  /fastify-cookie/5.6.0:
-    resolution: {integrity: sha512-zmZhw1CugavEZjFToMDz6FTawXw9QQ6bJ1vhhalMLYTbhog8C42+1jIWENKjV6PkiERdDRhXahj9MiYSVNynDw==}
+  /fastify-cookie/5.6.1:
+    resolution: {integrity: sha512-qKFxDOLkrXn2TkxlO/+cK0tWYCTSrJDmuwty6Zl7kD5FtALwcjUHPFzOdR1Gxupb5oWhvbpSHBMx2XS+t9fbQQ==}
     dependencies:
       cookie-signature: 1.2.0
       fastify-plugin: 3.0.1
     dev: false
 
-  /fastify-error/0.3.1:
-    resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
+  /fastify-cookie/5.7.0:
+    resolution: {integrity: sha512-l9UDkHysfOBdyA2rNkr1DQqe6xFdT3NuT60W+o7ramvuyyIc9kv6VmrhpLeEx29EftVJR9lRpW4Pg8T+RDNBLw==}
+    dependencies:
+      fastify-cookie-deprecated: /fastify-cookie/5.6.1
+      process-warning: 1.0.0
     dev: false
 
   /fastify-formbody/5.2.0:
     resolution: {integrity: sha512-d8Y5hCL82akPyoFiXh2wYOm3es0pV9jqoPo3pO9OV2cNF0cQx39J5WAVXzCh4MSt9Z2qF4Fy5gHlvlyESwjtvg==}
     dependencies:
       fastify-plugin: 3.0.1
+    dev: false
+
+  /fastify-formbody/5.3.0:
+    resolution: {integrity: sha512-7cjFV2HE/doojyfTwCLToIFD6Hmbw2jVTbfqZ2lbUZznQWlSXu+MBQgqBU8T2nHcMfqSi9vx6PyX0LwTehuKkg==}
+    dependencies:
+      fastify-formbody-deprecated: /fastify-formbody/5.2.0
+      process-warning: 1.0.0
     dev: false
 
   /fastify-http-proxy/6.2.2:
@@ -1071,7 +1085,7 @@ packages:
       fastify-plugin: 3.0.1
       http-errors: 2.0.0
       pump: 3.0.0
-      semver: 7.3.5
+      semver: 7.3.7
       tiny-lru: 8.0.2
       undici: 4.16.0
     dev: true
@@ -1095,14 +1109,14 @@ packages:
       process-warning: 1.0.0
     dev: true
 
-  /fastify/3.27.4:
-    resolution: {integrity: sha512-SOfnHBxG9zxCSIvt6aHoR/cao8QBddWmGP/mb5KQKRc+KI1kB7b79M2hCDOTSyHdLAF2OX+oI6X3weeLc+MqKg==}
+  /fastify/3.29.0:
+    resolution: {integrity: sha512-zXSiDTdHJCHcmDrSje1f1RfzTmUTjMtHnPhh6cdokgfHhloQ+gy0Du+KlEjwTbcNC3Djj4GAsBzl6KvfI9Ah2g==}
     dependencies:
       '@fastify/ajv-compiler': 1.1.0
+      '@fastify/error': 2.0.0
       abstract-logging: 2.0.1
       avvio: 7.2.5
       fast-json-stringify: 2.7.13
-      fastify-error: 0.3.1
       find-my-way: 4.5.1
       flatstr: 1.0.12
       light-my-request: 4.9.0
@@ -1111,7 +1125,7 @@ packages:
       proxy-addr: 2.0.7
       rfdc: 1.3.0
       secure-json-parse: 2.4.0
-      semver: 7.3.5
+      semver: 7.3.7
       tiny-lru: 8.0.2
     transitivePeerDependencies:
       - supports-color
@@ -2122,6 +2136,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver/7.3.7:
     resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
@@ -2129,7 +2144,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: false
 
   /send/0.17.2:
     resolution: {integrity: sha512-UJYB6wFSJE3G00nEivR5rgWp8c2xXvJ3OPWPhmuteU0IKj8nKbG3DrjiOmLwpnHGYWAVwA69zmTm++YG0Hmwww==}
