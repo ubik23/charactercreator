@@ -8,10 +8,10 @@ specifiers:
   fastify: ^3.27.4
   fastify-cookie: ^5.6.0
   fastify-formbody: ^5.2.0
-  fastify-http-proxy: ^6.2.2
-  fastify-static: ^4.6.1
+  fastify-http-proxy: ^6.3.0
+  fastify-static: ^4.7.0
   load-json-file: ^7.0.1
-  sass: ^1.49.10
+  sass: ^1.51.0
   sharp: ^0.30.3
   standard: ^16.0.4
 
@@ -26,10 +26,10 @@ devDependencies:
   country-code-lookup: 0.0.20
   ejs: 3.1.6
   esbuild: 0.14.29
-  fastify-http-proxy: 6.2.2
-  fastify-static: 4.6.1
+  fastify-http-proxy: 6.3.0
+  fastify-static: 4.7.0
   load-json-file: 7.0.1
-  sass: 1.49.10
+  sass: 1.51.0
   standard: 16.0.4
 
 packages:
@@ -1096,6 +1096,16 @@ packages:
       - utf-8-validate
     dev: true
 
+  /fastify-http-proxy/6.3.0:
+    resolution: {integrity: sha512-1aazvPYORgTKEyxb0EiMfjtZ5LP0+x3fDDbjAhZXWEI6D8OAAi2B5+VBmnxMFLPoEhh2Hc5foJLOWltT6+ioTg==}
+    dependencies:
+      fastify-http-proxy-deprecated: /fastify-http-proxy/6.2.2
+      process-warning: 1.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: true
+
   /fastify-plugin/3.0.1:
     resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
 
@@ -1122,6 +1132,13 @@ packages:
       p-limit: 3.1.0
       readable-stream: 3.6.0
       send: 0.17.2
+    dev: true
+
+  /fastify-static/4.7.0:
+    resolution: {integrity: sha512-zZhCfJv/hkmud2qhWqpU3K9XVAuy3+IV8Tp9BC5J5U+GyA2XwoB6h8lh9GqpEIqdXOw01WyWQllV7dOWVyAlXg==}
+    dependencies:
+      fastify-static-deprecated: /fastify-static/4.6.1
+      process-warning: 1.0.0
     dev: true
 
   /fastify/3.27.4:
@@ -2022,7 +2039,6 @@ packages:
 
   /process-warning/1.0.0:
     resolution: {integrity: sha512-du4wfLyj4yCZq1VupnVSZmRsPJsNuxoDQFdCFHLaYiEbFBD7QE0a+I4D7hOxrVnh78QE/YipFAj9lXHiXocV+Q==}
-    dev: false
 
   /progress/2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
@@ -2198,8 +2214,8 @@ packages:
       ret: 0.2.2
     dev: false
 
-  /sass/1.49.10:
-    resolution: {integrity: sha512-w37zfWJwKu4I78U4z63u1mmgoncq+v3iOB4yzQMPyAPVHHawaQSnu9C9ysGQnZEhW609jkcLioJcMCqm75JMdg==}
+  /sass/1.51.0:
+    resolution: {integrity: sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
