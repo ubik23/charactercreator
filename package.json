@@ -43,7 +43,7 @@
     "fastify-static": "^4.7.0",
     "load-json-file": "^7.0.1",
     "sass": "^1.51.0",
-    "standard": "^16.0.4"
+    "standard": "^17.0.0"
   },
   "dependencies": {
     "fastify": "^3.27.4",
