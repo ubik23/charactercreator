@@ -112,7 +112,7 @@ var femaleForm5 = {
   Underwear: ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   Shorts: ['', 'bikini', 'short'],
   Skirt: ['', 'a-line', 'draped', 'highfashion', 'school_short', 'school', 'school_long', "smart_midi"/*, 'tube' */],
-  Pants: ['', 'cargo', /*'culottes',*/ 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms', 'trousers_smart'],
+  Pants: ['', 'cargo', 'culottes', 'yoga', 'yoga_torn', 'jeans', 'jeans_rolled', 'jeans_torn', 'jeans_bellbottoms', 'trousers_smart'],
   Belt: ['', 'bullet', 'utility', 'satchel']
 }
 var femaleForm6 = {
