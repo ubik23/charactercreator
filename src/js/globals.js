@@ -54,7 +54,7 @@ var maleForm5 = {
 var maleForm6 = {
   Kneepads: ['', 'skate'],
   Socks: ['', 'socks'],
-  Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'flip-flops', 'moon'],
+  Shoes: ['', 'cowboy', 'hightops', 'leather', 'loafers', 'loafer_ww', 'flip-flops', 'monk', 'moon', 'oxford'],
   Pet: ['', 'feline', 'raven', 'rat', 'canine', 'siamese_cat', 'gerbil', 'chicken', 'fox', 'vulture', 'parrot', 'doge']
 }
 
@@ -99,7 +99,7 @@ var femaleForm4 = {
   Holster: ['', 'revolver_chest', 'revolver_hip', 'revolver_thigh'],
   Suit: ['', 'asymetric', 'bands', 'dress', 'onepiece', 'wetsuit'],
   Blouse: ['', 'boho', 'cherry'],
-  Dress: ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', /*'suit',*/ 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
+  Dress: ['', 'accolade', 'bobafett', 'casual', 'corset', 'chinatown', 'elegant', /*'suit',*/ 'waitress', 'short', 'cheerleader', 'japanese_pleat', 'parisian_fall', 'german_expression', 'zig_zag', 'zip'],
   Coat: ['', 'biker', 'lab', 'winter_furcollar', 'winter_tubecollar'],
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   Vest: ['', 'athlete', 'yellow'],

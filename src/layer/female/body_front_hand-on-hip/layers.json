@@ -161,6 +161,8 @@
   "dress_parisian_fall",
   "dress_zig_zag",
   "dress_zip",
+  "dress_elegant_3_of_3",
+  "dress_elegant_2_of_3",
   "shirt_collar",
   "shirt_tshirt_1_of_2",
   "shirt_structured_smart_1_of_2",
@@ -212,7 +214,8 @@
   "bracelet_ornamental_left_1_of_2",
   "nails_short_1_of_2",
   "nails_long_1_of_2",
-  "nails_claws_1_of_2"
+  "nails_claws_1_of_2",
+  "dress_elegant_1_of_3"
 ],
 "bodyOver": [
   "coat_winter_furcollar_1_of_3",
