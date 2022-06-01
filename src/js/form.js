@@ -224,7 +224,7 @@ function getPositionDir (layer) {
   return positionDir
 }
 
-function loadFilesFromList (layersList, callback, callbackLoopFlag) {
+function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContainer = '#svg1 .character-container') {
   var layerDirectory
   var sex = c.choices.sex
   var file
@@ -262,7 +262,7 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag) {
       var layerID
       var layerIDArray
       var nextLayerSibling
-      var svgContainer = document.querySelector('#svg1 .character-container')
+      var svgContainer = document.querySelector(parentContainer)
       var outline = svgContainer.querySelector('#outline')
       htmlObject.innerHTML = text
       svgObject = htmlObject.querySelector('g')
