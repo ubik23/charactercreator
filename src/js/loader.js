@@ -38,9 +38,30 @@ function onAllLoaded () {
     applyClipPath()
   }, 1000)
 
+  setTransformOrigin(characterSex)
+
   revealCharacter()
 
   zoomContainer.classList.add('zoom-container--show')
+}
+
+function setTransformOrigin (characterSex) {
+  console.log('characterSex', characterSex)
+  var container = document.querySelector('#svg1 .character-container')
+  var styles 
+  var styleSheet = document.createElement("style")
+  
+  if (characterSex === 'f') {
+    styles = '.js-head-element {transform-origin: 282.62808px 158.60725px;transform:scale(1);}'
+  } else {
+    styles = '.js-head-element {transform-origin: 281.36053px 147.80724px;transform:scale(1);}'
+  }
+
+  styleSheet.innerText = styles
+  container.appendChild(styleSheet)
+  // Select the SVG container for the current character
+  // add the appropriate origin per the sex of the character template
+
 }
 
 function processSection (section, item) {
