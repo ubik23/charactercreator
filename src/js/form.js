@@ -272,6 +272,8 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContai
         svgObject.style.pointerEvents = 'none'
       }
       svgObject = colorElement(svgObject)
+      svgObject = tagHeadElement(svgObject)
+      
       layerID = svgObject.id
 
       if (layerID === 'eyeballs_default') {
@@ -303,6 +305,24 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContai
       }
     })
   }
+}
+
+function tagHeadElement (svgObject) {
+  // Get list of prefixes that are part of head
+  // Get current object's prefix
+  // If current object is a head element, add a js-head-element classname
+  var elementIdList = svgObject.id.split("_")
+  var headElements = getListOfHeadElements()
+
+  if (headElements.includes(elementIdList[0]) || (elementIdList[0] === "body" && elementIdList[1] === "head")) {
+    svgObject.classList.add('js-head-element')
+  }
+  return svgObject
+}
+
+function getListOfHeadElements () {
+  var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'freckles', 'smoke', 'makeup', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
+  return headElementList
 }
 
 function getPupilShape () {
