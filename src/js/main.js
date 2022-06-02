@@ -136,6 +136,7 @@ window.onload = function () {
   var nftBtn = document.querySelector('#purchase-nft')
   var homeBtn = document.querySelector('.site-title')
   var newBtn = document.querySelector('#newCharacterButton')
+  var headSizeBtn = document.querySelector('#head-size-slider')
 
   if (homeBtn && typeof gotoNewChar === 'function') { homeBtn.addEventListener('click', gotoNewChar, false) }
   if (newBtn && typeof gotoNewChar === 'function') { newBtn.addEventListener('click', gotoNewChar, false) }
@@ -165,6 +166,7 @@ window.onload = function () {
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
   // if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
+  if (headSizeBtn && typeof resizeHead === 'function') { headSizeBtn.addEventListener('change', resizeHead, false) }
   // console.log('nftBtn',nftBtn)
   // checkNightMode()
   startup()

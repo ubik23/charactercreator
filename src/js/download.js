@@ -49,7 +49,7 @@ function getSVG () {
   var viewBoxValue = getDownloadViewBox()
   var text = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="1000" height="1000" viewBox="' + viewBoxValue + '">\n'
   text+='<defs> Copyright (c) 2014-2020 Frederic Guimont, all rights reserved \n <a href="https://creativecommons.org/licenses/by-nc/2.0/">Distributed under the Creative Commons CC-BY-NC license</a> \n Commercial license available to patrons on https://www.patreon.com/charactercreator \n You can recreate this character using this URL: <!--'+window.location.href+'--></defs> \n'
-  var svgRaw = document.getElementById('svg1').childNodes
+  var svgRaw = document.getElementById('character-container').childNodes
   var svgNodes
   var svgString
   var event
@@ -66,13 +66,20 @@ function getSVG () {
 
   svgNodes.forEach(function (item) {
     // This removes only useless layers and allows us to o the next test.
+    console.log("item", item)
     if (item.innerHTML && (!item.style || !item.style.opacity || item.style.opacity != 0)) {
-      svgString = '<g id="' + item.id + '">' + item.innerHTML + '</g>'
-      text += svgString
+      console.log("item.transform", item.getAttribute('transform'))
+      console.log("item.transformOrigin", item.getAttribute('transform-origin'))
+      // Catch head elements that have been scaled
+      svgString = '<g id="' + item.id + '" >' + item.innerHTML + '</g>'
+      
+      // text += svgString
+      text += item.outerHTML
     }
   })
 
   text += '</svg>'
+  console.log(text)
   return text
 }
 

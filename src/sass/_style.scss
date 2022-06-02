@@ -125,7 +125,10 @@ svg {
     overflow: visible;
 }
 
-input[type=range] {
+
+/* Begin Zoom Slider */
+
+input[type=range].ui-slider {
     /*removes default webkit styles*/
     -webkit-appearance: none;
     /*fix for FF unable to apply focus style bug */
@@ -134,7 +137,7 @@ input[type=range] {
     width: 5px;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type=range].ui-slider::-webkit-slider-runnable-track {
     width: 8px;
     height: 175px;
     background: $color-light-grey;
@@ -142,7 +145,7 @@ input[type=range]::-webkit-slider-runnable-track {
     border-radius: 3px;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type=range].ui-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
     height: 16px;
@@ -155,7 +158,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
+input[type=range].ui-slider::-moz-range-thumb {
   border: none;
   height: 16px;
   width: 16px;
@@ -167,7 +170,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* All the same stuff for IE */
-input[type=range]::-ms-thumb {
+input[type=range].ui-slider::-ms-thumb {
   border: none;
   height: 16px;
   width: 16px;
@@ -179,46 +182,57 @@ input[type=range]::-ms-thumb {
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type=range]::-webkit-slider-thumb {
+  input[type=range].ui-slider::-webkit-slider-thumb {
       background: $color-night-background;
   }
 
   /* All the same stuff for Firefox */
-  input[type=range]::-moz-range-thumb {
+  input[type=range].ui-slider::-moz-range-thumb {
+    background: $color-night-background;
+  };
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type=range].ui-slider::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range].ui-slider::-moz-range-thumb {
     background: $color-night-background;
   }
 
   /* All the same stuff for IE */
-  input[type=range]::-ms-thumb {
+  input[type=range].ui-slider::-ms-thumb {
     background: $color-night-background;
   }
 }
 
 .night {
-  input[type=range]::-webkit-slider-thumb {
+  input[type=range].ui-slider::-webkit-slider-thumb {
       background: $color-night-background;
   }
 
   /* All the same stuff for Firefox */
-  input[type=range]::-moz-range-thumb {
+  input[type=range].ui-slider::-moz-range-thumb {
     background: $color-night-background;
   }
 
   /* All the same stuff for IE */
-  input[type=range]::-ms-thumb {
+  input[type=range].ui-slider::-ms-thumb {
     background: $color-night-background;
   }
 }
 
-input[type=range]:focus {
+input[type=range].ui-slider:focus {
     outline: none;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type=range].ui-slider:focus::-webkit-slider-runnable-track {
     background: $color-grey;
 }
 
-input[type=range]::-moz-range-track {
+input[type=range].ui-slider::-moz-range-track {
     width: 8px;
     height: 175px;
     background: $color-light-grey;
@@ -226,7 +240,7 @@ input[type=range]::-moz-range-track {
     border-radius: 3px;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type=range].ui-slider::-moz-range-thumb {
     border: none;
     height: 16px;
     width: 16px;
@@ -235,12 +249,12 @@ input[type=range]::-moz-range-thumb {
 }
 
 /*hide the outline behind the border*/
-input[type=range]:-moz-focusring{
+input[type=range].ui-slider:-moz-focusring{
     outline: 1px solid $color-white;
     outline-offset: -1px;
 }
 
-input[type=range]::-ms-track {
+input[type=range].ui-slider::-ms-track {
     width: 8px;
     height: 175px;
     /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
@@ -252,17 +266,17 @@ input[type=range]::-ms-track {
     color: transparent;
 }
 
-input[type=range]::-ms-fill-lower {
+input[type=range].ui-slider::-ms-fill-lower {
     background: $color-darker-grey;
     border-radius: 10px;
 }
 
-input[type=range]::-ms-fill-upper {
+input[type=range].ui-slider::-ms-fill-upper {
     background: $color-light-grey;
     border-radius: 10px;
 }
 
-input[type=range]::-ms-thumb {
+input[type=range].ui-slider::-ms-thumb {
     border: none;
     height: 16px;
     width: 16px;
@@ -270,21 +284,198 @@ input[type=range]::-ms-thumb {
     background: $color-alpha;
 }
 
-input[type=range]:focus::-ms-fill-lower {
+input[type=range].ui-slider:focus::-ms-fill-lower {
     background: $color-shadow;
 }
 
-input[type=range]:focus::-ms-fill-upper {
+input[type=range].ui-slider:focus::-ms-fill-upper {
     background: $color-grey;
 }
 
-input[type=range][orient=vertical] {
+input[type=range].ui-slider[orient=vertical] {
     writing-mode: bt-lr; /* IE */
     -webkit-appearance: slider-vertical; /* WebKit */
     width: 8px;
     height: 175px;
     padding: 0 5px;
 }
+
+/* Begin control slider*/
+
+input[type=range].control-slider {
+    /*removes default webkit styles*/
+    -webkit-appearance: slider-horizontal;
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    /*required for proper track sizing in FF*/
+    width: 175px;
+}
+
+input[type=range].control-slider::-webkit-slider-runnable-track {
+    width: 175px;
+    height: 8px;
+    background: $color-light-grey;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range].control-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+    margin-top: -4px;
+    margin-left: -4px;
+    cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+input[type=range].control-slider::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $color-alpha;
+  margin-top: -4px;
+  margin-left: -4px;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range].control-slider::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $color-alpha;
+  margin-top: -4px;
+  margin-left: -4px;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type=range].control-slider::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range].control-slider::-moz-range-thumb {
+    background: $color-night-background;
+  };
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type=range].control-slider::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range].control-slider::-moz-range-thumb {
+    background: $color-night-background;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range].control-slider::-ms-thumb {
+    background: $color-night-background;
+  }
+}
+
+.night {
+  input[type=range].control-slider::-webkit-slider-thumb {
+      background: $color-night-background;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type=range].control-slider::-moz-range-thumb {
+    background: $color-night-background;
+  }
+
+  /* All the same stuff for IE */
+  input[type=range].control-slider::-ms-thumb {
+    background: $color-night-background;
+  }
+}
+
+input[type=range].control-slider:focus {
+    outline: none;
+}
+
+input[type=range].control-slider:focus::-webkit-slider-runnable-track {
+    background: $color-grey;
+}
+
+input[type=range].control-slider::-moz-range-track {
+    width: 175px;
+    height: 8px;
+    background: $color-light-grey;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range].control-slider::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+}
+
+/*hide the outline behind the border*/
+input[type=range].control-slider:-moz-focusring{
+    outline: 1px solid $color-white;
+    outline-offset: -1px;
+}
+
+input[type=range].control-slider::-ms-track {
+    width: 175px;
+    height: 8px;
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+    /*remove default tick marks*/
+    color: transparent;
+}
+
+input[type=range].control-slider::-ms-fill-lower {
+    background: $color-darker-grey;
+    border-radius: 10px;
+}
+
+input[type=range].control-slider::-ms-fill-upper {
+    background: $color-light-grey;
+    border-radius: 10px;
+}
+
+input[type=range].control-slider::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $color-alpha;
+}
+
+input[type=range].control-slider:focus::-ms-fill-lower {
+    background: $color-shadow;
+}
+
+input[type=range].control-slider:focus::-ms-fill-upper {
+    background: $color-grey;
+}
+
+input[type=range].control-slider[orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 175px;
+    height: 8px;
+    padding: 0 5px;
+}
+
+
+/*End control slider*/
 
 .template {
     color: $color-alpha;
