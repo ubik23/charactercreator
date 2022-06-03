@@ -39,6 +39,7 @@ function onAllLoaded () {
   }, 1000)
 
   // setTransformOrigin(characterSex)
+  
 
   revealCharacter()
 

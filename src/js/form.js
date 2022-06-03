@@ -321,18 +321,18 @@ function tagHeadElement (svgObject) {
 
   if (headElements.includes(elementIdList[0]) || (elementIdList[0] === "body" && elementIdList[1] === "head")) {
     svgObject.classList.add('js-head-element')
-    if (sex === 'm') {
-      svgObject.setAttribute('transformOrigin', maleNeckAnchorPoint)
-    } else if (sex === 'f') {
-      svgObject.setAttribute('transform-origin', femaleNeckAnchorPoint)
-    }
+    // if (sex === 'm') {
+    //   svgObject.setAttribute('transformOrigin', maleNeckAnchorPoint)
+    // } else if (sex === 'f') {
+    //   svgObject.setAttribute('transform-origin', femaleNeckAnchorPoint)
+    // }
     // svgObject.style.transformOrigin = 
   }
   return svgObject
 }
 
 function getListOfHeadElements () {
-  var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'freckles', 'smoke', 'makeup', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
+  var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'facialhair', 'freckles', 'smoke', 'makeup', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
   return headElementList
 }
 

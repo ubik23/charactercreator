@@ -9,6 +9,7 @@ function parseHash (forms, skinLayers, hairLayers) {
   var hashColorGamma
   var hashColorDelta
   var hashColorEpsilon
+  var headSize
 
   while (formsCounter--) {
     var f = formsLength - formsCounter - 1
