@@ -9,7 +9,7 @@ function resizeHead (ev) {
 }
 
 function applyHeadResize (headSize) {
-    var headElements = document.querySelectorAll('.js-head-element')
+    var headElements = document.querySelectorAll('#svg1 .js-head-element')
     var counter = headElements.length
     var scaleValue = 1 + (headSize / 10)
     var horizontalCompensation = (headSize * -28.17)

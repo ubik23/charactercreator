@@ -44,6 +44,9 @@ function openThumbsLogic (_) {
     purgeHiddenLayers()
     previousSelection.classList.remove('section--selected')
   };
+  console.log('section', sectionLowerCase)
+  // Don't load items if they are already there
+
 
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true)
   showThumbOptions(_)
@@ -89,6 +92,12 @@ function populateThumbs (svgObject) {
   var pupilShape
   var pupilShapeList = ['round', 'feline', 'star']
   var counter = pupilShapeList.length
+
+  if (document.querySelector('#content_1 g#' + layerID)) {
+    // If item is already present, do not insert it again
+    return
+  }
+
   // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1
   // thumbObject.classList.add('selected-item')
