@@ -167,7 +167,6 @@ window.onload = function () {
   // if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
   if (headSizeBtn && typeof resizeHead === 'function') { headSizeBtn.addEventListener('change', resizeHead, false) }
-  // console.log('nftBtn',nftBtn)
   // checkNightMode()
   startup()
 }
@@ -175,7 +174,6 @@ window.onload = function () {
 /*
 function saveCharToCloud (ev) {
   preventDefault(ev)
-  // consolelog('saveCharToCloud')
   // Close current modal
   // Check if user is logged in
   // Check if this character already exists in the cast
@@ -194,9 +192,7 @@ function saveCharToCloud (ev) {
 //
 //   // nftPreview.setAttribute("viewBox", nftViewBox.viewBox);
 //   nftPreview.setAttribute("href", '#' + nftViewBox.id);
-//   console.log('nftviewbox', nftViewBox.id)
 //   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'NFT BTN', eventLabel: 'Clicked on Purchase NFT button.' })
-//   console.log('nft')
 //   closeAllOverlays()
 //
 //   overlay.classList.add('overlay--show')
@@ -247,7 +243,6 @@ function gotoBrave (evt) {
   }
   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
   closeAllOverlays()
-  // consolelog('brave')
   setTimeout(function () { window.open('https://brave.com/cha553') }, 500)
 }
 
@@ -404,9 +399,6 @@ function getViewBoxOnClick () {
   // return '10 50 540 540'
   var viewBox = '10 50 540 540'
   var svgContainer = document.querySelector('#svg1')
-  // consolelog('SVG1', svgContainer.viewBox)
-  // consolelog('SVG1', svgContainer.viewBox.baseVal)
-  // consolelog(el.getBoundingClientRect())
   return viewBox
 }
 */
@@ -422,6 +414,8 @@ function clickSelect (ev) {
   var prefixIndex
   var itemButtonList
   var itemButton
+  var bodyPart
+
   // var faceContainer = document.querySelector('.face-styles');
 
   // Don't take the click while in the style selection screen.
@@ -431,6 +425,13 @@ function clickSelect (ev) {
 
   prefix = fromItemGetPrefix(el.id)
   formSection = fromPrefixGetFormSection(prefix)
+
+  if (prefix === 'body') {
+    bodyPart = getBodyPart(el.id)
+    if (bodyPart === 'foot') {
+      formSection = 5
+    }
+  }
 
   if (prefix === 'svg1') {
     zoomFull()
@@ -460,6 +461,10 @@ function clickSelect (ev) {
       openThumbsLogic(itemButton)
     }
   }
+}
+
+function getBodyPart(id) {
+  return id.split('_')[1]
 }
 
 function getSectionButton (formSection, prefix) {
@@ -565,7 +570,6 @@ function getSkinLayers () {
 }
 
 function fromItemGetPrefix (id) {
-  // consolelog('fromItemGetPrefix', id)
   var idList = id.split('_')
   var prefix
 
@@ -578,19 +582,17 @@ function fromItemGetPrefix (id) {
 }
 
 function fromPrefixGetFormSection (prefix) {
-  // consolelog('prefix', prefix)
-  // var item
   var formSection
   var counterForm
   // var counterSection
   var formList
+  var bodyPart
 
   if (c.choices.sex === 'm') {
     formList = window.maleFormList
   } else {
     formList = window.femaleFormList
   }
-  // consolelog('formList', formList)
 
   while (formSection === undefined) {
     counterForm = formList.length
@@ -656,7 +658,6 @@ function displayPallette () {
 
   if (hashSkinColor != undefined) {
     launch()
-    // consolelog('hashSkinColor', hashSkinColor);
     // colorCutout(hashSkinColor);
     // presentFaceStyles();
   } else {
@@ -816,13 +817,10 @@ function selectFemale (event) {
 
 function presentFaceStyles () {
   var sex = c.choices.sex
-  // consolelog('sex', sex)
-  // consolelog('presentFaceStyles')
   var faceWestern
   var faceAnime
   var faceContainer = document.querySelector('.face-styles')
   // var faceStyle = faceContainer.querySelector('STYLE')
-  // consolelog('faceContainer', faceStyle)
 
   //   if (c.choices.faceStyle) {
   //     launch();
@@ -867,16 +865,12 @@ function presentFaceStyles () {
 }
 
 function selectStyleWestern () {
-  // consolelog('selectStyleWestern')
-
   // TODO Transform Translate horizontaly to match face on head;
 
   // launch();
 }
 
 function selectStyleAnime () {
-  // consolelog('selectStyleAnime')
-
   // TODO Transform Translate horizontaly to match face on head;
 
   // launch();
