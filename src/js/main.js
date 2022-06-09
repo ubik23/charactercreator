@@ -429,6 +429,7 @@ function clickSelect (ev) {
   if (prefix === 'body') {
     bodyPart = getBodyPart(el.id)
     if (bodyPart === 'foot') {
+      console.log('foot')
       formSection = 5
     }
   }
@@ -444,6 +445,9 @@ function clickSelect (ev) {
   // Same thing for item thumbnails, if not open, open them.
   if (formSection > -1) {
     sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML
+
+    console.log('sectionLabel', sectionLabel)
+
     sectionZoom(sectionLabel)
     isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide')
     closeSections(sectionList[formSection])

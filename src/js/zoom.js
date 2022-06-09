@@ -42,8 +42,21 @@ function zoomFace () {
   animateZoom(newViewBox)
 }
 
+function zoomFeet () {
+  var sex = c.choices.sex
+  var newViewBox
+  shape = document.getElementById(('svg1'))
+  
+  if (sex == 'm') {
+    newViewBox = '230.6 470 80 80'
+  } else {
+    newViewBox = '237.6 470 80 80'
+  }
+  animateZoom(newViewBox)
+}
+
 function zoomTwoFaces () {
-  var landscape = isLandscape() // TODO change newViewBox is in landscape mode.
+  // var landscape = isLandscape() // TODO change newViewBox is in landscape mode.
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))
@@ -91,7 +104,9 @@ function zoomFull () {
 
 function viewBoxZoom (ev) {
   var zoomLevel = ev.target.value
-  if (zoomLevel == 3) {
+  if (zoomLevel == 4) {
+    zoomFeet()
+  } else if (zoomLevel == 3) {
     zoomFace()
   } else if (zoomLevel == 2) {
     zoomTorso()
@@ -109,7 +124,7 @@ function sectionZoom (sectionLabel) {
   if (sectionLabel === 'Torso') { zoomInput.value = 2; zoomTorso() }
   if (sectionLabel === 'Body') { zoomInput.value = 1; zoomBody() }
   if (sectionLabel === 'Legs') { zoomInput.value = 0; zoomFull() }
-  if (sectionLabel === 'Feet') { zoomInput.value = 0; zoomFull() }
+  if (sectionLabel === 'Feet') { zoomInput.value = 4; zoomFeet() }
 }
 
 function animateZoom (newViewBox) {
