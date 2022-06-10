@@ -92,6 +92,7 @@ function getForms (sex) {
 }
 
 function dressFemaleRandom () {
+  console.log('Dress Female Random')
   hideTutorial()
   var forms = getForms('f')
   // The following determines the percentage chance of each item to be selected
@@ -118,6 +119,7 @@ function dressFemaleRandom () {
       pet: 20,
       scarf: 10,
       shirt: 15,
+      shoes: 100,
       shoulderpads: 5,
       smoke: 25,
       suit: 5,
@@ -333,16 +335,19 @@ function dressFemaleRandom () {
     obj['leggingsColor'] = fabColor2
     hash.add(obj)
   }
-
+  console.log('TEST')
   // Choose shoes
-  obj = new Array()
-  options = forms[5].Shoes.slice(1)
-  randomItem = options[Math.floor((Math.random() * options.length))]
-  obj['shoes'] = randomItem
-  hash.add(obj)
-  obj = new Array()
-  obj['shoesColor'] = fabColor
-  hash.add(obj)
+  if ( Math.floor((Math.random() * 100)) <= chanceDict.shoes) {
+    console.log('!!!SHOES!!!')
+    obj = new Array()
+    options = forms[5].Shoes.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length -1)) + 1]
+    obj['shoes'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['shoesColor'] = fabColor
+    hash.add(obj)
+  }
 
   // coat
   if ( Math.floor((Math.random() * 100)) <= chanceDict.coat) {
@@ -391,6 +396,7 @@ function dressFemaleRandom () {
   // holster
   if ( Math.floor((Math.random() * 100)) <= chanceDict.holster) {
     obj = new Array()
+    console.log('Holster', forms[3].Holster)
     options = forms[3].Holster.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['holster'] = randomItem
@@ -532,6 +538,7 @@ function dressFemaleRandom () {
 }
 
 function dressMaleRandom () {
+  console.log('Dress Male Random')
   hideTutorial()
 
   var forms = getForms('m')
