@@ -166,6 +166,7 @@
   "dress_elegant_2_of_3",
   "shirt_collar",
   "shirt_collar_buttoned",
+  "tie_striped",
   "shirt_tshirt_1_of_2",
   "shirt_structured_smart_1_of_2",
   "shirt_jersey_long-sleeved_striped_1_of_2",
@@ -194,6 +195,7 @@
   "necklace_stethoscope",
   "cloak_dracula_1_of_2",
   "cloak_default_1_of_2",
+  "robe_school_1_of_2",
   "button_heart",
   "button_peace",
   "button_smile",
@@ -208,7 +210,8 @@
   "scarf_reverse_drape",
   "scarf_overhand",
   "scarf_once_around",
-  "scarf_drape"
+  "scarf_drape",
+  "robe_school_2_of_2"
 ],
 "bodyFront": [
   "body_hand_left",

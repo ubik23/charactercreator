@@ -27,7 +27,7 @@ var maleForm2 = {
 var maleForm3 = {
   Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
   Shirt: ['', 'tanktop', 'colar', /*'jersey_long-sleeved',*/ 'kurta', 'tshirt', 'tshirt_stop-wars', 'turtleneck'],
-  Tie: ['', 'neck', 'bolo', 'bow'],
+  Tie: ['', 'neck', 'bolo', 'bow', 'striped'],
   Vest: ['', 'athlete', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
   Button: ['', 'heart', 'peace', 'smile'],
   Holster: ['', 'revolver_chest', 'revolver_hip'],
@@ -91,6 +91,7 @@ var femaleForm3 = {
   Bra: ['', 'bow', 'grid', 'sports'],
   Top: ['', 'asymetric', 'loop', 'tank', 'tube_v'],
   Shirt: ['', 'collar', 'collar_buttoned', 'jersey_long-sleeved_striped', 'sleeveless_sfl', 'sweat', 'tshirt', 'structured_smart'],
+  Tie: ['', 'striped'],
   Button: ['', 'heart', 'peace', 'smile'],
   Shoulderpads: ['', 'artillery', 'general', 'plated', 'spikes'],
   Scarf: ['', 'chest_warmer', 'parisian_knot', 'twice_around', 'four_in_hand', 'reverse_drape_cross', 'reverse_drape_tuck', 'fake_knot', 'reverse_drape', 'overhand', 'once_around', 'drape']
@@ -104,6 +105,7 @@ var femaleForm4 = {
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   Vest: ['', 'athlete', 'yellow'],
   Cloak: ['', 'default', 'dracula'],
+  Robe: ['', 'school'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
 }
 var femaleForm5 = {
