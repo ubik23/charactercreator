@@ -106,7 +106,7 @@ var femaleForm4 = {
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   Vest: ['', 'athlete', 'yellow'],
   Cloak: ['', 'default', 'dracula'],
-  Robe: ['', 'school_griffin', 'school_huff', 'school_slither', 'raven'],
+  Robe: ['', 'school_griffin', 'school_huff', 'school_slither', 'school_raven'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
 }
 var femaleForm5 = {
