@@ -195,7 +195,6 @@
   "necklace_stethoscope",
   "cloak_dracula_1_of_2",
   "cloak_default_1_of_2",
-  "robe_school_1_of_2",
   "button_heart",
   "button_peace",
   "button_smile",
@@ -211,7 +210,10 @@
   "scarf_overhand",
   "scarf_once_around",
   "scarf_drape",
-  "robe_school_2_of_2"
+  "robe_school_griffin_2_of_2",
+  "robe_school_huff_2_of_2",
+  "robe_school_slither_2_of_2",
+  "robe_school_raven_2_of_2"
 ],
 "bodyFront": [
   "body_hand_left",
@@ -225,6 +227,10 @@
 ],
 "bodyOver": [
   "coat_winter_furcollar_1_of_3",
+  "robe_school_griffin_1_of_2",
+  "robe_school_huff_1_of_2",
+  "robe_school_slither_1_of_2",
+  "robe_school_raven_1_of_2",
   "shoulderpads_artillery",
   "shoulderpads_spikes_1_of_2",
   "shoulderpads_plated_1_of_2",

@@ -40,6 +40,7 @@ var maleForm4 = {
   Jacket: ['', 'suit', 'suit_open'],
   Coat: ['', 'biker', 'fall_long', 'lab', 'trench', 'scientist', 'snowboard', 'varsity'],
   Cloak: ['', 'default', 'dracula'],
+  Robe: ['', 'school_griffin', 'school_huff', 'school_slither', 'school_raven'],
   Armband: ['', 'bandage_left', 'bandage_right'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton'],
 }
@@ -105,7 +106,7 @@ var femaleForm4 = {
   Armband: ['', 'bandage_left', 'bandage_right', 'egyptian_left', 'egyptian_right'],
   Vest: ['', 'athlete', 'yellow'],
   Cloak: ['', 'default', 'dracula'],
-  Robe: ['', 'school'],
+  Robe: ['', 'school_griffin', 'school_huff', 'school_slither', 'raven'],
   Wings: ['', 'angel', 'devil', 'fairy', 'skeleton']
 }
 var femaleForm5 = {
