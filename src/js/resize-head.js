@@ -1,9 +1,11 @@
 function resizeHead (ev) {
+    ev.preventDefault()
     var headSize = ev.target.value
     var hashArgs = {}
 
     hashArgs['headsize'] = headSize
     hash.add(hashArgs)
+    c.choices.headSize = headSize
     
     applyHeadResize(headSize)
 }
@@ -20,24 +22,23 @@ function applyHeadResize (headSize) {
         verticalCompensation = 0
     }
 
-    console.log('counter', counter)
-
     while(counter--) {
         headElements[counter].setAttribute('transform',  'matrix(' + scaleValue + ',0,0,' + scaleValue + ',' + horizontalCompensation + ',' + verticalCompensation + ')')
     }
 }
 
 function setHeadSizeSlider (headSize) {
-    console.log('setHeadSizeSlider')
-    document.querySelector('#head-size-slider').value = headSize
+    var slider = document.querySelector('#head-size-slider')
+    if (slider.value != headSize) {
+        slider.value = headSize
+    }
 }
 
 function checkHeadSize () {
-    var headSize = hash.get('headsize')
+    var headSize = hash.get('headsize') || c.choices.headSize
 
     if (headSize > 0) {
         setTimeout(function(){
-            console.log('Head Size Timeout')
             setHeadSizeSlider (headSize)
             applyHeadResize (headSize)
           }, 500)

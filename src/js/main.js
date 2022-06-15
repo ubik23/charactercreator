@@ -166,7 +166,7 @@ window.onload = function () {
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
   // if (doneBtn && typeof download === 'function') { doneBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
-  if (headSizeBtn && typeof resizeHead === 'function') { headSizeBtn.addEventListener('change', resizeHead, false) }
+  if (headSizeBtn && typeof resizeHead === 'function') { headSizeBtn.addEventListener('input', resizeHead, false) }
   // checkNightMode()
   startup()
 }
