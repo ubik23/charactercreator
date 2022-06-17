@@ -106,6 +106,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
 }
 
 window.onload = function () {
+  var theDotCom = false
   var c // Main variable to hold user choices and preferences
   var aboutBtn = document.querySelector('#aboutButton')
   var faqBtn = document.querySelector('#faqButton')
