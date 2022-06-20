@@ -1,7 +1,5 @@
 function addColorPicker () {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase()
-
-  // console.log('selected--item', section + '_' + selectedItem)
   getColor(section)
   showTutorial('random')
 }
@@ -107,7 +105,30 @@ function getColor (sectionId) {
       })
   } catch (error) {
     console.error(error)
+  } finally {
+    textboxColor()
   }
+}
+
+function textboxColor () {
+  var textboxContainer = document.querySelector('.colorpicker-wrapper')
+  const newTextbox = document.createElement("div");
+  const newTextboxLabel = document.createElement("span");
+  const newTextboxInput = document.createElement("input");
+  const newColorSample = document.createElement("div");
+
+  newTextboxLabel.textContent = "Color:"
+  newTextbox.appendChild(newTextboxLabel)
+
+  newTextboxInput.type = "text"
+  newTextboxInput.size = 7
+  newTextbox.appendChild(newTextboxInput)
+
+  newTextbox.classList.add('colorpicker-textbox')
+
+  textboxContainer.appendChild(newTextbox)
+  console.log('textboxContainer', textboxContainer)
+  
 }
 
 function emptyPicker () {
