@@ -1,4 +1,7 @@
-var maleForm1 = {
+
+  var currentHeadSize = 0
+  
+  var maleForm1 = {
   Body_head: ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
   Body: ['default', 'athletic', 'veiny', 'android-00'],
   Ears: ['default', 'elven', 'pointed', 'outstretched', 'plugged', 'unplugged'],
