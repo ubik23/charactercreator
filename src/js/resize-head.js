@@ -28,7 +28,7 @@ function applyHeadResize (headSize) {
     function stepHeadResize(timestamp) {
         let elapsed = Date.now() - start
         const horizontalOffset = -28.17
-        const verticalOffset = -15.5
+        const verticalOffset = -15
         let counter, scaleValue, horizontalCompensation, verticalCompensation, animHeadSize
         let headElements = document.querySelectorAll('#svg1 .js-head-element')
 
