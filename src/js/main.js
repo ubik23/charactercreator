@@ -268,7 +268,7 @@ function resetCharacter () {
 function relaunch () {
   male = document.querySelector('#male_silhouette')
   female = document.querySelector('#female_silhouette')
-  
+
   male.style.opacity = '1'
   female.style.opacity = '1'
 }
@@ -294,7 +294,7 @@ function hideMenus () {
   }
 }
 
-function fadeOutSVG () {
+function fadeOutSVG () {
   var svgContainer = document.querySelector('#svg1')
   var characterShadow = svgContainer.querySelector('.character-shadow.shine')
   var downloadBtn = document.querySelector('#downloadButton.enabled')
@@ -319,6 +319,7 @@ function fadeOutSVG () {
 
 function fadeInSVG () {
   var svgContainer = document.querySelector('#svg1')
+
   svgContainer.classList.remove('character--hide')
 }
 
@@ -363,6 +364,7 @@ function caboose () {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
@@ -407,14 +409,15 @@ function clickSelect (ev) {
 
   if (prefix === 'body') {
     bodyPart = getBodyPart(el.id)
+
     if (bodyPart === 'foot') {
-      console.log('foot')
       formSection = 5
     }
   }
 
   if (prefix === 'svg1') {
     zoomFull()
+
     return
   }
 
@@ -425,10 +428,10 @@ function clickSelect (ev) {
   if (formSection > -1) {
     sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML
 
-    console.log('sectionLabel', sectionLabel)
-
     sectionZoom(sectionLabel)
+
     isClosed = sectionList[formSection].nextSibling.classList.contains('section--hide')
+
     closeSections(sectionList[formSection])
 
     if (isClosed) {
@@ -441,6 +444,7 @@ function clickSelect (ev) {
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option')
       itemButton = itemButtonList[prefixIndex]
+      
       hideColorPicker()
       openThumbsLogic(itemButton)
     }
