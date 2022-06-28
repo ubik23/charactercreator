@@ -11,10 +11,13 @@ function closeAllOverlays () {
 
 function showAbout (ev) {
   ev.preventDefault()
+
   var overlay = document.querySelector('.js-about')
   var closeBtn = overlay.querySelector('.close-btn')
+
   hamburger()
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
@@ -22,35 +25,27 @@ function showAbout (ev) {
 
 function showFAQ (ev) {
   ev.preventDefault()
+
   var overlay = document.querySelector('.js-faq')
   var closeBtn = overlay.querySelector('.close-btn')
-  hamburger()
-  closeAllOverlays()
-  overlay.classList.add('overlay--show')
-  overlay.addEventListener('click', closeOverlay, true)
-  closeBtn.addEventListener('click', closeOverlay, false)
-}
 
-/*
-function showShop (ev) {
-  ev.preventDefault()
-  var overlay = document.querySelector('.js-shop')
-  // consolelog('url', upload())
-  var closeBtn = overlay.querySelector('.close-btn')
   hamburger()
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
-*/
 
 function showDownloadOptions (ev) {
   ev.preventDefault()
+
   var overlay = document.querySelector('.js-download-options')
   var closeBtn = overlay.querySelector('.close-btn')
+
   hamburger()
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
   overlay.addEventListener('click', closeOverlayWithTutorial, true)
   closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
@@ -58,12 +53,14 @@ function showDownloadOptions (ev) {
 
 function showDoneOptions (ev) {
   ev.preventDefault()
+
   var overlay = document.querySelector('.js-download-options')
   var closeBtn = overlay.querySelector('.close-btn')
+
   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Done BTN', eventLabel: 'Clicked on Done button.' })
 
-  // hamburger()
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
   overlay.addEventListener('click', closeOverlayWithTutorial, true)
   closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
@@ -71,8 +68,10 @@ function showDoneOptions (ev) {
 
 function logoutUI () {
   var pageWrap = document.querySelector('.logged')
+
   if (pageWrap) {
     pageWrap.classList.remove('logged')
+
     resetCharacters()
   }
 }
@@ -81,11 +80,14 @@ function loginMenu (evt) {
   if (evt) {
     evt.preventDefault()
   }
+
   var overlay = document.querySelector('.js-login')
   var loginForm = document.querySelector('#login-form')
   var firstInput = overlay.querySelector('.first-input')
   var closeBtn = overlay.querySelector('.close-btn')
+
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
   loginForm.addEventListener('submit', login, true)
   overlay.addEventListener('click', closeLogin, true)
@@ -97,10 +99,13 @@ function closeLogin (evt) {
   var overlay = document.querySelector('.js-login')
   var cancelBtn = overlay.querySelector('.cancel-btn')
   var target = evt.target
+
   if (target === overlay || target === cancelBtn) {
     var login = document.querySelector('.overlay--show')
+
     if (login) {
       clearInputFields()
+
       login.classList.remove('overlay--show')
     }
   }
@@ -108,13 +113,16 @@ function closeLogin (evt) {
 
 function closeOverlay (evt) {
   var overlay = document.querySelector('.overlay--show')
+
   if (overlay === null) { return };
   var cancelBtn = overlay.querySelector('.cancel-btn')
   var closeBtn = overlay.querySelector('.close-btn')
   var target = evt.target
+
   if (target === overlay || target === cancelBtn || target === closeBtn) {
     if (overlay) {
       hideNewCharacterInputField()
+
       overlay.classList.remove('overlay--show')
     }
   }
@@ -122,13 +130,17 @@ function closeOverlay (evt) {
 
 function closeOverlayWithTutorial (evt) {
   var overlay = document.querySelector('.overlay--show')
-  if (overlay === null) { return };
+
+  if (overlay === null) { return }
+
   var cancelBtn = overlay.querySelector('.cancel-btn')
   var closeBtn = overlay.querySelector('.close-btn')
   var target = evt.target
+
   if (target === overlay || target === cancelBtn || target === closeBtn) {
     if (overlay) {
       hideNewCharacterInputField()
+
       overlay.classList.remove('overlay--show')
     }
   }
@@ -138,8 +150,10 @@ function closeOverlayWithTutorial (evt) {
 function hideNewCharacterInputField () {
   var overlay = document.querySelector('.overlay--show')
   var newField = overlay.querySelector('.overlay__char-new--create')
+
   if (newField) {
     clearInputFields()
+
     newField.classList.remove('overlay__char-new--create')
   }
 }
@@ -149,9 +163,11 @@ function clearInputFields () {
   var inputList = currentOverlay.querySelectorAll('input')
   var inputListLength = inputList.length
   var errorField = currentOverlay.querySelector('.overlay__error--show')
+
   while (inputListLength--) {
     inputList[inputListLength].value = ''
   }
+
   if (errorField) {
     errorField.classList.remove('overlay__error--show')
   }
@@ -160,5 +176,6 @@ function clearInputFields () {
 function clearInputUsername () {
   var currentOverlay = document.querySelector('.overlay--show')
   var inputUsername = currentOverlay.querySelectorAll('.overlay__input__username')
+  
   inputUsername[0].value = ''
 }

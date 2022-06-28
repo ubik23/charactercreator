@@ -84,5 +84,6 @@ function isNew(section, item) {
   if (verdict) {
     newClass = ' new'
   }
+  
   return newClass
 }
