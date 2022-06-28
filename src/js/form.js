@@ -167,6 +167,7 @@ function replaceMultilayer (layersList, section) {
       }
     }
   }
+
   multiCounter = multiLayer.length
 
   while (multiCounter--) {
@@ -204,6 +205,7 @@ function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section)
   }
+
   loadFilesFromList(layersList, callback, callbackLoopFlag)
 }
 
@@ -221,6 +223,7 @@ function getPositionDir (layer) {
   } else if (sex === 'f' && ((window.femaleHead.headBack && window.femaleHead.headBack.indexOf(layer) > -1 ) || (window.femaleHead.headMiddle && window.femaleHead.headMiddle.indexOf(layer) > -1 ) || (window.femaleHead.headFront && window.femaleHead.headFront.indexOf(layer) > -1 ) || (window.femaleHead.headOver && window.femaleHead.headOver.indexOf(layer) > -1 ))) {
     positionDir = 'head_front_default/'
   }
+
   return positionDir
 }
 
@@ -308,9 +311,6 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContai
 }
 
 function tagHeadElement (svgObject) {
-  // Get sex of character
-  // Get list of prefixes that are part of head
-  // Get current object's prefix
   // If current object is a head element, add a js-head-element classname
   const femaleNeckAnchorPoint = "282.62808 158.60725"
   const maleNeckAnchorPoint = "281.36053px 147.80724px"
@@ -321,12 +321,6 @@ function tagHeadElement (svgObject) {
 
   if (headElements.includes(elementIdList[0]) || (elementIdList[0] === "body" && elementIdList[1] === "head")) {
     svgObject.classList.add('js-head-element')
-    // if (sex === 'm') {
-    //   svgObject.setAttribute('transformOrigin', maleNeckAnchorPoint)
-    // } else if (sex === 'f') {
-    //   svgObject.setAttribute('transform-origin', femaleNeckAnchorPoint)
-    // }
-    // svgObject.style.transformOrigin = 
   }
   return svgObject
 }
