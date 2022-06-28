@@ -20,12 +20,11 @@ function onAllLoaded () {
     downloadBtn.addEventListener('click', showDownloadOptions, false)
     downloadBtn.classList.add('enabled')
   }
+
   if (!doneBtn.classList.contains('.enabled')) {
     doneBtn.addEventListener('click', showDoneOptions, false)
     doneBtn.classList.add('enabled')
   }
-
-
 
   femaleSilhouette.style.opacity = '0'
   maleSilhouette.style.opacity = '0'
@@ -33,38 +32,24 @@ function onAllLoaded () {
   createForm(characterSex, forms)
 
   sideBarLeft.classList.add('visible')
+
   setTimeout(function(){
     showTutorial('category')
     applyClipPath()
   }, 1000)
 
   // setTransformOrigin(characterSex)
-  
-
   revealCharacter()
 
   zoomContainer.classList.add('zoom-container--show')
 }
 
-// function setTransformOrigin (characterSex) {
-//   var container = document.querySelector('#svg1 .character-container')
-//   var styles 
-//   var styleSheet = document.createElement("style")
-  
-//   if (characterSex === 'f') {
-//     styles = '.js-head-element {transform-origin: 282.62808px 158.60725px;transform:scale(1);}'
-//   } else {
-//     styles = '.js-head-element {transform-origin: 281.36053px 147.80724px;transform:scale(1);}'
-//   }
-
-//   styleSheet.innerText = styles
-//   container.appendChild(styleSheet)
-// }
-
 function processSection (section, item) {
+
   if (section === 'body' || section === 'ears' || section === 'nose' || section === 'eyes' || section === 'age' || section === 'freckles' || section === 'sockets' || section === 'scar' || section === 'wings' && item === 'devil') {
     section = 'skin'
   }
+
   if (section === 'mouth') {
     if (hash.get('mouthColor') != undefined) {
       section = 'mouth'
@@ -72,9 +57,11 @@ function processSection (section, item) {
       section = 'skin'
     }
   }
+
   if (section === 'facialhair' || section === 'brows') {
     section = 'hair'
   }
+
   return section
 }
 
@@ -84,10 +71,12 @@ function onEachLoaded (frag, fileName) {
 
   if (toBeShown.indexOf(myLayer.split('/')[2].split('.')[0]) > -1) {
     seen = 1
-  } else { seen = 0 };
+  } else { seen = 0 }
+
   // Get the section, then the color
   var section = myLayer.split('/')[2].split('_')[0]
   var item = myLayer.split('/')[2].split('_')[1].split('.')[0]
+
   section = processSection(section, item)
 
   frag.select('*').attr({ opacity: seen })
@@ -100,13 +89,16 @@ function choicesToList (c) {
   var keyChoice
   var valueChoice
   var layerChoice
+
   while (counter--) {
     keyChoice = Object.keys(c.choices)[counter]
+
     if (keyChoice.slice(-5) != 'Color' && keyChoice.slice(-9, -4) != 'Color') {
       valueChoice = c.choices[keyChoice]
       layerChoice = keyChoice + '_' + valueChoice
     }
   }
+
   return layersList
 }
 
@@ -123,11 +115,14 @@ function choicesToLayers (c, multiLayer) {
   var bodyTypeCounter
 
   for (var index in c.choices) {
+
     if (index.slice(-5) != 'Color') {
+
       if (index + '_' + c.choices[index] === 'body_athletic' || index + '_' + c.choices[index] === 'body_default' || index + '_' + c.choices[index] === 'body_veiny' || index + '_' + c.choices[index] === 'body_android-00') {
         bodyType = c.choices[index]
         bodyTypeList = bodyTypesToLayers(bodyType)
         bodyTypeCounter = bodyTypeList.length
+
         while (bodyTypeCounter--) {
           choiceLayers.push(bodyTypeList[bodyTypeCounter])
         }
@@ -141,12 +136,14 @@ function choicesToLayers (c, multiLayer) {
     if (choiceLayers[cl].slice(0, 7) === 'emotion') {
       tmpList = fromEmotionGetLayers(choiceLayers[cl].split('_')[1])
       counter = tmpList.length
+
       while (counter--) {
         selectedLayers.push(tmpList[counter])
       }
     } else {
       tmpList = getSectionsFromIdMultiLayer(multiLayer, '#' + choiceLayers[cl])
       counter = tmpList.length
+
       while (counter--) {
         selectedLayers.push(tmpList[counter].slice(1))
       }
@@ -155,13 +152,15 @@ function choicesToLayers (c, multiLayer) {
   // Add layers to be shown when creating a new character.
   if (c.choices.sex === 'f') {
     selectedLayers.push('nails_short_1_of_2', 'nails_short_2_of_2')
-  };
+  }
+
   // Make sure the eyeballs are included.
   if (selectedLayers.indexOf('eyeballs_default') < 0) {
     selectedLayers.push('eyeballs_default')
   }
+
   return selectedLayers
-};
+}
 
 function fromEmotionGetLayers (emotion) {
   var facialEpressionLayers = []
@@ -176,5 +175,6 @@ function fromEmotionGetLayers (emotion) {
     modElement = faceElements[faceCount] + '_' + emotion
     facialEpressionLayers.push(modElement)
   }
+
   return facialEpressionLayers
-};
+}
