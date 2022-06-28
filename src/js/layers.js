@@ -19,7 +19,6 @@ function purgeHiddenLayers () {
 
   while (counter--) {
     currentSVG = svg.querySelector('#' + layersList[counter])
-
     if (currentSVG != null && currentSVG.style.opacity === '0') {
       svg.removeChild(currentSVG)
     }
@@ -32,7 +31,6 @@ function showPupilObject (object, shape) {
   var counter = pupils.length
 
   while (counter--) {
-    
     if (pupils[counter].classList.contains('pupil--' + shape)) {
       pupils[counter].style.opacity = 1
     } else {
@@ -47,10 +45,9 @@ function clearCharacter () {
   var svgContainer = document.querySelector('#svg1 .character-container')
   // Clear only what's in .current-character
   var toBeRemovedList = document.querySelectorAll('#svg1 .character-container > g')
-  var counter = toBeRemovedList.
-  
-  while (counter--) {
+  var counter = toBeRemovedList.length
 
+  while (counter--) {
     if (toBeRemovedList[counter].id != 'male_silhouette' && toBeRemovedList[counter].id != 'female_silhouette') {
       svgContainer.removeChild(toBeRemovedList[counter])
     }
@@ -65,7 +62,6 @@ function resetCharacterTemplate () {
   var elementsCounter = elementsLength
 
   while (elementsCounter--) {
-
     if (elements[elementsCounter].style.opacity !== 0) {
       elements[elementsCounter].style.opactiy = '0'
       selements[elementsCounter].style.pointerEvents = 'none'
@@ -81,24 +77,23 @@ function findNextLayerInDom (item) {
   var layers
   var amountLayers
   var itemPosition
-
   if (sex === 'm') {
     layers = window.layersMale
   } else {
     layers = window.layersFemale
   }
-
   amountLayers = layers.length
   itemPosition = layers.indexOf(item)
 
   while (nextLayerSibling === null) {
     nextLayerSibling = svgContainer.querySelector('#' + layers[itemPosition + 1])
+
     if (itemPosition > amountLayers) {
       return
     }
+    
     ++itemPosition
   }
-  
   return nextLayerSibling
 }
 

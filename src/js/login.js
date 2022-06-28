@@ -17,17 +17,21 @@ var fetchDb = (function () {
   var fetchDb = function (path, body, method) {
     var url = '/api/' + path
     var opts = {}
+
     if (!method && typeof body === 'string') {
       method = body
       body = false
     }
+
     if (body) {
       opts.body = JSON.stringify(body)
       opts.method = 'post'
     }
+
     if (method) {
       opts.method = method
     }
+
     if (typeof window.fetch === 'function') {
       return window.fetch(url, Object.assign(opts, baseOpts))
     }
@@ -42,6 +46,7 @@ var fetchDb = (function () {
     err.url = resp.url
     return Promise.reject(err)
   }
+  
   return fetchDb
 }())
 
