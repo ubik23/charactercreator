@@ -31,7 +31,9 @@ function defaultEyeColor (cc, skinColor) {
     '#a3866a': '#552200' // Brown
   }
   const irisColor = eyeColorDict[skinColor]
+
   cc.choices.irisColor = irisColor
+
   hash.add({ irisColor })
 }
 
@@ -63,6 +65,8 @@ function defaultHairColor (cc, skinColor) {
     '#a3866a': '#1a1a1a' // Black
   }
   const hairColor = hairColorDict[skinColor]
+
   cc.choices.hairColor = hairColor
+  
   hash.add({ hairColor })
 }

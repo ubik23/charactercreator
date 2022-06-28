@@ -3,6 +3,7 @@
 function newChar () {
   var newCard = document.querySelector('.js-new-card')
   var firstInput = newCard.querySelector('.first-input')
+
   newCard.classList.add('overlay__char-new--create')
   firstInput.focus()
 }
@@ -18,10 +19,12 @@ function createChar (evt) {
 
   newCard.classList.remove('overlay__char-new--create')
   var personnageActuel = newCharName
+
   if (!personnageActuel) { return }
   if (!currentUser.cc) { currentUser.cc = {} }
   if (!currentUser.cc.personnageActuel) { currentUser.cc.personnageActuel = personnageActuel }
   if (!currentUser.cc.personnages) { currentUser.cc.personnages = {} }
+
   currentUser.cc.personnages[personnageActuel] = window.hash.get()
   Object.assign(currentUser.cc.personnages, personnages)
 
@@ -40,6 +43,7 @@ function createChar (evt) {
 function deleteChar () {
   var el = this
   var disposible = el.parentNode.parentNode.querySelector('.overlay__char-name').innerHTML
+
   delete currentUser.cc.personnages[disposible]
 
   updateDbUser(currentUser)
@@ -51,6 +55,7 @@ function deleteChar () {
     .catch(function (err) {
       consolelog('err', err)
     })
+    
   manageCharacters()
 }
 

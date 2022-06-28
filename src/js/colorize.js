@@ -2,23 +2,28 @@ function shadeColor (color, percent) {
   var num = parseInt(color.slice(1), 16)
   var amt = Math.round(2.55 * percent); var R = (num >> 16) + amt
   var G = (num >> 8 & 0x00FF) + amt; var B = (num & 0x0000FF) + amt
+
   return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 + (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1)
 }
 
 function ColorLuminance (hex, lum) {
   // validate hex string
   hex = String(hex).replace(/[^0-9a-f]/gi, '')
+
   if (hex.length < 6) {
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]
   }
+
   lum = lum || 0
   // convert to decimal and change luminosity
   var rgb = '#'; var c; var i
+
   for (i = 0; i < 3; i++) {
     c = parseInt(hex.substr(i * 2, 2), 16)
     c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16)
     rgb += ('00' + c).substr(c.length)
   }
+
   return rgb
 }
 
@@ -26,6 +31,7 @@ function colorizeByClass (elClassName, color) {
   var elementList = document.querySelectorAll(('.' + elClassName))
   var elementListLength = elementList.length
   var elCounter = elementListLength
+
   while (elCounter--) {
     elementList[elementListLength - (elCounter + 1)].style.fill = color
   }
@@ -81,6 +87,7 @@ function colorElement (el) {
   if (newColorEpsilon != undefined) {
     el = colorElementLoop(el, 'epsilon', newColorEpsilon, false)
   }
+
   return el
 }
 
@@ -110,6 +117,7 @@ function colorElementLoop (el, colorPrefix, newColor, lipstickFlag) {
   if (counter > 0) {
     colorListIndex = 3
     colorPair = getColorPair(colorList, colorListIndex)
+
     while (counter--) {
       childrenList[counter] = applyColorToChild(childrenList[counter], colorPair)
     }
@@ -150,12 +158,14 @@ function colorElementLoop (el, colorPrefix, newColor, lipstickFlag) {
       }
     }
   }
+
   return el
 }
 
 function applyColorToChild (child, colorPair) {
   if (child.style.fill != 'none' && child.style.fill != '') { child.style.fill = colorPair[0] }
   if (child.style.stroke != 'none' && child.style.stroke != '') { child.style.stroke = colorPair[1] }
+
   return child
 }
 
@@ -163,6 +173,7 @@ function getColorPair (colorList, colorListIndex) {
   var fillColor = colorList[colorListIndex]
   var strokeColor
   var colorPair = []
+
   colorPair.push(fillColor)
 
   if (colorListIndex - 2 < 0) {
@@ -170,7 +181,9 @@ function getColorPair (colorList, colorListIndex) {
   } else {
     strokeColor = colorList[colorListIndex - 2]
   }
+
   colorPair.push(strokeColor)
+
   return colorPair
 }
 
@@ -178,6 +191,7 @@ function getColorList (newColor) {
   // TODO Allow user to customize color contrast.
   var colorMultiplyer = 10 // Color contrast.
   var colorList = []
+
   colorList.push(shadeColor(newColor, -1 * (3 * colorMultiplyer)))
   colorList.push(shadeColor(newColor, -1 * (2 * colorMultiplyer)))
   colorList.push(shadeColor(newColor, -1 * colorMultiplyer))
@@ -185,6 +199,7 @@ function getColorList (newColor) {
   colorList.push(shadeColor(newColor, colorMultiplyer))
   colorList.push(shadeColor(newColor, (2 * colorMultiplyer)))
   colorList.push(shadeColor(newColor, (3 * colorMultiplyer)))
+
   return colorList
 }
 
@@ -199,6 +214,7 @@ function getColorClassPrefix (id) {
   } else {
     prefix = 'alpha'
   }
+
   return prefix
 }
 
@@ -257,12 +273,15 @@ function colorize (formId, _color) {
         } else {
           affectedList = []
           var myKey = id + 'Color'
+
           if (classPrefix != 'skin' && classPrefix != 'alpha' && classPrefix != 'lips') {
             myKey = myKey + '-' + classPrefix.slice(0, 3)
           }
+
           if (myKey === 'irisColor' || myKey === 'browsColor' || myKey === 'lashesColor' || myKey === 'socketsColor' || myKey === 'mouthColor') {
             for (i in forms[0].Emotion) {
               var tmpId = forms[0].Emotion[i]
+
               if (tmpId != '') {
                 affectedList.push(id + '_' + tmpId)
               }
@@ -273,6 +292,7 @@ function colorize (formId, _color) {
           } else {
             for (i in forms[f][capitalId]) {
               var tmpId = forms[f][capitalId][i]
+
               if (tmpId != '') {
                 affectedList.push(id + '_' + tmpId)
               }
@@ -286,15 +306,18 @@ function colorize (formId, _color) {
         affectedList = getAffectedListFromOrig(origList, multiLayer)
         var myValue = _color.toString()
         var obj = new Array()
+
         obj[myKey] = myValue
         hash.add(obj)
         modCharacter(myKey, myValue)
 
         for (n in affectedList) {
           fullId = '#' + affectedList[n]
+
           if (id === 'mouth') {
             seperator = ' .lips.'
           }
+
           var alphaNodes = document.querySelectorAll(fullId + seperator + classPrefix)
           var alphaLightNodes = document.querySelectorAll(fullId + seperator + classPrefix + classLight)
           var alphaLighterNodes = document.querySelectorAll(fullId + seperator + classPrefix + classLighter)
@@ -313,21 +336,27 @@ function colorize (formId, _color) {
           while (alphaNodesCounter--) {
             colorPaths(alphaNodes[alphaNodesCounter], _color, colorDarker)
           }
+
           while (alphaLightNodesCounter--) {
             colorPaths(alphaLightNodes[alphaLightNodesCounter], colorLight, colorDark)
           }
+
           while (alphaLighterNodesCounter--) {
             colorPaths(alphaLighterNodes[alphaLighterNodesCounter], colorLighter, _color)
           }
+
           while (alphaLightestNodesCounter--) {
             colorPaths(alphaLightestNodes[alphaLightestNodesCounter], colorLightest, colorLight)
           }
+
           while (alphaDarkNodesCounter--) {
             colorPaths(alphaDarkNodes[alphaDarkNodesCounter], colorDark, colorDarker)
           }
+
           while (alphaDarkerNodesCounter--) {
             colorPaths(alphaDarkerNodes[alphaDarkerNodesCounter], colorDarker, colorDarkest)
           }
+
           while (alphaDarkestNodesCounter--) {
             colorPaths(alphaDarkestNodes[alphaDarkestNodesCounter], colorDarkest, colorDarkest)
           }
@@ -341,6 +370,7 @@ function colorPaths (node, _color, colorDarker) {
   if (node.style.fill != 'none' && node.style.fill != '') {
     node.style.fill = _color
   }
+
   if (node.style.stroke != 'none' && node.style.stroke != '') {
     node.style.stroke = colorDarker
   }
@@ -349,8 +379,10 @@ function colorPaths (node, _color, colorDarker) {
 function getAffectedListFromOrig (origList, multiLayer) {
   var affectedList = []
   var layerCount
+
   for (a in origList) {
     layerCount = isInMultiLayerArray(origList[a], multiLayer)
+
     if (layerCount > 0) {
         for (var i = 1; i <= layerCount; i++) {
           idOf = origList[a] + '_' + i + '_of_' + layerCount
@@ -360,38 +392,43 @@ function getAffectedListFromOrig (origList, multiLayer) {
     affectedList.push(origList[a])
     }
   }
+
   return affectedList
 }
 
 function replacementStyle (json, newColor) {
   var newStyle = json.style
   var replacement = ''
+  var currentValue
+  var keyVal
+
   for (n in Object.keys(newStyle)) {
     var currentKey = Object.keys(newStyle)[n]
 
     if (currentKey === 'fill') {
       if (newStyle[currentKey] != 'none') {
         if (json.style['stroke-width'] === undefined) {
-          var currentValue = ColorLuminance(newColor, -0.12)
+          currentValue = ColorLuminance(newColor, -0.12)
         } else {
-          var currentValue = newColor
+          currentValue = newColor
         }
       } else {
-        var currentValue = newStyle[currentKey]
+        currentValue = newStyle[currentKey]
       }
     } else if (currentKey === 'stroke') {
       if (newStyle[currentKey] != 'none') {
         if (json.style['stroke-width'] != undefined) {
-          var currentValue = ColorLuminance(newColor, -0.2)
+          currentValue = ColorLuminance(newColor, -0.2)
         }
       } else {
-        var currentValue = newStyle[currentKey]
+        currentValue = newStyle[currentKey]
       }
     } else {
-      var currentValue = newStyle[currentKey]
+      currentValue = newStyle[currentKey]
     }
-    var keyVal = 	currentKey + ': ' + currentValue + '; '
+    keyVal = 	currentKey + ': ' + currentValue + '; '
     replacement = replacement.concat(keyVal)
   }
+  
   return replacement
 }
