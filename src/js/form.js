@@ -450,8 +450,10 @@ function manageSelectedItem (userChoice, category) {
   while(counter--) {
     previousSelectedItem[counter].classList.remove('selected--item')
   }
+
   newItem = document.querySelector(target)
   newItem.classList.add('selected--item')
+  
   // Add className to current selection
   if (isNew(category, userChoice) !== '' && newItem.classList.contains('new')) {
     newItem.classList.remove('new')
