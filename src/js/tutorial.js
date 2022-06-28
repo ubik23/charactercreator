@@ -1,6 +1,7 @@
 
 function showTutorial (step) {
   var el = document.querySelector('.tutorial__' + step)
+
   hideTutorial()
   el.classList.add('tutorial__show')
   tutorialPosition(step)
@@ -8,6 +9,7 @@ function showTutorial (step) {
 
 function hideTutorial () {
   var el = document.querySelector('.tutorial__show')
+
   if (el) {
     el.classList.remove('tutorial__show')
     el.classList.add('tutorial__step--seen')
@@ -30,31 +32,37 @@ function tutorialPosition (step) {
     el.style.top = (h/3) * 2 + 'px'
     el.style.left = (w/2) - (bbox.width / 2) + 'px'
   }
+
   if (step === 'skin') {
     gmenu = document.querySelector('.skin-color__container')
     el.style.top = (gmenu.getBoundingClientRect().top - bbox.height - 20) + 'px'
     el.style.left = (w/2) - (bbox.width / 2) + 'px'
   }
+
   if (step === 'category') {
     sideBarLeftBBox = sideBarLeft.getBoundingClientRect()
     el.style.top = (sideBarLeftBBox.bottom - bbox.height) + 'px'
     el.style.left = (sideBarLeftBBox.right + 10) + 'px'
   }
+
   if (step === 'items') {
     sideBarRightBBox = sideBarRight.getBoundingClientRect()
     el.style.top = (sideBarRightBBox.bottom - bbox.height) + 'px'
     el.style.left = (sideBarRightBBox.x - bbox.width - 20) + 'px'
   }
+
   if (step === 'colors') {
     sideBarRightBBox = sideBarRight.getBoundingClientRect()
     el.style.top = (sideBarRightBBox.top + 20) + 'px'
     el.style.left = (sideBarRightBBox.x - bbox.width - 20) + 'px'
   }
+
   if (step === 'random') {
     randomBtn = document.querySelector('.bigRedBtn')
     el.style.top = (randomBtn.getBoundingClientRect().top - bbox.height - 20) + 'px'
     el.style.left = (w/2) - (bbox.width / 2) + 'px'
   }
+  
   if (step === 'register') {
     // Check the screen size to see if there's a hamburger menu
     // If no hamburger menu, then point to the top right menu
