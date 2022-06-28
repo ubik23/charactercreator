@@ -30,6 +30,10 @@ function openThumbsLogic (_) {
   var layersList = getSectionLayersList(section)
   var sectionLowerCase = section.toLowerCase()
   var previousSelection = document.querySelector('.section--selected')
+  var thumbSection = document.querySelector('.widget')
+  var thumbSectionBtn = thumbSection.previousSibling
+  var sidebarLeft = document.querySelector('#sidebar-left')
+  var sidebarRight = document.querySelector('.sidebar-right')
 
   setTimeout(function(){
     showTutorial('items')
@@ -43,23 +47,17 @@ function openThumbsLogic (_) {
   if (previousSelection != null) {
     purgeHiddenLayers()
     previousSelection.classList.remove('section--selected')
-  };
-  console.log('section', sectionLowerCase)
+  }
+
   // Don't load items if they are already there
-
-
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true)
   showThumbOptions(_)
   _.classList.add('section--selected')
 
-  var thumbSection = document.querySelector('.widget')
-  var thumbSectionBtn = thumbSection.previousSibling
-  var sidebarLeft = document.querySelector('#sidebar-left')
-  var sidebarRight = document.querySelector('.sidebar-right')
-
   if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
     thumbSectionBtn = thumbSectionBtn.previousSibling
   }
+
   thumbSectionBtn = thumbSectionBtn.querySelector('.accordeon__svg-container')
 
   if (thumbSectionBtn.classList.contains('section-btn--hide')) {
@@ -74,6 +72,7 @@ function openThumbsLogic (_) {
     sidebarLeft.classList.remove('cherry')
     sidebarRight.classList.add('visible')
   }
+
   sidebarRight.classList.add('visible')
 }
 
@@ -110,6 +109,7 @@ function populateThumbs (svgObject) {
     groupTotal = parseInt(layerID.slice(-1))
     layerID = layerID.slice(0, -7)
     parentEl = document.querySelector('#content_1 .' + layerID)
+
     if (groupRank === groupTotal || !parentEl.firstChild) {
       parentEl.appendChild(thumbObject)
     } else if (groupTotal === 2) {
@@ -117,18 +117,22 @@ function populateThumbs (svgObject) {
     } else {
       groupInPlace = parentEl.childNodes
       counter = groupInPlace.length
+
       while (counter--) {
         loopRank = parseInt(groupInPlace[counter].id.slice(-6, -5))
+
         if (loopRank > groupRank) {
           parentEl.insertBefore(thumbObject, groupInPlace[counter])
         }
       }
+
       if (groupRank > groupInPlace[groupInPlace.length - 1].id.slice(-6, -5)) {
         document.querySelector('#content_1 .' + layerID).appendChild(thumbObject)
       }
     }
   } else if (emotion) {
     splitArray = layerID.split('_')
+
     if (layerID != 'eyeballs_default') {
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length - 1]).appendChild(thumbObject)
     }
@@ -146,6 +150,7 @@ function populateThumbs (svgObject) {
   } else {
     if (layerID === 'eyeball_right') {
       openedDrawer = document.querySelector('.selected--option').classList
+
       if (openedDrawer.contains('options__iris')) {
         pupilShape = getPupilShape()
         thumbObject = showPupilObject(thumbObject, pupilShape)
@@ -174,10 +179,12 @@ function showThumbOptions (_) {
   var allOptions = document.querySelectorAll('.options__container')
   var i = allOptions.length
   var sectionSelected = document.querySelector('.section--selected')
+
   if (sectionSelected === null) {
     while (i--) {
       allOptions[i].classList.remove('selected--option')
     }
+
     showOptionThumbs.classList.add('selected--option')
   };
   // TODO Figure out if there's a selected item among the options__
@@ -185,6 +192,7 @@ function showThumbOptions (_) {
   // console.log('<<< hash >>>', selectedItem)
   // document.querySelector('option__' + bra_bow)
   selectedItemObject = document.querySelector(selectedItemName)
+  
   if (selectedItemObject) {
     selectedItemObject.classList.add('selected--item')
   }
