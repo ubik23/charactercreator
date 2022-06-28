@@ -49,6 +49,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (bodyObject.bodyBack) {
     counter = bodyObject.bodyBack.length
     total = counter
+
     while (counter--) {
       layers.push(bodyObject.bodyBack[total - (counter + 1)])
     }
@@ -57,6 +58,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (headObject.headBack) {
     counter = headObject.headBack.length
     total = counter
+
     while (counter--) {
       layers.push(headObject.headBack[total - (counter + 1)])
     }
@@ -65,6 +67,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (bodyObject.bodyMiddle) {
     counter = bodyObject.bodyMiddle.length
     total = counter
+
     while (counter--) {
       layers.push(bodyObject.bodyMiddle[total - (counter + 1)])
     }
@@ -73,6 +76,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (headObject.headMiddle) {
     counter = headObject.headMiddle.length
     total = counter
+
     while (counter--) {
       layers.push(headObject.headMiddle[total - (counter + 1)])
     }
@@ -81,6 +85,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (bodyObject.bodyFront) {
     counter = bodyObject.bodyFront.length
     total = counter
+
     while (counter--) {
       layers.push(bodyObject.bodyFront[total - (counter + 1)])
     }
@@ -89,6 +94,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (headObject.headFront) {
     counter = headObject.headFront.length
     total = counter
+
     while (counter--) {
       layers.push(headObject.headFront[total - (counter + 1)])
     }
@@ -97,6 +103,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (bodyObject.bodyOver) {
     counter = bodyObject.bodyOver.length
     total = counter
+
     while (counter--) {
       layers.push(bodyObject.bodyOver[total - (counter + 1)])
     }
@@ -105,6 +112,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
   if (headObject.headOver) {
     counter = headObject.headOver.length
     total = counter
+
     while (counter--) {
       layers.push(headObject.headOver[total - (counter + 1)])
     }
@@ -136,12 +144,10 @@ window.onload = function () {
   var patreonBtn = document.querySelector('#patreon-btn')
   var braveAffiliateBtn = document.querySelector('#brave-affiliate-btn')
   var newCharBtn = document.querySelector('#new-char-btn')
-  // var saveCharToCloudBtn = document.querySelector('#save-char-to-cloud-btn')
   var loadCharBtn = document.querySelector('#load-char-btn')
   var nightModeBtn = document.querySelector('#nightModeButton')
   var bigRedBtn = document.querySelector('#bigRedButton')
   var downloadBtn = document.querySelector('#proceed-download')
-  // var doneBtn = document.querySelector('#doneButton')
   var nftBtn = document.querySelector('#purchase-nft')
   var homeBtn = document.querySelector('.site-title')
   var newBtn = document.querySelector('#newCharacterButton')
@@ -174,6 +180,7 @@ window.onload = function () {
   if (downloadBtn && typeof download === 'function') { downloadBtn.addEventListener('click', download, false) }
   if (nftBtn && typeof nftModal === 'function') { nftBtn.addEventListener('click', nftModal, false) }
   if (headSizeBtn && typeof resizeHead === 'function') { headSizeBtn.addEventListener('input', resizeHead, false) }
+
   startup()
 }
 
@@ -261,6 +268,7 @@ function resetCharacter () {
 function relaunch () {
   male = document.querySelector('#male_silhouette')
   female = document.querySelector('#female_silhouette')
+  
   male.style.opacity = '1'
   female.style.opacity = '1'
 }

@@ -44,9 +44,10 @@ var fetchDb = (function () {
     err.statusText = resp.statusText
     err.status = resp.status
     err.url = resp.url
+
     return Promise.reject(err)
   }
-  
+
   return fetchDb
 }())
 
@@ -84,13 +85,16 @@ function updateDbUser (user) {
       if (resp.ok) {
         return resp.json()
       }
+
       if (resp.status === 409) {
         return fetchDb.reject(resp, 'Not saving, _rev fields don\'t match')
       }
+
       if (resp.status === 404) {
         loginMenu()
         return fetchDb.reject(resp, 'Not logged in.')
       }
+
       return fetchDb.reject(resp)
     })
 }
@@ -113,9 +117,11 @@ function loginDbUser (username, password) {
 
 function determineErrorMessage (username) {
   var currentOverlay = document.querySelector('.overlay--show')
+
   if (currentOverlay.classList.contains('js-login')) {
     showErrorUsernamePasswordMismatch()
   }
+
   if (currentOverlay.classList.contains('js-register')) {
     showErrorUsernameTaken(username)
   }
@@ -126,7 +132,9 @@ function showErrorUsernamePasswordMismatch () {
   var errorBox = currentOverlay.querySelector('.overlay__error')
   var errorText = errorBox.querySelector('.overlay__error__text')
   var errorMsg = 'Sorry, username/password mismatch. Please try again.'
+
   clearInputFields()
+
   errorText.innerHTML = errorMsg
   errorBox.classList.add('overlay__error--show')
 }
@@ -161,7 +169,9 @@ function showErrorUsernameTaken (username) {
   var errorText = errorBox.querySelector('.overlay__error__text')
   var errorMsg = 'Username "' + username + '" is already taken. Try another.'
   errorText.innerHTML = errorMsg
+
   errorBox.classList.add('overlay__error--show')
+
   clearInputUsername()
 }
 
@@ -169,8 +179,11 @@ function whoami (ev) {
   ev.preventDefault()
   var overlay = document.querySelector('.js-character-list')
   var closeBtn = overlay.querySelector('.close-btn')
+
   closeAllOverlays()
+
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
@@ -228,10 +241,12 @@ function inheritNewCharacter () {
   var hasHash = hash.get('sex')
   var continueBtn = document.querySelector('.js-continue-character')
   var loadBtn = document.querySelector('.js-load-character')
+
   if (!hasHash) {
     // TODO check to see if there is a currentCharacter, and if so, load it.
     return
   }
+
   loadBtn.addEventListener('click', loadCharacter, false)
   continueBtn.addEventListener('click', continueNewCharacter, false)
   newCharModal.classList.add('overlay--show')
@@ -251,7 +266,9 @@ function continueNewCharacter (evt) {
 
 function requestNewCharacterName (evt) {
   evt.preventDefault()
+
   var nameCharModal = document.querySelector('.overlay--show')
+
   if (nameCharModal) {
     nameCharModal.classList.remove('overlay--show')
   }
@@ -260,12 +277,12 @@ function requestNewCharacterName (evt) {
 function loadCharacter (evt) {
   var characterSVG = document.querySelector('#svg1')
   var newCharModal = document.querySelector('.overlay--show')
+
   evt.preventDefault()
   hash.clear()
   clearCharacter()
   hashCharacter()
   startup()
-  // setHashTrigger()
   setTimeout(function () {
     characterSVG.classList.remove('character--hide')
     if (newCharModal) {
@@ -277,8 +294,10 @@ function loadCharacter (evt) {
 function closeNewCharacterOverlay (evt) {
   var overlay = document.querySelector('.js-login-new-character')
   var target = evt.target
+
   if (target === overlay) {
     var modal = document.querySelector('.overlay--show')
+
     if (modal) {
       modal.classList.remove('overlay--show')
     }
@@ -296,18 +315,23 @@ function switchCharacter (evt) {
   var currentClass = characterSVG.getAttribute('class')
   var newClass = currentClass + ' ' + 'character--hide'
   var charGender = currentUser.cc.personnages[newChar].sex
+
   if (currentClass === '') {
     if (charGender === 'f') {
       currentClass = 'select-female'
     }
+
     if (charGender === 'm') {
       currentClass = 'select-male'
     }
+
     newClass = currentClass
   }
+
   if (oldCard) {
     oldCard.classList.remove('overlay__char--current')
   }
+
   newCard.classList.add('overlay__char--current')
   currentUser.cc.personnageActuel = newChar
   characterListUI.classList.remove('overlay--show')
@@ -337,6 +361,7 @@ function switchCharacter (evt) {
 
 function revealCharacter () {
   var characterSVG = document.querySelector('#svg1')
+
   characterSVG.classList.remove('character--hide')
 }
 
@@ -361,6 +386,7 @@ function manageCharacters () {
   var charName
 
   resetCharacters()
+
   while (charNum--) {
     charName = charList[charNum]
     var newCard = charCard.cloneNode(true)
@@ -372,20 +398,24 @@ function manageCharacters () {
     charNameCard.innerHTML = charName
     charContainer.appendChild(newCard)
   }
+
   editBtns = charUI.querySelectorAll('.overlay__char-edit')
   editBtnsNum = editBtns.length
+
   while (editBtnsNum--) {
     editBtns[editBtnsNum].addEventListener('click', switchCharacter)
   }
+
   delBtns = charUI.querySelectorAll('.overlay__char-delete')
   delBtnsNum = delBtns.length
+
   while (delBtnsNum--) {
     delBtns[delBtnsNum].addEventListener('click', deleteChar)
   }
+
   userTitle.innerHTML = currentUser.name
   usernameText.innerHTML = currentUser.name
   pageWrap.classList.add('logged')
-  // saveBtn.addEventListener('click', saveChar, true)
   newBtn.addEventListener('click', newChar, true)
   createBtn.addEventListener('click', createChar, true)
 }
@@ -393,6 +423,7 @@ function manageCharacters () {
 function resetCharacters () {
   var charUI = document.querySelector('.js-character-list')
   var charCards = charUI.querySelectorAll('.overlay__char-card:not(.overlay__char-card--orig):not(.overlay__char-new)')
+
   Array.prototype.forEach.call(charCards, function (node) {
     node.parentNode.removeChild(node)
   })
@@ -424,6 +455,7 @@ function closeRegister (evt) {
 
   if (target === overlay || target === cancelBtn) {
     var register = document.querySelector('.overlay--show')
+
     if (register) {
       clearInputFields()
       register.classList.remove('overlay--show')
@@ -467,6 +499,7 @@ getDbSession()
     var t = []
     myUsername = user.name
     currentUser = user
+    
     if (user.cc && user.cc.personnages &&
       user.cc.personnageActuel &&
       user.cc.personnages[user.cc.personnageActuel]

@@ -14,6 +14,7 @@ function trans (sex) {
   }
 
   window.sex = sex
+
   buildCharacter(resetForms)
 }
 
@@ -128,9 +129,11 @@ function createCharacter () {
       if (xsel !== undefined) {
         var id = '#' + t + '_' + xsel
         layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+
         if (layerCount > 0) {
             for (var i = 1; i <= layerCount; i++) {
               idOf = id + '_' + i + '_of_' + layerCount
+
               viewport.selectAll(idOf).attr({
                 opacity: 1
               })
@@ -166,13 +169,15 @@ function getOptionsLogic (section) {
 
 function show (userChoice, category) {
   var multiLayer = getMultiLayer()
+  var emotions
+  var sections
 
   showTutorial('colors')
 
   if (typeof (category) === 'string') {
-    var sections = [category]
+    sections = [category]
   } else {
-    var sections = [category.split(' ')[1]]
+    sections = [category.split(' ')[1]]
   }
 
   var selectedOption = userChoice
@@ -197,7 +202,7 @@ function show (userChoice, category) {
     gaga('send', 'event', 'menu', 'select', id)
 
     sections = [] // Reset the sections layer so it doesn't contain 'emotion', as it isn't a layer in itself.
-    var emotions = GetEmotionGetLayers(selectedOption)
+    emotions = GetEmotionGetLayers(selectedOption)
 
     for (emo in emotions) {
       var newEmo = emotions[emo]
@@ -223,6 +228,7 @@ function displaySections (sections, options, selectedOption, multiLayer) {
         } else {
           var obj = new Array()
           obj[sections[section]] = selectedOption
+
           hash.add(obj)
           modCharacter(sections[section], selectedOption)
           gaga('send', 'event', 'menu', 'select', id)
@@ -248,6 +254,7 @@ function sectionShow (multiLayer, id) {
 
   if (id.slice(1, 7) === 'pupils') {
     pupilShape = id.slice(1).split('_')[1]
+
     showPupils(pupilShape)
   } else if (id.slice(1, 5) === 'body' && id.slice(6, 10) != 'head') {
     var idList = id.split('_')
@@ -267,6 +274,7 @@ function sectionShow (multiLayer, id) {
       for (var i = 1; i <= layerCount; i++) {
         idOf = id + '_' + i + '_of_' + layerCount
         sectionToHide = svgContainer.querySelector(idOf)
+
         if (sectionToHide != null) {
           sectionToHide.style.opacity = 1
           sectionToHide.style.pointerEvents = 'auto'
@@ -279,7 +287,6 @@ function sectionShow (multiLayer, id) {
   }
   
   if (id.slice(1).split('_')[0] === 'eyes') {
-    
     applyClipPath()
   }
 }
@@ -337,6 +344,7 @@ function sectionHide (multiLayer, id) {
     for (var i = 1; i <= layerCount; i++) {
       idOf = id + '_' + i + '_of_' + layerCount
       sectionToHide = svgContainer.querySelector(idOf)
+      
       if (sectionToHide != null) {
         sectionToHide.style.opacity = 0
         sectionToHide.style.pointerEvents = 'none'
