@@ -1,4 +1,4 @@
-  function createForm (sex, forms) {
+function createForm (sex, forms) {
   var svgContent = ''
   var itemsThumbsContent = document.querySelector('#content_1')
 
