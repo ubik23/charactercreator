@@ -86,6 +86,7 @@ function getForms (sex) {
     var form5 = maleForm5
     var form6 = maleForm6
   }
+
   forms = [form1, form2, form3, form4, form5, form6]
 
   return forms
@@ -93,8 +94,11 @@ function getForms (sex) {
 
 function dressFemaleRandom () {
   console.log('Dress Female Random')
+
   hideTutorial()
+
   var forms = getForms('f')
+
   // The following determines the percentage chance of each item to be selected
   var chanceDict = {
     // 'button' : 2,
@@ -141,9 +145,7 @@ function dressFemaleRandom () {
   var fabColor = fabricPallette[fabRoll]
   var fabColor2 = fabricPallette[fabRoll2]
 
-
   // Get random facial features
-
   // Get random head shape
   obj = new Array()
   options = forms[0].Body_head.slice(1)
@@ -181,10 +183,12 @@ function dressFemaleRandom () {
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['dress'] = randomItem
     hash.add(obj)
+
     // change color
     obj = new Array()
     obj['dressColor'] = fabColor
     hash.add(obj)
+
     // Add necklace
     if ( Math.floor((Math.random() * 100)) <= chanceDict.necklace) {
       obj = new Array()
@@ -195,7 +199,6 @@ function dressFemaleRandom () {
     }
   } else {
     // If wearing a top/bottom combo
-
     // Choose from shirts, tops and blouses
     topChoice = topList[Math.floor((Math.random() * topList.length))]
 
@@ -205,6 +208,7 @@ function dressFemaleRandom () {
       randomItem = options[Math.floor((Math.random() * options.length))]
       obj['shirt'] = randomItem
       hash.add(obj)
+      
       // change color
       obj = new Array()
       obj['shirtColor'] = fabColor2

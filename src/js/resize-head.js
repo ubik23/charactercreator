@@ -24,11 +24,11 @@ function applyHeadResize (headSize) {
         verticalCompensation = 0
     }
 
-
+    // Recursive requestAnimationFrame function to animate resizing of head
     function stepHeadResize(timestamp) {
         let elapsed = Date.now() - start
         const horizontalOffset = -28.17
-        const verticalOffset = -15
+        const verticalOffset = -15 // Was 15.5
         let counter, scaleValue, horizontalCompensation, verticalCompensation, animHeadSize
         let headElements = document.querySelectorAll('#svg1 .js-head-element')
 
@@ -64,6 +64,7 @@ function applyHeadResize (headSize) {
 
 function setHeadSizeSlider (headSize) {
     var slider = document.querySelector('#head-size-slider')
+    
     if (slider.value != headSize) {
         slider.value = headSize
     }
