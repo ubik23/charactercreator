@@ -36,8 +36,10 @@ function createForm (sex, forms) {
         if (t === 'emotion') {
           var sections = []
           var emotions = GetEmotionGetLayers(d)
+
           for (emo in emotions) {
             var newEmo = '#' + emotions[emo] + '_' + d
+
             sections.push(newEmo)
           };
         }
@@ -45,6 +47,7 @@ function createForm (sex, forms) {
         var viewBox = getViewBox(t, d)
 
         if (d === '') { svgContent = '<use xlink:href="#icon-none"></use>' } else { svgContent = '' }
+
         newHtml += '    <div class="option__container option__' + t + '_' + d + newClassName + '" tabindex="0"><svg viewBox="' + viewBox + '" class="svg__option ' + t + '_' + d + '">' + svgContent + '</svg><span class="option__label">' + d + '</span></div>'
       }).join('\n')
 
@@ -99,9 +102,11 @@ function createForm (sex, forms) {
 function getSectionsFromIdMultiLayer (multiLayer, tempId) {
   var sections = []
   var layerCount = isInMultiLayerArray(tempId.slice(1), multiLayer)
+
   if (layerCount > 0) {
     for (var i = 1; i <= layerCount; i++) {
       newLayer = tempId + '_' + i + '_of_' + layerCount
+
       sections.push(newLayer)
     }
   } else {
@@ -133,11 +138,13 @@ function getSectionLayersList (section) {
   }
 
   formCounter = formList.length
+
   while (formCounter--) {
     if (section in formList[formCounter]) {
       itemList = formList[formCounter][section]
     }
   }
+
   return itemList
 }
 
@@ -161,6 +168,7 @@ function replaceMultilayer (layersList, section) {
     }
   } else {
     counter = layersList.length
+
     while (counter--) {
       if (layersList[counter].slice(-1) != '_') {
         fullList.push(layersList[counter])
@@ -172,16 +180,19 @@ function replaceMultilayer (layersList, section) {
 
   while (multiCounter--) {
     currentItem = multiLayer[multiCounter][0]
+
     if (fullList.includes(currentItem)) {
       currentIndex = fullList.indexOf(currentItem)
       fullList.splice(currentIndex, 1)
       currentQty = multiLayer[multiCounter][1]
       qtyCounter = currentQty
+
       while (qtyCounter--) {
         fullList.push(currentItem + '_' + (qtyCounter + 1) + '_of_' + currentQty)
       }
     }
   }
+
   return fullList
 }
 
@@ -274,17 +285,19 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContai
         svgObject.style.opacity = 0
         svgObject.style.pointerEvents = 'none'
       }
+
       svgObject = colorElement(svgObject)
       svgObject = tagHeadElement(svgObject)
-      
       layerID = svgObject.id
 
       if (layerID === 'eyeballs_default') {
         pupilShape = getPupilShape()
         svgObject = showPupilObject(svgObject, pupilShape)
       }
+
       layerIDArray = layerID.split('_')
       nextLayerSibling = findNextLayerInDom(layerID)
+
       if ((svgContainer.querySelector('#' + layerID)) === null) {
         if (nextLayerSibling != null) {
           nextLayerSibling.parentNode.insertBefore(svgObject, nextLayerSibling)
@@ -296,14 +309,17 @@ function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContai
           }
         }
       }
+
       return svgObject
     }).then(function (svgObject) {
       var iris
       if (callback && typeof callback === 'function' && callbackLoopFlag) {
         iris = svgObject.querySelector('#eyeball_right')
+
         if (iris) {
           svgObject = iris
         }
+
         callback(svgObject)
       }
     })
@@ -315,18 +331,19 @@ function tagHeadElement (svgObject) {
   const femaleNeckAnchorPoint = "282.62808 158.60725"
   const maleNeckAnchorPoint = "281.36053px 147.80724px"
   var sex = c.choices.sex
-  console.log("SEX:", sex)
   var elementIdList = svgObject.id.split("_")
   var headElements = getListOfHeadElements()
 
   if (headElements.includes(elementIdList[0]) || (elementIdList[0] === "body" && elementIdList[1] === "head")) {
     svgObject.classList.add('js-head-element')
   }
+
   return svgObject
 }
 
 function getListOfHeadElements () {
   var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'facialhair', 'freckles', 'smoke', 'makeup', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
+
   return headElementList
 }
 
@@ -338,6 +355,7 @@ function addEventListenerList (list, event, fn) {
   var listLength = list.length
   var listCounter = listLength
   var i
+
   while (listCounter--) {
     i = listLength - listCounter - 1
     list[i].addEventListener(event, fn, false)
@@ -359,9 +377,11 @@ function closeSections (exception) {
       if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined) {
         sectionContent = sectionContent.nextSibling
       }
+
       if (!sectionContent.classList.contains('section--hide')) {
         sectionContent.classList.toggle('section--hide')
       }
+
       if (!button.classList.contains('section-btn--hide')) {
         button.classList.toggle('section-btn--hide')
       }
@@ -378,6 +398,7 @@ function toggleSection (ev) {
 
   if (elChild != null) {
     sectionLabel = elChild.innerHTML
+
     sectionZoom(sectionLabel)
   }
 
@@ -385,7 +406,8 @@ function toggleSection (ev) {
 
   if (this.parentNode.parentNode.parentNode.classList.contains('sidebar-left')) {
     closeSections(_)
-  };
+  }
+
   removeAlert(_)
   showSection(_)
 }
@@ -398,6 +420,7 @@ function showSection (_) {
   if (sectionContent.classList === undefined && sectionContent.nextSibling.classList != undefined) {
     sectionContent = sectionContent.nextSibling
   }
+
   maxHeight = sectionContent.clientHeight
   displayButton = _.querySelector('.accordeon__svg-container')
 
@@ -405,7 +428,8 @@ function showSection (_) {
     if (sectionContent.classList.contains('section--hide')) {
     } else {
       sectionContent.style.maxHeight = maxHeight
-    };
+    }
+
     sectionContent.classList.toggle('section--hide')
     displayButton.classList.toggle('section-btn--hide')
   }
@@ -413,21 +437,25 @@ function showSection (_) {
 
 function removeAlert (_) {
   var alert = document.querySelector('.alert')
+
   if (alert != null) {
     alert.classList.remove('alert')
   }
+
   if (_.classList.contains('alert')) {
     _.classList.remove('alert')
-  };
+  }
 }
 
 function changeOption () {
   var category = this.parentNode.parentNode.firstChild.innerHTML
   var userChoice = this.lastChild.innerHTML
   var colors = document.querySelector('.colorpicker-wrapper').previousSibling
+
   if (colors.classList === undefined && colors.previousSibling.classList != undefined) {
     colors = colors.previousSibling
   }
+
   show(userChoice, category)
   colors.classList.add('alert')
   manageSelectedItem(userChoice, category)
@@ -440,10 +468,11 @@ function manageSelectedItem (userChoice, category) {
   var newItem
   var sectionEl
   var catEl
-
   // sometimes sectionNamePart0 is null and we must abort
   var sectionNamePart0 = document.querySelector('#sidebar-left .new.section--selected')
+
   if (!sectionNamePart0) return // bail out
+
   var sectionName = sectionNamePart0.parentNode.parentNode.previousSibling.firstChild.firstChild.nextSibling.innerHTML.toLowerCase()
 
   // Remove previous className
@@ -453,14 +482,17 @@ function manageSelectedItem (userChoice, category) {
 
   newItem = document.querySelector(target)
   newItem.classList.add('selected--item')
-  
+
   // Add className to current selection
   if (isNew(category, userChoice) !== '' && newItem.classList.contains('new')) {
     newItem.classList.remove('new')
+
     if (newItem.parentNode.querySelectorAll('.new').length === 0) {
       sectionEl = document.querySelectorAll('#sidebar-left .new.section--selected')
+
       if (sectionEl) {
         sectionEl[0].classList.remove('new')
+        
         if (sectionEl[0].parentNode.querySelectorAll('.new').length === 0) {
           catEl = sectionEl[0].parentNode.parentNode.previousSibling
           catEl.classList.remove('new')

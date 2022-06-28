@@ -18,15 +18,12 @@ function initEyes () {
   init()
 
   function init () {
-    // consolelog('svgContainer', svgContainer)
-    // consolelog('characterHead', characterHead)
     var propotionalPlacement = 0.4243902439
     var svgContainerPos = getPosition(svgContainer)
     var characterHeadPos = characterHead.getBoundingClientRect()
     var eyeLeftPos = eyeLeft.getBoundingClientRect()
     var eyeRightPos = eyeRight.getBoundingClientRect()
     scaleMod = characterHeadPos.width / 41
-    // alohaLogoCenter.x = logoContainerPos.x + (logoContainerPos.width/2);
     characterHeadCenter.y = svgContainerPos.y + (characterHeadPos.height * propotionalPlacement) // propotional placement of eyes.
     eyeRightCenter.x = eyeRightPos.x + (eyeRightPos.width / 2)
     eyeLeftCenter.x = eyeLeftPos.x + (eyeLeftPos.width / 2)
@@ -36,7 +33,6 @@ function initEyes () {
   document.onmousemove = handleMouseMove
 
   function centerGaze () {
-    // consolelog('centerGaze')
     eyeRight.style.transform = 'scale(1, 1)'
     eyeLeft.style.transform = 'scale(1, 1)'
     eyeSockets.style.transform = 'translateY(0)'
@@ -76,21 +72,29 @@ function initEyes () {
 
     if (diffXRightAbs > diffYabs) {
       if (diffXRight > (3 * scaleMod)) { newXRight = 3 } else if (diffXRight < (-3 * scaleMod)) { newXRight = -3 } else { newXRight = (diffXRight / scaleMod) }
+
       newY = 3 * diffYabs / diffXRightAbs
+
       if (diffY < 0) { newY = newY * -1 }
     } else {
       if (diffY > 0) { newY = 3 } else { newY = -3 }
+
       newXRight = 3 * diffXRightAbs / diffYabs
+
       if (diffXRight < 0) { newXRight = newXRight * -1 }
     }
     //
     if (diffXLeftAbs > diffYabs) {
       if (diffXLeft > 0) { newXLeft = 3 } else { newXLeft = -3 }
+
       newY = 3 * diffYabs / diffXLeftAbs
+
       if (diffY < 0) { newY = newY * -1 }
     } else {
       if (diffY > 0) { newY = 3 } else { newY = -3 }
+
       newXLeft = 3 * diffXLeftAbs / diffYabs
+
       if (diffXLeft < 0) { newXLeft = newXLeft * -1 }
     }
 
@@ -106,10 +110,12 @@ function initEyes () {
     if (diffY < 0) {
       if (newXRight < 0) {
         newXRight = newXRight + (newY * -2 / 3)
+
         if (newXRight > 0) { newXRight = 0 }
       }
       if (newXLeft > 0) {
         newXLeft = newXLeft - (newY * -2 / 3)
+
         if (newXLeft < 0) { newXLeft = 0 }
       }
     }
@@ -122,6 +128,7 @@ function initEyes () {
     eyeRight.style.transform = 'translateX(' + newXRight + 'px)'
 
     clearTimeout(focus)
+    
     focus = setTimeout(centerGaze, 1500)
   }
 }

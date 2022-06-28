@@ -66,10 +66,8 @@ function getSVG () {
 
   svgNodes.forEach(function (item) {
     // This removes only useless layers and allows us to o the next test.
-    console.log("item", item)
+
     if (item.innerHTML && (!item.style || !item.style.opacity || item.style.opacity != 0)) {
-      console.log("item.transform", item.getAttribute('transform'))
-      console.log("item.transformOrigin", item.getAttribute('transform-origin'))
       // Catch head elements that have been scaled
       svgString = '<g id="' + item.id + '" >' + item.innerHTML + '</g>'
       
@@ -79,7 +77,6 @@ function getSVG () {
   })
 
   text += '</svg>'
-  console.log(text)
   return text
 }
 
@@ -97,6 +94,7 @@ function download (ev) {
 
   if (format === "png") {
     filename = c.choices.name || 'my_character.png'
+
     return svgToPng(text, filename)
       .then(function () {
         caboose()
@@ -124,5 +122,6 @@ function download (ev) {
   } else {
     pom.click()
   }
+  
   caboose()
 }

@@ -1,7 +1,9 @@
 
 function purgeHiddenLayers () {
   var option = document.querySelector('#content_1 .selected--option')
+
   if (!option) { return }
+
   var section = option.classList[2].slice(9)
   var thumbsSVG = document.querySelectorAll('#content_1 .selected--option svg')
   var svg = document.querySelector('#svg1 #character-container')
@@ -19,6 +21,7 @@ function purgeHiddenLayers () {
 
   while (counter--) {
     currentSVG = svg.querySelector('#' + layersList[counter])
+
     if (currentSVG != null && currentSVG.style.opacity === '0') {
       svg.removeChild(currentSVG)
     }
@@ -77,11 +80,13 @@ function findNextLayerInDom (item) {
   var layers
   var amountLayers
   var itemPosition
+
   if (sex === 'm') {
     layers = window.layersMale
   } else {
     layers = window.layersFemale
   }
+
   amountLayers = layers.length
   itemPosition = layers.indexOf(item)
 
@@ -91,9 +96,10 @@ function findNextLayerInDom (item) {
     if (itemPosition > amountLayers) {
       return
     }
-    
+
     ++itemPosition
   }
+  
   return nextLayerSibling
 }
 

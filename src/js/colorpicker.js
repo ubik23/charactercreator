@@ -1,11 +1,13 @@
 function addColorPicker () {
   var section = document.querySelector('.section--selected').innerHTML.toLowerCase()
+
   getColor(section)
   showTutorial('random')
 }
 
 function hideColorPicker () {
   var colorPicker = document.querySelector('.colorpicker-wrapper')
+
   if (colorPicker && !colorPicker.classList.contains('section--hide')) {
     colorPicker.classList.add('section--hide')
   }
@@ -47,11 +49,13 @@ function getPallette (sectionId) {
 
     while (classCounter--) {
       el = document.querySelector('#svg1 .character-container #' + files[counter] + ' .' + colorClasses[classCounter])
+
       if (el != null && el.style != null && el.style.fill != null) {
         pallette[colorClasses[classCounter]] = el.style.fill
       }
     }
   }
+
   drawPallette(pallette)
 }
 
@@ -127,16 +131,16 @@ function textboxColor () {
   newTextbox.classList.add('colorpicker-textbox')
 
   textboxContainer.appendChild(newTextbox)
-  console.log('textboxContainer', textboxContainer)
-  
 }
 
 function emptyPicker () {
   var wrapper = document.querySelector('.colorpicker-wrapper')
+
   wrapper.innerHTML = ''
 }
 
 function clearPicker () {
   var wrapper = document.querySelector('.colorpicker-wrapper')
+  
   wrapper.innerHTML = '<div class="colorpicker-controls"><span class="section-id"></span><div class="section-pallette"></div></div><div class="colorpicker-align"><div id="picker" style="background-color:rgb(255,0,0);"></div><div id="slide"></div></div>'
 }
