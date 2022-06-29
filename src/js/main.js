@@ -393,8 +393,6 @@ function layerHighlight (ev) {
 }
 
 function clickSelect (ev) {
-  console.log('ev.target.id', ev.target.id)
-
   if (ev.target.id === 'content') {
     zoomFull()
 

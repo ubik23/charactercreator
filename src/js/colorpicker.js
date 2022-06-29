@@ -49,8 +49,7 @@ function getPallette (sectionId) {
 
     while (classCounter--) {
       el = document.querySelector('#svg1 .character-container #' + files[counter] + ' .' + colorClasses[classCounter])
-      console.log('colorClasses[classCounter]', colorClasses[classCounter])
-      
+
       if (el != null && el.style != null && el.style.fill != null) {
         pallette[colorClasses[classCounter]] = el.style.fill
       }
@@ -66,6 +65,7 @@ function drawPallette (pallette) {
   var label
   var keys = Object.keys(pallette)
   var counter = keys.length
+  console.log('pallette', pallette)
 
   while (counter--) {
     node = document.createElement('INPUT')
