@@ -496,8 +496,6 @@ function getLayers () {
 }
 
 function getGroupParent (el) {
-
-  console.log('getGroupParent', el)
   var layers = getLayers()
 
   if (!layers.indexOf) return

@@ -1,3 +1,5 @@
+// This is the function called when the random button is clicked:
+
 function createDecentRandomCharacter () {
     var sex
     var skinTone
@@ -93,10 +95,6 @@ function getForms (sex) {
 }
 
 function dressFemaleRandom () {
-  console.log('Dress Female Random')
-
-  hideTutorial()
-
   var forms = getForms('f')
 
   // The following determines the percentage chance of each item to be selected
@@ -294,7 +292,7 @@ function dressFemaleRandom () {
   // Add bracelets, bandages and other accessories
   if ( Math.floor((Math.random() * 100)) <= chanceDict.bracelet) {
     obj = new Array()
-    options = forms[3].Bracelet.slice(1)
+    options = forms[4].Bracelet.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['bracelet'] = randomItem
     hash.add(obj)
@@ -311,7 +309,7 @@ function dressFemaleRandom () {
 
   if ( Math.floor((Math.random() * 100)) <= chanceDict.bracelet) {
     obj = new Array()
-    options = forms[3].Bracelet.slice(1)
+    options = forms[4].Bracelet.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['bracelet'] = randomItem
     hash.add(obj)
@@ -339,10 +337,9 @@ function dressFemaleRandom () {
     obj['leggingsColor'] = fabColor2
     hash.add(obj)
   }
-  console.log('TEST')
+  
   // Choose shoes
   if ( Math.floor((Math.random() * 100)) <= chanceDict.shoes) {
-    console.log('!!!SHOES!!!')
     obj = new Array()
     options = forms[5].Shoes.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length -1)) + 1]
@@ -400,7 +397,6 @@ function dressFemaleRandom () {
   // holster
   if ( Math.floor((Math.random() * 100)) <= chanceDict.holster) {
     obj = new Array()
-    console.log('Holster', forms[3].Holster)
     options = forms[3].Holster.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['holster'] = randomItem
@@ -457,11 +453,9 @@ function dressFemaleRandom () {
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.pet) {
   //   obj = new Array()
   //   options = forms[3].Pet.slice(1)
-  //   console.log('pet', options)
   //   randomItem = options[Math.floor((Math.random() * options.length))]
   //   obj['pet'] = randomItem
   //   hash.add(obj)
-  //   console.log('randomItem', randomItem)
   //   obj = new Array()
   //   obj['petColor'] = fabColor
   //   hash.add(obj)
@@ -481,11 +475,9 @@ function dressFemaleRandom () {
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.suit) {
   //   obj = new Array()
   //   options = forms[3].Suit.slice(1)
-  //   console.log('suit', options)
   //   randomItem = options[Math.floor((Math.random() * options.length))]
   //   obj['suit'] = randomItem
   //   hash.add(obj)
-  //   console.log('randomItem', randomItem)
   //   obj = new Array()
   //   obj['suitColor'] = fabColor
   //   hash.add(obj)
@@ -494,11 +486,9 @@ function dressFemaleRandom () {
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.tie) {
   //   obj = new Array()
   //   options = forms[2].Tie.slice(1)
-  //   console.log('tie', options)
   //   randomItem = options[Math.floor((Math.random() * options.length))]
   //   obj['tie'] = randomItem
   //   hash.add(obj)
-  //   console.log('randomItem', randomItem)
   //   obj = new Array()
   //   obj['tieColor'] = fabColor
   //   hash.add(obj)
@@ -515,16 +505,16 @@ function dressFemaleRandom () {
     hash.add(obj)
   }
   // warpaint
-  if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
-    obj = new Array()
-    options = forms[1].warpaint.slice(1)
-    randomItem = options[Math.floor((Math.random() * options.length))]
-    obj['warpaint'] = randomItem
-    hash.add(obj)
-    obj = new Array()
-    obj['warpaintColor'] = fabColor
-    hash.add(obj)
-  }
+  // if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
+  //   obj = new Array()
+  //   options = forms[1].warpaint.slice(1)
+  //   randomItem = options[Math.floor((Math.random() * options.length))]
+  //   obj['warpaint'] = randomItem
+  //   hash.add(obj)
+  //   obj = new Array()
+  //   obj['warpaintColor'] = fabColor
+  //   hash.add(obj)
+  // }
   // wings
   if ( Math.floor((Math.random() * 100)) <= chanceDict.wings) {
     obj = new Array()
@@ -542,9 +532,6 @@ function dressFemaleRandom () {
 }
 
 function dressMaleRandom () {
-  console.log('Dress Male Random')
-  hideTutorial()
-
   var forms = getForms('m')
   var chanceDict = {
     // 'button' : 2,
@@ -714,7 +701,7 @@ function dressMaleRandom () {
   // Add watch, bracelet, bandages and other accessories
   if ( Math.floor((Math.random() * 100)) <= chanceDict.watch) {
     obj = new Array()
-    options = forms[3].Watch.slice(1)
+    options = forms[4].Watch.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['watch'] = randomItem
     hash.add(obj)
@@ -734,9 +721,6 @@ function dressMaleRandom () {
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['shoulderpads'] = randomItem
     hash.add(obj)
-    // obj = new Array()
-    // obj['shoulderpadsColor'] = fabColor
-    // hash.add(obj)
   }
 
   // Add socks
@@ -747,15 +731,13 @@ function dressMaleRandom () {
     obj['socks'] = randomItem
     hash.add(obj)
   }
+  
   // Choose shoes
   obj = new Array()
   options = forms[5].Shoes.slice(1)
-  randomItem = options[Math.floor((Math.random() * options.length))]
+  randomItem = options[1 + Math.floor((Math.random() * (options.length - 1)))]
   obj['shoes'] = randomItem
   hash.add(obj)
-  // obj = new Array()
-  // obj['shoesColor'] = fabColor
-  // hash.add(obj)
 
   // coat
   if ( Math.floor((Math.random() * 100)) <= chanceDict.coat) {
@@ -793,7 +775,7 @@ function dressMaleRandom () {
   // holster
   if ( Math.floor((Math.random() * 100)) <= chanceDict.holster) {
     obj = new Array()
-    options = forms[3].Holster.slice(1)
+    options = forms[2].Holster.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['holster'] = randomItem
     hash.add(obj)
@@ -832,11 +814,9 @@ function dressMaleRandom () {
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.pet) {
   //   obj = new Array()
   //   options = forms[3].Pet.slice(1)
-  //   console.log('pet', options)
   //   randomItem = options[Math.floor((Math.random() * options.length))]
   //   obj['pet'] = randomItem
   //   hash.add(obj)
-  //   console.log('randomItem', randomItem)
   //   obj = new Array()
   //   obj['petColor'] = fabColor
   //   hash.add(obj)
@@ -856,11 +836,9 @@ function dressMaleRandom () {
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.suit) {
   //   obj = new Array()
   //   options = forms[3].Suit.slice(1)
-  //   console.log('suit', options)
   //   randomItem = options[Math.floor((Math.random() * options.length))]
   //   obj['suit'] = randomItem
   //   hash.add(obj)
-  //   console.log('randomItem', randomItem)
   //   obj = new Array()
   //   obj['suitColor'] = fabColor
   //   hash.add(obj)

@@ -39,7 +39,6 @@ function getPallette (sectionId) {
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
     // files = replaceMultilayer(files, sectionId)
-    // console.log('files', files)
   }
 
   counter = files.length
@@ -116,7 +115,7 @@ function getColor (sectionId) {
 
 function textboxColor () {
   if (!proVersion) {return}
-  console.log('textBoxColor, pro version? ', theDotCom)
+
   var textboxContainer = document.querySelector('.colorpicker-wrapper')
   const newTextbox = document.createElement("div");
   const newTextboxLabel = document.createElement("span");
