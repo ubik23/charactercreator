@@ -145,6 +145,7 @@ function sectionZoom (sectionLabel) {
 
 function animateZoom (newViewBox) {
   var characterSVG = document.querySelector('#svg1')
+  var background = document.querySelector('#content')
   var currentViewBox = characterSVG.viewBox.baseVal
   var globalID
   var animationDuration = 350 // Duration of animation in milliseconds;
@@ -168,8 +169,10 @@ function animateZoom (newViewBox) {
 
   if (newViewBox != '10 50 540 540' && !characterSVG.classList.contains('zoomed')) {
     characterSVG.classList.add('zoomed')
+    background.classList.add('zoomed')
   } else if (newViewBox === '10 50 540 540' && characterSVG.classList.contains('zoomed')) {
     characterSVG.classList.remove('zoomed')
+    background.classList.remove('zoomed')
   }
 
   newViewBox = newViewBox.split(' ')

@@ -27,6 +27,10 @@
     &.zoomed {cursor: zoom-out;}
 }
 
+#content.zoomed {
+    cursor: zoom-out;
+}
+
 .js-head-element {
     // transition: transform 250ms ease;
 }

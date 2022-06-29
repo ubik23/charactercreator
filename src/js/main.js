@@ -123,7 +123,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
 
 window.onload = function () {
   var theDotCom = false // Flag to activation features meant for thecharactercreator.com, switch to true before pushing to the dot com
-  var c // Main variable to hold user choices and preferences
+  var c // Main (Character) variable to hold the choices and preferences of the user.
   var aboutBtn = document.querySelector('#aboutButton')
   var faqBtn = document.querySelector('#faqButton')
   var shopBtn = document.querySelector('#shopButton')
@@ -152,6 +152,7 @@ window.onload = function () {
   var homeBtn = document.querySelector('.site-title')
   var newBtn = document.querySelector('#newCharacterButton')
   var headSizeBtn = document.querySelector('#head-size-slider')
+  var background = document.querySelector('#content')
 
   if (homeBtn && typeof gotoNewChar === 'function') { homeBtn.addEventListener('click', gotoNewChar, false) }
   if (newBtn && typeof gotoNewChar === 'function') { newBtn.addEventListener('click', gotoNewChar, false) }
@@ -170,6 +171,7 @@ window.onload = function () {
   if (femaleSilhouette && typeof selectFemale === 'function') { femaleSilhouette.addEventListener('click', selectFemale, false) }
   if (svgContainer && typeof clickSelect === 'function') { svgContainer.addEventListener('click', clickSelect, false) }
   if (svgContainer && typeof layerHighlight === 'function') { svgContainer.addEventListener('mouseover', layerHighlight, false) }
+  if (background && typeof clickSelect === 'function') { background.addEventListener('click', clickSelect, false) }
   if (patreonLink && typeof tattle === 'function') { patreonLink.addEventListener('click', tattle, false) }
   if (patreonBtn && typeof gotoPatreon === 'function') { patreonBtn.addEventListener('click', gotoPatreon, false) }
   if (braveAffiliateBtn && typeof gotoBrave === 'function') { braveAffiliateBtn.addEventListener('click', gotoBrave, false) }
@@ -391,6 +393,14 @@ function layerHighlight (ev) {
 }
 
 function clickSelect (ev) {
+  console.log('ev.target.id', ev.target.id)
+
+  if (ev.target.id === 'content') {
+    zoomFull()
+
+    return
+  }
+
   var el = getGroupParent(ev.target)
   var formSection
   var sectionList = document.querySelectorAll('section.accordeon__section-label')
@@ -818,7 +828,7 @@ function selectFemale (event) {
   hash.add({ sex: 'f' })
   
   femalePath = document.getElementById('path_female')
-  
+
   mainSVG.classList.add('select-female')
   shadow.classList.add('shine')
 
