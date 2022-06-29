@@ -444,7 +444,7 @@ function clickSelect (ev) {
     if (prefixIndex > -1) {
       itemButtonList = sectionList[formSection].nextSibling.querySelectorAll('li.sbl__option')
       itemButton = itemButtonList[prefixIndex]
-      
+
       hideColorPicker()
       openThumbsLogic(itemButton)
     }
@@ -600,6 +600,7 @@ function fromPrefixGetFormSection (prefix) {
         if (key.toLowerCase() === prefix) { formSection = counterForm }
       }
     }
+
     if (formSection === undefined) { formSection = -1 }
   }
 
@@ -675,6 +676,7 @@ function chooseSkinColor () {
     for (color in skinTones) {
       var newColor = skinTones[color]
       var node = document.createElement('LI')
+
       node.className = 'skin-tone'
       node.style.cssText = 'background-color:' + newColor + ';'
       gmenu.appendChild(node)
@@ -816,6 +818,7 @@ function selectFemale (event) {
   hash.add({ sex: 'f' })
   
   femalePath = document.getElementById('path_female')
+  
   mainSVG.classList.add('select-female')
   shadow.classList.add('shine')
 

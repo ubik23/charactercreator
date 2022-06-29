@@ -19,6 +19,7 @@ function showAbout (ev) {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
@@ -33,6 +34,7 @@ function showFAQ (ev) {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlay, true)
   closeBtn.addEventListener('click', closeOverlay, false)
 }
@@ -47,6 +49,7 @@ function showDownloadOptions (ev) {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlayWithTutorial, true)
   closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
 }
@@ -62,6 +65,7 @@ function showDoneOptions (ev) {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   overlay.addEventListener('click', closeOverlayWithTutorial, true)
   closeBtn.addEventListener('click', closeOverlayWithTutorial, false)
 }
@@ -89,6 +93,7 @@ function loginMenu (evt) {
   closeAllOverlays()
 
   overlay.classList.add('overlay--show')
+
   loginForm.addEventListener('submit', login, true)
   overlay.addEventListener('click', closeLogin, true)
   firstInput.focus()
@@ -114,7 +119,8 @@ function closeLogin (evt) {
 function closeOverlay (evt) {
   var overlay = document.querySelector('.overlay--show')
 
-  if (overlay === null) { return };
+  if (overlay === null) { return }
+  
   var cancelBtn = overlay.querySelector('.cancel-btn')
   var closeBtn = overlay.querySelector('.close-btn')
   var target = evt.target
@@ -176,6 +182,6 @@ function clearInputFields () {
 function clearInputUsername () {
   var currentOverlay = document.querySelector('.overlay--show')
   var inputUsername = currentOverlay.querySelectorAll('.overlay__input__username')
-  
+
   inputUsername[0].value = ''
 }

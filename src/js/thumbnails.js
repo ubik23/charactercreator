@@ -5,25 +5,6 @@ function openThumbs () {
   openThumbsLogic(this)
 }
 
-/*
-function calcViewBox (svgObject) {
-  // TODO Calculate the view Box automatically to make creating new items easier
-  var viewBox
-  // var rect = svgObject.getBoundingClientRect()
-
-  // Figure out whether height or width is larger
-  // recalculate smallest of the two to be the same size as the largest
-  // take the difference between largest and smallest and divide by two
-  // Take away that amount from starting point of smallest side (x or y)
-  // Make the width/height the same.
-
-  // consolelog('svgObject', svgObject)
-  // consolelog('rect', rect)
-
-  return viewBox
-}
-*/
-
 function openThumbsLogic (_) {
   // TODO Add 'selected-item' class to default or selected item(s)
   var section = _.innerHTML
@@ -46,12 +27,14 @@ function openThumbsLogic (_) {
 
   if (previousSelection != null) {
     purgeHiddenLayers()
+
     previousSelection.classList.remove('section--selected')
   }
 
   // Don't load items if they are already there
   loadSectionLayers(sectionLowerCase, layersList, populateThumbs, true)
   showThumbOptions(_)
+
   _.classList.add('section--selected')
 
   if (thumbSectionBtn.classList === undefined && thumbSectionBtn.previousSibling.classList != undefined) {
@@ -100,12 +83,10 @@ function populateThumbs (svgObject) {
   // var viewBox = calcViewBox(svgObject);
   thumbObject.style.opacity = 1
   // thumbObject.classList.add('selected-item')
-  // console.log('thumbObject', thumbObject)
 
   // TODO Add 'selected-item' className to default and selected objects.
   if (layerID.slice(-5, -1) === '_of_') {
     groupRank = parseInt(layerID.slice(-6, -5))
-
     groupTotal = parseInt(layerID.slice(-1))
     layerID = layerID.slice(0, -7)
     parentEl = document.querySelector('#content_1 .' + layerID)
@@ -137,7 +118,6 @@ function populateThumbs (svgObject) {
       document.querySelector('#content_1 ' + '.emotion_' + splitArray[splitArray.length - 1]).appendChild(thumbObject)
     }
   } else if (layerID.slice(0, 4) === 'body' && layerID.slice(5, 9) != 'head') {
-    // consolelog('layerID', layerID)
     if (layerID.slice(-5) === 'fault') {
       document.querySelector('#content_1 .' + 'body_default').appendChild(thumbObject)
     } else if (layerID.slice(-5) === 'letic') {
@@ -155,11 +135,13 @@ function populateThumbs (svgObject) {
         pupilShape = getPupilShape()
         thumbObject = showPupilObject(thumbObject, pupilShape)
         layerID = 'iris_default'
+
         document.querySelector('#content_1 .' + layerID).appendChild(thumbObject)
       }
       if (openedDrawer.contains('options__pupils')) {
         while (counter--) {
           pupilObject = showPupilObject(thumbObject, pupilShapeList[counter]).cloneNode(true)
+
           document.querySelector('#content_1 .pupils_' + pupilShapeList[counter]).appendChild(pupilObject)
         }
       }
@@ -186,13 +168,10 @@ function showThumbOptions (_) {
     }
 
     showOptionThumbs.classList.add('selected--option')
-  };
-  // TODO Figure out if there's a selected item among the options__
-  // console.log('<<< section >>>', _.innerHTML.toLowerCase())
-  // console.log('<<< hash >>>', selectedItem)
-  // document.querySelector('option__' + bra_bow)
-  selectedItemObject = document.querySelector(selectedItemName)
+  }
   
+  selectedItemObject = document.querySelector(selectedItemName)
+
   if (selectedItemObject) {
     selectedItemObject.classList.add('selected--item')
   }
