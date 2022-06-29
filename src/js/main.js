@@ -171,7 +171,7 @@ window.onload = function () {
   if (femaleSilhouette && typeof selectFemale === 'function') { femaleSilhouette.addEventListener('click', selectFemale, false) }
   if (svgContainer && typeof clickSelect === 'function') { svgContainer.addEventListener('click', clickSelect, false) }
   if (svgContainer && typeof layerHighlight === 'function') { svgContainer.addEventListener('mouseover', layerHighlight, false) }
-  if (background && typeof clickSelect === 'function') { background.addEventListener('click', clickSelect, false) }
+  if (background && typeof zoomFull === 'function') { background.addEventListener('click', zoomFull, false) }
   if (patreonLink && typeof tattle === 'function') { patreonLink.addEventListener('click', tattle, false) }
   if (patreonBtn && typeof gotoPatreon === 'function') { patreonBtn.addEventListener('click', gotoPatreon, false) }
   if (braveAffiliateBtn && typeof gotoBrave === 'function') { braveAffiliateBtn.addEventListener('click', gotoBrave, false) }
@@ -497,6 +497,8 @@ function getLayers () {
 }
 
 function getGroupParent (el) {
+
+  console.log('getGroupParent', el)
   var layers = getLayers()
 
   if (!layers.indexOf) return
