@@ -58,7 +58,7 @@ function tutorialPosition (step) {
   }
 
   if (step === 'random') {
-    randomBtn = document.querySelector('.bigRedBtn')
+    randomBtn = document.querySelector('#bigRedButton')
     el.style.top = (randomBtn.getBoundingClientRect().top - bbox.height - 20) + 'px'
     el.style.left = (w/2) - (bbox.width / 2) + 'px'
   }
