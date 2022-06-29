@@ -93,7 +93,6 @@ function getColor (sectionId) {
   var slide = document.getElementById('slide')
   var picker = document.getElementById('picker')
   var section = document.querySelector('.section-id')
-  // console.log('sectionId', sectionId)
   var selectedItem = hash.get(sectionId)
   // var wrapper = document.querySelector('.colorpicker-wrapper')
 
@@ -116,6 +115,8 @@ function getColor (sectionId) {
 }
 
 function textboxColor () {
+  if (!proVersion) {return}
+  console.log('textBoxColor, pro version? ', theDotCom)
   var textboxContainer = document.querySelector('.colorpicker-wrapper')
   const newTextbox = document.createElement("div");
   const newTextboxLabel = document.createElement("span");

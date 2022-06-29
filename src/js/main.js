@@ -122,7 +122,6 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
 }
 
 window.onload = function () {
-  var theDotCom = false // Flag to activation features meant for thecharactercreator.com, switch to true before pushing to the dot com
   var c // Main (Character) variable to hold the choices and preferences of the user.
   var aboutBtn = document.querySelector('#aboutButton')
   var faqBtn = document.querySelector('#faqButton')

@@ -1,5 +1,6 @@
 
   var currentHeadSize = 0
+  var proVersion = false // Flag to activation features meant for thecharactercreator.com, switch to true before pushing to the dot com
   
   var maleForm1 = {
   Body_head: ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],
@@ -136,10 +137,12 @@ var layerDirectoryMale = 'layer/male/'
 
 function countItems (list) {
   let sum = 1
+
   for (const r in list) {
     // filter(Boolean) filters out "" cases
     sum *= list[r].filter(Boolean).length || 1
   }
+  
   return sum
 }
 
