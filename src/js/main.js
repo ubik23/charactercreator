@@ -417,9 +417,19 @@ function clickSelect (ev) {
 
   if (prefix === 'body') {
     bodyPart = getBodyPart(el.id)
+    console.log('bodyPart', bodyPart)
 
     if (bodyPart === 'foot') {
       formSection = 5
+    }
+    if (bodyPart === 'torso') {
+      formSection = 2
+    }
+    if (bodyPart === 'leg') {
+      formSection = 4
+    }
+    if (bodyPart === 'arm' || bodyPart === 'forearm') {
+      formSection = 1
     }
   }
 

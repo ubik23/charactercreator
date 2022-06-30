@@ -81,7 +81,7 @@ function zoomTwoFaces () {
   animateZoom(newViewBox)
 }
 
-function zoomTorso () {
+function zoomShoulders () {
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
@@ -95,6 +95,47 @@ function zoomTorso () {
   animateZoom(newViewBox)
 }
 
+function zoomTorso () {
+  var sex = c.choices.sex
+  var newViewBox
+  shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
+
+  if (sex == 'm') {
+    newViewBox = '204 150 150 150'
+  } else {
+    newViewBox = '207 152 150 150'
+  }
+
+  animateZoom(newViewBox)
+}
+
+function zoomLegs () {
+  var sex = c.choices.sex
+  var newViewBox
+  shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
+
+  if (sex == 'm') {
+    newViewBox = '144 280 270 270'
+  } else {
+    newViewBox = '144 270 270 270'
+  }
+
+  animateZoom(newViewBox)
+}
+
+function zoomArms () {
+  var sex = c.choices.sex
+  var newViewBox
+  shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
+
+  if (sex == 'm') {
+    newViewBox = '144 85 270 270'
+  } else {
+    newViewBox = '144 167 270 270'
+  }
+
+  animateZoom(newViewBox)
+}
 function zoomBody () {
   var sex = c.choices.sex
   var newViewBox
@@ -121,14 +162,16 @@ function zoomFull () {
 function viewBoxZoom (ev) {
   var zoomLevel = ev.target.value
 
-  if (zoomLevel == 4) {
+  if (zoomLevel == 5) {
     zoomFeet()
+  } else if (zoomLevel == 4) {
+    zoomLegs()
   } else if (zoomLevel == 3) {
     zoomFace()
   } else if (zoomLevel == 2) {
     zoomTorso()
   } else if (zoomLevel == 1) {
-    zoomBody()
+    zoomArms()
   } else if (zoomLevel == 0) {
     zoomFull()
   }
@@ -140,11 +183,11 @@ function sectionZoom (sectionLabel) {
   console.log('zoom', sectionLabel)
 
   if (sectionLabel === 'Head') { zoomInput.value = 3; zoomFace() }
-  if (sectionLabel === 'Accessories') { zoomInput.value = 3; zoomFace() }
+  if (sectionLabel === 'Accessories') { zoomInput.value = 1; zoomArms() }
   if (sectionLabel === 'Torso') { zoomInput.value = 2; zoomTorso() }
   if (sectionLabel === 'Body') { zoomInput.value = 1; zoomBody() }
-  if (sectionLabel === 'Legs') { zoomInput.value = 0; zoomFull() }
-  if (sectionLabel === 'Feet') { zoomInput.value = 4; zoomFeet() }
+  if (sectionLabel === 'Legs') { zoomInput.value = 4; zoomLegs() }
+  if (sectionLabel === 'Feet') { zoomInput.value = 5; zoomFeet() }
 }
 
 function animateZoom (newViewBox) {
@@ -172,7 +215,7 @@ function animateZoom (newViewBox) {
   var animateViewBox
 
   console.log('animateZoom', newViewBox)
-  
+
   if (newViewBox != '10 50 540 540' && !characterSVG.classList.contains('zoomed')) {
     characterSVG.classList.add('zoomed')
     background.classList.add('zoomed')
