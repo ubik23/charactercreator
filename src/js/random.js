@@ -419,7 +419,7 @@ function dressFemaleRandom () {
   // kneepads
   if ( Math.floor((Math.random() * 100)) <= chanceDict.kneepads) {
     obj = new Array()
-    options = forms[4].Kneepads.slice(1)
+    options = forms[5].Kneepads.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['kneepads'] = randomItem
     hash.add(obj)
@@ -791,7 +791,7 @@ function dressMaleRandom () {
   // kneepads
   if ( Math.floor((Math.random() * 100)) <= chanceDict.kneepads) {
     obj = new Array()
-    options = forms[4].Kneepads.slice(1)
+    options = forms[5].Kneepads.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['kneepads'] = randomItem
     hash.add(obj)
