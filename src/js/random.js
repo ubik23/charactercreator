@@ -27,10 +27,6 @@ function createDecentRandomCharacter () {
     // TODO display download tutorial step after hitting random for the first time.
 }
 
-function getRandomHead(sex) {
-
-}
-
 
 function getRandomSex () {
   // Choose the sex at random (50/50)
@@ -572,6 +568,7 @@ function dressMaleRandom () {
   var fabColor = fabricPallette[fabRoll]
   var fabRoll2 = Math.floor((Math.random() * fabColorCounter))
   var fabColor2 = fabricPallette[fabRoll2]
+  var hasPants = false
 
   // Get random facial features
 
@@ -617,6 +614,9 @@ function dressMaleRandom () {
   obj = new Array()
   options = forms[4].Pants.slice(1)
   randomItem = options[Math.floor((Math.random() * options.length))]
+  console.log("randomItem", randomItem)
+
+  if (randomItem != '') {hasPants = true}
   obj['pants'] = randomItem
   hash.add(obj)
   obj = new Array()
@@ -624,10 +624,12 @@ function dressMaleRandom () {
   hash.add(obj)
 
   // Add belt
-  if ( Math.floor((Math.random() * 100)) <= chanceDict.belt) {
+  if (hasPants) {
+    console.log('hasPants', hasPants)
     obj = new Array()
     options = forms[4].Belt.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
+    console.log('belt', randomItem)
     obj['belt'] = randomItem
     hash.add(obj)
   }
@@ -857,7 +859,7 @@ function dressMaleRandom () {
   // warpaint
   if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
     obj = new Array()
-    options = forms[1].warpaint.slice(1)
+    options = forms[1].Warpaint.slice(1)
     randomItem = options[Math.floor((Math.random() * options.length))]
     obj['warpaint'] = randomItem
     hash.add(obj)
