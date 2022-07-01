@@ -431,6 +431,9 @@ function clickSelect (ev) {
     if (bodyPart === 'arm' || bodyPart === 'forearm') {
       formSection = 1
     }
+    if (bodyPart === 'hand') {
+      formSection = 4
+    }
   }
 
   if (prefix === 'svg1') {
