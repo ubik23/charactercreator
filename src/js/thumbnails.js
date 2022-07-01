@@ -74,6 +74,7 @@ function populateThumbs (svgObject) {
   var pupilShape
   var pupilShapeList = ['round', 'feline', 'star']
   var counter = pupilShapeList.length
+  var headSize
 
   if (document.querySelector('#content_1 g#' + layerID)) {
     // If item is already present, do not insert it again
@@ -149,6 +150,11 @@ function populateThumbs (svgObject) {
       document.querySelector('#content_1 .' + layerID).appendChild(thumbObject)
     }
   }
+
+  // Resize heads according to control slider's state 
+  headSize = document.querySelector('#head-size-slider').value
+  console.log('headSize', headSize)
+  applyHeadResize(headSize)
 }
 
 function showThumbOptions (_) {
