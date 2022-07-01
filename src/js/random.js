@@ -3,6 +3,7 @@
 function createDecentRandomCharacter () {
     var sex
     var skinTone
+    var headSize
 
     hideTutorial()
     gaga('send', 'event', { eventCategory: 'Secret function', eventAction: 'smartRandomSingle()', eventLabel: 'Secret Patreon reveal for new random function.' })

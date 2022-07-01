@@ -342,7 +342,7 @@ function tagHeadElement (svgObject) {
 }
 
 function getListOfHeadElements () {
-  var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'facialhair', 'freckles', 'smoke', 'makeup', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
+  var headElementList = ['ears', 'eyes', 'eyeballs', 'brows', 'sockets', 'lashes', 'nose', 'mouth', 'hair', 'facialhair', 'freckles', 'smoke', 'makeup', 'warpaint', 'earings', 'eyepatch', 'glasses', 'headband', 'hat', 'mask', 'horns', 'earpieces', 'veil' ]
 
   return headElementList
 }
