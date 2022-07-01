@@ -159,6 +159,11 @@ function zoomFull () {
   animateZoom(newViewBox)
 }
 
+function backgroundZoomFull (ev) {
+  console.log('bg zoom full ', ev.target)
+  zoomFull()
+}
+
 function viewBoxZoom (ev) {
   var zoomLevel = ev.target.value
 

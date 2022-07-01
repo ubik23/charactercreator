@@ -121,7 +121,7 @@ function dressFemaleRandom () {
       shoulderpads: 5,
       smoke: 25,
       suit: 5,
-      veil: 5,
+      veil: 2,
       vest: 3,
       warpaint: 5,
       wings: 5
@@ -260,11 +260,20 @@ function dressFemaleRandom () {
     obj = new Array()
     obj['hatColor'] = fabColor
     hash.add(obj)
+  } else if ( Math.floor((Math.random() * 100)) <= chanceDict.veil) {
+    obj = new Array()
+    options = forms[1].Veil.slice(1)
+    randomItem = options[Math.floor((Math.random() * options.length))]
+    obj['veil'] = randomItem
+    hash.add(obj)
+    obj = new Array()
+    obj['veilColor'] = fabColor2
+    hash.add(obj)
   } else {
     // Choose hair style depending on hat
     obj = new Array()
     options = forms[0].Hair.slice(1)
-    randomItem = options[Math.floor((Math.random() * options.length))]
+    randomItem = options[1 + Math.floor((Math.random() * (options.length - 1)))]
     obj['hair'] = randomItem
     hash.add(obj)
   }
@@ -489,17 +498,7 @@ function dressFemaleRandom () {
   //   obj['tieColor'] = fabColor
   //   hash.add(obj)
   // }
-  // veil
-  if ( Math.floor((Math.random() * 100)) <= chanceDict.veil) {
-    obj = new Array()
-    options = forms[1].Veil.slice(1)
-    randomItem = options[Math.floor((Math.random() * options.length))]
-    obj['veil'] = randomItem
-    hash.add(obj)
-    obj = new Array()
-    obj['veilColor'] = fabColor2
-    hash.add(obj)
-  }
+
   // warpaint
   // if ( Math.floor((Math.random() * 100)) <= chanceDict.warpaint) {
   //   obj = new Array()
