@@ -114,6 +114,7 @@ function getColor (sectionId) {
 }
 
 function textboxColor () {
+  // This is a feature reserved for the dot com version of the site
   if (!proVersion) {return}
 
   var textboxContainer = document.querySelector('.colorpicker-wrapper')
