@@ -19,7 +19,7 @@
     color: #fff;
     border-radius: 1.5em;
     border: 2px solid $color-alpha--light;
-    opacity: 1;
+    opacity: 0.2;
     padding: 1em 1.5em;
     cursor: pointer;
     transition: color 250ms;
@@ -54,6 +54,10 @@
       cursor: auto;
       pointer-events: none;
     }
+  }
+
+  &:hover .hudButton {
+    opacity: 1;
   }
 }
 
