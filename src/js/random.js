@@ -614,7 +614,6 @@ function dressMaleRandom () {
   obj = new Array()
   options = forms[4].Pants.slice(1)
   randomItem = options[Math.floor((Math.random() * options.length))]
-  console.log("randomItem", randomItem)
 
   if (randomItem != '') {hasPants = true}
   obj['pants'] = randomItem
@@ -625,11 +624,9 @@ function dressMaleRandom () {
 
   // Add belt
   if (hasPants) {
-    console.log('hasPants', hasPants)
     obj = new Array()
     options = forms[4].Belt.slice(1)
     randomItem = options[(1 + Math.floor((Math.random() * (options.length - 1))))]
-    console.log('belt', randomItem)
     obj['belt'] = randomItem
     hash.add(obj)
   }

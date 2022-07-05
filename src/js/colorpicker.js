@@ -15,6 +15,8 @@ function hideColorPicker () {
 
 function getPallette (sectionId) {
   // TODO Replace sectionId variable to selectedItem so we know which color we're changing
+
+  // OTHER TODO refresh color menu if item is clicked while color menu is open.
   var pallette = {}
   var files = []
   var counter
@@ -34,8 +36,13 @@ function getPallette (sectionId) {
     }
   } else {
     // TODO Get files from only selectedItem, not from the whole section
-    // files = getSelectedItemLayersList(sectionId)
+
+    // null if no item clicked before reaching the color menu
+    console.log('CSS selectedItem > ', document.querySelector('#content_1 .selected--option .selected--item'))
     selectedItem = hash.get(sectionId)
+
+    // undefined if no item is clicked before reaching the color menu
+    console.log('HASH selectedItem > ', selectedItem)
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
     // files = replaceMultilayer(files, sectionId)
@@ -116,6 +123,8 @@ function getColor (sectionId) {
 function textboxColor () {
   // This is a feature reserved for the dot com version of the site
   if (!proVersion) {return}
+
+  // Get current (selected) color of (selected) item in (selected) section
 
   var textboxContainer = document.querySelector('.colorpicker-wrapper')
   const newTextbox = document.createElement("div");
