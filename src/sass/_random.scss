@@ -22,10 +22,9 @@
     opacity: 0.2;
     padding: 1em 1.5em;
     cursor: pointer;
-    transition: color 250ms;
     transform-origin: bottom center;
     transform: scale(0.75);
-    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out, backgroundColor 250ms ease-in-out;
+    transition: transform 150ms ease-in-out, opacity 1000ms 250ms ease-in, backgroundColor 250ms ease-in-out, color 250ms;
     user-select: none;
     font-weight: 700;
     text-transform: uppercase;
