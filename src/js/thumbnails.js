@@ -153,7 +153,6 @@ function populateThumbs (svgObject) {
 
   // Resize heads according to control slider's state 
   headSize = document.querySelector('#head-size-slider').value
-  console.log('headSize', headSize)
   applyHeadResize(headSize)
 }
 

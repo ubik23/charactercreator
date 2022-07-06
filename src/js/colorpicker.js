@@ -26,6 +26,8 @@ function getPallette (sectionId) {
   var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon']
   var classCounter
   var selectedItem
+  var elColor
+  var rgbArray
   var testItem
 
   if (sectionId === 'body') {
@@ -63,7 +65,17 @@ function getPallette (sectionId) {
       el = document.querySelector('#svg1 .character-container #' + files[counter] + ' .' + colorClasses[classCounter])
 
       if (el != null && el.style != null && el.style.fill != null) {
-        pallette[colorClasses[classCounter]] = el.style.fill
+        elColor = el.style.fill
+        console.log('elColor BEFORE ', elColor)
+        if (elColor != 'none') {
+          rgbArray = elColor.slice(4,-1).split(',')
+          console.log('rgbArray[0]', rgbArray[0])
+          console.log('rgbArray[1]', rgbArray[1])
+          console.log('rgbArray[2]', rgbArray[2])
+          elColor = rgbToHex(Number(rgbArray[0]), Number(rgbArray[1]), Number(rgbArray[2]))
+        }
+        console.log('elColor AFTER', elColor)
+        pallette[colorClasses[classCounter]] = elColor
       }
     }
   }

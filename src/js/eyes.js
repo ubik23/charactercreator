@@ -1,6 +1,4 @@
 function initEyes () {
-  // consolelog('initEyes')
-
   var svgContainer = document.querySelector('#svg1')
   var characterHead = document.querySelector('#body_head_default')
   var eyeSockets = document.querySelector('#eyes_neutral')
@@ -12,8 +10,6 @@ function initEyes () {
   var eyeRightCenter = {}
   var eyeLeftCenter = {}
   var scaleMod, focus
-
-  // consolelog('svgContainer', svgContainer)
 
   init()
 
