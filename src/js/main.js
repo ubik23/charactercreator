@@ -392,7 +392,6 @@ function layerHighlight (ev) {
 }
 
 function clickSelect (ev) {
-  console.log("ClickSelect", ev.target)
   ev.preventDefault()
   ev.stopPropagation()
 
@@ -412,12 +411,8 @@ function clickSelect (ev) {
   prefix = fromItemGetPrefix(el.id)
   formSection = fromPrefixGetFormSection(prefix)
 
-  console.log('prefix', prefix)
-  console.log('formSection', formSection)
-
   if (prefix === 'body') {
     bodyPart = getBodyPart(el.id)
-    console.log('bodyPart', bodyPart)
 
     if (bodyPart === 'foot') {
       formSection = 5
@@ -448,8 +443,6 @@ function clickSelect (ev) {
   // Same thing for item thumbnails, if not open, open them.
   if (formSection > -1) {
     sectionLabel = sectionList[formSection].querySelector('.accordeon__section-title__text').innerHTML
-
-    console.log('sectionLabel', sectionLabel)
 
     sectionZoom(sectionLabel)
 

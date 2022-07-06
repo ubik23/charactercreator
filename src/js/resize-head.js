@@ -35,10 +35,8 @@ function applyHeadResize (headSize) {
         if (elapsed > animDur) { elapsed = animDur}
 
         if (headSize > currentHeadSize) {
-            console.log('growing')
             animHeadSize = Number(currentHeadSize) + ((Number(headSize) - Number(currentHeadSize)) * (elapsed / animDur))
         } else {
-            console.log('shrinking')
             animHeadSize = Number(headSize) + ((Number(currentHeadSize) - Number(headSize)) * (1 - (elapsed / animDur)))
         }
         

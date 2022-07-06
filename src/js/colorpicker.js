@@ -17,6 +17,7 @@ function getPallette (sectionId) {
   // TODO Replace sectionId variable to selectedItem so we know which color we're changing
 
   // OTHER TODO refresh color menu if item is clicked while color menu is open.
+
   var pallette = {}
   var files = []
   var counter
@@ -25,6 +26,7 @@ function getPallette (sectionId) {
   var colorClasses = ['skin', 'lips', 'alpha', 'beta', 'gamma', 'delta', 'epsilon']
   var classCounter
   var selectedItem
+  var testItem
 
   if (sectionId === 'body') {
     files = getAllBodyLayers()
@@ -43,6 +45,10 @@ function getPallette (sectionId) {
 
     // undefined if no item is clicked before reaching the color menu
     console.log('HASH selectedItem > ', selectedItem)
+
+    testItem = document.querySelector('#content_1 .selected--option .selected--item svg:first-child').id || hash.get(sectionId)
+
+    console.log('testItem', testItem)
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
     // files = replaceMultilayer(files, sectionId)
@@ -90,6 +96,15 @@ function drawPallette (pallette) {
 
   // TODO Add event listeners to each colored div, allowing user to choose which color they edit.
   // Make sure the color refreshes when changing the colorpicker
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 function getColor (sectionId) {

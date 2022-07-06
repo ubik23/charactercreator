@@ -39,8 +39,6 @@ function zoomFace () {
   var newViewBox
   shape = document.getElementById(('svg1'))
 
-  console.log('zoomFace', sex)
-
   // TODO Consider size of window where rezooming.
   if (sex == 'm') {
     newViewBox = '242.6 99 80 80'
@@ -160,7 +158,6 @@ function zoomFull () {
 }
 
 function backgroundZoomFull (ev) {
-  console.log('bg zoom full ', ev.target)
   zoomFull()
 }
 
@@ -184,8 +181,6 @@ function viewBoxZoom (ev) {
 
 function sectionZoom (sectionLabel) {
   var zoomInput = document.querySelector('#zoomLevel')
-
-  console.log('zoom', sectionLabel)
 
   if (sectionLabel === 'Head') { zoomInput.value = 3; zoomFace() }
   if (sectionLabel === 'Accessories') { zoomInput.value = 1; zoomArms() }
@@ -218,8 +213,6 @@ function animateZoom (newViewBox) {
   var widthNew
   var heightNew
   var animateViewBox
-
-  console.log('animateZoom', newViewBox)
 
   if (newViewBox != '10 50 540 540' && !characterSVG.classList.contains('zoomed')) {
     characterSVG.classList.add('zoomed')
