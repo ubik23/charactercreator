@@ -66,15 +66,12 @@ function getPallette (sectionId) {
 
       if (el != null && el.style != null && el.style.fill != null) {
         elColor = el.style.fill
-        console.log('elColor BEFORE ', elColor)
+
         if (elColor != 'none') {
           rgbArray = elColor.slice(4,-1).split(',')
-          console.log('rgbArray[0]', rgbArray[0])
-          console.log('rgbArray[1]', rgbArray[1])
-          console.log('rgbArray[2]', rgbArray[2])
           elColor = rgbToHex(Number(rgbArray[0]), Number(rgbArray[1]), Number(rgbArray[2]))
         }
-        console.log('elColor AFTER', elColor)
+        
         pallette[colorClasses[classCounter]] = elColor
       }
     }
