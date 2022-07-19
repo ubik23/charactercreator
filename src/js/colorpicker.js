@@ -144,11 +144,43 @@ function getColor (sectionId) {
   }
 }
 
+function updateTextBoxColor (ev) {
+  var elLabel = ev.target.value
+  var elColor = ev.target.nextSibling.style.background
+  var rgbArray = elColor.slice(4,-1).split(',')
+  var textBoxLabel = document.querySelector('.colorpicker-textbox SPAN')
+  var textBox = document.querySelector('.colorpicker-textbox INPUT')
+
+  console.log('target', ev.target)
+
+  elColor = rgbToHex(Number(rgbArray[0]), Number(rgbArray[1]), Number(rgbArray[2]))
+
+  textBoxLabel.innerHTML = 'Color ' + elLabel
+  textBox.value = elColor
+
+}
+
+function addEventListenersToColorSelectors () {
+  var inputs = document.querySelectorAll('.section-pallette input')
+  var counter = inputs.length
+
+  while (counter--) {
+    if (inputs[counter] && typeof updateTextBoxColor === 'function') { inputs[counter].addEventListener('input', updateTextBoxColor, false) }
+  }
+}
+
 function textboxColor () {
   // This is a feature reserved for the dot com version of the site
   if (!proVersion) {return}
 
   // Get current (selected) color of (selected) item in (selected) section
+  var selectedColorLabel = document.querySelector('.section-pallette input:checked').value
+  var selectedColor = document.querySelector('.section-pallette input:checked').nextSibling.style.background
+  var rgbArray = selectedColor.slice(4,-1).split(',')
+  selectedColor = rgbToHex(Number(rgbArray[0]), Number(rgbArray[1]), Number(rgbArray[2]))
+
+  // Setup event listener to change color when input changes
+  addEventListenersToColorSelectors()
 
   var textboxContainer = document.querySelector('.colorpicker-wrapper')
   const newTextbox = document.createElement("div");
@@ -156,11 +188,12 @@ function textboxColor () {
   const newTextboxInput = document.createElement("input");
   const newColorSample = document.createElement("div");
 
-  newTextboxLabel.textContent = "Color:"
+  newTextboxLabel.textContent = "Color " + selectedColorLabel + ":"
   newTextbox.appendChild(newTextboxLabel)
 
   newTextboxInput.type = "text"
   newTextboxInput.size = 7
+  newTextboxInput.value = selectedColor
   newTextbox.appendChild(newTextboxInput)
 
   newTextbox.classList.add('colorpicker-textbox')
