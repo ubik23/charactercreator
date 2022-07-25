@@ -159,6 +159,24 @@ function updateTextBoxColor (ev) {
   textBox.value = elColor
 
 }
+function updateColorFromTextbox (ev) {
+  console.log('update color', ev.target.value)
+}
+
+function addEventListenerToTextbox () {
+  var input = document.querySelector(".colorpicker-textbox input");
+
+  // Execute a function when the user presses a key on the keyboard
+  input.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("myBtn").click();
+    }
+  });
+}
 
 function addEventListenersToColorSelectors () {
   var inputs = document.querySelectorAll('.section-pallette input')
