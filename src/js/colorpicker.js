@@ -159,6 +159,7 @@ function updateTextBoxColor (ev) {
   textBox.value = elColor
 
 }
+
 function updateColorFromTextbox (ev) {
   console.log('update color', ev.target.value)
 }
