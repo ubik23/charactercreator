@@ -218,6 +218,12 @@ function getColorClassPrefix (id) {
   return prefix
 }
 
+function writeTextBoxColor (color) {
+  var textbox = document.querySelector('.colorpicker-textbox INPUT')
+  console.log('textbox', textbox)
+  textbox.value = color
+}
+
 function colorize (formId, _color) {
   console.log('formId', formId)
   console.log('_color', _color)
@@ -246,6 +252,10 @@ function colorize (formId, _color) {
   var classDarkest = '--darkest'
 
   var seperator = ' .'
+
+  if (proVersion) {
+    writeTextBoxColor(_color)
+  }
 
   if (palletteButton) {
     palletteButton.style.background = _color
