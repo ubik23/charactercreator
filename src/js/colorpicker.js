@@ -161,7 +161,13 @@ function updateTextBoxColor (ev) {
 }
 
 function updateColorFromTextbox (ev) {
+  var hex = ev.target.value
+  // var id = document.querySelector('.colorpicker-controls .section-id').textContent
+  var formId = document.querySelector('.section--selected').textContent.toLowerCase()
   console.log('update color', ev.target.value)
+
+  console.log('id: ', formId)
+  colorize (formId, hex)
 }
 
 function addEventListenerToTextbox () {
@@ -172,9 +178,10 @@ function addEventListenerToTextbox () {
     // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
       // Cancel the default action, if needed
-      event.preventDefault();
+      event.preventDefault()
       // Trigger the button element with a click
-      document.getElementById("myBtn").click();
+      // document.getElementById("myBtn").click();
+      updateColorFromTextbox(event)
     }
   });
 }
@@ -218,6 +225,8 @@ function textboxColor () {
   newTextbox.classList.add('colorpicker-textbox')
 
   textboxContainer.appendChild(newTextbox)
+  
+  addEventListenerToTextbox()
 }
 
 function emptyPicker () {

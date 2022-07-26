@@ -219,6 +219,8 @@ function getColorClassPrefix (id) {
 }
 
 function colorize (formId, _color) {
+  console.log('formId', formId)
+  console.log('_color', _color)
   var multiLayer = getMultiLayer()
   var skinLayers = getSkinLayers()
   var colorMultiplyer = 10 // Color contrast. TODO Move to user controls.
