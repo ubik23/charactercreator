@@ -220,13 +220,11 @@ function getColorClassPrefix (id) {
 
 function writeTextBoxColor (color) {
   var textbox = document.querySelector('.colorpicker-textbox INPUT')
-  console.log('textbox', textbox)
+  
   textbox.value = color
 }
 
 function colorize (formId, _color) {
-  console.log('formId', formId)
-  console.log('_color', _color)
   var multiLayer = getMultiLayer()
   var skinLayers = getSkinLayers()
   var colorMultiplyer = 10 // Color contrast. TODO Move to user controls.
@@ -254,6 +252,7 @@ function colorize (formId, _color) {
   var seperator = ' .'
 
   if (proVersion) {
+    // Copy the new color into the textbox
     writeTextBoxColor(_color)
   }
 

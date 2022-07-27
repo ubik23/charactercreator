@@ -42,15 +42,10 @@ function getPallette (sectionId) {
     // TODO Get files from only selectedItem, not from the whole section
 
     // null if no item clicked before reaching the color menu
-    console.log('CSS selectedItem > ', document.querySelector('#content_1 .selected--option .selected--item'))
     selectedItem = hash.get(sectionId)
 
     // undefined if no item is clicked before reaching the color menu
-    console.log('HASH selectedItem > ', selectedItem)
-
-    testItem = document.querySelector('#content_1 .selected--option .selected--item svg:first-child').id || hash.get(sectionId)
-
-    console.log('testItem', testItem)
+  
     files = getSectionLayersList(sectionId)
     files = replaceMultilayer([selectedItem], sectionId)// <<<<<< TEST MODE FOR DEV PURPOSES
     // files = replaceMultilayer(files, sectionId)
@@ -86,7 +81,6 @@ function drawPallette (pallette) {
   var label
   var keys = Object.keys(pallette)
   var counter = keys.length
-  console.log('pallette', pallette)
 
   while (counter--) {
     node = document.createElement('INPUT')
@@ -151,8 +145,6 @@ function updateTextBoxColor (ev) {
   var textBoxLabel = document.querySelector('.colorpicker-textbox SPAN')
   var textBox = document.querySelector('.colorpicker-textbox INPUT')
 
-  console.log('target', ev.target)
-
   elColor = rgbToHex(Number(rgbArray[0]), Number(rgbArray[1]), Number(rgbArray[2]))
 
   textBoxLabel.innerHTML = 'Color ' + elLabel
@@ -164,9 +156,7 @@ function updateColorFromTextbox (ev) {
   var hex = ev.target.value
   // var id = document.querySelector('.colorpicker-controls .section-id').textContent
   var formId = document.querySelector('.section--selected').textContent.toLowerCase()
-  console.log('update color', ev.target.value)
 
-  console.log('id: ', formId)
   colorize (formId, hex)
 }
 
