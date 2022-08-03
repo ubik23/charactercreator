@@ -94,7 +94,7 @@ var femaleForm3 = {
   Collar: ['', 'egyptian', 'leather', 'metal'],
   Necklace: ['', 'dogtags', 'heart', 'perl', 'princess', 'stethoscope', 'squared-circle', 'wooden'],
   Bra: ['', 'bow', 'grid', 'sports'],
-  Top: ['', 'asymetric', 'loop', 'tank', 'tube_v'],
+  Top: ['', 'asymetric', 'loop', 'structured', 'tank', 'tube_v'],
   Shirt: ['', 'collar', 'collar_buttoned', 'jersey_long-sleeved_striped', 'sleeveless_sfl', 'sweat', 'tshirt', 'structured_smart'],
   Tie: ['', 'striped'],
   Button: ['', 'heart', 'peace', 'smile'],
