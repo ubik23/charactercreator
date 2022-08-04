@@ -30,7 +30,7 @@ var maleForm2 = {
 }
 var maleForm3 = {
   Tatoo: ['', 'aum_chest', 'aum_left', 'aum_right', 'chaos_chest', 'chaos_left', 'chaos_right'],
-  Shirt: ['', 'tanktop', 'colar', /*'jersey_long-sleeved',*/ 'kurta', 'tshirt', 'tshirt_stop-wars', 'turtleneck'],
+  Shirt: ['', 'tanktop', 'colar', 'jersey_long-sleeved', 'kurta', 'tshirt', 'tshirt_stop-wars', 'turtleneck'],
   Tie: ['', 'neck', 'bolo', 'bow', 'striped'],
   Vest: ['', 'athlete', 'vest', 'lined', 'insulated', 'mandarin', 'u-neck', 'yellow', '3-button_asymmetric', '6-button_asymmetric', '2x4-button_double-breasted', '2x5-button_double-breasted', '2x2-button_double-breasted', '2x3-button_double-breasted', '5-button_basic', '6-button_basic', '3-button_basic', '4-button_basic', '3-pocket', '4-pocket', 'no-pockets', '2-lower-pockets', 'shawl_round', 'shawl_pointed', 'peak', 'notched' , 'no-collar' ],
   Button: ['', 'heart', 'peace', 'smile'],
