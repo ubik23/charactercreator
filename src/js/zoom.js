@@ -12,26 +12,26 @@ function isLandscape () {
   return isLandscape
 }
 
-function zoomIn () {
-  var sex = c.choices.sex
-  var newViewBox
-  shape = document.getElementById(('svg1'))
+// function zoomIn () {
+//   var sex = c.choices.sex
+//   var newViewBox
+//   shape = document.getElementById(('svg1'))
 
-  if (sex == 'm') {
-    newViewBox = '140 73 290 290'
-  } else {
-    newViewBox = '225 86 110 110'
-  }
+//   if (sex == 'm') {
+//     newViewBox = '140 73 290 290'
+//   } else {
+//     newViewBox = '225 86 110 110'
+//   }
 
-  animateZoom(newViewBox)
-}
+//   animateZoom(newViewBox)
+// }
 
-function zoomOut () {
-  var sex = c.choices.sex
-  shape = document.getElementById(('svg1'))
+// function zoomOut () {
+//   var sex = c.choices.sex
+//   shape = document.getElementById(('svg1'))
 
-  animateZoom(newViewBox)
-}
+//   animateZoom(newViewBox)
+// }
 
 function zoomFace () {
   var landscape = isLandscape() // TODO change newViewBox is in landscape mode.
