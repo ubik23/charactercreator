@@ -115,8 +115,8 @@ function bodyTypesToLayers (type) {
   layers.push('body_arm_right_' + type)
   layers.push('body_forearm_left_' + type)
   layers.push('body_forearm_right_' + type)
-  layers.push('body_hand_left')
-  layers.push('body_hand_right')
+  layers.push('body_hand_left_default')
+  layers.push('body_hand_right_default')
 
   return layers
 }

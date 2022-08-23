@@ -76,7 +76,7 @@
   "body_forearm_right_default",
   "body_forearm_right_veiny",
   "body_forearm_right_android-00",
-  "body_hand_right",
+  "body_hand_right_default",
   "holding_camera",
   "nails_short_2_of_2",
   "nails_long_2_of_2",
@@ -217,7 +217,7 @@
   "robe_school_raven_2_of_2"
 ],
 "bodyFront": [
-  "body_hand_left",
+  "body_hand_left_default",
   "gloves_silk_fingerless_striped_1_of_2",
   "bracelet_perl_left_1_of_2",
   "bracelet_ornamental_left_1_of_2",
