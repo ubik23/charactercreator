@@ -173,7 +173,7 @@ window.onload = function () {
   if (background && typeof backgroundZoomFull === 'function') { background.addEventListener('click', backgroundZoomFull, false) }
   if (patreonLink && typeof tattle === 'function') { patreonLink.addEventListener('click', tattle, false) }
   if (patreonBtn && typeof gotoPatreon === 'function') { patreonBtn.addEventListener('click', gotoPatreon, false) }
-  if (braveAffiliateBtn && typeof gotoBrave === 'function') { braveAffiliateBtn.addEventListener('click', gotoBrave, false) }
+  // if (braveAffiliateBtn && typeof gotoBrave === 'function') { braveAffiliateBtn.addEventListener('click', gotoBrave, false) }
   if (newCharBtn && typeof gotoNewChar === 'function') { newCharBtn.addEventListener('click', gotoNewChar, false) }
   if (loadCharBtn && typeof gotoLoadChar === 'function') { loadCharBtn.addEventListener('click', gotoLoadChar, false) }
   if (nightModeBtn && typeof switchNightMode === 'function') { nightModeBtn.addEventListener('click', switchNightMode, false) }
@@ -223,15 +223,15 @@ function gotoPatreon (evt) {
   setTimeout(function () { window.open('https://www.patreon.com/charactercreator') }, 500)
 }
 
-function gotoBrave (evt) {
-  if (evt) {
-    evt.preventDefault()
-  }
+// function gotoBrave (evt) {
+//   if (evt) {
+//     evt.preventDefault()
+//   }
 
-  gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
-  closeAllOverlays()
-  setTimeout(function () { window.open('https://brave.com/cha553') }, 500)
-}
+//   gaga('send', 'event', { eventCategory: 'Conversion', eventAction: 'Caboose | Brave', eventLabel: 'Open Brave Browser page from Caboose modal.' })
+//   closeAllOverlays()
+//   setTimeout(function () { window.open('https://brave.com/cha553') }, 500)
+// }
 
 function gotoNewChar (evt) {
   if (evt) {
