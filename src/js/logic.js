@@ -92,6 +92,9 @@ function Character (choices) {
 }
 
 function modCharacter (myKey, myValue) {
+  // console.log('<<< modCharacter >>>')
+  // console.log('myKey', myKey)
+  // console.log('myValue', myValue)
   // look in c.choices to see if the key is already there
   if (myKey in c.choices) {
     delete c.choices[myKey]
@@ -111,6 +114,8 @@ function modCharacter (myKey, myValue) {
   if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
     currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue
   }
+
+  // console.log('c.choices', c.choices)
 }
 
 function createCharacter () {
@@ -168,9 +173,6 @@ function getOptionsLogic (section) {
 }
 
 function show (userChoice, category) {
-
-  console.log('userChoice', userChoice)
-  console.log('category', category)
   var multiLayer = getMultiLayer()
   var emotions
   var sections
@@ -218,6 +220,10 @@ function show (userChoice, category) {
 }
 
 function displaySections (sections, options, selectedOption, multiLayer) {
+  console.log('<<< displaySections >>>')
+  console.log('sections', sections)
+  console.log('options', options)
+  console.log('selectedOption', selectedOption)
 
   for (section in sections) {
     options.forEach(function (d, i) {
@@ -243,6 +249,9 @@ function displaySections (sections, options, selectedOption, multiLayer) {
         }
       }
     })
+  }
+  if (sections.includes('holding')) {
+    getHandPosition()
   }
 }
 
