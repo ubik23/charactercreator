@@ -168,6 +168,9 @@ function getOptionsLogic (section) {
 }
 
 function show (userChoice, category) {
+
+  console.log('userChoice', userChoice)
+  console.log('category', category)
   var multiLayer = getMultiLayer()
   var emotions
   var sections
