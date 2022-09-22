@@ -117,7 +117,7 @@ var femaleForm4 = {
 var femaleForm5 = {
   Bracelet: ['', 'band_right', 'band_left', 'egyptian_right', 'egyptian_left', 'ornamental_right', 'ornamental_left', 'perl_right', 'perl_left', 'rings_left', 'rings_right', 'wonder_left', 'wonder_right'],
   Gloves: ['', 'silk_fingerless_striped'],
-  Holding: ['', 'camera'],
+  Holding: ['', 'camera', 'pad'],
   Underwear: ['', 'boyshorts', 'plain', 'string', 'tanga', 'thong'],
   Shorts: ['', 'bikini', 'short'],
   Skirt: ['', 'a-line', 'draped', 'highfashion', 'school_short', 'school', 'school_long', "smart_midi"/*, 'tube' */],

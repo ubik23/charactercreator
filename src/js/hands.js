@@ -39,7 +39,7 @@ function handCallback () {
     var showItem
     console.log('holding >>>>>>', holdingItem)
 
-    if (holdingItem === 'camera') {
+    if (holdingItem === 'camera' || holdingItem === 'pad') {
         showItem = '#body_hand_right_grip'
     }
     if (holdingItem === undefined) {
