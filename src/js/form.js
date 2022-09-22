@@ -197,6 +197,10 @@ function replaceMultilayer (layersList, section) {
 }
 
 function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
+  console.log('section',section)
+  console.log('layersList',layersList)   
+  console.log('callback',callback)
+  console.log('callbackLoopFlag',callbackLoopFlag)
   var tempLayerList = []
   var layerCounter
   layerCounter = layersList.length

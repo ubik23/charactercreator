@@ -220,10 +220,10 @@ function show (userChoice, category) {
 }
 
 function displaySections (sections, options, selectedOption, multiLayer) {
-  console.log('<<< displaySections >>>')
-  console.log('sections', sections)
-  console.log('options', options)
-  console.log('selectedOption', selectedOption)
+  // console.log('<<< displaySections >>>')
+  // console.log('sections', sections)
+  // console.log('options', options)
+  // console.log('selectedOption', selectedOption)
 
   for (section in sections) {
     options.forEach(function (d, i) {
