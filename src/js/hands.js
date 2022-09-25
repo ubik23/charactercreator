@@ -7,12 +7,13 @@ function getHandPosition (selectedOption) {
 
     // Determine what the current hand position to be replaced is
     // remove current hand
+    // const sex = getSex()
     var currentHand
     var currentNails
     var replacementHand
     var replacementNails
-
-    if (selectedOption === 'camera') {
+    
+    if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
         currentHand = "#body_hand_right_default"
         currentNails = "#nails_short_2_of_2"
         replacementHand = "right_grip"
@@ -39,7 +40,7 @@ function handCallback () {
     var showItem
     console.log('holding >>>>>>', holdingItem)
 
-    if (holdingItem === 'camera' || holdingItem === 'pad') {
+    if (holdingItem === 'camera' || holdingItem === 'pad' || holdingItem === 'boom_mic') {
         showItem = '#body_hand_right_grip'
     }
     if (holdingItem === undefined) {

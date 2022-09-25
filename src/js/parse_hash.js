@@ -86,6 +86,10 @@ function newParseHash () {
   if (hashDict.irisColor != '') {
     modCharacter('irisColor', hashDict.irisColor)
   }
+
+  // if (hashDict.holding != '') {
+  //   getHandPosition(hashDict.holding)
+  // }
 }
 
 function hashCharacter () {
