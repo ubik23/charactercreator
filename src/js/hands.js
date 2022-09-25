@@ -1,4 +1,5 @@
-function getHandPosition (selectedOption) {
+function showHandPosition (selectedOption) {
+    console.log('selectedOption', selectedOption)
     // console.log('Holding', selectedOption)
     // TODO
     // Check for male/femal template
@@ -33,6 +34,12 @@ function getHandPosition (selectedOption) {
     
 }
 
+function getHandPosition (selectedOption) {
+    var handPosition = 'body_hand_right_grip'
+
+    return handPosition
+}
+
 function handCallback () {
     // console.log('hand callback', test)
     // get the item we're holding from the hash
@@ -54,5 +61,13 @@ function removeHandElement (id) {
     const el = document.querySelector(id)
     if (el) {
         el.remove()
+    }
+}
+
+function checkHolding () {
+    console.log('Check Holding Werx yo!!')
+    const holdinItem = hash.get('holding')
+    if (holdinItem != '') {
+        getHandPosition(holdinItem)
     }
 }

@@ -251,7 +251,7 @@ function displaySections (sections, options, selectedOption, multiLayer) {
     })
   }
   if (sections.includes('holding')) {
-    getHandPosition(selectedOption)
+    showHandPosition(selectedOption)
   }
 }
 

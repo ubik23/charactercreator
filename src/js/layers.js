@@ -105,6 +105,8 @@ function findNextLayerInDom (item) {
 
 function bodyTypesToLayers (type) {
   var layers = []
+  const holdingItem = hash.get('holding')
+  var handPositionRight = ''
 
   layers.push('body_torso_' + type)
   layers.push('body_leg_left_' + type)
@@ -116,7 +118,14 @@ function bodyTypesToLayers (type) {
   layers.push('body_forearm_left_' + type)
   layers.push('body_forearm_right_' + type)
   layers.push('body_hand_left_default')
-  layers.push('body_hand_right_default')
+
+  if (holdingItem === '') {
+    handPositionRight = 'body_hand_right_default'
+  }
+  if (holdingItem != '') {
+    handPositionRight = getHandPosition()
+  }
+  layers.push(handPositionRight)
 
   return layers
 }
