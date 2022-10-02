@@ -113,6 +113,7 @@ function choicesToLayers (c, multiLayer) {
   var bodyType
   var bodyTypeList
   var bodyTypeCounter
+  var handPositionSuffix
 
   for (var index in c.choices) {
 
@@ -151,7 +152,9 @@ function choicesToLayers (c, multiLayer) {
   };
   // Add layers to be shown when creating a new character.
   if (c.choices.sex === 'f') {
-    selectedLayers.push('nails_short_1_of_2', 'nails_short_2_of_2')
+    console.log('choiceLayers', choiceLayers)
+    handPositionSuffix = getHandPositionKeywords('')
+    selectedLayers.push('nails_short_right_' + handPositionSuffix, 'nails_short_left_' + handPositionSuffix)
   }
 
   // Make sure the eyeballs are included.
@@ -159,6 +162,7 @@ function choicesToLayers (c, multiLayer) {
     selectedLayers.push('eyeballs_default')
   }
 
+  console.log('selectedLayers', selectedLayers)
   return selectedLayers
 }
 

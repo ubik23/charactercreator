@@ -119,11 +119,11 @@ function bodyTypesToLayers (type) {
   layers.push('body_forearm_right_' + type)
   layers.push('body_hand_left_default')
 
-  if (holdingItem === '') {
+  if (holdingItem === '' || holdingItem === undefined) {
     handPositionRight = 'body_hand_right_default'
   }
-  if (holdingItem != '') {
-    handPositionRight = getHandPosition()
+  if (holdingItem != '' && holdingItem != undefined) {
+    handPositionRight = getHandPosition(holdingItem)
   }
   layers.push(handPositionRight)
 

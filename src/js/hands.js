@@ -1,5 +1,5 @@
 function showHandPosition (selectedOption) {
-    console.log('selectedOption', selectedOption)
+    console.log('showHandPosition selectedOption', selectedOption)
     // console.log('Holding', selectedOption)
     // TODO
     // Check for male/femal template
@@ -13,6 +13,7 @@ function showHandPosition (selectedOption) {
     var currentNails
     var replacementHand
     var replacementNails
+    //const side = 'right'
     
     if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
         currentHand = "#body_hand_right_default"
@@ -31,11 +32,19 @@ function showHandPosition (selectedOption) {
 
     // Load correct hand
     loadSectionLayers(["body_hand"], [replacementHand], handCallback, true)
-    
+    e
 }
 
 function getHandPosition (selectedOption) {
+    console.log('getHandPosition', selectedOption)
+    var suffixKeywords = ''
+    const prefix = 'body_hand' 
     var handPosition = 'body_hand_right_grip'
+    // const side = 'right'
+
+    suffixKeywords = getHandPositionKeywords(selectedOption)
+
+    handPosition = prefix + suffixKeywords
 
     return handPosition
 }
@@ -58,6 +67,7 @@ function handCallback () {
 }
 
 function removeHandElement (id) {
+    console.log('removeHandElement id', id)
     const el = document.querySelector(id)
     if (el) {
         el.remove()
@@ -66,8 +76,25 @@ function removeHandElement (id) {
 
 function checkHolding () {
     console.log('Check Holding Werx yo!!')
-    const holdinItem = hash.get('holding')
+    const holdingItem = hash.get('holding')
     if (holdinItem != '') {
-        getHandPosition(holdinItem)
+        getHandPosition(holdingItem)
     }
+}
+
+function getHandPositionKeywords (selectedOption) {
+    console.log('getHandPositionKeywords')
+    var position = 'grip'
+    var keywords =  ''
+    // if statements to concatenate keywords to string
+    if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
+        position = 'grip'
+    }
+    if (selectedOption === '' || selectedOption === undefined) {
+        position = 'default'
+    }
+
+    keywords =  position
+
+    return keywords
 }
