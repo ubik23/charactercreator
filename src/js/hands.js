@@ -51,6 +51,7 @@ function getHandPosition (selectedOption) {
 function handCallback () {
     // console.log('hand callback', test)
     // get the item we're holding from the hash
+    const visibleStyle = "opacity:1;pointer-events: auto;"
     const holdingItem = hash.get('holding')
     var showHand, showNails
     console.log('holding >>>>>>', holdingItem)
@@ -64,8 +65,8 @@ function handCallback () {
         showNails = '#nails_short_right_default'
     }
 
-    document.querySelector(showHand).style = "opacity:1;"
-    document.querySelector(showNails).style = "opacity:1;"
+    document.querySelector(showHand).style = visibleStyle
+    document.querySelector(showNails).style = visibleStyle
 }
 
 function removeElement (id) {
