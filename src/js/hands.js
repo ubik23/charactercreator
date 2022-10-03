@@ -17,29 +17,28 @@ function showHandPosition (selectedOption) {
     
     if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
         currentHand = "#body_hand_right_default"
-        currentNails = "#nails_short_2_of_2"
+        currentNails = "#nails_short_right_default"
         replacementHand = "right_grip"
     }
     if (selectedOption === '') {
         currentHand = "#body_hand_right_grip"
-        currentNails = "#nails_short_2_of_2"
+        currentNails = "#nails_short_right_grip"
         replacementHand = "right_default"
     }
 
     console.log('currentHand', currentHand)
-    removeHandElement("#svg1 " + currentHand)
-    removeHandElement("#svg1 " + currentNails)
+    removeElement("#svg1 " + currentHand)
+    removeElement("#svg1 " + currentNails)
 
     // Load correct hand
     loadSectionLayers(["body_hand"], [replacementHand], handCallback, true)
-    e
+    loadSectionLayers(["nails_short"], [replacementHand], handCallback, true)
 }
 
 function getHandPosition (selectedOption) {
     console.log('getHandPosition', selectedOption)
     var suffixKeywords = ''
-    const prefix = 'body_hand' 
-    var handPosition = 'body_hand_right_grip'
+    const prefix = 'body_hand_right_' 
     // const side = 'right'
 
     suffixKeywords = getHandPositionKeywords(selectedOption)
@@ -53,21 +52,24 @@ function handCallback () {
     // console.log('hand callback', test)
     // get the item we're holding from the hash
     const holdingItem = hash.get('holding')
-    var showItem
+    var showHand, showNails
     console.log('holding >>>>>>', holdingItem)
 
     if (holdingItem === 'camera' || holdingItem === 'pad' || holdingItem === 'boom_mic') {
-        showItem = '#body_hand_right_grip'
+        showHand = '#body_hand_right_grip'
+        showNails = '#nails_short_right_grip'
     }
     if (holdingItem === undefined) {
-        showItem = '#body_hand_right_default'
+        showHand = '#body_hand_right_default'
+        showNails = '#nails_short_right_default'
     }
 
-    document.querySelector(showItem).style = "opacity:1;"
+    document.querySelector(showHand).style = "opacity:1;"
+    document.querySelector(showNails).style = "opacity:1;"
 }
 
-function removeHandElement (id) {
-    console.log('removeHandElement id', id)
+function removeElement (id) {
+    console.log('removeElement id', id)
     const el = document.querySelector(id)
     if (el) {
         el.remove()
@@ -75,7 +77,7 @@ function removeHandElement (id) {
 }
 
 function checkHolding () {
-    console.log('Check Holding Werx yo!!')
+    console.log('Check Holding')
     const holdingItem = hash.get('holding')
     if (holdinItem != '') {
         getHandPosition(holdingItem)
