@@ -1,5 +1,5 @@
-function showHandPosition (selectedOption) {
-    console.log('showHandPosition selectedOption', selectedOption)
+function showHandPosition (selectedOption, previousHolding) {
+    // console.log('showHandPosition selectedOption', selectedOption)
     // console.log('Holding', selectedOption)
     // TODO
     // Check for male/femal template
@@ -14,6 +14,8 @@ function showHandPosition (selectedOption) {
     var replacementHand
     var replacementNails
     //const side = 'right'
+
+    console.log('previous hand position', previousHolding)
     
     if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
         currentHand = "#body_hand_right_default"
@@ -26,7 +28,7 @@ function showHandPosition (selectedOption) {
         replacementHand = "right_default"
     }
 
-    console.log('currentHand', currentHand)
+    // console.log('currentHand', currentHand)
     removeElement("#svg1 " + currentHand)
     removeElement("#svg1 " + currentNails)
 
@@ -36,7 +38,7 @@ function showHandPosition (selectedOption) {
 }
 
 function getHandPosition (selectedOption) {
-    console.log('getHandPosition', selectedOption)
+    // console.log('getHandPosition', selectedOption)
     var suffixKeywords = ''
     const prefix = 'body_hand_right_' 
     // const side = 'right'
@@ -54,7 +56,7 @@ function handCallback () {
     const visibleStyle = "opacity:1;pointer-events: auto;"
     const holdingItem = hash.get('holding')
     var showHand, showNails
-    console.log('holding >>>>>>', holdingItem)
+    // console.log('holding >>>>>>', holdingItem)
 
     if (holdingItem === 'camera' || holdingItem === 'pad' || holdingItem === 'boom_mic') {
         showHand = '#body_hand_right_grip'
@@ -70,7 +72,7 @@ function handCallback () {
 }
 
 function removeElement (id) {
-    console.log('removeElement id', id)
+    // console.log('removeElement id', id)
     const el = document.querySelector(id)
     if (el) {
         el.remove()
@@ -78,7 +80,7 @@ function removeElement (id) {
 }
 
 function checkHolding () {
-    console.log('Check Holding')
+    // console.log('Check Holding')
     const holdingItem = hash.get('holding')
     if (holdinItem != '') {
         getHandPosition(holdingItem)
@@ -86,9 +88,10 @@ function checkHolding () {
 }
 
 function getHandPositionKeywords (selectedOption) {
-    console.log('getHandPositionKeywords')
+    // console.log('getHandPositionKeywords')
     var position = 'grip'
     var keywords =  ''
+    // get sex of character
     // if statements to concatenate keywords to string
     if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
         position = 'grip'

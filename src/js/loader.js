@@ -163,7 +163,7 @@ function choicesToLayers (c, multiLayer) {
     selectedLayers.push('eyeballs_default')
   }
 
-  console.log('selectedLayers', selectedLayers)
+  // console.log('selectedLayers', selectedLayers)
   return selectedLayers
 }
 

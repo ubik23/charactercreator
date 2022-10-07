@@ -176,6 +176,11 @@ function show (userChoice, category) {
   var multiLayer = getMultiLayer()
   var emotions
   var sections
+  let previousHolding = ''
+
+  if (category === 'holding') {
+    previousHolding = hash.get('holding')
+  }
 
   showTutorial('colors')
 
@@ -216,15 +221,14 @@ function show (userChoice, category) {
     }
   }
 
-  displaySections(sections, options, selectedOption, multiLayer)
+  displaySections(sections, options, selectedOption, multiLayer, previousHolding)
 }
 
-function displaySections (sections, options, selectedOption, multiLayer) {
+function displaySections (sections, options, selectedOption, multiLayer, previousHolding) {
   // console.log('<<< displaySections >>>')
   // console.log('sections', sections)
   // console.log('options', options)
   // console.log('selectedOption', selectedOption)
-
   for (section in sections) {
     options.forEach(function (d, i) {
       var id = '#' + sections[section] + '_' + d
@@ -251,7 +255,7 @@ function displaySections (sections, options, selectedOption, multiLayer) {
     })
   }
   if (sections.includes('holding')) {
-    showHandPosition(selectedOption)
+    showHandPosition(selectedOption, previousHolding)
   }
 }
 
