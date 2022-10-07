@@ -9,24 +9,22 @@ function showHandPosition (selectedOption, previousHolding) {
     // Determine what the current hand position to be replaced is
     // remove current hand
     // const sex = getSex()
-    var currentHand
-    var currentNails
-    var replacementHand
-    var replacementNails
+    let currentHand
+    let currentNails
+    let replacementHand
+    let replacementNails
+
+    const previousKeywords = getHandPositionKeywords(previousHolding)
+    const replacementKeywords = getHandPositionKeywords(selectedOption)
     //const side = 'right'
 
     console.log('previous hand position', previousHolding)
     
-    if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
-        currentHand = "#body_hand_right_default"
-        currentNails = "#nails_short_right_default"
-        replacementHand = "right_grip"
-    }
-    if (selectedOption === '') {
-        currentHand = "#body_hand_right_grip"
-        currentNails = "#nails_short_right_grip"
-        replacementHand = "right_default"
-    }
+    
+    
+    currentHand = "#body_hand_right_" + previousKeywords
+    currentNails = "#nails_short_right_" + previousKeywords
+    replacementHand = "right_" + replacementKeywords
 
     // console.log('currentHand', currentHand)
     removeElement("#svg1 " + currentHand)
@@ -38,10 +36,10 @@ function showHandPosition (selectedOption, previousHolding) {
 }
 
 function getHandPosition (selectedOption) {
-    // console.log('getHandPosition', selectedOption)
+    console.log('getHandPosition', selectedOption)
     var suffixKeywords = ''
     const prefix = 'body_hand_right_' 
-    // const side = 'right'
+    const side = 'right'
 
     suffixKeywords = getHandPositionKeywords(selectedOption)
 
@@ -57,15 +55,11 @@ function handCallback () {
     const holdingItem = hash.get('holding')
     var showHand, showNails
     // console.log('holding >>>>>>', holdingItem)
+    const keywords = getHandPositionKeywords(holdingItem)
 
-    if (holdingItem === 'camera' || holdingItem === 'pad' || holdingItem === 'boom_mic') {
-        showHand = '#body_hand_right_grip'
-        showNails = '#nails_short_right_grip'
-    }
-    if (holdingItem === undefined) {
-        showHand = '#body_hand_right_default'
-        showNails = '#nails_short_right_default'
-    }
+
+    showHand = '#body_hand_right_' + keywords
+    showNails = '#nails_short_right_' + keywords
 
     document.querySelector(showHand).style = visibleStyle
     document.querySelector(showNails).style = visibleStyle
@@ -79,25 +73,36 @@ function removeElement (id) {
     }
 }
 
-function checkHolding () {
+//function checkHolding () {
     // console.log('Check Holding')
-    const holdingItem = hash.get('holding')
-    if (holdinItem != '') {
-        getHandPosition(holdingItem)
-    }
-}
+    //const holdingItem = hash.get('holding')
+    //if (holdinItem != '') {
+        //getHandPosition(holdingItem)
+    //}
+//}
 
 function getHandPositionKeywords (selectedOption) {
     // console.log('getHandPositionKeywords')
-    var position = 'grip'
-    var keywords =  ''
+    let position
+    let keywords =  ''
     // get sex of character
+    const sex = hash.get('sex')
     // if statements to concatenate keywords to string
-    if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
-        position = 'grip'
+    if (sex === 'f') {
+        if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
+            position = 'grip'
+        }
+        if (selectedOption === '' || selectedOption === undefined) {
+            position = 'default'
+        }
     }
-    if (selectedOption === '' || selectedOption === undefined) {
-        position = 'default'
+    if (sex === 'm') {
+        if (selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'pad') {
+            position = 'default'
+        }
+        if (selectedOption === '' || selectedOption === undefined) {
+            position = 'default'
+        }
     }
 
     keywords =  position
