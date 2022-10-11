@@ -152,8 +152,6 @@ function choicesToLayers (c, multiLayer) {
   };
   // Add layers to be shown when creating a new character.
   if (c.choices.sex === 'f') {
-    console.log('choiceLayers', choiceLayers)
-    console.log('c.choices.holding', c.choices.holding)
     handPositionSuffix = getHandPositionKeywords(c.choices.holding)
     selectedLayers.push('nails_short_right_' + handPositionSuffix, 'nails_short_left_default')
   }
