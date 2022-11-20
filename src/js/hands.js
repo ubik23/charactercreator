@@ -89,7 +89,7 @@ function getHandPositionKeywords (selectedOption) {
     const sex = hash.get('sex')
     // if statements to concatenate keywords to string
     if (sex === 'f') {
-        if (selectedOption === 'book_address' || selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'ipad' || selectedOption === 'pad') {
+        if (selectedOption === 'book_address' || selectedOption === 'camera' || selectedOption === 'camera_photo' || selectedOption === 'boom_mic' || selectedOption === 'ipad' || selectedOption === 'pad') {
             position = 'grip'
         }
         if (selectedOption === '' || selectedOption === undefined) {
@@ -97,7 +97,7 @@ function getHandPositionKeywords (selectedOption) {
         }
     }
     if (sex === 'm') {
-        if (selectedOption === 'book_address' || selectedOption === 'camera' || selectedOption === 'boom_mic' || selectedOption === 'ipad' || selectedOption === 'pad') {
+        if (selectedOption === 'book_address' || selectedOption === 'camera' || selectedOption === 'camera_photo' || selectedOption === 'boom_mic' || selectedOption === 'ipad' || selectedOption === 'pad') {
             position = 'default'
         }
         if (selectedOption === '' || selectedOption === undefined) {
