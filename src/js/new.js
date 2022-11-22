@@ -1,10 +1,11 @@
 function getNewItemList() {
   // window.localStorage.clear() // Uncomment to reset new items
+  // Add new items using this format: [['Legs', 'Skirt', 'smart_midi']]
   var newItemsMaleTemp = []
   var newItemsFemaleTemp = []
 
   var newItemsMale = []
-  var newItemsFemale = ['Legs', 'Skirt', 'smart_midi']
+  var newItemsFemale = [['Legs', 'Skirt', 'smart_midi']]
 
   newItemsFemaleTemp.forEach((x) => {
     const cookieName = ["seen-item", "f", x[0], x[1], x[2]].join("---")
@@ -59,7 +60,11 @@ function isNewInSection(cat, section) {
   var newItems = getNewItemList()
   var counter = newItems.length
 
+  console.log('New Items:', newItems)
+
   while (verdict === false && counter-- ) {
+    console.log('cat', capitalizeFirstLetter(newItems[counter][0]))
+    console.log('section', capitalizeFirstLetter(newItems[counter][1]))
     if ( cat === capitalizeFirstLetter(newItems[counter][0]) && section === capitalizeFirstLetter(newItems[counter][1])) {
       verdict = true
     }
@@ -84,6 +89,8 @@ function isNew(section, item) {
   if (verdict) {
     newClass = ' new'
   }
+
+  console.log('Is new? ', newClass)
   
   return newClass
 }
