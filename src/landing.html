@@ -1,31 +1,80 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-    <!-- Remove all scripts from <head> -->
-    <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<head>
+  <!-- This is the first script -->
     <script>
-        var googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
+        window.ramp = window.ramp || {};
+        window.ramp.que = window.ramp.que || [];
+        window.ramp.passiveMode = true;
     </script>
-    
     <script>
-        googletag.cmd.push(function() {
-            googletag.defineSlot('/AccountID/APAdX//Ad_unit_name', [300, 250],
-            'div-gpt-ad-XXXXXXXXXXXXX-0').addService( googletag.pubads() );
-            googletag.pubads().enableSingleRequest();
-            googletag.enableServices();
-        });
+        window._pwGA4PageviewId = ''.concat(Date.now());
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { 
+            dataLayer.push(arguments);
+        };
+        gtag('js', new Date());
+        gtag('config', 'G-1YTVVS5TVX', { 'send_page_view': false });
+        gtag(
+          'event',
+          'ramp_js',
+          {
+            'send_to': 'G-1YTVVS5TVX',
+            'pageview_id': window._pwGA4PageviewId
+          }
+        );
     </script>
-    </head>
-    <body>
-    
-    <!-- Remove all scripts from <body> -->
-    <div id='div-gpt-ad-1550229350329-0' style='height:250px; width:300px;'>
     <script>
-        googletag.cmd.push(function(){
-            googletag.display('div-gpt-ad-XXXXXXXXXXXXX-0'); 
-        });
+        // Define the ad units that you will use with an array
+        var pwUnits = [
+            {
+                type: 'trendi_video'
+            }
+        ]
+
+        // Define the init function
+        var init = () => {
+            ramp
+            .destroyUnits('all')
+            .then(() => {
+                // pass in the array 'pwUnits' defined right above
+                ramp.addUnits(pwUnits).then(() => {
+                    ramp.displayUnits();
+                });
+           })
+            .catch((e) => {
+                // catch errors
+                ramp.displayUnits();
+                console.log(e);
+            });
+        };
+
+        // Attach the init function to the ramp.onReady
+        // This event listener notifies once the API is ready to be used.
+        ramp.onReady = function() {
+            console.log('Ads API is initialized')
+            init()
+        }
     </script>
-    </div>
-    
-    </body>
+
+    <!-- This is the second script which contains your config file -->
+    <script
+        async="true"
+        src="//cdn.intergient.com/1024799/73867/ramp.js">
+    </script>
+</head>
+<body>
+<div class="">
+  Test
+</div>
+
+</body>
+<footer>
+</footer>
+</html>

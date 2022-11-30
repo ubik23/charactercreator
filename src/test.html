@@ -6,13 +6,75 @@
 <link rel="stylesheet" href="">
 <style>
 </style>
-<script src=""></script>
+<head>
+  <!-- This is the first script -->
+    <script>
+        window.ramp = window.ramp || {};
+        window.ramp.que = window.ramp.que || [];
+        window.ramp.passiveMode = true;
+    </script>
+    <script>
+        window._pwGA4PageviewId = ''.concat(Date.now());
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { 
+            dataLayer.push(arguments);
+        };
+        gtag('js', new Date());
+        gtag('config', 'G-1YTVVS5TVX', { 'send_page_view': false });
+        gtag(
+          'event',
+          'ramp_js',
+          {
+            'send_to': 'G-1YTVVS5TVX',
+            'pageview_id': window._pwGA4PageviewId
+          }
+        );
+    </script>
+    <script>
+        // Define the ad units that you will use with an array
+        var pwUnits = [
+            {
+                type: 'trendi_video'
+            }
+        ]
+
+        // Define the init function
+        var init = () => {
+            ramp
+            .destroyUnits('all')
+            .then(() => {
+                // pass in the array 'pwUnits' defined right above
+                ramp.addUnits(pwUnits).then(() => {
+                    ramp.displayUnits();
+                });
+           })
+            .catch((e) => {
+                // catch errors
+                ramp.displayUnits();
+                console.log(e);
+            });
+        };
+
+        // Attach the init function to the ramp.onReady
+        // This event listener notifies once the API is ready to be used.
+        ramp.onReady = function() {
+            console.log('Ads API is initialized')
+            init()
+        }
+    </script>
+
+    <!-- This is the second script which contains your config file -->
+    <script
+        async="true"
+        src="//cdn.intergient.com/1024799/73867/ramp.js">
+    </script>
+</head>
 <body>
-
-<img src="img_la.jpg" alt="LA" style="width:100%">
-
 <div class="">
+  Test
 </div>
 
 </body>
+<footer>
+</footer>
 </html>
