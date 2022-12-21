@@ -60,11 +60,7 @@ function isNewInSection(cat, section) {
   var newItems = getNewItemList()
   var counter = newItems.length
 
-  console.log('New Items:', newItems)
-
   while (verdict === false && counter-- ) {
-    console.log('cat', capitalizeFirstLetter(newItems[counter][0]))
-    console.log('section', capitalizeFirstLetter(newItems[counter][1]))
     if ( cat === capitalizeFirstLetter(newItems[counter][0]) && section === capitalizeFirstLetter(newItems[counter][1])) {
       verdict = true
     }
@@ -89,8 +85,6 @@ function isNew(section, item) {
   if (verdict) {
     newClass = ' new'
   }
-
-  console.log('Is new? ', newClass)
   
   return newClass
 }

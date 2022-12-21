@@ -394,11 +394,11 @@ function closeSections (exception) {
 }
 
 function toggleSection (ev) {
+  console.log('toggleSection ev', ev)
   var el = ev.target
   var sectionLabel
-  var elChild
   var parent = getParent(el, '.accordeon__section-label')
-  elChild = parent.querySelector('.accordeon__section-title__text')
+  var elChild = parent.querySelector('.accordeon__section-title__text')
 
   if (elChild != null) {
     sectionLabel = elChild.innerHTML

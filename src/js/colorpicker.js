@@ -111,6 +111,7 @@ function rgbToHex(r, g, b) {
 }
 
 function getColor (sectionId) {
+  console.log('sectionId', sectionId)
   clearPicker()
   // TODO Change section to selectedItem
   var id = sectionId
@@ -153,6 +154,7 @@ function updateTextBoxColor (ev) {
 }
 
 function updateColorFromTextbox (ev) {
+  console.log('ev', ev)
   var hex = ev.target.value
   // var id = document.querySelector('.colorpicker-controls .section-id').textContent
   var formId = document.querySelector('.section--selected').textContent.toLowerCase()
