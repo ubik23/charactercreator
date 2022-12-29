@@ -173,6 +173,8 @@ function getOptionsLogic (section) {
 }
 
 function show (userChoice, category) {
+
+  console.log('show:', userChoice + ' ' + category)
   var multiLayer = getMultiLayer()
   var emotions
   var sections
@@ -260,6 +262,8 @@ function displaySections (sections, options, selectedOption, multiLayer, previou
 }
 
 function sectionShow (multiLayer, id) {
+
+  console.log('sectionShow', multiLayer, id)
   var pupilShape
   var svgContainer = document.querySelector('#svg1')
   var layerCount

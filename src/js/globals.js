@@ -1,6 +1,6 @@
 
   var currentHeadSize = 0
-  var proVersion = false // Flag to activation features meant for thecharactercreator.com, switch to true before pushing to the dot com
+  var proVersion =  true // Flag to activation features meant for thecharactercreator.com, switch to true before pushing to the dot com
   
   var maleForm1 = {
   Body_head: ['default', 'diamond', 'heart', 'oblong', 'oval', 'round', 'square', 'triangle'],

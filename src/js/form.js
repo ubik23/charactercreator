@@ -145,6 +145,8 @@ function getSectionLayersList (section) {
     }
   }
 
+  console.log('itemList', itemList)
+
   return itemList
 }
 
