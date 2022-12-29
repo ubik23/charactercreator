@@ -35,6 +35,7 @@ function isLandscape () {
 
 function zoomFace () {
   var landscape = isLandscape() // TODO change newViewBox is in landscape mode.
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))
@@ -50,6 +51,7 @@ function zoomFace () {
 }
 
 function zoomFeet () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))
@@ -80,6 +82,7 @@ function zoomTwoFaces () {
 }
 
 function zoomShoulders () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
@@ -94,6 +97,7 @@ function zoomShoulders () {
 }
 
 function zoomTorso () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
@@ -108,6 +112,7 @@ function zoomTorso () {
 }
 
 function zoomLegs () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
@@ -122,6 +127,7 @@ function zoomLegs () {
 }
 
 function zoomArms () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))// var =  "svg1" or "lg_face", etc.
@@ -135,6 +141,7 @@ function zoomArms () {
   animateZoom(newViewBox)
 }
 function zoomBody () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))
@@ -149,6 +156,7 @@ function zoomBody () {
 }
 
 function zoomFull () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var newViewBox
   shape = document.getElementById(('svg1'))

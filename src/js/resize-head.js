@@ -5,6 +5,7 @@ function resizeHead (ev) {
 
     hashArgs['headsize'] = headSize
     hash.add(hashArgs)
+    // TODO replace "c" variable with currentCharacter variable
     c.choices.headSize = headSize
     
     applyHeadResize(headSize)

@@ -122,6 +122,7 @@ function assembleLayers (bodyObject, headObject, bodyPosition, headPosition) {
 }
 
 window.onload = function () {
+  // TODO replace "c" variable with currentCharacter variable
   var c // Main (Character) variable to hold the choices and preferences of the user.
   var aboutBtn = document.querySelector('#aboutButton')
   var faqBtn = document.querySelector('#faqButton')
@@ -259,6 +260,7 @@ function resetCharacter () {
   // Fade in SVG.
   // Clear 'c' variable.
 
+  // TODO replace "c" variable with currentCharacter variable
   c = new Character(choices)
 
   setTimeout(function () { fadeInSVG() }, 300)
@@ -406,6 +408,7 @@ function clickSelect (ev) {
   var itemButton
   var bodyPart
 
+  // TODO replace "c" variable with currentCharacter variable
   if (c.choices.sex === undefined) { return }
 
   prefix = fromItemGetPrefix(el.id)
@@ -474,6 +477,7 @@ function getBodyPart(id) {
 function getSectionButton (formSection, prefix) {
   var keyCounter = 0
 
+  // TODO replace "c" variable with currentCharacter variable
   if (c.choices.sex === 'm') {
     formList = window.maleFormList
   } else {
@@ -493,6 +497,7 @@ function getSectionButton (formSection, prefix) {
 function getLayers () {
   var layers
 
+  // TODO replace "c" variable with currentCharacter variable
   if (c.choices.sex === 'm') {
     layers = window.layersMale
   } else if (c.choices.sex === 'f') {
@@ -602,6 +607,7 @@ function fromPrefixGetFormSection (prefix) {
   var formList
   var bodyPart
 
+  // TODO replace "c" variable with currentCharacter variable
   if (c.choices.sex === 'm') {
     formList = window.maleFormList
   } else {
@@ -626,10 +632,12 @@ function fromPrefixGetFormSection (prefix) {
 function startup () {
   var choices
 
+  // TODO replace "c" variable with currentCharacter variable
   if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
     choices = currentUser.cc.personnages[currentUser.cc.personnageActuel]
   }
 
+  // TODO replace "c" variable with currentCharacter variable
   window.c = new Character(choices)
 
   interpretHash()
@@ -637,6 +645,7 @@ function startup () {
 }
 
 function launch () {
+  // TODO replace "c" variable with currentCharacter variable
   c.choices.sex = hash.get('sex')
 
   var sex = c.choices.sex
@@ -708,6 +717,7 @@ function chooseSkinColor () {
 }
 
 function defaultPupilShape () {
+  // TODO replace "c" variable with currentCharacter variable
   c.choices.pupils = 'round'
   hash.add({ pupils: 'round' })
 }
@@ -762,6 +772,7 @@ function colorCutout (newColor) {
 }
 
 function selectMale (event) {
+  // TODO replace "c" variable with currentCharacter variable
   c.choices.sex = 'm'
   var maleRadioBtn = document.querySelector('#mButton')
   var mainSVG = document.querySelector('#svg1')
@@ -801,6 +812,7 @@ function addTopicalItem () {
 }
 
 function addDecency () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
 
   if (sex === 'm') {
@@ -812,6 +824,7 @@ function addDecency () {
 }
 
 function selectFemale (event) {
+  // TODO replace "c" variable with currentCharacter variable
   c.choices.sex = 'f'
 
   var femaleRadioBtn = document.querySelector('#fButton')
@@ -848,6 +861,7 @@ function selectFemale (event) {
 }
 
 function presentFaceStyles () {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var faceWestern
   var faceAnime

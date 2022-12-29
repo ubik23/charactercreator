@@ -1,5 +1,6 @@
 // Change sex of character from male to female or vice versa.
 function trans (sex) {
+  // TODO replace "c" variable with currentCharacter variable
   if (c.choices.sex === sex) { return }
 
   var characterSVG = document.querySelector('#svg1 .character-container')
@@ -96,7 +97,9 @@ function modCharacter (myKey, myValue) {
   // console.log('myKey', myKey)
   // console.log('myValue', myValue)
   // look in c.choices to see if the key is already there
+  // TODO replace "c" variable with currentCharacter variable
   if (myKey in c.choices) {
+    // TODO replace "c" variable with currentCharacter variable
     delete c.choices[myKey]
   }
 
@@ -108,14 +111,13 @@ function modCharacter (myKey, myValue) {
   // if not, add it in, with the value
   // if the value is '', then delete the key from the object,
   if (myValue != '') {
+    // TODO replace "c" variable with currentCharacter variable
     c.choices[myKey] = myValue
   }
 
   if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
     currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue
   }
-
-  // console.log('c.choices', c.choices)
 }
 
 function createCharacter () {
