@@ -60,7 +60,6 @@ function openThumbsLogic (_) {
 }
 
 function populateThumbs (svgObject) {
-  console.log('populateThumbs', svgObject)
   var emotion = (document.querySelector('#content_1 .selected--option').classList[2] === 'options__emotion')
   var thumbObject = svgObject.cloneNode(true)
   var layerID = thumbObject.id

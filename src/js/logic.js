@@ -10,6 +10,7 @@ function trans (sex) {
   hash.add({ emotion: 'neutral' }) // Female and Male templates have different set of emotions at this time.
   // ^ Should really check to see if the emotion doesn't exist before forcing a change to neutral.
 
+  // TODO replace "c" variable with currentCharacter variable
   if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.personnageActuel) {
     currentUser.cc.personnages[personnageActuel].sex = sex
   }
@@ -93,9 +94,6 @@ function Character (choices) {
 }
 
 function modCharacter (myKey, myValue) {
-  // console.log('<<< modCharacter >>>')
-  // console.log('myKey', myKey)
-  // console.log('myValue', myValue)
   // look in c.choices to see if the key is already there
   // TODO replace "c" variable with currentCharacter variable
   if (myKey in c.choices) {
@@ -115,6 +113,7 @@ function modCharacter (myKey, myValue) {
     c.choices[myKey] = myValue
   }
 
+  // TODO replace "c" variable with currentCharacter variable
   if (currentUser && currentUser.cc && currentUser.cc.personnages && currentUser.cc.personnageActuel) {
     currentUser.cc.personnages[currentUser.cc.personnageActuel][myKey] = myValue
   }
@@ -175,8 +174,6 @@ function getOptionsLogic (section) {
 }
 
 function show (userChoice, category) {
-
-  console.log('show:', userChoice + ' ' + category)
   var multiLayer = getMultiLayer()
   var emotions
   var sections
@@ -229,10 +226,6 @@ function show (userChoice, category) {
 }
 
 function displaySections (sections, options, selectedOption, multiLayer, previousHolding) {
-  // console.log('<<< displaySections >>>')
-  // console.log('sections', sections)
-  // console.log('options', options)
-  // console.log('selectedOption', selectedOption)
   for (section in sections) {
     options.forEach(function (d, i) {
       var id = '#' + sections[section] + '_' + d
@@ -264,8 +257,6 @@ function displaySections (sections, options, selectedOption, multiLayer, previou
 }
 
 function sectionShow (multiLayer, id) {
-
-  console.log('sectionShow', multiLayer, id)
   var pupilShape
   var svgContainer = document.querySelector('#svg1')
   var layerCount

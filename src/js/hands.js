@@ -1,6 +1,4 @@
 function showHandPosition (selectedOption, previousHolding) {
-    // console.log('showHandPosition selectedOption', selectedOption)
-    // console.log('Holding', selectedOption)
     // TODO
     // Check for male/femal template
     // And for each body position
@@ -18,15 +16,10 @@ function showHandPosition (selectedOption, previousHolding) {
     const replacementKeywords = getHandPositionKeywords(selectedOption)
     //const side = 'right'
 
-    console.log('previous hand position', previousHolding)
-    
-    
-    
     currentHand = "#body_hand_right_" + previousKeywords
     currentNails = "#nails_short_right_" + previousKeywords
     replacementHand = "right_" + replacementKeywords
 
-    // console.log('currentHand', currentHand)
     removeElement("#svg1 " + currentHand)
     removeElement("#svg1 " + currentNails)
 
@@ -36,7 +29,6 @@ function showHandPosition (selectedOption, previousHolding) {
 }
 
 function getHandPosition (selectedOption) {
-    console.log('getHandPosition', selectedOption)
     var suffixKeywords = ''
     const prefix = 'body_hand_right_' 
     const side = 'right'

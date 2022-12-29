@@ -84,6 +84,7 @@ function onEachLoaded (frag, fileName) {
 
 function choicesToList (c) {
   var layersList = []
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var counter = Object.keys(c.choices).length
   var keyChoice
@@ -94,6 +95,7 @@ function choicesToList (c) {
     keyChoice = Object.keys(c.choices)[counter]
 
     if (keyChoice.slice(-5) != 'Color' && keyChoice.slice(-9, -4) != 'Color') {
+      // TODO replace "c" variable with currentCharacter variable
       valueChoice = c.choices[keyChoice]
       layerChoice = keyChoice + '_' + valueChoice
     }
@@ -104,6 +106,7 @@ function choicesToList (c) {
 
 function choicesToLayers (c, multiLayer) {
   var selectedLayers = []
+  // TODO replace "c" variable with currentCharacter variable
   var emotionLayers = fromEmotionGetLayers(c.choices.emotion)
   var choiceLayers = []
   var layersLength = emotionLayers.length
@@ -115,11 +118,14 @@ function choicesToLayers (c, multiLayer) {
   var bodyTypeCounter
   var handPositionSuffix
 
+  // TODO replace "c" variable with currentCharacter variable
   for (var index in c.choices) {
 
     if (index.slice(-5) != 'Color') {
+      // TODO replace "c" variable with currentCharacter variable
 
       if (index + '_' + c.choices[index] === 'body_athletic' || index + '_' + c.choices[index] === 'body_default' || index + '_' + c.choices[index] === 'body_veiny' || index + '_' + c.choices[index] === 'body_android-00') {
+        // TODO replace "c" variable with currentCharacter variable
         bodyType = c.choices[index]
         bodyTypeList = bodyTypesToLayers(bodyType)
         bodyTypeCounter = bodyTypeList.length
@@ -128,12 +134,14 @@ function choicesToLayers (c, multiLayer) {
           choiceLayers.push(bodyTypeList[bodyTypeCounter])
         }
       } else {
+        // TODO replace "c" variable with currentCharacter variable
         choiceLayers.push(index + '_' + c.choices[index])
       }
     }
   }
 
   for (var cl in choiceLayers) {
+    // TODO replace "c" variable with currentCharacter variable
     if (choiceLayers[cl].slice(0, 7) === 'emotion') {
       tmpList = fromEmotionGetLayers(choiceLayers[cl].split('_')[1])
       counter = tmpList.length
@@ -161,7 +169,6 @@ function choicesToLayers (c, multiLayer) {
     selectedLayers.push('eyeballs_default')
   }
 
-  // console.log('selectedLayers', selectedLayers)
   return selectedLayers
 }
 

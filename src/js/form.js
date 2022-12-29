@@ -4,6 +4,7 @@ function createForm (sex, forms) {
 
   itemsThumbsContent.innerHTML = ''
 
+  // TODO replace "c" variable with currentCharacter variable
   var sex = sex || c.choices.sex
   var forms = forms || window.forms
   var sectionNames = ['Head', 'Accessories', 'Torso', 'Body', 'Legs', 'Feet']
@@ -124,6 +125,7 @@ function getSelectedItem () {
 // TODO Find or Create a function to get the files from just the selectedItem
 // First we need to add a className to the item's button to make it visually obvious
 function getSectionLayersList (section) {
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var formList
   var formCounter
@@ -145,13 +147,12 @@ function getSectionLayersList (section) {
     }
   }
 
-  console.log('itemList', itemList)
-
   return itemList
 }
 
 function replaceMultilayer (layersList, section) {
   var multiLayer = getMultiLayer()
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var counter = layersList.length
   var multiLayer = getMultiLayer()
@@ -199,10 +200,6 @@ function replaceMultilayer (layersList, section) {
 }
 
 function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
-  // console.log('section',section)
-  // console.log('layersList',layersList)   
-  // console.log('callback',callback)
-  // console.log('callbackLoopFlag',callbackLoopFlag)
   var tempLayerList = []
   var layerCounter
   layerCounter = layersList.length
@@ -229,6 +226,7 @@ function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
 function getPositionDir (layer) {
   // Apply the right subfolder when loading files
   var positionDir
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
 
   if (sex === 'm' && ((window.maleBody.bodyBack && window.maleBody.bodyBack.indexOf(layer) > -1 )  || (window.maleBody.bodyMiddle && window.maleBody.bodyMiddle.indexOf(layer) > -1 )  || (window.maleBody.bodyFront && window.maleBody.bodyFront.indexOf(layer) > -1 )  || (window.maleBody.bodyOver && window.maleBody.bodyOver.indexOf(layer) > -1 ))) {
@@ -246,6 +244,7 @@ function getPositionDir (layer) {
 
 function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContainer = '#svg1 .character-container') {
   var layerDirectory
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var file
   var layerID
@@ -336,6 +335,7 @@ function tagHeadElement (svgObject) {
   // If current object is a head element, add a js-head-element classname
   const femaleNeckAnchorPoint = "282.62808 158.60725"
   const maleNeckAnchorPoint = "281.36053px 147.80724px"
+  // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var elementIdList = svgObject.id.split("_")
   var headElements = getListOfHeadElements()
@@ -354,6 +354,7 @@ function getListOfHeadElements () {
 }
 
 function getPupilShape () {
+  // TODO replace "c" variable with currentCharacter variable
   return c.choices.pupils || 'round'
 }
 
@@ -396,7 +397,6 @@ function closeSections (exception) {
 }
 
 function toggleSection (ev) {
-  console.log('toggleSection ev', ev)
   var el = ev.target
   var sectionLabel
   var parent = getParent(el, '.accordeon__section-label')
