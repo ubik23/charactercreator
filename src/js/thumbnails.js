@@ -1,6 +1,7 @@
 // Functions for the thumbnails in the right sidebar.
 
 function openThumbs () {
+  console.log('openThumbs')
   hideColorPicker()
   openThumbsLogic(this)
 }
@@ -157,6 +158,7 @@ function populateThumbs (svgObject) {
 }
 
 function showThumbOptions (_) {
+  console.log('showThumbOptions', _)
   var _ = _.target || _
   var sectionName = _.innerHTML.toLowerCase()
   var selectedItem = hash.get(_.innerHTML.toLowerCase())

@@ -168,6 +168,8 @@ function getOptionsLogic (section) {
     options = forms[i][section]
     
     if (options != undefined) {
+      console.log('options', options)
+      // Returns list of options for current category, ex: ['', 'artillery', 'general', 'plated', 'spikes']
       return options
     }
   }
@@ -257,6 +259,7 @@ function displaySections (sections, options, selectedOption, multiLayer, previou
 }
 
 function sectionShow (multiLayer, id) {
+  console.log('sectionShow', multiLayer + '_' + id)
   var pupilShape
   var svgContainer = document.querySelector('#svg1')
   var layerCount

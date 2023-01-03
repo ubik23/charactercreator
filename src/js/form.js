@@ -397,6 +397,7 @@ function closeSections (exception) {
 }
 
 function toggleSection (ev) {
+  console.log('toggleSection', ev)
   var el = ev.target
   var sectionLabel
   var parent = getParent(el, '.accordeon__section-label')
@@ -454,6 +455,7 @@ function removeAlert (_) {
 }
 
 function changeOption () {
+  console.log('changeOption')
   var category = this.parentNode.parentNode.firstChild.innerHTML
   var userChoice = this.lastChild.innerHTML
   var colors = document.querySelector('.colorpicker-wrapper').previousSibling
