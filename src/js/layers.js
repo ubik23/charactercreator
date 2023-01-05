@@ -16,6 +16,7 @@ function purgeHiddenLayers () {
     layersList.push(thumbsSVG[counter].classList[1])
   }
 
+  layersList = addHandSidePositionToList(layersList)
   layersList = replaceMultilayer(layersList)
   counter = layersList.length
 

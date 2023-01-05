@@ -10,6 +10,7 @@ function openThumbsLogic (_) {
   // TODO Add 'selected-item' class to default or selected item(s)
   var section = _.innerHTML
   var layersList = getSectionLayersList(section)
+  console.log('openThumbsLogic layersList', layersList)
   var sectionLowerCase = section.toLowerCase()
   var previousSelection = document.querySelector('.section--selected')
   var thumbSection = document.querySelector('.widget')
@@ -76,6 +77,7 @@ function populateThumbs (svgObject) {
   var pupilShapeList = ['round', 'feline', 'star']
   var counter = pupilShapeList.length
   var headSize
+  var layerIDParts
 
   if (document.querySelector('#content_1 g#' + layerID)) {
     // If item is already present, do not insert it again
@@ -147,6 +149,12 @@ function populateThumbs (svgObject) {
           document.querySelector('#content_1 .pupils_' + pupilShapeList[counter]).appendChild(pupilObject)
         }
       }
+    } else  if (layerID.slice(0, 5) === 'nails') {
+      console.log('layerId', layerID)
+      layerIDParts = layerID.split('_')
+      layerID = layerIDParts[0] + '_' + layerIDParts[1]
+      console.log('New layerId', layerID)
+      document.querySelector('#content_1 .' + layerID).appendChild(thumbObject)
     } else {
       document.querySelector('#content_1 .' + layerID).appendChild(thumbObject)
     }

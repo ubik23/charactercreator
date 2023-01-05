@@ -30,8 +30,9 @@ function showHandPosition (selectedOption, previousHolding) {
 
 function getHandPosition (selectedOption) {
     var suffixKeywords = ''
-    const prefix = 'body_hand_right_' 
     const side = 'right'
+    const prefix = 'body_hand_' + side + '_' 
+    
 
     suffixKeywords = getHandPositionKeywords(selectedOption)
 
@@ -41,12 +42,10 @@ function getHandPosition (selectedOption) {
 }
 
 function handCallback () {
-    // console.log('hand callback', test)
     // get the item we're holding from the hash
     const visibleStyle = "opacity:1;pointer-events: auto;"
-    const holdingItem = hash.get('holding')
+    const holdingItem = getHoldingItem()
     var showHand, showNails
-    // console.log('holding >>>>>>', holdingItem)
     const keywords = getHandPositionKeywords(holdingItem)
 
 
@@ -58,7 +57,6 @@ function handCallback () {
 }
 
 function removeElement (id) {
-    // console.log('removeElement id', id)
     const el = document.querySelector(id)
     if (el) {
         el.remove()
@@ -66,7 +64,6 @@ function removeElement (id) {
 }
 
 //function checkHolding () {
-    // console.log('Check Holding')
     //const holdingItem = hash.get('holding')
     //if (holdinItem != '') {
         //getHandPosition(holdingItem)
@@ -74,7 +71,6 @@ function removeElement (id) {
 //}
 
 function getHandPositionKeywords (selectedOption) {
-    // console.log('getHandPositionKeywords')
     let position
     let keywords =  ''
     // get sex of character
@@ -100,4 +96,45 @@ function getHandPositionKeywords (selectedOption) {
     keywords =  position
 
     return keywords
+}
+
+function getNailsLayers (option) {
+    console.log('getNailsLayers, option:', option)
+    var nailsLayers = []
+    var holdingItem = getHoldingItem()
+    var handPosition = getHandPositionKeywords(holdingItem)
+
+    console.log('getNailsLayers handPosition', handPosition)
+
+    nailsLayers = nailsLayers.concat(['nails_' + option + '_left_' + 'default'])
+    nailsLayers = nailsLayers.concat(['nails_' + option + '_right_' + handPosition])
+    console.log('nailsLayers]', nailsLayers)
+
+    return nailsLayers
+}
+
+function getHoldingItem () {
+    var holdingItem = hash.get('holding')
+
+    return holdingItem
+}
+
+function addHandSidePositionToList (list) {
+    let newList = []
+    let positionKeyword = getHandPositionKeywords(getHoldingItem())
+    listCounter = list.length
+    itemsChangedByHandPosition = ['nails', 'gloves']
+
+    while(listCounter--) {
+        console.log('list[listCounter]', list[listCounter])
+        if (list[listCounter] != '') {
+            newList.push(list[listCounter] + '_right_' + positionKeyword)
+            newList.push(list[listCounter] + '_left_' + 'default')
+          } else {
+            newList.push(list[listCounter] )
+          }
+    }
+    console.log('newList', newList)
+
+    return newList
 }

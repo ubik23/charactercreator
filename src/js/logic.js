@@ -263,12 +263,27 @@ function sectionShow (multiLayer, id) {
   var pupilShape
   var svgContainer = document.querySelector('#svg1')
   var layerCount
+  var idOf
+  var rightHand
+  var leftHand
 
   if (id === '#iris_default') { return };
 
+  console.log('id.slice(1,6)', id.slice(1,6))
+
+
+
   layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
 
-  if (id.slice(1, 7) === 'pupils') {
+  if (id.slice(1,6) === "nails") {
+    console.log('<<<<<< nails >>>>>>>', id)
+    // rightHand = id + '_right_grip'
+    // leftHand = id + '_left_grip'
+    // svgContainer.querySelector(rightHand).style.opacity = 1
+    // svgContainer.querySelector(rightHand).style.pointerEvents = 'auto'
+    // svgContainer.querySelector(leftHand).style.opacity = 1
+    // svgContainer.querySelector(leftHand).style.pointerEvents = 'auto'
+  } else if (id.slice(1, 7) === 'pupils') {
     pupilShape = id.slice(1).split('_')[1]
 
     showPupils(pupilShape)

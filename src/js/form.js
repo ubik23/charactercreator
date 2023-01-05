@@ -125,6 +125,7 @@ function getSelectedItem () {
 // TODO Find or Create a function to get the files from just the selectedItem
 // First we need to add a className to the item's button to make it visually obvious
 function getSectionLayersList (section) {
+  console.log('getSectionLayersList <===', section)
   // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
   var formList
@@ -146,7 +147,6 @@ function getSectionLayersList (section) {
       itemList = formList[formCounter][section]
     }
   }
-
   return itemList
 }
 
@@ -211,6 +211,11 @@ function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
     layersList = tempLayerList
   } else if (section === 'pupils') {
     layersList = ['eyeballs_default']
+  } else if (section === 'nails') {
+   while (layerCounter--) {
+    tempLayerList = tempLayerList.concat(getNailsLayers(layersList[layerCounter]))
+   }
+   layersList = tempLayerList
   } else if (section === 'body') {
     while (layerCounter--) {
       tempLayerList = tempLayerList.concat(bodyTypesToLayers(layersList[layerCounter]))
@@ -219,6 +224,8 @@ function loadSectionLayers (section, layersList, callback, callbackLoopFlag) {
   } else {
     layersList = replaceMultilayer(layersList, section)
   }
+
+  console.log('loadSectionLayers, layersList', layersList)
 
   loadFilesFromList(layersList, callback, callbackLoopFlag)
 }
