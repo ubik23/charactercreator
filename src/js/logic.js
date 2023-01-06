@@ -276,13 +276,15 @@ function sectionShow (multiLayer, id) {
   layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
 
   if (id.slice(1,6) === "nails") {
+    let positionKeyword = getHandPositionKeywords(getHoldingItem())
     console.log('<<<<<< nails >>>>>>>', id)
     // rightHand = id + '_right_grip'
     // leftHand = id + '_left_grip'
-    // svgContainer.querySelector(rightHand).style.opacity = 1
-    // svgContainer.querySelector(rightHand).style.pointerEvents = 'auto'
-    // svgContainer.querySelector(leftHand).style.opacity = 1
-    // svgContainer.querySelector(leftHand).style.pointerEvents = 'auto'
+    svgContainer.querySelector(id + '_left_default').style.opacity = 1
+    svgContainer.querySelector(id + '_left_default').style.pointerEvents = 'auto'
+    svgContainer.querySelector(id + '_right_' + positionKeyword).style.opacity = 1
+    svgContainer.querySelector(id + '_right_' + positionKeyword).style.pointerEvents = 'auto'
+
   } else if (id.slice(1, 7) === 'pupils') {
     pupilShape = id.slice(1).split('_')[1]
 
@@ -370,6 +372,7 @@ function sectionHide (multiLayer, id) {
   var svgContainer = document.querySelector('#svg1')
   var sectionToHide
   var layerCount = isInMultiLayerArray(id.slice(1), multiLayer)
+  let positionKeyword
 
   if (layerCount > 0) {
     for (var i = 1; i <= layerCount; i++) {
@@ -381,6 +384,16 @@ function sectionHide (multiLayer, id) {
         sectionToHide.style.pointerEvents = 'none'
       }
     }
+  } else if (id.slice(1,6) === "nails") {
+    positionKeyword = getHandPositionKeywords(getHoldingItem())
+    console.log('<<<<<< hide nails >>>>>>>', id)
+    // rightHand = id + '_right_grip'
+    // leftHand = id + '_left_grip'
+    svgContainer.querySelector(id + '_left_default').style.opacity = 0
+    svgContainer.querySelector(id + '_left_default').style.pointerEvents = 'none'
+    svgContainer.querySelector(id + '_right_' + positionKeyword).style.opacity = 0
+    svgContainer.querySelector(id + '_right_' + positionKeyword).style.pointerEvents = 'none'
+
   } else if (id.slice(1, 5) === 'body' && id.slice(6, 10) != 'head') {
     var idList = id.split('_')
     var bodySuffix = idList[idList.length - 1]
