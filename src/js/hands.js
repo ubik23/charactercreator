@@ -11,13 +11,16 @@ function showHandPosition (selectedOption, previousHolding) {
     let currentNails
     let replacementHand
     let replacementNails
+    let nailsOption = hash.get('nails') || 'short'
+
+    console.log("nails option >>>---", nailsOption)
 
     const previousKeywords = getHandPositionKeywords(previousHolding)
     const replacementKeywords = getHandPositionKeywords(selectedOption)
     //const side = 'right'
 
     currentHand = "#body_hand_right_" + previousKeywords
-    currentNails = "#nails_short_right_" + previousKeywords
+    currentNails = "#nails_" + nailsOption + "_right_" + previousKeywords
     replacementHand = "right_" + replacementKeywords
 
     removeElement("#svg1 " + currentHand)
@@ -25,7 +28,7 @@ function showHandPosition (selectedOption, previousHolding) {
 
     // Load correct hand
     loadSectionLayers(["body_hand"], [replacementHand], handCallback, true)
-    loadSectionLayers(["nails_short"], [replacementHand], handCallback, true)
+    loadSectionLayers(["nails_" + nailsOption], [replacementHand], handCallback, true)
 }
 
 function getHandPosition (selectedOption) {
@@ -47,10 +50,11 @@ function handCallback () {
     const holdingItem = getHoldingItem()
     var showHand, showNails
     const keywords = getHandPositionKeywords(holdingItem)
+    let nailsOption = hash.get('nails') || 'short'
 
 
     showHand = '#body_hand_right_' + keywords
-    showNails = '#nails_short_right_' + keywords
+    showNails = '#nails_' + nailsOption + '_right_' + keywords
 
     document.querySelector(showHand).style = visibleStyle
     document.querySelector(showNails).style = visibleStyle

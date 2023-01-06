@@ -250,6 +250,7 @@ function getPositionDir (layer) {
 }
 
 function loadFilesFromList (layersList, callback, callbackLoopFlag, parentContainer = '#svg1 .character-container') {
+  // callbackLoopFlag tells the function to hide the svg as it's loaded into the DOM
   var layerDirectory
   // TODO replace "c" variable with currentCharacter variable
   var sex = c.choices.sex
