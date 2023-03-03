@@ -16,6 +16,16 @@
     <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image">
     <% if (locals.gaId && locals.gaUrl) { %>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T18ZTY2FCP"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T18ZTY2FCP');
+    </script>
+
           <!-- This is the first PlayWire script -->
     <script>
         window.ramp = window.ramp || {};
