@@ -47,7 +47,7 @@ function getDownloadViewBox () {
 
 function getSVG () {
   var viewBoxValue = getDownloadViewBox()
-  var text = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="1000" height="1000" viewBox="' + viewBoxValue + '">\n'
+  var text = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="character" width="560" height="560" viewBox="' + viewBoxValue + '">\n'
   text+='<defs> Copyright (c) 2014-2020 Frederic Guimont, all rights reserved \n <a href="https://creativecommons.org/licenses/by-nc/2.0/">Distributed under the Creative Commons CC-BY-NC license</a> \n Commercial license available to patrons on https://www.patreon.com/charactercreator \n You can recreate this character using this URL: <!--'+window.location.href+'--></defs> \n'
   var svgRaw = document.getElementById('character-container').childNodes
   var svgNodes

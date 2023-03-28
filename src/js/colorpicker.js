@@ -191,6 +191,7 @@ function textboxColor () {
   // This is a feature reserved for the dot com version of the site
   if (!proVersion) {return}
 
+  console.log('checkbox', document.querySelector('.section-pallette input'))
   // Get current (selected) color of (selected) item in (selected) section
   var selectedColorLabel = document.querySelector('.section-pallette input:checked').value
   var selectedColor = document.querySelector('.section-pallette input:checked').nextSibling.style.background
