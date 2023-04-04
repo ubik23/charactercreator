@@ -1,5 +1,6 @@
 "use strict"
 
+// Hardcoded folder from which to get the image files as well as the layers.json file to manage the z-order of the image layers
 window.maleBodyPositionFolder = 'body_front_swaying'
 window.femaleBodyPositionFolder = 'body_front_hand-on-hip'
 
