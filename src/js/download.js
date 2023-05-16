@@ -83,6 +83,12 @@ function getSVG () {
 function download (ev) {
   ev.preventDefault()
 
+  if (!proVersion) {
+    // there's a video reward
+    const confirmed = confirm("Watch video")
+    console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
+  }
+
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
   // TODO make the filename the character's name if possible.
   var filename = c.choices.name || 'my_character.svg'
