@@ -82,10 +82,12 @@ function getSVG () {
 
 function download (ev) {
   ev.preventDefault()
+  let confirmed
+  console.log("confirmed?", typeof proVersion, proVersion, typeof confirmed, confirmed, confirmed ? "YES" : "NO")
 
   if (!proVersion) {
     // there's a video reward
-    const confirmed = confirm("Watch video")
+    confirmed = confirm("Watch video")
     console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
   }
 
