@@ -80,15 +80,23 @@ function getSVG () {
   return text
 }
 
-function download (ev) {
+async function checkVideoReward (ok) {
+  const confirmed = confirm("Watch video")
+  if (!ok) return false
+  return confirmed
+}
+
+async function download (ev) {
   ev.preventDefault()
-  let confirmed
-  console.log("confirmed?", typeof proVersion, proVersion, typeof confirmed, confirmed, confirmed ? "YES" : "NO")
+
+  console.log("download-proVersion", proVersion)
 
   if (!proVersion) {
     // there's a video reward
-    confirmed = confirm("Watch video")
+    const confirmed = await checkVideoReward()  // confirm("Watch video")
+    
     console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
+    if (!confirmed) return
   }
 
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
