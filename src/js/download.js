@@ -1,12 +1,13 @@
-function svgTo (type, svg, filename) {
+function svgTo (type, svg, filename, confirmed) {
+  console.log("svgTo-confirmed", confirmed)
   return fetch(`/convert/${type}`, {
     method: "POST",
     headers: {
       "content-type": "application/json"
     },
     body: JSON.stringify({
-      // px: 666,
-      svg: svg,
+      svg,
+      confirmed,
     })
   })
   .then(function (res) { return res.blob() })
@@ -24,8 +25,8 @@ function svgTo (type, svg, filename) {
   .catch(console.error)
 }
 
-function svgToPng (svg, filename) {
-  return svgTo("png", svg, filename)
+function svgToPng (svg, filename, confirmed) {
+  return svgTo("png", svg, filename, confirmed)
 }
 
 /*
@@ -80,10 +81,31 @@ function getSVG () {
   return text
 }
 
-async function checkVideoReward (ok) {
+async function checkVideoReward () {
+  /*
   const confirmed = confirm("Watch video")
   if (!ok) return false
   return confirmed
+  */
+
+  const response = await fetch("/pro/ramp", {
+    method: "put",
+    /*
+    body: JSON.stringify({
+      confirmed: {
+        user_id, 
+        code
+      }
+    })
+    */
+  })
+
+  let json
+
+  if (response.ok) {
+    json = await response.json()
+  }
+  return json
 }
 
 async function download (ev) {
@@ -91,12 +113,30 @@ async function download (ev) {
 
   console.log("download-proVersion", proVersion)
 
+  let confirmed
+
   if (!proVersion) {
     // there's a video reward
-    const confirmed = await checkVideoReward()  // confirm("Watch video")
-    
+    confirmed = await checkVideoReward()
+    console.log("confirmed?", confirmed)
+
+
+    ramp.showRewardedVideo({
+      code: confirmed.code,
+      userId: confirmed.user_id,
+      callback:(response, err) => {
+        console.log("showRewardedVideo-ERR", err)
+        console.log("showRewardedVideo-RESPONSE", response)
+      }
+    })
+
+
+
+    if (!confirmed || !confirmed.ok) return
+    /*
     console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
     if (!confirmed) return
+    */
   }
 
   gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
@@ -108,10 +148,12 @@ async function download (ev) {
 
   const format = document.querySelector("input[name=download-format]:checked").value
 
+  console.log("DOWNLOAD-format", format)
+
   if (format === "png") {
     filename = c.choices.name || 'my_character.png'
 
-    return svgToPng(text, filename)
+    return svgToPng(text, filename, confirmed)
       .then(function () {
         caboose()
       })
