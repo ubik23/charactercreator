@@ -22,7 +22,11 @@ const fastify = require('fastify')({
 // self
 const setup = require("./cookie")
 
+console.log("SETUP keys", Object.keys(setup), setup.formUrl)
+
 setup(fastify)
+
+console.log("SETUP keys", Object.keys(setup), setup.formUrl)
 
 fastify.register(require('fastify-static'), { root: join(__dirname, "../src") })
 
@@ -36,6 +40,11 @@ fastify.register(require('fastify-http-proxy'), {
 fastify.register(require('fastify-http-proxy'), {
   upstream,
   prefix: '/convert/',
+})
+
+fastify.register(require('fastify-http-proxy'), {
+  upstream,
+  prefix: '/pro/',
 })
 
 if (setup.formUrl) {
