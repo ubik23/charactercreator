@@ -5,6 +5,7 @@
 // const s2pdf = require("svg-to-pdfkit")
 const { customAlphabet } = require('nanoid/async')
 const { nolookalikesSafe } = require('nanoid-dictionary')
+const fetch = require("node-fetch")
 
 const nanoid = customAlphabet(nolookalikesSafe)
 
