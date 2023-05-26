@@ -133,7 +133,7 @@ async function download (ev) {
 
         // temporary: pull out if rewardUser false
         // even if adPlayed is false
-        if (!response.rewardUser) return
+        // if (!response.rewardUser) return
 
         // if response.adPlayed is false play video anyway
         if (response.adPlayed && !response.rewardUser) return
