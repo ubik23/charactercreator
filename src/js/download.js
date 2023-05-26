@@ -120,13 +120,16 @@ async function download (ev) {
     confirmed = await startVideoReward()
     console.log("confirmed?", confirmed)
     if (!confirmed || !confirmed.ok) return
-    
+
+    const isnow = Date.now()
     ramp.showRewardedVideo({
       code: confirmed.code,
       userId: confirmed.user_id,
       callback:(response, err) => {
+        const elapsed = Date.now() - isnow
         console.log("showRewardedVideo-ERR", err)
         console.log("showRewardedVideo-RESPONSE", response)
+        console.log("showRewardedVideo-ELAPSED", elapsed)
       }
     })
 
