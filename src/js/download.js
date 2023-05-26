@@ -81,7 +81,7 @@ function getSVG () {
   return text
 }
 
-async function checkVideoReward () {
+async function startVideoReward () {
   /*
   const confirmed = confirm("Watch video")
   if (!ok) return false
@@ -117,10 +117,10 @@ async function download (ev) {
 
   if (!proVersion) {
     // there's a video reward
-    confirmed = await checkVideoReward()
+    confirmed = await startVideoReward()
     console.log("confirmed?", confirmed)
-
-
+    if (!confirmed || !confirmed.ok) return
+    
     ramp.showRewardedVideo({
       code: confirmed.code,
       userId: confirmed.user_id,
@@ -130,56 +130,54 @@ async function download (ev) {
       }
     })
 
-
-
     if (!confirmed || !confirmed.ok) return
     /*
     console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
     if (!confirmed) return
     */
+
+    gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
+    // TODO make the filename the character's name if possible.
+    var filename = c.choices.name || 'my_character.svg'
+    var pom
+    var text = getSVG()
+    // TODO Copy the URL before it is erased by the download function.
+
+    const format = document.querySelector("input[name=download-format]:checked").value
+
+    console.log("DOWNLOAD-format", format)
+
+    if (format === "png") {
+      filename = c.choices.name || 'my_character.png'
+
+      return svgToPng(text, filename, confirmed)
+        .then(function () {
+          caboose()
+        })
+    }
+
+    /*
+    if (format === "pdf") {
+      filename = c.choices.name || 'my_character.pdf'
+      return svgToPdf(text, filename)
+        .then(function () {
+          caboose()
+        })
+    }
+    */
+
+    pom = document.createElement('a')
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+    pom.setAttribute('download', filename)
+
+    if (document.createEvent) {
+      event = document.createEvent('MouseEvents')
+      event.initEvent('click', true, true)
+      pom.dispatchEvent(event)
+    } else {
+      pom.click()
+    }
+    
+    caboose()
   }
-
-  gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
-  // TODO make the filename the character's name if possible.
-  var filename = c.choices.name || 'my_character.svg'
-  var pom
-  var text = getSVG()
-  // TODO Copy the URL before it is erased by the download function.
-
-  const format = document.querySelector("input[name=download-format]:checked").value
-
-  console.log("DOWNLOAD-format", format)
-
-  if (format === "png") {
-    filename = c.choices.name || 'my_character.png'
-
-    return svgToPng(text, filename, confirmed)
-      .then(function () {
-        caboose()
-      })
-  }
-
-  /*
-  if (format === "pdf") {
-    filename = c.choices.name || 'my_character.pdf'
-    return svgToPdf(text, filename)
-      .then(function () {
-        caboose()
-      })
-  }
-  */
-
-  pom = document.createElement('a')
-  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-  pom.setAttribute('download', filename)
-
-  if (document.createEvent) {
-    event = document.createEvent('MouseEvents')
-    event.initEvent('click', true, true)
-    pom.dispatchEvent(event)
-  } else {
-    pom.click()
-  }
-  
-  caboose()
 }
