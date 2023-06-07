@@ -18,7 +18,7 @@
 var maleForm2 = {
   Smoke: ['', 'blunt', 'cigar', 'cigarette', 'filter', 'pipe_subgenius'],
   Earings: ['', 'gold_rings', 'gold_ring_right', 'gold_ring_left'],
-  Hat: ['', 'baseball', 'berret', 'berret_badge', 'bucket', 'cap', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'xmas'],
+  Hat: ['', 'baseball', 'berret', 'berret_badge', 'bucket', 'cap', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'fedora', 'football', 'fox-ears', 'jester', 'top', 'motorcycle', 'police', 'scumbag', 'helmet_vietnam', 'tuque', 'turban', 'strainer', 'magritte', 'visor_poker', 'xmas'],
   Horns: ['', 'devil', 'large'],
   Mask: ['', 'arrow', 'guy_fawkes', 'robin', 'horse', 'hospital', 'phantom', 'stormtrooper', 'jason', 'cat'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'monolens', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
@@ -83,7 +83,7 @@ var femaleForm2 = {
   Eyepatch: ['', 'left', 'right'],
   Glasses: ['', 'alien', 'designer', 'fpv', 'goggles', 'google', 'hipster', 'kurt', 'monolens', 'neon', 'oakley', 'rayban', 'round', 'visor', 'wayrafer'],
   Headband: ['', 'jogging', 'medium', 'tied'],
-  Hat: ['', 'baseball', 'beach', 'berret_badge', 'bucket', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'xmas'],
+  Hat: ['', 'baseball', 'beach', 'berret_badge', 'bucket', 'chinese_farmer', 'country', 'cowboy', 'crown_gold_spheres', 'football', 'fox-ears', 'top', 'waitress', 'police', 'scumbag', 'helmet_vietnam', 'tiara', 'strainer', 'magritte', 'motorcycle', 'tuque', 'cap', 'visor_poker', 'xmas'],
   Mask: ['', 'arrow', 'guy_fawkes', 'horse', 'hospital', 'phantom', 'stormtrooper', 'jason', 'cat'],
   Horns: ['', 'devil'],
   Earpiece: ['', 'microphone', 'neurolink', 'scouter'],
