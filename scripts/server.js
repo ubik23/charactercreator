@@ -56,8 +56,14 @@ fastify.post('/png', async (request, reply) => {
   const website_id = setup.ramp_website_id
   const { user_id, code } = request.body.confirmed
 
+  console.log("website_id", website_id)
+  console.log("user_id", user_id)
+  console.log("code", code)
+
   const response = await fetch(`https://ramp.com/status/${website_id}/${user_id}/${code}`)
   let json
+
+  console.log("RESPONSE", response)
   if (response.ok) {
     json = await response.json()
   }
@@ -65,7 +71,7 @@ fastify.post('/png', async (request, reply) => {
   console.log("fastify.post('/png')-json", json)
 
   // "status": "Not redeemed." // or "Redeemed." or "Not found."
-  if (!json || json.status !== "Redeemed.") throw new Error("Reward not redeemed.")
+  // if (!json || json.status !== "Redeemed.") throw new Error("Reward not redeemed.")
   
   reply.type("image/png")
   return sharp(Buffer.from(request.body.svg)).png().toBuffer()
