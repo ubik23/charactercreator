@@ -159,10 +159,9 @@ function downloadImp() {
 async function download (ev) {
   ev.preventDefault()
 
-  // console.log("download-proVersion", proVersion)
-
-  let confirmed
-
+  console.log("download-proVersion", proVersion)
+  console.log("download-showRewardedVideo", Boolean(ramp.showRewardedVideo))
+  
   if (proVersion || !ramp.showRewardedVideo) {
     downloadImp()
     caboose()
@@ -170,7 +169,7 @@ async function download (ev) {
   }
 
   // there's a video reward
-  confirmed = await startVideoReward()
+  let confirmed = await startVideoReward()
   // console.log("confirmed?", confirmed)
   if (!confirmed || !confirmed.ok) {
     caboose()
