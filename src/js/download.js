@@ -1,5 +1,5 @@
 function svgTo (type, svg, filename, confirmed) {
-  console.log("svgTo-confirmed", confirmed)
+  // console.log("svgTo-confirmed", confirmed)
   return fetch(`/convert/${type}`, {
     method: "POST",
     headers: {
@@ -52,8 +52,8 @@ function getSVG () {
   text+='<defs> Copyright (c) 2014-2020 Frederic Guimont, all rights reserved \n <a href="https://creativecommons.org/licenses/by-nc/2.0/">Distributed under the Creative Commons CC-BY-NC license</a> \n Commercial license available to patrons on https://www.patreon.com/charactercreator \n You can recreate this character using this URL: <!--'+window.location.href+'--></defs> \n'
   var svgRaw = document.getElementById('character-container').childNodes
   var svgNodes
-  var svgString
-  var event
+  // var svgString
+  // var event
 
   purgeHiddenLayers()
 
@@ -70,7 +70,7 @@ function getSVG () {
 
     if (item.innerHTML && (!item.style || !item.style.opacity || item.style.opacity != 0)) {
       // Catch head elements that have been scaled
-      svgString = '<g id="' + item.id + '" >' + item.innerHTML + '</g>'
+      // svgString = '<g id="' + item.id + '" >' + item.innerHTML + '</g>'
       
       // text += svgString
       text += item.outerHTML
@@ -108,86 +108,100 @@ async function startVideoReward () {
   return json
 }
 
+// function downloadImp(confirmed) {
+function downloadImp() {
+  gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
+  // TODO make the filename the character's name if possible.
+  var filename = c.choices.name || 'my_character.svg'
+  // var pom
+  var text = getSVG()
+  // TODO Copy the URL before it is erased by the download function.
+
+  const format = document.querySelector("input[name=download-format]:checked").value
+
+  // console.log("DOWNLOAD-format", format)
+
+  if (format === "png") {
+    filename = c.choices.name || 'my_character.png'
+
+    // return svgToPng(text, filename, confirmed)
+    return svgToPng(text, filename)
+      .then(function () {
+        caboose()
+      })
+  }
+
+  /*
+  if (format === "pdf") {
+    filename = c.choices.name || 'my_character.pdf'
+    return svgToPdf(text, filename)
+      .then(function () {
+        caboose()
+      })
+  }
+  */
+
+  var pom = document.createElement('a')
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+  pom.setAttribute('download', filename)
+
+  if (document.createEvent) {
+    var event = document.createEvent('MouseEvents')
+    event.initEvent('click', true, true)
+    pom.dispatchEvent(event)
+  } else {
+    pom.click()
+  }
+  
+  // caboose()
+}
+
 async function download (ev) {
   ev.preventDefault()
 
-  console.log("download-proVersion", proVersion)
+  // console.log("download-proVersion", proVersion)
 
   let confirmed
 
-  if (!proVersion) {
-    // there's a video reward
-    confirmed = await startVideoReward()
-    console.log("confirmed?", confirmed)
-    if (!confirmed || !confirmed.ok) return
-
-    const isnow = Date.now()
-    ramp.showRewardedVideo({
-      code: confirmed.code,
-      userId: confirmed.user_id,
-      callback:(response, err) => {
-        const elapsed = Date.now() - isnow
-        console.log("showRewardedVideo-ERR", err)
-        console.log("showRewardedVideo-RESPONSE", response)
-        console.log("showRewardedVideo-ELAPSED", elapsed)
-
-        // temporary: pull out if rewardUser false
-        // even if adPlayed is false
-        // if (!response.rewardUser) return
-
-        // if response.adPlayed is false play video anyway
-        if (response.adPlayed && !response.rewardUser) return
-
-        // if (!confirmed || !confirmed.ok) return
-        /*
-        console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
-        if (!confirmed) return
-        */
-
-        gaga('send', 'event', { eventCategory: 'Navigation', eventAction: 'Download', eventLabel: 'Download SVG file of character' })
-        // TODO make the filename the character's name if possible.
-        var filename = c.choices.name || 'my_character.svg'
-        var pom
-        var text = getSVG()
-        // TODO Copy the URL before it is erased by the download function.
-
-        const format = document.querySelector("input[name=download-format]:checked").value
-
-        console.log("DOWNLOAD-format", format)
-
-        if (format === "png") {
-          filename = c.choices.name || 'my_character.png'
-
-          return svgToPng(text, filename, confirmed)
-            .then(function () {
-              caboose()
-            })
-        }
-
-        /*
-        if (format === "pdf") {
-          filename = c.choices.name || 'my_character.pdf'
-          return svgToPdf(text, filename)
-            .then(function () {
-              caboose()
-            })
-        }
-        */
-
-        pom = document.createElement('a')
-        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-        pom.setAttribute('download', filename)
-
-        if (document.createEvent) {
-          event = document.createEvent('MouseEvents')
-          event.initEvent('click', true, true)
-          pom.dispatchEvent(event)
-        } else {
-          pom.click()
-        }
-        
-        caboose()
-      }
-    })
+  if (proVersion || !ramp.showRewardedVideo) {
+    downloadImp()
+    caboose()
+    return 
   }
+
+  // there's a video reward
+  confirmed = await startVideoReward()
+  // console.log("confirmed?", confirmed)
+  if (!confirmed || !confirmed.ok) {
+    caboose()
+    return
+  }
+
+  // const isnow = Date.now()
+  ramp.showRewardedVideo({
+    code: confirmed.code,
+    userId: confirmed.user_id,
+    callback: (response, err) => {
+      // const elapsed = Date.now() - isnow
+      // console.log("showRewardedVideo-ERR", err)
+      // console.log("showRewardedVideo-RESPONSE", response)
+      // console.log("showRewardedVideo-ELAPSED", elapsed)
+
+      // temporary: pull out if rewardUser false
+      // even if adPlayed is false
+      // if (!response.rewardUser) return
+
+      // if response.adPlayed is false play video anyway
+      // if (response.adPlayed && !response.rewardUser) return
+
+      // if (!confirmed || !confirmed.ok) return
+      /*
+      console.log("confirmed?", typeof confirmed, confirmed, confirmed ? "YES" : "NO")
+      if (!confirmed) return
+      */
+
+      if (response.rewardUser) downloadImp()
+      caboose()
+    }
+  })
 }

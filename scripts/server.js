@@ -53,7 +53,10 @@ fastify.post("/", (request, reply) => {
 
 // /convert/png
 fastify.post('/png', async (request, reply) => {
+  /*
   const website_id = setup.ramp_website_id
+  
+  
   const { user_id, code } = request.body.confirmed
 
   console.log("website_id", website_id)
@@ -72,7 +75,7 @@ fastify.post('/png', async (request, reply) => {
 
   // "status": "Not redeemed." // or "Redeemed." or "Not found."
   // if (!json || json.status !== "Redeemed.") throw new Error("Reward not redeemed.")
-  
+  */
   reply.type("image/png")
   return sharp(Buffer.from(request.body.svg)).png().toBuffer()
 })
