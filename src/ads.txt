@@ -446,51 +446,6 @@ playwire.com,1024799,DIRECT
 managerdomain=playwire.com
 ownerdomain=charactercreator.org
 
-
-Inserted suggestion issues with itConversation opened. 1 read message.
-
-
-Skip to content
-Using Frederic Guimont Mail with screen readers
-
-4 of 1,015
-update ads.txt
-External
-Inbox
-
-Nick Dunlop <nick@publift.com>
-Attachments
-Thu, Dec 15, 4:44 PM (2 days ago)
-to me
-
-Hey Frederic
-
-Wishing you a Merry Christmas and a great new year !
-
-Last update for the year!
-
-Are you able to update the ads.txt file to our latest attached? Your file is out of date
-
-Please paste your legacy lines underneath
-
-
-cheers
-photograph
-Nick Dunlop
-Regional Lead
-
-M 0488220595
-E nick@publift.com
-PUBLIFT
-Suite 607, 46-56 Kippax Street
-Surry Hills, NSW 2010 Australia
-www.publift.com
-facebook icon twitter icon youtube icon linkedin icon instagram icon 
-Banner
- One attachment
-  •  Scanned by Gmail
-Done.Updated.Here you go.
-
 # Publift Fuse ads.txt #
 # Updated: Nov 2022 #
 # Contact: support@publift.com #
